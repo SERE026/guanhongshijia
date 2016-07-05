@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<resources>
+
+    <string name="weibo_oauth_regiseter">应用授权</string>
+    <string name="website">http://www.xpzc.com</string>
+    <string name="weibo_upload_content">分享图片</string>
+    <string name="wechat_client_inavailable">请安装最新版微信</string>
+    <string name="qq_client_inavailable">请安装最新版QQ</string>
+    
+    <string name="sinaweibo">新浪微博</string>
+    <string name="tencentweibo">腾讯微博</string>
+    <string name="wechat">微信好友</string>
+    <string name="wechatmoments">微信朋友圈</string>
+    <string name="wechatfavorite">微信收藏</string>
+	<string name="qzone">QQ空间</string>
+	<string name="qq">QQ</string>
+    
+	<string name="share_to_qzone">分享到QQ空间</string>
+    <string name="incentive_title">分享有奖</string>
+    <string name="failed_to_start_incentive_page">无法打开“分享有奖页面”</string>
+    <string name="download_faield">下载失败</string>
+    <string name="app_downloading">应用正在后台下载</string>
+    <string name="mingdao_share_content">网页分享</string>
+
+</resources>

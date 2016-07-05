@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical" >
+
+    <cn.com.dyninfo.o2o.furniture.view.CustomerScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RelativeLayout
+                android:id="@+id/head_layout"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/black_light" >
+
+                <cn.com.dyninfo.o2o.furniture.widget.RoundImageView
+                    android:id="@+id/head"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:scaleType="centerCrop" >
+                </cn.com.dyninfo.o2o.furniture.widget.RoundImageView>
+
+                <cn.com.dyninfo.o2o.furniture.widget.RoundImageView
+                    android:id="@+id/head_selector"
+                    style="@style/img_selector"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp" >
+                </cn.com.dyninfo.o2o.furniture.widget.RoundImageView>
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/my_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_toRightOf="@id/head" />
+
+                <TextView
+                    android:id="@+id/score"
+                    style="@style/my_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="8dp"
+                    android:text="我的积分："
+                    android:layout_toRightOf="@id/head" />
+
+                <TextView
+                    android:id="@+id/btn_score"
+                    style="@style/btn_pink_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/score"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:layout_toRightOf="@id/head"
+                    android:text="@string/my_score" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/order_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/head_layout"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/corner_round_stroke_gray"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/order"
+                    style="@style/my_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ico_order"
+                    android:gravity="center"
+                    android:text="@string/order" />
+
+                <include layout="@layout/line_vertical" />
+
+                <TextView
+                    android:id="@+id/msg"
+                    style="@style/my_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ico_msg"
+                    android:text="@string/message" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/order_layout"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/return_goods"
+                    style="@style/list_item_btn_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/return_goods"
+                    android:visibility="gone" />
+
+                <include
+                    layout="@layout/line_horizon"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/address"
+                    style="@style/list_item_btn_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="-1dp"
+                    android:text="@string/address" />
+
+                <include
+                    layout="@layout/line_horizon"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/account"
+                    style="@style/list_item_btn_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-1dp"
+                    android:text="@string/account" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </cn.com.dyninfo.o2o.furniture.view.CustomerScrollView>
+
+</LinearLayout>

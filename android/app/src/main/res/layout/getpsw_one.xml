@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    tools:context="cn.com.dyninfo.o2o.furniture.activity.my.AccountActivity" >
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+
+        <include layout="@layout/title" />
+    </LinearLayout>
+
+    <cn.com.dyninfo.o2o.furniture.view.CustomerScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="12dp" >
+
+            <RelativeLayout
+                android:id="@+id/tel_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/corner_round_bg_normal"
+                android:gravity="center_vertical|right"
+                android:padding="8dp" >
+
+                <TextView
+                    android:id="@+id/tel_tip"
+                    style="@style/txt_item_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="手机号："
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/tel"
+                    style="@style/edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tel_tip"
+                    android:background="@null"
+                    android:hint="请输入账户绑定的手机号码"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:padding="4dp"
+                    android:singleLine="true"
+                    android:textSize="16sp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_next"
+                style="@style/btn_pink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tel_layout"
+                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:text="@string/next"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </cn.com.dyninfo.o2o.furniture.view.CustomerScrollView>
+
+</RelativeLayout>

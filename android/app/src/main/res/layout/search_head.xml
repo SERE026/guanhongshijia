@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="8dp" >
+
+    <Button
+        android:id="@+id/serach_btn"
+        style="@style/btn_pink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/corner_round_bg_fill_pink_fill_pink_light"
+        android:minHeight="32dp"
+        android:text="搜索" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/serach_btn" >
+
+        <!-- completionThreshold 输入多少个字后开始匹配 -->
+
+        <AutoCompleteTextView
+            android:id="@+id/key_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/right_angle_bg_normal_white_gray_white_pink"
+            android:completionThreshold="1"
+            android:hint="请输入您想要查找的商品"
+            android:minHeight="32dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="30dp"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/key_box"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:src="@drawable/search_bar_icon_gray" />
+
+        <ImageView
+            android:id="@+id/clear"
+            android:layout_width="28dp"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/key_box"
+            android:layout_centerVertical="true"
+            android:src="@drawable/del_x_btn" />
+    </RelativeLayout>
+
+</RelativeLayout>

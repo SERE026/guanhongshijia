@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/top_bg" >
+
+    <TextView
+        android:id="@+id/city"
+        style="@style/txt_white"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:singleLine="false"
+        android:drawablePadding="4dp"
+        android:drawableRight="@drawable/arrow_down_white"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:text=""
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:paddingLeft="8dp"
+        android:src="@drawable/btn_back" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/txt_white_page_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="60dp"
+        android:layout_toRightOf="@+id/back"
+        android:ellipsize="middle"
+        android:gravity="center"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/top_btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:src="@drawable/btn_back"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/top_btn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:clickable="true"
+            android:src="@drawable/btn_back"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <cn.com.dyninfo.o2o.furniture.view.SwitchButton
+            android:id="@+id/top_switch_btn"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</RelativeLayout>

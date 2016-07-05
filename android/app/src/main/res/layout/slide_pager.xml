@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_bg" >
+
+    <cn.com.dyninfo.o2o.furniture.view.CusHoriScrollView
+        android:id="@+id/hs"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:fadingEdge="none"
+        android:gravity="center_vertical|left"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:id="@+id/scroll_son_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:id="@+id/slide_main_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <include layout="@layout/slide_tab_textview" />
+            </LinearLayout>
+
+            <!-- 下划线 -->
+
+            <include layout="@layout/slide_line" />
+        </RelativeLayout>
+    </cn.com.dyninfo.o2o.furniture.view.CusHoriScrollView>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hs"
+        android:flipInterval="30"
+        android:overScrollMode="never"
+        android:persistentDrawingCache="animation"
+        android:scrollbars="none" />
+
+</RelativeLayout>

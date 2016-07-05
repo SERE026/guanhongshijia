@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.com.dyninfo.o2o.furniture.fragment.SideFragment" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/gongneng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/search_address_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <AutoCompleteTextView
+                    android:id="@+id/edit_search_address_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/corner_round_bg_normal_center_right_angle_none"
+                    android:hint="请输入地名  "
+                    android:paddingLeft="30dp"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/search_bar_icon_gray" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/side_main_search"
+                android:layout_width="65dp"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_click"
+                android:clickable="true" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="搜索"
+                    android:textColor="@color/btn_txt_color_black_white"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search_type"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/gongneng"
+            android:background="@drawable/btn_right_angle_white_pink"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/select_province"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                android:gravity="center"
+                android:text="请选择省份"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/select_city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                android:gravity="center"
+                android:text="请选择城市"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/select_quxian"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                android:gravity="center"
+                android:text="区  / 县"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search_type"
+            android:background="@color/white"
+            android:clickable="true" />
+
+        <RelativeLayout
+            android:id="@+id/shop_layout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:alpha="0.8"
+            android:background="@drawable/btn_right_angle_main_gray_pink_light" >
+
+            <TextView
+                android:id="@+id/click_shop"
+                style="@style/txt_black_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:text="点击商家，查看店铺宝贝"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/txt_black_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dp"
+                android:drawableLeft="@drawable/ico_details"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="去逛逛" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/getpoint"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_above="@id/shop_layout"
+            android:layout_alignParentRight="true"
+            android:layout_margin="8dp"
+            android:background="@drawable/custom_loc"
+            android:textColor="@color/black_light" />
+    </RelativeLayout>
+
+</LinearLayout>

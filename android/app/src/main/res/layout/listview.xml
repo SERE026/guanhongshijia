@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<cn.com.dyninfo.o2o.furniture.view.CustomerListView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                    android:id="@+id/listview"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:background="@color/none_color"
+                                                    android:cacheColorHint="@color/none_color"
+                                                    android:divider="@null"
+                                                    android:fadingEdge="none"
+                                                    android:listSelector="@color/none_color"
+                                                    android:overScrollMode="never"
+                                                    android:scrollbarFadeDuration="200"
+                                                    android:scrollbarSize="3dp"
+                                                    android:scrollbarStyle="insideOverlay"
+                                                    android:scrollbarThumbVertical="@color/pink_btn_normal"
+                                                    android:scrollbars="vertical" >
+
+    <!-- 不要冲动，这里面是自定义的ListView  看不见，不代表没有哈 -->
+
+</cn.com.dyninfo.o2o.furniture.view.CustomerListView>

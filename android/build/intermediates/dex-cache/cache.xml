@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\ShareSDK-Wechat-Core-2.3.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c82c5ea882d5a7d4575b01ed96d4c6413a67359d">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\ShareSDK-Wechat-Core-2.3.8_cd8d6576339c1aad89eae15aafaaab239925ca51.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\ShareSDK-QQ-2.3.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="46e193a548fb3dcefbd65d3294627f1ffac4f697">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\ShareSDK-QQ-2.3.8_b21d26fd42c8bcd5e4ab41fd12567b17a316fd6a.jar" />
+    </item>
+    <item
+        jar="C:\Users\dyninfo\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.0.0\2943c74db6d4346ab8c6531adac91fa05c137c40\support-annotations-24.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_5d74b4dcc3b51fa09221a88e6e7ccd94f3fb0597.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\ShareSDK-TencentWeibo-2.3.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="20db8b1f1459652116d095e2fb78e398f00ed8c7">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\ShareSDK-TencentWeibo-2.3.8_97e6503b1376bc937ef6ab1bd41a0d18c58ebff2.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\ShareSDK-Wechat-Moments-2.3.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f76c555cdf45bd08d74bccd954710e331059d598">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\ShareSDK-Wechat-Moments-2.3.8_ed8bbcb8786a977f695813044e00137f6cc001d9.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\ShareSDK-SinaWeibo-2.3.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f1f14046d4ddc4b9fdb9000dba76ea3aaa6ebb49">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\ShareSDK-SinaWeibo-2.3.8_9f907493a1f70cf0c17b9e3aa3dd08c7f6e741ea.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\exploded-aar\com.android.support\design\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.0.0_a45b5be93ac9ab41ea6d96ba7f1d37695a39d0cc.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_c0db545dd266ec64b4e918231aa9d37e69ccbcb4.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\ShareSDK-QZone-2.3.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="05236d065dda4d4fc5eeeb30e3b080a26f0e1c36">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\ShareSDK-QZone-2.3.8_0dd25144b175559f33b2f14a567ed57ba1f969b2.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\locSDK_3.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="09224a1883da8b5bd37e766f4fab80570d879898">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\locSDK_3.1_7bc5a7201db323edd04454feeb828097ad7416be.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\baidumapapi_v2_4_1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f09ff30981f3430534c6fce3bd9fea071d93f513">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\baidumapapi_v2_4_1_de8e01ee25d3c6f31d4b786b40cac5b49c91038d.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\commons-httpclient-3.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d6364bcc1b2b2aa69d008602d36a700453648560">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\commons-httpclient-3.0.1_273532e39f1b9554a03221fee49f6746768b9d47.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_f500ce42af0187217b0bfdc17890e38791bd3837.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.0.0_af0d2bdcfeec5b4b9be5ef65c8cc7876c5d82672.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\sharesdk-mframework.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="25509058b34a5ee08dbf66e57078e3083735d200">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\sharesdk-mframework_0ca9d860642ab09dc73e440b8e3d686fb259b6ff.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\qq_sdk_140430.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9713db0c781e0159b783ee736e6d455fa86db8b3">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\qq_sdk_140430_08f998c7ff77b27930bcd2a1dc646077564196e5.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\ShareSDK-Wechat-2.3.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd53aef33b55f70770e59816193e16a13db02717">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\ShareSDK-Wechat-2.3.8_b968a892e4ed45cc0b163562689ac9f8c8897f78.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\alipay.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0668f39e7366ea40bcac00660fbe0ea7c424f00e">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\alipay_4f061ac105a51748fd3fa46747794b1372269b12.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_cf14d2b13e1e97dc438b49f2255eda2a8f114463.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\ShareSDK-Core-2.3.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ac0f451a0f061356d793a76ad8dbcfe4de2e547b">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\ShareSDK-Core-2.3.8_c2992bc370a2eaa66f954c7eefa9fea98371a751.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\Weixin_signin_140915.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ef29ec238e1bad6c47297595fada8d7a7d794ff0">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\Weixin_signin_140915_601b7d80e6a35d6f58e36835ac9fd660563c58ca.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.0.0_00a8346f2171fcc24d1b57b7609a11d015a5a59d.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.0.0_ddd8f983bab56c4f9dfbd6a75c123e41034254bc.jar" />
+    </item>
+    <item
+        jar="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\libs\qq-mta-sdk-1.6.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c184c69f43b1fe46390f7123717c65bd844bccb6">
+        <dex dex="E:\dyninfo\projects\m3\m3.mall\branches\furniture\android\app\build\intermediates\pre-dexed\debug\qq-mta-sdk-1.6.2_046b51beb1cacb06f5a29cad72da8704ac4b3239.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical"
+    tools:context="cn.com.dyninfo.o2o.furniture.activity.sign.SignupActivity" >
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/title" />
+
+    <cn.com.dyninfo.o2o.furniture.view.CustomerScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/corner_round_bg_normal_top"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="4dp" >
+
+                    <TextView
+                        style="@style/txt_item_black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="帐号：" />
+
+                    <EditText
+                        android:id="@+id/uname"
+                        style="@style/txt_gray_14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="账户名，注册后无法修改" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="-1dp"
+                    android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="4dp" >
+
+                    <TextView
+                        style="@style/txt_item_black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="密码：" />
+
+                    <EditText
+                        android:id="@+id/pswd"
+                        style="@style/txt_gray_14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="登录密码"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="-1dp"
+                    android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="4dp" >
+
+                    <TextView
+                        style="@style/txt_item_black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="确认密码：" />
+
+                    <EditText
+                        android:id="@+id/pswd_re"
+                        style="@style/txt_gray_14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="再次输入登录密码"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="-1dp"
+                    android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="4dp" >
+
+                    <TextView
+                        style="@style/txt_item_black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="手机号：" />
+
+                    <EditText
+                        android:id="@+id/tel_num"
+                        style="@style/txt_gray_14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="用以找回密码"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="-1dp"
+                    android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="4dp" >
+
+                    <TextView
+                        android:id="@+id/checkcode_tip"
+                        style="@style/txt_item_black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="验证码：" />
+
+                    <TextView
+                        android:id="@+id/getcode"
+                        style="@style/txt_gray_14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignRight="@id/code"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/corner_round_bg_fill_pink_light"
+                        android:text="重新获取(60)" />
+
+                    <EditText
+                        android:id="@+id/check"
+                        style="@style/txt_gray_14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toLeftOf="@id/getcode"
+                        android:layout_toRightOf="@id/checkcode_tip"
+                        android:background="@null"
+                        android:hint="请输入短信验证码"
+                        android:maxLength="10" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="-1dp"
+                    android:background="@drawable/corner_round_bg_normal_bottom"
+                    android:orientation="horizontal"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="4dp" >
+
+                    <TextView
+                        style="@style/txt_item_black_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="邀请码：" />
+
+                    <EditText
+                        android:id="@+id/invitedCode"
+                        style="@style/txt_gray_14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="邀请码(选填)"
+                        android:inputType="text" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_reg"
+                style="@style/btn_pink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="立即注册" />
+        </LinearLayout>
+    </cn.com.dyninfo.o2o.furniture.view.CustomerScrollView>
+
+</RelativeLayout>

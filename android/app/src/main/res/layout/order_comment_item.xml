@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:descendantFocusability="beforeDescendants"
+    android:paddingBottom="20dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/right_angle_white" >
+
+        <TextView
+            android:id="@+id/goods_name_tip"
+            style="@style/txt_order_details_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商品名称：" />
+
+        <TextView
+            android:id="@+id/goods_name"
+            style="@style/txt_order_details_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/goods_name_tip"
+            android:layout_toRightOf="@+id/goods_name_tip"
+            android:singleLine="true"
+            android:text="河马家清润矿物泥浆面膜" />
+
+        <RelativeLayout
+            android:id="@+id/rating_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goods_name" >
+
+            <RatingBar
+                android:id="@+id/rating"
+                style="@style/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/rating_tip"
+                android:numStars="5"
+                android:rating="5"
+                android:stepSize="0.5" />
+
+            <TextView
+                android:id="@+id/rating_tip"
+                style="@style/txt_order_details_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="商品评价：" />
+        </RelativeLayout>
+
+        <cn.com.dyninfo.o2o.furniture.view.ClearEditText
+            android:id="@+id/txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rating_layout"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/right_angle_bg_normal_white_gray_white_pink"
+            android:drawableLeft="@null"
+            android:gravity="left|top"
+            android:hint="讲出你的美丽秘籍"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:maxLength="230"
+            android:padding="4dp"
+            android:textColor="@color/black_lite"
+            android:textColorHint="@color/gray"
+            android:textSize="14sp" />
+
+        <include
+            android:id="@+id/line_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            layout="@layout/line_horizon" />
+
+        <RelativeLayout
+            android:id="@+id/upload_tip_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line_1" >
+
+            <TextView
+                android:id="@+id/upload_tip"
+                style="@style/txt_order_details_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="晒单：" />
+
+            <ImageView
+                android:id="@+id/upload_btn"
+                style="@style/txt_order_details_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/upload_tip"
+                android:src="@drawable/ico_choice" />
+
+            <TextView
+                style="@style/txt_order_details_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/upload_tip"
+                android:layout_toRightOf="@id/upload_btn"
+                android:text="晒图最多上传4张图片，单张大小不超过200k"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/upload_tip_layout"
+            android:orientation="horizontal"
+            android:padding="4dp" >
+
+            <ImageView
+                android:id="@+id/img_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:scaleType="center" />
+
+            <ImageView
+                android:id="@+id/img_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleType="center" />
+
+            <ImageView
+                android:id="@+id/img_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:scaleType="center" />
+
+            <ImageView
+                android:id="@+id/img_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:scaleType="center" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

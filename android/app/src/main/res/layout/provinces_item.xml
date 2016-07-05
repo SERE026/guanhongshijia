@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/none_color"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/catalog"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:background="@color/black_lite"
+        android:paddingBottom="5dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="5dp"
+        android:text="A"
+        android:textColor="@color/white" />
+
+    <include layout="@layout/line_horizon" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1.0"
+        android:background="@drawable/btn_right_angle_no_stroke_white_pink"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="36dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:text="安徽省"
+        android:textColor="@color/btn_txt_color_black_white" />
+
+</LinearLayout>

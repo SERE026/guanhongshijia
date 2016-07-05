@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<resources>
+
+    <string-array name="provinces">
+        <item>H河北省</item>
+        <item>S山西省</item>
+        <item>L辽宁省</item>
+        <item>J吉林省</item>
+        <item>H黑龙江省</item>
+        <item>J江苏省</item>
+        <item>Z浙江省</item>
+        <item>A安徽省</item>
+        <item>F福建省</item>
+        <item>J江西省</item>
+        <item>S山东省</item>
+        <item>H河南省</item>
+        <item>H湖北省</item>
+        <item>H湖南省</item>
+        <item>G广东省</item>
+        <item>H海南省</item>
+        <item>S四川省</item>
+        <item>G贵州省</item>
+        <item>Y云南省</item>
+        <item>S陕西省</item>
+        <item>G甘肃省</item>
+        <item>Q青海省</item>
+        <item>T台湾省</item>
+        <item>B北京市</item>
+        <item>T天津市</item>
+        <item>S上海市</item>
+        <item>C重庆市</item>
+        <item>G广西壮族自治区</item>
+        <item>N内蒙古自治区</item>
+        <item>X西藏自治区</item>
+        <item>N宁夏回族自治区</item>
+        <item>X新疆维吾尔自治区</item>
+        <item>X香港特别行政区</item>
+        <item>A澳门特别行政区</item>
+    </string-array>
+
+</resources>

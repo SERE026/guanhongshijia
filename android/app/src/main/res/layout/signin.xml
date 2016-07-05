@@ -1,0 +1,210 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    tools:context="cn.com.dyninfo.o2o.furniture.activity.sign.SigninActivity" >
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/title" />
+
+    <cn.com.dyninfo.o2o.furniture.view.CustomerScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp" >
+
+            <!-- 请在这里编写你内容 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+
+                <EditText
+                    android:id="@+id/edit_uname"
+                    style="@style/txt_gray_14sp_no_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/corner_round_bg_normal_top_highlight_stroke"
+                    android:hint="请输入您的账户名"
+                    android:paddingLeft="50sp"
+                    android:paddingRight="8dp"
+                    android:singleLine="true" />
+
+                <TextView
+                    style="@style/txt_item_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="帐号" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+
+                <EditText
+                    android:id="@+id/edit_pswd"
+                    style="@style/txt_gray_14sp_no_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/corner_round_bg_normal_bottom_highlight_stroke"
+                    android:hint="请输入您的密码"
+                    android:inputType="textPassword"
+                    android:paddingLeft="50sp"
+                    android:paddingRight="8dp"
+                    android:singleLine="true" />
+
+                <TextView
+                    style="@style/txt_item_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:text="密码" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/forget_psw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:paddingRight="8dp"
+                android:paddingTop="4dp" >
+
+                <TextView
+                    style="@style/txt_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="4dp"
+                    android:text="@string/forgetpsw"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/corner_round_bg_normal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    style="@style/txt_item_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:text="记住登录状态" />
+
+                <cn.com.dyninfo.o2o.furniture.view.SwitchButton
+                    android:id="@+id/keep_sign_switch"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_signin"
+                style="@style/btn_pink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="登录" />
+
+            <TextView
+                style="@style/txt_gray_14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="使用合作账户登录" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/login_sina_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                    android:clickable="true" >
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/signin_with_qq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                    android:drawableLeft="@drawable/ico_qq"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:paddingTop="4dp"
+                    android:text="Q Q登录"
+                    android:textColor="@color/btn_txt_color_black_white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/signin_with_weixin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                    android:drawableLeft="@drawable/ico_weixin"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:paddingTop="4dp"
+                    android:text="微信登录"
+                    android:textColor="@color/btn_txt_color_black_white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </cn.com.dyninfo.o2o.furniture.view.CustomerScrollView>
+
+</RelativeLayout>

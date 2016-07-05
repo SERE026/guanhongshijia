@@ -1,0 +1,384 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+
+    <style name="justContent">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">?android:windowNoTitle</item>
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="home_tab_value">
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="pull_ttip_value">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="txt_white_page_title">
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:clickable">false</item>
+        <item name="android:text">@string/app_name</item>
+    </style>
+
+    <style name="txt_black_center">
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="loading_tip">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">@string/loading_tip_txt</item>
+    </style>
+
+    <style name="dialog_title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="dialog_msg">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="my_name">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <style name="slide_item_txt">
+        <item name="android:textColor">@color/btn_txt_color_black_pink</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:shadowColor">@color/gray</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="my_order">
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="account_location">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="txt_pink_white">
+        <item name="android:textColor">@color/btn_txt_color_pink_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="btn_pink">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/corner_round_bg_fill_pink_fill_pink_light</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="slide_viewpager_item_txt_balck">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="slide_viewpager_item_txt_gray">
+        <item name="android:textColor">@color/black_transparent</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="tip_txt_gray">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <style name="btn_txt_black_white">
+        <item name="android:textColor">@color/btn_txt_color_black_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="btn_txt_black_pink">
+        <item name="android:textColor">@color/btn_txt_color_black_pink</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="list_item_btn_top">
+        <item name="android:textColor">@color/btn_txt_color_black_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawableRight">@drawable/arrow_right_gray</item>
+        <item name="android:background">@drawable/corner_round_bg_normal_top</item>
+    </style>
+
+    <style name="list_item_btn_center">
+        <item name="android:textColor">@color/btn_txt_color_black_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawableRight">@drawable/arrow_right_gray</item>
+        <item name="android:background">@drawable/corner_round_bg_normal_center_right_angle</item>
+    </style>
+
+    <style name="cart_txt_black">
+        <item name="android:textColor">@color/btn_txt_color_black_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="list_item_btn_bottom">
+        <item name="android:textColor">@color/btn_txt_color_black_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawableRight">@drawable/arrow_right_gray</item>
+        <item name="android:background">@drawable/corner_round_bg_normal_bottom</item>
+    </style>
+
+    <style name="list_item_btn_normal">
+        <item name="android:textColor">@color/btn_txt_color_black_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawableRight">@drawable/arrow_right_gray</item>
+        <item name="android:background">@drawable/corner_round_bg_normal</item>
+    </style>
+
+    <style name="list_item_btn_normal_g">
+        <item name="android:textColor">@color/btn_txt_color_black_white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/corner_round_bg_normal</item>
+    </style>
+
+    <style name="btn_corner_round_bg">
+        <item name="android:textColor">@color/btn_txt_color_black_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawableRight">@drawable/arrow_right_gray</item>
+        <item name="android:background">@drawable/btn_corner_round_stroke_gray_fill_pink</item>
+    </style>
+
+    <style name="img_selector">
+        <item name="android:clickable">true</item>
+        <item name="android:src">@drawable/imageview_selector</item>
+    </style>
+
+    <style name="btn_pink_round">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:drawableRight">@drawable/arrow_right_white</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:background">@drawable/btn_round_pink</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="txt_white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="txt_pink">
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="txt_black_16">
+        <item name="android:textColor">@color/black_lite</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="txt_order_details_title">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="txt_gray_12sp">
+        <item name="android:textColor">@color/black_transparent</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <style name="txt_gray_14sp">
+        <item name="android:textColor">@color/black_transparent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">6dp</item>
+    </style>
+    <style name="txt_gray_14sp_no_padding">
+        <item name="android:textColor">@color/black_transparent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="txt_order_details_txt">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="txt_black_light">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="txt_item_black_light">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="edittext">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ratingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/rating</item>
+    </style>
+
+    <style name="women_street_item_txt">
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- 底部弹出动画 -->
+    <style name="push_from_bottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/roll_up</item>
+        <item name="android:windowExitAnimation">@anim/roll_down</item>
+    </style>
+
+    <!-- 自定义对话框样式 -->
+    <style name="MyDialog" parent="@android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/dialog_biankuang</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- dialog 从顶部落下和退出 -->
+    <style name="top_in_top_out">
+        <item name="android:windowEnterAnimation">@anim/window_top_in</item>
+        <item name="android:windowExitAnimation">@anim/window_top_out</item>
+    </style>
+
+    <style name="BaseDialog" parent="@android:style/Theme.Dialog" />
+
+    <style name="FullScreenDialog" parent="@style/BaseDialog">
+        <item name="android:windowBackground">@color/none_color</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
+
+    <style name="checkBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox</item>
+    </style>
+
+</resources>

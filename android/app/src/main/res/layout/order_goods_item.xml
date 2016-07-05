@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="4dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="4dp" >
+
+    <TextView
+        android:id="@+id/detail_name"
+        style="@style/slide_viewpager_item_txt_balck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="魔法城堡手工洁面刷" />
+
+    <TextView
+        android:id="@+id/detail_price"
+        style="@style/slide_viewpager_item_txt_balck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_name"
+        android:text="39.00元" />
+
+    <TextView
+        android:id="@+id/detail_count"
+        style="@style/slide_viewpager_item_txt_balck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_name"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@id/detail_price"
+        android:text="× 1" />
+
+</RelativeLayout>

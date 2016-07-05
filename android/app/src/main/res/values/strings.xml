@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<resources>
+
+    <string name="app_name">炫品妆成</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_side">身边</string>
+    <string name="title_activity_base">炫品妆成</string>
+
+    <!-- 页面标题 -->
+    <string name="index">炫品首页</string>
+    <string name="search">搜索</string>
+    <string name="side">实体商家</string>
+    <string name="cart">购物车</string>
+    <string name="my_xuan">我的炫品</string>
+
+    <!-- 登录注册 -->
+    <string name="log">登录</string>
+    <string name="reg">注册</string>
+
+    <!-- 炫品首页 -->
+    <string name="hot_selling">炫品热销</string>
+    <string name="title_activity_woman_street">女人街</string>
+    <string name="title_activity_store">店铺</string>
+
+    <!-- 上下拉刷新文字 -->
+    <string name="pull_refresh_header_hint_normal">下拉刷新</string>
+    <string name="pull_refresh_header_hint_ready">松开刷新</string>
+    <string name="pull_refresh_header_hint_loading">正在刷新&#8230;</string>
+    <string name="pull_refresh_header_last_time">更新于：</string>
+    <string name="pull_refresh_footer_hint_normal">加载更多</string>
+    <string name="pull_refresh_footer_hint_ready">松开加载</string>
+    <string name="pull_refresh_footer_hint_loading">加载中&#8230;</string>
+    <string name="pull_refresh_footer_hint_loading_notdata"></string>
+    <string name="loading_tip_txt">请稍候</string>
+
+    <!-- 我的炫品 -->
+    <string name="my_score">我的积分</string>
+    <string name="order">订单</string>
+    <string name="message">消息中心</string>
+    <string name="return_goods">退换货查看</string>
+    <string name="address">收货地址管理</string>
+    <string name="account">账号管理</string>
+    <string name="editacc">修改账户信息</string>
+    <string name="editnick">修改昵称</string>
+    <string name="editpsw">修改密码</string>
+    <string name="about">关于</string>
+    <string name="guide">引导页</string>
+    <string name="forgetpsw">忘记密码？</string>
+    <string name="check_ver">检测更新</string>
+    <string name="account_location">账户信息</string>
+    <string name="account_now_location">当前分站</string>
+    <string name="account_location_tip">选择您所在的地区，可以加快商品配送速度</string>
+    <string name="account_share">分享设置</string>
+    <string name="sina">新浪微博</string>
+    <string name="tencent">腾讯微博</string>
+    <string name="share_auto">下单后自动分享到已绑定的微博</string>
+    <string name="account_cache">缓存管理</string>
+    <string name="account_clear_cache">点击清空缓存</string>
+    <string name="signout">退出登录</string>
+    <string name="add_addr">新增地址</string>
+
+    <!-- 订单 -->
+    <string name="order_no">订单号：</string>
+    <!-- 其它 -->
+    <string name="tip">提示</string>
+    <string name="warn">警告</string>
+    <string name="add">添加</string>
+    <string name="del">删除</string>
+    <string name="ok">好的</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="next">下一步</string>
+    <string name="load">正在加载数据&#8230;&#8230;</string>
+    
+    <string name="copyright"> &#169; 2014 xpzc.com</string>
+    
+    
+    
+    <!-- 支付宝 -->
+    <string name="settings">设置</string>
+    <string name="update">升级</string>
+    <string name="check_update">查询升级</string>
+    <string name="download">下载</string>
+    <string name="install">安装</string>
+    <string name="result">返回值</string>
+    <string name="launch_preferences">启动设置</string>
+    <string name="preference_attributes">属性设置</string>
+    <string name="global_preference">全局设置</string>
+    <string name="global_preference_summary">安全支付服务和DEMO的通用设置</string>
+
+    <string-array name="launch_list_entries">
+        <item>外部商户订单</item>
+        <item>远程订单</item>
+    </string-array>
+
+    <string name="order_mode">订单模式</string>
+    <string name="popup_result">显示返回值</string>
+    <string name="result_status_title">Result Status : </string>
+    <string name="memo_title">Memo : </string>
+    <string name="result_title">Result : </string>
+    <string name="check_result_title">Check Sign Result : </string>
+    <string name="external_token_title">External Token</string>
+    <string name="trade_number_title">Trade Number</string>
+    <string name="payPhaseId_title">Pay PhaseId</string>
+    <string name="taobao_pay">订单支付</string>
+    <string name="taobao_add">增加订单</string>
+    <string name="taobao_reset">订单重置</string>
+    <string name="start_order">打开订单页面</string>
+    <string name="not_null">不能为空</string>
+    <string name="extern_partner">外部商户订单</string>
+    <string name="user_id">USER ID</string>
+    <string name="btn_logon">快速登录</string>
+    <string name="data_auth">数据授权</string>
+    <string name="name">姓名</string>
+    <string name="gender">性别</string>
+    <string name="certinfo">证件</string>
+    <string name="mobile">电话</string>
+    <string name="addresss">地址</string>
+    <string name="logonId">LogonId</string>
+
+</resources>

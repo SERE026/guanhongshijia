@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    tools:context="cn.com.dyninfo.o2o.furniture.activity.sign.GetPswTwoActivity" >
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
+
+        <include layout="@layout/title" />
+    </LinearLayout>
+
+    <cn.com.dyninfo.o2o.furniture.view.CustomerScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="12dp" >
+
+            <RelativeLayout
+                android:id="@+id/phone_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/corner_round_bg_normal_top"
+                android:gravity="center_vertical|right"
+                android:padding="8dp" >
+
+                <TextView
+                    android:id="@+id/phone_tip"
+                    style="@style/txt_item_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="手机号："
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/phone"
+                    style="@style/edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/phone_tip"
+                    android:background="@null"
+                    android:hint=""
+                    android:padding="4dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/code_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/phone_layout"
+                android:layout_marginTop="-1dp"
+                android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                android:gravity="center_vertical|right"
+                android:padding="8dp" >
+
+                <TextView
+                    android:id="@+id/code_tip"
+                    style="@style/txt_item_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="校验码："
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/code"
+                    style="@style/edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/code_tip"
+                    android:background="@null"
+                    android:hint="短信校验码"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:padding="4dp"
+                    android:singleLine="true"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/getcode"
+                    style="@style/txt_gray_14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/code"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/corner_round_bg_fill_pink_light"
+                    android:text="重新获取(60)" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/psw_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/code_layout"
+                android:layout_marginTop="-1dp"
+                android:background="@drawable/corner_round_bg_normal_center_right_angle"
+                android:gravity="center_vertical|right"
+                android:padding="8dp" >
+
+                <TextView
+                    android:id="@+id/psw_tip"
+                    style="@style/txt_item_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="设置密码："
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/psw"
+                    style="@style/edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/psw_tip"
+                    android:background="@null"
+                    android:hint="请输入新密码"
+                    android:maxLength="12"
+                    android:padding="4dp"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/repsw_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/psw_layout"
+                android:layout_marginTop="-1dp"
+                android:background="@drawable/corner_round_bg_normal_bottom"
+                android:gravity="center_vertical|right"
+                android:padding="8dp" >
+
+                <TextView
+                    android:id="@+id/repsw_tip"
+                    style="@style/txt_item_black_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="4dp"
+                    android:text="确认密码："
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/repsw"
+                    style="@style/edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/repsw_tip"
+                    android:background="@null"
+                    android:hint="请再次输入新密码"
+                    android:maxLength="12"
+                    android:padding="4dp"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_next"
+                style="@style/btn_pink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/repsw_layout"
+                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:text="@string/next"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </cn.com.dyninfo.o2o.furniture.view.CustomerScrollView>
+
+</RelativeLayout>

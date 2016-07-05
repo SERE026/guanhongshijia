@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="bottom" >
+
+    <RelativeLayout
+        android:id="@+id/pull_refresh_header_content"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp" >
+
+        <LinearLayout
+            android:id="@+id/pull_refresh_header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/pull_refresh_header_hint_textview"
+                style="@style/pull_ttip_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pull_refresh_header_hint_normal"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pull_refresh_header_time"
+            style="@style/pull_ttip_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pull_refresh_header_text"
+            android:layout_centerHorizontal="true"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/pull_refresh_header_arrow"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/pull_refresh_header_text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-80dp"
+            android:src="@drawable/ico_pullrefresh_arrow" />
+
+        <ImageView
+            android:id="@+id/pull_refresh_header_progressbar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@id/pull_refresh_header_text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-80dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ico_loading"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</LinearLayout>

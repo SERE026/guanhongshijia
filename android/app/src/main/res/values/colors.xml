@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<resources>
+
+    <color name="transparent_background">#80ffffff</color>
+    <color name="transparent_background_one">#50000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_color">#9C9C9C</color>
+    <color name="text">#595959</color>
+    <color name="gray">@color/item_line_top</color>
+    <color name="gray_line">#dedede</color>
+    <color name="gray_aaa">#aaa</color>
+    <color name="gray_ddd">#ddd</color>
+    <color name="gray_city_dialog">#e8e8e8</color>
+    <color name="img_item_frame">#dedede</color>
+    <color name="item_line_top">#d1d1d1</color>
+    <color name="item_line_bom">@color/white</color>
+    <color name="list_bg">#f7f7f7</color>
+    <color name="main_bg">#e9e9e9</color>
+    <color name="home_ico_bg">#373737</color>
+    <color name="black">#000000</color>
+    <color name="black_light">#474747</color>
+    <color name="black_transparent">#60000000</color>
+    <color name="black_lite">#333333</color>
+    <color name="black_wheel_702">#70222222</color>
+    <color name="black_wheel_703">#70333333</color>
+    <color name="black_wheel_70e">#70EEEEEE</color>
+    <color name="red">#FC3E39</color>
+    <color name="pink">#f50d61</color>
+    <color name="pink_round">#f72671</color>
+    <color name="pink_lite">#F08080</color>
+    <color name="pink_btn_normal">#ffa3c2</color>
+    <color name="pink_btn_press">#ffb0a3</color>
+    <color name="pink_white">#F984B1</color>
+    <color name="pink_img_selector">#fad3cf</color>
+    <color name="orange_lite">#feeddd</color>
+    <color name="orange">#f39809</color>
+    <color name="yellow">#f2c40f</color>
+    <color name="green">#73d871</color>
+    <color name="cyan">#29abe5</color>
+    <color name="blue">#0079FE</color>
+    <color name="blue_transparent">#600079FE</color>
+    <color name="purple">#ae7ac4</color>
+    <color name="purple_lite">#3814ed</color>
+    <color name="text_color_gray">#545454</color>
+    <color name="none_color">#00000000</color>
+    <color name="none_color2">#b0000000</color>
+    <color name="buff">#F8F8FF</color>
+    <color name="color_green2">#58f098</color>
+    <color name="green2">#2dcc70</color>
+    <color name="color_orange">#f1c683</color>
+    <color name="color_green">#90e5d4</color>
+    <color name="color_gray">#ddb5ee</color>
+    <color name="color_yellow">#eeedb5</color>
+    <color name="color_red">#fd887d</color>
+    <color name="color_blue">#62bbf7</color>
+    <color name="title_bar_press">#7031a8cb</color>
+    <color name="deep_gray">#6a6a6a</color>
+    <color name="index_search_bg">#e9e9e9</color>
+    <color name="title_bg_color">#30648A</color>
+    <color name="title_txt_color">#FEFEFE</color>
+    <color name="info_bg_color">#438CB9</color>
+    <color name="info_txt_color">#FFDE00</color>
+    <color name="bg_color">#639EC3</color>
+    <!-- 支付宝 -->
+    <color name="background_color">#ffd1dce9</color>
+    <color name="TextColorBlack">#FF000000</color>
+    <color name="TextColorWhite">#FFFFFFFF</color>
+    <color name="BgColor">#ffd1dce9</color>
+
+</resources>

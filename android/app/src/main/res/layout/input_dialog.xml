@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:minHeight="120dp"
+    android:minWidth="213dp"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/corner_round_black" >
+
+        <TextView
+            android:id="@+id/dialog_title"
+            style="@style/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="请输入" />
+
+        <cn.com.dyninfo.o2o.furniture.view.ClearEditText
+            android:id="@+id/dialog_txt"
+            style="@style/dialog_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="12dp"
+            android:maxLines="5"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@null"
+            android:inputType="textMultiLine"
+            android:hint="我是高富帅，不是吗？\n你是逗比，不是吗？"
+            android:textColor="@color/black_light" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/dialog_txt"
+            android:layout_marginTop="4dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/line2"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/dialog_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/corner_round_btn_bottom_left"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/white" />
+
+            <include layout="@layout/line_vertical" />
+
+            <TextView
+                android:id="@+id/dialog_sure"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/corner_round_btn_bottom_right"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/sure"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
