@@ -1,0 +1,50 @@
+<!doctype html>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Upload Button Examples</title>
+		<link rel="stylesheet" href="../themes/default/default.css" />
+		<script src="../kindeditor-min.js"></script>
+		<script>
+			KindEditor.ready(function(K) {
+				var uploadbutton = K.uploadbutton({
+					button : K('#uploadButton')[0],
+					fieldName : 'imgFile',
+					url : '../php/upload_json.php?dir=file',
+					afterUpload : function(data) {
+						if (data.error === 0) {
+							var url = K.formatUrl(data.url, 'absolute');
+							K('#url').val(url);
+						} else {
+							alert(data.message);
+						}
+					},
+					afterError : function(str) {
+						alert('自定义错误信息: ' + str);
+					}
+				});
+				uploadbutton.fileBox.change(function(e) {
+					uploadbutton.submit();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="upload">
+			<input class="ke-input-text" type="text" id="url" value="" readonly="readonly" /> <input type="button" id="uploadButton" value="Upload" />
+		</div>
+	</body>
+</html>

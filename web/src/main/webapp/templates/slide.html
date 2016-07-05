@@ -1,0 +1,35 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script type="text/JavaScript" src="js/slide.js"></script>
+<link href="css/slide.css" rel="stylesheet" type="text/css" />
+
+<script>
+	$(function(){
+		new slide($("#slide${info.advwz_id}"),${isBtn});
+	})
+	
+</script>
+<div id="slide${info.advwz_id}" class="wm_slide" style="width:${info.advwz_width}px;height:${info.advwz_height}px;margin:auto;">
+	<ul >
+		<#list data as adv>
+		<li  style="width:${info.advwz_width}px;height:${info.advwz_height}px;">
+		<#if adv.adv_flie??>
+			<a target="_blank" href="${adv.adv_link}">
+				<img adv alt="${adv.adv_name}" src="${applicationPath}/upload/adv/${adv.adv_flie}" width="100%" height="100%">
+			</a>
+			</#if>
+		</li>
+		</#list>
+	</ul>
+</div>

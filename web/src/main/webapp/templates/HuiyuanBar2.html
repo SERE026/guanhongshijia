@@ -1,0 +1,89 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list data as orderInfo>
+<div class="gr_r_tiweifu">
+	<div class="gr4_a">
+		<input name="checkboxs" type="checkbox" value="" />
+	</div>
+	<div class="gr4_b">
+		订单编号：
+		<a href="#" class="zhu27">${orderInfo.order_id }</a>&nbsp;&nbsp;&nbsp;&nbsp;下单时间：${orderInfo.time}
+	</div>
+</div>
+<div class="huiyuan_k">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0"
+		class="huiyuan_tab">
+		<tr>
+
+			<td>
+				<#list orderInfo.orderProductList as productList>
+				<div class="huiyuan_xinxi" style="border-bottom: none">
+					<div class="hui_dingtu">
+						<img
+							src="${applicationPath}/upload/goods/${productList.product.defaultImage}"
+							width="100%" height="100%" />
+					</div>
+
+
+					<div class="hui_dingjieshao">
+						<div class="hui_dingjieshao_ming">
+							<a href="#" class="zhu24">${productList.product.name}
+
+							</a>
+						</div>
+						<div class="hui_dingjieshao_ming2">
+
+							<#if productList.goodSpec??> ${productList.goodSpec?replace("#","
+							") } </#if>
+						</div>
+					</div>
+					<div class="hui_dingjia">
+						<#if productList.goodMoney??> ${productList.goodMoney} </#if>
+					</div>
+					<div class="hui_dingjia">
+						<#if productList.num??> ${productList.num} </#if>
+					</div>
+				</div>
+
+				</#list>
+
+			</td>
+			<td>
+				<div class="huiyuan_k_c">
+					<span class="STYLE22">${orderInfo.orderPrice}</span>
+					<br />
+					(含快递:${orderInfo.shippingPrice} )
+				</div>
+			</td>
+			<td>
+				<div class="huiyuan_k_c">
+				<#if orderInfo.state=="0"> <div class="huiyuan_k_c_wenzi">等待买家付款</div> </#if>
+				<#if orderInfo.state=="1"> <div class="huiyuan_k_c_wenzi2">等待卖家发货</div> </#if>
+				<#if orderInfo.state=="2"> <div class="huiyuan_k_c_wenzi">卖家已发货</div> 
+									<div class="huiyuan_k_c_wenzi"><a href="${applicationPath}/huiyuan_order_detail.html?logisticid=${orderInfo.order_id }" class="zhu24">查看物流</a></div></#if>
+				<#if orderInfo.state=="3"> <div class="huiyuan_k_c_wenzi2">交易完成</div>
+									<div class="huiyuan_k_c_wenzi"><a href="${applicationPath}/huiyuan_order_detail.html?logisticid=${orderInfo.order_id }" class="zhu24">查看物流</a></div></#if>
+				<#if orderInfo.state=="4"> <div class="huiyuan_k_c_wenzi">申请退款</div> </#if>
+				<#if orderInfo.state=="5"> <div class="huiyuan_k_c_wenzi">申请退货</div>
+									<div class="huiyuan_k_c_wenzi"><a href="${applicationPath}/huiyuan_order_detail.html?logisticid=${orderInfo.order_id }" class="zhu24">查看物流</a></div></#if>
+				<#if orderInfo.state=="6"> <div class="huiyuan_k_c_wenzi2">交易失败</div> </#if>
+					<div class="huiyuan_k_c_wenzi">
+						<a href="${applicationPath}/huiyuan_order_detail.html?orderid=${orderInfo.order_id }" class="zhu24">订单详情</a>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+</#list>

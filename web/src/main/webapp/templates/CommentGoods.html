@@ -1,0 +1,63 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<div class="shaidan pageBox" >
+<div class="shaidan">
+<div class="shaidan_ti"><img src="${applicationPath}/img/spdet_29.gif" /></div>
+
+<#list DATA as comment>
+<div class="shaidan_kuai">
+<div class="shaidan_kuai_leaa">
+<div class="shaidan_kuai_leaa_xiao">
+<a href="#"><img src="${applicationPath}/upload/${comment.info.txImage}" width="100%" height="100%" border="0" /></a>
+</div>
+<div class="shaidan_kuai_leaa_zi"><a href="#" class="zhu1">${comment.info.nickname}</a></div>
+</div>
+<div class="shaidan_kuai_lebb"><img src="${applicationPath}/img/spdet_34.gif" /></div>
+<div class="shaidan_kuai_lecc">
+<div class="shaidan_xing">
+<div class="shaidan_xing_zi">评分：</div>
+<div class="shaidan_xing_tu">
+<#list 1..comment.leve as x>
+<img src="${applicationPath}/img/xing_cai.jpg" />
+</#list>
+</div>
+</div>
+
+<div class="shaidan_xian">&nbsp;</div>
+<div class="shaidan_jvti">
+<#list comment.imageSrc?split(';') as image>
+<#if image_index lt (comment.imageSrc?split(';')?size-1)>
+<div class="shaidan_jvti_kuai"><a href="javascript:;"><img src="${applicationPath}/upload/issue/${image}" border="0" width="100%" height="100%"/></a>
+</div>
+</#if>
+</#list>
+</div>
+
+
+</div>
+</div>
+
+</#list>
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="fenye2" pageNo="${PAGE_INFO.pageNo}" pageSize="${PAGE_INFO.pageSize}" pageUrl="${applicationPath}/widget.html?widget=comment&g_id=${good.goods_id}" total="${PAGE_INFO.totalCount}">
+</div>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript">
+new page($(".fenye2"),$("pageBox"),"comment");
+</script>
+</div>
+</div>

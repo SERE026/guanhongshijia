@@ -1,0 +1,110 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/register_head.html' />
+<script type="text/JavaScript" src="${applicationPath}/js/register.js"></script>
+<script>
+	var servicePath="${applicationPath}";
+</script>
+
+<!-- 去除jquery弹出层滚动条 -->
+<style type="text/css">
+<!--
+	.xubox_layer{overflow:hidden;}
+-->
+</style>
+<div class="denglu">
+<div class="logo_xiao"><a href="${applicationPath}/index.html"><img src="${applicationPath}/img/xiaologo.gif" width="100%" height="100%" /></a></div>
+<div class="zhuce_tou">
+<div class="zhuce_tou_tu"><a href="${applicationPath}/login.html"><img src="${applicationPath}/img/chuce_03.gif" /></a></div>
+<div class="zhuce_tou_zi">我是炫品会员</div>
+</div>
+<div class="zhece_dakuai">
+<div class="zhece_dakuai_datu">${widget_register_adv_pic1}</div>
+<div class="zhece_dakuai_xiaodui">
+<div class="zhuce_k">
+<div class="zhuce_k_zi">账户名：</div>
+<div class="zhuce_k_bao">
+
+<input name="accout"  id="accout" type="text" value="" class="zhuce_k_baoshuru_aa"/>
+${widget_register_merchants}
+</div>
+<div class="zhuce_k_bao_shuom" id="accoutts" style="">邮箱/手机号/用户名</div>
+</div>
+
+
+<div class="zhuce_k">
+<div class="zhuce_k_zi">手机号码：</div>
+<div class="zhuce_k_bao"><input name="phone" id="phone" type="text" class="zhuce_k_baoshuru_aa"/></div>
+<div class="zhuce_k_bao_shuom" id="phonets" style="display:">
+
+</div>
+	<div id="send" style="; color:gray;">
+		<input type="button" id="btnSend" value="发送验证码">
+	</div>
+<div id="codeBox" style="display:none;">
+	<input type="text" class="zhuce_k_baoshuru_bb" value="输入验证码" id="codeValue" style="color:gray;">
+	<input type="button" id="btnSend2" value="重发">
+	<input type="button" id="btnOk" value="确定">
+</div>
+</div>
+
+<div class="zhuce_k">
+<div class="zhuce_k_zi">密码：</div>
+<div class="zhuce_k_bao"><input name="password1" id="password1" type="password" class="zhuce_k_baoshuru_aa"/></div>
+<div class="zhuce_k_bao_shuom" id="psw1ts" style="display:none">两次密码输入不一致</div>
+</div>
+<div class="zhuce_k">
+<div class="zhuce_k_zi">确认密码：</div>
+<div class="zhuce_k_bao"><input name="password2"  id="password2"  type="password" class="zhuce_k_baoshuru_aa"/></div>
+<div class="zhuce_k_bao_shuom" id="psw2ts" style="display:none">两次密码输入不一致</div>
+</div>
+
+<div class="zhuce_k">
+<div class="zhuce_k_zi">邮箱：</div>
+<div class="zhuce_k_bao"><input name="email"  id="email"  type="text" class="zhuce_k_baoshuru_aa"/></div>
+<div class="zhuce_k_bao_shuom" id="emailinfo" style="display:none">用于找回密码</div>
+</div>
+
+<div class="zhuce_k">
+<div class="zhuce_k_zi">验证码：</div>
+<div class="zhuce_k_bao"><input name="validinput" id="validinput" type="text" class="zhuce_k_baoshuru_bb" onkeydown="if(event.keyCode==13) gosumbit();"/></div>
+<div class="zhuce_k_bao_shuom"><span id="validCode"></span></div>
+<div class="zhuce_k_bao_shuom" id="validts" style="display:none">验证码错误</div>
+</div>
+<div class="zhuce_wenjian"><img src="${applicationPath}/img/chuce_14.gif" border="0" id="submit" style="vertical-align:text-bottom;"/><a href="javascript:showXieyi();" class="zhu2">《炫品妆成用户协议》</a></div>
+</div>
+</div>
+
+
+</div>
+
+
+   
+<div class="bottom_xian">&nbsp;</div>
+<div class="bottom_daohang">
+<a href="${applicationPath}/aboutus-1.html" class="zhu10">关于我们</a>  |  <a href="${applicationPath}/aboutus-24.html" class="zhu10">联系我们</a>  |  <a href="${applicationPath}/help-16.html" class="zhu10">帮助中心</a> 
+<br />
+Copyright  2008-2014 xpzc.com All Rights Reserved.Design by <a href="http://www.c-1-tech.com" target="_blank">C1</a>  蜀ICP备14006666号-1
+</div>
+<div class="bottom_zuo"><img src="${applicationPath}/img/botb.gif" /></div>
+</div>
+</div>
+
+
+
+
+
+</body>
+</html>
+   

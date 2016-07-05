@@ -1,0 +1,64 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script type="text/javascript">
+
+</script>
+<script src="js/GoodsAttr.js" type="text/javascript"></script>
+
+<#if specList??>
+<#list specList as spec>
+	
+	<#if spec.type=="1" && spec.status==0>
+		<div class="spdetail_right_gr_kk goodsAttr" item="${spec_index}" dataType="Image">
+		<div class="spdetail_right_gr_kk_left" style="width:auto">${spec.name}：</div>
+		<div class="spdetail_right_gr_kk_right" style="width:1000px">
+		
+			<#list spec.valList as val>
+				<#if val.status==0>
+				<div class="<#if spec.count == 1> spdetail_right_gr_kk_right_d</#if><#if spec.count gt 1>spdetail_right_gr_kk_right_d2</#if> attImageBtn" data-value="${val.sales}:${val.weight}:${val.spec_val_id}">
+				<div class="asdetrd_tu" ><img src="${applicationPath}/upload/${val.img}" width="100%" height="100%"/></div>
+				<div class="asdetrd_zi" >${val.val}</div>
+				</div>
+				</#if>
+			</#list>
+		</div>
+		</div>
+	</#if>
+	<#if spec.type=="0" && spec.status==0 >
+		<div class="spdetail_right_gr_kk goodsAttr" item="${spec_index}" dataType="Text"  >
+		<div class="spdetail_right_gr_kk_left" style="width:auto">${spec.name}：</div>
+		<div class="spdetail_right_gr_kk_right" style="width:1000px">
+		<#list spec.valList as val>
+			<#if val_index == 0>
+			<div class=" index1 <#if spec.count == 1>sp_xinghao</#if><#if spec.count gt 1>sp_xingha2</#if> attTextBtn" data-value="${val.sales}:${val.weight}:${val.spec_val_id}">
+						${val.val}
+					</div>
+			 </#if>
+			<#if val_index != 0>
+				<#if val.status==0>
+					<div  class="<#if spec.count == 1>sp_xinghao</#if><#if spec.count gt 1>sp_xingha2</#if> attTextBtn" data-value="${val.sales}:${val.weight}:${val.spec_val_id}">
+						${val.val}
+					</div>
+				</#if>
+			</#if>
+		</#list>
+		
+		</div>
+		</div>
+	</#if>
+	<div class="touming5">&nbsp;</div>
+</#list>
+</#if>
+
+

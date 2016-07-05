@@ -1,0 +1,66 @@
+/*
+ * Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ * All rights reserved.
+ *
+ * This file contains valuable properties of  SHENZHEN Eternal Dynasty
+ * Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+ * confidential information, ideas and expressions.    No part of this
+ * file may be reproduced or distributed in any form or by  any  means,
+ * or stored in a data base or a retrieval system,  without  the prior
+ * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ *
+ */
+
+html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	padding: 5px;
+	background-color: #FFFFFF;
+	color: #000000;
+	font: 12px/1.5 "sans serif",tahoma,verdana,helvetica;
+}
+td {
+	font: 12px/1.5 "sans serif",tahoma,verdana,helvetica;
+}
+p {
+	margin: 5px 0;
+}
+.ke-flash {
+	border:1px solid #AAAAAA;
+	background-image:url(./flash.gif);
+	background-position:center center;
+	background-repeat:no-repeat;
+	width:100px;
+	height:100px;
+}
+.ke-rm {
+	border:1px solid #AAAAAA;
+	background-image:url(./rm.gif);
+	background-position:center center;
+	background-repeat:no-repeat;
+	width:100px;
+	height:100px;
+}
+.ke-icon-name {
+		 background-image: url(name.gif);
+		background-position: 0px -48px;
+		width: 100px;
+		height: 16px;
+      }
+.ke-media {
+	border:1px solid #AAAAAA;
+	background-image:url(./media.gif);
+	background-position:center center;
+	background-repeat:no-repeat;
+	width:100px;
+	height:100px;
+}
+table {
+	border-collapse:collapse;
+}
+table.ke-zeroborder td {
+	border:1px dotted #AAAAAA;
+}

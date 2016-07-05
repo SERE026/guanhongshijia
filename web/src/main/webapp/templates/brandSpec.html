@@ -1,0 +1,50 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#if Sortlist??>
+
+<div class="sp_shaixuan_kuai">
+<div class="sp_shaixuan_kuai_tai">
+类别：
+</div>
+<div class="sp_shaixuan_kuai_pin " >
+<#list Sortlist as sort>
+<div class="sp_shaixuan_xiaopai  sortt" dava="${sort.sortId}"><a href="javascript:;" class="zhu12">${sort.name}</a>(${sort.num})</div>
+</#list>
+</div>
+</div>
+<div class="touming4">&nbsp;</div>
+
+
+</#if>
+
+<#if pricelist??>
+<div class="sp_shaixuan_kuai">
+<div class="sp_shaixuan_kuai_tai">
+价格区间：
+</div>
+<div class="sp_shaixuan_kuai_pin " >
+<#list pricelist as price>
+<div class="sp_shaixuan_xiaopai priceRange"><a href="javascript:;" class="zhu12">${price.name}</a>元(${price.num})</div>
+</#list>
+</div>
+</div>
+<div class="touming4">&nbsp;</div>
+</#if>
+
+
+
+
+
+
+

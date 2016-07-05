@@ -1,0 +1,22 @@
+
+<#list trylist as info>
+<#if info_index%4==0 >
+<div class="su_jijiang_kuai">
+<#else>
+<div class="su_jijiang_kuai2">
+</#if>
+<div class="su_jijiang_kuai_tu"><a href="${applicationPath}/tryusedetail.html?goodsid=${info.goods_id}"><img src="${applicationPath}/upload/head/<#if info.mfimages??>${info.mfimages}</#if>" width="100%" height="100%" border="0" /></a></div>
+<div class="su_jijiang_kuai_da">
+<div class="su_jijiang_kuai_da01"><span class="STYLE9">免费试用</span>&nbsp;&nbsp;<a href="${applicationPath}/tryusedetail.html?goodsid=${info.goods_id}" class="zhu56">${info.name}</a></div>
+<div class="su_jijiang_kuai_da01">
+申请条件：所有用户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品价格：￥${info.bazaarMoney}
+</div>
+<div class="sujijinag_jie">
+开始时间：${info.btime}&nbsp;&nbsp;&nbsp;&nbsp;试用份数：<span class="STYLE34">${info.tryno}</span>&nbsp;份
+</div>
+</div>
+
+</div>
+
+
+</#list>

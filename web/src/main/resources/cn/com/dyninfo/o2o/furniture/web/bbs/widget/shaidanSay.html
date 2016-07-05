@@ -1,0 +1,27 @@
+<div class="dajishuo_zi">说点什么吧</div>
+<div class="dajiashuo_shuruda">
+<textarea id="saycontent" cols="" rows="" class="dajiashuo_shuru"></textarea>
+</div>
+<div class="dajiashuo_shuruda_an gosubmit"><img src="${applicationPath}/img/shaidan_an.gif" /></div>
+<script>
+
+	$(".gosubmit").click(function(){
+		var saycontent=$("#saycontent").val();
+		if(saycontent==""){
+			alert("评论内容不能为空！");
+			return;
+		}
+		$.ajax({
+		  type: 'POST',
+		  url: servicePath+"/widget.html",
+		  data: "widget=bbssahidan&action=submit&saycontent="+saycontent,
+		  dataType: "json",
+		  success: function(data){
+		  		if(data==0){
+		  			alert("提交成功！");
+		  			window.location.reload();
+		  		}
+		  }
+		});	
+	});
+</script>

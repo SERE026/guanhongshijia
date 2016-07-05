@@ -1,0 +1,204 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<div class="kuai">
+<div class="dingxiangda">
+<div class="dingxiangda_k01">
+<!-- 做防空串判断，开始 -->
+<#if order??>
+
+当前订单状态：
+<#if order.state=="0">
+等待付款
+</#if>
+<#if order.state=="1">
+已付款
+</#if>
+<#if order.state=="2">
+已发货
+</#if>
+<#if order.state=="3">
+确认完成
+</#if>
+<#if order.state=="4">
+申请退款
+</#if>
+
+<#if order.state=="5">
+申请退货
+</#if>
+<#if order.state=="6">
+交易失败
+</#if>
+</div>
+
+<#if order.wlcompany??>
+<div class="dingxiang_ti">物流明细</div>
+<div class="dingxiangda_k03">
+<div class="dingxiangda_k03_left">发货方式：</div>
+<div class="dingxiangda_k03_right">快递</div>
+<div class="dingxiangda_k03_left">物流公司：</div>
+<div class="dingxiangda_k03_right">${order.wlcompany.name} </div>
+<div class="dingxiangda_k03_left">运单号码：</div>
+<div class="dingxiangda_k03_right">${order.dlyCode} </div>
+<div class="dingxiangda_k03_left">物流跟踪：</div>
+<div class="dingxiangda_k03_right">
+
+<#list data as d>
+	${d.time}&nbsp;&nbsp;${d.context}
+</#list>
+              
+</div>
+</div>
+</#if>
+<div class="clear">&nbsp;</div>
+<div class="dingxiang_ti">订单详情</div>
+<div class="dingxiangda_k04">
+<div class="dingxiang04_ti">卖家信息</div>
+<div class="dingxiang04_kk">
+<div class="dingxiang04_kk_aa">
+店铺名称：${ order.merchants.name}&nbsp;&nbsp;&nbsp;
+联系电话：${ order.merchants.contactPhone}&nbsp;&nbsp;&nbsp;
+</div>
+</div>
+<div class="dingxiang04_ti">订单信息</div>
+<div class="dingxiang04_kk">
+<div class="dingxiang04_kk_aa">
+订单编号:${ order.order_id}<br />
+下单时间：${ order.time}&nbsp;&nbsp;&nbsp; 
+<#if order.paytime??>付款时间:${ order.paytime}</#if>&nbsp;&nbsp;&nbsp;<#if order.sendtime??>发货时间：${ order.sendtime}</#if>&nbsp;&nbsp;&nbsp;<#if order.suretime??>确认时间：${ order.suretime}</#if>
+</div>
+<div class="dingxiang04_kk_bb">
+<div class="dingxiang_tbtou">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab09">
+  <tr>
+    <td style=" width:297px;">宝贝</td>
+    <td style=" width:108px;">宝贝属性</td>
+    <td style=" width:89px;">状态</td>
+    <td style=" width:73px;">单价(元)</td>
+    <td style=" width:50px;">数量</td>
+    <td style=" width:119px;">优惠</td>
+    <td style=" width:99px;">商品总价(元)</td>
+    <td style=" width:81px;">运费(元)</td>
+  </tr>
+</table>
+</div>
+<div class="dingxiang_tbza">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab10">
+	<#list order.orderProductList as productList>
+<tr>
+<td style=" width:297px;">
+<div class="hui_dingtu">
+<a href="#"><img src="${applicationPath}/upload/goods/${productList.product.defaultImage}" width="100%" height="100%" border="0" /></a>
+</div>
+<div class="dxiang_dingjieshao">
+<div class="dingxiang_ming"><a href="${applicationPath}/item-${productList.product.good.goods_id}.html"
+		 class="zhu24">${productList.product.name}&nbsp;${productList.product.pz }</a>
+</div>
+</div>
+</td>
+<td style=" width:108px;">	<#if productList.goodSpec??> ${productList.goodSpec?replace("#","
+							")} </#if>
+							</td>
+<td style=" width:89px;">
+<#if order.state=="0">
+等待付款
+</#if>
+<#if order.state=="1">
+已付款
+</#if>
+<#if order.state=="2">
+已发货
+</#if>
+<#if order.state=="3">
+确认完成
+</#if>
+<#if order.state=="4">
+申请退款
+</#if>
+
+<#if order.state=="5">
+申请退货
+</#if>
+<#if order.state=="6">
+交易失败
+</#if></td>
+<td style=" width:73px;"><#if productList.product.salesMoney??>${productList.product.salesMoney}</#if></td>
+<td style=" width:50px;"><#if productList.num??>${productList.num}</#if></td>
+<td style=" width:119px;"><#if productList.act??>${productList.act.name}</#if></td>
+<td style=" width:99px;"><#if productList.product.salesMoney??>${productList.product.salesMoney*productList.num}</#if></td>
+<td style=" width:81px;"><#if order.shippingPrice??>${order.shippingPrice}</#if></td>
+</tr>
+</#list>
+</table>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+<div class="dingxiang04_kk_cc">
+实际付款：<span class="STYLE15">${order.orderPrice}</span>
+</div>
+<div class="dingxiang04_ti2222">
+<div class="dingxiang04_ti_le">收货地址：</div>
+<div class="dingxiang04_ti_ri">
+<#if order.receiveName??>${order.receiveName}</#if>，<#if order.receivePhone??>${order.receivePhone}</#if> ，<#if order.receiveTel??>${order.receiveTel}</#if> ， 
+
+<#if order.province??>${order.province.name}</#if> <#if order.city??>${order.city.name}</#if> <#if order.county??>${order.county.name}</#if> 
+<#if order.address??>${order.address}</#if>，<#if order.code??>${order.code}</#if>
+</div>
+</div>
+<div class="dingxiang04_ti2222">
+<div class="dingxiang04_ti_le">买家留言：</div>
+<div class="dingxiang04_ti_ri">
+请分开包装。送货前请电话联系，周末不在
+</div>
+</div>
+<div class="ddxiang_fanhui"><a href="${applicationPath}/huiyuan_order.html" class="zhu2"> 返回我的订单</a></div>
+
+
+
+</div>
+
+
+
+
+<div class="touming">&nbsp;</div>
+<div class="g1_tuijian">
+<div class="g1_tuijian_top">
+<div class="g1_tuijian_top_ti">炫品为您推荐</div>
+</div>
+<div class="g1_tuijian_mid">
+${tuijian}
+
+</div>
+</div>
+<div class="g1_tuijian">
+<div class="g1_tuijian_top">
+<div class="g1_tuijian_top_ti">最近浏览</div>
+</div>
+<div class="g1_tuijian_mid">
+${zuijin}
+
+
+<!-- 防空串判断结束 -->
+</#if>
+</div>
+</div>

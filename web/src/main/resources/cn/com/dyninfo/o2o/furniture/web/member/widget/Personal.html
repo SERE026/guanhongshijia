@@ -1,0 +1,206 @@
+
+<form name="form1" id="form1" action="${applicationPath}/huiyuan_personal.html" method="post">
+<div class="splist_right">
+<div class="gr_r">
+<div class="gr_r_ti">
+我的个人资料
+</div>
+<div class="gr_ziliao">
+<div class="grzl_xiang">
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi">用户名：</div>
+<div class="grzl_xiangxuan01">
+<#if  huiyuan.name??>
+${huiyuan.name}
+</#if>
+</div>
+</div>
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi">会员类型：</div>
+<div class="grzl_xiangxuan02">个人用户</div>
+</div>
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi"><span class="STYLE1">*</span>昵称：</div>
+<div class="grzl_xiangxuan03">
+<#if  huiyuan.userName??>
+<input name="userName" type="text" class="grzl_xiangxuan03_shu" value="${huiyuan.userName}"/></div>
+<#else>
+<input name="userName" type="text" class="grzl_xiangxuan03_shu" value=""/></div>
+</#if>
+</div>
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi"><span class="STYLE1">*</span>QQ：</div>
+<div class="grzl_xiangdan_zi2" >
+<#if  huiyuan.qq??>
+<input name="qq" type="text" class="grzl_xiangxuan03_shu" value="${huiyuan.qq}"/></div>
+<#else>
+<input name="qq" type="text" class="grzl_xiangxuan03_shu" value=""/></div>
+</#if>
+<div class="zhuce_k_bao_shuom qqmsg"  style="display:none"></div>
+</div>
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi"><span class="STYLE1">*</span>性别：</div>
+<#if  huiyuan.sex??>
+<#if  huiyuan.sex == "0">
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="0" checked/></div>
+<div class="grzl_xiangdan_zi">保密</div>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="2" /></div>
+<div class="grzl_xiangdan_zi">男</div>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="1" /></div>
+<div class="grzl_xiangdan_zi">女</div>
+</#if>
+<#if  huiyuan.sex == "1">
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="0" /></div>
+<div class="grzl_xiangdan_zi">保密</div>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="2" /></div>
+<div class="grzl_xiangdan_zi">男</div>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="1" checked/></div>
+<div class="grzl_xiangdan_zi">女</div>
+</#if>
+<#if  huiyuan.sex == "2">
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="0" /></div>
+<div class="grzl_xiangdan_zi">保密</div>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="2" checked/></div>
+<div class="grzl_xiangdan_zi">男</div>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="1" /></div>
+<div class="grzl_xiangdan_zi">女</div>
+</#if>
+
+<#else>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="0" /></div>
+<div class="grzl_xiangdan_zi">保密</div>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="2" /></div>
+<div class="grzl_xiangdan_zi">男</div>
+<div class="grzl_xiangdan_xx"><input name="sex" type="radio" value="1" /></div>
+<div class="grzl_xiangdan_zi">女</div>
+</#if>
+
+</div>
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi">手机号码：</div>
+<#if  huiyuan.phone??>
+<div class="grzl_xiangdan_zi2" id="oldsj">${huiyuan.phone}</div>
+<div class="grzl_xiangdan_zi2" id="editsj" style="display:none"><input name="phonenumber" id="phonenumber" type="text" class="grzl_xiangxuan03_shu" 
+	 value="${huiyuan.phone}"/></div>
+	 <div class="grzl_xiangdan_zi3" id="oldsjxg">
+<a href="javascript:editsj();" class="zhu24">修改</a></div>
+<div class="grzl_xiangdan_zi3" id="yzdivsj">
+<#if  huiyuan.phonestate=="1">
+	已验证
+<#else>
+	<a href="javascript:gophone()" class="zhu24">验证</a>【获取手机验证码】
+
+</#if>
+</div>
+<#else>
+<div class="grzl_xiangdan_zi2" id="editsj" ><input name="phonenumber" id="phonenumber" type="text" class="grzl_xiangxuan03_shu" 
+	 value=""/></div>
+</#if>
+
+<div class="zhuce_k_bao_shuom" id="telts" style="display:none">短信不能为空</div>
+	<div class="grzl_xiangdan_zi2" id="msgcode" style="display:none"><input name="msginput" id="msginput" type="text" class="grzl_xiangxuan03_shu" 
+	  style="width:100px" value="输入短信验证码"/>  <a href="javascript:submitcode()" class="zhu24">提交</a>
+	 </div>
+</div>
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi">邮箱：</div>
+<#if  huiyuan.email??>
+<div class="grzl_xiangdan_zi2" id="oldyx">${huiyuan.email}</div>
+<div class="grzl_xiangdan_zi2" id="edityx" style="display:none"><input name="emiladres" id="editemail" type="text" class="grzl_xiangxuan03_shu" 
+	 value="${huiyuan.email}"/></div>
+	 <div class="grzl_xiangdan_zi3" id="oldyxxg" ><a href="javascript:edityx();" class="zhu24">修改</a></div>
+<div class="grzl_xiangdan_zi3" id="yzdivyx">
+<#if  huiyuan.emlstate=="1">
+	已验证
+<#else>
+	<a href="javascript:goemailyz();" class="zhu24">验证</a>
+</#if>
+</div>
+<#else>
+<div class="grzl_xiangdan_zi2" id="edityx"><input name="emiladres" id="editemail" type="text" class="grzl_xiangxuan03_shu" 
+	 value=""/></div>
+</#if>
+
+<div class="zhuce_k_bao_shuom" id="emailts" style="display:none">邮箱不能为空</div>
+</div>
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi">真实姓名：</div>
+<div class="grzl_xiangxuan03">
+<#if  huiyuan.nickname??>
+<input name="nc" type="text" class="grzl_xiangxuan03_shu" value="${huiyuan.nickname}"/></div>
+<#else>
+<input name="nc" type="text" class="grzl_xiangxuan03_shu" value=""/></div>
+</#if>
+</div>
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi">身份证号码：</div>
+<div class="grzl_xiangxuan03">
+<#if  huiyuan.idcard??>
+<input name="idcards" id="idcardno" type="text" class="grzl_xiangxuan03_shu" style="width:320px" value="${huiyuan.idcard}"/>
+<#else>
+<input name="idcards" id="idcardno" type="text" class="grzl_xiangxuan03_shu" style="width:320px" value=""/>
+</#if>
+</div>
+<div class="zhuce_k_bao_shuom" id="idcardts" style="display:none">身份证号码无效</div>
+</div>
+
+<div class="grzl_xiang_k">
+<div class="grzl_xiangzi">所在地：</div>
+<div class="gr_xiala">
+<#if  huiyuan.province??>
+<select name="province.id" id="provinceId" dataVal="${huiyuan.province.id }" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+<#else>
+<select name="province.id" id="provinceId" dataVal="" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+</#if>
+</div>
+<div class="gr_xiala">
+<#if  huiyuan.city??>
+<select name="city.id" id="cityId" dataVal="${huiyuan.city.id }" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+<#else>
+<select name="city.id" id="cityId" dataVal="" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+</#if>
+</div>
+<div class="gr_xiala">
+<#if  huiyuan.region??>
+<select name="county.id" id="countyId" dataVal="${huiyuan.region.id }" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+<#else>	
+<select name="county.id" id="countyId" dataVal="" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+</#if>							
+</div>
+<#if  huiyuan.address??>
+<div class="grzl_xiala_shu"><input name="adresszh" type="text" class="grzl_xiangxuan03_shu" style="width:320px" value="${huiyuan.address}"/></div>
+<#else>
+<div class="grzl_xiala_shu"><input name="adresszh" type="text" class="grzl_xiangxuan03_shu" style="width:320px" value=""/></div>
+</#if>
+</div>
+<div class="grzl_xiang_k">
+<div class="grzi_an1"><a href="javascript:submit();" class="zhu33">保存修改</a></div>
+<div class="grzi_an2"><a href="javascript:location.reload();" class="zhu34">重填</a></div>
+</div>
+</div>
+<div class="grzl_tu">
+<div class="grzl_tukk">
+<div class="grzl_tukkim">
+<#if  huiyuan.txImage??>
+<img src="${applicationPath}/upload/${huiyuan.txImage}" width="100%" height="100%"/>
+<input type="hidden" name="txImage" value="${huiyuan.txImage}"/>
+<#else>
+<img src="${applicationPath}/img/spdet_30.gif" width="100%" height="100%"/>
+</#if>
+</div>
+</div>
+<div class="grzl_tuk_zi"><a href="${applicationPath}/modify_head.html" class="zhu24">修改头像</a></div>
+</div>
+</from>

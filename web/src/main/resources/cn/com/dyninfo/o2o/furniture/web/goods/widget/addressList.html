@@ -1,0 +1,8 @@
+<div class="g2_xiaoti selectaddress">选择地址</div>
+
+<#list addressList as ad>
+<div class="g2_kuai">
+<div class="g2_kuai_daxuan"><input data_value="${ad.province.name} ${ad.city.name} ${ad.county.name} ${ad.address}" name="receiveId" type="radio" value="${ad.address_id}" <#if ad.isdefault==1>checked</#if>/></div>
+<div class="g2_kuai_zi">${ad.receiveName}，${ad.receivePhone}，${ad.receiveTel}， ${ad.province.name} ${ad.city.name} ${ad.county.name} ${ad.address}，${ad.code}</div>
+</div>
+</#list>

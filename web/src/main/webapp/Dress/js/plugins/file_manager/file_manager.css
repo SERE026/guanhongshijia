@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ * All rights reserved.
+ *
+ * This file contains valuable properties of  SHENZHEN Eternal Dynasty
+ * Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+ * confidential information, ideas and expressions.    No part of this
+ * file may be reproduced or distributed in any form or by  any  means,
+ * or stored in a data base or a retrieval system,  without  the prior
+ * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ *
+ */
+
+body {
+	font-size:12px;
+	font-family: "sans serif",tahoma,verdana,helvetica;
+	margin: 0;
+	padding: 0;
+	background-color:#F0F0EE;
+	overflow: hidden;
+}
+td {
+	font-size:12px;
+}
+.top {
+	background-color:#F0F0EE;
+}
+.file-view {
+	overflow: scroll;
+	background-color:#FFFFFF;
+	width: 500px;
+	height: 370px;
+}
+.file-view-area {
+	float:left;
+	border: 1px solid #FFFFFF;
+	margin: 5px;
+}
+.file-view-area .photo {
+	width: 100px;
+	height: 100px;
+	margin: 3px;
+}
+.file-view-area .name {
+	margin: 2px;
+	text-align: center;
+	overflow: hidden;
+	width: 100px;
+	height: 16px;
+}
+.selected {
+	border: 1px solid #888888;
+	background-color: #F0F0EE;
+}
+.noselected {
+	border: 1px solid #DDDDDD;
+	background-color: #FFFFFF;
+}
+.file-list {
+	overflow: scroll;
+	background-color:#FFFFFF;
+	width: 500px;
+	height: 370px;
+}
+.file-list-table {
+	width: 95%;
+}
+.file-list-table .name {
+	width: 55%;
+}
+.file-list-table .size {
+	width: 15%;
+}
+.file-list-table .datetime {
+	width: 30%;
+	text-align: center;
+}

@@ -1,0 +1,67 @@
+
+<div class="splist_right">
+<div class="gr_r">
+<div class="gr_r_ti">
+我的晒单：&nbsp;&nbsp;<span class="STYLE25">（晒单可以获得相应积分，积分可参加每天的积分兑换活动，直接抵扣现金）</span>
+</div>
+<div class="gr_r_sdkk">
+<div class="gr_r_sdkk_tu">
+<div class="gr_r_sdkk_tuimg"><#if huiyuan.txImage??><img src="${applicationPath}/upload/${huiyuan.txImage}" width="100%" height="100%"/><#else><img src="${applicationPath}/img/spdet_30.gif" width="100%" height="100%"/></#if> </div>
+</div>
+<div class="gr_r_sdkk_left"  style="height:auto">
+<div class="gr_r_sdkk_left_aa"><img src="${applicationPath}/img/saisaixiang_03.gif" /></div>
+<div class="gr_r_sdkk_left_bb">
+<div class="gr_r_sdkk_left_bb_ti">
+<a href="${applicationPath}/item-${data.ginfo.goods_id}.html" class="zhu35">${data.ginfo.name }</a>
+</div>
+<div class="gr_r_sdkk_left_bb_xing" style="height:30px;">
+<div class="gr_r_sdkk_xing_zi">评分：</div>
+<#list 1..data.leve as x>
+<div class="spdetail_xiajiantou"><img src="${applicationPath}/img/xing_cai.jpg" /></div>
+</#list>
+
+</div>
+
+
+<div class="gr_rshai_datu"><img src="${applicationPath}/upload/issue/${imagefirst}" id="imgclick" width="100%" height="100%"/></div>
+<div class="gr_rshai_xiaotu">
+<div class="spdetail_xiajiantou">
+
+
+<a href="javascript:;"><img src="${applicationPath}/img/spjiantouleft.gif" border="0" id="left" /></a>
+
+
+</div>
+<!--最多晒6张图片-->
+<div style="width:530px;height:80px;overflow: hidden;float:left;">
+
+<#list imagelist as image>
+<div class="gr_rshai_xiaotu_ka_fen">&nbsp;</div>
+<div class="gr_rshai_xiaotu_ka"><a href="javascript:;"><img src="${applicationPath}/upload/issue/${image}" id="image" class="imageclass" width="100%"  height="100%" border="0" /></a></div>
+</#list>
+</div>
+<!--这个是点了以后的效果-->
+<div class="spdetail_xiajiantou22">
+
+<a href="javascript:;"><img src="${applicationPath}/img/spjiantouright.gif" border="0" id="right"/></a>
+</div>
+
+</div>
+
+
+
+
+
+</div>
+<div class="clear"></div>
+<div  style="height:auto; width:613px; margin:20px 0 0 28px; color:#333333; line-height:20px; font-family:'微软雅黑'; font-size:14px">我的短评</div>
+<div style=" height:auto; width:613px; margin:20px 0 0 28px; color:#999999; line-height:20px; border:#d0e4c2 solid 1px; padding:20px 20px 20px 20px">
+<#if data.saycontent??>${data.saycontent}</#if>
+</div>
+
+</div>
+
+
+
+
+</div>

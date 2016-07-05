@@ -1,0 +1,153 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/head.html' />
+
+
+
+<div class="kuai">
+<div class="nvrejie">
+<div class="nvrenjie_da">
+<div class="taitou_03">
+<div class="taitou_xiashi">填写加盟信息</div>
+
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>店铺名称：</div>
+<div class="ruzhu_kuai_right">
+<input name="" class="name" type="text" class="ruzhu_kr_shu2"/>
+</div>
+<div class="ruzhu_kuai_tishifou msg" style="display:none">名称不符合要求</div>
+<div class="ruzhu_kuai_right_tishi">
+2-20个字符，推荐使用中文名、不包含特殊字符.推荐店铺名称与实体店铺一致
+</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>店铺类型：</div>
+<div class="ruzhu_kuai_right">
+${widget_mhType}
+</div>
+<div class="ruzhu_kuai_right_tishi">请选择您的店铺类型</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>经营类型：</div>
+${widget_busType}
+<div class="ruzhu_kuai_right_tishi">请选择您的经营类型</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>联系人：</div>
+<div class="ruzhu_kuai_right">
+<input name="" type="text"  class="ruzhu_kr_shu2 contactMan"/>
+</div>
+<div class="ruzhu_kuai_tishifou msg"  style="display:none"> 请输入正确的联系人姓名</div>
+<div class="ruzhu_kuai_right_tishi">
+2-10个字符,推荐使用中文名，不包含特殊字符，符号，数字等。
+</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi">联系电话：</div>
+<div class="ruzhu_kuai_right">
+<input name="" type="text"  class="ruzhu_kr_shu2 contactTel"/>
+</div>
+<div class="ruzhu_kuai_tishifou msg"  style="display:none">联系电话和手机号码必须选填一项</div>
+<div class="ruzhu_kuai_right_tishi">
+联系电话和手机号码必须选填一项.
+</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>手机号码：</div>
+<div class="ruzhu_kuai_right">
+<input name="" type="text" class="ruzhu_kr_shu2 contactPhone"/>
+</div>
+<div class="ruzhu_kuai_tishifou msg"  style="display:none">联系电话和手机号码必须选填一项</div>
+<div class="ruzhu_kuai_right_tishi">
+联系电话和手机号码必须选填一项.
+</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>电子邮件：</div>
+<div class="ruzhu_kuai_right">
+<input name="" type="text" class="ruzhu_kr_shu2 contactEmail"/>
+</div>
+<div class="ruzhu_kuai_tishifou msg"  style="display:none">邮件格式不正确</div>
+<div class="ruzhu_kuai_right_tishi">
+请输入您常用的邮箱以便找回密码所用
+</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>公司名称：</div>
+<div class="ruzhu_kuai_right">
+<input name="" type="text" class="ruzhu_kr_shu2 companyName"/>
+</div>
+<div class="ruzhu_kuai_tishifou msg"  style="display:none">公司名称格式不正确</div>
+<div class="ruzhu_kuai_right_tishi "  >
+请输入所属的公司名称
+</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>所在地区：</div>
+
+<div class="ruzhu_kuai_right">
+  <select name="menu1"  style="width:125px" id="provinceId">
+    <option>请选择省份</option>
+
+  </select>
+</div>
+<div class="ruzhu_kuai_right">
+  <select name="menu1"  style="width:125px" id="cityId">
+    <option>请选择城市</option>
+
+  </select>
+</div>
+<div class="ruzhu_kuai_right">
+  <select name="menu1" " style="width:125px" id="countyId">
+    <option>请选择区县</option>
+  </select>
+</div>
+
+<div class="ruzhu_kuai_tishifou msg"  style="display:none">*</div>
+<div class="ruzhu_kuai_right_tishi area"  >请选择您店铺所在的地区</div>
+</div>
+<div class="ruzhu_kuai">
+<div class="ruzhu_kuai_zi"><span class="STYLE10">*</span>详细地址：</div>
+<div class="ruzhu_kuai_right">
+<input name="" type="text" class="ruzhu_kr_shu2 address"/>
+</div>
+<div class="ruzhu_kuai_tishifou msg"  style="display:none">*</div>
+<div class="ruzhu_kuai_right_tishi">
+请填写您的店铺所在的具体街道位置
+</div>
+</div>
+<div class="ruzhu_an">
+<div class="ruzhu_an_an2 submit"><a href="javascript:;" class="zhu33">提交申请</a></div>
+</div>
+<div class="ruzhu_zi22">
+为了节省您的时间和加快审核时间，请你务必认真填写以下的申请信息，我们会尽快与您联系！
+</div>
+
+
+
+</div>
+
+
+
+</div>
+</div>
+<script type="text/javascript" src="${applicationPath}/js/address.js" ></script>
+<script type="text/javascript" src="${applicationPath}/js/apply.js" ></script>
+<script type="text/javascript"  >
+	address("provinceId","cityId","countyId",servicePath+"/widget.html?widget=ArearWidget&action=getArea&dataType=json");
+</script>
+
+
+<#include 'common/buttom.html' />

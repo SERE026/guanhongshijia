@@ -1,0 +1,44 @@
+
+<div class="g4">
+<div class="g4_ka">
+<#if  result=="fail">
+<div class="g4_ka_gou"><img src="${applicationPath}/img/g4_02x.gif" /></div>
+<div class="g4_ka_zheng">
+<div class="g4_ka_wen01">订单付款失败</div>
+<#else>
+<div class="g4_ka_gou"><img src="${applicationPath}/img/g4_02.gif" /></div>
+<div class="g4_ka_zheng">
+<div class="g4_ka_wen01">订单付款成功</div>
+<#if order??>
+<#list order as orderInfo>
+<div class="g4_ka_wen02">
+订单号：<span class="STYLE20">${orderInfo.order_id }</span>&nbsp;&nbsp;&nbsp;付款金额：<span class="STYLE20">¥${orderInfo.orderPrice?string('0.00') }</span> 
+</div>
+</#list>
+</#if>
+<div class="g4_ka_wen03">
+温馨提示：炫品妆成保证100%正品行货，所有炫品商家会在24小时内安排发货
+</div>
+<div class="g4_ka_fenxiang">
+
+	<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1397801168997430" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+</div>
+</#if>
+
+</div>
+
+
+</div>
+</div>

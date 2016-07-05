@@ -1,0 +1,20 @@
+
+<#list shopList as shop >
+
+
+
+
+
+<div class="sjxsp_kuai shop">
+<div class="sjxsp_kuai_tu"><a href="${applicationPath}/shop-${shop.s_id}.html"><img src="${applicationPath}/upload/<#if  shop.image?? >${shop.image}</#if>" width="100%" height="100%" border="0"/></a>
+</div>
+<div class="sjxsp_kuai_zi" style="margin-left:10px; margin-top:5px;">
+<a href="${applicationPath}/shop-${shop.s_id}.html" class="zhu18">${shop.s_name}</a>
+</div>
+<div class="xsp_dajia">
+<div class="xsjia_dajia_ri"><a href="${applicationPath}/shop-${shop.s_id}.html"><img src="${applicationPath}/img/an1.gif"  border="0" /></a>
+</div>
+</div>
+</div>
+
+</#list>

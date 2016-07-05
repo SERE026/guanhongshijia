@@ -1,0 +1,36 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script type="text/JavaScript" src="${applicationPath}/js/collectgocar.js"></script>
+<script type="text/JavaScript" src="${applicationPath}/js/HuiyuanAdv.js"></script>
+
+<div class="xiazhan_kuai_jianleft"><img src="${applicationPath}/img/xiazhan_10.gif" id="left"/></div>
+<div class="xiazhan_kuai_jianmiddle">
+<#list data as orderInfo>
+<div class="xiazhan_xiak"  >
+<div class="xiazhan_xiak_tu">
+	<a href="${applicationPath}/item-${orderInfo.GOODS_ID}.html"><img src="${applicationPath}/upload/goods/${orderInfo.IAMGE}" width="100%" height="100%" border="0"/></a>
+</div>
+<div class="xiazhan_xiak_zi">
+	<a href="${applicationPath}/item-${orderInfo.GOODS_ID}.html" class="zhu1">${orderInfo.GOOD_NAME}</a>
+</div>
+<div class="xiazhan_xiak_zi">
+<div class="xianzhan_jia">¥${orderInfo.salesMoney}</div> 
+<div class="xianzhan_mai"><a href="javascript:addCars(${orderInfo.GOODS_ID})" class="zhu1">&nbsp;&nbsp;&nbsp;&nbsp;加入购物车</a></div>
+</div>
+</div>
+</#list>
+</div>
+<div class="xiazhan_kuai_jianleft"><img src="${applicationPath}/img/xiazhan_13.gif" id="right"/></div>
+
+ 

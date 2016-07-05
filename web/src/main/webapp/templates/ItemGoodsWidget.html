@@ -1,0 +1,165 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script src="js/Cars.js" type="text/javascript" ></script>
+<#if good.merchants??>
+<#if good.merchants.qq??>
+  <div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=${good.merchants.qq}&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+	<img src="${applicationPath}/img/xpkf.png" /></a>
+	</div>
+<#else>
+<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=800055495&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+<img src="${applicationPath}/img/xpkf.png" /></a>
+</div>
+</#if>
+</#if>
+<div class="kuai">
+<div class="sp_list">
+<div class="dingwei">
+${widget_goods_path}
+
+</div>
+<div class="spdetail">
+
+
+<div class="spdetail">
+
+
+${widget_goods_image}
+
+
+<div class="spdetail_right">
+<div class="spdetail_right_ming">${good.name}</div>
+<div class="spdetail_right_jia">
+
+<span class="STYLE11_5">会员价：</span>
+<span class="STYLE11_4">¥</span>
+<span class="STYLE11_2 salesMoney">${good.goodMoney}</span>
+&nbsp;&nbsp;<span class="STYLE11_3">¥${good.bazaarMoney}</span>
+</div>
+
+
+<div class="spdetail_right_gr goodsMoney" dataValue="${good.goodMoney}">
+${widget_goods_attr}
+
+</div>
+<div style="clear:both">&nbsp;</div>
+<div class="spdetail_right_gr_kk">
+<div class="spdetail_right_gr_kk_left">数量：</div>
+<div class="spdetail_right_gr_kk_right">
+<div class="spdetail_right_shulaing">
+<div class="spdetail_right_shulaing_shu"><span id="buyNum">1</span></div>
+<div class="spdetail_right_shulaing_shujaj">
+<div class="spdetail_right_shulaing_shujaj_aa" id="jia"><a href="#"><img src="${applicationPath}/img/shiliang14_05.gif" border="0" /></a></div>
+<div class="spdetail_right_shulaing_shujaj_bb" id="jian"><a href="#"><img src="${applicationPath}/img/shiliang14_08.gif" border="0" /></a></div>
+</div>
+</div>
+<div class="spdetail_right_kucun">库存<span id="kucunNum">${good.inventory}</span>件</div>
+
+</div>
+</div>
+
+
+<div class="clear">&nbsp;</div>
+<div class="spdetail_right_xian">&nbsp;</div>
+<div class="spgr">
+<div class="spgr_an01 addBuy" dataValue="${good.goods_id}"><a href="#"><img src="${applicationPath}/img/zhijiemai.gif" /></a></div>
+<div class="spgr_an01 addCars" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#"><img src="${applicationPath}/img/spdet_13.gif" /></a></div>
+<div class="spgr_an02" g="${good.goods_id}">
+<a href="javascript:;" class="zhu21 addFav">收藏（${favoritesNum}）</a></div>
+<div class="spgr_an03"><a href="${applicationPath}/shop-${good.merchants.shangjia_id}.html" class="zhu22">去店铺首页</a></div>
+</div>
+<div class="clear">&nbsp;</div>
+<div class="sp_xiala">
+销量：最近${good.num}人已经购买，<span class="STYLE12">${showCount}</span>人正在抢购
+</div>
+<div class="sp_det_xiaotu" style="display:none">
+<img src="${applicationPath}/img/kf01.gif" />
+</div>
+<div class="spdetail_right_xian" style="margin:0">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="sp_det_xiaotu2">
+${widget_share}
+</div>
+
+</div>
+</div>
+<script src="js/favorites.js" type="text/javascript"></script>
+
+
+
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="xian02">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="splist_left">
+<div class="rexiao" style="margin:0">
+<div class="rexiao_top">同类最热销商品</div>
+
+<#list Sortlist as sg>
+<div class="rexiao_kuai">
+<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+<div class="rexiao_kuai_zijie">
+<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
+</div>
+<div class="rexoa_xiaojia">
+￥${sg.salesMoney?string('0.00')}
+</div>
+</div>
+</#list>
+
+
+</div>
+<div class="rexiao">
+<div class="rexiao_top">最近浏览过的商品</div>
+
+<#list showList as sg>
+<div class="rexiao_kuai">
+<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+<div class="rexiao_kuai_zijie">
+<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
+</div>
+<div class="rexoa_xiaojia">
+￥${sg.goodMoney?string('0.00')}
+</div>
+</div>
+</#list>
+
+</div>
+</div>
+
+<div class="splist_right" style=" width:830px; overflow:hidden; float:right">
+<div class="spdet_r_titou">
+<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">商品详情</a></div>
+<div class="spdet_r_titou_an"><a href="#s" class="zhu23">产品晒单</a></div>
+</div>
+
+<div class="clear">&nbsp;</div>
+${widget_goods_tuWen}
+
+
+</div>
+</div>
+</div>
+
+<div class="clear" id="s" name="s">&nbsp;</div>
+${widget_comment}
+</div>
+
+
+
+

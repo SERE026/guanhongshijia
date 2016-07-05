@@ -1,0 +1,28 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list newtryuse as info>
+<#if info_index lt 5>
+<div class="shiyngxiangr_kuai">
+<div class="shiyngxiangr_kuai_tu"><a href="${applicationPath}/tryusedetail.html?goodsid=${info.goods_id}"><img src="${applicationPath}/upload/head/<#if info.mfimages??>${info.mfimages}</#if>" width="100%" height="100%" border="0" /></a></div>
+<div class="shiyngxiangr_kuai_zi"><a href="${applicationPath}/tryusedetail.html?goodsid=${info.goods_id}" class="zhu1">${info.name}</a></div>
+<div class="shiyngxiangr_kuai_shizi">
+<div class="shiyngxiangr_kuai_zi02">
+试用份数：<span class="STYLE15">${info.tryno}</span>份
+</div>
+<div class="shiyngxiangr_kuai_an03">
+  <a href="${applicationPath}/tryuseapply.html?goodsid=${info.goods_id}"><img src="${applicationPath}/img/sxiang_08.gif" border="0" /></a></div>
+</div>
+</div>
+</#if>
+</#list>

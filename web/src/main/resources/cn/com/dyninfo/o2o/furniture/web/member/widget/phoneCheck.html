@@ -1,0 +1,53 @@
+
+<script>
+	var servicePath="${applicationPath}";
+</script>
+<script type="text/JavaScript" src="${applicationPath}/js/jquery-1.4.2.min.js"></script>
+<script type="text/JavaScript" src="${applicationPath}/js/phoneCheck.js"></script>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<div style="font-size:15px;">炫品妆成手机验证</div>
+<div class="zhuce_k">
+<div class="zhuce_k_zi">手机号码：</div>
+<div class="zhuce_k_bao">
+<div>
+<input name="phone" id="phone" type="text" class="zhuce_k_baoshuru_aa"/>
+</div>
+<div class="phoneErr" style="color:#ff0000;font-size:12px;display:none">
+	asldfjasdklf
+</div>
+
+</div>
+<div class="zhuce_k_bao_shuom" id="phonets" style="display:">
+	<div id="send">
+		<input type="button" id="btnSend" value="获取验证码">
+	</div>
+</div>
+
+</div>
+
+
+
+
+<div class="zhuce_k">
+<div class="zhuce_k_zi">验 证 码：</div>
+<div class="zhuce_k_bao">
+	<input type="hidden" id="qqid" value="${qquser.qqid}"/>
+	<input type="text" class="zhuce_k_baoshuru_bb" value="输入验证码" id="codeValue" style="color:gray;">
+	<input type="button" id="btnOk" value="确定">
+</div>
+
+</div>
+<div class="zhuce_k codeErr" style="color:#ff0000;font-size:12px;margin-left:75px;margin-top:1px;display:none">
+
+</div>
+
+
+</div>
+
+

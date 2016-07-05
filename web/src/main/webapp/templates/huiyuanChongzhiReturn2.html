@@ -1,0 +1,42 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/head.html' />
+
+${widget_huiyuanChongzhiReturn2 }
+
+
+<div class="g1_tuijian">
+<div class="g1_tuijian_top">
+<div class="g1_tuijian_top_ti">炫品为您推荐</div>
+</div>
+<div class="g1_tuijian_mid">
+<#if recommendList??>
+<#list recommendList as g>
+<div class="g1_tuijian_mid_kuai">
+<div class="g1_tuijian_mid_tu"><a href="item-${g.goods_id}.html"><img src="${applicationPath}/upload/goods/${g.defaultImage}" border="0" width="100%" height="100%" /></a></div>
+<div class="g1_tuijian_mid_zi">
+<a href="#" class="zhu24">${g.name}</a></div>
+<div class="tujuina_jia">¥<span class="STYLE10">${g.goodMoney}</span></div>
+<div class="g1_tuijian_mid_zi">
+月销：${g.num}笔
+</div>
+</div>
+</#list>
+</#if>
+
+
+</div>
+</div>
+
+<#include 'common/buttom.html' />

@@ -1,0 +1,123 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/head.html' />
+ <script type="text/JavaScript" src="${applicationPath}/js/address.js"></script>
+<script type="text/JavaScript" src="${applicationPath}/Dress/js/ajax.js"></script>
+ <script type="text/JavaScript" src="${applicationPath}/js/modify_head.js"></script>
+<script>
+	var servicePath="${applicationPath}";
+</script>
+<div class="kuai">
+<div class="sp_list">
+<div class="splist_left">
+${widget_huiyuan_menu }
+<div class="sp_guangg22">${widget_order_adv_pic1}</div>
+<div class="sp_guangg22">${widget_order_adv_pic2}</div>
+</div>
+
+<div class="splist_right">
+<div class="gr_r">
+<div class="gr_r_ti">
+修改头像
+</div>
+<div class="xiugai">
+<div class="xiugaitu">
+
+${widget_member_tx}
+
+
+</div>
+<div class="xiugaitu">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 	<script type="text/javascript" src="${applicationPath}/Dress/js/AC_OETags.js"></script>
+   		<script type="text/javascript" src="${applicationPath}/Dress/js/fileUpload.js"></script>
+		<!-- 上传附件按钮 -->
+		<script language="JavaScript" type="text/javascript">
+		function removeFiles(fileName){
+			document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
+		}
+		AC_FL_RunContent(
+			"src", "${applicationPath}/Dress/swf/fileUpload",
+			"width", "100",
+			"height", "30",
+			"id", "fileUpload",
+			"quality", "high",
+			"bgcolor", "#ffffff",
+			"name", "fileUpload",
+			"wmode","transparent",
+			"allowScriptAccess","sameDomain",
+			"type", "application/x-shockwave-flash",
+			"pluginspage", "http://www.adobe.com/go/getflashplayer",
+			"flashVars","flexID=a&uploadURL=${applicationPath}/upload/upload.jsp&label=头 像 上 传&succeed=a_completeUpload"
+		);
+		
+		function a_completeUpload(fileName, realName){
+			if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
+			 ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
+					var str="";
+					str += "<div id='"+fileName+"' style='display: inline;'>";
+					str += "<input type='hidden' name='head_img' value='"+fileName+"'/>&nbsp;";
+					str += "<img src=\"${applicationPath}/upload/"+fileName+"\" height=200 width=200 />";
+					str += "</div>";
+					document.getElementById("imgUrl").innerHTML=str;
+						var str2="";
+					str2 += "<div id='"+fileName+"' style='display: inline;'>";
+					str2 += "<input type='hidden' name='head_img1' value='"+fileName+"'/>&nbsp;";
+					str2 += "<img src=\"${applicationPath}/upload/"+fileName+"\" height=64 width=64 />";
+					str2 += "</div>";
+						document.getElementById("imgUrl2").innerHTML=str2;
+					
+			}else{
+				alert("请上传图片。");
+			}
+		}
+		</script>
+		</div>
+
+<div class="xiugaitu">
+<div class="xiugai_xuantu"><a href="javascript:submittx();" class="zhu33">更新头像</a></div>
+</div>
+<div class="xiugai_tishi">
+友情提示：更换头像后，其他地方（如口碑中心等）的头像可能需要过一段时间才会生效
+</div>
+
+<div class="xiugai_tishi">
+<a href="${applicationPath}/huiyuan_personal.html" class="zhu35">返回资料维护页面</a></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="xiazhan_kuai_jianleft"><img src="${applicationPath}/img/xiazhan_13.gif" /></div>
+
+
+
+
+
+
+
+
+
+
+   
+<#include 'common/buttom.html' />
+
+
+
+
+

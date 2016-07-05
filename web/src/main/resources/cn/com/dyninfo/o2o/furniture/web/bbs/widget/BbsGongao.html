@@ -1,0 +1,63 @@
+<#list data as bbs>
+<div class="koubei_xiwen_tiao">
+<div class="koubei_xiwen_dian"><img src="${applicationPath}/img/koubei_dian.gif"/></div>
+<div class="koubei_xiwen_tiao_zi"><a href="${applicationPath}/bbs-${bbs.id}.html" class="zhu1">
+<#if bbs.title??>
+	${bbs.title}
+</#if>
+
+</a></div>
+</div>
+</#list>
+<div class="koubei_fanywe">
+<div class="koubei_fanywe_ai"><a href="javascript:;" class="xiayiye">下一页</a></div>
+<div class="koubei_fanywe_ai"><a href="javascript:;" class="shangyiye">上一页</a></div>
+
+<script>
+		$(".xiayiye").click(function(){
+			$.ajax({
+				  type: 'POST',
+				  url: servicePath+"/widget.html",
+				  data: "widget=bbsGongao&action=getTotale",
+				  dataType: "json",
+				  success: function(data){
+					  totaleno	=	Math.round(data.total/10);
+					  cout++;
+					if(cout>totaleno){
+						alert("已经是最后一页了！");
+						cout--;
+						return;
+					}
+					$.ajax({
+					  type: 'POST',
+					  url: servicePath+"/widget.html",
+					  data: "widget=bbsGongao&pageNo="+cout,
+					  dataType: "html",
+					  success: function(data){
+					  		$(".koubei_xiwen_tiao").parent().html(data);
+						}
+					});
+					}
+				});
+		
+			
+		});
+		
+		$(".shangyiye").click(function(){
+			cout--;
+			if(cout==0){
+				alert("已经是第一页了！");
+				cout=1;
+				return;
+			}
+				$.ajax({
+				  type: 'POST',
+				  url: servicePath+"/widget.html",
+				  data: "widget=bbsGongao&pageNo="+cout,
+				  dataType: "html",
+				  success: function(data){
+				  	$(".koubei_xiwen_tiao").parent().html(data);
+				}
+				});
+		});
+</script>

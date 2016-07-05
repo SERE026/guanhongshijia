@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets>
+	<widget id="rxList">
+		<Object>GOOD</Object>
+		<orderBy>xiaoliang desc</orderBy><!-- 销量排序 -->
+		<pageSize>10</pageSize><!-- 查询数据数量 -->
+		<result>data</result>
+		<!-- <SortId>分类</SortId> -->
+	</widget>
+	
+	<widget id="allGood">
+		<Object>GOOD</Object>
+		<orderBy>g_index asc</orderBy><!-- 销量排序 -->
+		<pageSize>21</pageSize><!-- 查询数据数量 -->
+		<result>data</result>
+		<!-- <SortId>分类</SortId> -->
+	</widget>
+	<widget id="allGoodNum">
+		<Object>GOOD</Object>
+		<result>num</result>
+	</widget>
+	<widget id="goodSort">
+		<Object>SORT</Object>
+		<pageSize>100</pageSize>
+		<result>list</result>
+	</widget>
+</widgets>

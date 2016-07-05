@@ -1,0 +1,150 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<form name="form1" id="form1" action="${applicationPath}/huiyuan_adress.html" method="post"><div class="splist_right">
+<div class="gr_r">
+<div class="gr_r_ti">
+新增收货地址
+</div>
+<div class="gr_dizhi_ka">
+<span class="STYLE10">新增收货地址</span>&nbsp;&nbsp;电话号码、手机号选填一项,其余均为必填项
+</div>
+<div class="gr_dizhi_bao">
+<div class="gr_dizhi_bao_kuai">
+<div class="gr_dizhi_bao_kuai_zi">所在地区：</div>
+<div class="gr_dizhi_bao_x">*</div>
+<div class="gr_dizhi_bao_kuai_right">
+<div class="gr_dizhi_bao_kuai_right_dd">
+<select name="province.id" id="provinceId" dataVal="" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+</div>
+<div class="gr_dizhi_bao_kuai_right_dd">
+<select name="city.id" id="cityId" dataVal="" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+</div>
+<div class="gr_dizhi_bao_kuai_right_dd">
+<select name="county.id" id="countyId" dataVal="" style="width:98px">
+									<option value="">--请选择--</option>
+								</select>
+</div>
+<div class="zhuce_k_bao_shuom" id="adresssts" style="display:none">地区中不能为空!</div>
+</div>
+</div>
+<div class="gr_dizhi_bao_kuai">
+<div class="gr_dizhi_bao_kuai_zi">邮政编码：</div>
+<div class="gr_dizhi_bao_x">*</div>
+<div class="gr_dizhi_bao_kuai_right">
+<input name="code" id="code" type="text" class="gr_dizhi_bao_shuru02"/>
+</div>
+<div class="zhuce_k_bao_shuom" id="codets" style="display:none">邮政编码不能为空!</div>
+</div>
+<div class="gr_dizhi_bao_kuai">
+<div class="gr_dizhi_bao_kuai_zi">街道地址：</div>
+<div class="gr_dizhi_bao_x">*</div>
+<div class="gr_dizhi_bao_kuai_right">
+<textarea name="address" id="address" cols="" rows="" class="gr_dizhi_bao_shuru03"></textarea>
+</div>
+<div class="zhuce_k_bao_shuom" id="addressts" style="display:none">街道地址不能为空!</div>
+</div>
+<div class="gr_dizhi_bao_kuai">
+<div class="gr_dizhi_bao_kuai_zi">收货人姓名：</div>
+<div class="gr_dizhi_bao_x">*</div>
+<div class="gr_dizhi_bao_kuai_right">
+<input name="receiveName"  id="receiveName" type="text" class="gr_dizhi_bao_shuru02"/>
+</div>
+<div class="zhuce_k_bao_shuom" id="receiveNamets" style="display:none">收货人姓名不能为空!</div>
+</div>
+<div class="gr_dizhi_bao_kuai">
+<div class="gr_dizhi_bao_kuai_zi">手机号码：</div>
+<div class="gr_dizhi_bao_x">&nbsp;</div>
+<div class="gr_dizhi_bao_kuai_right">
+<input name="receivePhone" id="receivePhone" type="text" class="gr_dizhi_bao_shuru02"/>
+</div>
+<div class="zhuce_k_bao_shuom" id="phonets" style="display:none">手机号码输入有误,请重新输入!</div>
+</div>
+
+<div class="gr_dizhi_bao_kuai">
+<div class="gr_dizhi_bao_kuai_zi">电话号码：</div>
+<div class="gr_dizhi_bao_x">&nbsp;</div>
+<div class="gr_dizhi_bao_kuai_right">
+<div class="gr_dizhi_bao_fen">
+<input name="receiveTel1" id="receiveTel1" type="text" class="gr_dizhi_bao_shuru04"/>
+</div>
+<div class="gr_dizhi_bao_fen22">-</div>
+<div class="gr_dizhi_bao_fen">
+<input name="receiveTel2" id="receiveTel2" type="text" class="gr_dizhi_bao_shuru04"/>
+</div>
+<div class="gr_dizhi_bao_fen22">-</div>
+<div class="gr_dizhi_bao_fen">
+<input name="receiveTel3" id="receiveTel3" type="text" class="gr_dizhi_bao_shuru04"/>
+</div>
+</div>
+</div>
+<div class="gr_dizhi_bao_kuai">
+<div class="gr_dizhi_bao_kuai_zi">设为默认收货地址：</div>
+<div class="gr_dizhi_bao_x">&nbsp;</div>
+<div class="gr_dizhi_bao_kuai_right">
+<div class="gr_dizhi_danxuan"><input name="isdefault" id="isdefault" type="checkbox" value="1" /></div>
+<div class="gr_dizhi_bao_fen22">设置为默认收货地址</div>
+</div>
+</div>
+<div class="gr_dizhi_an01"><a href="javascript:gosubmit();" class="zhu33">保存</a></div>
+<div class="gr_dizhi_an02"><a href="${applicationPath}/huiyuan_adress.html" class="zhu34">重填</a></div>
+
+
+
+
+</div>
+<div class="touming8">&nbsp;</div>
+<div class="gr_r_ti">
+我的收货地址
+</div>
+<div class="gr_dizhi_you">
+<div class="gr_dizhi_you_top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab12">
+<tr>
+<td style=" width:123px;">收货人</td>
+<td style=" width:129px;">所在地区</td>
+<td style=" width:172px;">街道地址</td>
+<td style=" width:50px;">邮编</td>
+<td style=" width:135px;">电话/手机</td>
+<td style=" width:80px;">&nbsp;</td>
+<td style=" width:128px;">操作</td>
+</tr>
+</table>
+</div>
+<div class="gr_dizhi_you_z">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab13">
+<#list DATA as adresslist>
+<tr class="tab13_lan"><!--默认收货地址状态-->
+<td style=" width:123px;">${adresslist.receiveName}</td>
+<td style=" width:129px;">${adresslist.province.name} &nbsp;${adresslist.city.name}&nbsp;${adresslist.county.name} </td>
+<td style=" width:172px;">${adresslist.address}</td>
+<td style=" width:50px;">${adresslist.code}</td>
+<td style=" width:135px;">${adresslist.receivePhone}<br />${adresslist.receiveTel}</td>
+<#if  adresslist.isdefault==1>
+<td style=" width:80px;"><span class="STYLE26">默认地址</span></td>
+<#else>
+<td style=" width:80px;"><a href="javascript:godefault(${adresslist.address_id})" class="zhu24">设为默认</a></td>
+</#if>
+<td style=" width:128px;"><a href="${applicationPath}/huiyuan_adress_modify.html?adresModifyid=${adresslist.address_id}" class="zhu24">修改</a> | <a href="javascript:deleteadress(${adresslist.address_id});" class="zhu24">删除</a></td>
+</tr>
+</#list>
+</table>
+</div>
+</div>
+<div class="gr_dizhi_ti22">最多保存20个有效地址</div>
+</div>
+</form>

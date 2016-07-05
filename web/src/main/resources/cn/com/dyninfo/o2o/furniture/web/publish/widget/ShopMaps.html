@@ -1,0 +1,47 @@
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AK4Z6oiZ4uGtRwpN9a1ksmS1"></script>
+<div class="touming13">&nbsp;</div>
+<div class="baiduditu" id="map">
+<div style=" width:900px; height:500px;background-color:#eeeeee">
+
+</div>
+</div>
+<script type="text/javascript">
+   $(function (){
+            // 鐧惧害鍦板浘API鍔熻兘
+			var map = new BMap.Map("map");
+			map.centerAndZoom("${data.city.name}", 11);
+			map.addControl(new BMap.NavigationControl());  //娣诲姞榛樿缂╂斁骞崇Щ鎺т欢
+            var point = new BMap.Point(${data.longitude?string('0.00000')},${data.latitude?string('0.00000')});
+		    var marker = new BMap.Marker(point);
+			map.addOverlay(marker);
+			var licontent = "<b>${data.name}</b><br>";
+			licontent += "<span><strong>\u5730\u5740\uff1a</strong>${data.address}</span><br>";
+			licontent += "<span><strong>\u7535\u8bdd\uff1a</strong>${data.contactPhone}</span><br>";
+			licontent += "<span class=\"input\"><strong></strong><input class=\"outset\" type=\"text\" name=\"origin\" value=\"${data.name}\"/><input class=\"outset-but\" type=\"button\" value=\"\u9a7e\u8f66\"  onclick=\"gotobaidu(2)\"/><a class=\"gotob\" href=\"url=\"http://api.map.baidu.com/direction?destination=latlng:" + marker.getPosition().lat + "," + marker.getPosition().lng + "|name:${data.name}" + "\xaeion=${data.city.name}" + "&output=html\" target=\"_blank\"></a></span>";
+			var hiddeninput = "<input type=\"hidden\" value=\"" + "${data.city.id}" + "\" name=\"region\" /><input type=\"hidden\" value=\"html\" name=\"output\" /><input type=\"hidden\" value=\"driving\" name=\"mode\" /><input type=\"hidden\" value=\"latlng:" + marker.getPosition().lat + "," + marker.getPosition().lng + "|name:${data.name}" + "\" name=\"destination\" />";
+			//var content1 = "<form id=\"gotobaiduform\" action=\"http://api.map.baidu.com/direction\" target=\"_blank\" method=\"get\">" + licontent + hiddeninput + "</form>";
+			var opts1 = {width:300};
+			var infoWindow = new BMap.InfoWindow(content1, opts1);
+			marker.openInfoWindow(infoWindow);
+			marker.addEventListener("mouseover", function () {
+				marker.openInfoWindow(infoWindow);
+			});
+			function gotobaidu(type) {
+				if ($.trim($("input[name=origin]").val()) == "") {
+					alert("\u8bf7\u8f93\u5165\u8d77\u70b9\uff01");
+					return;
+				} else {
+					if (type == 1) {
+						$("input[name=mode]").val("transit");
+						$("#gotobaiduform")[0].submit();
+					} else {
+						if (type == 2) {
+							$("input[name=mode]").val("driving");
+							$("#gotobaiduform")[0].submit();
+						}
+					}
+				}
+			}
+     });
+</script>

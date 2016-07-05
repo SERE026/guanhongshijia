@@ -1,0 +1,83 @@
+/*
+ * Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ * All rights reserved.
+ *
+ * This file contains valuable properties of  SHENZHEN Eternal Dynasty
+ * Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+ * confidential information, ideas and expressions.    No part of this
+ * file may be reproduced or distributed in any form or by  any  means,
+ * or stored in a data base or a retrieval system,  without  the prior
+ * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ *
+ */
+
+@charset "utf-8";
+
+div,table,form,ul,li,dt,dd,dl,a,body,img{margin:0px; padding:0px; list-style-type:none; font-size:12px; font-family:"微软雅黑"; text-decoration:none; color:#666666;}
+img{border:0px;}
+a{border:#FFFFFF solid 0px; outline:none}
+body{ background-color:#fff;max-width:720px;}
+
+
+
+.touming{ width:100%; height:50px; overflow:hidden}
+
+
+.clear{ width:0; height:0; overflow:hidden; clear:both}
+
+.fla{ width:100%; height:470px; overflow:hidden; margin:auto}
+.inda{ width:100%;min-height:405px; margin:auto;}
+.tuda{ width:95%; height:auto; margin:auto}
+.inda_k01{ width:47%; height:390px; float:left; background-color:#ff4366; margin-top:8px;}
+.inda_k01zida{ width:42%; height:auto; font-size:28px; color:#ffffff; margin:38px 0 0 38px; line-height:30px;text-overflow:ellipsis; white-space:nowrap;} 
+.inda_k01zixiao{ width:42%; height:auto; font-size:18px; color:#ffffff; margin:10px 0 0 38px; line-height:20px;text-overflow:ellipsis; white-space:nowrap;} 
+.dattut{ width:126px; height:126px; overflow:hidden; float:right; margin-top:145px}
+
+.xiaokuai01{ width:165px; height:191px; float:left; margin-left:8px; margin-top:8px; background-color:#f96342}
+.xiaokuai02{ width:165px; height:191px; float:left; margin-left:8px; margin-top:8px; background-color:#fb9d9b}
+.xiaokuai03{ width:165px; height:191px; float:left; margin-left:8px; margin-top:8px; background-color:#739f9c}
+.xiaokuai04{ width:165px; height:191px; float:left; margin-left:8px; margin-top:8px; background-color:#b2cebf}
+.xkxiaotu{ width:57px; height:57px; overflow:hidden; margin:40px 0 0 50px}
+.xkxiaozi{ width:165px; height:auto; line-height:24px; font-size:22px; text-align:center; color:#ffffff; margin-top:35px}
+
+.banquan{ width:100%; height:100px; line-height:30px; font-size:22px; color:#000000; margin:auto; padding-top:70px; text-align:center; background-color:#ffffff; margin-top:70px}
+
+.titi{ width:540px; height:auto; margin:auto; padding-top:21px; line-height:40px; font-size:34px; color:#000000; text-align:center}
+.tuwenpai{ width:540px; height:auto; margin:auto; font-size:24px; color:#938953; padding-top:21px; overflow:hidden}
+.tuwenpai img{ width:100%; height:auto}
+
+
+.aaa{ width:100%; height:100%; background-color:#fff; padding-bottom:120px}
+.a22_kuai{ width:100%; height:505px; margin-top:15px}
+.a22_kuai_time{ width:93px; height:113px; overflow:hidden; margin-left:20px; float:left; line-height:40px; color:#fff; padding-top:15px; background-image:url(../img/a22_03.gif); background-repeat:no-repeat; font-size:22px; text-align:center}
+.a22_kuai_tui{ width:572px; height:505px; overflow:hidden;margin-left:20px; float:left; background-image:url(../img/a22_05.gif); background-repeat:no-repeat; }
+
+
+.a22_ti{ width:465px; max-height:60px;line-height:30px; margin:auto; font-size:30px; color:#000; padding-top:30px; overflow:hidden}
+.a22_tu{ width:460px; height:257px;margin:20px 0 0 53px; overflow:hidden}
+.a22_ti22{ width:465px; max-height:24;line-height:24px; margin:auto; font-size:24px; color:#000; padding-top:20px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;}
+
+.bot{ width:100%; height:101px; position:fixed; left:0; bottom:0}
+.bot_01{ width:235px; height:101px; float:left; overflow:hidden}
+.bot_xian{ width:6px; height:101px; float:left; overflow:hidden}
+.bot_02{ width:235px; height:101px; float:left; overflow:hidden}
+
+.fanhui{ width:100%; height:70px; background-color:#000; margin-top:30px; text-align:center; line-height:70px; color:#fff;}
+.fanhui a{ width:100%; height:70px; display:block}
+
+
+
+a.zhu1:link{font-size:24px; color:#02b2db;}
+a.zhu1:visited{font-size:24px; color:#02b2db;}
+a.zhu1:hover{font-size:24px; color:#ea9668;} 
+
+
+a.zhu2:link{font-size:24px; color:#fff; line-height:70px}
+a.zhu2:visited{font-size:24px; color:#fff;line-height:70px}
+a.zhu2:hover{font-size:24px; color:#fff;line-height:70px} 
+
+a.zhu3:link{font-size:22px; color:#000000;}
+a.zhu3:visited{font-size:22px; color:#000000;}
+a.zhu3:hover{font-size:22px; color:#000000;} 
+
+

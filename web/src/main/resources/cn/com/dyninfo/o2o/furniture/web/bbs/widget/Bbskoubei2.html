@@ -1,0 +1,31 @@
+<#list data as d>
+<div class="koubei_kuai">
+<div class="koubei_kuai_tu"><a href="${applicationPath}/bbs_koubei_shaidan.html?bbsid=${d.comment_id}"><img src="${applicationPath}/upload/goods/${d.ginfo.defaultImage}" width="100%" height="100%" border="0" /></a></div>
+<div class="koubei_kuai_zi">
+<#if  d.ginfo.tryuse=='1'>
+	<a href="${applicationPath}/tryusedetail.html?goodsid=${d.ginfo.goods_id}" class="zhu1">
+<#else>
+	<a href="${applicationPath}/item-${d.ginfo.goods_id}.html" class="zhu1">
+</#if>
+${d.ginfo.name}</a></div>
+<div class="koubei_kuai_ren">
+<div class="koubei_kuai_ren_touxiang">
+<#if  d.info.txImage??>
+<img src="${applicationPath}/upload/${d.info.txImage}" width="100%" height="100%"/>
+<#else>
+<img src="${applicationPath}/img/spdet_30.gif" width="100%" height="100%"/>
+</#if>
+</div>
+<div class="koubei_kuai_ren_zida">
+<div class="koubei_kuai_ren_zi01">${d.info.name}</div>
+<div class="koubei_kuai_ren_zi02"><#if  d.content??>${d.content}</#if></div>
+</div>
+
+</div>
+<div class="koubei_guan">
+<div class="koubei_guan_zi"><a href="javascrpt:;">发帖数${d.info.comment?size}</a></div>
+<div class="koubei_guan_tu"><a href="${applicationPath}/bbs_koubei_shaidan.html?bbsid=${d.comment_id}"><img src="${applicationPath}/img/koubei_07.gif" border="0" /></a></div>
+</div>
+</div>
+</#list>
+

@@ -1,0 +1,52 @@
+<!doctype html>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Dynamic Load Examples</title>
+		<style>
+			form {
+				margin: 0;
+			}
+			textarea {
+				display: block;
+			}
+		</style>
+		<script charset="utf-8" src="jquery.js"></script>
+		<script>
+			$(function() {
+				$('input[name=load]').click(function() {
+					$.getScript('../kindeditor-min.js', function() {
+						KindEditor.basePath = '../';
+						KindEditor.create('textarea[name="content"]');
+					});
+				});
+				$('input[name=remove]').click(function() {
+					KindEditor.remove('textarea[name="content"]');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h3>异步加载</h3>
+		<form>
+			<textarea name="content" style="width:800px;height:200px;"></textarea>
+			<p>
+				<input type="button" name="load" value="加载JS并创建编辑器" />
+				<input type="button" name="remove" value="删除编辑器" />
+			</p>
+		</form>
+	</body>
+</html>

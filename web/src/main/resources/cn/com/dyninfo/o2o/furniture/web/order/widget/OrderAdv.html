@@ -1,0 +1,27 @@
+
+<#list data as goodsInfo>
+ <#if goodsInfo_index%5==0> 
+ <div class="g1_tuijian_mid">
+ </#if>
+  <div class="g1_tuijian_mid_kuai">
+ 
+<div class="g1_tuijian_mid_tu"> <a href="${applicationPath}/item-${goodsInfo.GOODS_ID}.html"><img src="${applicationPath}/upload/goods/${goodsInfo.IAMGE}" width="100%" height="100%" border="0"/></a></div>
+<div class="g1_tuijian_mid_zi">
+<a href="#" class="zhu24">${goodsInfo.GOOD_NAME}</a></div>
+<div class="tujuina_jia">¥<span class="STYLE10">${goodsInfo.salesMoney}</span></div>
+<div class="g1_tuijian_mid_zi">
+月销：${goodsInfo.SALESNUM}笔
+</div>
+</div>
+ <#if (goodsInfo_index+1)%5==0> 
+</div>
+ </#if>
+</#list>
+
+
+
+
+
+
+
+

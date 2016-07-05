@@ -1,0 +1,174 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<div class="kuai">
+<div class="sp_list">
+<div class="dingwei">
+首页 > <a href="active.html">热门活动</a> > <span class="STYLE10">${actGood.goodName}</span>
+</div>
+
+<div class="hddet_da">
+
+<div class="hddet_da_left">
+
+<div class="hd_fudong">
+<div class="hd_fudong_jia2">¥</div>
+<div class="hd_fudong_jia3">
+${actGood.money?string('0.00')}
+</div>
+
+<#if actGood.actFlag==1>
+<div class="hd_fudong_leixing"><a href="${applicationPath}/game-${actGood.actId}-${actGood.goodId}.html"><img src="${applicationPath}/img/hddat_fu3.gif" border="0" /></a></div>
+
+</#if>
+<#if actGood.actFlag==0>
+<div class="hd_fudong_leixing addCars" gid="${actGood.goodId}" aid="${actGood.actId}"><a href="javascript:;"><img src="${applicationPath}/img/hddat_fu2.gif" border="0" /></a></div>
+</#if>
+
+</div>
+<div class="hd_daleft_zong">
+<div class="hd_daleft_zong_left">
+<div class="hddatlezongleft_zia">参加炫品妆成活动，赢直降实惠</div>
+<div class="hd_daleft_zong_left_xain">&nbsp;</div>
+<div class="hddat_shuliang">
+<div class="hddat_shuliang_aa">数量：</div>
+<div class="hddat_shuliang_bb"><a href="javascript:;" class="sub"><img src="${applicationPath}/img/hddat01_07.gif" border="0" /></a></div>
+<div class="hddat_shuliang_cc numBox">1</div>
+<div class="hddat_shuliang_bb"><a href="javascript:;"  class="add"><img src="${applicationPath}/img/hddat01_09.gif" border="0" /></a></div>
+</div>
+<div class="hd_daleft_zong_left_xain">&nbsp;</div>
+<div class="hddat_shijian">
+<div class="hddat_shijian_kaa"><img src="${applicationPath}/img/hddat01_11.gif" /></div>
+<div class="hddat_shijian_zi acttime2"  time="${actGood.ctime}">
+
+
+<span class="STYLE30">10</span>小时<span class="STYLE30">20</span>分<span class="STYLE30">22</span>秒
+
+
+</div>
+</div>
+<div class="hd_daleft_zong_left_xain">&nbsp;</div>
+<div class="hddat_shijian">
+<div class="hddat_shijian_kaa"><img src="${applicationPath}/img/hddat01_10.gif" /></div>
+<div class="hddat_shijian_zi">
+<span class="STYLE30">${actGood.xiaoliang}</span>&nbsp;人已购买
+</div>
+</div>
+<div class="hddat_tishibb">数量有限，下手要尽快哦</div>
+
+</div>
+
+
+<div class="hd_daleft_zong_right"><img src="${applicationPath}/upload/goods/${actGood.image}" width="100%" height="100%" /></div>
+
+
+</div>
+
+<div class="">
+<div class="hddat_titou">
+<div class="hddat_titou_an"><a href="#" class="zhu23">商品详情</a></div>
+</div>
+<div class="spdet_tuwen">
+<div class="spdet_tuwen_ti"><img src="${applicationPath}/img/spdet_25.gif" /></div>
+
+<div class="hddat_tuwen_kuai">
+${actGood.description2} 
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+<div class="hddet_da_right">
+<div class="hddet_da_right_top">
+购买该商品的用户还买了
+</div>
+
+<#list buyList as buy>
+<div class="hddet_da_right_kuai">
+<div class="hddat_r_tu"><a href="${applicationPath}/item-${buy.goodId}.html"><img src="${applicationPath}/upload/goods/${buy.image}" width="100%" height="100%" border="0"/></a></div>
+<div class="hddat_r_jia">
+<div class="hddat_r_jia_zi"><a href="${applicationPath}/item-${buy.goodId}.html" class="zhu27">${buy.goodName}</a></div>
+<div class="hddat_r_jia_zi2"><span class="STYLE10">￥${buy.money}</span>&nbsp;<span class="STYLE31">￥${buy.xmoney}</span></div>
+<div class="hddat_r_jia_zi3"><span class="STYLE32">${buy.xiaoliang}</span>人已购买</div>
+</div>
+</div>
+</#list>
+
+
+<div class="hddet_da_right_top2">
+同类型推荐
+</div>
+<#list sortList as good>
+<div class="hddet_da_right_kuai">
+<div class="hddat_r_tu"><a href="${applicationPath}/item-${good.goodId}.html"><img src="${applicationPath}/upload/goods/${good.image}" width="100%" height="100%" border="0"/></a></div>
+<div class="hddat_r_jia">
+<div class="hddat_r_jia_zi"><a href="${applicationPath}/item-${good.goodId}.html" class="zhu27">${good.goodName}</a></div>
+<div class="hddat_r_jia_zi2"><span class="STYLE10">￥${good.money}</span>&nbsp;<span class="STYLE31">￥${good.xmoney}</span></div>
+<div class="hddat_r_jia_zi3"><span class="STYLE32">${good.xiaoliang}</span>人已购买</div>
+</div>
+</div>
+</#list>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+<script src="${applicationPath}/js/activeItem.js" ></script>
+

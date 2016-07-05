@@ -1,0 +1,140 @@
+ <!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script type="text/JavaScript" src="${applicationPath}/Dress/js/layer/layer.js"></script>
+<div class="gouwuche">
+<div class="g2_tou">
+收货人信息
+</div>
+<div class="g2_xian">&nbsp;</div>
+<div class="g2_xiaoti">选择配送方式</div>
+<div class="g2_kuai">
+<div class="g2_kuai_daxuan"><input name="dlyType" type="radio" value="1" checked/></div>
+<div class="g2_kuai_zi"><span class="STYLE10">【快递方式】</span></div>
+<div class="g2_kuai_daxuan"><input name="dlyType" type="radio" value="0" /></div>
+<div class="g2_kuai_zi"><span class="STYLE10">【我要自己提货】 </span></div>
+</div>
+
+
+
+
+
+<#include 'addressList.html' />
+
+
+<div class="touming5">&nbsp;</div>
+<div class="g2_xian">&nbsp;</div>
+<#include 'newAddress.html' />
+<#include 'delivery.html' />
+
+
+<div class="g2_tou">
+商品明细
+</div>
+
+
+<#list data as shop>
+<div class="gouwuche_14kuai shop"  distribution="distribution${shop_index}" mappend="product${shop_index}" s_id="${shop.shop_id}" >
+<div class="g2_xian">&nbsp;</div>
+<div class="g1_fahuoren ">以下商品由&nbsp;<span class="STYLE10">${shop.shop_Name}</span>&nbsp;发货</div>
+<div class="g2_biaotou">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab04">
+  <tr>
+    <td width="65%">商品名称</td>
+    <td width="12%">单价（元）</td>
+    <td width="8%">数量</td>
+    <td width="15%">小计（元）</td>
+  </tr>
+</table>
+</div>
+
+
+<#list shop.list as good>
+<div class="g2_biao product${shop_index}"  g_id="${good.good_id}:${good.shop_id}:${good.actId}_${good.actMoney}:${good.num}:${good.id}" d_g="${good.deliverFlag}">
+<table width="100%" border="0" cellspacing="5" cellpadding="0" class="tab004">
+  <tr>
+    <td width="66%" style="text-align:left">
+	<div class="g2_li"><a href="item-${good.good_id}.html"><img src="${applicationPath}/upload/goods/${good.image}" border="0" width="100%" height="100%" /></a></div>
+	<div class="g2_zi">
+	<a href="item-${good.good_id}.html" class="zhu24">${good.goodName}</a> <br />
+		<#list good.spec as spec>
+			${spec.s_name}：${spec.v_val}
+		</#list>
+	</div>
+	</td>
+    <td width="12%">${(good.price-good.actMoney+good.specMoney)?string('0.00')}</td>
+    <td width="7%">${good.num}</td>
+    <td width="15%"><span class="STYLE19 g_money">${(good.price-good.actMoney+good.specMoney)*good.num}</span></td>
+  </tr>
+</table>
+</div>
+</#list>
+<div class="g2_wuliufei distribution${shop_index}">
+<div class="g2_xian44">&nbsp;</div>
+<div class="g2_wuliu_fei">
+<div class="g2_wuliu_fei_a">运送方式:</div>
+<div class="g2_wuliu_fei_b">
+
+    <select name="menu2" class="y_" style="width:150px">
+		
+    </select>
+
+  </div>
+<div class="g2_wuliu_fei_a"><span class="STYLE19 y_money">--</span></div>
+</div>
+<div class="g2_xian44">&nbsp;</div>
+</div>
+<div class="g2_quanxin">
+<span class="STYLE16">${shop.list?size}</span> 件商品  商品总金额：<span class="STYLE19 s_money"></span><br />
+运费：<span class="STYLE19 y_m">¥0</span><br />
+总计：<span class="STYLE19 z_m">¥76.00</span>
+</div>
+
+</div>
+</#list>
+
+
+
+<div class="clear">&nbsp;</div>
+<div class="g2_biaotou_xin">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab05">
+  <tr>
+    <td>寄送至：<span class="toAddress"></span></td>
+    <td width="26%"><span class="STYLE20 orderMoney">应付总额：¥152.00</span></td>
+  </tr>
+</table>
+</div>
+<div class="ga_an2"><a href="javascript:;" class="zhu25 create">提交订单</a></div>
+<div class="clear">&nbsp;</div>
+<div class="g2_biaobot_zi"></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<script src="js/confirm_order.js" type="text/javascript" ></script>

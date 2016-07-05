@@ -1,0 +1,24 @@
+
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list shopList as shop>
+<div class="rexiao_kuai">
+<div class="rexiao_kuai_tu"><a href="${applicationPath}/shop-${shop.s_id}.html"><img src="${applicationPath}/upload/<#if shop.image?? >${shop.image}</#if>" width="100%" height="100%" border="0"/></a></div>
+<div class="shajia_rexiao_kuai_zijie">
+<a href="${applicationPath}/shop-${shop.s_id}.html" class="zhu7">${shop.s_name}</a>
+</div>
+</div>
+
+</#list>

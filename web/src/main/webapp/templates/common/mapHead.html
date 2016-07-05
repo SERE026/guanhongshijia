@@ -1,0 +1,105 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>${title}</title>
+    <meta property="qc:admins" content="3321347527600236375" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta http-equiv="keywords" content="${keyword}" />
+    <meta http-equiv="description" content="${description}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta property="qc:admins" content="33213473456216461307425337" />
+    <link href="${applicationPath}/css/xuanmap.css" rel="stylesheet" type="text/css" />
+    <script type="text/JavaScript" src="js/jquery-1.5.2.min.js"></script>
+    <script type="text/JavaScript" src="js/head.js"></script>
+    <script type="text/JavaScript" src="js/index.js"></script>
+    <script type="text/javascript">
+        var servicePath="${applicationPath}";
+    </script>
+  </head>
+  <body style=" <#if bgColor??>background-color:${bgColor}</#if><#if bgImage??>background-image:url(upload/${bgImage});background-repeat: repeat-x; </#if>">
+<div class="guanggao_ding">
+    ${widget_top_advpic}
+</div>
+
+<div class="top">
+<div class="logo"><a href="${applicationPath}/index.html"><img src="${applicationPath}/img/index_03.gif" border="0" /></a></div>
+<div class="top_r">
+${widget_loginbar}
+
+
+
+
+<div class="top_za">
+${widget_area}
+<div class="top_za_shousuo">
+<div class="top_sou"><input name=""  id="search" type="text" class="top_sou_shuru"/></div>
+<div class="top_sou_an search"><a href="javascript:;"><img src="${applicationPath}/img/sousuo.gif" border="0" /></a></div>
+</div>
+<div class="top_za_gwc"><a href="${applicationPath}/cars.html"><img src="${applicationPath}/img/index_06.gif" border="0" /></a></div>
+</div>
+</div>
+</div>
+<div class="meu">
+<div class="meu_da">
+<div class="meu_shangpin showGoodSort"><a href="#" class="zhu55">&nbsp;&nbsp;&nbsp;全部商品分类</a></div>
+<div class="meu_shunxua"><a href="${applicationPath}/index.html" class="zhu4">首页</a></div>
+<div class="meu_shunxub"><a href="${applicationPath}/shopMap.html" class="zhu5">名店地图</a></div>
+<div class="meu_shunxua"><a href="${applicationPath}/xshop.html" class="zhu4">炫品商城</a></div>
+<div class="meu_shunxua"><a href="${applicationPath}/nvrenjie.html" class="zhu4">女人街</a></div>
+<div class="meu_shunxub"><a href="${applicationPath}/active.html" class="zhu5">活动商品</a></div>
+<div class="meu_shunxua"><a href="${applicationPath}/huangou.html" class="zhu4">会员换购</a></div>
+<div class="meu_shunxuc"><a href="${applicationPath}/tryuseIndex.html" class="zhu4">免费试用</a></div>
+<div class="meu_shunxuc"><a href="${applicationPath}/bbs_koubei.html" class="zhu4">美丽宣言</a></div>
+
+
+<div class="meu_shanjia showSJSort" id="changeimg"><a href="javascript:;" class="zhu55">&nbsp;&nbsp;全部商家分类</a></div>
+</div>
+
+
+
+
+<div class="meu_fu" >
+	<div class="meu_fuaa GoodSort" style="display:none">
+		${widget_goodsSort}
+	</div>
+	<div class="meu_fubb SJSort " style="display:none" id="menu01">
+		${widget_merchantTypeWidget}
+	</div>
+</div>
+</div>
+
+<div class="youce_fudong" id="youce_fudong" style="display:none;top:200px;">
+</div>
+<div class="youce_fudong22 youce_kda" style="display:none;top:200px;">
+
+</div>
+
+
+<div class="zhuanpan2 gameBoxs" style="position:fixed;background-color:#FFFFFF;display:none;z-index:9999999">
+<div class="zhuanpan2_x colse"><a href="javascript:;"><img src="${applicationPath}/img/zhuanpan_xx.gif" border="0" /></a></div>
+<div class="zhuanpan2_tia">
+温馨提示：商家成功加入收藏夹!
+</div>
+<div class="zhuanpan2_tib">您可以在个人中心中查看商家的最新情况哦！</div>
+</div>
+<div class="zhuanpan2 gameBoxss" style="position:fixed;background-color:#FFFFFF;display:none;z-index:9999999">
+<div class="zhuanpan2_x colse"><a href="javascript:;"><img src="${applicationPath}/img/zhuanpan_xx.gif" border="0" /></a></div>
+<div class="zhuanpan2_tia">
+温馨提示：宝贝成功加入收藏夹!
+</div>
+<div class="zhuanpan2_tib">您可以在个人中心中查看宝贝的最新情况哦！</div>
+</div>

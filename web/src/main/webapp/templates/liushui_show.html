@@ -1,0 +1,37 @@
+
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list data as collect>
+<#if (collect_index)%3==0>
+<div class="gr_st_zong_k">
+<#else>
+<div class="gr_st_zong_k22">
+</#if>
+<div class="gr_st_zong_k_tu"><a href="${applicationPath}/item-${collect.good.goods_id}.html"><img src="${applicationPath}/upload/goods/${collect.good.defaultImage}" width="100%" height="100%" border="0" /></a></div>
+<div class="gr_st_zong_k_wenzi">
+<div class="gr_sct02_wenzi_ka"><input name="checkboxs" type="checkbox" value="${collect.favorites_id}" /></div>
+<div class="gr_sct02_wenzi_ti"><a href="${applicationPath}/item-${collect.good.goods_id}.html" class="zhu1">${collect.good.name}</a></div>
+</div>
+<div class="gr_st_zong_k_jiage">
+¥ <span class="STYLE23">${collect.good.salesMoney}</span>&nbsp;&nbsp; 
+<span class="STYLE24">${collect.good.bazaarMoney}</span> 
+</div>
+<div class="gr_st_zong_k_lit">
+<div class="gr_st_zong_k_caozuo"><a href="javascript:del(${collect.favorites_id});" class="zhu30"><img src="${applicationPath}/img/touming.gif" border="0" width="100%" height="100%" /></a></div>
+<div class="gr_st_zong_k_caozuo"><a href="${applicationPath}/shop-${collect.good.merchants.shangjia_id}.html" class="zhu31"><img src="${applicationPath}/img/touming.gif" border="0" width="100%" height="100%" /></a></div>
+<div class="gr_st_zong_k_caozuo"><a href="javascript:addCars(${collect.good.goods_id});" class="zhu32"><img src="${applicationPath}/img/touming.gif" border="0" width="100%" height="100%" class="addCars" dataValue="${collect.good.goods_id}"/></a></div>
+</div>
+</div>
+</#list>

@@ -1,0 +1,72 @@
+
+<div class="kuai">
+	<div class="dingxiangda">
+		<div class="dingxiang_ti">
+			物流明细
+		</div>
+
+		<#if order.wlcompany??>
+		<div class="dingxiangda_k03">
+			<div class="dingxiangda_k03_left">
+				发货方式：
+			</div>
+			<div class="dingxiangda_k03_right">
+				快递
+			</div>
+			<div class="dingxiangda_k03_left">
+				物流公司：
+			</div>
+			<div class="dingxiangda_k03_right">
+				${order.wlcompany.name}
+			</div>
+			<div class="dingxiangda_k03_left">
+				运单号码：
+			</div>
+			<div class="dingxiangda_k03_right">
+				${order.dlyCode}
+			</div>
+			<div class="dingxiangda_k03_left">
+				物流跟踪：
+			</div>
+			<div class="dingxiangda_k03_right">
+				<#if data??> <#list data as d> ${d.time}&nbsp;&nbsp;${d.context}
+				</#list> </#if>
+			</div>
+		</div>
+
+
+		<#else>
+		<div class="dingxiangda_k03">
+			无物流信息 </#if>
+
+
+			<div class="ddxiang_fanhui">
+				<a href="${applicationPath}/huiyuan_order.html" class="zhu2">
+					返回我的订单</a>
+			</div>
+		</div>
+		<div class="touming">
+			&nbsp;
+		</div>
+		<div class="g1_tuijian">
+			<div class="g1_tuijian_top">
+				<div class="g1_tuijian_top_ti">
+					炫品为您推荐
+				</div>
+			</div>
+			<div class="g1_tuijian_mid">
+				${tuijian}
+
+			</div>
+		</div>
+		<div class="g1_tuijian">
+			<div class="g1_tuijian_top">
+				<div class="g1_tuijian_top_ti">
+					最近浏览
+				</div>
+			</div>
+			<div class="g1_tuijian_mid">
+				${zuijin}
+
+			</div>
+		</div>

@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ * All rights reserved.
+ *
+ * This file contains valuable properties of  SHENZHEN Eternal Dynasty
+ * Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+ * confidential information, ideas and expressions.    No part of this
+ * file may be reproduced or distributed in any form or by  any  means,
+ * or stored in a data base or a retrieval system,  without  the prior
+ * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ *
+ */
+
+.hd_gundaBox{overflow:hidden;position:relative;}
+.hd_gunda .slide{position:absolute;}
+.hd_gunda .slide .box{float:left;overflow:hidden;position:relative;width:1009px; height:320px;}
+.hd_gunda .btnBg{position:absolute;width:100%;height:20px;left:0;bottom:10px;}
+.hd_gunda .btn{position:absolute;width:100%;height:20px;padding:5px 10px;right:0;bottom:0;text-align:right;}
+.hd_gunda .btn span{display:inline-block;_display:inline;_zoom:2;width:25px;height:20px;font-size:18px;line-height:20px;margin-left:5px;cursor:pointer;color:#7777777;}
+.hd_gunda .btn span.on{color:#f0125b;}
+.hd_gunda .preNext{width:22px;height:38px;position:absolute;top:90px;cursor:pointer;}
+.hd_gunda .pre{left:0;background-image:url(../img/index_left.png);}
+.hd_gunda .next{right:0;background-position:right top;background-image:url(../img/index_right.png);} 

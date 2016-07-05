@@ -1,0 +1,112 @@
+<script type="text/JavaScript" src="js/jQueryRotate.2.2.js"></script>
+<script type="text/JavaScript" src="js/jquery.easing.min.js"></script>
+<script type="text/JavaScript" src="js/zhuanpanGame.js"></script>
+
+
+<style type="text/css">
+<!--
+*{padding:0;margin:0}
+	.ly-plate{
+		position:relative;
+		width:420px;
+		height:420px;
+		margin:0;overflow:hidden;
+	}
+	.rotate-bg{
+		width:420px;
+		height:420px; background-image:url(img/zhuanpan_bgda.jpg); background-repeat:no-repeat;
+		position:absolute;overflow:hidden;
+		top:0;
+		left:0;
+	}
+	.ly-plate div.lottery-star{
+		width:296px;
+		height:296px;
+		position:absolute;
+		top:94px;
+		left:94px; 
+		overflow:hidden;
+		/*text-indent:-999em;
+		overflow:hidden;
+		background:url(rotate-static.png);
+		-webkit-transform:rotate(0deg);*/
+		outline:none
+	}
+	.ly-plate div.lottery-star #lotteryBtn{
+		cursor: pointer;
+		position: absolute;
+		overflow:hidden;
+		top:0px;
+		left:0;
+		*left:0px
+	}
+-->
+</style>
+<div class="mt04_xian">
+<div class="mt04_xian_hong">&nbsp;</div>
+</div>
+</div>
+<div class="zhuanpan_left">
+<div class="ly-plate">
+<div class="rotate-bg"></div>
+<div class="lottery-star"><img src="${applicationPath}/img/zhuanpan_zhizhen.png" id="lotteryBtn"></div>
+</div>
+</div>
+<div class="zhuanpan_right">
+<div class="zhuanpan_rightka"><img src="${applicationPath}/img/zhuanpan_06.gif" /></div>
+<div class="zhuanpan_rightkb">
+<div class="zhuanpan_rightkb_zi">
+<strong>参与方式：</strong><br />
+登录/注册后，依据游戏规则获取奖品 。<br />
+<br />
+
+<strong>游戏规则：</strong><br />
+<br />
+点击开始后，轮盘转动一段时间后自动结束，指针所指的区域对应奖品，即为所中奖品。<br />
+<br />
+<strong>温馨提示：</strong><br />
+1、每天每个账号可以参加1次活动每天的次数会在24：00更新，次数不能累加<br />
+<br />
+2、请于获得奖品的24小时内完成交易，逾期作废
+<br />
+</div>
+</div>
+<div class="zhuanpan_rightka"><img src="${applicationPath}/img/zhuanpan_10.gif" /></div>
+
+</div>
+</div>
+
+
+<div class="zhuanpan_da_jiangxiang_da">
+<div class="mt042">
+<div class="mt04_zi">奖项设置</div>
+<div class="mt04_xian">
+<div class="mt04_xian_hong">&nbsp;</div>
+</div>
+</div>
+<div class="zhuanpan_da_jaingxiang">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab15">
+  <tr style="background-color:#b73194">
+    <td>一等奖</td>
+    <td>二等奖</td>
+    <td>三等奖</td>
+    <td>四等奖</td>
+    <td>五等奖</td>
+    <td>六等奖</td>
+  </tr>
+  <tr style="background-color:#fce7ec">
+    <td style="color:#333333; font-weight:normal">立减${ganmePame.param1}元优惠</td>
+    <td style="color:#333333; font-weight:normal">立减${ganmePame.param3}元优惠</td>
+    <td style="color:#333333; font-weight:normal">立减${ganmePame.param5}元优惠</td>
+    <td style="color:#333333; font-weight:normal">立减${ganmePame.param7}元优惠</td>
+    <td style="color:#333333; font-weight:normal">立减${ganmePame.param9}元优惠</td>
+    <td style="color:#333333; font-weight:normal">立减${ganmePame.param11}元优惠</td>
+  </tr>
+</table>
+
+</div>
+
+
+
+
+

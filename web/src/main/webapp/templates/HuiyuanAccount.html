@@ -1,0 +1,73 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script type="text/JavaScript" src="${applicationPath}/js/jquery.js"></script>
+<script type="text/JavaScript" src="${applicationPath}/js/huiyuan_chongzhi.js"></script>
+
+<form action="#" method="post" id="form1">
+
+<div class="splist_right">
+<div class="gr_r">
+<div class="gr_r_ti">
+账户余额：<span class="STYLE7">${huiyuan.money?c}</span>&nbsp;元
+&nbsp;&nbsp;<span class="STYLE25">（炫品妆成提供多种会员充值方式，让您的支付更方便更快捷）</span>
+</div>
+<div class="gr_r_xiaoxi">
+	<div class="chonzhi_zi">我要充值：</div>
+	<div class="chonzhi_shu">
+		<input name="trade_type" type="hidden" value="1"/>
+		<input name="total_fee" id="money" type="text" value="请输入充值金额" style=" width:150px; height:20px; border:#FFFFFF solid 1px; line-height:16px; padding-left:3px; color:#999999; overflow:hidden; outline:none"/>
+	</div>
+</div>
+
+<div class="g2_xiaoti">请选择支付方式</div>
+<div class="g2_kuai221404">
+<div class="g2_kuai_daxuan"><input name="zf_id" value="1" type="radio" checked="true" /></div>
+<div class="g2_kuai_zi">支付宝支付</div>
+<div class="g2_kuai_zi">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="STYLE16">请选择一种支付方式</span>
+</div>
+</div>
+<div class="g2_kuai221404">
+<div class="g2_kuai_daxuan"><input name="zf_id" value="2" type="radio" /></div>
+<div class="g2_kuai_zi">使用银联支付</div>
+<div class="g2_kuai_zi">
+
+
+</form>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="STYLE17">炫品妆成现已全面支持网银付款，给您更多选择</span>
+</div>
+
+</div>
+<div class="chonzhi_an"><a href="#" id="checkData"><img src="${applicationPath}/img/qurenchongzhi.gif" border="0" /></a></div>
+
+
+
+
+
+<div class="gr_st_zong pageBox">
+
+</div>
+<div class="touming5">&nbsp;</div>
+<div class="fenye page">
+
+<script src="js/collect_Page.js"  type="text/javascript"></script>
+<script src="js/active.js"  type="text/javascript"></script>
+
+<script type="text/javascript">
+new act($(".act"));
+new page($(".page"),$(".pageBox"),"huiyuan_account");
+</script>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<context:annotation-config />
+	<context:component-scan base-package="**.model" />
+	<context:component-scan base-package="**.dao" />
+	<context:component-scan base-package="**.service" />
+	<context:component-scan base-package="**.serviceimpl" />
+	<context:component-scan base-package="com.dress.*.model" />
+	<context:component-scan base-package="com.dress.*.dao" />
+	<context:component-scan base-package="com.dress.*.service" />
+	<context:component-scan base-package="com.dress.*.serviceimpl" />
+	<context:component-scan base-package="com.android.*.service" />
+	<context:component-scan base-package="com.android.*.serviceimpl" />
+	<context:component-scan base-package="com.dress.huiyuan.service" />
+	<context:component-scan
+		base-package="com.dress.huiyuan.serviceimpl" />
+	<context:component-scan base-package="**.plugin" />
+	<context:component-scan base-package="**.context" />
+	<context:component-scan base-package="**.widget" />
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		
+		<property name="locations">
+			
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName"
+		value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="20" />
+		<property name="maxWait" value="20" />
+		<property name="poolPreparedStatements" value="true" />
+		<property name="defaultAutoCommit" value="true" />
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		
+		<property name="packagesToScan">
+			<list>
+				<value>**.model</value>
+			</list>
+		</property>
+		
+		<property name="hibernateProperties">
+			
+			<props>
+				<prop key="connection.useUnicode">true</prop>
+				<prop key="connection.characterEncoding">utf-8</prop>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+				<prop key="hibernate.jdbc.fetch_size">20</prop>
+				<prop key="show_sql">false</prop>
+				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="change*" propagation="REQUIRED" />
+			<tx:method name="audit*" propagation="REQUIRED" />
+			<tx:method name="import*" propagation="REQUIRED" />
+			<tx:method name="checkCar" propagation="REQUIRED" />
+			<tx:method name="create" propagation="REQUIRED" />
+			<tx:method name="getOrderConfirm" propagation="REQUIRED" />
+			<tx:method name="checkCarGoodSpec" propagation="REQUIRED" />
+			<tx:method name="getUser" propagation="REQUIRED" />
+			<tx:method name="sendMessage" propagation="REQUIRED" />
+			<tx:method name="BuyGoods" propagation="REQUIRED" />
+			<!-- 经测试以下两个，如果不加权限，后台会报相同的 Connection is read-only.xxx 错误 -->
+			<!-- getGoodsByAct 如果不加权限，将导致：首页全部商家分类点具体的类型比如“化妆品店”进去，再点店铺进去，会报错误 -->
+			<tx:method name="getMerchantPageBywhere"
+				propagation="REQUIRED" />
+			<tx:method name="getGoodsByAct" propagation="REQUIRED" />
+			<tx:method name="updateGoodsAdv" propagation="REQUIRED" />
+			<!--  充值方法，需要开启权限 
+			-->
+			<tx:method name="chongzhi" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="allManagerMethod"
+			expression="execution(* cn.com.dyninfo.o2o.furniture.admin.service.*.*(..))" />
+		<aop:pointcut id="orderMethod"
+			expression="execution(* cn.com.dyninfo.o2o.furniture.web.order.service.*.*(..))" />
+		<aop:pointcut id="bbs"
+			expression="execution(* cn.com.dyninfo.o2o.furniture.web.bbs.service.*.*(..))" />
+		<aop:pointcut id="huiyuan"
+			expression="execution(* cn.com.dyninfo.o2o.furniture.web.member.service.*.*(..))" />
+		<aop:advisor pointcut-ref="allManagerMethod"
+			advice-ref="txAdvice" />
+		<aop:advisor pointcut-ref="orderMethod" advice-ref="txAdvice" />
+		<aop:advisor pointcut-ref="bbs" advice-ref="txAdvice" />
+		<aop:advisor pointcut-ref="huiyuan" advice-ref="txAdvice" />
+	</aop:config>
+</beans>

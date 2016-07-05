@@ -1,0 +1,33 @@
+<div class="splist_left_fenlei">
+<div class="splist_left_fenlei_xian01">&nbsp;</div>
+
+
+<div class="spl_kuai_top">热销品牌</div>
+
+
+
+
+<div class="spl_kuai_ge sortBox  select">
+
+
+
+<div class="spl_kuai_ge_dian ">
+<a href="javascript:;">
+<img src="${applicationPath}/img/sp_list_07.gif" border="0" />
+</a>
+</div>
+<div class="spl_kuai_ge_zi">
+<a href="javascript:;" class="zhu11">热销品牌</a></div>
+</div>
+<div class="splist_kv " >
+<#list brandlist as brand>
+<div class="splist_kuai brand <#if brand.brand_id == brandID>select " brandID="${brand.brand_id}</#if>"  ><#if brand.brand_id!= brandID><a href="GoodBrand-${brand.brand_id}.html" class="zhu7"></#if>${brand.name}<#if brand.brand_id != brandID></a></#if></div>
+</#list>
+
+</div>
+
+
+
+<div class="touming3 select goodSort" brandID="${brandID}" >&nbsp;</div>
+</div>
+

@@ -1,0 +1,44 @@
+
+<script type="text/JavaScript" src="${applicationPath}/js/huiyuan_tuikuan.js"></script>
+
+<!-- 表单开始标记 -->
+<form name= "form1" id="form1" action="#" method="post">
+	<input type="hidden" name="orderId" value="${orderInfo.order_id}">
+	<input type="hidden" name="action" value="apply">
+
+<div class="splist_right">
+<div class="gr_r">
+<div class="gr_r_ti">请描述您退款的原因，我们会尽快与您联系</div>
+<div class="huiyuan_dingdan">
+<div class="gr_r_tikukuan">
+<div class="gr4_b" style="margin-left:9px">
+订单编号：<a href="${applicationPath}/huiyuan_order_detail.html?orderid=${orderInfo.order_id}" class="zhu27">${orderInfo.order_id}</a>&nbsp;&nbsp;&nbsp;&nbsp;成交时间：${orderInfo.suretime}</div>
+</div>
+
+<div class="gr_fadan">
+<div class="gr_fadan_tou">退款原因</div>
+<div class="touming8">&nbsp;</div>
+<div class="gr_fadan_k">
+<div class="gr_fadan_k_zi">请选退换货原因：</div>
+<div class="gr_fadan_k_mokuai">
+<select name="reasonType" onchange="MM_jumpMenu('parent',this,0)" class="gr_fadan_k_mokuai_aa">
+<option value="0">产品质量无问题，快递损坏</option>
+<option value="1">产品质量问题</option>
+<option value="2">其它问题</option>
+</select>
+</div>
+<div class="gr_fadan_k">
+<div class="gr_fadan_k_zi">问题描述：</div>
+<div class="gr_tui">
+<textarea name="ps" cols="" rows="" class="tuihuan"></textarea>
+</div>
+</div>
+
+
+</div>
+<div class="gr_fadan_an01"><a href="#" class="zhu33" id="apply">提交申请</a></div>
+<div class="gr_fadan_fanhui"><a href="#" class="zhu35">返回列表页面</a></div>
+<div class="touming8">&nbsp;</div>
+
+<!-- 表单结束标记 -->
+</form>

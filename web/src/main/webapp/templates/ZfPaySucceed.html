@@ -1,0 +1,44 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script>
+	var servicePath="${applicationPath}";
+		var cout=1;
+</script>
+
+<div class="kuai">
+<div class="gouwuche">
+<div class="g4">
+<div class="g4_ka">
+<#if result=='succeed'>
+	<div class="g4_ka_gou"><img src="${applicationPath}/img/g4_02.gif" /></div>
+	<div class="g4_ka_zheng">
+	<div class="g4_ka_wen01">充值成功</div>
+	<div class="g4_ka_wen02">充值金额：<span class="STYLE20">¥${money}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="${applicationPath}/huiyuan_chongzhi.html" class="zhu9">返回我的账户</a></div>
+<#else>
+	<div class="g4_ka_gou"><img src="${applicationPath}/img/g4_02x.gif" /></div>
+	<div class="g4_ka_zheng">
+	<div class="g4_ka_wen01">充值失败</div>
+	<div class="g4_ka_wen02">本次充值未成功，请联系客服。</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="${applicationPath}/huiyuan_chongzhi.html" class="zhu9">返回我的账户</a></div>
+</#if>
+
+
+<div class="g4_ka_wen03">
+温馨提示：炫品妆成保证100%正品行货，您身边的美妆商城
+</div>
+<div class="g4_ka_fenxiang"><img src="${applicationPath}/img/spdet_20.gif" /></div>
+</div>
+

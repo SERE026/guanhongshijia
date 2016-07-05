@@ -1,0 +1,21 @@
+
+<#list data as active>
+<#if ( active_index)%3==0>
+<div class="gr_st_zong_k">
+<#else>
+<div class="gr_st_zong_k22">
+</#if>
+<div class="gr_st_zong_k_tu"><a href="#">
+<img src="${applicationPath}/upload/goods/${active.defaultImage}" width="100%" height="100%" border="0" />
+</a></div>
+<div class="gr_st_zong_k_wenzi">
+<div class="gr_sct02_wenzi_ka"><input name="checkboxs" type="checkbox" value="" /></div>
+<div class="gr_sct02_wenzi_ti"><a href="${applicationPath}/active-${active.actid}-${active.goodsid}.html" class="zhu1">${active.name}(活动名：${active.activename})</a></div>
+</div>
+<div class="gr_st_zong_k_lit">
+<div class="gr_st_zong_k_caozuo"><a href="javascript:del(${active.favorit_id});" class="zhu30"><img src="${applicationPath}/img/touming.gif" border="0" width="100%" height="100%" /></a></div>
+<div class="gr_st_zong_k_caozuo"><a href="${applicationPath}/shop-${active.goodsid}.html" class="zhu31"><img src="${applicationPath}/img/touming.gif" border="0" width="100%" height="100%" /></a></div>
+<div class="gr_st_zong_k_caozuo"><a href="javascript:addCars(${active.goodsid});" class="zhu32"><img src="${applicationPath}/img/touming.gif" border="0" width="100%" height="100%" class="addCars" dataValue="${active.goodsid}"/></a></div>
+</div>
+</div>
+</#list>

@@ -1,0 +1,71 @@
+
+<script type="text/JavaScript" src="js/slideW.js"></script>
+<link href="css/slide.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.wm_slide .btn{position:absolute;width:100%;height:40px;padding:5px 10px;right:0;bottom:0;text-align:right;background-color:#000;}
+.wm_slide .btn span{display:inline-block;_display:inline;_zoom:2;width:15px;height:7px;font-size:30px;line-height:10px;margin-left:5px;cursor:pointer;color:#fff;background-color:#000;}
+.wm_slide .btn span.on{background-color:#000;}
+
+</style>
+<script>
+	$(function(){
+		new slide($("#slide"),false);
+	})
+	
+</script>
+
+<div class="fla">
+<div id="slide" class="wm_slide" style="width:100%;height:469px;margin:auto;">
+	<ul >
+		<#list data as adv>
+		<li  style="width:100%;height:469px;">
+		<#if adv.adv_flie??>
+			<a target="_blank" href="${adv.adv_link}">
+				<img adv alt="${adv.adv_name}" src="${applicationPath}/upload/adv/${adv.adv_flie}" width="100%" height="100%">
+			</a>
+			</#if>
+		</li>
+		</#list>
+		
+	</ul>
+</div>
+</div>
+<div class="inda">
+<div class="tuda">
+<div class="inda_k01">
+<div class="inda_k01zida">关于炫品妆成</div>
+<div class="inda_k01zixiao">您身边的好平台</div>
+<div class="dattut">
+<img src="${applicationPath}/img/xuanwei_14.jpg" />
+</div>
+</div>
+<div class="xiaokuai01">
+<div class="xkxiaotu"><img src="${applicationPath}/img/xuanwei_05.jpg" /></div>
+<div class="xkxiaozi">手机APP</div>
+</div>
+<div class="xiaokuai02">
+<div class="xkxiaotu"><img src="${applicationPath}/img/xuanwei_07.jpg" /></div>
+<div class="xkxiaozi">往期活动</div>
+</div>
+<div class="xiaokuai03">
+<div class="xkxiaotu"><img src="${applicationPath}/img/xuanwei_12.jpg" /></div>
+<div class="xkxiaozi">联系我们</div>
+</div>
+<div class="xiaokuai04">
+<div class="xkxiaotu"><img src="${applicationPath}/img/xuanwei_11.jpg" /></div>
+<div class="xkxiaozi">炫品公告</div>
+</div>
+</div>
+</div>
+
+
+<script>
+	index.init();
+</script>
+<div class="banquan">
+©2014炫品妆成网络科技有限公司<br />
+Powered By <a href="">C1</a>
+</div>
+
+</body>
+</html>

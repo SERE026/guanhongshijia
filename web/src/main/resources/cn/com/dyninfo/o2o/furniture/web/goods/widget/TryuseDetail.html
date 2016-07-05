@@ -1,0 +1,120 @@
+
+<div class="shiyongxiang">
+<div class="shiyongxiang_leftda">
+<div class="shiyongxiang_left">
+<div class="sx_ti">
+<span class="STYLE40">免费试用</span> 
+${goods.name}
+</div>
+<div class="sx_xiakuai">
+<div class="sx_xiakuai_left">
+<div class="ssu_xiao01">
+试用份数：<span class="STYLE15">${goods.tryno}</span>&nbsp;份
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+商品价格：<span class="STYLE15">￥${goods.bazaarMoney}</span>
+</div>
+<div class="ssu_xiao02">
+申请条件：<span>所有会员</span>
+</div>
+<div class="ssu_xiao03">
+<#if btime=="0"&&etime!="0">
+<div class=" acttime2" style="margin:0" time="${etime}">结束时间：<span class="STYLE30">10</span>小时<span class="STYLE30">20</span>分<span class="STYLE30">22</span>秒
+<#elseif etime=="0"&&btime!="0">
+<div class=" " style="margin:0">
+<#elseif etime=="0"&&btime=="0">
+<div class=" " style="margin:0">结束时间：${goods.etime}
+<#else>
+<div class=" " style="margin:0">开始时间：${goods.btime}
+</#if>
+</div>
+</div>
+<div class="syxiang_xian">&nbsp;</div>
+<div class="syxiang_an">
+
+<#if btime=="0"&&etime!="0">
+	<a href="${applicationPath}/tryuseapply.html?goodsid=${goods.goods_id}">
+	<img src="${applicationPath}/img/sxiang_02.gif" border="0" />
+<#elseif etime=="0"&&btime=="0">
+<a href="javascript:;">
+	<img src="${applicationPath}/img/shiyjiesu.gif" border="0" />
+<#else>
+<a href="javascript:;">
+	<img src="${applicationPath}/img/shiyweikaishi.gif" border="0" />
+</#if>
+</a></div>
+<div class="syxiang_gou">
+您还可以通过直接购买的形式获得本产品&nbsp;&nbsp;&nbsp;&nbsp;<a href="${applicationPath}/item-${goods.goods_id}.html" class="STYLE10">立即购买</a>
+</div>
+<div class="syxiang_fen"><div class="jiathis_style">
+	<a style="float:left;">分享到：</a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script></div>
+</div>
+<div class="sx_xiakuai_right"><img src="${applicationPath}/upload/goods/${goods.defaultImage}" width="100%" height="100%" /></div>
+</div>
+</div>
+
+<div class="shiyongxiang_left">
+<div class="sx_tuwen">
+${goods.goodsDescription}
+</div>
+<script type="text/javascript">
+window.setInterval("updateTime()",1000);
+function updateTime(){
+	$(".acttime2").each(function(){
+		var time=$(this).attr("time").split(":");
+		var h=parseInt(time[0]);
+		var m=parseInt(time[1]);
+		var s=parseInt(time[2]);
+		s--;
+		if(s==0){
+			s=59;
+			m--;
+			if(m==0){
+				m=59;
+				h--;
+				if(h<0){
+					m=0;
+					s=0;
+				}
+			}
+		}
+		$(this).find("span:eq(0)").html((h>9?h:"0"+h));
+		$(this).find("span:eq(1)").html((m>9?m:"0"+m));
+		$(this).find("span:eq(2)").html((s>9?s:"0"+s));
+		
+		time=(h>9?h:"0"+h)+":"+(m>9?m:"0"+m)+":"+(s>9?s:"0"+s);
+		$(this).attr("time",time);
+	});
+	$(".acttime").each(function(){
+		var time=$(this).html().split(":");
+		var h=parseInt(time[0]);
+		var m=parseInt(time[1]);
+		var s=parseInt(time[2]);
+		s--;
+		if(s==0){
+			s=59;
+			m--;
+			if(m==0){
+				m=59;
+				h--;
+				if(h<0){
+					m=0;
+					s=0;
+				}
+			}
+		}
+		time=(h>9?h:"0"+h)+":"+(m>9?m:"0"+m)+":"+(s>9?s:"0"+s);
+		$(this).html(time);
+	});
+}
+
+</script>
+

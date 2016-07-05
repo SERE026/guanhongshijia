@@ -1,0 +1,29 @@
+
+<#list DATA as goods>
+<div class="index_left_kuai">
+<div class="index_left_kuai_tu"><a href="${applicationPath}/item-${goods.goods_id}.html"><img src="${applicationPath}/upload/goods/${goods.defaultImage}" width="100%" height="100%" border="0" /></a></div>
+<div class="index_left_kuai_zi">
+<#if goods.discount lt 10>
+	<span class="STYLE1">${goods.discount}折 </span>
+</#if>
+<a href="#" class="zhu8">${goods.name}</a></div>
+<div class="index_left_dajia">
+<div class="index_left_dajia_le">
+<!-- 如果商品未打折（大于或等于原价），显示为会员价 -->
+<#if goods.goodMoney==goods.bazaarMoney || goods.goodMoney gt goods.bazaarMoney>
+	<span class="STYLE2">¥</span><span class="STYLE3">${goods.goodMoney?string('0.0')}</span>&nbsp;&nbsp;<span>会员价</span>
+</#if>
+<!-- 如果商品打折（小于原价），则显示原价 -->
+<#if goods.goodMoney lt goods.bazaarMoney>
+	<span class="STYLE2">¥</span><span class="STYLE3">${goods.goodMoney?string('0.0')}</span>&nbsp;&nbsp;<br/><span class="STYLE4">¥${goods.bazaarMoney?string('0.0')}</span>
+</#if>
+
+</div>
+<div class="index_left_dajia_ri"><a href="${applicationPath}/item-${goods.goods_id}.html"><img src="${applicationPath}/img/an1.gif" border="0" /></a></div>
+</div>
+</div>
+</#list>
+<script type="text/JavaScript" src="js/goods.js"></script>
+<script>
+	new index("${applicationPath}");
+</script>

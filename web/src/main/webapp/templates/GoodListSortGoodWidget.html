@@ -1,0 +1,31 @@
+
+
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list data as good>
+<div class="rexiao_kuai">
+<div class="rexiao_kuai_shuiming"><span class="STYLE5">${(good.num*1.0/count*100)?string(0.00)}%</span>&nbsp;&nbsp;的用户会买：</div>
+<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${good.goods_id}.html"><img src="${applicationPath}/upload/goods/${good.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+<div class="rexiao_kuai_zijie">
+<a href="${applicationPath}/item-${good.goods_id}.html" class="zhu7">${good.name}</a>
+</div>
+<div class="rexoa_xiaojia">
+￥${good.goodMoney?string('0.00')}
+</div>
+</div>
+</#list>
+
+
+

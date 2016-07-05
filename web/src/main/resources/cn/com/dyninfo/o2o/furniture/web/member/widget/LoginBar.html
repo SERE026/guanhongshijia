@@ -1,0 +1,43 @@
+
+<script>
+	function exitdl(){
+		$.ajax({
+			  type: 'POST',
+			  url: servicePath+"/widget.html",
+			  data: "widget=loginBar&exitdl=1",
+			  dataType: "html",
+			  success: function(data){
+				 window.location.href="index.html";
+			  }
+			});	
+	}
+		var servicePath="${applicationPath}";
+</script>
+
+
+
+<div class="top_tishi">
+
+	<div class="top_tishi_k01">
+		<#if  cout=="1">
+			<a href="${applicationPath}/login.html" class="zhu1">个人中心</a> | 
+		<#else>
+			<a href="${applicationPath}/huiyuan_order.html" class="zhu1">个人中心</a> | 
+		</#if>
+		<a href="${applicationPath}/huiyuan_order.html" class="zhu1">我的订单</a> | 
+		<a href="${applicationPath}/erweima.html" class="zhu1">手机客户端</a> | 
+		<a href="${applicationPath}/aboutus-1.html" class="zhu1">关于我们</a> | 
+		<a href="${applicationPath}/apply.html" class="zhu1">商家入驻 | </a>
+		<a href="${applicationPath}/html/manage/main" class="zhu1">商家管理</a>
+	</div>
+	
+	<div class="top_tishi_k02">
+		<#if cout=="1">
+			欢迎来炫品妆成，请 <a href="${applicationPath}/login.html" class="zhu2">登录</a> 或 <a href="${applicationPath}/register.html" class="zhu2">注册</a>
+		</#if>
+		<#if cout=="2">
+			欢迎您！<a href="${applicationPath}/huiyuan_order.html" class="zhu2">${huiyuan.userName}</a><a href="javascript:exitdl();" >【退出】</a>
+		</#if>
+	</div>
+	
+</div>
