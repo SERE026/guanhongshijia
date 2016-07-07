@@ -254,7 +254,8 @@ public class GoodsController {
 		if (merchants != null) {
 			buff.append(" and n.merchants.shangjia_id="+merchants.getShangjia_id());
 		}
-		mav.addObject("BrandList", brandService.getListByWhere(buff));
+//		mav.addObject("BrandList", brandService.getListByWhere(buff));
+		mav.addObject("BrandList", brandService.getListByWhere(new StringBuffer()));
 
 		// 取代理商的商家
 		UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
@@ -305,7 +306,8 @@ public class GoodsController {
 		mav.addObject("goodsType", goodsTypeService.getListByWhere(new StringBuffer("and n.status='0'")));
 		StringBuffer buff=new StringBuffer();
 		buff.append(" and n.merchants.shangjia_id="+shangjia_id);
-		mav.addObject("BrandList", brandService.getListByWhere(buff));
+//		mav.addObject("BrandList", brandService.getListByWhere(buff));
+		mav.addObject("BrandList", brandService.getListByWhere(new StringBuffer()));
 		mav.setViewName("/shangpin/goods/update");
 		mav.addObject("info", goods);
 		// 放入所有标签

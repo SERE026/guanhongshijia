@@ -216,26 +216,29 @@ $(function(){
 							</tr>
 						</c:if>
 						
-						<tr >
-							<td class="discription" style="width: 150px;">
-								<span style="color: red;">*</span>平台商品类型：
-							</td>
-							<td>
-								<select name="goodsType.goodsType_id" url="<%=request.getContextPath()%>/html/manage/goods/goodSpec/list" prt="id"  class="noNull goodsType">
-									<option value="">请选择</option>
-									<c:forEach items="${goodsType}" var="type">
-										<option value="${type.goodsType_id }">${type.name }</option>
-									</c:forEach>
-								</select>
-							</td>
-						</tr>
+						<%--<tr >--%>
+							<%--<td class="discription" style="width: 150px;">--%>
+								<%--<span style="color: red;">*</span>平台商品类型：--%>
+							<%--</td>--%>
+							<%--<td>--%>
+								<%--<select name="goodsType.goodsType_id" url="<%=request.getContextPath()%>/html/manage/goods/goodSpec/list" prt="id"  class="noNull goodsType">--%>
+									<%--<option value="">请选择</option>--%>
+									<%--<c:forEach items="${goodsType}" var="type">--%>
+										<%--<option value="${type.goodsType_id }">${type.name }</option>--%>
+									<%--</c:forEach>--%>
+								<%--</select>--%>
+							<%--</td>--%>
+						<%--</tr>--%>
 						<tr >
 							<td class="discription" style="width: 150px;">
 								<span style="color: red;">*</span>商品品牌：
 							</td>
 							<td>
 								<select name="brand.brand_id"   class="brand">
-									<option value="">请选择</option>
+									<%--<option value="">请选择</option>--%>
+									<c:forEach items="${BrandList}" var="b">
+										<option value="${b.brand_id }" <c:if test="${info.brand.brand_id==b.brand_id }">selected</c:if>>${b.name }</option>
+									</c:forEach>
 								</select>
 							</td>
 						</tr>

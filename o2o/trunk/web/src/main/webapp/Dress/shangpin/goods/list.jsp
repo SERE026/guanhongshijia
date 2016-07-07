@@ -148,9 +148,9 @@
 							<td>
 								上架时间
 							</td>
-							<td>
-								类型
-							</td>
+							<%--<td>--%>
+								<%--类型--%>
+							<%--</td>--%>
 							<td width="120">
 								商品标签
 							</td>
@@ -196,9 +196,9 @@
 									${Info.sj_time}
 								</c:if>
 							</td>
-							<td>
-								${Info.goodsType.name}
-							</td>
+							<%--<td>--%>
+								<%--${Info.goodsType.name}--%>
+							<%--</td>--%>
 							<td>
 								<!-- 加载标签名称，当标签长度大于0时才显示，否则不显示 -->
 								<c:forEach var="bq" items="${bqNameList}" varStatus="index2">

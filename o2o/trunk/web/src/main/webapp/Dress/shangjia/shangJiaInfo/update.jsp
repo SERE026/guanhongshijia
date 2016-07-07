@@ -95,11 +95,14 @@ $(function(){
 							<td>
 								<input type="text" id="shangjiaName" name="shangjiaName" value="${info.shanfJiaInfo.name }" class="noNull" msg="商家名称不能为空!"/>
 							</td>
-							<td class="discription"><span style="color:#ff0000">*</span>商家类型：</td>
-							<td>
-							&nbsp;<input type="radio" name="sort" value="0" <c:if test="${info.shanfJiaInfo.sort==0 }">checked</c:if>/>连锁实体店
-								&nbsp;<input type="radio" name="sort" value="1" <c:if test="${info.shanfJiaInfo.sort==1 }">checked</c:if>/>加盟店
-							</td>
+					<td class="discription"><span style="color:#ff0000">*</span>代理商级别：</td>
+					<td>
+						&nbsp;<select name="agent_grade_id">
+						<c:forEach items="${agentGradeList}" var="agentGrade">
+							<option value="${agentGrade.id }" <c:if test="${info.agentGrade.id==agentGrade.id }">selected</c:if>>${agentGrade.name }</option>
+						</c:forEach>
+					</select>
+					</td>
 						</tr>
 						
 						

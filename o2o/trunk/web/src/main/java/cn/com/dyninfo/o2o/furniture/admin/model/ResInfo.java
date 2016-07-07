@@ -72,8 +72,8 @@ public class ResInfo implements Serializable{
 	
 	@AccessType(value = "property")
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "parent")
-	@OrderBy(value ="index_order asc")
-	private Set<ResInfo> children;// 子资源
+	@OrderBy(value ="index_order, id asc")
+	private List<ResInfo> children;// 子资源
 	
 	@AccessType(value = "property")
 	@Column(name = "IS_DEFAULT", length = 1)
@@ -169,11 +169,11 @@ public class ResInfo implements Serializable{
 		this.parent = parent;
 	}
 
-	public Set<ResInfo> getChildren() {
+	public List<ResInfo> getChildren() {
 		return children;
 	}
 
-	public void setChildren(Set<ResInfo> children) {
+	public void setChildren(List<ResInfo> children) {
 		this.children = children;
 	}
 

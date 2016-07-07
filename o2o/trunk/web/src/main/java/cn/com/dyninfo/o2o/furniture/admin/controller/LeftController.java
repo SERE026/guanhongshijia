@@ -58,7 +58,7 @@ public class LeftController {
 				for(RoleInfo role:user.getRoles())
 					rolestr+=" '"+role.getId()+"',";
 				List mr=resService.getListByRoles(rolestr.substring(0,rolestr.length()-1),
-						" and d.id = '"+c.getId()+"' and resInfo.IS_MENU='0'  ");
+						" and d.id = '"+c.getId()+"' and resInfo.IS_MENU='0' order by resInfo.id ");
 				if(mr.size()>0){
 					list.add(c);
 //					System.out.println(ref.getRes_name()+":"+c.getRes_name());
@@ -72,7 +72,7 @@ public class LeftController {
 				resinfolist.remove(ref);
 				i--;
 			}else{
-				Set set=new HashSet();
+				List set=new ArrayList();
 				set.addAll(list);
 				ref.setChildren(set);
 				list.clear();

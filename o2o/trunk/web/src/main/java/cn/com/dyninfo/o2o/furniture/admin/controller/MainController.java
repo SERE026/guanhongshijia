@@ -25,10 +25,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -293,7 +290,7 @@ public class MainController {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/xml"); 
 		ResInfo resInfo=(ResInfo)resService.getObjById(id);
-		Set<ResInfo> resset=resInfo.getChildren();
+		List<ResInfo> resset=resInfo.getChildren();
 		resset.size();
 		try {
 			PrintWriter out=response.getWriter();

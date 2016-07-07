@@ -106,7 +106,7 @@
 						<!-- 
 						<td>会员等级</td>
 						 -->
-						<td>所属店铺</td>
+						<%--<td>所属店铺</td>--%>
 						<td>会员登录次数</td>
 						<td>上次登录时间</td>
 						<td>账号注册时间</td>
@@ -127,7 +127,7 @@
 							<!-- 
 							<td>${Info.rank}&nbsp;</td>
 							-->
-							<td>${Info.shangJiaInfo.name}&nbsp;</td>
+							<%--<td>${Info.shangJiaInfo.name}&nbsp;</td>--%>
 							<td>${Info.count}&nbsp;</td>
 							<td>${Info.enterData}&nbsp;</td>
 							<td>${Info.loginData}&nbsp;</td>

@@ -21,6 +21,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.admin.model.AgentGrade;
+import cn.com.dyninfo.o2o.furniture.admin.service.AgentGradeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,7 +61,9 @@ public class ShangJiaController {
 	
 	@Resource
 	private MerchantTypeService merchantTypeService;
-	
+
+	@Resource
+	private AgentGradeService agentGradeService;
 	
 	/**
 	 * 列表
@@ -169,6 +173,7 @@ public class ShangJiaController {
 			HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("merchantTypeList", merchantTypeService.getListByWhere(new StringBuffer(" and n.status=0")));
+		mav.addObject("agentGradeList", agentGradeService.getListByWhere(new StringBuffer()));
 		mav.setViewName("/shangjia/shangJiaInfo/add");
 		return mav;
 	}
@@ -221,6 +226,7 @@ public class ShangJiaController {
 		ModelAndView mav = new ModelAndView();
 		UserInfo userInfo = (UserInfo)userService.getObjById(id);
 		mav.addObject("merchantTypeList", merchantTypeService.getListByWhere(new StringBuffer(" and n.status=0")));
+		mav.addObject("agentGradeList", agentGradeService.getListByWhere(new StringBuffer()));
 		mav.setViewName("/shangjia/shangJiaInfo/update");
 		mav.addObject("info", userInfo);
 		return mav;
@@ -234,9 +240,16 @@ public class ShangJiaController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request,
 			HttpServletResponse response) {
+
+		int agentGradeId = 0;
+		int sort = 9999;
+		try {
+			agentGradeId = Integer.parseInt(request.getParameter("agent_grade_id"));
+			sort = Integer.parseInt(request.getParameter("sort"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try{
-			
-			
 			String login_id = request.getParameter("login_id");
 			String passwd = request.getParameter("passwd");
 			String qq = request.getParameter("qq");
@@ -255,6 +268,9 @@ public class ShangJiaController {
 			userInfo.setPasswd(passwd);
 			UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
 			userInfo.setDaili(daili);
+			AgentGrade agentGrade = new AgentGrade();
+			agentGrade.setId(agentGradeId);
+			userInfo.setAgentGrade(agentGrade);
 			userInfo = (UserInfo)userService.addObj(userInfo);
 			
 			
@@ -266,7 +282,7 @@ public class ShangJiaController {
 			shangjiaInfo.setName(shangjiaName);
 			shangjiaInfo.setContactName(contactName);
 			shangjiaInfo.setContactPhone(contactPhone);
-			shangjiaInfo.setSort(Integer.parseInt(request.getParameter("sort")));
+			shangjiaInfo.setSort(sort);
 			shangjiaInfo.setUser(userInfo);
 			shangjiaInfo.setType(type);
 			shangjiaInfo.setQq(qq);
@@ -298,6 +314,14 @@ public class ShangJiaController {
 	@RequestMapping(method = RequestMethod.PUT)
 	public ModelAndView update(HttpServletRequest request,
 			HttpServletResponse response) {
+		int agentGradeId = 0;
+		int sort = 9999;
+		try {
+			agentGradeId = Integer.parseInt(request.getParameter("agent_grade_id"));
+			sort = Integer.parseInt(request.getParameter("sort"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try{
 			String id = request.getParameter("id");
 			String login_id = request.getParameter("login_id");
@@ -320,13 +344,16 @@ public class ShangJiaController {
 			user.setPasswd(MD5Encoder.encodePassword(passwd,
 					user.getLogin_id()));
 			user.setUser_name(contactName);
+			AgentGrade agentGrade = new AgentGrade();
+			agentGrade.setId(agentGradeId);
+			user.setAgentGrade(agentGrade);
 			userService.updateObj(user);
 			MerchantType  type=(MerchantType) merchantTypeService.getObjById(request.getParameter("type_id"));
 			ShangJiaInfo shangjiaInfo = (ShangJiaInfo) shangJiaService.getObjById(user.getShanfJiaInfo().getShangjia_id()+"");
 			shangjiaInfo.setName(shangjiaName);
 			shangjiaInfo.setType(type);
 			shangjiaInfo.setQq(qq);
-			shangjiaInfo.setSort(Integer.parseInt(request.getParameter("sort")));
+			shangjiaInfo.setSort(sort);
 			shangjiaInfo.setContactName(contactName);
 			shangjiaInfo.setContactPhone(contactPhone);
 			shangJiaService.updateObj(shangjiaInfo);

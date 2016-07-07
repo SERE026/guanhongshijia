@@ -119,7 +119,7 @@ public class ResController{
 			ResInfo parent= (ResInfo)resService.getObjById(request.getParameter("parent1"));
 			resInfo.setParent(parent);
 			String childs[]=request.getParameterValues("childList");
-			Set childList=new HashSet();
+			List childList=new ArrayList();
 			if(childs!=null){
 				for(String child:childs){
 					ResInfo res=new ResInfo();

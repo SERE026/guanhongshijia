@@ -110,10 +110,13 @@ $(function(){
 							<td>
 								&nbsp;<input type="text" id="shangjiaName" name="shangjiaName" class="noNull" msg="商家名称不能为空!"/>
 							</td>
-							<td class="discription"><span style="color:#ff0000">*</span>商家类型：</td>
+							<td class="discription"><span style="color:#ff0000">*</span>代理商级别：</td>
 							<td>
-								&nbsp;<input type="radio" name="sort" value="0" checked/>连锁实体店
-								&nbsp;<input type="radio" name="sort" value="1" />加盟店
+								&nbsp;<select name="agent_grade_id">
+								<c:forEach items="${agentGradeList}" var="agentGrade">
+									<option value="${agentGrade.id }">${agentGrade.name }</option>
+								</c:forEach>
+							</select>
 							</td>
 						</tr>
 						
@@ -160,7 +163,7 @@ $(function(){
 							</td>
 							<td class="discription"><span style="color:#ff0000">*</span>商家分类：</td>
 							<td colspan=3>
-								<select name="type_id">
+								&nbsp;<select name="type_id">
 									<c:forEach items="${merchantTypeList}" var="type">
 										<option value="${type.type_id }">${type.name }</option>
 									</c:forEach>

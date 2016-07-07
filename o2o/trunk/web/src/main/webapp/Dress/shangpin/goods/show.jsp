@@ -90,14 +90,14 @@
 								</script>
 							</td>
 						</tr>
-						<tr >
-							<td class="discription" style="width: 150px;">
-								平台商品类型：
-							</td>
-							<td>
-								${info.goodsType.name }
-							</td>
-						</tr>
+						<%--<tr >--%>
+							<%--<td class="discription" style="width: 150px;">--%>
+								<%--平台商品类型：--%>
+							<%--</td>--%>
+							<%--<td>--%>
+								<%--${info.goodsType.name }--%>
+							<%--</td>--%>
+						<%--</tr>--%>
 						<tr>
 							<td class="discription" style="width: 150px;">
 								商品名称：
