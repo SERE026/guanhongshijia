@@ -1,4 +1,4 @@
-﻿* {margin:0;padding:0;
+﻿* {margin:0;padding:0;font-family:'Microsoft YaHei';
 }
 html{-webkit-text-size-adjust:none;}
 .font14 {font-size:14px;
@@ -60,11 +60,11 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
 .hot-search {line-height:44px;overflow:hidden;
 }
-.hot-search li {color:#000;margin-left:4px;
+.hot-search li {color:#aaa;margin-left:4px;
 }
     .hot-search li:first-child {margin-left:0;
     }
-    .hot-search li a {text-decoration:none;
+    .hot-search li a {text-decoration:none;color:#aaa;
     }
 .head-logo .Switch-city {border:1px solid #ccc;font-size:12px;padding:1px 4px;
 }
@@ -77,7 +77,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
 .nav-ul>ul {overflow:hidden;
 }
-.nav-ul>ul>li {font-weight:bold;
+.nav-ul>ul>li:nth-child(2) {margin-left:36px;
 }
     .nav-ul > ul > li:first-child {background-color:#572a27;
     }
@@ -95,7 +95,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
         .nav-ul ul li ul li a img {margin:16px 16px 0 16px;
         }
 .three-level {
-    position:absolute;top:0;left:235px;width:400px;background-color:white;padding-left:1.5em;height:500px;
+    position:absolute;top:2px;left:235px;width:400px;background-color:white;padding-left:1.5em;
 }
 .three-level h4 {line-height:36px;margin-top:15px;
 }
@@ -141,7 +141,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
     padding:8px 5em;
     background-color:#640202;
     /*margin-left:15px;*/
-    color:#e9e3e2;
+    color:#cbb2b2;
 }
         .hot-small ul li a {text-justify:auto;
         }
@@ -281,16 +281,16 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
             }
     .FloorHead .FloorBack {background-color:#572a27;line-height:10px;width:100%;overflow:hidden;
     }
-    .FloorID b {font-size:26px;color:#572a27;margin-left:10px;float:left;display:block;padding-top:8px;
+    .FloorID b {font-size:26px;color:#572a27;margin-left:10px;float:left;display:block;padding-top:5px;
     }
 .FloorID img {margin:14px 0 0 10px;float:left;
 }
-.FloorID span {margin-left:10px;font-weight:bold;float:left;display:block;padding-top:18px;
+.FloorID span {margin-left:10px;font-weight:bold;float:left;display:block;padding-top:15px;
 }
 
-.FloorBack > .backLeft {color:#fad2a7;font-size:8px;display:inline-block;transform:scale(0.8)
+.FloorBack > .backLeft {color:#fad2a7;font-size:7px;display:inline-block;transform:scale(0.7)
 }
-.FloorBack > .backRight {float:right;margin-top:1px;font-size:8px;color:white;display:inline-block;transform:scale(0.8)
+.FloorBack > .backRight {float:right;font-size:7px;color:white;display:inline-block;transform:scale(0.7)
 }
 /*跳转按钮*/
 .jump-btn {position:absolute;left:-50px;top:22%;
@@ -316,9 +316,9 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
         }
         .footer-link dl dt, .footer-link dl dd {padding:0 25px 0 20px;font-size:12px;
         }
-        .footer-link dl dt {font-size:16px;line-height:38px;
+        .footer-link dl dt {font-size:16px;line-height:38px;color:#80868d;
         }
-        .footer-link dl dd {line-height:24px;
+        .footer-link dl dd {line-height:24px;color:#868d9b;
         }
         .footer-link dl:first-child dt,.footer-link dl:first-child dd {padding-left:30px;
         }
@@ -326,7 +326,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
         }
         .footer-link dl:first-child dd b {font-size:20px;
         }
-        .footer-link dl:first-child dd:last-child {text-align:right;
+        .footer-link dl:first-child dd:last-child {text-align:right;line-height:66px;
         }
         .footer-link dl:last-child dd {text-align:center;
         }
