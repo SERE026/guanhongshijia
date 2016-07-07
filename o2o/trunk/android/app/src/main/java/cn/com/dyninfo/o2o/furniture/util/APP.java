@@ -529,7 +529,7 @@ public class APP {
 
 	/** -----------------------服务器 路径------------------------- */
 	// TODO 服务器路径配置
-	public static String host = "http://10.200.1.230:8080/Dress"; // 上线地址
+	public static String host = "http://192.168.1.107:8080/Dress"; // 上线地址
 //	 public static String host = "http://www.xpzc.com"; // 地址
 	/** 图片加载失败地址 */
 	static String imgholder = "http://www.c-1-tech.com/Dress/upload/failed/img_load_holder.png";
