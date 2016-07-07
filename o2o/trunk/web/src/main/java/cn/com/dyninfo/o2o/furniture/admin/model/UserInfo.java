@@ -154,6 +154,12 @@ public class UserInfo implements UserDetails,Serializable{
 	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="user")
 	private  List<Log> log;//日志
 
+	@AccessType(value="property")
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="AGENT_GRADE_ID")
+	private  AgentGrade agentGrade;//代理商级别
+
+
 	public List<Log> getLog() {
 		return log;
 	}
@@ -467,5 +473,11 @@ public class UserInfo implements UserDetails,Serializable{
 		this.areaid = areaid;
 	}
 
+	public AgentGrade getAgentGrade() {
+		return agentGrade;
+	}
 
+	public void setAgentGrade(AgentGrade agentGrade) {
+		this.agentGrade = agentGrade;
+	}
 }

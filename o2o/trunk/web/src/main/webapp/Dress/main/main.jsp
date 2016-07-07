@@ -21,7 +21,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <%@ taglib prefix="fmt" uri="/WEB-INF/taglib/fmt.tld" %>
 
-<fmt:setBundle basename="resource.locale" />
+<fmt:setBundle basename="locale" />
 <title><fmt:message key="sys.welcome"/><fmt:message key="sys.name"/></title>
 </head>
 

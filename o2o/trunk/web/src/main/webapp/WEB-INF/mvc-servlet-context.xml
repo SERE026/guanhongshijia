@@ -30,7 +30,6 @@
 		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
   
   <context:component-scan base-package="**.controller" />
-  <context:component-scan base-package="com.dress.*.controller" />
   <!-- 激活处理@ Controller类(注释支持驱动的格式和注释驱动的验证) -->
   <mvc:annotation-driven />
   

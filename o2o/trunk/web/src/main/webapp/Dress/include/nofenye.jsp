@@ -49,6 +49,11 @@ request.setAttribute("path",url);
 			alert("请输入页码!");
 		}
 	}
+	function ysKeydown(e) {
+		if (e.keyCode == 13) {
+			jump();
+		}
+	}
 </script>
 
 <%PageInfo info=(PageInfo)request.getAttribute("PAGE_INFO");
@@ -116,7 +121,9 @@ for(int i=0;i<tpage+5&t<5;i++)
 <img src="<%=request.getContextPath()%>/Dress/img/tab2_fenye_31.gif" border="0" /></a>
 </div>
 <div style="float:left;margin-left:10px;width:100px;margin-top:3px;"><a href="javascript:jump();">转到</a>
-	<input style="width:50px;height:12px;margin-left:0px;" type="text" id="ys" value="${PAGE_INFO.pageNo}">页
+	<%--当表单只有一个text时按回车会自动提交，添加一个不显示的text，WTF！--%>
+	<input type="text" style="display: none">
+	<input style="width:50px;height:12px;margin-left:0px;" type="text" id="ys" value="${PAGE_INFO.pageNo}" onkeydown="ysKeydown(event)">页
 </div>
 <div style="float:left;margin-left:0px;margin-top:3px; width:150px;">
 共${PAGE_INFO.totalpage }页&nbsp;${PAGE_INFO.totalCount }条数据

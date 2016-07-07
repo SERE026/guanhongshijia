@@ -20,12 +20,12 @@
 	function allChoose(){
 		$("[name='list']").attr("checked",'true');
 	}
-	
+
 	function allCancel(){
 		$("[name='list']").removeAttr("checked");
 	}
 	function xz(){
-	
+
 		if(i==1){
 			allChoose();
 			i=0;
@@ -34,7 +34,7 @@
 			i=1;
 		}
 	}
-	
+
 	function delall(){
 		if(confirm("请确认是否执行删除操作!"))
 			document.getElementById("del").submit();
@@ -47,7 +47,7 @@
 	function cz(){
 		 document.getElementById("czlist").submit();
 	}
-	
+
 </script>
 
 
@@ -86,7 +86,7 @@
 				</tr>
 			</table>
 		</td>
-		
+
 <td>&nbsp;</td>
 </tr>
 </table>
@@ -148,7 +148,7 @@
 			<c:if test="${Info.is_default==1}"><fmt:message key="button.yes"/></c:if>
 			<c:if test="${Info.is_default==0}"><fmt:message key="button.no"/></c:if>
 		</td>
-		
+
 		<td>
 			<c:if test="${Info.is_default==0}">
 			<a href="<%=request.getContextPath()%>/html/manage/res/disUpdate/${Info.id}" class="zhu2">
@@ -158,10 +158,10 @@
 			</c:if>
 		</td>
 	</tr>
-	
+
 
 </c:forEach>
-								
+
 	 <jsp:include page="/Dress/include/nofenye.jsp">
 	 	<jsp:param name="url" value="/html/manage/res/list" />
 	</jsp:include>
