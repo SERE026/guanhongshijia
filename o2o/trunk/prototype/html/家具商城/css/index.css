@@ -48,7 +48,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
     .Search-categories option {height:40px;
     }
-.Search-Text {font-size:14px;width:340px;float:left;border:2px solid #572a27;line-height:36px;padding-left:10px;
+.Search-Text {font-size:14px;width:340px;float:left;border:2px solid #572a27;line-height:36px;padding-left:10px;height:36px;
 }
 .search label {margin-left:4px;
 }
@@ -158,8 +158,10 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
     .Showcase>ul>li:first-child {margin:0;
     }
-.Add-art {background-color:#2b2657;color:white;margin-left:15px;width:56px;line-height:22px;text-align:center;display:block;float:left;
+.Add-art {border:1px solid #572a27;color:white;margin-left:13px;width:56px;line-height:16px;text-align:center;display:block;float:left;height:20px;
 }
+    .Add-art img {margin-top:2px;
+    }
 .Showcase .Item-introduction dd:last-child {margin-top:24px;
 }
 .Showcase .Item-introduction .dd-Item-name {margin:4px 0;font-size:14px;
@@ -279,14 +281,16 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
             }
     .FloorHead .FloorBack {background-color:#572a27;line-height:10px;width:100%;overflow:hidden;
     }
-    .FloorID b {font-size:24px;color:#572a27;margin-left:20px;
+    .FloorID b {font-size:26px;color:#572a27;margin-left:10px;float:left;display:block;padding-top:8px;
     }
-.FloorID span {margin-left:10px;font-weight:bold;
+.FloorID img {margin:14px 0 0 10px;float:left;
+}
+.FloorID span {margin-left:10px;font-weight:bold;float:left;display:block;padding-top:18px;
 }
 
-.FloorBack > .backLeft {color:#fad2a7;font-size:8px;
+.FloorBack > .backLeft {color:#fad2a7;font-size:8px;display:inline-block;transform:scale(0.8)
 }
-.FloorBack > .backRight {float:right;margin-top:1px;font-size:8px;color:white;
+.FloorBack > .backRight {float:right;margin-top:1px;font-size:8px;color:white;display:inline-block;transform:scale(0.8)
 }
 /*跳转按钮*/
 .jump-btn {position:absolute;left:-50px;top:22%;
@@ -302,7 +306,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
 .footer-link {height:300px;background-color:#f3f3f3;width:100%;padding-top:40px;margin:0 auto;width:1200px;border-right:1px solid #808080;
 }
-    .footer-link > div {overflow:hidden;
+    .footer-link > div {
     }
     .footer-link dl {float:left;width:148px;height:155px;border-right:1px solid #ccc;
     }
