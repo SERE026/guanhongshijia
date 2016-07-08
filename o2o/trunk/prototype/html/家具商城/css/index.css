@@ -11,15 +11,15 @@ ul li {float:left;list-style-type:none;
 }
 .head {width:64%;margin:0px auto;height:200px;width:1200px;padding-top:25px;
 }
-.head-top {width:100%;height:30px;margin:0px auto;
+.head-top {width:1200px;height:30px;margin:0px auto;
 }
 .head-top > div {width:98%;margin:0 auto;
 }
-    .head-top a, .head-top label {color:black;font-weight:bold;
+    .head-top a, .head-top label {color:#a5a2a2;
     }
 .head-welcome {font-weight:bold;
 }
-.head-login {margin-left:1%;
+.head-login {margin-left:34px;
 }
 .head-ul {
 overflow:hidden;display:block;float:right;height:30px;width:530px;
@@ -73,7 +73,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 /*导航*/
 .navigation {width:100%;height:50px;
 }
-.nav-ul {width:64%;margin:0 auto;width:1200px;
+.nav-ul {width:64%;margin:0 auto;width:1200px;position:relative;
 }
 .nav-ul>ul {overflow:hidden;
 }
@@ -85,17 +85,20 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
     .nav-ul > ul > li:first-child > a {display:block;width:235px;text-align:center;line-height:50px;padding:0;color:white;
     }
-    .nav-ul>ul>li>ul {/*display:none;*/background-color:#dcd7d7;position:relative;z-index:1;
+    .nav-ul>ul>li>ul {/*display:none;*/background-color:#fff;z-index:1;position:absolute;top:50px;
     }
-    .nav-ul ul li ul li {
-        float:none;line-height:72px;border-top:1px solid #fff;width:235px;
+    .nav-ul>ul>li>ul>li {
+        float:none;width:235px;
     }
-    .nav-ul ul li ul li a {display:block;width:100%;line-height:53px;color:black;font-size:16px;font-weight:bold;
+    .nav-ul>ul>li>ul>li>a {display:block;width:100%;line-height:37px;color:black;font-size:15px;font-weight:bold;
     }
-        .nav-ul ul li ul li a img {margin:16px 16px 0 16px;
+        .nav-ul ul li ul li a img {margin:10px 16px -3px 37px;
         }
+
+.prompt {position:relative;
+}
 .three-level {
-    position:absolute;top:2px;left:235px;width:400px;background-color:white;padding-left:1.5em;
+    position:absolute;top:52px;left:235px;width:400px;background-color:white;padding-left:1.5em;z-index:3;display:none;
 }
 .three-level h4 {line-height:36px;margin-top:15px;
 }
@@ -109,22 +112,74 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
         }
     .three-level > div > img {margin-top:20px;
     }
-
-/*广告*/
+.furniture {height:70px;overflow:hidden;
+}
+    .furniture ul{overflow:hidden;width:166px;float:left;margin-left:71px;
+    }
+    .furniture ul li{float:left;min-width:42px;
+    }
+        .furniture ul li a {line-height:22px;font-size:13px;color:#121212;
+        }
+        .furniture ul li:nth-child(3), .furniture ul li:nth-child(6) {width:82px;
+        }
+        .furniture ul li:last-child {width:166px;
+        }
+        /*广告*/
 .advertising {
     border-bottom:1px solid #ccc;position:relative;
 }
-    .advertising-back > div:first-child {width:235px;float:left;height:485px;
-    }
-.advertising-back {width:64%;margin:0 auto;overflow:hidden;width:1200px;
+.advertising-back {overflow:hidden;width:100%;position:absolute;border:2px solid #572a27;height:485px;top:0;
 }
-    .advertising-back>img {width:755px;height:485px;float:left;
-    }
-.experience {background-color:red;width:210px;height:485px;float:left;
+.experience {width:1200px;height:485px;margin:0 auto;overflow:hidden;
 }
-    .experience > img {width:100%;height:100%;
+    .experience > div {width:200px;height:485px;float:right;background-color:white;padding:0 6px;text-align:center;
     }
+    .experience p:first-child {margin-top:28px;
+    }
+    .experience p {color:#f1cb9b;text-align:center;font-size:12px;
+    }
+    .experience img {width:190px;height:190px;margin-top:12px;
+    }
+    .experience .thisHome {text-align:center;font-size:20px;color:#626261;margin-top:18px;
+    }
+    .experience .national {font-weight:bold;color:#626261;font-size:15px;margin-top:6px;
+    }
+    .experience .findHome {border:1px solid #ccc;border-radius:6px;display:block;width:140px;text-align:center;line-height:30px;background-color:#572a27;color:white;margin:34px auto 0;
+    }
+#focus001 {width:100%;height:485px;overflow:hidden;
+}
+    #focus001 ul {width:300%;height:485px;
+    }
+    #focus001 ul li {width:100%;height:485px;
+    }
+        #focus001 img {width:100%;height:485px;
+        }
+.LiBtn {position:absolute;bottom:20px;z-index:3;width:100%;height:18px;
+}
+    .LiBtn > div {width:1200px;margin:0 auto;overflow:hidden;height:18px;
+    }
+/*.LiBtn div ul {height:14px;width:1200px;margin:0 auto;
+}
+    .LiBtn div ul {width:70px;margin:0 auto;
+    }
+   .LiBtn ul li {width:14px;height:14px;background-color:#ccc;border-radius:14px;margin-left:14px;
+    }
+    .LiBtn ul li:first-child {margin-left:0;
+    }*/
 
+
+
+        .focus {width:100%; height:585px; overflow:hidden; position:relative;}
+.focus ul {height:585px; position:absolute;}
+.focus ul li {float:left; width:100%; height:585px; overflow:hidden; position:relative; background:#000;}
+.focus ul li div {position:absolute; overflow:hidden;}
+.focus .btnBg {position:absolute; width:800px; height:20px; left:0; bottom:0; background:#000; display:none;}
+.focus .btn { width:100px; height:14px;margin:0 auto; }
+.focus .btn span {display:inline-block; _display:inline; _zoom:1; width:14px; height:14px; line-height:14px; text-align:center; _font-size:0; margin-left:5px; cursor:pointer; background:#fff;border-radius:10px;}
+.focus .btn span.on {background:#fff;}
+.focus .preNext {width:45px; height:100px; position:absolute; top:90px; cursor:pointer;}
+.focus .pre {left:0;position:absolute;left:0px;top:190px;border:1px solid red;z-index:3}
+.focus .next {right:0; position:absolute;top:190px;border:1px solid red;z-index:3}
 /*内容部分*/
 .browse {width:64%;margin:0px auto;width:1200px;
 }
@@ -219,10 +274,19 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
     .Floor > p {line-height:95px;
     }
-    .Floor .FloorImg {float:left;
+    .Floor .FloorImg {float:left;width:220px;height:560px;border:1px solid red;padding-left:16px;
     }
+        .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:140px;margin-top:20px;
+        }
+        .Floor .FloorImg ul {overflow:hidden;margin-top:80px;
+        }
+            .Floor .FloorImg ul li {
+                width:60px;height:24px;margin:6px 3px;
+            }
+                .Floor .FloorImg ul li a {border:1px solid #dcd7d7;width:60px;line-height:24px;text-align:center;display:block;font-size:14px;color:black;
+                }
     .Floor .FloorImg img {
-        margin-left:-14px;
+        width:200px;height:200px;margin-top:80px;
     }
 .floor-banner {overflow:hidden;
 }

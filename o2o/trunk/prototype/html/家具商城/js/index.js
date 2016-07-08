@@ -2,6 +2,9 @@
     //suspension();
     Timelimit();
     //PlacedTop(); //置顶
+    prompt();
+
+    Backswitch();
 })
 
 function suspension() {
@@ -56,3 +59,33 @@ window.onscroll = function () {
     obj.parentNode.parentNode.style.display = (scrollTop >= 600) ? "block" : "none";
 
 }
+
+
+function prompt() {
+    var top,text;
+    $(".prompt").hover(function () {
+        top = $(this).position().top;
+        text = $(this).find("a").text();
+    })
+    $(document).mouseover(function (e) {
+        var _con = $('.prompt,.three-level');   // 设置目标区域
+        if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+            $(".three-level").hide();
+        } else {
+            $(".three-level").css("top", top + 52);
+            $(".three-level").show();
+            $(".three-level h4 span").text(text);
+        }
+    });
+}
+
+function Backswitch() {
+    $(".LiBtn ul li").click(function () {
+        var tag = $(this).attr("title");
+    })
+    
+}
+function set() {
+    
+}
+setTimeout("")
