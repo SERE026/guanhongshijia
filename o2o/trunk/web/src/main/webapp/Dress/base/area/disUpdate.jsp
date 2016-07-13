@@ -60,7 +60,7 @@ function openDialog(){
 		</td>
 	</tr>
 	<tr>
-		<td>&nbsp;</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>
@@ -76,18 +76,18 @@ function openDialog(){
 					</tr>
 					</thead>
 					<tr>
-						<td style="width: 20%;" class="discription"><span style="color:#ff0000">*</span>地区名：</td>
-						<td style="width: 30%;"><input type="text" id="ognz_name" name="name" value="${info.name }" /></td>
+						<td class="discription"><span style="color:#ff0000">*</span>地区名：</td>
+						<td ><input type="text" id="ognz_name" name="name" value="${info.name }" /></td>
 					</tr>
 					<tr>
-						<td style="width: 20%;" class="discription">上级地区：</td>
+						<td  class="discription">上级地区：</td>
 						<td>
 							<input type=hidden id="parent1" name="parent.id" value="${info.parent.id }"/>
-							<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${info.parent.name }" style="width:180px;background-position:right" readOnly  class="inputread"/>
+							<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${info.parent.name }" style="width:173px;background-position:right" readOnly  class="inputread"/>
 						</td>
 					</tr>
 					<tr>
-						<td style="width: 20%;" class="discription">是否为默认地区：</td>
+						<td class="discription">是否为默认地区：</td>
 						<td>
 							<input type="radio" value="0" name="isDefault" <c:if test="${Info.isDefault==0}">checked</c:if>/>否&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="radio" value="1" name="isDefault" <c:if test="${Info.isDefault==1}">checked</c:if>/>是

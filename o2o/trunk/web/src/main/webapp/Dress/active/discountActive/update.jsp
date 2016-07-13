@@ -146,7 +146,7 @@ KE.show({id : 'context',
 					</td>
 					<td>
 						<input type="text"  name="val" dataType="float" value="${info.val }" class="noNull" msg="促销值不能为空！"
-						/>(如果促销方式为减少金额方式，促销值则为减少的金额；如果促销方式为订单折扣，促销值为折扣值。)
+						/>（如果促销方式为减少金额方式，促销值则为减少的金额；如果促销方式为订单折扣，促销值为折扣值。）
 					</td>
 				</tr>
 				<tr>

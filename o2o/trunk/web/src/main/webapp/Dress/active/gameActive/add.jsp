@@ -72,7 +72,7 @@ KE.show({id : 'context',
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -143,7 +143,7 @@ KE.show({id : 'context',
 						<span style="color: red;">*</span>活动游戏：
 					</td>
 					<td>
-						<select name="game.game_id" class="game">
+						<select name="game.game_id" class="game" style="width: 173px;">
 							<option value="">请选择游戏</option>
 							<c:forEach items="${gameList}" var="game">
 								<option value="${game.game_id }" paramUrl="${game.paramUrl }">${game.name }</option>

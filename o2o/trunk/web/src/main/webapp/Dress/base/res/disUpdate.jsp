@@ -54,7 +54,7 @@ function submit(){
 
 </td>
 </tr>
-
+<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 <form name="form1" id="post" action="<%=request.getContextPath() %>/html/manage/res" method="post">
@@ -88,7 +88,7 @@ function submit(){
   	   </td>
        <td class="discription"><fmt:message key="res.menu" />:</td>
 	   <td>
-		    <select name="is_menu" id="select">
+		    <select name="is_menu" id="select"  style="width: 173px;">
 		    	<option value="1" <c:if  test="${info.is_menu==1 }" >selected</c:if>><fmt:message key="res.menu1"/></option>
 		    	<c:if  test="${info.is_menu!=1 }" >
 		    	<option value="${info.is_menu}" selected><fmt:message key="res.menu2"/></option>
@@ -105,7 +105,7 @@ function submit(){
     	</td>
     	<td >
     		<input type=hidden id="parent1" name=parent1 value="${info.parent.id }"/>
-			<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${info.parent.res_name }"  class="inputread " readonly/>
+			<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${info.parent.res_name }"  style="width: 173px;"  class="inputread " readonly/>
     	</td>
 	    <td class="discription">
 	    	适用角色:
@@ -122,7 +122,7 @@ function submit(){
  *	部门主管 DepartmentHead
 	    	
 	    	 -->
-	    	<select name="role">
+	    	<select name="role"  style="width: 173px;">
 	    		<option value="" selected>所有人</option>
 	    		<option value="Designer" <c:if test="${info.role=='Designer' }">selected</c:if>>设计师</option>
 	    		<option value="CustomerService" <c:if test="${info.role=='CustomerService' }">selected</c:if>>客服</option>

@@ -29,8 +29,8 @@
 
 <frameset rows="60,*,0" cols="*" frameborder="no" border="0" framespacing="0">
   <frame src="<%=request.getContextPath() %>/Dress/main/banner.jsp" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" title="topFrame" />
-  <frameset cols="166,*" rows="*" frameborder="no" border="0" framespacing="0">
-    <frame src="<%=request.getContextPath() %>/html/manage/left" name="leftFrame" scrolling="no" noresize="noresize" id="leftFrame" title="leftFrame" />
+  <frameset cols="200,*" rows="*" frameborder="no" border="0" framespacing="0">
+    <frame src="<%=request.getContextPath() %>/html/manage/left" name="leftFrame" scrolling="no" noresize="noresize" id="leftFrame" title="leftFrame" style="width: 300px;" />
     <frame src="<%=request.getContextPath() %>/html/manage/main/right" name="mainFrame" id="mainFrame" title="index"  />
   </frameset>
   <frame src="#" id="downloadFrame" name="downloadFrame" scrolling="no" noresize="noresize"/>

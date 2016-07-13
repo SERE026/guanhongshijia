@@ -24,6 +24,7 @@ $(function(){
 })
 </script>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -46,6 +47,7 @@ $(function(){
 </tr>
 
 <tr>
+	<tr><td></td></tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
 <form name="form1" id="form1" action="<%=request.getContextPath() %>/html/manage/aadvwz" method="post">
@@ -64,7 +66,7 @@ $(function(){
     <tr>
     <td class="discription" style="width: 150px;" ><span style="color:#ff0000">*</span>广告类型:</td>
 									<td>
-							<select name="advwz_type" class="noNull" msg="广告类型不能为空！" style="width:140px; height:23px;" >
+							<select name="advwz_type" class="noNull" msg="广告类型不能为空！" style="width:173px; height:23px;" >
 									 <option id="fkzt1" value="">请选择</option>
 									 <option value="2" >幻灯片</option>
 						  <option value="1" >图片</option>

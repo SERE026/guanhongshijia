@@ -100,7 +100,7 @@
 						<td><input name="tname" type="text" style="color:#494949" value="${tname }"/></td>
 						<td class="chazhaofanshi1">是否是默认区域：</td>
 						<td>
-							<select name="isDefault" style="width:100px; height:23px;">
+							<select name="isDefault" style="width:173px; height:23px;">
 							  <c:if test="${ empty isDefault}">
 								  <option value="">请选择</option>
 							  </c:if>
@@ -117,7 +117,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td>&nbsp;</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>
@@ -126,7 +126,7 @@
 				<table cellspacing="0" cellpadding="0" class="table4_da">
 					<thead>
 					<tr>
-						<td  class="checkboxTd" style="text-align:left; padding:0;"><input name="" type="checkbox" value="" onclick="xz();" /></td>
+						<td  class="checkboxTd" style="text-align:center; padding:0;"><input name="" type="checkbox" value="" onclick="xz();" /></td>
 						<td>区域名</td>
 						<td>上级区域</td>
 						<td>是否是默认区域</td>
@@ -135,14 +135,14 @@
 					</thead>
 					<c:forEach var='Info' items='${LIST}' varStatus='index'>
 						<tr>
-							<td width="2%" style="text-align:left; padding:0;">
+							<td width="2%" style="text-align:center; padding:0;">
 								<input id="list" name="list" type="checkbox" value="${Info.id}" />
 							</td>
 							<td>${Info.name}&nbsp;</td>
 							<td><c:if test="${empty Info.parent.name}">顶级区域</c:if>${Info.parent.name}&nbsp;</td>
 							<td>
-								<c:if test="${Info.isDefault==1}">是</c:if>&nbsp;
-								<c:if test="${Info.isDefault==0}">否</c:if>&nbsp;
+								<c:if test="${Info.isDefault==1}">是</c:if>
+								<c:if test="${Info.isDefault==0}">否</c:if>
 							</td>
 							<td>
 								

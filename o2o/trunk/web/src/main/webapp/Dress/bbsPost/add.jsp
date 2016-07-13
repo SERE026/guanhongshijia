@@ -34,6 +34,7 @@ $(function(){
 })
 </script>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -54,7 +55,7 @@ $(function(){
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -72,7 +73,7 @@ $(function(){
   <tr>
      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>帖子类型:</td>
   	  <td >
-  	     <select name="flag" style="width:100px; height:23px;">
+  	     <select name="flag" style="width:173px; height:23px;">
   	                <option value="">请选择</option>
 					<option value="0">公告</option>
 					<option value="1">网站活动</option>

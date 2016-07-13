@@ -51,7 +51,7 @@
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<input type="hidden" name="_method" value="put" />
@@ -82,7 +82,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="discription"><fmt:message key="sys.index" />:</td>
+					<td class="discription"><fmt:message key="sys.index" />：</td>
 					<td colspan="3">${ognzInfo.index_order }</td>
 				</tr>
 				<tr>

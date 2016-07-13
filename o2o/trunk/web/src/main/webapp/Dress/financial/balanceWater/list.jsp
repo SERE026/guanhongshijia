@@ -71,20 +71,15 @@
 								<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
 							</a>
 						</td>
+						<td style="font-size:30px;padding-left: 12px;">
+							账户余额:<span style="color:#ff0000">${m.money }</span>(元)
+						</td>
 					</tr>
 				</table>
 			</form>
 		</td>
 	</tr>
-	<tr><td colspan=10>
-		<table cellspacing="0" cellpadding="0">
-					<tr>
-						<td style="font-size:30px;">
-							账户余额:<span style="color:#ff0000">${m.money }</span>(元)
-						</td>
-					</tr>
-				</table>
-	</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/withdrawalAuditaudit/delall">

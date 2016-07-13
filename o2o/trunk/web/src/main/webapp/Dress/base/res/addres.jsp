@@ -54,7 +54,7 @@ function submit(){
 </td>
 </tr>
 
-
+<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -88,7 +88,7 @@ function submit(){
   	      </td>
           <td class="discription"><fmt:message key="res.menu" />:</td>
 	      <td>
-		     <select name="is_menu" id="select">
+		     <select name="is_menu" id="select" style="width: 173px;">
 		    	<option value="1" selected="selected"><fmt:message key="res.menu1"/></option>
 		    	<option value="0"><fmt:message key="res.menu2"/></option>
 		  	</select>
@@ -112,7 +112,7 @@ function submit(){
  *	部门主管 DepartmentHead
 	    	
 	    	 -->
-	    	<select name="role">
+	    	<select name="role" style="width: 173px;">
 	    		<option value="">所有人</option>
 	    		<option value="Designer">设计师</option>
 	    		<option value="CustomerService">客服</option>
@@ -131,7 +131,7 @@ function submit(){
 	    </td>
 	    <td>
 	    	<input type=hidden id="parent1" name=parent1 value=""/>
-			<input type=text id="parent1Name" name=parent1Name value="" onclick="openDialog()"  class="inputread " readonly/>
+			<input type=text id="parent1Name" name=parent1Name value="" onclick="openDialog()"  style="width: 173px;" class="inputread " readonly/>
 	    </td>
 	    <td class="discription">
 	    	操作:

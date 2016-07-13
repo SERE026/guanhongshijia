@@ -98,7 +98,7 @@ function submit(){
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<form method="post" id="del" name="form2" action="<%=request.getContextPath()%>/html/manage/comment/delall">

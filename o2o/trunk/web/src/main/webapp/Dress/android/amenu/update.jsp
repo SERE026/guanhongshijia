@@ -27,6 +27,7 @@ $(function(){
 })
 </script>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -49,6 +50,7 @@ $(function(){
 </tr>
 
 <tr>
+	<tr><td></td></tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
 <form name="form1" id="form1" action="<%=request.getContextPath() %>/html/manage/amenu" method="post">
@@ -66,7 +68,7 @@ $(function(){
 <tr>
      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>广告位置:</td>
   			<td>
-							<select name="amenuwz.menuwz_id" class="noNull" msg="广告位置不能为空！" style="width:140px; height:23px;" >
+							<select name="amenuwz.menuwz_id" class="noNull" msg="广告位置不能为空！" style="width:173px; height:23px;" >
 									 <c:forEach var='Info' items='${amenuwz }' varStatus='index'>
 						 				 <option value="${Info.menuwz_id }" <c:if test="${info.amenuwz.menuwz_id==Info.menuwz_id  }">selected</c:if>>${Info.menuwz_title }</option>
 						  			</c:forEach>
@@ -86,7 +88,8 @@ $(function(){
 		AC_FL_RunContent(
 			"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
 			"width", "100",
-			"height", "30",
+				"height", "25",
+				"style","margin-top:6px",
 			"id", "fileUpload",
 			"quality", "high",
 			"bgcolor", "#ffffff",

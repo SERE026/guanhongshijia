@@ -24,6 +24,7 @@ $(function(){
 })
 </script>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -48,9 +49,6 @@ $(function(){
 <td style="border:none; vertical-align:top">
 </td>
 </tr>
-<tr height="5">
-    <td colspan="6" style="width:34px; height:5px; border:none">&nbsp;</td>
-  </tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 

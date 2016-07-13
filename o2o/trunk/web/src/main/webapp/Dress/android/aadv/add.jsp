@@ -31,6 +31,7 @@ $(function(){
 <td style="border:none; vertical-align:top">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr><td></td></tr>
    <tr>
         <td class="tab2_tou"><a href="javascript:submit();">
         	<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" /></a></td>
@@ -49,6 +50,7 @@ $(function(){
 </tr>
 
 <tr>
+	<tr><td></td></tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
 <form  name="form1" id="form1" action="<%=request.getContextPath() %>/html/manage/aadv" method="post">
@@ -65,7 +67,7 @@ $(function(){
     <tr>
     <td class="discription" style="width: 150px;" ><span style="color:#ff0000">*</span>广告位置:</td>
 									<td>
-							<select aadv_id name="aadvwz.aadvwz_id" class="noNull" msg="广告位置不能为空！" style="width:140px; height:23px;" >
+							<select aadv_id name="aadvwz.aadvwz_id" class="noNull" msg="广告位置不能为空！" style="width:173px; height:23px;" >
 									 <option id="fkzt1" value="">请选择</option>
 									 <c:forEach var='info' items='${advwz }' varStatus='index'>
 						 				 <option value="${info.aadvwz_id }" >${info.advwz_title }</option>
@@ -94,7 +96,8 @@ $(function(){
 		AC_FL_RunContent(
 			"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
 			"width", "100",
-			"height", "30",
+			"height", "25",
+			"style","margin-top:6px",
 			"id", "fileUpload",
 			"quality", "high",
 			"bgcolor", "#ffffff",

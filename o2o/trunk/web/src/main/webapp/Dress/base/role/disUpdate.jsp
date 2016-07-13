@@ -62,7 +62,7 @@ function submit(){
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -102,7 +102,7 @@ function submit(){
     <tr>
     <td class="discription"><fmt:message key="sys.isJob" />:</td>
     <td >
-	     <select name="is_job" id="select">
+	     <select name="is_job" id="select"style="width: 173px;">
 	    	<option value="1" <c:if test="${info.is_job==1 }" >selected</c:if>><fmt:message key="button.yes"/></option>
 	    	<option value="0" <c:if test="${info.is_job==0 }" >selected</c:if>><fmt:message key="button.no"/></option>
 	  	</select>

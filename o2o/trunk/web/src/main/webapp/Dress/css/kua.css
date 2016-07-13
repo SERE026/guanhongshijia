@@ -13,7 +13,6 @@
 
 @charset "utf-8";
 div,table,form,ul,li,dt,dd,dl,a,p,body,img{margin:0px; padding:0px; list-style-type:none; font-size:12px; font-family:"宋体"; text-decoration:none; color:#000000;}
-table,tr,td{ vertical-align:top}
 body{}
 a {blr:expression(this.onFocus=this.blur());}
 

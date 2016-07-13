@@ -97,7 +97,7 @@ function openRoleDialog(){
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -129,7 +129,7 @@ function openRoleDialog(){
 				<tr>
 					<td class="discription"><span style="color:#ff0000">*</span><fmt:message key="sys.isUsed" />：</td>
 					<td>
-						<select name="isUsed">
+						<select name="isUsed" style="width: 173px;">
 							<option value="1">
 								<fmt:message key="button.yes"/>
 							</option>
@@ -141,14 +141,14 @@ function openRoleDialog(){
 					<td class="discription"><span style="color:#ff0000">*</span><fmt:message key="user.role" />：</td>
 					<td>
 						<input type=hidden id="role" name=role value=""/>
-						<input type=text id="roleName" name=roleName value=""  class="inputread " onclick="openRoleDialog()" readonly/>
+						<input type=text id="roleName" name=roleName value=""  class="inputread " style="width: 173px;" onclick="openRoleDialog()" readonly/>
 					</td>
 				</tr>
 				<tr>
 					<td class="discription"><span style="color:#ff0000">*</span><fmt:message key="user.ognz" />：</td>
 					<td>
 						<input type=hidden id="ognz" name=ognz value="${ognzInfo.id }"/>
-						<input type=text id="ognzName" name=ognzName value="${ognzInfo.ognz_name }" class="inputread " onclick="openOgnzDialog()" readonly/>
+						<input type=text id="ognzName" name=ognzName value="${ognzInfo.ognz_name }" class="inputread " style="width: 173px;" onclick="openOgnzDialog()" readonly/>
 					</td>
 					<td class="discription"><span style="color:#ff0000">*</span><fmt:message key="sys.index" />:</td>
   	  	  			<td><input type="text" id="index_order" name="index_order" value="9999" /></td>

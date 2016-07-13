@@ -38,7 +38,7 @@
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -84,7 +84,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="discription"><fmt:message key="sys.index" />:</td>
+					<td class="discription"><fmt:message key="sys.index" />：</td>
 					<td colspan="5">${userInfo.index_order }</td>
 				</tr>
 				<tr>

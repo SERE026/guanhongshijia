@@ -91,7 +91,7 @@
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/appKey/delall">

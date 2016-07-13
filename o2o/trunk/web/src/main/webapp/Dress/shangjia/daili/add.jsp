@@ -91,7 +91,7 @@ $(function(){
 <form name=form1 id="form1" action="<%=request.getContextPath()%>/html/manage/daili" method="post">
 <input type="hidden" name="areaname" id="areaname" value=""/>
 <input type="hidden" name="areaid" id="areaid" value=""/>
-<table cellspacing="0" cellpadding="0" class="tab2">]
+<table cellspacing="0" cellpadding="0" class="tab2">
 	<tr>
 		<td class="tab2_top">
 			<input type="hidden" name="_method" value="post" />
@@ -120,7 +120,7 @@ $(function(){
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">

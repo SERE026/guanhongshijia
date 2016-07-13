@@ -107,7 +107,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td>&nbsp;</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>

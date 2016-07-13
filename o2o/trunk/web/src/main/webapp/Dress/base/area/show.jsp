@@ -51,7 +51,7 @@
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<input type="hidden" name="_method" value="put" />
@@ -64,9 +64,9 @@
 				</tr>
 				</thead>
 				<tr>
-					<td style="width: 20%;" class="discription">区域名：</td>
-					<td style="width: 30%;">${ognzInfo.name }&nbsp;</td>
-					<td style="width: 20%;" class="discription">上级区域：</td>
+					<td class="discription">区域名：</td>
+					<td >${ognzInfo.name }&nbsp;</td>
+					<td style="width: 150px;" class="discription">上级区域：</td>
 					<td>${ognzInfo.parent.name }&nbsp;</td>
 				</tr>
 				<tr>

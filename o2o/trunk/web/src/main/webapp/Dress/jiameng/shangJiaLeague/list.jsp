@@ -106,7 +106,7 @@
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<form method="post" id="updateOrder" action="<%=request.getContextPath()%>/html/manage/shangJiaLeague/setOderIndex">

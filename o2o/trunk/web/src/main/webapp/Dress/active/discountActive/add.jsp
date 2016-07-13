@@ -16,6 +16,9 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/kindeditor.js"></script>
 
 <script type="text/javascript">
+	$(function(){
+		$(".ke-toolbar-outer").parent("td").css("")
+	})
 var falg = true;	
 function submit(){
 	var isSub = $("#form1").checkall();
@@ -65,7 +68,7 @@ KE.show({id : 'context',
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -146,7 +149,7 @@ KE.show({id : 'context',
 					</td>
 					<td>
 						<input type="text"  name="val" dataType="float" class="noNull" msg="促销值不能为空！"
-						/>(如果促销方式为减少金额方式，促销值则为减少的金额；如果促销方式为订单折扣，促销值为折扣值。)
+						/>（如果促销方式为减少金额方式，促销值则为减少的金额；如果促销方式为订单折扣，促销值为折扣值。）
 					</td>
 				</tr>
 				<tr>
@@ -183,7 +186,7 @@ KE.show({id : 'context',
 				</tr>
 				<tr>
 					<td class="discription" style="width: 150px;">
-						<span style="color: red;">*</span>内容：
+						<span style="color: red;">*</span>内容1：
 					</td>
 					<td>
 						<textarea id="context" style="width:800px;height:500px;" name="ps" ></textarea>

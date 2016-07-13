@@ -86,7 +86,7 @@
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/discountActive/delall">
@@ -115,12 +115,8 @@
 								<a href="<%=request.getContextPath()%>/html/manage/discountActive/${info.active_id}/show" class="zhu2">
 									查看</a>&nbsp;
 								<c:if test="${empty merchants||(info.role=='MERCHANTS')}">	
-									<a href="<%=request.getContextPath()%>/html/manage/discountActive/${info.active_id}/disUpdate" class="zhu2">
-										编辑
-									</a>&nbsp;
-									<a href="javascript:delUrl('<%=request.getContextPath()%>/html/manage/discountActive/${info.active_id}/del')" class="zhu2">
-										删除
-									</a>
+									<a href="<%=request.getContextPath()%>/html/manage/discountActive/${info.active_id}/disUpdate" class="zhu2">编辑</a>&nbsp;
+									<a href="javascript:delUrl('<%=request.getContextPath()%>/html/manage/discountActive/${info.active_id}/del')" class="zhu2">删除</a>&nbsp;
 								</c:if>
 								<c:if test="${not empty merchants}">
 									<a href="<%=request.getContextPath()%>/html/manage/discountActive/list/${info.active_id}/Goods" class="zhu2">

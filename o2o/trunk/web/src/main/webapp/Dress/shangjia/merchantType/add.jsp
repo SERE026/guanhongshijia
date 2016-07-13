@@ -51,6 +51,7 @@ $(function(){
 
 </td>
 </tr>
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -70,7 +71,7 @@ $(function(){
   <tr>
      <td class="discription" ><span style="color:#ff0000">*</span>上级分类:</td>
   	  <td>
-  	  		<select name="TypeId">
+  	  		<select name="TypeId" style="width: 173px;">
   	  			<option value="">请选择</option>
   	  			<c:forEach items="${data}" var="type">
   	  				<option value="${type.type_id }">${type.name }</option>

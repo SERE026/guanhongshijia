@@ -61,7 +61,7 @@ alert("操作成功");
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -113,7 +113,8 @@ alert("操作成功");
 									AC_FL_RunContent(
 										"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
 										"width", "200",
-										"height", "40",
+											"height", "25",
+											"style","margin-top:12px",
 										"id", "fileUpload",
 										"quality", "high",
 										"bgcolor", "#ffffff",

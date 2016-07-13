@@ -28,6 +28,7 @@ $(function(){
 <td style="border:none; vertical-align:top">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr><td></td></tr>
    <tr>
         <td class="tab2_tou"><a href="javascript:submit();">
         	<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" /></a></td>
@@ -46,6 +47,7 @@ $(function(){
 </tr>
 
 <tr>
+	<tr><td></td></tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
 <form name="form1" id="form1" action="<%=request.getContextPath() %>/html/manage/aadvwz" method="post">
@@ -63,7 +65,7 @@ $(function(){
     <tr>
    <td class="discription" style="width: 150px;" ><span style="color:#ff0000">*</span>广告类型:</td>
 									<td>
-							<select name="advwz_type" class="noNull" msg="广告类型不能为空！" style="width:100px; height:23px;" >
+							<select name="advwz_type" class="noNull" msg="广告类型不能为空！" style="width:173px; height:23px;" >
 									 <option id="fkzt1" value="">请选择</option>
 									  <option value="2"  <c:if test="${info.advwz_type=='2' }">selected</c:if>>幻灯片</option>
 						  <option value="1" <c:if test="${info.advwz_type=='1' }">selected</c:if>>图片</option>

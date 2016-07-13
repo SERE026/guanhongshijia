@@ -12,7 +12,7 @@
  */
 
 /*======公式样式=====*/
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {border:0 none;font-family:inherit;font-size:100%;font-style:inherit;margin:0;padding:0;	vertical-align:baseline;}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {border:0 none;font-family:inherit;font-size:100%;font-style:inherit;margin:0;padding:0;	vertical-align:middle;}
 body {color:#222222;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;line-height:1.5;}
 a{text-decoration:none;	color:#000;}
 ul{	list-style-type:none;}

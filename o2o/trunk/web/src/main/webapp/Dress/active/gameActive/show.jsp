@@ -16,6 +16,7 @@
 <form name=form1 id="form1" action="<%=request.getContextPath()%>/html/manage/messageSend" method="post">
 <input type="hidden" name="_method" value="put" />
 <table cellspacing="0" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0">
@@ -34,7 +35,7 @@
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">

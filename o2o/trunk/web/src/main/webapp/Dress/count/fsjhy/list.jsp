@@ -70,7 +70,6 @@ function cz(){
 	</tr>
 	<tr>
 		<td>
-			&nbsp;
 		</td>
 	</tr>
 	<tr>

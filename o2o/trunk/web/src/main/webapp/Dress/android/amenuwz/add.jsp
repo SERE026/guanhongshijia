@@ -28,6 +28,7 @@ $(function(){
 <td style="border:none; vertical-align:top">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr><td></td></tr>
    <tr>
         <td class="tab2_tou"><a href="javascript:submit();">
         	<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" /></a></td>
@@ -46,6 +47,7 @@ $(function(){
 </tr>
 
 <tr>
+	<tr><td></td></tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
 <form name="form1" id="form1" action="<%=request.getContextPath() %>/html/manage/amenuwz" method="post">
@@ -57,7 +59,7 @@ $(function(){
     <td colspan="4" ><strong>新增广告位置</strong></td>
   </tr>
     <tr>
-     <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>位置名称:</td>
+     <td class="discription" style="width: 150px!important;"><span style="color:#ff0000">*</span>位置名称:</td>
   	  <td ><input name="menuwz_title" id="menuwz_title" class="noNull" msg="位置名称不能为空！"/></td>
   </tr>
     <tr>

@@ -59,7 +59,7 @@ function openDialog(){
 		</td>
 	</tr>
 	<tr>
-		<td>&nbsp;</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>
@@ -80,7 +80,7 @@ function openDialog(){
 						<td style="width: 20%;" class="discription"><fmt:message key="ognz.fname" />：</td>
 						<td>
 							<input type=hidden id="parent1" name=parent1 value="${info.parent.id }"/>
-							<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${info.parent.ognz_name }" style="width:180px;background-position:right" readOnly  class="inputread"/>
+							<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${info.parent.ognz_name }" style="width:173px;background-position:right" readOnly  class="inputread"/>
 						</td>
 					</tr>
 					<tr>
@@ -88,7 +88,7 @@ function openDialog(){
 							<fmt:message key="sys.isUsed" />：
 						</td>
 						<td>
-							<select name="isUsed" id="select">
+							<select name="isUsed" id="select" style="width:173px;">
 								<option value="1" <c:if test="${info.isUsed==1 }" >selected</c:if>>
 									<fmt:message key="button.yes"/>
 								</option>
@@ -101,7 +101,7 @@ function openDialog(){
 							<fmt:message key="ognz.isOgnz" />：
 						</td>
 						<td>
-							<select name="isognz" id="select">
+							<select name="isognz" id="select" style="width:173px;">
 								<option value="1" <c:if test="${info.isognz==1 }" >selected</c:if>>
 									<fmt:message key="button.yes"/>
 								</option>

@@ -41,6 +41,7 @@ function submit(){
 	</td>
 </tr>
 <tr>
+	<tr><td></td></tr>
 <td style="border:none; vertical-align:top">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -65,8 +66,9 @@ function submit(){
 
 </td>
 </tr>
-
+<tr><td></td></tr>
 <tr>
+
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
 <form name="form1" id="post" action="<%=request.getContextPath() %>/html/manage/role" method="post">
@@ -81,16 +83,16 @@ function submit(){
 	</tr>
 	</thead>
   <tr>
-    <td style="width: 20%;" class="discription"><span style="color:#ff0000">*</span><fmt:message key="role.cname" />:</td>
+    <td style="width: 20%;" class="discription"><span style="color:#ff0000">*</span><fmt:message key="role.cname" />：</td>
     <td><input type="text" id="role_c_name" name="role_c_name" value="" /></td>
   </tr>
   <tr>
-  	 <td class="discription"><span style="color:#ff0000">*</span><fmt:message key="role.ename" />:</td>
+  	 <td class="discription"><span style="color:#ff0000">*</span><fmt:message key="role.ename" />：</td>
   	  <td><input type="text" id="role_e_name" name="role_e_name" value="" /></td>
   </tr>
 	
     <tr>
-  	 <td class="discription"><span style="color:#ff0000">*</span><fmt:message key="role.cg" />:</td>
+  	 <td class="discription"><span style="color:#ff0000">*</span><fmt:message key="role.cg" />：</td>
   	  <td >
   	  	<c:forEach var='ControlGroupInfo' items='${ControlGroupInfoList}'>
   	  	<input type="radio" name="controlsid" value="${ControlGroupInfo.id }"/>${ControlGroupInfo.groupName }
@@ -98,16 +100,16 @@ function submit(){
   	  </td>
   </tr>
     <tr>
-    <td class="discription"><fmt:message key="sys.isJob" />:</td>
+    <td class="discription"><fmt:message key="sys.isJob" />：</td>
     <td>
-	     <select name="is_job">
+	     <select name="is_job" style="width: 173px;">
 	    	<option value="1" selected="selected"><fmt:message key="button.yes"/></option>
 	    	<option value="0"><fmt:message key="button.no"/></option>
 	  	</select>
     </td>
     </tr>
     <tr>
-  	 <td class="discription"><fmt:message key="sys.index" />:</td>
+  	 <td class="discription"><fmt:message key="sys.index" />：</td>
   	  <td><input type="text" id="index_order" name="index_order" value="9999" /></td>
   </tr>
 </table>

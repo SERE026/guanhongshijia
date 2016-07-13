@@ -60,7 +60,7 @@ $(function(){
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -84,7 +84,7 @@ $(function(){
 								<span style="color: red;">*</span>内容：
 							</td>
 							<td>
-								<textarea rows="10" cols="100" name="context" dataType="noNull"></textarea>
+								&nbsp;<textarea rows="10" cols="100" name="context" dataType="noNull"></textarea>
 							</td>
 						</tr>
 			</table>

@@ -94,7 +94,7 @@
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
 <form name="form1" id="post" action="<%=request.getContextPath() %>/html/manage/controlGroup" method="post">

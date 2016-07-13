@@ -63,7 +63,7 @@ $(function(){
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -144,7 +144,7 @@ $(function(){
 				<tr class="sangj">
 					<td class="discription">固定电话：</td>
 					<td>
-						<input type="text" name="shouTel" value="${info.tel}" dataType ="tel_num"/>格式：区号-电话号码-分机号
+						<input type="text" name="shouTel" value="${info.tel}" dataType ="tel_num"/>&nbsp;格式：区号-电话号码-分机号
 					</td>
 				
 				<td  class="discription">邮编：</td>

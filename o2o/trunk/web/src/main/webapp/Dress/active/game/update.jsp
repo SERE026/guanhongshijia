@@ -34,6 +34,7 @@ $(function(){
 <input type="hidden" name="_method" value="put" />
 <input type="hidden" name="game_id" value="${info.game_id }" />
 <table cellspacing="0" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0">
@@ -57,7 +58,7 @@ $(function(){
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">

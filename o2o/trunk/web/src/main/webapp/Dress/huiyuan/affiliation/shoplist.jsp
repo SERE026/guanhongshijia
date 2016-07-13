@@ -80,32 +80,31 @@
 					<tr>
 						<td >
 							&nbsp;&nbsp;商家编号：<input  name="code" type="text" style="color:#494949" value="${code }"/>
+						</td>
+						<td colspan="2">
 							&nbsp;&nbsp;商家名称：<input  name="name" type="text" style="color:#494949" value="${name }"/>
-						</td>					
+						</td>
 					</tr>
 					
 					<tr>
-						<td>
+						<td colspan="3" style="min-width: 582px;line-height: 36px;">
 							&nbsp;&nbsp;归属地区：
-							<select name="provinceId" id="provinceId" dataval="${provinceId}">
+							<select name="provinceId" id="provinceId" dataval="${provinceId}" style="margin-left: -6px;">
 								<option value="">--请选择--</option>
 							</select>
-							省&nbsp;
+							省
 							<select  name="cityId" id="cityId" dataval="${cityId}">
 								<option value="">--请选择--</option>
 							</select>
-							市&nbsp;
+							市
 							<select style="display:none" name="region.id" id="countyId" dataval="${countyId}">
 								<option value="">--请选择--</option>
 							</select>
 						</td>
-						
-						<td>
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" border="0" /></a>
-						</td>
+
 					</tr>
 				</table>
-			
+			<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" border="0" /></a>
 		</td>
 	</tr>
 	<tr><td>&nbsp;</td></tr>
