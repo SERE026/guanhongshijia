@@ -90,7 +90,7 @@ $(function(){
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -103,10 +103,10 @@ $(function(){
 				</thead>
 				<tr>
 							<td class="discription" style="width: 150px;">
-								<span style="color: red;">支付方式：</span>
+								<span>支付方式：</span>
 							</td>
 							<td>
-								 <select id="zffs" name="type" class="noNull" msg="支付方式不能为空！" >
+								 <select id="zffs" name="type" class="noNull" msg="支付方式不能为空！" style="width: 173px;">
 								 	<option value="">请选择要添加的支付方式</option>
 								 	<option value="0">支付宝即时到帐接口</option>
 								 	<option value="1">网银支付接口</option>
@@ -115,50 +115,50 @@ $(function(){
 						</tr>
 						<tr>
 							<td class="discription">
-								<span style="color: red;">支付方式名称：</span>
+								<span>支付方式名称：</span>
 							</td>
 							<td>
-								 &nbsp;<input type="text" id="name" name="name" class="noNull"   msg="支付方式名称不能为空！"/>
+								 <input type="text" id="name" name="name" class="noNull"   msg="支付方式名称不能为空！"/>
 							</td>
 						</tr>
 							<tr>
 							<td class="discription">
-								<span style="color: red;">支付挂件：</span>
+								<span>支付挂件：</span>
 							</td>
 							<td>
-								 &nbsp;<input type="text" id="widget_name" name="widget_name" class="noNull"   msg="支付挂件不能为空！"/>
+								 <input type="text" id="widget_name" name="widget_name" class="noNull"   msg="支付挂件不能为空！"/>
 							</td>
 						</tr>
 						
 						 <tr class="sm">
 							<td class="discription">
-								<span style="color: red;">支付宝合作伙伴id：</span>
+								<span>支付宝合作伙伴id：</span>
 							</td>
 							<td>
-								 &nbsp;<input type="text" id="zfb_id" name="zfb_id" class="noNull"  msg="支付宝合作伙伴id不能为空！"/>
+								 <input type="text" id="zfb_id" name="zfb_id" class="noNull"  msg="支付宝合作伙伴id不能为空！"/>
 							</td>
 						</tr>
 						
 						<tr  class="sm">
 							<td class="discription">
-								<span style="color: red;">支付宝安全校验码：</span>
+								<span>支付宝安全校验码：</span>
 							</td>
 							<td>
-								 &nbsp;<input type="text" id="zfb_code" name="zfb_code" class="noNull" msg="支付宝安全校验码不能为空！"/>
+								 <input type="text" id="zfb_code" name="zfb_code" class="noNull" msg="支付宝安全校验码不能为空！"/>
 							</td>
 						</tr>
 						<tr  class="sm">
 							<td class="discription">
-								<span style="color: red;">卖家支付宝帐户：</span>
+								<span>卖家支付宝帐户：</span>
 							</td>
 							<td>
-								 &nbsp;<input type="text" id="zfb_zhanghao" name="zfb_zhanghao" class="noNull" msg="卖家支付宝帐户不能为空！"/>
+								 <input type="text" id="zfb_zhanghao" name="zfb_zhanghao" class="noNull" msg="卖家支付宝帐户不能为空！"/>
 							</td>
 						</tr>
 						
 						<tr class="zfsm">
 							<td class="discription">
-								<span style="color: red;">*</span>支付说明：
+								<span>*</span>支付说明：
 							</td>
 							<td>
 								<input type="text" id="ps" name="ps" class="noNull" msg="支付说明不能为空！"/>

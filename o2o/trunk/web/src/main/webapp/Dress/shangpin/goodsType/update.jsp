@@ -65,7 +65,7 @@ $(function(){
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -80,25 +80,25 @@ $(function(){
   </tr>
   
    <tr>
-      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>商品类型:</td>
+      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>商品类型：</td>
   	  <td ><input name="name" id="name" value="${info.name }" class="noNull" msg="商品类型名称不能为空！"/></td>
   </tr>
   <tr>
-      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>是否关联品牌:</td>
+      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>是否关联品牌：</td>
   	  <td >
   	  		<input type="radio" name="linkBrank" value="1" <c:if test="${info.linkBrank==1 }">checked</c:if>/>是
   	  		<input type="radio" name="linkBrank" value="0" <c:if test="${info.linkBrank==0 }">checked</c:if> />否
   	  </td>
   </tr>
   <tr>
-      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>是否拥有属性:</td>
+      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>是否拥有属性：</td>
   	  <td >
   	  		<input type="radio" name="ownSpec" value="1"  <c:if test="${info.ownSpec==1 }">checked</c:if>/>是
   	  		<input type="radio" name="ownSpec" value="0"  <c:if test="${info.ownSpec==0 }">checked</c:if> />否
   	  </td>
   </tr>
   <tr id="brandTr">
-  	<td class="discription">选择品牌</td>
+  	<td class="discription">选择品牌：</td>
   	<td>
   		<select id="searchablems2side__sx" multiple="multiple" size="10" name="brands" >
   			<c:forEach items="${brandList}" var="brand">
@@ -109,7 +109,7 @@ $(function(){
   	</td>
   </tr>
   <tr id="specTr">
-  	<td class="discription">添加属性</td>
+  	<td class="discription">添加属性：</td>
   	<td>
   		 <table cellspacing="0" cellpadding="0" class="table3_da">
 			  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/Dress/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">

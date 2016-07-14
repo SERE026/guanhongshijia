@@ -110,7 +110,7 @@ KE.show({id : 'context',
 			 ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
 					var str="";
 					str += "<div id='"+fileName+"' style='display: inline;'>";
-					str += "<input type='hidden' name='imagesrc' value='"+fileName+"'/>&nbsp;";
+					str += "<input type='hidden' name='imagesrc' value='"+fileName+"'/>";
 					str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
 					str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 					str += "删除";
@@ -123,7 +123,7 @@ KE.show({id : 'context',
 		</script>
 		<div  id="imgUrl">
 			<div id='${info.img }' style='display: inline;'>
-			<input type='hidden' name='imagesrc' value='${info.img }'/>&nbsp;
+			<input type='hidden' name='imagesrc' value='${info.img }'/>;
 			<img src="<%=request.getContextPath()%>/upload/${info.img }" height=120 width=240 />
 			<a href='#' onclick='removeFiles("${info.img }")'>
 			删除

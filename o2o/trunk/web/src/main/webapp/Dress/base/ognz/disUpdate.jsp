@@ -112,7 +112,7 @@ function openDialog(){
 						</td>
 					</tr>
 					<tr>
-						<td class="discription"><fmt:message key="sys.index" />:</td>
+						<td class="discription"><fmt:message key="sys.index" />：</td>
   	  					<td colspan="3"><input type="text" id="index_order" name="index_order" value="${info.index_order }" /></td>
 					</tr>
 					<tr>

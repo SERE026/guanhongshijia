@@ -118,7 +118,7 @@ KE.show({id : 'context',
 			 ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
 					var str="";
 					str += "<div id='"+fileName+"' style='display: inline;'>";
-					str += "<input type='hidden' name='imagesrc' value='"+fileName+"'/>&nbsp;";
+					str += "<input type='hidden' name='imagesrc' value='"+fileName+"'/>";
 					str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
 					str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 					str += "删除";
@@ -186,7 +186,7 @@ KE.show({id : 'context',
 				</tr>
 				<tr>
 					<td class="discription" style="width: 150px;">
-						<span style="color: red;">*</span>内容1：
+						<span style="color: red;">*</span>内容：
 					</td>
 					<td>
 						<textarea id="context" style="width:800px;height:500px;" name="ps" ></textarea>

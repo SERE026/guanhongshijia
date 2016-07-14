@@ -41,10 +41,10 @@ function cz(){
 							</a>
 						</td>
 						<td class="chazhaofanshi1"> 下单人：</td>
-						<td><input name="xdr" type="text" style="color:#494949;width:100px; height:15px;" value="${xdr }"/></td>
+						<td><input name="xdr" type="text" style="color:#494949;width:173px; height:15px;" value="${xdr }"/></td>
 						<td class="chazhaofanshi1">订单状态：</td>
 						<td>
-						<select name="state" style="width:100px; height:23px;">
+						<select name="state" style="width:173px; height:23px;">
 						 <c:if test="${ empty state}">
 						 	 <option id="state" value="">请选择</option>
 						  </c:if>
@@ -57,12 +57,9 @@ function cz(){
 						   <option value="6"  <c:if test="${state=='6' }">	selected </c:if>>交易失败</option>
 						</select>
 						</td>
-						<td></td>
-			
-						<td></td>
 						<td class="chazhaofanshi1"> 配送方式：</td>
 						<td>
-							<select name="wlfs" style="width:100px; height:23px;" >
+							<select name="wlfs" style="width:173px; height:23px;" >
 								<c:if test="${ empty wlfs}">
 									<option id="fkzt1" value="">请选择</option>
 								</c:if>
@@ -71,19 +68,19 @@ function cz(){
 							</select>
 						</td>
 						<td class="chazhaofanshi1">按日期查询：</td>
-						<td><input name="btime" type="text" id="btime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px" value="${btime }" />
-						-<input name="etime" type="text" id="etime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px" value="${etime }"/></td>
+						<td><input name="btime" type="text" id="btime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px;" value="${btime }" />
+						-<input name="etime" type="text" id="etime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px;margin-left: 5px;" value="${etime }"/></td>
 						<td class="tab2_tou">
 							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" b="0" /></a>
 						</td>						
 					</tr>
 					<!-- 如果是管理员，加入订单所属区域的搜索和商家名称搜索 -->
 					<c:if test="${role ==0}">
-						<tr>
+						<tr style="height: 35px;">
 							<td></td>
 							<td class="chazhaofanshi1">所在省：</td>
 							<td>
-								<select name="province" style="width:100px; height:23px;" >
+								<select name="province" style="width:177px; height:23px;" >
 									<option id="provinceSel" value="">请选择</option>
 									<c:forEach var="p" items="${provinceList}">
 										<option value="${p}" <c:if test="${p==province }">selected="true"</c:if>>${p}</option>
@@ -92,7 +89,7 @@ function cz(){
 							</td>
 							<td class="chazhaofanshi1">所在市：</td>
 							<td>
-								<select name="city" style="width:100px; height:23px;" >
+								<select name="city" style="width:173px; height:23px;" >
 									<option id="citySel" value="">请选择</option>
 									<c:forEach var="c" items="${cityList}">
 										<option value="${c}" <c:if test="${c==city }">selected="true"</c:if>>${c}</option>
@@ -101,7 +98,7 @@ function cz(){
 							</td>
 							<td class="chazhaofanshi1">店家名称：</td>
 							<td>
-								<select name="dianjia" style="width:100px; height:23px;" >
+								<select name="dianjia" style="width:173px; height:23px;" >
 									<option id="dianjiaSel" value="">请选择</option>
 									<c:forEach var="dj" items="${dianjiaList}">
 										<option value="${dj}" <c:if test="${dj==dianjia }">selected="true"</c:if>>${dj}</option>
@@ -114,7 +111,7 @@ function cz(){
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	
 	<tr>
 		<td>

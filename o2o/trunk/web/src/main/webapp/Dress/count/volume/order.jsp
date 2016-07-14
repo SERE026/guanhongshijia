@@ -42,7 +42,7 @@ function cz(){
 						</td>
 						<td class="chazhaofanshi1">按日期查询：</td>
 						<td><input name="btime" type="text" id="btime" readonly onclick="" class="bianji_3 date" style="font-size: 12px" value="${btime }" />
-						-<input name="etime" type="text" id="etime" readonly onclick="" class="bianji_3 date" style="font-size: 12px" value="${etime }"/></td>
+						-<input name="etime" type="text" id="etime" readonly onclick="" class="bianji_3 date" style="font-size: 12px;margin-left: 5px;" value="${etime }"/></td>
 						<td class="tab2_tou">
 							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" b="0" /></a>
 						</td>						
@@ -51,7 +51,7 @@ function cz(){
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 				<input type="hidden" name="_method" value="delete" />

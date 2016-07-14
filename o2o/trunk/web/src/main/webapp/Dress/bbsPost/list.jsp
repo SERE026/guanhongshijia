@@ -39,7 +39,9 @@ function cz(){
 		}
 	}
 </script>
-
+<style>
+	.table4_da tr td{height:32px!important;}
+</style>
 
 <table cellspacing="2" cellpadding="0" class="tab2">
 	<tr>
@@ -73,7 +75,7 @@ function cz(){
 						<td></td>
 						<td class="chazhaofanshi1">按日期查询：</td>
 						<td><input name="btime" type="text" id="btime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px" value="${btime }" />
-						-<input name="htime" type="text" id="htime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px" value="${htime }"/></td>
+						-<input name="htime" type="text" id="htime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px;margin-left: 5px;" value="${htime }"/></td>
 						<td class="tab2_tou">
 							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" b="0" /></a>
 						</td>						
@@ -111,7 +113,7 @@ function cz(){
 								<input id="list" name="list" type="checkbox" value="${Info.id}" />
 							</td>
 							<td>
-									${Info.user.name}&nbsp;
+									${Info.user.name}
 							</td>
 							<td>
 									<c:if test="${Info.flag==0}">网站公告</c:if>
@@ -119,26 +121,26 @@ function cz(){
 									<c:if test="${Info.flag==2}">自由发帖</c:if>
 							</td>
 							<td>
-									${Info.title}&nbsp;
+									${Info.title}
 							</td>
 							<td>
 								<div style="max-width:300px;max-height:100px;overflow:hidden;">${Info.context}</div>
-										&nbsp;
+
 							</td>
 							<td>
-								    ${Info.time}&nbsp;
+								    ${Info.time}
 							</td>
 							<td>
-							        ${Info.hnum}&nbsp;
+							        ${Info.hnum}
 							</td>
 							<td>
-							         ${Info.snum}&nbsp;
+							         ${Info.snum}
 							</td>
 							<td>
-								      ${Info.htime}&nbsp;
+								      ${Info.htime}
 							</td>
 							<td>
-							          ${Info.hname.name}&nbsp;
+							          ${Info.hname.name}
 							</td>
 							<td>
 							   <c:if test="${Info.status==0}">

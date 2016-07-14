@@ -71,7 +71,7 @@ function go(){
 
 </td>
 </tr>
-
+<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 <form name="form1" action="<%=request.getContextPath() %>/html/manage/personal/changePW" method="post">
@@ -84,19 +84,19 @@ function go(){
 	</tr>
 	</thead>
   	<tr>
-	    <td style="width: 20%;" class="discription"><span style="color:#ff0000">*</span><fmt:message key="personal.oldpass" />:</td>
+	    <td style="width: 150px;text-align: right;padding-right: 10px;" class="discription"><span style="color:#ff0000">*</span><fmt:message key="personal.oldpass" />:</td>
 	    <td>
 	    	<input type="password" name="old_pass" value="" />
 	    </td>
     </tr>
     <tr>
-	    <td style="width: 20%;" class="discription"><span style="color:#ff0000">*</span><fmt:message key="personal.newpass" />:</td>
+	    <td style="width: 150px;text-align: right;padding-right: 10px;" class="discription"><span style="color:#ff0000">*</span><fmt:message key="personal.newpass" />:</td>
 	    <td>
 	    	<input type="password" name="new_pass" value="" />
 	    </td>
     </tr>
     <tr>
-	    <td style="width: 20%;" class="discription"><span style="color:#ff0000">*</span><fmt:message key="personal.newpass1" />:</td>
+	    <td style="width: 150px;text-align: right;padding-right: 10px;" class="discription"><span style="color:#ff0000">*</span><fmt:message key="personal.newpass1" />:</td>
 	    <td>
 	    	<input type="password" name="new_pass1" value="" />
 	    </td>

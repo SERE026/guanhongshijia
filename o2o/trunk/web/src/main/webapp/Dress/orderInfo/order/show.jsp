@@ -24,6 +24,7 @@ $(function(){
 })
 </script>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -42,7 +43,7 @@ $(function(){
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -55,8 +56,8 @@ $(function(){
 				</thead>
 				
 				<tr>
-					<td colspan="6">
-						<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订单商品信息:</strong>
+					<td colspan="6" style="text-align: center;height: 34px;font-size: 15px;">
+						<strong>订单商品信息:</strong>
 					</td>
 				</tr>
 				<tr class="tdBg">
@@ -78,8 +79,8 @@ $(function(){
 				   </tr>
 				</c:forEach>
 					<tr>
-					<td colspan="6">
-						<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订单金额:</strong>
+					<td colspan="6" style="text-align: center;height: 34px;font-size: 15px;">
+						<strong>订单金额:</strong>
 					</td>
 				</tr>
 				<tr class="sangj">
@@ -113,8 +114,8 @@ $(function(){
 					</td>
 				</tr>
 				<tr>
-					<td colspan="6">
-						<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;购买人信息:</strong>
+					<td colspan="6" style="text-align: center;height: 34px;font-size: 15px;">
+						<strong>购买人信息:</strong>
 					</td>
 				</tr>
 				<tr class="sangj">
@@ -139,8 +140,8 @@ $(function(){
 					</tr>
 				<c:if test="${info.dly=='1'}">
 				<tr>
-					<td colspan="6">
-						<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人信息 :</strong>
+					<td colspan="6" style="text-align: center;height: 34px;font-size: 15px;">
+						<strong>收货人信息 :</strong>
 					</td>
 				</tr>
 				<tr class="sangj">
@@ -172,8 +173,8 @@ $(function(){
 				
 				</c:if>
 				<tr>
-					<td colspan="6">
-						<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其它信息 :</strong>
+					<td colspan="6" style="text-align: center;height: 34px;font-size: 15px;">
+						<strong>其它信息 :</strong>
 					</td>
 				</tr>
 				<tr class="sangj">

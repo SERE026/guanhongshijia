@@ -24,6 +24,7 @@ $(function(){
 })
 </script>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -44,7 +45,7 @@ $(function(){
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -81,7 +82,8 @@ $(function(){
 		AC_FL_RunContent(
 			"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
 			"width", "100",
-			"height", "30",
+				"height", "25",
+				"style","margin-top:6px",
 			"id", "fileUpload",
 			"quality", "high",
 			"bgcolor", "#ffffff",
@@ -98,7 +100,7 @@ $(function(){
 			 ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
 					var str="";
 					str += "<div id='"+fileName+"' style='display: inline;'>";
-					str += "<input type='hidden' name='yqlj_img' value='"+fileName+"'/>&nbsp;";
+					str += "<input type='hidden' name='yqlj_img' value='"+fileName+"'/>";
 					str += "<img src=\"<%=request.getContextPath()%>/upload/yqlj/"+fileName+"\" height=150 width=150 />";
 					str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 					str += "删除";
@@ -111,7 +113,7 @@ $(function(){
 		</script>
 		<div  id="imgUrl">
 			<div id='${info.yqlj_img}' style='display: inline;'>
-					<input type='hidden' name='yqlj_img' value='${info.yqlj_img }'/>&nbsp;
+					<input type='hidden' name='yqlj_img' value='${info.yqlj_img }'/>
 					<img src="<%=request.getContextPath()%>/upload/yqlj/${info.yqlj_img }" height=105 width=200 />
 					<a href='#' onclick='removeFiles("${info.yqlj_img }")'>
 					删除

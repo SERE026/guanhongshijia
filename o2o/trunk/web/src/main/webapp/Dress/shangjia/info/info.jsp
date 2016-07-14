@@ -124,7 +124,7 @@
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -213,7 +213,7 @@
 								<span style="color: red;">*</span>联系人地址：
 							</td>
 							<td  >
-								<div style="float:left;margin-left:10;width:180px;">
+								<div style="float:left;margin-left:10px;width:180px;">
 								<select name="province.id" id="provinceId" dataVal="${info.province.id }">
 									<option value="">--请选择--</option>
 									

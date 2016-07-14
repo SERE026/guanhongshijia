@@ -36,19 +36,18 @@
 							<img src="<%=request.getContextPath()%>/Dress/img/return_btn.gif" border="0" />
 						</a>
 					</td>
+					<td class="tab">
+						<div box="base">基本信息</div>
+						<div box="spce">商品属性</div>
+						<div box="attr">商品参数</div>
+						<div box="price">商品价格</div>
+						<div box="delivery">配送方式</div>
+					</td>
 				</tr>
 			</table>
 		</td>
 	</tr>
-	<tr>
-		<td class="tab">
-			<div box="base">基本信息</div>
-			<div box="spce">商品属性</div>
-			<div box="attr">商品参数</div>
-			<div box="price">商品价格</div>
-			<div box="delivery">配送方式</div>
-		</td>
-	</tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 		<div class="base Box">
@@ -250,7 +249,7 @@
 					</thead>
 						
 						<tr class="moneyFlag0">
-							<td class="discription" style="width: 150px;">
+							<td class="discription" style="width: 200px;">
 								<span style="color: red;">*</span>市场价格：
 							</td>
 							<td>
@@ -258,7 +257,7 @@
 							</td>
 						</tr>
 						<tr class="moneyFlag0">
-							<td class="discription" style="width: 150px;">
+							<td class="discription" style="width: 200px;">
 								销售价格：
 							</td>
 							<td>
@@ -266,7 +265,7 @@
 							</td>
 						</tr>
 						<tr class="moneyFlag0">
-							<td class="discription" style="width: 150px;">
+							<td class="discription" style="width: 200px;">
 								成本价格：
 							</td>
 							<td>
@@ -274,7 +273,7 @@
 							</td>
 						</tr>
 						<tr class="moneyFlag0">
-							<td class="discription" style="width: 150px;">
+							<td class="discription" style="width: 200px;">
 								库存：
 							</td>
 							<td>
@@ -282,7 +281,7 @@
 							</td>
 						</tr>
 						<tr class="moneyFlag0">
-							<td class="discription" style="width: 150px;">
+							<td class="discription" style="width: 200px;">
 								重量：
 							</td>
 							<td>
@@ -290,7 +289,7 @@
 							</td>
 						</tr>
 						<tr  class="moneyFlag1" >
-							<td class="discription" style="width: 150px;">
+							<td class="discription" style="width: 200px;">
 								根据参数增加价格：<br/>标题后面有<span style="color:#ff0000">+</span>表示在基础价格上增加。
 							</td>
 							<td>

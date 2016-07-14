@@ -117,7 +117,7 @@
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/goods/delall">
@@ -127,16 +127,16 @@
 					<tr>
 						<td style="width:30px;"><input name="" type="checkbox" value="" onclick="xz();" /></td>
 							
-							<td width="200">
+							<td width="340">
 								商品名称
 							</td>
-							<td width="70" align="center">
+							<td width="70">
 								商品编号
 							</td>
-							<td width="70" align="center">
+							<td width="70">
 								商品排序
 							</td>
-							<td align="center">
+							<td>
 								分类
 							</td>
 							<td>
@@ -145,7 +145,7 @@
 							<td>
 								上架
 							</td>
-							<td>
+							<td width="125">
 								上架时间
 							</td>
 							<%--<td>--%>

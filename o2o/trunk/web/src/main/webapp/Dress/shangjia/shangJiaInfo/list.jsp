@@ -95,11 +95,13 @@
 						</td>
 					</tr>
 					<!-- 另起一行，用来显示地区查询 -->
-					<tr>
+					<tr style="width: 35px;">
+						<td></td>
+						<td></td>
 						<td></td>
 						<td class="chazhaofanshi1">所在省：</td>
 						<td>
-							<select name="province" style="width:100px; height:23px;" >
+							<select name="province" style="width:173px; height:23px;" >
 								<option id="provinceSel" value="">请选择</option>
 								<c:forEach var="p" items="${provinceList}">
 									<option value="${p}" <c:if test="${p==province }">selected="true"</c:if>>${p}</option>
@@ -108,7 +110,7 @@
 						</td>
 						<td class="chazhaofanshi1">所在市：</td>
 						<td>
-							<select name="city" style="width:100px; height:23px;" >
+							<select name="city" style="width:173px; height:23px;" >
 								<option id="citySel" value="">请选择</option>
 								<c:forEach var="c" items="${cityList}">
 									<option value="${c}" <c:if test="${c==city }">selected="true"</c:if>>${c}</option>
@@ -121,7 +123,7 @@
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/shangJiaInfo/delall">

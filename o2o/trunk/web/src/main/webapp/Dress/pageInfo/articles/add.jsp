@@ -39,6 +39,7 @@ $(function(){
 })
 </script>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -59,7 +60,7 @@ $(function(){
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -74,7 +75,7 @@ $(function(){
   </tr>
     <tr>
      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>文章标题:</td>
-  	  <td ><input name="artices_name" id="artices_name" class="noNull"  msg="文章标题不能空！"/></td>
+  	  <td ><input name="artices_name" id="artices_name" class="noNull"  msg="文章标题不能空！" style="width: 300px;"/></td>
   </tr>
  <tr>
  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>文章内容:</td>

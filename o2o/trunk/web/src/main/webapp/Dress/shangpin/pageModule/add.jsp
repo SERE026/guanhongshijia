@@ -54,7 +54,7 @@ var tb_pathToImage = "<%=request.getContextPath()%>/Dress/img/loadingAnimation.g
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 

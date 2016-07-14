@@ -36,6 +36,7 @@ $(function(){
 })
 </script>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -56,7 +57,7 @@ $(function(){
 
 </td>
 </tr>
-
+<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -69,14 +70,14 @@ $(function(){
     <td colspan="4"><strong>修改订单信息</strong></td>
   </tr>
                <tr>
-					<td colspan="6">
-						<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订单金额:</strong>
+					<td colspan="6" style="text-align: center;height: 34px;font-size: 15px;">
+						<strong>订单金额:</strong>
 					</td>
 				</tr>
     <tr class="sangj">
-     <td style="width: 20%;" class="discription" >订单编号:</td>
+     <td style="width: 20%;" class="discription" >订单编号：</td>
   	  <td >${ info.order_id }</td>
-  	    <td style="width: 20%;" class="discription" >订单状态:</td>
+  	    <td style="width: 20%;" class="discription" >订单状态：</td>
   	  <td >
 
 						 <c:if test="${info.state=='0' }">	等待付款 </c:if>
@@ -103,8 +104,8 @@ $(function(){
 				            </td>
 				</tr>
 				<tr>
-					<td colspan="6">
-						<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;购买人信息:</strong>
+					<td colspan="6" style="text-align: center;height: 34px;font-size: 15px;">
+						<strong>购买人信息:</strong>
 					</td>
 				</tr>
 				<tr class="sangj">
@@ -128,23 +129,23 @@ $(function(){
 					</td>
 				</tr>
 				<tr class="sangj">
-				 <td class="discription" style="width: 150px;">
+				 <td class="discription">
 								<span style="color: red;">*</span>联系人地址：
 							</td>
 							<td colspan=4>
-								<div style="float:left;margin-left:10px;width:180px;">
+								<div style="float:left;width:200px;">
 								<select name="province.id" id="provinceId" dataVal="${info.province.id }">
 									<option value="">--请选择--</option>
 								</select>
 								省
 								</div>
-								<div style="float:left;margin-left:10px;width:180px;">
+								<div style="float:left;margin-left:10px;width:200px;">
 								<select  name="city.id" id="cityId" dataVal="${info.city.id }">
 									<option value="">--请选择--</option>
 								</select>
 								市
 								</div>
-								<div style="float:left;margin-left:10px;width:180px;">
+								<div style="float:left;margin-left:10px;width:200px;">
 								<select name="county.id" id="countyId" dataVal="${info.county.id }">
 									<option value="">--请选择--</option>
 								</select>
@@ -157,7 +158,7 @@ $(function(){
 								<span style="color: red;">*</span>街道地址：
 							</td>
 							<td colspan=3>
-							<input type="text" name="address" id="address" value="${info.address }" class="noNull" msg="街道地址不能为空！"/>
+							<input type="text" name="address" id="address" value="${info.address }" style="width: 500px;" class="noNull" msg="街道地址不能为空！"/>
 				            </td>
 				</tr>
  </table>

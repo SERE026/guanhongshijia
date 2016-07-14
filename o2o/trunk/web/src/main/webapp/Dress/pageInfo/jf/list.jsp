@@ -33,6 +33,7 @@ function submit(){
 	
 </script>
 <table cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 	<tr>
 		<td class="tab2_top">
 		</td>
@@ -54,16 +55,16 @@ function submit(){
 			</form>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
-			 <div style="border:1px solid #c5c5c5;height:auto;width:440px;margin-left:20px;float:left">
+			 <div style="border:1px solid #c5c5c5;height:auto;width:440px;float:left">
 				<form  id="form2" name="form2" action="<%=request.getContextPath()%>/html/manage/jfadd/ok" method="post">
 		  
-					<table cellspacing="0" cellpadding="0" style="border:1px solid #c5c5c5;height:100px;" width="100%">
+					<table cellspacing="0" cellpadding="0" style="border:1px solid #c5c5c5;height:100px;" width="100%" class="integral">
 						<thead>
 						<tr>
-							<td colspan="6" style="background-color:#cbf1ff;height:30px;">
+							<td colspan="6" style="background-color:#cbf1ff;height:30px;padding-left: 10px;">
 								<strong>积分增加方案</strong>
 							</td>
 						</tr>
@@ -111,8 +112,8 @@ function submit(){
 				</div>
 		</td>
 	</tr>
-	
-	
+
+	<tr><td></td></tr>
 	
 	
 	<tr>
@@ -128,15 +129,15 @@ function submit(){
 				</tr>
 				</thead>
 					<tr>
-						<td class="chazhaofanshi1">积分查询：</td>
+						<td class="chazhaofanshi1" style="text-align: right;padding-right: 10px;">积分查询：</td>
 						<td><input name="jf" type="text" style="color:#494949" value="${jf }"/>
 						——<input name="jfs" type="text" style="color:#494949" value="${jfs }"/>
 						</td>
-						<td class="chazhaofanshi1">会员名称：</td>
+						<td class="chazhaofanshi1" style="width: 100px;text-align: right;padding-right: 10px;">会员名称：</td>
 						<td>
 								<input type="text" name="memberName" value="${memberName }" />
 						</td>
-						<td class="chazhaofanshi1">会员归属商家名称：</td>
+						<td class="chazhaofanshi1" style="text-align: right;padding-right: 10px;">会员归属商家名称：</td>
 						<td>
 								<input type="text" name="shangjiaName" value="${shangjiaName }" />
 						</td>

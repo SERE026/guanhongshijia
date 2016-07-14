@@ -68,7 +68,7 @@ $(function(){
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -99,7 +99,8 @@ $(function(){
 		AC_FL_RunContent(
 			"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
 			"width", "100",
-			"height", "30",
+				"height", "25",
+				"style","margin-top:6px",
 			"id", "fileUpload",
 			"quality", "high",
 			"bgcolor", "#ffffff",
@@ -116,7 +117,7 @@ $(function(){
 			 ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
 					var str="";
 					str += "<div id='"+fileName+"' style='display: inline;'>";
-					str += "<input type='hidden' name='logo' value='"+fileName+"'/>&nbsp;";
+					str += "<input type='hidden' name='logo' value='"+fileName+"'/>";
 					str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=60 width=120 />";
 					str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 					str += "删除";

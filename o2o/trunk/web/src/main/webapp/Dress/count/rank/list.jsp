@@ -25,10 +25,6 @@ function cz(){
 
 <table cellspacing="2" cellpadding="0" class="tab2">
 	<tr>
-		<td class="tab2_top">
-		</td>
-	</tr>
-	<tr>
 		<td>
 			<form method="post" id="czlist" name="form1" action="<%=request.getContextPath()%>/html/manage/rank/order">
 				<input type="hidden" name="type" value="${type }" />

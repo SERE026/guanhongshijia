@@ -56,7 +56,7 @@
 
 </td>
 </tr>
-
+	<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -103,7 +103,7 @@
     </tr>
      <tr>
      <td class="discription" style="width: 150px;">申请理由:</td>
-  	 <td >${info.reason }</td>
+  	 <td colspan="3">${info.reason }</td>
     </tr>
 </table>
 </form>

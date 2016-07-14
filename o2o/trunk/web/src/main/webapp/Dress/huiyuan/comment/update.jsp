@@ -62,7 +62,7 @@ function delUrl(url){
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
@@ -105,7 +105,7 @@ function delUrl(url){
 	</tr>
 	<tr>
 		<td>
-		<table cellspacing="0" cellpadding="0" class="table4_da">
+		<table cellspacing="0" cellpadding="0" class="table4_da" style="margin-top: 10px;">
 			<thead>
 					<tr>
 						<td>评论人</td>

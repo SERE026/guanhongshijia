@@ -28,6 +28,7 @@ $(function(){
 </script>
 <body>
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 <tr>
 <td style="border:none; vertical-align:top">
 
@@ -48,7 +49,7 @@ $(function(){
 
 </td>
 </tr>
-
+<tr><td></td></tr>
 <tr>
 <td style="border:#c5c5c5 solid 1px; vertical-align:top">
 
@@ -67,7 +68,7 @@ $(function(){
     <tr>
     <td class="discription" style="width: 150px;" ><span style="color:#ff0000">*</span>广告位置:</td>
 									<td>
-							<select name="advwz.advwz_id" class="noNull"  msg="广告位置不能为空！" style="width:140px; height:23px;" >
+							<select name="advwz.advwz_id" class="noNull"  msg="广告位置不能为空！" style="width:173px; height:23px;" >
 									 <option id="fkzt1" value="">请选择</option>
 									 <c:forEach var='Info' items='${advinfo }' varStatus='index'>
 						  <option value="${Info.advwz_id }" <c:if test="${Info.advwz_id==info.advwz.advwz_id}">selected</c:if>>${Info.advwz_title }</option>
@@ -88,11 +89,11 @@ $(function(){
   </tr>
      <tr>
      <td class="discription"  style="width: 150px;"><span style="color:#ff0000">*</span>起始时间:</td>
-  	  <td ><input type="text" id="adv_starttime" name="adv_starttime"   value="${ info.adv_starttime }" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px"  msg="开始时间不能为空！"/></td>
+  	  <td ><input type="text" id="adv_starttime" name="adv_starttime"   value="${ info.adv_starttime }" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px;width: 169px;"  msg="开始时间不能为空！"/></td>
   </tr>
   <tr>
      <td class="discription"  style="width: 150px;"><span style="color:#ff0000">*</span>终止时间:</td>
-  	  <td ><input type="text" id="adv_endtime" name="adv_endtime"    value="${ info.adv_endtime }" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px" msg="结束时间不能为空！"/></td>
+  	  <td ><input type="text" id="adv_endtime" name="adv_endtime"    value="${ info.adv_endtime }" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px;width: 169px;" msg="结束时间不能为空！"/></td>
   </tr>
     <tr>
      <td class="discription"  style="width: 150px;">广告链接:</td>
@@ -121,7 +122,8 @@ $(function(){
 		AC_FL_RunContent(
 			"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
 			"width", "100",
-			"height", "30",
+				"height", "25",
+				"style","margin-top:6px",
 			"id", "fileUpload",
 			"quality", "high",
 			"bgcolor", "#ffffff",
@@ -139,7 +141,7 @@ $(function(){
 			
 					var str="";
                     str += "<div id='"+fileName+"' style='display: inline;'>";
-                    str += "<input type='hidden' name='adv_flie' value='"+fileName+"'/>&nbsp;";
+                    str += "<input type='hidden' name='adv_flie' value='"+fileName+"'/>";
                     str += "<img src=\"<%=request.getContextPath()%>/upload/adv/"+fileName+"\" height=150 width=150 />";
                     str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
                     str += fileName+"<span style='color:#ff0000'>删除</span>";
@@ -151,7 +153,7 @@ $(function(){
 		</script>
 	<div  id="imgUrl">
 			<div id='${info.adv_flie}' style='display: inline;'>
-					<input type='hidden' name='adv_flie' value='${info.adv_flie }'/>&nbsp;
+					<input type='hidden' name='adv_flie' value='${info.adv_flie }'/>
 					<img src="<%=request.getContextPath()%>/upload/adv/${info.adv_flie }" height=105 width=200 />
 					${info.adv_flie}<a href='#' onclick='removeFiles("${info.adv_flie }")'>
 					删除
