@@ -19,11 +19,13 @@ ul li {float:left;list-style-type:none;
 }
 .head-top {width:1200px;height:30px;margin:0px auto;
 }
+.positioning {padding:3px 9px;background-color:red;color:white!important;
+}
 .head-top > div {width:98%;margin:0 auto;
 }
-    .head-top a, .head-top label {color:#a5a2a2;
+    .head-top a, .head-top label {color:#83817f;font-weight:bold;
     }
-.head-welcome {font-weight:bold;
+.head-welcome {font-weight:bold;margin-left:10px;
 }
 .head-login {margin-left:34px;
 }
@@ -31,10 +33,7 @@ ul li {float:left;list-style-type:none;
 overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
     .head-ul li {line-height:30px;margin-left:1.5em;
-    }
-        .head-ul li:nth-child(2) {width:22%;
-        }
-        
+    } 
 .inline-block {display:inline-block;line-height:30px;
 }
 .head-logo {width:98%;margin:60px auto;/*overflow:hidden;*/
