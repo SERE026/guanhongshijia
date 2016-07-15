@@ -31,6 +31,11 @@ function Timelimit() {
             $(".Time-limit-area").show(); $(".custom-area").hide();
         } else { $(".Time-limit-area").hide(); $(".custom-area").show(); }
     })
+
+    $(".hot-small ul li a").mouseover(function () {
+        var tag = $(this).attr("data-tag");
+        $(".Showcase ." + tag).removeClass("n_none").siblings().addClass("n_none");
+    })
 }
 
 function PlacedTop() {
