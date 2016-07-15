@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">gfsj</string>
+
+    <!--我的主页-->
+    <string name="main_collect">我的收藏</string>
+    <string name="main_search">搜索</string>
+    <string name="main_shopping_cart">购物车</string>
+    <string name="main_mine_center">用户中心</string>
+    <string name="main">首页</string>
+    <string name="main_classification">分类</string>
+    <string name="main_recommend">推荐</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\gfsjO2O\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="caa183a57393eb327f8ca507a054aeeef65a3373">
+        <dex dex="E:\gfsjO2O\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_8b0b5d4180b975b76dd9040dac45655b81ab6a3e.jar" />
+    </item>
+
+</items>
