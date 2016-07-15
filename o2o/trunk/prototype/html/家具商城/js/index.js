@@ -32,9 +32,11 @@ function Timelimit() {
         } else { $(".Time-limit-area").hide(); $(".custom-area").show(); }
     })
 
+    //热卖商品
     $(".hot-small ul li a").mouseover(function () {
+        $(this).addClass("red").parent().siblings().children().removeClass("red")
         var tag = $(this).attr("data-tag");
-        $(".Showcase ." + tag).removeClass("n_none").siblings().addClass("n_none");
+        $(".Showcase ." + tag).addClass("block_red").siblings().removeClass("block_red");
     })
 }
 
