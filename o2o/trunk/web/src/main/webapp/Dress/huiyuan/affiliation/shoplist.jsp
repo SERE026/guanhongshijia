@@ -61,7 +61,7 @@
 
 <form method="post" id="czlist" name="form1" action="<%=request.getContextPath()%>/html/manage/affiliation/merchant/list">
 
-<table cellspacing="2" cellpadding="0" class="tab2">
+<table cellspacing="2" cellpadding="0" class="tab2" style="width: 96%;margin: 0 auto;">
 	<tr>
 		<td class="tab2_top">
 			
@@ -79,16 +79,16 @@
 					
 					<tr>
 						<td >
-							&nbsp;&nbsp;商家编号：<input  name="code" type="text" style="color:#494949" value="${code }"/>
+							商家编号：<input  name="code" type="text" style="color:#494949" value="${code }"/>
 						</td>
 						<td colspan="2">
-							&nbsp;&nbsp;商家名称：<input  name="name" type="text" style="color:#494949" value="${name }"/>
+							&nbsp;商家名称：<input  name="name" type="text" style="color:#494949" value="${name }"/>
 						</td>
 					</tr>
 					
 					<tr>
 						<td colspan="3" style="min-width: 582px;line-height: 36px;">
-							&nbsp;&nbsp;归属地区：
+							归属地区：
 							<select name="provinceId" id="provinceId" dataval="${provinceId}" style="margin-left: -6px;">
 								<option value="">--请选择--</option>
 							</select>

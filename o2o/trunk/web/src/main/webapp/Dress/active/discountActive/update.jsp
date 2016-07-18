@@ -38,6 +38,7 @@ KE.show({id : 'context',
 <input type="hidden" name="_method" value="put" />
 <input type="hidden" name="active_id" value="${info.active_id }" />
 <table cellspacing="0" cellpadding="0" class="tab2">
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0">
@@ -61,7 +62,7 @@ KE.show({id : 'context',
 			</table>
 		</td>
 	</tr>
-	<tr><td>&nbsp;</td></tr>
+	<tr><td></td></tr>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" class="table3_da">
