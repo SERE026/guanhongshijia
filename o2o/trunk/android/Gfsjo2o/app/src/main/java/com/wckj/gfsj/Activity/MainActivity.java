@@ -2,24 +2,35 @@ package com.wckj.gfsj.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Fragment.Collect_fragment;
+import com.wckj.gfsj.Fragment.Main_fragment;
+import com.wckj.gfsj.Fragment.Search_fragment;
+import com.wckj.gfsj.Fragment.Shopping_cart_fragment;
+import com.wckj.gfsj.Fragment.User_fragment;
 import com.wckj.gfsj.R;
 
 /**
  * 主页
  */
-public class MainActivity extends Activity implements View.OnClickListener {
-
-    private TextView tv_main,tv_main_classification,tv_main_recommend;
+public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
 
+    private Fragment main_fragment,searchFragment,user_fragment,shopping_cart_fragment,collect_fragment;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fragmentManager = getSupportFragmentManager();
         initView();
         initData();
     }
@@ -29,54 +40,109 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.tv_collect).setOnClickListener(this);
         findViewById(R.id.tv_shopping_cart).setOnClickListener(this);
         findViewById(R.id.tv_mine_center).setOnClickListener(this);
-        tv_main = (TextView) findViewById(R.id.tv_main);
-        tv_main_classification = (TextView) findViewById(R.id.tv_main_classification);
-        tv_main_recommend = (TextView) findViewById(R.id.tv_main_recommend);
-        tv_main.setOnClickListener(this);
-        tv_main_recommend.setOnClickListener(this);
 
-        View viewById = findViewById(R.id.stopVp_context);
+
+        FrameLayout fl_context = (FrameLayout) findViewById(R.id.fl_context);
     }
 
     private void initData() {
-//        new
+        setTabSelection(0);
     }
 
+    private void setTabSelection(int index) {
+        // 开启一个Fragment事务
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        // 设置切换动画
+//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        // 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况
+        hideFragments(transaction);
+        switch (index) {
+            case 0:// 默认主页
+                if (main_fragment == null) {
+                    main_fragment = new Main_fragment();
+                    transaction.add(R.id.fl_context, main_fragment);
+                } else {
+                    transaction.show(main_fragment);
 
+                }
+                transaction.commit();
+                break;
+            case 1://用户
+                if (user_fragment == null) {
+                    user_fragment = new User_fragment();
+                    transaction.add(R.id.fl_context, user_fragment);
+                } else {
+                    transaction.show(user_fragment);
+                }
+                transaction.commit();
+                break;
+            case 2:// 购物车
+                 if (shopping_cart_fragment == null) {
+                 shopping_cart_fragment = new Shopping_cart_fragment();
+                 transaction.add(R.id.fl_context, shopping_cart_fragment);
+                 } else {
+                 transaction.show(shopping_cart_fragment);
+                 }
+                transaction.commit();
+                break;
+            case 3:// 收藏
+                if (collect_fragment == null) {
+                    collect_fragment = new Collect_fragment();
+                    transaction.add(R.id.fl_context, collect_fragment);
+                } else {
+                    transaction.show(collect_fragment);
+                }
+                transaction.commit();
+                break;
+            case 4:// 搜索
+                if (searchFragment == null) {
+                    searchFragment = new Search_fragment();
+                    transaction.add(R.id.fl_context, searchFragment);
+                } else {
+                    transaction.show(searchFragment);
+                }
+                transaction.commit();
+                break;
+            default:
+                break;
+        }
+    }
+    // 隐藏所以Fragment
+    private void hideFragments(FragmentTransaction transaction) {
+        if (main_fragment != null) {
+            transaction.hide(main_fragment);
+        }
+        if (shopping_cart_fragment != null) {
+            transaction.hide(shopping_cart_fragment);
+        }
+        if (collect_fragment != null) {
+            transaction.hide(collect_fragment);
+        }
+        if (user_fragment != null) {
+            transaction.hide(user_fragment);
+        }
+        if (searchFragment != null) {
+            transaction.hide(searchFragment);
+        }
+    }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.tv_main://主页
-                setMainColor(R.id.tv_main);
-                break;
-            case R.id.tv_main_classification://分类
-                setMainColor(R.id.tv_main_classification);
-                break;
-            case R.id.tv_main_recommend://推荐
-                setMainColor(R.id.tv_main_recommend);
-
-                break;
             case R.id.rl_search:
+                setTabSelection(4);
                 break;
             case R.id.tv_collect:
+                setTabSelection(3);
                 break;
             case R.id.tv_shopping_cart:
+                setTabSelection(2);
                 break;
             case R.id.tv_mine_center:
+                setTabSelection(1);
                 break;
         }
     }
 
-    /**
-     * 设置首页分类三个颜色
-     */
-    private void setMainColor(int id){
-        tv_main.setBackgroundResource(R.id.tv_main==id?R.drawable.icon_main_bg:0);
-        tv_main_classification.setBackgroundResource(R.id.tv_main_classification==id?R.drawable.icon_main_bg:0);
-        tv_main_recommend.setBackgroundResource(R.id.tv_main_recommend==id?R.drawable.icon_main_bg:0);
-        tv_main.setTextColor(getResources().getColor(R.id.tv_main==id?R.color.colorfffffe:R.color.color767f8e));
-        tv_main_classification.setTextColor(getResources().getColor(R.id.tv_main_classification==id?R.color.colorfffffe:R.color.color767f8e));
-        tv_main_recommend.setTextColor(getResources().getColor(R.id.tv_main_recommend==id?R.color.colorfffffe:R.color.color767f8e));
-    }
+
 }

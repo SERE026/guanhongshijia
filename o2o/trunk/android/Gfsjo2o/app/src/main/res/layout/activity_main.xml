@@ -76,45 +76,12 @@
         android:drawableLeft="@drawable/icon_center_person"
         />
 
-    <TextView
-        android:id="@+id/tv_main"
-        android:background="@drawable/icon_main_bg"
-        android:layout_width="32dp"
-        android:layout_height="20dp"
-        android:text="@string/main"
-        android:textSize="11sp"
-        android:gravity="center"
-        android:layout_marginTop="56dp"
-        android:layout_marginLeft="79dp"
-        android:textColor="@color/colorfffffe"/>
-    <TextView
-        android:id="@+id/tv_main_classification"
-        android:layout_marginTop="56dp"
-        android:layout_toRightOf="@id/tv_main"
-        android:layout_width="32dp"
-        android:layout_height="20dp"
-        android:gravity="center"
-        android:text="@string/main_classification"
-        android:textSize="11sp"
-        android:layout_marginLeft="15dp"
 
-        android:textColor="@color/color767f8e"/>
-    <TextView
-        android:id="@+id/tv_main_recommend"
-        android:layout_marginTop="56dp"
-        android:layout_width="32dp"
-        android:layout_height="20dp"
-        android:gravity="center"
-        android:layout_marginLeft="15dp"
-        android:text="@string/main_recommend"
-        android:textSize="11sp"
-        android:layout_toRightOf="@id/tv_main_classification"
-        android:textColor="@color/color767f8e"/>
-    <com.wckj.gfsj.CustomUi.StopViewPage
-        android:id="@+id/stopVp_context"
-        android:layout_below="@id/tv_main"
+    <FrameLayout
+        android:id="@+id/fl_context"
+        android:layout_below="@id/tv_mine_center"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.wckj.gfsj.CustomUi.StopViewPage>
+    </FrameLayout>
 </RelativeLayout>
