@@ -1,5 +1,6 @@
 package cn.com.dyninfo.o2o.domain;
 
+import cn.com.dyninfo.o2o.model.GoodSpecModel;
 import cn.com.dyninfo.o2o.model.GoodsSpecValModel;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class GoodsSpecDomain{
+public class GoodsSpecDomain extends GoodSpecModel{
     private GoodsDomain goods;
     private List<GoodsSpecValDomain> valList;
     private ProductDomain product;

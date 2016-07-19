@@ -1,11 +1,13 @@
 package cn.com.dyninfo.o2o.domain;
 
+import cn.com.dyninfo.o2o.model.MessageInfoModel;
+
 import java.util.List;
 
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class UserMessageInfoDomain   {
+public class UserMessageInfoDomain  extends MessageInfoModel {
     private UserInfoDomain user;
     private List<AccaptMessageInfoDomain> accaptList;
 
