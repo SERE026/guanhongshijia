@@ -6,22 +6,22 @@ import cn.com.dyninfo.o2o.model.AdvModel;
  * Created by dyninfo on 2016/7/19.
  */
 public class AdvDomain extends AdvModel {
-    private AdvwzDomain advwzDomain;
-    private AreaInfoDomain areaInfoDomain;
+    private AdvWzDomain advwzDomain;
+    private AreaXInfoDomain areaInfoDomain;
 
-    public AdvwzDomain getAdvwzDomain() {
+    public AdvWzDomain getAdvwzDomain() {
         return advwzDomain;
     }
 
-    public void setAdvwzDomain(AdvwzDomain advwzDomain) {
+    public void setAdvwzDomain(AdvWzDomain advwzDomain) {
         this.advwzDomain = advwzDomain;
     }
 
-    public AreaInfoDomain getAreaInfoDomain() {
+    public AreaXInfoDomain getAreaInfoDomain() {
         return areaInfoDomain;
     }
 
-    public void setAreaInfoDomain(AreaInfoDomain areaInfoDomain) {
+    public void setAreaInfoDomain(AreaXInfoDomain areaInfoDomain) {
         this.areaInfoDomain = areaInfoDomain;
     }
 }

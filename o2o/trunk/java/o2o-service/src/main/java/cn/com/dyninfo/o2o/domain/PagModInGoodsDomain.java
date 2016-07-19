@@ -9,7 +9,7 @@ public class PagModInGoodsDomain extends PageModuleInGoodsModel {
     private PageModuleDomain pageModule;
     private ShangJiaInfoDomain shangJiaInfo;
     private GoodsDomain goods;
-    private AreaInfoDomain city;
+    private AreaXInfoDomain city;
 
     public PageModuleDomain getPageModule() {
         return pageModule;
@@ -27,11 +27,11 @@ public class PagModInGoodsDomain extends PageModuleInGoodsModel {
         this.shangJiaInfo = shangJiaInfo;
     }
 
-    public AreaInfoDomain getCity() {
+    public AreaXInfoDomain getCity() {
         return city;
     }
 
-    public void setCity(AreaInfoDomain city) {
+    public void setCity(AreaXInfoDomain city) {
         this.city = city;
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class UserMessageInfoDomain  extends MessageInfoModel {
     private UserInfoDomain user;
-    private List<AccaptMessageInfoDomain> accaptList;
+    private List<AccaptMessageDomain> accaptList;
 
     public UserInfoDomain getUser() {
         return user;
@@ -19,11 +19,11 @@ public class UserMessageInfoDomain  extends MessageInfoModel {
         this.user = user;
     }
 
-    public List<AccaptMessageInfoDomain> getAccaptList() {
+    public List<AccaptMessageDomain> getAccaptList() {
         return accaptList;
     }
 
-    public void setAccaptList(List<AccaptMessageInfoDomain> accaptList) {
+    public void setAccaptList(List<AccaptMessageDomain> accaptList) {
         this.accaptList = accaptList;
     }
 }

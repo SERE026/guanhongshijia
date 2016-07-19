@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class AdvwzDomain extends AdvWzModel {
+public class AdvWzDomain extends AdvWzModel {
     private List<AdvDomain> advDomainList;
 
     public List<AdvDomain> getAdvDomainList() {

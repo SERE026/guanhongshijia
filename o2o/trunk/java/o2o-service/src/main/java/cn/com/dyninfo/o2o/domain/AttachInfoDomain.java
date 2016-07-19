@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.model.AttachInfoModel;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class AttachmentInfoDomain extends AttachInfoModel {
+public class AttachInfoDomain extends AttachInfoModel {
     public UserInfoDomain getUserInfoDomain() {
         return userInfoDomain;
     }

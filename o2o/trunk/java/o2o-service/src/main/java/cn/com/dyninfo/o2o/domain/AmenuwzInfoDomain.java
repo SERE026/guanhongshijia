@@ -7,15 +7,15 @@ import java.util.List;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class AmenuwzInfoDomain extends AMenuWzInfoModel {
+public class AMenuWzInfoDomain extends AMenuWzInfoModel {
 
-    private List<AmenuInfoDomain> amenuInfoDomainList;
+    private List<AMenuInfoDomain> amenuInfoDomainList;
 
-    public List<AmenuInfoDomain> getAmenuInfoDomainList() {
+    public List<AMenuInfoDomain> getAmenuInfoDomainList() {
         return amenuInfoDomainList;
     }
 
-    public void setAmenuInfoDomainList(List<AmenuInfoDomain> amenuInfoDomainList) {
+    public void setAmenuInfoDomainList(List<AMenuInfoDomain> amenuInfoDomainList) {
         this.amenuInfoDomainList = amenuInfoDomainList;
     }
 }

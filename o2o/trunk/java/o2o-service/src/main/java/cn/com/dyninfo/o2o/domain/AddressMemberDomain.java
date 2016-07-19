@@ -6,32 +6,32 @@ import cn.com.dyninfo.o2o.model.AddressMemberModel;
  * Created by dyninfo on 2016/7/19.
  */
 public class AddressMemberDomain extends AddressMemberModel {
-    private AreaInfoDomain province;
-    private AreaInfoDomain city;
-    private AreaInfoDomain county;
+    private AreaXInfoDomain province;
+    private AreaXInfoDomain city;
+    private AreaXInfoDomain county;
     private HuiyuanInfoDomain huiyuanInfoDomain;
 
-    public AreaInfoDomain getProvince() {
+    public AreaXInfoDomain getProvince() {
         return province;
     }
 
-    public void setProvince(AreaInfoDomain province) {
+    public void setProvince(AreaXInfoDomain province) {
         this.province = province;
     }
 
-    public AreaInfoDomain getCity() {
+    public AreaXInfoDomain getCity() {
         return city;
     }
 
-    public void setCity(AreaInfoDomain city) {
+    public void setCity(AreaXInfoDomain city) {
         this.city = city;
     }
 
-    public AreaInfoDomain getCounty() {
+    public AreaXInfoDomain getCounty() {
         return county;
     }
 
-    public void setCounty(AreaInfoDomain county) {
+    public void setCounty(AreaXInfoDomain county) {
         this.county = county;
     }
 

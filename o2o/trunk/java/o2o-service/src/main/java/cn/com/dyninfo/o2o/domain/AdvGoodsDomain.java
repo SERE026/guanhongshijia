@@ -7,7 +7,7 @@ import cn.com.dyninfo.o2o.model.AdvGoodsModel;
  */
 public class AdvGoodsDomain extends AdvGoodsModel {
     private GoodsDomain goodsDomain;
-    private AreaInfoDomain areaInfoDomain;
+    private AreaXInfoDomain areaInfoDomain;
     private AAdvInfoDomain aAdvInfoDomain;
 
     public GoodsDomain getGoodsDomain() {
@@ -18,11 +18,11 @@ public class AdvGoodsDomain extends AdvGoodsModel {
         this.goodsDomain = goodsDomain;
     }
 
-    public AreaInfoDomain getAreaInfoDomain() {
+    public AreaXInfoDomain getAreaInfoDomain() {
         return areaInfoDomain;
     }
 
-    public void setAreaInfoDomain(AreaInfoDomain areaInfoDomain) {
+    public void setAreaInfoDomain(AreaXInfoDomain areaInfoDomain) {
         this.areaInfoDomain = areaInfoDomain;
     }
 

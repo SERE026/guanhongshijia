@@ -8,33 +8,33 @@ import java.util.List;
  * Created by dyninfo on 2016/7/19.
  */
 public class HuiyuanInfoDomain extends HuiyuanInfoModel {
-    private AreaInfoDomain province;
-    private AreaInfoDomain city;
-    private AreaInfoDomain region;
+    private AreaXInfoDomain province;
+    private AreaXInfoDomain city;
+    private AreaXInfoDomain region;
     private List<LoginfoDomain> log;
     private List<CommentInfoDomain> comment;
 
-    public AreaInfoDomain getProvince() {
+    public AreaXInfoDomain getProvince() {
         return province;
     }
 
-    public void setProvince(AreaInfoDomain province) {
+    public void setProvince(AreaXInfoDomain province) {
         this.province = province;
     }
 
-    public AreaInfoDomain getCity() {
+    public AreaXInfoDomain getCity() {
         return city;
     }
 
-    public void setCity(AreaInfoDomain city) {
+    public void setCity(AreaXInfoDomain city) {
         this.city = city;
     }
 
-    public AreaInfoDomain getRegion() {
+    public AreaXInfoDomain getRegion() {
         return region;
     }
 
-    public void setRegion(AreaInfoDomain region) {
+    public void setRegion(AreaXInfoDomain region) {
         this.region = region;
     }
 

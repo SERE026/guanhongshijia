@@ -13,13 +13,13 @@ public class AAdvInfoDomain extends AAdvInfoModel {
 
     private AAdvWzInfoDomain aAdvWzInfoDomain;
 
-    private AreaInfoDomain areaInfoDomain;
+    private AreaXInfoDomain areaInfoDomain;
 
-    public AreaInfoDomain getAreaInfoDomain() {
+    public AreaXInfoDomain getAreaInfoDomain() {
         return areaInfoDomain;
     }
 
-    public void setAreaInfoDomain(AreaInfoDomain areaInfoDomain) {
+    public void setAreaInfoDomain(AreaXInfoDomain areaInfoDomain) {
         this.areaInfoDomain = areaInfoDomain;
     }
 

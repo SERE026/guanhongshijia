@@ -5,14 +5,14 @@ import cn.com.dyninfo.o2o.model.AMenuInfoModel;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class AmenuInfoDomain extends AMenuInfoModel {
-    public AmenuwzInfoDomain getAmenuwzInfoDomain() {
+public class AMenuInfoDomain extends AMenuInfoModel {
+    public AMenuWzInfoDomain getAmenuwzInfoDomain() {
         return amenuwzInfoDomain;
     }
 
-    public void setAmenuwzInfoDomain(AmenuwzInfoDomain amenuwzInfoDomain) {
+    public void setAmenuwzInfoDomain(AMenuWzInfoDomain amenuwzInfoDomain) {
         this.amenuwzInfoDomain = amenuwzInfoDomain;
     }
 
-    private AmenuwzInfoDomain amenuwzInfoDomain;
+    private AMenuWzInfoDomain amenuwzInfoDomain;
 }

@@ -8,9 +8,9 @@ import cn.com.dyninfo.o2o.model.MerchantsApplyModel;
 public class MerchantsApplyDomain extends MerchantsApplyModel {
     private BusinessTypeDomain businessTypeDomain;
     private MerchantTypeDomain merchantTypeDomain;
-    private AreaInfoDomain province;
-    private AreaInfoDomain city;
-    private AreaInfoDomain county;
+    private AreaXInfoDomain province;
+    private AreaXInfoDomain city;
+    private AreaXInfoDomain county;
     public MerchantTypeDomain getMerchantTypeDomain() {
         return merchantTypeDomain;
     }
@@ -27,27 +27,27 @@ public class MerchantsApplyDomain extends MerchantsApplyModel {
         this.businessTypeDomain = businessTypeDomain;
     }
 
-    public AreaInfoDomain getProvince() {
+    public AreaXInfoDomain getProvince() {
         return province;
     }
 
-    public void setProvince(AreaInfoDomain province) {
+    public void setProvince(AreaXInfoDomain province) {
         this.province = province;
     }
 
-    public AreaInfoDomain getCity() {
+    public AreaXInfoDomain getCity() {
         return city;
     }
 
-    public void setCity(AreaInfoDomain city) {
+    public void setCity(AreaXInfoDomain city) {
         this.city = city;
     }
 
-    public AreaInfoDomain getCounty() {
+    public AreaXInfoDomain getCounty() {
         return county;
     }
 
-    public void setCounty(AreaInfoDomain county) {
+    public void setCounty(AreaXInfoDomain county) {
         this.county = county;
     }
 }

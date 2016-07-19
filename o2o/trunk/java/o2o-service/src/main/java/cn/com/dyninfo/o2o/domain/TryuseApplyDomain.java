@@ -8,8 +8,8 @@ import cn.com.dyninfo.o2o.model.TryUseApplyModel;
 public class TryuseApplyDomain extends TryUseApplyModel {
     private HuiyuanInfoDomain huiyuan;
     private GoodsDomain goods;
-    private AreaInfoDomain province;
-    private AreaInfoDomain city;
+    private AreaXInfoDomain province;
+    private AreaXInfoDomain city;
 
     public HuiyuanInfoDomain getHuiyuan() {
         return huiyuan;
@@ -27,29 +27,29 @@ public class TryuseApplyDomain extends TryUseApplyModel {
         this.goods = goods;
     }
 
-    public AreaInfoDomain getProvince() {
+    public AreaXInfoDomain getProvince() {
         return province;
     }
 
-    public void setProvince(AreaInfoDomain province) {
+    public void setProvince(AreaXInfoDomain province) {
         this.province = province;
     }
 
-    public AreaInfoDomain getCity() {
+    public AreaXInfoDomain getCity() {
         return city;
     }
 
-    public void setCity(AreaInfoDomain city) {
+    public void setCity(AreaXInfoDomain city) {
         this.city = city;
     }
 
-    public AreaInfoDomain getCounty() {
+    public AreaXInfoDomain getCounty() {
         return county;
     }
 
-    public void setCounty(AreaInfoDomain county) {
+    public void setCounty(AreaXInfoDomain county) {
         this.county = county;
     }
 
-    private AreaInfoDomain county;
+    private AreaXInfoDomain county;
 }
