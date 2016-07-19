@@ -9,4 +9,15 @@
     <string name="main">首页</string>
     <string name="main_classification">分类</string>
     <string name="main_recommend">推荐</string>
+
+    <string name="classification_china_furniture">新中式家具</string>
+    <string name="classical_furniture">古典家具</string>
+    <string name="classification_tea">珍品古茶</string>
+    <string name="classification_red_wine">珍品红酒</string>
+    <string name="classification_study">文房四宝</string>
+    <string name="classification_painting">字画</string>
+    <string name="classification_software">软件大全</string>
+    <string name="classification_decorate">装饰大全</string>
+    <string name="classification_classical_decoration">古典装饰材料</string>
+    <string name="classification_lighting">古典灯饰</string>
 </resources>

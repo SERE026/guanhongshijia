@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="coverflow-1.0.0">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.dalong.coverflow/coverflow/1.0.0/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.dalong.coverflow/coverflow/1.0.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.dalong.coverflow/coverflow/1.0.0/3f93256d9e95dc53dc0e081bd6b4589b24585931/coverflow-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

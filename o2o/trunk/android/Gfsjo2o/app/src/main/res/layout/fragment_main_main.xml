@@ -10,4 +10,13 @@
         android:textSize="50sp"
         android:textColor="@color/white"
         android:text="hah"/>
+    <com.dalong.francyconverflow.FancyCoverFlow
+        android:id="@+id/fancyCoverFlow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="55dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        />
 </RelativeLayout>
