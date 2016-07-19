@@ -11,6 +11,26 @@ public class AAdvInfoDomain extends AAdvInfoModel {
 
     private List<AdvGoodsDomain> goodsDomainList;
 
+    private AAdvWzInfoDomain aAdvWzInfoDomain;
+
+    private AreaInfoDomain areaInfoDomain;
+
+    public AreaInfoDomain getAreaInfoDomain() {
+        return areaInfoDomain;
+    }
+
+    public void setAreaInfoDomain(AreaInfoDomain areaInfoDomain) {
+        this.areaInfoDomain = areaInfoDomain;
+    }
+
+    public AAdvWzInfoDomain getaAdvWzInfoDomain() {
+        return aAdvWzInfoDomain;
+    }
+
+    public void setaAdvWzInfoDomain(AAdvWzInfoDomain aAdvWzInfoDomain) {
+        this.aAdvWzInfoDomain = aAdvWzInfoDomain;
+    }
+
     public List<AdvGoodsDomain> getGoodsDomainList() {
         return goodsDomainList;
     }
