@@ -19,7 +19,8 @@ img{border:0px;}
 .clear{width:0px; height:0px; clear:both;overflow:hidden;}
 .touming{width:50px; height:5px; overflow:hidden;}
 
- select{ text-align:center;width:173px;}
+input[type='text']{width: 154px;margin: 0;padding: 0;}
+ select{ text-align:center;width:154px!important;}
 table tr td input[type=checkbox]{margin: 6px 3px 3px 4px;}
 .checkboxtd{width:30px;background-color:#00ffff;}
 

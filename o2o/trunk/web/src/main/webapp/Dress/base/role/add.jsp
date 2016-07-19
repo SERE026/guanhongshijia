@@ -102,7 +102,7 @@ function submit(){
     <tr>
     <td class="discription"><fmt:message key="sys.isJob" />：</td>
     <td>
-	     <select name="is_job" style="width: 173px;">
+	     <select name="is_job" style="width: 154px;">
 	    	<option value="1" selected="selected"><fmt:message key="button.yes"/></option>
 	    	<option value="0"><fmt:message key="button.no"/></option>
 	  	</select>

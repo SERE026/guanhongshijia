@@ -259,7 +259,7 @@ areagroupid="0";
   <tr>
    <td class="discription" style="width: 150px;">选择默认物流公司:</td>
   	  <td >
-  	  <select name="wlcompany.wlcompany_id" style="width:173px; height:23px;">
+  	  <select name="wlcompany.wlcompany_id" style="width:154px; height:23px;">
   	    	<c:forEach items="${company }" var="info">
 						  <option value="${info.wlcompany_id }">${info.name }</option>
 						</c:forEach>

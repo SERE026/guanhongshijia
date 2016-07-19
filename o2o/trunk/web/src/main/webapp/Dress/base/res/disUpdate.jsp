@@ -88,7 +88,7 @@ function submit(){
   	   </td>
        <td class="discription"><fmt:message key="res.menu" />:</td>
 	   <td>
-		    <select name="is_menu" id="select"  style="width: 173px;">
+		    <select name="is_menu" id="select"  style="width: 154px;">
 		    	<option value="1" <c:if  test="${info.is_menu==1 }" >selected</c:if>><fmt:message key="res.menu1"/></option>
 		    	<c:if  test="${info.is_menu!=1 }" >
 		    	<option value="${info.is_menu}" selected><fmt:message key="res.menu2"/></option>
@@ -105,7 +105,7 @@ function submit(){
     	</td>
     	<td >
     		<input type=hidden id="parent1" name=parent1 value="${info.parent.id }"/>
-			<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${info.parent.res_name }"  style="width: 173px;"  class="inputread " readonly/>
+			<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${info.parent.res_name }"  style="width: 154px;"  class="inputread " readonly/>
     	</td>
 	    <td class="discription">
 	    	适用角色:

@@ -100,7 +100,7 @@
 						<td><input name="tname" type="text" style="color:#494949" value="${tname }"/></td>
 						<td class="chazhaofanshi1">是否是默认区域：</td>
 						<td>
-							<select name="isDefault" style="width:173px; height:23px;">
+							<select name="isDefault" style="width:154px; height:23px;">
 							  <c:if test="${ empty isDefault}">
 								  <option value="">请选择</option>
 							  </c:if>
