@@ -62,7 +62,7 @@ public class AppApplication extends Application {
     }
     public  void initImageLoader(Context context) {
         File cacheDir = StorageUtils.getOwnCacheDirectory(context,
-                "/com.clickku/images/");
+                "/com.wckj.gfsj/images/");
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
                 context)
                 .memoryCacheExtraOptions(480, 800)

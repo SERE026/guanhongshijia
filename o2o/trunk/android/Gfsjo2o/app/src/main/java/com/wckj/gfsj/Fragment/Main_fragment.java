@@ -49,8 +49,8 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
-         svp_context =  (StopViewPage) view.findViewById(R.id.svp_context);
-                tv_main = (TextView) view.findViewById(R.id.tv_main);
+        svp_context =  (StopViewPage) view.findViewById(R.id.svp_context);
+        tv_main = (TextView) view.findViewById(R.id.tv_main);
         tv_main_classification = (TextView) view.findViewById(R.id.tv_main_classification);
         tv_main_recommend = (TextView)view. findViewById(R.id.tv_main_recommend);
         tv_main.setOnClickListener(this);

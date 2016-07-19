@@ -9,79 +9,83 @@
 
     <TextView
         android:id="@+id/tv_time"
-        android:text="10:27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="21dp"
         android:layout_marginRight="27dp"
+        android:layout_marginTop="21dp"
+        android:text="10:27"
         android:textColor="@color/color767f8e"
         android:textSize="10sp"
         />
+
     <RelativeLayout
         android:id="@+id/rl_search"
-        android:layout_marginTop="21dp"
-        android:layout_toLeftOf="@id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="23dp"
+        android:layout_marginTop="21dp"
+        android:layout_toLeftOf="@id/tv_time"
         android:background="@drawable/icon_bg_serach">
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/color767f8e"
-        android:textSize="7sp"
-        android:text="@string/main_search"
-        android:drawableLeft="@drawable/icon_serach"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/icon_serach"
+            android:text="@string/main_search"
+            android:textColor="@color/color767f8e"
+            android:textSize="7sp"/>
     </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_collect"
-        android:layout_marginTop="21.5dp"
-        android:layout_marginRight="12dp"
-        android:layout_toLeftOf="@id/rl_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:drawablePadding="2dp"
-        android:textColor="@color/color767f8e"
-        android:text="@string/main_collect"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="21.5dp"
+        android:layout_toLeftOf="@id/rl_search"
         android:drawableLeft="@drawable/icon_collect"
+        android:drawablePadding="2dp"
+        android:text="@string/main_collect"
+        android:textColor="@color/color767f8e"
+        android:textSize="10sp"
         />
+
     <TextView
         android:id="@+id/tv_shopping_cart"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="11dp"
-        android:gravity="center"
-        android:layout_toLeftOf="@id/tv_collect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:textColor="@color/color767f8e"
-        android:text="@string/main_shopping_cart"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@id/tv_collect"
         android:drawableLeft="@drawable/icon_shopping_cart"
+        android:gravity="center"
+        android:text="@string/main_shopping_cart"
+        android:textColor="@color/color767f8e"
+        android:textSize="10sp"
         />
+
     <TextView
         android:id="@+id/tv_mine_center"
-        android:layout_marginTop="21.5dp"
-        android:layout_marginRight="11dp"
-        android:layout_toLeftOf="@id/tv_shopping_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:drawablePadding="2dp"
-        android:textColor="@color/color767f8e"
-        android:text="@string/main_mine_center"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="21.5dp"
+        android:layout_toLeftOf="@id/tv_shopping_cart"
         android:drawableLeft="@drawable/icon_center_person"
+        android:drawablePadding="2dp"
+        android:text="@string/main_mine_center"
+        android:textColor="@color/color767f8e"
+        android:textSize="10sp"
         />
 
 
     <FrameLayout
         android:id="@+id/fl_context"
-        android:layout_below="@id/tv_mine_center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_mine_center">
 
     </FrameLayout>
 </RelativeLayout>
