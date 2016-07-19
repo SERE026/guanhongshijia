@@ -1,0 +1,12 @@
+
+<#list shopList as shop>
+
+
+
+<div class="st_3_da_right_kuai">
+<div class="st_3_da_right_kuai_tu"><a href="${applicationPath}/shop-${shop.s_id}.html"><img src="${applicationPath}/upload/<#if shop.image?? >${shop.image}</#if>" width="100%" height="100%" border="0" /></a></div>
+<div class="st_3_da_right_kuai_zi">
+<a href="${applicationPath}/shop-${shop.s_id}.html" class="zhu49">${shop.s_name}</a></div>
+</div>
+
+</#list>

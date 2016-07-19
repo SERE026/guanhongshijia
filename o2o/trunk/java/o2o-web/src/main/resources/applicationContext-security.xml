@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<!--
+  - Application context containing authentication, channel
+  - security and web URI beans.
+  -
+  - Only used by "filter" artifact.
+  -
+  -->
+
+<b:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:b="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security-4.1.xsd">
+
+    <http auto-config="true">
+        <access-denied-handler error-page="/Dress/index.jsp"/>
+    	<intercept-url pattern="/html/manage/main/validCode" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+    	<intercept-url pattern="/html/manage/**" access="IS_AUTHENTICATED_FULLY"/>
+    	<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <form-login login-page="/Dress/index.jsp" authentication-failure-url="/Dress/index.jsp?login_error=4" 
+        	default-target-url="/html/manage/main/" always-use-default-target="true"/>
+        <http-basic/> 
+        <logout logout-success-url="/Dress/index.jsp"/>
+        <remember-me/>
+
+    </http>
+
+ 	<b:bean id="myFilter" class="cn.com.dyninfo.o2o.furniture.sys.filter.MyFilterSecurityInterceptor">
+        <b:property name="authenticationManager"
+            ref="authenticationManager" />
+        <b:property name="accessDecisionManager"
+            ref="myAccessDecisionManagerBean" />
+        <b:property name="securityMetadataSource"
+            ref="mySecurityMetadataSource" />
+    </b:bean>
+    
+   	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源     -->
+    <b:bean id="myAccessDecisionManagerBean"
+        class="cn.com.dyninfo.o2o.furniture.sys.filter.MyAccessDecisionManager">
+    </b:bean>
+ 
+    <!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色访问 	-->
+    <b:bean id="mySecurityMetadataSource"
+        class="cn.com.dyninfo.o2o.furniture.sys.filter.MyInvocationSecurityMetadataSourceService">
+
+    </b:bean>
+    
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userService">
+        	<password-encoder hash="md5">
+        		<salt-source user-property="login_id"/>
+        	</password-encoder>
+        </authentication-provider>
+    </authentication-manager>
+    
+</b:beans>

@@ -1,0 +1,45 @@
+<!doctype html>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>FileManager Examples</title>
+		<link rel="stylesheet" href="../themes/default/default.css" />
+		<script src="../kindeditor.js"></script>
+		<script src="../lang/zh_CN.js"></script>
+		<script>
+			KindEditor.ready(function(K) {
+				var editor = K.editor({
+					fileManagerJson : '../php/file_manager_json.php'
+				});
+				K('#filemanager').click(function() {
+					editor.loadPlugin('filemanager', function() {
+						editor.plugin.filemanagerDialog({
+							viewType : 'VIEW',
+							dirName : 'image',
+							clickFn : function(url, title) {
+								K('#url').val(url);
+								editor.hideDialog();
+							}
+						});
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<input type="text" id="url" value="" /> <input type="button" id="filemanager" value="浏览服务器" />
+	</body>
+</html>

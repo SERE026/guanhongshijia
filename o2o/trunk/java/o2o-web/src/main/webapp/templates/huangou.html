@@ -1,0 +1,76 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/index_head.html' />
+
+<script type="text/JavaScript" src="js/huangou.js"></script>
+
+<!-- 设置菜单为选中----脚本 -->
+<script type="text/javascript">
+	$(function() {
+		$(".zhu4").each(function() {
+			if($(this).html() == "会员换购") {
+				$(this).parent().html("会员换购");
+			}
+		});
+	});
+</script>
+
+<div class="kuai">
+<div class="touming14"> &nbsp;</div>
+<div class="ban">
+
+<div class="ban_tu">
+
+${widget_index_advSild}
+
+</div><!--图-->
+<div class="ind_meu_fubb" style="display:none" id="menu01" >
+${widget_merchantTypeWidget}
+
+</div>
+
+</div>
+</div>
+<div class="huihuan">
+<div class="huihuan_top">
+<div class="hftaitou_01">
+<div class="taitou_xiashi">会员尊享</div>
+</div>
+</div>
+<div class="hh_kuai">
+<div class="hh_kuai_left">
+<div class="hh_kuai_left_tu">${widget_brand_avd1}</div>
+<div class="hh_kuai_left_tu">${widget_brand_avd2}</div>
+</div>
+<div class="hh_kuai_right goodsBox">
+
+</div>
+<div class="touming10">&nbsp;</div>
+<div class="hh_more addGoods"><img src="img/index_jizai.jpg" /></div>
+</div>
+
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="touming10">&nbsp;</div>
+<div class="hh_datu">
+${widget_brand_bottom_avd1}
+</div>
+
+<script type="text/javascript">
+<!--
+ new index(servicePath);
+//-->
+</script>
+<#include 'common/buttom.html' />

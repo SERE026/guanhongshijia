@@ -1,0 +1,39 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<div class="g4">
+<div class="g4_ka">
+<#if  result=="fail">
+<div class="g4_ka_gou"><img src="${applicationPath}/img/g4_02x.gif" /></div>
+<div class="g4_ka_zheng">
+<div class="g4_ka_wen01">订单付款失败</div>
+<#else>
+<div class="g4_ka_gou"><img src="${applicationPath}/img/g4_02.gif" /></div>
+<div class="g4_ka_zheng">
+<div class="g4_ka_wen01">订单付款成功</div>
+<#list order as orderInfo>
+<div class="g4_ka_wen02">
+订单号：<span class="STYLE20">${orderInfo.order_id }</span>&nbsp;&nbsp;&nbsp;付款金额：<span class="STYLE20">¥${orderInfo.orderPrice }</span> 
+</div>
+</#list>
+<div class="g4_ka_wen03">
+温馨提示：炫品妆成保证100%正品行货，所有炫品商家会在24小时内安排发货
+</div>
+<div class="g4_ka_fenxiang"><img src="${applicationPath}/img/spdet_20.gif" /></div>
+</#if>
+
+</div>
+
+
+</div>
+</div>

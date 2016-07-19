@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.TryUseApplyModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.TryUseApplyModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="RECEIVE_ADDRESS" property="receiveAddress" jdbcType="VARCHAR" />
+    <result column="APPLYDATE" property="applydate" jdbcType="VARCHAR" />
+    <result column="APPLYTYPE" property="applytype" jdbcType="VARCHAR" />
+    <result column="RECEIVE_CODE" property="receiveCode" jdbcType="VARCHAR" />
+    <result column="RECEIVE_EMAIL" property="receiveEmail" jdbcType="VARCHAR" />
+    <result column="REASON" property="reason" jdbcType="VARCHAR" />
+    <result column="RECEIVE_NAME" property="receiveName" jdbcType="VARCHAR" />
+    <result column="RECEIVE_PHONE" property="receivePhone" jdbcType="VARCHAR" />
+    <result column="RECEIVE_TEL" property="receiveTel" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="VARCHAR" />
+    <result column="COUNTY_ID" property="countyId" jdbcType="VARCHAR" />
+    <result column="GOODS_ID" property="goodsId" jdbcType="INTEGER" />
+    <result column="HUIYUAN_ID" property="huiyuanId" jdbcType="INTEGER" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, RECEIVE_ADDRESS, APPLYDATE, APPLYTYPE, RECEIVE_CODE, RECEIVE_EMAIL, REASON, RECEIVE_NAME, 
+    RECEIVE_PHONE, RECEIVE_TEL, STATE, CITY_ID, COUNTY_ID, GOODS_ID, HUIYUAN_ID, PROVINCE_ID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.TryUseApplyModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_tryuse_apply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_tryuse_apply
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_tryuse_apply
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.TryUseApplyModelCriteria" >
+    delete from t_tryuse_apply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.TryUseApplyModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_tryuse_apply (RECEIVE_ADDRESS, APPLYDATE, APPLYTYPE, 
+      RECEIVE_CODE, RECEIVE_EMAIL, REASON, 
+      RECEIVE_NAME, RECEIVE_PHONE, RECEIVE_TEL, 
+      STATE, CITY_ID, COUNTY_ID, 
+      GOODS_ID, HUIYUAN_ID, PROVINCE_ID
+      )
+    values (#{receiveAddress,jdbcType=VARCHAR}, #{applydate,jdbcType=VARCHAR}, #{applytype,jdbcType=VARCHAR}, 
+      #{receiveCode,jdbcType=VARCHAR}, #{receiveEmail,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}, 
+      #{receiveName,jdbcType=VARCHAR}, #{receivePhone,jdbcType=VARCHAR}, #{receiveTel,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{cityId,jdbcType=VARCHAR}, #{countyId,jdbcType=VARCHAR}, 
+      #{goodsId,jdbcType=INTEGER}, #{huiyuanId,jdbcType=INTEGER}, #{provinceId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.TryUseApplyModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_tryuse_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="receiveAddress != null" >
+        RECEIVE_ADDRESS,
+      </if>
+      <if test="applydate != null" >
+        APPLYDATE,
+      </if>
+      <if test="applytype != null" >
+        APPLYTYPE,
+      </if>
+      <if test="receiveCode != null" >
+        RECEIVE_CODE,
+      </if>
+      <if test="receiveEmail != null" >
+        RECEIVE_EMAIL,
+      </if>
+      <if test="reason != null" >
+        REASON,
+      </if>
+      <if test="receiveName != null" >
+        RECEIVE_NAME,
+      </if>
+      <if test="receivePhone != null" >
+        RECEIVE_PHONE,
+      </if>
+      <if test="receiveTel != null" >
+        RECEIVE_TEL,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="countyId != null" >
+        COUNTY_ID,
+      </if>
+      <if test="goodsId != null" >
+        GOODS_ID,
+      </if>
+      <if test="huiyuanId != null" >
+        HUIYUAN_ID,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="receiveAddress != null" >
+        #{receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="applydate != null" >
+        #{applydate,jdbcType=VARCHAR},
+      </if>
+      <if test="applytype != null" >
+        #{applytype,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveCode != null" >
+        #{receiveCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveEmail != null" >
+        #{receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveName != null" >
+        #{receiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="receivePhone != null" >
+        #{receivePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTel != null" >
+        #{receiveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="countyId != null" >
+        #{countyId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="huiyuanId != null" >
+        #{huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.TryUseApplyModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_tryuse_apply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_tryuse_apply
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiveAddress != null" >
+        RECEIVE_ADDRESS = #{record.receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applydate != null" >
+        APPLYDATE = #{record.applydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applytype != null" >
+        APPLYTYPE = #{record.applytype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveCode != null" >
+        RECEIVE_CODE = #{record.receiveCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveEmail != null" >
+        RECEIVE_EMAIL = #{record.receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reason != null" >
+        REASON = #{record.reason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveName != null" >
+        RECEIVE_NAME = #{record.receiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivePhone != null" >
+        RECEIVE_PHONE = #{record.receivePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveTel != null" >
+        RECEIVE_TEL = #{record.receiveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.countyId != null" >
+        COUNTY_ID = #{record.countyId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsId != null" >
+        GOODS_ID = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.huiyuanId != null" >
+        HUIYUAN_ID = #{record.huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.provinceId != null" >
+        PROVINCE_ID = #{record.provinceId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_tryuse_apply
+    set ID = #{record.id,jdbcType=INTEGER},
+      RECEIVE_ADDRESS = #{record.receiveAddress,jdbcType=VARCHAR},
+      APPLYDATE = #{record.applydate,jdbcType=VARCHAR},
+      APPLYTYPE = #{record.applytype,jdbcType=VARCHAR},
+      RECEIVE_CODE = #{record.receiveCode,jdbcType=VARCHAR},
+      RECEIVE_EMAIL = #{record.receiveEmail,jdbcType=VARCHAR},
+      REASON = #{record.reason,jdbcType=VARCHAR},
+      RECEIVE_NAME = #{record.receiveName,jdbcType=VARCHAR},
+      RECEIVE_PHONE = #{record.receivePhone,jdbcType=VARCHAR},
+      RECEIVE_TEL = #{record.receiveTel,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      CITY_ID = #{record.cityId,jdbcType=VARCHAR},
+      COUNTY_ID = #{record.countyId,jdbcType=VARCHAR},
+      GOODS_ID = #{record.goodsId,jdbcType=INTEGER},
+      HUIYUAN_ID = #{record.huiyuanId,jdbcType=INTEGER},
+      PROVINCE_ID = #{record.provinceId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.TryUseApplyModel" >
+    update t_tryuse_apply
+    <set >
+      <if test="receiveAddress != null" >
+        RECEIVE_ADDRESS = #{receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="applydate != null" >
+        APPLYDATE = #{applydate,jdbcType=VARCHAR},
+      </if>
+      <if test="applytype != null" >
+        APPLYTYPE = #{applytype,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveCode != null" >
+        RECEIVE_CODE = #{receiveCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveEmail != null" >
+        RECEIVE_EMAIL = #{receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        REASON = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveName != null" >
+        RECEIVE_NAME = #{receiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="receivePhone != null" >
+        RECEIVE_PHONE = #{receivePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTel != null" >
+        RECEIVE_TEL = #{receiveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="countyId != null" >
+        COUNTY_ID = #{countyId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null" >
+        GOODS_ID = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="huiyuanId != null" >
+        HUIYUAN_ID = #{huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.TryUseApplyModel" >
+    update t_tryuse_apply
+    set RECEIVE_ADDRESS = #{receiveAddress,jdbcType=VARCHAR},
+      APPLYDATE = #{applydate,jdbcType=VARCHAR},
+      APPLYTYPE = #{applytype,jdbcType=VARCHAR},
+      RECEIVE_CODE = #{receiveCode,jdbcType=VARCHAR},
+      RECEIVE_EMAIL = #{receiveEmail,jdbcType=VARCHAR},
+      REASON = #{reason,jdbcType=VARCHAR},
+      RECEIVE_NAME = #{receiveName,jdbcType=VARCHAR},
+      RECEIVE_PHONE = #{receivePhone,jdbcType=VARCHAR},
+      RECEIVE_TEL = #{receiveTel,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=VARCHAR},
+      COUNTY_ID = #{countyId,jdbcType=VARCHAR},
+      GOODS_ID = #{goodsId,jdbcType=INTEGER},
+      HUIYUAN_ID = #{huiyuanId,jdbcType=INTEGER},
+      PROVINCE_ID = #{provinceId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

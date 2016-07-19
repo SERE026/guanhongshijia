@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.ZffsModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.ZffsModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="CHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="ZFB_ID" property="zfbId" jdbcType="VARCHAR" />
+    <result column="ZFB_CODE" property="zfbCode" jdbcType="VARCHAR" />
+    <result column="ZFB_ZHANGHAO" property="zfbZhanghao" jdbcType="VARCHAR" />
+    <result column="CFTJS_ZHANGHAO" property="cftjsZhanghao" jdbcType="VARCHAR" />
+    <result column="CFTJS_KEY" property="cftjsKey" jdbcType="VARCHAR" />
+    <result column="CFTDB_ZHANGHAO" property="cftdbZhanghao" jdbcType="VARCHAR" />
+    <result column="CFTDB_KEY" property="cftdbKey" jdbcType="VARCHAR" />
+    <result column="VALUE1" property="value1" jdbcType="VARCHAR" />
+    <result column="VALUE2" property="value2" jdbcType="VARCHAR" />
+    <result column="VALUE3" property="value3" jdbcType="VARCHAR" />
+    <result column="VALUE4" property="value4" jdbcType="VARCHAR" />
+    <result column="PS" property="ps" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="ZFB_KEY" property="zfbKey" jdbcType="VARCHAR" />
+    <result column="WIDGET_NAME" property="widgetName" jdbcType="VARCHAR" />
+    <result column="BODY" property="body" jdbcType="VARCHAR" />
+    <result column="NOTIFY_URL" property="notifyUrl" jdbcType="VARCHAR" />
+    <result column="RETURN_URL" property="returnUrl" jdbcType="VARCHAR" />
+    <result column="SHOW_URL" property="showUrl" jdbcType="VARCHAR" />
+    <result column="SUBJECT" property="subject" jdbcType="VARCHAR" />
+    <result column="JIANCHEN" property="jianchen" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, TYPE, NAME, ZFB_ID, ZFB_CODE, ZFB_ZHANGHAO, CFTJS_ZHANGHAO, CFTJS_KEY, CFTDB_ZHANGHAO, 
+    CFTDB_KEY, VALUE1, VALUE2, VALUE3, VALUE4, PS, STATUS, ZFB_KEY, WIDGET_NAME, BODY, 
+    NOTIFY_URL, RETURN_URL, SHOW_URL, SUBJECT, JIANCHEN
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.ZffsModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_zffs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_zffs
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_zffs
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.ZffsModelCriteria" >
+    delete from t_zffs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.ZffsModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_zffs (TYPE, NAME, ZFB_ID, 
+      ZFB_CODE, ZFB_ZHANGHAO, CFTJS_ZHANGHAO, 
+      CFTJS_KEY, CFTDB_ZHANGHAO, CFTDB_KEY, 
+      VALUE1, VALUE2, VALUE3, 
+      VALUE4, PS, STATUS, 
+      ZFB_KEY, WIDGET_NAME, BODY, 
+      NOTIFY_URL, RETURN_URL, SHOW_URL, 
+      SUBJECT, JIANCHEN)
+    values (#{type,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{zfbId,jdbcType=VARCHAR}, 
+      #{zfbCode,jdbcType=VARCHAR}, #{zfbZhanghao,jdbcType=VARCHAR}, #{cftjsZhanghao,jdbcType=VARCHAR}, 
+      #{cftjsKey,jdbcType=VARCHAR}, #{cftdbZhanghao,jdbcType=VARCHAR}, #{cftdbKey,jdbcType=VARCHAR}, 
+      #{value1,jdbcType=VARCHAR}, #{value2,jdbcType=VARCHAR}, #{value3,jdbcType=VARCHAR}, 
+      #{value4,jdbcType=VARCHAR}, #{ps,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{zfbKey,jdbcType=VARCHAR}, #{widgetName,jdbcType=VARCHAR}, #{body,jdbcType=VARCHAR}, 
+      #{notifyUrl,jdbcType=VARCHAR}, #{returnUrl,jdbcType=VARCHAR}, #{showUrl,jdbcType=VARCHAR}, 
+      #{subject,jdbcType=VARCHAR}, #{jianchen,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.ZffsModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_zffs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="zfbId != null" >
+        ZFB_ID,
+      </if>
+      <if test="zfbCode != null" >
+        ZFB_CODE,
+      </if>
+      <if test="zfbZhanghao != null" >
+        ZFB_ZHANGHAO,
+      </if>
+      <if test="cftjsZhanghao != null" >
+        CFTJS_ZHANGHAO,
+      </if>
+      <if test="cftjsKey != null" >
+        CFTJS_KEY,
+      </if>
+      <if test="cftdbZhanghao != null" >
+        CFTDB_ZHANGHAO,
+      </if>
+      <if test="cftdbKey != null" >
+        CFTDB_KEY,
+      </if>
+      <if test="value1 != null" >
+        VALUE1,
+      </if>
+      <if test="value2 != null" >
+        VALUE2,
+      </if>
+      <if test="value3 != null" >
+        VALUE3,
+      </if>
+      <if test="value4 != null" >
+        VALUE4,
+      </if>
+      <if test="ps != null" >
+        PS,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="zfbKey != null" >
+        ZFB_KEY,
+      </if>
+      <if test="widgetName != null" >
+        WIDGET_NAME,
+      </if>
+      <if test="body != null" >
+        BODY,
+      </if>
+      <if test="notifyUrl != null" >
+        NOTIFY_URL,
+      </if>
+      <if test="returnUrl != null" >
+        RETURN_URL,
+      </if>
+      <if test="showUrl != null" >
+        SHOW_URL,
+      </if>
+      <if test="subject != null" >
+        SUBJECT,
+      </if>
+      <if test="jianchen != null" >
+        JIANCHEN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbId != null" >
+        #{zfbId,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbCode != null" >
+        #{zfbCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbZhanghao != null" >
+        #{zfbZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="cftjsZhanghao != null" >
+        #{cftjsZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="cftjsKey != null" >
+        #{cftjsKey,jdbcType=VARCHAR},
+      </if>
+      <if test="cftdbZhanghao != null" >
+        #{cftdbZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="cftdbKey != null" >
+        #{cftdbKey,jdbcType=VARCHAR},
+      </if>
+      <if test="value1 != null" >
+        #{value1,jdbcType=VARCHAR},
+      </if>
+      <if test="value2 != null" >
+        #{value2,jdbcType=VARCHAR},
+      </if>
+      <if test="value3 != null" >
+        #{value3,jdbcType=VARCHAR},
+      </if>
+      <if test="value4 != null" >
+        #{value4,jdbcType=VARCHAR},
+      </if>
+      <if test="ps != null" >
+        #{ps,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="zfbKey != null" >
+        #{zfbKey,jdbcType=VARCHAR},
+      </if>
+      <if test="widgetName != null" >
+        #{widgetName,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null" >
+        #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null" >
+        #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="returnUrl != null" >
+        #{returnUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="showUrl != null" >
+        #{showUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null" >
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="jianchen != null" >
+        #{jianchen,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.ZffsModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_zffs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_zffs
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        TYPE = #{record.type,jdbcType=CHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zfbId != null" >
+        ZFB_ID = #{record.zfbId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zfbCode != null" >
+        ZFB_CODE = #{record.zfbCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zfbZhanghao != null" >
+        ZFB_ZHANGHAO = #{record.zfbZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cftjsZhanghao != null" >
+        CFTJS_ZHANGHAO = #{record.cftjsZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cftjsKey != null" >
+        CFTJS_KEY = #{record.cftjsKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cftdbZhanghao != null" >
+        CFTDB_ZHANGHAO = #{record.cftdbZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cftdbKey != null" >
+        CFTDB_KEY = #{record.cftdbKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value1 != null" >
+        VALUE1 = #{record.value1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value2 != null" >
+        VALUE2 = #{record.value2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value3 != null" >
+        VALUE3 = #{record.value3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value4 != null" >
+        VALUE4 = #{record.value4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ps != null" >
+        PS = #{record.ps,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.zfbKey != null" >
+        ZFB_KEY = #{record.zfbKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.widgetName != null" >
+        WIDGET_NAME = #{record.widgetName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.body != null" >
+        BODY = #{record.body,jdbcType=VARCHAR},
+      </if>
+      <if test="record.notifyUrl != null" >
+        NOTIFY_URL = #{record.notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.returnUrl != null" >
+        RETURN_URL = #{record.returnUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.showUrl != null" >
+        SHOW_URL = #{record.showUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subject != null" >
+        SUBJECT = #{record.subject,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jianchen != null" >
+        JIANCHEN = #{record.jianchen,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_zffs
+    set ID = #{record.id,jdbcType=INTEGER},
+      TYPE = #{record.type,jdbcType=CHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      ZFB_ID = #{record.zfbId,jdbcType=VARCHAR},
+      ZFB_CODE = #{record.zfbCode,jdbcType=VARCHAR},
+      ZFB_ZHANGHAO = #{record.zfbZhanghao,jdbcType=VARCHAR},
+      CFTJS_ZHANGHAO = #{record.cftjsZhanghao,jdbcType=VARCHAR},
+      CFTJS_KEY = #{record.cftjsKey,jdbcType=VARCHAR},
+      CFTDB_ZHANGHAO = #{record.cftdbZhanghao,jdbcType=VARCHAR},
+      CFTDB_KEY = #{record.cftdbKey,jdbcType=VARCHAR},
+      VALUE1 = #{record.value1,jdbcType=VARCHAR},
+      VALUE2 = #{record.value2,jdbcType=VARCHAR},
+      VALUE3 = #{record.value3,jdbcType=VARCHAR},
+      VALUE4 = #{record.value4,jdbcType=VARCHAR},
+      PS = #{record.ps,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      ZFB_KEY = #{record.zfbKey,jdbcType=VARCHAR},
+      WIDGET_NAME = #{record.widgetName,jdbcType=VARCHAR},
+      BODY = #{record.body,jdbcType=VARCHAR},
+      NOTIFY_URL = #{record.notifyUrl,jdbcType=VARCHAR},
+      RETURN_URL = #{record.returnUrl,jdbcType=VARCHAR},
+      SHOW_URL = #{record.showUrl,jdbcType=VARCHAR},
+      SUBJECT = #{record.subject,jdbcType=VARCHAR},
+      JIANCHEN = #{record.jianchen,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.ZffsModel" >
+    update t_zffs
+    <set >
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbId != null" >
+        ZFB_ID = #{zfbId,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbCode != null" >
+        ZFB_CODE = #{zfbCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbZhanghao != null" >
+        ZFB_ZHANGHAO = #{zfbZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="cftjsZhanghao != null" >
+        CFTJS_ZHANGHAO = #{cftjsZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="cftjsKey != null" >
+        CFTJS_KEY = #{cftjsKey,jdbcType=VARCHAR},
+      </if>
+      <if test="cftdbZhanghao != null" >
+        CFTDB_ZHANGHAO = #{cftdbZhanghao,jdbcType=VARCHAR},
+      </if>
+      <if test="cftdbKey != null" >
+        CFTDB_KEY = #{cftdbKey,jdbcType=VARCHAR},
+      </if>
+      <if test="value1 != null" >
+        VALUE1 = #{value1,jdbcType=VARCHAR},
+      </if>
+      <if test="value2 != null" >
+        VALUE2 = #{value2,jdbcType=VARCHAR},
+      </if>
+      <if test="value3 != null" >
+        VALUE3 = #{value3,jdbcType=VARCHAR},
+      </if>
+      <if test="value4 != null" >
+        VALUE4 = #{value4,jdbcType=VARCHAR},
+      </if>
+      <if test="ps != null" >
+        PS = #{ps,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="zfbKey != null" >
+        ZFB_KEY = #{zfbKey,jdbcType=VARCHAR},
+      </if>
+      <if test="widgetName != null" >
+        WIDGET_NAME = #{widgetName,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null" >
+        BODY = #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null" >
+        NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="returnUrl != null" >
+        RETURN_URL = #{returnUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="showUrl != null" >
+        SHOW_URL = #{showUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null" >
+        SUBJECT = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="jianchen != null" >
+        JIANCHEN = #{jianchen,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.ZffsModel" >
+    update t_zffs
+    set TYPE = #{type,jdbcType=CHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      ZFB_ID = #{zfbId,jdbcType=VARCHAR},
+      ZFB_CODE = #{zfbCode,jdbcType=VARCHAR},
+      ZFB_ZHANGHAO = #{zfbZhanghao,jdbcType=VARCHAR},
+      CFTJS_ZHANGHAO = #{cftjsZhanghao,jdbcType=VARCHAR},
+      CFTJS_KEY = #{cftjsKey,jdbcType=VARCHAR},
+      CFTDB_ZHANGHAO = #{cftdbZhanghao,jdbcType=VARCHAR},
+      CFTDB_KEY = #{cftdbKey,jdbcType=VARCHAR},
+      VALUE1 = #{value1,jdbcType=VARCHAR},
+      VALUE2 = #{value2,jdbcType=VARCHAR},
+      VALUE3 = #{value3,jdbcType=VARCHAR},
+      VALUE4 = #{value4,jdbcType=VARCHAR},
+      PS = #{ps,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      ZFB_KEY = #{zfbKey,jdbcType=VARCHAR},
+      WIDGET_NAME = #{widgetName,jdbcType=VARCHAR},
+      BODY = #{body,jdbcType=VARCHAR},
+      NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      RETURN_URL = #{returnUrl,jdbcType=VARCHAR},
+      SHOW_URL = #{showUrl,jdbcType=VARCHAR},
+      SUBJECT = #{subject,jdbcType=VARCHAR},
+      JIANCHEN = #{jianchen,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

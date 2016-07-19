@@ -1,0 +1,31 @@
+
+<div class="titi">
+${title}
+</div>
+<div class="tuwenpai">
+${context}
+</div>
+
+
+<div class="bot">
+<div class="bot_01">
+<a href="javascript:;" back><img back src="${applicationPath}/img/a22_09.gif" border="0" /></a>
+</div>
+<div class="bot_xian"><img src="${applicationPath}/img/a22_10.gif" /></div>
+<div class="bot_02">
+<a href="javascript:;" home><img home src="${applicationPath}/img/a22_11.gif" border="0" /></a>
+</div>
+<div class="bot_xian"><img src="${applicationPath}/img/a22_10.gif" /></div>
+<div class="bot_01">
+<a href="#" id="fenxiang"><img src="${applicationPath}/img/a22_13.gif" border="0" /></a>
+</div>
+</div>
+<script>
+	index.init();
+	$("#fenxiang").click(function(){
+        _WXShare(null,null,null,"${title}","${title}");
+    })
+</script>
+</body>
+</html>
+

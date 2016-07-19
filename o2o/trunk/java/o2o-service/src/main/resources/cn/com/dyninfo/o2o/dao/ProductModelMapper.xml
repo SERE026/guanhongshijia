@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.ProductModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.ProductModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="GOODS_ID" property="goodsId" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="INDEX" property="index" jdbcType="VARCHAR" />
+    <result column="GOODSSORT_ID" property="goodssortId" jdbcType="VARCHAR" />
+    <result column="GOODSTYPE_ID" property="goodstypeId" jdbcType="INTEGER" />
+    <result column="BAZAARMONEY" property="bazaarmoney" jdbcType="DOUBLE" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="COSTSMONEY" property="costsmoney" jdbcType="DOUBLE" />
+    <result column="GOODSAUTHORIZATION" property="goodsauthorization" jdbcType="VARCHAR" />
+    <result column="GOODSPARAMETER" property="goodsparameter" jdbcType="VARCHAR" />
+    <result column="GOODSSTORY" property="goodsstory" jdbcType="INTEGER" />
+    <result column="HUIYUANMONEY" property="huiyuanmoney" jdbcType="DOUBLE" />
+    <result column="IMG" property="img" jdbcType="VARCHAR" />
+    <result column="INVENTORY" property="inventory" jdbcType="DOUBLE" />
+    <result column="IS_CX" property="isCx" jdbcType="VARCHAR" />
+    <result column="IS_JPTJ" property="isJptj" jdbcType="VARCHAR" />
+    <result column="IS_RXCP" property="isRxcp" jdbcType="VARCHAR" />
+    <result column="SHELVES" property="shelves" jdbcType="VARCHAR" />
+    <result column="IS_ZX" property="isZx" jdbcType="VARCHAR" />
+    <result column="SALESMONEY" property="salesmoney" jdbcType="DOUBLE" />
+    <result column="WEIGHT" property="weight" jdbcType="DOUBLE" />
+    <result column="SJ_TIME" property="sjTime" jdbcType="VARCHAR" />
+    <result column="SYS_TIME" property="sysTime" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="BIAOQIAN" property="biaoqian" jdbcType="VARCHAR" />
+    <result column="BRAND_ID" property="brandId" jdbcType="INTEGER" />
+    <result column="INDEXS" property="indexs" jdbcType="VARCHAR" />
+    <result column="TYPESPEC" property="typespec" jdbcType="VARCHAR" />
+    <result column="DEFAULT_IAMAGE" property="defaultIamage" jdbcType="VARCHAR" />
+    <result column="IMAGES" property="images" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_0" property="specValue0" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_1" property="specValue1" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_2" property="specValue2" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_3" property="specValue3" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_4" property="specValue4" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_5" property="specValue5" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_6" property="specValue6" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_7" property="specValue7" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_8" property="specValue8" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_9" property="specValue9" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_10" property="specValue10" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_11" property="specValue11" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_12" property="specValue12" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_13" property="specValue13" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_14" property="specValue14" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_15" property="specValue15" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_16" property="specValue16" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_17" property="specValue17" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_18" property="specValue18" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_19" property="specValue19" jdbcType="VARCHAR" />
+    <result column="SPEC_VALUE_20" property="specValue20" jdbcType="VARCHAR" />
+    <result column="IS_SJ" property="isSj" jdbcType="VARCHAR" />
+    <result column="MARCHANTS_ID" property="marchantsId" jdbcType="INTEGER" />
+    <result column="SHANGJIAINFO_ID" property="shangjiainfoId" jdbcType="INTEGER" />
+    <result column="SALESNUM" property="salesnum" jdbcType="INTEGER" />
+    <result column="DELIVERY_ID" property="deliveryId" jdbcType="INTEGER" />
+    <result column="CUSTOM_SORT_ID" property="customSortId" jdbcType="INTEGER" />
+    <result column="BTIME" property="btime" jdbcType="VARCHAR" />
+    <result column="ETIME" property="etime" jdbcType="VARCHAR" />
+    <result column="PEPOLENO" property="pepoleno" jdbcType="INTEGER" />
+    <result column="TRYNO" property="tryno" jdbcType="INTEGER" />
+    <result column="TRYUSE" property="tryuse" jdbcType="VARCHAR" />
+    <result column="MFIMAGES" property="mfimages" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.com.dyninfo.o2o.model.ProductModel" extends="BaseResultMap" >
+    <result column="GOODSDESCRIPTION" property="goodsdescription" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, GOODS_ID, NAME, INDEX, GOODSSORT_ID, GOODSTYPE_ID, BAZAARMONEY, CODE, COSTSMONEY, 
+    GOODSAUTHORIZATION, GOODSPARAMETER, GOODSSTORY, HUIYUANMONEY, IMG, INVENTORY, IS_CX, 
+    IS_JPTJ, IS_RXCP, SHELVES, IS_ZX, SALESMONEY, WEIGHT, SJ_TIME, SYS_TIME, STATE, BIAOQIAN, 
+    BRAND_ID, INDEXS, TYPESPEC, DEFAULT_IAMAGE, IMAGES, SPEC_VALUE_0, SPEC_VALUE_1, SPEC_VALUE_2, 
+    SPEC_VALUE_3, SPEC_VALUE_4, SPEC_VALUE_5, SPEC_VALUE_6, SPEC_VALUE_7, SPEC_VALUE_8, 
+    SPEC_VALUE_9, SPEC_VALUE_10, SPEC_VALUE_11, SPEC_VALUE_12, SPEC_VALUE_13, SPEC_VALUE_14, 
+    SPEC_VALUE_15, SPEC_VALUE_16, SPEC_VALUE_17, SPEC_VALUE_18, SPEC_VALUE_19, SPEC_VALUE_20, 
+    IS_SJ, MARCHANTS_ID, SHANGJIAINFO_ID, SALESNUM, DELIVERY_ID, CUSTOM_SORT_ID, BTIME, 
+    ETIME, PEPOLENO, TRYNO, TRYUSE, MFIMAGES
+  </sql>
+  <sql id="Blob_Column_List" >
+    GOODSDESCRIPTION
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.com.dyninfo.o2o.model.ProductModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.ProductModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_product
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_product
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.ProductModelCriteria" >
+    delete from t_product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.ProductModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_product (GOODS_ID, NAME, INDEX, 
+      GOODSSORT_ID, GOODSTYPE_ID, BAZAARMONEY, 
+      CODE, COSTSMONEY, GOODSAUTHORIZATION, 
+      GOODSPARAMETER, GOODSSTORY, HUIYUANMONEY, 
+      IMG, INVENTORY, IS_CX, 
+      IS_JPTJ, IS_RXCP, SHELVES, 
+      IS_ZX, SALESMONEY, WEIGHT, 
+      SJ_TIME, SYS_TIME, STATE, 
+      BIAOQIAN, BRAND_ID, INDEXS, 
+      TYPESPEC, DEFAULT_IAMAGE, IMAGES, 
+      SPEC_VALUE_0, SPEC_VALUE_1, SPEC_VALUE_2, 
+      SPEC_VALUE_3, SPEC_VALUE_4, SPEC_VALUE_5, 
+      SPEC_VALUE_6, SPEC_VALUE_7, SPEC_VALUE_8, 
+      SPEC_VALUE_9, SPEC_VALUE_10, SPEC_VALUE_11, 
+      SPEC_VALUE_12, SPEC_VALUE_13, SPEC_VALUE_14, 
+      SPEC_VALUE_15, SPEC_VALUE_16, SPEC_VALUE_17, 
+      SPEC_VALUE_18, SPEC_VALUE_19, SPEC_VALUE_20, 
+      IS_SJ, MARCHANTS_ID, SHANGJIAINFO_ID, 
+      SALESNUM, DELIVERY_ID, CUSTOM_SORT_ID, 
+      BTIME, ETIME, PEPOLENO, 
+      TRYNO, TRYUSE, MFIMAGES, 
+      GOODSDESCRIPTION)
+    values (#{goodsId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{index,jdbcType=VARCHAR}, 
+      #{goodssortId,jdbcType=VARCHAR}, #{goodstypeId,jdbcType=INTEGER}, #{bazaarmoney,jdbcType=DOUBLE}, 
+      #{code,jdbcType=VARCHAR}, #{costsmoney,jdbcType=DOUBLE}, #{goodsauthorization,jdbcType=VARCHAR}, 
+      #{goodsparameter,jdbcType=VARCHAR}, #{goodsstory,jdbcType=INTEGER}, #{huiyuanmoney,jdbcType=DOUBLE}, 
+      #{img,jdbcType=VARCHAR}, #{inventory,jdbcType=DOUBLE}, #{isCx,jdbcType=VARCHAR}, 
+      #{isJptj,jdbcType=VARCHAR}, #{isRxcp,jdbcType=VARCHAR}, #{shelves,jdbcType=VARCHAR}, 
+      #{isZx,jdbcType=VARCHAR}, #{salesmoney,jdbcType=DOUBLE}, #{weight,jdbcType=DOUBLE}, 
+      #{sjTime,jdbcType=VARCHAR}, #{sysTime,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{biaoqian,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, #{indexs,jdbcType=VARCHAR}, 
+      #{typespec,jdbcType=VARCHAR}, #{defaultIamage,jdbcType=VARCHAR}, #{images,jdbcType=VARCHAR}, 
+      #{specValue0,jdbcType=VARCHAR}, #{specValue1,jdbcType=VARCHAR}, #{specValue2,jdbcType=VARCHAR}, 
+      #{specValue3,jdbcType=VARCHAR}, #{specValue4,jdbcType=VARCHAR}, #{specValue5,jdbcType=VARCHAR}, 
+      #{specValue6,jdbcType=VARCHAR}, #{specValue7,jdbcType=VARCHAR}, #{specValue8,jdbcType=VARCHAR}, 
+      #{specValue9,jdbcType=VARCHAR}, #{specValue10,jdbcType=VARCHAR}, #{specValue11,jdbcType=VARCHAR}, 
+      #{specValue12,jdbcType=VARCHAR}, #{specValue13,jdbcType=VARCHAR}, #{specValue14,jdbcType=VARCHAR}, 
+      #{specValue15,jdbcType=VARCHAR}, #{specValue16,jdbcType=VARCHAR}, #{specValue17,jdbcType=VARCHAR}, 
+      #{specValue18,jdbcType=VARCHAR}, #{specValue19,jdbcType=VARCHAR}, #{specValue20,jdbcType=VARCHAR}, 
+      #{isSj,jdbcType=VARCHAR}, #{marchantsId,jdbcType=INTEGER}, #{shangjiainfoId,jdbcType=INTEGER}, 
+      #{salesnum,jdbcType=INTEGER}, #{deliveryId,jdbcType=INTEGER}, #{customSortId,jdbcType=INTEGER}, 
+      #{btime,jdbcType=VARCHAR}, #{etime,jdbcType=VARCHAR}, #{pepoleno,jdbcType=INTEGER}, 
+      #{tryno,jdbcType=INTEGER}, #{tryuse,jdbcType=VARCHAR}, #{mfimages,jdbcType=VARCHAR}, 
+      #{goodsdescription,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.ProductModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsId != null" >
+        GOODS_ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="index != null" >
+        INDEX,
+      </if>
+      <if test="goodssortId != null" >
+        GOODSSORT_ID,
+      </if>
+      <if test="goodstypeId != null" >
+        GOODSTYPE_ID,
+      </if>
+      <if test="bazaarmoney != null" >
+        BAZAARMONEY,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="costsmoney != null" >
+        COSTSMONEY,
+      </if>
+      <if test="goodsauthorization != null" >
+        GOODSAUTHORIZATION,
+      </if>
+      <if test="goodsparameter != null" >
+        GOODSPARAMETER,
+      </if>
+      <if test="goodsstory != null" >
+        GOODSSTORY,
+      </if>
+      <if test="huiyuanmoney != null" >
+        HUIYUANMONEY,
+      </if>
+      <if test="img != null" >
+        IMG,
+      </if>
+      <if test="inventory != null" >
+        INVENTORY,
+      </if>
+      <if test="isCx != null" >
+        IS_CX,
+      </if>
+      <if test="isJptj != null" >
+        IS_JPTJ,
+      </if>
+      <if test="isRxcp != null" >
+        IS_RXCP,
+      </if>
+      <if test="shelves != null" >
+        SHELVES,
+      </if>
+      <if test="isZx != null" >
+        IS_ZX,
+      </if>
+      <if test="salesmoney != null" >
+        SALESMONEY,
+      </if>
+      <if test="weight != null" >
+        WEIGHT,
+      </if>
+      <if test="sjTime != null" >
+        SJ_TIME,
+      </if>
+      <if test="sysTime != null" >
+        SYS_TIME,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="biaoqian != null" >
+        BIAOQIAN,
+      </if>
+      <if test="brandId != null" >
+        BRAND_ID,
+      </if>
+      <if test="indexs != null" >
+        INDEXS,
+      </if>
+      <if test="typespec != null" >
+        TYPESPEC,
+      </if>
+      <if test="defaultIamage != null" >
+        DEFAULT_IAMAGE,
+      </if>
+      <if test="images != null" >
+        IMAGES,
+      </if>
+      <if test="specValue0 != null" >
+        SPEC_VALUE_0,
+      </if>
+      <if test="specValue1 != null" >
+        SPEC_VALUE_1,
+      </if>
+      <if test="specValue2 != null" >
+        SPEC_VALUE_2,
+      </if>
+      <if test="specValue3 != null" >
+        SPEC_VALUE_3,
+      </if>
+      <if test="specValue4 != null" >
+        SPEC_VALUE_4,
+      </if>
+      <if test="specValue5 != null" >
+        SPEC_VALUE_5,
+      </if>
+      <if test="specValue6 != null" >
+        SPEC_VALUE_6,
+      </if>
+      <if test="specValue7 != null" >
+        SPEC_VALUE_7,
+      </if>
+      <if test="specValue8 != null" >
+        SPEC_VALUE_8,
+      </if>
+      <if test="specValue9 != null" >
+        SPEC_VALUE_9,
+      </if>
+      <if test="specValue10 != null" >
+        SPEC_VALUE_10,
+      </if>
+      <if test="specValue11 != null" >
+        SPEC_VALUE_11,
+      </if>
+      <if test="specValue12 != null" >
+        SPEC_VALUE_12,
+      </if>
+      <if test="specValue13 != null" >
+        SPEC_VALUE_13,
+      </if>
+      <if test="specValue14 != null" >
+        SPEC_VALUE_14,
+      </if>
+      <if test="specValue15 != null" >
+        SPEC_VALUE_15,
+      </if>
+      <if test="specValue16 != null" >
+        SPEC_VALUE_16,
+      </if>
+      <if test="specValue17 != null" >
+        SPEC_VALUE_17,
+      </if>
+      <if test="specValue18 != null" >
+        SPEC_VALUE_18,
+      </if>
+      <if test="specValue19 != null" >
+        SPEC_VALUE_19,
+      </if>
+      <if test="specValue20 != null" >
+        SPEC_VALUE_20,
+      </if>
+      <if test="isSj != null" >
+        IS_SJ,
+      </if>
+      <if test="marchantsId != null" >
+        MARCHANTS_ID,
+      </if>
+      <if test="shangjiainfoId != null" >
+        SHANGJIAINFO_ID,
+      </if>
+      <if test="salesnum != null" >
+        SALESNUM,
+      </if>
+      <if test="deliveryId != null" >
+        DELIVERY_ID,
+      </if>
+      <if test="customSortId != null" >
+        CUSTOM_SORT_ID,
+      </if>
+      <if test="btime != null" >
+        BTIME,
+      </if>
+      <if test="etime != null" >
+        ETIME,
+      </if>
+      <if test="pepoleno != null" >
+        PEPOLENO,
+      </if>
+      <if test="tryno != null" >
+        TRYNO,
+      </if>
+      <if test="tryuse != null" >
+        TRYUSE,
+      </if>
+      <if test="mfimages != null" >
+        MFIMAGES,
+      </if>
+      <if test="goodsdescription != null" >
+        GOODSDESCRIPTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="index != null" >
+        #{index,jdbcType=VARCHAR},
+      </if>
+      <if test="goodssortId != null" >
+        #{goodssortId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodstypeId != null" >
+        #{goodstypeId,jdbcType=INTEGER},
+      </if>
+      <if test="bazaarmoney != null" >
+        #{bazaarmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="costsmoney != null" >
+        #{costsmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsauthorization != null" >
+        #{goodsauthorization,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsparameter != null" >
+        #{goodsparameter,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsstory != null" >
+        #{goodsstory,jdbcType=INTEGER},
+      </if>
+      <if test="huiyuanmoney != null" >
+        #{huiyuanmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="inventory != null" >
+        #{inventory,jdbcType=DOUBLE},
+      </if>
+      <if test="isCx != null" >
+        #{isCx,jdbcType=VARCHAR},
+      </if>
+      <if test="isJptj != null" >
+        #{isJptj,jdbcType=VARCHAR},
+      </if>
+      <if test="isRxcp != null" >
+        #{isRxcp,jdbcType=VARCHAR},
+      </if>
+      <if test="shelves != null" >
+        #{shelves,jdbcType=VARCHAR},
+      </if>
+      <if test="isZx != null" >
+        #{isZx,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmoney != null" >
+        #{salesmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="sjTime != null" >
+        #{sjTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sysTime != null" >
+        #{sysTime,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="biaoqian != null" >
+        #{biaoqian,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="indexs != null" >
+        #{indexs,jdbcType=VARCHAR},
+      </if>
+      <if test="typespec != null" >
+        #{typespec,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultIamage != null" >
+        #{defaultIamage,jdbcType=VARCHAR},
+      </if>
+      <if test="images != null" >
+        #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue0 != null" >
+        #{specValue0,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue1 != null" >
+        #{specValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue2 != null" >
+        #{specValue2,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue3 != null" >
+        #{specValue3,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue4 != null" >
+        #{specValue4,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue5 != null" >
+        #{specValue5,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue6 != null" >
+        #{specValue6,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue7 != null" >
+        #{specValue7,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue8 != null" >
+        #{specValue8,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue9 != null" >
+        #{specValue9,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue10 != null" >
+        #{specValue10,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue11 != null" >
+        #{specValue11,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue12 != null" >
+        #{specValue12,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue13 != null" >
+        #{specValue13,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue14 != null" >
+        #{specValue14,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue15 != null" >
+        #{specValue15,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue16 != null" >
+        #{specValue16,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue17 != null" >
+        #{specValue17,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue18 != null" >
+        #{specValue18,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue19 != null" >
+        #{specValue19,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue20 != null" >
+        #{specValue20,jdbcType=VARCHAR},
+      </if>
+      <if test="isSj != null" >
+        #{isSj,jdbcType=VARCHAR},
+      </if>
+      <if test="marchantsId != null" >
+        #{marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="shangjiainfoId != null" >
+        #{shangjiainfoId,jdbcType=INTEGER},
+      </if>
+      <if test="salesnum != null" >
+        #{salesnum,jdbcType=INTEGER},
+      </if>
+      <if test="deliveryId != null" >
+        #{deliveryId,jdbcType=INTEGER},
+      </if>
+      <if test="customSortId != null" >
+        #{customSortId,jdbcType=INTEGER},
+      </if>
+      <if test="btime != null" >
+        #{btime,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null" >
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="pepoleno != null" >
+        #{pepoleno,jdbcType=INTEGER},
+      </if>
+      <if test="tryno != null" >
+        #{tryno,jdbcType=INTEGER},
+      </if>
+      <if test="tryuse != null" >
+        #{tryuse,jdbcType=VARCHAR},
+      </if>
+      <if test="mfimages != null" >
+        #{mfimages,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsdescription != null" >
+        #{goodsdescription,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.ProductModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_product
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsId != null" >
+        GOODS_ID = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.index != null" >
+        INDEX = #{record.index,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodssortId != null" >
+        GOODSSORT_ID = #{record.goodssortId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodstypeId != null" >
+        GOODSTYPE_ID = #{record.goodstypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.bazaarmoney != null" >
+        BAZAARMONEY = #{record.bazaarmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.code != null" >
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costsmoney != null" >
+        COSTSMONEY = #{record.costsmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.goodsauthorization != null" >
+        GOODSAUTHORIZATION = #{record.goodsauthorization,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsparameter != null" >
+        GOODSPARAMETER = #{record.goodsparameter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsstory != null" >
+        GOODSSTORY = #{record.goodsstory,jdbcType=INTEGER},
+      </if>
+      <if test="record.huiyuanmoney != null" >
+        HUIYUANMONEY = #{record.huiyuanmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.img != null" >
+        IMG = #{record.img,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inventory != null" >
+        INVENTORY = #{record.inventory,jdbcType=DOUBLE},
+      </if>
+      <if test="record.isCx != null" >
+        IS_CX = #{record.isCx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isJptj != null" >
+        IS_JPTJ = #{record.isJptj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isRxcp != null" >
+        IS_RXCP = #{record.isRxcp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shelves != null" >
+        SHELVES = #{record.shelves,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isZx != null" >
+        IS_ZX = #{record.isZx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesmoney != null" >
+        SALESMONEY = #{record.salesmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.weight != null" >
+        WEIGHT = #{record.weight,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sjTime != null" >
+        SJ_TIME = #{record.sjTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysTime != null" >
+        SYS_TIME = #{record.sysTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.biaoqian != null" >
+        BIAOQIAN = #{record.biaoqian,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brandId != null" >
+        BRAND_ID = #{record.brandId,jdbcType=INTEGER},
+      </if>
+      <if test="record.indexs != null" >
+        INDEXS = #{record.indexs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typespec != null" >
+        TYPESPEC = #{record.typespec,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultIamage != null" >
+        DEFAULT_IAMAGE = #{record.defaultIamage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.images != null" >
+        IMAGES = #{record.images,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue0 != null" >
+        SPEC_VALUE_0 = #{record.specValue0,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue1 != null" >
+        SPEC_VALUE_1 = #{record.specValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue2 != null" >
+        SPEC_VALUE_2 = #{record.specValue2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue3 != null" >
+        SPEC_VALUE_3 = #{record.specValue3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue4 != null" >
+        SPEC_VALUE_4 = #{record.specValue4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue5 != null" >
+        SPEC_VALUE_5 = #{record.specValue5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue6 != null" >
+        SPEC_VALUE_6 = #{record.specValue6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue7 != null" >
+        SPEC_VALUE_7 = #{record.specValue7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue8 != null" >
+        SPEC_VALUE_8 = #{record.specValue8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue9 != null" >
+        SPEC_VALUE_9 = #{record.specValue9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue10 != null" >
+        SPEC_VALUE_10 = #{record.specValue10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue11 != null" >
+        SPEC_VALUE_11 = #{record.specValue11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue12 != null" >
+        SPEC_VALUE_12 = #{record.specValue12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue13 != null" >
+        SPEC_VALUE_13 = #{record.specValue13,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue14 != null" >
+        SPEC_VALUE_14 = #{record.specValue14,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue15 != null" >
+        SPEC_VALUE_15 = #{record.specValue15,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue16 != null" >
+        SPEC_VALUE_16 = #{record.specValue16,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue17 != null" >
+        SPEC_VALUE_17 = #{record.specValue17,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue18 != null" >
+        SPEC_VALUE_18 = #{record.specValue18,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue19 != null" >
+        SPEC_VALUE_19 = #{record.specValue19,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specValue20 != null" >
+        SPEC_VALUE_20 = #{record.specValue20,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSj != null" >
+        IS_SJ = #{record.isSj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marchantsId != null" >
+        MARCHANTS_ID = #{record.marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.shangjiainfoId != null" >
+        SHANGJIAINFO_ID = #{record.shangjiainfoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.salesnum != null" >
+        SALESNUM = #{record.salesnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.deliveryId != null" >
+        DELIVERY_ID = #{record.deliveryId,jdbcType=INTEGER},
+      </if>
+      <if test="record.customSortId != null" >
+        CUSTOM_SORT_ID = #{record.customSortId,jdbcType=INTEGER},
+      </if>
+      <if test="record.btime != null" >
+        BTIME = #{record.btime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.etime != null" >
+        ETIME = #{record.etime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pepoleno != null" >
+        PEPOLENO = #{record.pepoleno,jdbcType=INTEGER},
+      </if>
+      <if test="record.tryno != null" >
+        TRYNO = #{record.tryno,jdbcType=INTEGER},
+      </if>
+      <if test="record.tryuse != null" >
+        TRYUSE = #{record.tryuse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mfimages != null" >
+        MFIMAGES = #{record.mfimages,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsdescription != null" >
+        GOODSDESCRIPTION = #{record.goodsdescription,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_product
+    set ID = #{record.id,jdbcType=INTEGER},
+      GOODS_ID = #{record.goodsId,jdbcType=INTEGER},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      INDEX = #{record.index,jdbcType=VARCHAR},
+      GOODSSORT_ID = #{record.goodssortId,jdbcType=VARCHAR},
+      GOODSTYPE_ID = #{record.goodstypeId,jdbcType=INTEGER},
+      BAZAARMONEY = #{record.bazaarmoney,jdbcType=DOUBLE},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      COSTSMONEY = #{record.costsmoney,jdbcType=DOUBLE},
+      GOODSAUTHORIZATION = #{record.goodsauthorization,jdbcType=VARCHAR},
+      GOODSPARAMETER = #{record.goodsparameter,jdbcType=VARCHAR},
+      GOODSSTORY = #{record.goodsstory,jdbcType=INTEGER},
+      HUIYUANMONEY = #{record.huiyuanmoney,jdbcType=DOUBLE},
+      IMG = #{record.img,jdbcType=VARCHAR},
+      INVENTORY = #{record.inventory,jdbcType=DOUBLE},
+      IS_CX = #{record.isCx,jdbcType=VARCHAR},
+      IS_JPTJ = #{record.isJptj,jdbcType=VARCHAR},
+      IS_RXCP = #{record.isRxcp,jdbcType=VARCHAR},
+      SHELVES = #{record.shelves,jdbcType=VARCHAR},
+      IS_ZX = #{record.isZx,jdbcType=VARCHAR},
+      SALESMONEY = #{record.salesmoney,jdbcType=DOUBLE},
+      WEIGHT = #{record.weight,jdbcType=DOUBLE},
+      SJ_TIME = #{record.sjTime,jdbcType=VARCHAR},
+      SYS_TIME = #{record.sysTime,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      BIAOQIAN = #{record.biaoqian,jdbcType=VARCHAR},
+      BRAND_ID = #{record.brandId,jdbcType=INTEGER},
+      INDEXS = #{record.indexs,jdbcType=VARCHAR},
+      TYPESPEC = #{record.typespec,jdbcType=VARCHAR},
+      DEFAULT_IAMAGE = #{record.defaultIamage,jdbcType=VARCHAR},
+      IMAGES = #{record.images,jdbcType=VARCHAR},
+      SPEC_VALUE_0 = #{record.specValue0,jdbcType=VARCHAR},
+      SPEC_VALUE_1 = #{record.specValue1,jdbcType=VARCHAR},
+      SPEC_VALUE_2 = #{record.specValue2,jdbcType=VARCHAR},
+      SPEC_VALUE_3 = #{record.specValue3,jdbcType=VARCHAR},
+      SPEC_VALUE_4 = #{record.specValue4,jdbcType=VARCHAR},
+      SPEC_VALUE_5 = #{record.specValue5,jdbcType=VARCHAR},
+      SPEC_VALUE_6 = #{record.specValue6,jdbcType=VARCHAR},
+      SPEC_VALUE_7 = #{record.specValue7,jdbcType=VARCHAR},
+      SPEC_VALUE_8 = #{record.specValue8,jdbcType=VARCHAR},
+      SPEC_VALUE_9 = #{record.specValue9,jdbcType=VARCHAR},
+      SPEC_VALUE_10 = #{record.specValue10,jdbcType=VARCHAR},
+      SPEC_VALUE_11 = #{record.specValue11,jdbcType=VARCHAR},
+      SPEC_VALUE_12 = #{record.specValue12,jdbcType=VARCHAR},
+      SPEC_VALUE_13 = #{record.specValue13,jdbcType=VARCHAR},
+      SPEC_VALUE_14 = #{record.specValue14,jdbcType=VARCHAR},
+      SPEC_VALUE_15 = #{record.specValue15,jdbcType=VARCHAR},
+      SPEC_VALUE_16 = #{record.specValue16,jdbcType=VARCHAR},
+      SPEC_VALUE_17 = #{record.specValue17,jdbcType=VARCHAR},
+      SPEC_VALUE_18 = #{record.specValue18,jdbcType=VARCHAR},
+      SPEC_VALUE_19 = #{record.specValue19,jdbcType=VARCHAR},
+      SPEC_VALUE_20 = #{record.specValue20,jdbcType=VARCHAR},
+      IS_SJ = #{record.isSj,jdbcType=VARCHAR},
+      MARCHANTS_ID = #{record.marchantsId,jdbcType=INTEGER},
+      SHANGJIAINFO_ID = #{record.shangjiainfoId,jdbcType=INTEGER},
+      SALESNUM = #{record.salesnum,jdbcType=INTEGER},
+      DELIVERY_ID = #{record.deliveryId,jdbcType=INTEGER},
+      CUSTOM_SORT_ID = #{record.customSortId,jdbcType=INTEGER},
+      BTIME = #{record.btime,jdbcType=VARCHAR},
+      ETIME = #{record.etime,jdbcType=VARCHAR},
+      PEPOLENO = #{record.pepoleno,jdbcType=INTEGER},
+      TRYNO = #{record.tryno,jdbcType=INTEGER},
+      TRYUSE = #{record.tryuse,jdbcType=VARCHAR},
+      MFIMAGES = #{record.mfimages,jdbcType=VARCHAR},
+      GOODSDESCRIPTION = #{record.goodsdescription,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_product
+    set ID = #{record.id,jdbcType=INTEGER},
+      GOODS_ID = #{record.goodsId,jdbcType=INTEGER},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      INDEX = #{record.index,jdbcType=VARCHAR},
+      GOODSSORT_ID = #{record.goodssortId,jdbcType=VARCHAR},
+      GOODSTYPE_ID = #{record.goodstypeId,jdbcType=INTEGER},
+      BAZAARMONEY = #{record.bazaarmoney,jdbcType=DOUBLE},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      COSTSMONEY = #{record.costsmoney,jdbcType=DOUBLE},
+      GOODSAUTHORIZATION = #{record.goodsauthorization,jdbcType=VARCHAR},
+      GOODSPARAMETER = #{record.goodsparameter,jdbcType=VARCHAR},
+      GOODSSTORY = #{record.goodsstory,jdbcType=INTEGER},
+      HUIYUANMONEY = #{record.huiyuanmoney,jdbcType=DOUBLE},
+      IMG = #{record.img,jdbcType=VARCHAR},
+      INVENTORY = #{record.inventory,jdbcType=DOUBLE},
+      IS_CX = #{record.isCx,jdbcType=VARCHAR},
+      IS_JPTJ = #{record.isJptj,jdbcType=VARCHAR},
+      IS_RXCP = #{record.isRxcp,jdbcType=VARCHAR},
+      SHELVES = #{record.shelves,jdbcType=VARCHAR},
+      IS_ZX = #{record.isZx,jdbcType=VARCHAR},
+      SALESMONEY = #{record.salesmoney,jdbcType=DOUBLE},
+      WEIGHT = #{record.weight,jdbcType=DOUBLE},
+      SJ_TIME = #{record.sjTime,jdbcType=VARCHAR},
+      SYS_TIME = #{record.sysTime,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      BIAOQIAN = #{record.biaoqian,jdbcType=VARCHAR},
+      BRAND_ID = #{record.brandId,jdbcType=INTEGER},
+      INDEXS = #{record.indexs,jdbcType=VARCHAR},
+      TYPESPEC = #{record.typespec,jdbcType=VARCHAR},
+      DEFAULT_IAMAGE = #{record.defaultIamage,jdbcType=VARCHAR},
+      IMAGES = #{record.images,jdbcType=VARCHAR},
+      SPEC_VALUE_0 = #{record.specValue0,jdbcType=VARCHAR},
+      SPEC_VALUE_1 = #{record.specValue1,jdbcType=VARCHAR},
+      SPEC_VALUE_2 = #{record.specValue2,jdbcType=VARCHAR},
+      SPEC_VALUE_3 = #{record.specValue3,jdbcType=VARCHAR},
+      SPEC_VALUE_4 = #{record.specValue4,jdbcType=VARCHAR},
+      SPEC_VALUE_5 = #{record.specValue5,jdbcType=VARCHAR},
+      SPEC_VALUE_6 = #{record.specValue6,jdbcType=VARCHAR},
+      SPEC_VALUE_7 = #{record.specValue7,jdbcType=VARCHAR},
+      SPEC_VALUE_8 = #{record.specValue8,jdbcType=VARCHAR},
+      SPEC_VALUE_9 = #{record.specValue9,jdbcType=VARCHAR},
+      SPEC_VALUE_10 = #{record.specValue10,jdbcType=VARCHAR},
+      SPEC_VALUE_11 = #{record.specValue11,jdbcType=VARCHAR},
+      SPEC_VALUE_12 = #{record.specValue12,jdbcType=VARCHAR},
+      SPEC_VALUE_13 = #{record.specValue13,jdbcType=VARCHAR},
+      SPEC_VALUE_14 = #{record.specValue14,jdbcType=VARCHAR},
+      SPEC_VALUE_15 = #{record.specValue15,jdbcType=VARCHAR},
+      SPEC_VALUE_16 = #{record.specValue16,jdbcType=VARCHAR},
+      SPEC_VALUE_17 = #{record.specValue17,jdbcType=VARCHAR},
+      SPEC_VALUE_18 = #{record.specValue18,jdbcType=VARCHAR},
+      SPEC_VALUE_19 = #{record.specValue19,jdbcType=VARCHAR},
+      SPEC_VALUE_20 = #{record.specValue20,jdbcType=VARCHAR},
+      IS_SJ = #{record.isSj,jdbcType=VARCHAR},
+      MARCHANTS_ID = #{record.marchantsId,jdbcType=INTEGER},
+      SHANGJIAINFO_ID = #{record.shangjiainfoId,jdbcType=INTEGER},
+      SALESNUM = #{record.salesnum,jdbcType=INTEGER},
+      DELIVERY_ID = #{record.deliveryId,jdbcType=INTEGER},
+      CUSTOM_SORT_ID = #{record.customSortId,jdbcType=INTEGER},
+      BTIME = #{record.btime,jdbcType=VARCHAR},
+      ETIME = #{record.etime,jdbcType=VARCHAR},
+      PEPOLENO = #{record.pepoleno,jdbcType=INTEGER},
+      TRYNO = #{record.tryno,jdbcType=INTEGER},
+      TRYUSE = #{record.tryuse,jdbcType=VARCHAR},
+      MFIMAGES = #{record.mfimages,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.ProductModel" >
+    update t_product
+    <set >
+      <if test="goodsId != null" >
+        GOODS_ID = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="index != null" >
+        INDEX = #{index,jdbcType=VARCHAR},
+      </if>
+      <if test="goodssortId != null" >
+        GOODSSORT_ID = #{goodssortId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodstypeId != null" >
+        GOODSTYPE_ID = #{goodstypeId,jdbcType=INTEGER},
+      </if>
+      <if test="bazaarmoney != null" >
+        BAZAARMONEY = #{bazaarmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="costsmoney != null" >
+        COSTSMONEY = #{costsmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsauthorization != null" >
+        GOODSAUTHORIZATION = #{goodsauthorization,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsparameter != null" >
+        GOODSPARAMETER = #{goodsparameter,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsstory != null" >
+        GOODSSTORY = #{goodsstory,jdbcType=INTEGER},
+      </if>
+      <if test="huiyuanmoney != null" >
+        HUIYUANMONEY = #{huiyuanmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="img != null" >
+        IMG = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="inventory != null" >
+        INVENTORY = #{inventory,jdbcType=DOUBLE},
+      </if>
+      <if test="isCx != null" >
+        IS_CX = #{isCx,jdbcType=VARCHAR},
+      </if>
+      <if test="isJptj != null" >
+        IS_JPTJ = #{isJptj,jdbcType=VARCHAR},
+      </if>
+      <if test="isRxcp != null" >
+        IS_RXCP = #{isRxcp,jdbcType=VARCHAR},
+      </if>
+      <if test="shelves != null" >
+        SHELVES = #{shelves,jdbcType=VARCHAR},
+      </if>
+      <if test="isZx != null" >
+        IS_ZX = #{isZx,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmoney != null" >
+        SALESMONEY = #{salesmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        WEIGHT = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="sjTime != null" >
+        SJ_TIME = #{sjTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sysTime != null" >
+        SYS_TIME = #{sysTime,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="biaoqian != null" >
+        BIAOQIAN = #{biaoqian,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        BRAND_ID = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="indexs != null" >
+        INDEXS = #{indexs,jdbcType=VARCHAR},
+      </if>
+      <if test="typespec != null" >
+        TYPESPEC = #{typespec,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultIamage != null" >
+        DEFAULT_IAMAGE = #{defaultIamage,jdbcType=VARCHAR},
+      </if>
+      <if test="images != null" >
+        IMAGES = #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue0 != null" >
+        SPEC_VALUE_0 = #{specValue0,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue1 != null" >
+        SPEC_VALUE_1 = #{specValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue2 != null" >
+        SPEC_VALUE_2 = #{specValue2,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue3 != null" >
+        SPEC_VALUE_3 = #{specValue3,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue4 != null" >
+        SPEC_VALUE_4 = #{specValue4,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue5 != null" >
+        SPEC_VALUE_5 = #{specValue5,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue6 != null" >
+        SPEC_VALUE_6 = #{specValue6,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue7 != null" >
+        SPEC_VALUE_7 = #{specValue7,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue8 != null" >
+        SPEC_VALUE_8 = #{specValue8,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue9 != null" >
+        SPEC_VALUE_9 = #{specValue9,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue10 != null" >
+        SPEC_VALUE_10 = #{specValue10,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue11 != null" >
+        SPEC_VALUE_11 = #{specValue11,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue12 != null" >
+        SPEC_VALUE_12 = #{specValue12,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue13 != null" >
+        SPEC_VALUE_13 = #{specValue13,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue14 != null" >
+        SPEC_VALUE_14 = #{specValue14,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue15 != null" >
+        SPEC_VALUE_15 = #{specValue15,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue16 != null" >
+        SPEC_VALUE_16 = #{specValue16,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue17 != null" >
+        SPEC_VALUE_17 = #{specValue17,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue18 != null" >
+        SPEC_VALUE_18 = #{specValue18,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue19 != null" >
+        SPEC_VALUE_19 = #{specValue19,jdbcType=VARCHAR},
+      </if>
+      <if test="specValue20 != null" >
+        SPEC_VALUE_20 = #{specValue20,jdbcType=VARCHAR},
+      </if>
+      <if test="isSj != null" >
+        IS_SJ = #{isSj,jdbcType=VARCHAR},
+      </if>
+      <if test="marchantsId != null" >
+        MARCHANTS_ID = #{marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="shangjiainfoId != null" >
+        SHANGJIAINFO_ID = #{shangjiainfoId,jdbcType=INTEGER},
+      </if>
+      <if test="salesnum != null" >
+        SALESNUM = #{salesnum,jdbcType=INTEGER},
+      </if>
+      <if test="deliveryId != null" >
+        DELIVERY_ID = #{deliveryId,jdbcType=INTEGER},
+      </if>
+      <if test="customSortId != null" >
+        CUSTOM_SORT_ID = #{customSortId,jdbcType=INTEGER},
+      </if>
+      <if test="btime != null" >
+        BTIME = #{btime,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null" >
+        ETIME = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="pepoleno != null" >
+        PEPOLENO = #{pepoleno,jdbcType=INTEGER},
+      </if>
+      <if test="tryno != null" >
+        TRYNO = #{tryno,jdbcType=INTEGER},
+      </if>
+      <if test="tryuse != null" >
+        TRYUSE = #{tryuse,jdbcType=VARCHAR},
+      </if>
+      <if test="mfimages != null" >
+        MFIMAGES = #{mfimages,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsdescription != null" >
+        GOODSDESCRIPTION = #{goodsdescription,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.com.dyninfo.o2o.model.ProductModel" >
+    update t_product
+    set GOODS_ID = #{goodsId,jdbcType=INTEGER},
+      NAME = #{name,jdbcType=VARCHAR},
+      INDEX = #{index,jdbcType=VARCHAR},
+      GOODSSORT_ID = #{goodssortId,jdbcType=VARCHAR},
+      GOODSTYPE_ID = #{goodstypeId,jdbcType=INTEGER},
+      BAZAARMONEY = #{bazaarmoney,jdbcType=DOUBLE},
+      CODE = #{code,jdbcType=VARCHAR},
+      COSTSMONEY = #{costsmoney,jdbcType=DOUBLE},
+      GOODSAUTHORIZATION = #{goodsauthorization,jdbcType=VARCHAR},
+      GOODSPARAMETER = #{goodsparameter,jdbcType=VARCHAR},
+      GOODSSTORY = #{goodsstory,jdbcType=INTEGER},
+      HUIYUANMONEY = #{huiyuanmoney,jdbcType=DOUBLE},
+      IMG = #{img,jdbcType=VARCHAR},
+      INVENTORY = #{inventory,jdbcType=DOUBLE},
+      IS_CX = #{isCx,jdbcType=VARCHAR},
+      IS_JPTJ = #{isJptj,jdbcType=VARCHAR},
+      IS_RXCP = #{isRxcp,jdbcType=VARCHAR},
+      SHELVES = #{shelves,jdbcType=VARCHAR},
+      IS_ZX = #{isZx,jdbcType=VARCHAR},
+      SALESMONEY = #{salesmoney,jdbcType=DOUBLE},
+      WEIGHT = #{weight,jdbcType=DOUBLE},
+      SJ_TIME = #{sjTime,jdbcType=VARCHAR},
+      SYS_TIME = #{sysTime,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      BIAOQIAN = #{biaoqian,jdbcType=VARCHAR},
+      BRAND_ID = #{brandId,jdbcType=INTEGER},
+      INDEXS = #{indexs,jdbcType=VARCHAR},
+      TYPESPEC = #{typespec,jdbcType=VARCHAR},
+      DEFAULT_IAMAGE = #{defaultIamage,jdbcType=VARCHAR},
+      IMAGES = #{images,jdbcType=VARCHAR},
+      SPEC_VALUE_0 = #{specValue0,jdbcType=VARCHAR},
+      SPEC_VALUE_1 = #{specValue1,jdbcType=VARCHAR},
+      SPEC_VALUE_2 = #{specValue2,jdbcType=VARCHAR},
+      SPEC_VALUE_3 = #{specValue3,jdbcType=VARCHAR},
+      SPEC_VALUE_4 = #{specValue4,jdbcType=VARCHAR},
+      SPEC_VALUE_5 = #{specValue5,jdbcType=VARCHAR},
+      SPEC_VALUE_6 = #{specValue6,jdbcType=VARCHAR},
+      SPEC_VALUE_7 = #{specValue7,jdbcType=VARCHAR},
+      SPEC_VALUE_8 = #{specValue8,jdbcType=VARCHAR},
+      SPEC_VALUE_9 = #{specValue9,jdbcType=VARCHAR},
+      SPEC_VALUE_10 = #{specValue10,jdbcType=VARCHAR},
+      SPEC_VALUE_11 = #{specValue11,jdbcType=VARCHAR},
+      SPEC_VALUE_12 = #{specValue12,jdbcType=VARCHAR},
+      SPEC_VALUE_13 = #{specValue13,jdbcType=VARCHAR},
+      SPEC_VALUE_14 = #{specValue14,jdbcType=VARCHAR},
+      SPEC_VALUE_15 = #{specValue15,jdbcType=VARCHAR},
+      SPEC_VALUE_16 = #{specValue16,jdbcType=VARCHAR},
+      SPEC_VALUE_17 = #{specValue17,jdbcType=VARCHAR},
+      SPEC_VALUE_18 = #{specValue18,jdbcType=VARCHAR},
+      SPEC_VALUE_19 = #{specValue19,jdbcType=VARCHAR},
+      SPEC_VALUE_20 = #{specValue20,jdbcType=VARCHAR},
+      IS_SJ = #{isSj,jdbcType=VARCHAR},
+      MARCHANTS_ID = #{marchantsId,jdbcType=INTEGER},
+      SHANGJIAINFO_ID = #{shangjiainfoId,jdbcType=INTEGER},
+      SALESNUM = #{salesnum,jdbcType=INTEGER},
+      DELIVERY_ID = #{deliveryId,jdbcType=INTEGER},
+      CUSTOM_SORT_ID = #{customSortId,jdbcType=INTEGER},
+      BTIME = #{btime,jdbcType=VARCHAR},
+      ETIME = #{etime,jdbcType=VARCHAR},
+      PEPOLENO = #{pepoleno,jdbcType=INTEGER},
+      TRYNO = #{tryno,jdbcType=INTEGER},
+      TRYUSE = #{tryuse,jdbcType=VARCHAR},
+      MFIMAGES = #{mfimages,jdbcType=VARCHAR},
+      GOODSDESCRIPTION = #{goodsdescription,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.ProductModel" >
+    update t_product
+    set GOODS_ID = #{goodsId,jdbcType=INTEGER},
+      NAME = #{name,jdbcType=VARCHAR},
+      INDEX = #{index,jdbcType=VARCHAR},
+      GOODSSORT_ID = #{goodssortId,jdbcType=VARCHAR},
+      GOODSTYPE_ID = #{goodstypeId,jdbcType=INTEGER},
+      BAZAARMONEY = #{bazaarmoney,jdbcType=DOUBLE},
+      CODE = #{code,jdbcType=VARCHAR},
+      COSTSMONEY = #{costsmoney,jdbcType=DOUBLE},
+      GOODSAUTHORIZATION = #{goodsauthorization,jdbcType=VARCHAR},
+      GOODSPARAMETER = #{goodsparameter,jdbcType=VARCHAR},
+      GOODSSTORY = #{goodsstory,jdbcType=INTEGER},
+      HUIYUANMONEY = #{huiyuanmoney,jdbcType=DOUBLE},
+      IMG = #{img,jdbcType=VARCHAR},
+      INVENTORY = #{inventory,jdbcType=DOUBLE},
+      IS_CX = #{isCx,jdbcType=VARCHAR},
+      IS_JPTJ = #{isJptj,jdbcType=VARCHAR},
+      IS_RXCP = #{isRxcp,jdbcType=VARCHAR},
+      SHELVES = #{shelves,jdbcType=VARCHAR},
+      IS_ZX = #{isZx,jdbcType=VARCHAR},
+      SALESMONEY = #{salesmoney,jdbcType=DOUBLE},
+      WEIGHT = #{weight,jdbcType=DOUBLE},
+      SJ_TIME = #{sjTime,jdbcType=VARCHAR},
+      SYS_TIME = #{sysTime,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      BIAOQIAN = #{biaoqian,jdbcType=VARCHAR},
+      BRAND_ID = #{brandId,jdbcType=INTEGER},
+      INDEXS = #{indexs,jdbcType=VARCHAR},
+      TYPESPEC = #{typespec,jdbcType=VARCHAR},
+      DEFAULT_IAMAGE = #{defaultIamage,jdbcType=VARCHAR},
+      IMAGES = #{images,jdbcType=VARCHAR},
+      SPEC_VALUE_0 = #{specValue0,jdbcType=VARCHAR},
+      SPEC_VALUE_1 = #{specValue1,jdbcType=VARCHAR},
+      SPEC_VALUE_2 = #{specValue2,jdbcType=VARCHAR},
+      SPEC_VALUE_3 = #{specValue3,jdbcType=VARCHAR},
+      SPEC_VALUE_4 = #{specValue4,jdbcType=VARCHAR},
+      SPEC_VALUE_5 = #{specValue5,jdbcType=VARCHAR},
+      SPEC_VALUE_6 = #{specValue6,jdbcType=VARCHAR},
+      SPEC_VALUE_7 = #{specValue7,jdbcType=VARCHAR},
+      SPEC_VALUE_8 = #{specValue8,jdbcType=VARCHAR},
+      SPEC_VALUE_9 = #{specValue9,jdbcType=VARCHAR},
+      SPEC_VALUE_10 = #{specValue10,jdbcType=VARCHAR},
+      SPEC_VALUE_11 = #{specValue11,jdbcType=VARCHAR},
+      SPEC_VALUE_12 = #{specValue12,jdbcType=VARCHAR},
+      SPEC_VALUE_13 = #{specValue13,jdbcType=VARCHAR},
+      SPEC_VALUE_14 = #{specValue14,jdbcType=VARCHAR},
+      SPEC_VALUE_15 = #{specValue15,jdbcType=VARCHAR},
+      SPEC_VALUE_16 = #{specValue16,jdbcType=VARCHAR},
+      SPEC_VALUE_17 = #{specValue17,jdbcType=VARCHAR},
+      SPEC_VALUE_18 = #{specValue18,jdbcType=VARCHAR},
+      SPEC_VALUE_19 = #{specValue19,jdbcType=VARCHAR},
+      SPEC_VALUE_20 = #{specValue20,jdbcType=VARCHAR},
+      IS_SJ = #{isSj,jdbcType=VARCHAR},
+      MARCHANTS_ID = #{marchantsId,jdbcType=INTEGER},
+      SHANGJIAINFO_ID = #{shangjiainfoId,jdbcType=INTEGER},
+      SALESNUM = #{salesnum,jdbcType=INTEGER},
+      DELIVERY_ID = #{deliveryId,jdbcType=INTEGER},
+      CUSTOM_SORT_ID = #{customSortId,jdbcType=INTEGER},
+      BTIME = #{btime,jdbcType=VARCHAR},
+      ETIME = #{etime,jdbcType=VARCHAR},
+      PEPOLENO = #{pepoleno,jdbcType=INTEGER},
+      TRYNO = #{tryno,jdbcType=INTEGER},
+      TRYUSE = #{tryuse,jdbcType=VARCHAR},
+      MFIMAGES = #{mfimages,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

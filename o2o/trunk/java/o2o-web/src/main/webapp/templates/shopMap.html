@@ -1,0 +1,135 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/head.html' />
+<style type="text/css">
+   
+</style>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AK4Z6oiZ4uGtRwpN9a1ksmS1"></script>
+<script type="text/javascript" src="${applicationPath}/js/address.js" ></script>
+<script type="text/javascript" src="${applicationPath}/js/shoptuijian.js" ></script>
+
+<!-- 设置菜单为选中----脚本 -->
+<script type="text/javascript">
+	$(function() {
+		$(".zhu5").each(function() {
+			if($(this).html() == "实体商家") {
+				$(this).parent().html("实体商家");
+			}
+		});
+	});
+</script>
+
+
+<div class="kuai">
+<div class="shangjia_ditu_da">
+<div class="shangjia_ditu_kuai">
+<div class="sjdt_kai01">
+<div class="sjdt_kai01_left">
+<div class="sjdt_kai01_left_k">
+<input name="请输入商家名称" type="text" class="sjdt_kai01_left_k_shur" id="m_name"/>
+</div>
+<div class="sjdt_kai01_left_an dbtn"><a href="javascript:;" class="zhu33">查询</a></div>
+</div>
+<div class="sjdt_kai01_right">
+	${widget_map_pic}
+
+</div>
+</div>
+</div>
+<div class="sjdt_kai02">
+
+
+${widget_mapArea}
+
+
+</div>
+<div class="sjdt_kai02_left_an btn"><a href="javascript:;" class="zhu33">查询</a></div>
+<div class="sjdt_kai02_zi">
+亲，欢迎来到炫品妆成，请选择您想要查询的商家哟！
+</div>
+
+</div>
+<div class="sjdt_kai03">
+<div class="sjdt_kai03_left" id="map">
+
+
+</div>
+<div class="sjdt_kai03_right">
+<div class="sjdt_kai03_righttou"><img src="${applicationPath}/img/sjdt_rtou.gif" /></div>
+<div id="content" style="height:650px;overflow:hidden">
+	${widget_maptuijian}
+</div>
+
+</div>
+
+
+</div>
+<div class="sjdt_kai04">
+<strong>尊敬的客户，欢迎访问炫品妆成</strong> <br />
+炫品妆成在四川省拥有超过3000家加盟商家，近万种正品行货。欢迎关注我们，了解精彩活动。妆成手机客户端即将上线随时随地参加装成活动</div>
+
+
+
+
+</div>
+
+
+<script type="text/javascript"  >
+	address("provinceId","cityId","countyId",servicePath+"/widget.html?widget=ArearWidget&action=getArea&dataType=json");
+</script>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="${applicationPath}/js/Map.js" ></script>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<#include 'common/buttom.html' />

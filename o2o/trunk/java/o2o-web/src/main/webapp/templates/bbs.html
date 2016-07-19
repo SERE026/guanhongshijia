@@ -1,0 +1,87 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/head.html' />
+
+<!-- 设置菜单为选中----脚本 -->
+<script type="text/javascript">
+	$(function() {
+		$(".zhu4").each(function() {
+			if($(this).html() == "美丽宣言") {
+				$(this).parent().html("美丽宣言");
+			}
+		});
+	});
+</script>
+
+<div class="kuai">
+<div class="nvrejie">
+<div class="b_da">
+<div class="b_giangg">
+${widget_top_advpic1}
+
+</div>
+<div class="taitou_03">
+<div class="taitou_xiashi">美丽宣言</div>
+<div class="huodong_fatie "><a href="#send"><img src="${applicationPath}/img/fatie.gif" border="0" /></a></div>
+
+</div>
+<div class="xuanyan_pai">
+<div class="sp_lie_pai_k01 orderBy" order="default"><a href="javascript:;" class="zhu13">默认</a></div>
+<div class="sp_lie_pai_k02 orderBy" order="time" by="asc"><a href="javascript:;" class="zhu15">时间</a></div>
+<!--<div class="sp_lie_pai_k02"><a href="#" class="zhu16">价格</a></div>--><!--价格从低到高时的排样式-->
+<!--<div class="sp_lie_pai_k02"><a href="#" class="zhu17">价格</a></div>--><!--价格从高到低时的排样式-->
+<div class="sp_lie_pai_k02 orderBy" order="hnum" by="asc"><a href="javascript:;" class="zhu15">热门</a></div>
+<div class="xuanyan_pai_k02">作者</div>
+<div class="xuanyan_pai_k03">回复/查看</div>
+<div class="xuanyan_pai_k03">最后发表</div>
+
+</div>
+<div class="pageBox">
+
+
+
+</div>
+
+<div class="fenye page">
+
+
+
+
+
+</div>
+${widget_bbsSendWidget}
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+<script src="js/bbs.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+	new page($(".page"),$(".pageBox"),"bbsPostWidget");
+})
+</script>
+<#include 'common/buttom.html' />

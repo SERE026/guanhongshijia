@@ -1,0 +1,15 @@
+<#list data as good>
+<div class="rexiao_kuai">
+<div class="rexiao_kuai_shuiming"><span class="STYLE5">${(good.num*1.0/count*100)?string(0.00)}%</span>&nbsp;&nbsp;的用户会买：</div>
+<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${good.goods_id}.html"><img src="${applicationPath}/upload/goods/${good.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+<div class="rexiao_kuai_zijie">
+<a href="${applicationPath}/item-${good.goods_id}.html" class="zhu7">${good.name}</a>
+</div>
+<div class="rexoa_xiaojia">
+￥${good.goodMoney?string('0.00')}
+</div>
+</div>
+</#list>
+
+
+

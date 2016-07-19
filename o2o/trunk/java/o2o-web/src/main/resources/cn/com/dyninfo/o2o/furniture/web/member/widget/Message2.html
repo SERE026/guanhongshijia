@@ -1,0 +1,11 @@
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tab11">
+  <#list data as messge>
+  <tr>
+    <td style=" width:90px">炫品公告</td>
+    <td style=" width:493px; text-align:center; color:#454545">${messge.title}</td>
+    <td style="width:143px;">${messge.sys_time}</td>
+	<td style="width:44px;"><a href="javascript:todelete(${messge.messagesend_id});"><img src="${applicationPath}/img/huiyuan_x.gif" border="0" /></a></td>
+  </tr>
+    </#list>
+  </table>

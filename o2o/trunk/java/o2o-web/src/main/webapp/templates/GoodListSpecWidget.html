@@ -1,0 +1,88 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#if brand??>
+  <script type="text/javascript">
+ 		var html='<div  data="${brand.brand_id}" class="sp_shaixuan_yixuan_bb select brand">';
+			html+='<div class="sp_xiaokxuan">${brand.name}</div>';
+			html+='<div class="sp_xiaokxuan_guan delSelectt" ><a href="javascript:;" ><img src="'+servicePath+'/img/sp_xiaoguan.gif" border="0" /></a></div>';
+			html+='</div>';
+		$(".selectBox").append(html);
+			$(".delSelectt").unbind("click").click(function(){
+					$(this).parent().remove();
+					_page.createPostData();
+			});
+</script>
+</#if>
+
+<#if brandList?size gt 0>
+
+
+</element><div class="sp_shaixuan_kuai">
+<div class="sp_shaixuan_kuai_tai">
+品牌：
+</div>
+<div class="sp_shaixuan_kuai_pin" >
+<#list brandList as branda>
+	<#if branda.brandId??>
+<div class="sp_shaixuan_xiaopai brand" dava="${branda.brandId}"><a href="javascript:;" class="zhu12">${branda.name}</a>(${branda.num})</div>
+	</#if>
+</#list>
+</div>
+</div>
+<div class="touming4">&nbsp;</div>
+
+
+
+</#if>
+
+<#if data?size gt 0>
+
+<#list data as spec>
+
+<div class="sp_shaixuan_kuai">
+<div class="sp_shaixuan_kuai_tai">
+${spec.name}：
+</div>
+<div class="sp_shaixuan_kuai_pin parameter" parameterItem="${spec.item}">
+<#list spec.data as val>
+<div class="sp_shaixuan_xiaopai parameterVal"><a href="javascript:;" class="zhu12">${val.name}</a>(${val.num})</div>
+</#list>
+</div>
+</div>
+<div class="touming4">&nbsp;</div>
+</#list>
+
+</#if>
+
+<!--
+<#if priceList??>
+<#if priceList?size gt 0>
+<div class="sp_shaixuan_kuai">
+<div class="sp_shaixuan_kuai_tai">
+价格区间：
+</div>
+<div class="sp_shaixuan_kuai_pin " >
+<#list priceList as spec>
+<div class="sp_shaixuan_xiaopai priceRange"><a href="javascript:;" class="zhu12">${spec.name}</a>(${spec.num})</div>
+</#list>
+</div>
+</div>
+<div class="touming4">&nbsp;</div>
+</#if>
+
+</#if>
+-->
+
+

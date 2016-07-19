@@ -1,0 +1,43 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script>
+	var servicePath="${applicationPath}";
+</script>
+<script src="js/selectArea.js"></script>
+<div class="top_za_diqu">
+<div class="top_za_diqu_aa"><#if area??>${area.name}</#if><#if areaName??>${areaName}</#if></div>
+<div class="top_za_diqu_bb"><a href="javascript:;" class="zhu3 selectArea" >[切换城市]</a></div>
+</div>
+<div style="display:none" class="initArea">
+<div class="xuanchengshi areaBox" style="display:none">
+<div class="xuanchengshi_ti">
+<div class="xuanchengshi_ti_zi">切换城市</div>
+<div class="xuanchengshi_ti_guanbi"><a href="javascript:;" class="selectAreaColse"><img src="${applicationPath}/img/xuanchengshi_03.gif" border="0" /></a></div>
+</div>
+<div class="xuanchengshi_k">
+<div><a href="javascript:;" areaId="ALL" class="zhu9 switchArea">全国</a></div>
+<#list data as area>
+<div><a href="javascript:;" areaId="${area.id}" class="zhu9 switchArea">${area.name}</a></div>
+</#list>
+</div>
+<div class="xuanchengshi_xian">&nbsp;</div>
+<div class="xuanchengshi_shuoming">
+其他城市正在建设中敬请期待……
+</div>
+
+
+
+</div>
+</div>

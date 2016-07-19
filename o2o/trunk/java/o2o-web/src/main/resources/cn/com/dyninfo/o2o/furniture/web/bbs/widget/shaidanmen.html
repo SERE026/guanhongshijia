@@ -1,0 +1,84 @@
+<div class="shjaihouda">
+<div class="shjaihouda_touxiang">
+<#if  comment.info.txImage??>
+<img src="${applicationPath}/upload/${comment.info.txImage}" width="100%" height="100%"/>
+<#else>
+<img src="${applicationPath}/img/spdet_30.gif" width="100%" height="100%"/>
+</#if>
+</div>
+<div class="shjaihouda_right">
+<div class="shjaihouda_right_dazi">${comment.info.name}&nbsp;&nbsp;&nbsp;<span class="STYLE42">
+<#if comment.info??>
+	注册会员
+<#else>
+	普通用户
+</#if>
+</span></div>
+<div class="shjaihouda_right_xiaozi">发帖 ${comment.info.comment?size}</div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+<div class="shjaihouda_right_dazi22">
+<#if  comment.phototitle??>
+${comment.phototitle}
+</#if>
+</div>
+<div class="shjaihouda_right_dazi33">
+<#if  comment.time??>
+	${comment.time}
+</#if>
+</div>
+
+<div class="shjaihouda_right_dazi33">
+<#if  comment.saycontent??>
+	晒单短评：${comment.saycontent}
+</#if>	
+</div>
+
+<div class="sx_tuwen">
+<div>
+<#if  imagesrc??>
+<#list imagesrc as src>
+<img src="${applicationPath}/upload/issue/${src}" width="100%" height="100%"/>
+</#list>
+</#if>
+</div>
+<div>
+<#if  comment.content??>
+${comment.content}
+</#if>
+</div>
+</div>
+<div class="shjaihouda_xian004">
+&nbsp;
+</div>
+<div class="shjaihouda_sahngxia">
+<div class="shjaihouda_sahngxia_01">
+<div class="shjaihouda_sahngxia_01_left">
+<#if  last??><a href="${applicationPath}/bbs_koubei_shaidan.html?bbsid=${last.comment_id}" class="zhu1">上一篇：<#if  last.phototitle??>【${last.phototitle}】</#if>${last.ginfo.name}</a></#if>
+</div>
+<div class="shjaihouda_sahngxia_01_right">
+<#if  next??><a href="${applicationPath}/bbs_koubei_shaidan.html?bbsid=${next.comment_id}" class="zhu1">下一篇：<#if  next.phototitle??>【${next.phototitle}】</#if>${next.ginfo.name}</a></#if>
+</div>
+
+</div>
+<div class="shjaihouda_sahngxia_fen">
+<div class="jiathis_style">
+	<a style="float:left;">分享到：</a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+</div>

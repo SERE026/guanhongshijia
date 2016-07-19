@@ -1,0 +1,21 @@
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tab11">
+
+<#list data as d>
+ <tr>
+ 	<#if d.applytype=="0">
+ 		 <td style=" width:90px">审核未通过</td>
+ 	 </#if>
+ 	<#if d.applytype=="1">
+ 	 	<td style=" width:90px"><span class="STYLE1">审核通过</span></td>
+ 	</#if>
+ 	<#if d.applytype=="2">
+ 	 	<td style=" width:90px"><span class="STYLE1">审核中</span></td>
+ 	</#if>
+    <td style=" width:493px; text-align:center; color:#454545">您已申请商品<a href="${applicationPath}/tryusedetail.html?goodsid=${d.goods.goods_id}" class="zhu2">“${d.goods.name}</a>”</td>
+    <td style="width:143px;"><#if d.applyDate??>${d.applyDate}</#if></td>
+	<td style="width:44px;" id="todel111" data="${d.tryuse_apply_id}"><a href="javascript:;" ><img src="${applicationPath}/img/huiyuan_x.gif" border="0" /></a></td>
+  </tr>
+</#list>
+
+</table>

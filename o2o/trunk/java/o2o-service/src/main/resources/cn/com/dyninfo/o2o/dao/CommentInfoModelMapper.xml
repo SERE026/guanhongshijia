@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.CommentInfoModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.CommentInfoModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="INFO_ID" property="infoId" jdbcType="INTEGER" />
+    <result column="SINFO_ID" property="sinfoId" jdbcType="INTEGER" />
+    <result column="GINFO_ID" property="ginfoId" jdbcType="INTEGER" />
+    <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+    <result column="REPLY_CONTENT" property="replyContent" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="UINFO_ID" property="uinfoId" jdbcType="VARCHAR" />
+    <result column="IMAGE_SRC" property="imageSrc" jdbcType="VARCHAR" />
+    <result column="IS_SHOW" property="isShow" jdbcType="VARCHAR" />
+    <result column="LEVE" property="leve" jdbcType="DOUBLE" />
+    <result column="PHOTOTITLE" property="phototitle" jdbcType="VARCHAR" />
+    <result column="ORDERPRODUCT_ID" property="orderproductId" jdbcType="INTEGER" />
+    <result column="TIME" property="time" jdbcType="VARCHAR" />
+    <result column="SAYCONTENT" property="saycontent" jdbcType="VARCHAR" />
+    <result column="INDEXS" property="indexs" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, INFO_ID, SINFO_ID, GINFO_ID, CONTENT, REPLY_CONTENT, STATUS, UINFO_ID, IMAGE_SRC, 
+    IS_SHOW, LEVE, PHOTOTITLE, ORDERPRODUCT_ID, TIME, SAYCONTENT, INDEXS
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.CommentInfoModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_comment_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_comment_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_comment_info
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.CommentInfoModelCriteria" >
+    delete from t_comment_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.CommentInfoModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_comment_info (INFO_ID, SINFO_ID, GINFO_ID, 
+      CONTENT, REPLY_CONTENT, STATUS, 
+      UINFO_ID, IMAGE_SRC, IS_SHOW, 
+      LEVE, PHOTOTITLE, ORDERPRODUCT_ID, 
+      TIME, SAYCONTENT, INDEXS
+      )
+    values (#{infoId,jdbcType=INTEGER}, #{sinfoId,jdbcType=INTEGER}, #{ginfoId,jdbcType=INTEGER}, 
+      #{content,jdbcType=VARCHAR}, #{replyContent,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{uinfoId,jdbcType=VARCHAR}, #{imageSrc,jdbcType=VARCHAR}, #{isShow,jdbcType=VARCHAR}, 
+      #{leve,jdbcType=DOUBLE}, #{phototitle,jdbcType=VARCHAR}, #{orderproductId,jdbcType=INTEGER}, 
+      #{time,jdbcType=VARCHAR}, #{saycontent,jdbcType=VARCHAR}, #{indexs,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.CommentInfoModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_comment_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        INFO_ID,
+      </if>
+      <if test="sinfoId != null" >
+        SINFO_ID,
+      </if>
+      <if test="ginfoId != null" >
+        GINFO_ID,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+      <if test="replyContent != null" >
+        REPLY_CONTENT,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="uinfoId != null" >
+        UINFO_ID,
+      </if>
+      <if test="imageSrc != null" >
+        IMAGE_SRC,
+      </if>
+      <if test="isShow != null" >
+        IS_SHOW,
+      </if>
+      <if test="leve != null" >
+        LEVE,
+      </if>
+      <if test="phototitle != null" >
+        PHOTOTITLE,
+      </if>
+      <if test="orderproductId != null" >
+        ORDERPRODUCT_ID,
+      </if>
+      <if test="time != null" >
+        TIME,
+      </if>
+      <if test="saycontent != null" >
+        SAYCONTENT,
+      </if>
+      <if test="indexs != null" >
+        INDEXS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="sinfoId != null" >
+        #{sinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="ginfoId != null" >
+        #{ginfoId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="replyContent != null" >
+        #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="uinfoId != null" >
+        #{uinfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="imageSrc != null" >
+        #{imageSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=VARCHAR},
+      </if>
+      <if test="leve != null" >
+        #{leve,jdbcType=DOUBLE},
+      </if>
+      <if test="phototitle != null" >
+        #{phototitle,jdbcType=VARCHAR},
+      </if>
+      <if test="orderproductId != null" >
+        #{orderproductId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="saycontent != null" >
+        #{saycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="indexs != null" >
+        #{indexs,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.CommentInfoModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_comment_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_comment_info
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.infoId != null" >
+        INFO_ID = #{record.infoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sinfoId != null" >
+        SINFO_ID = #{record.sinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.ginfoId != null" >
+        GINFO_ID = #{record.ginfoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.content != null" >
+        CONTENT = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyContent != null" >
+        REPLY_CONTENT = #{record.replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uinfoId != null" >
+        UINFO_ID = #{record.uinfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imageSrc != null" >
+        IMAGE_SRC = #{record.imageSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isShow != null" >
+        IS_SHOW = #{record.isShow,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leve != null" >
+        LEVE = #{record.leve,jdbcType=DOUBLE},
+      </if>
+      <if test="record.phototitle != null" >
+        PHOTOTITLE = #{record.phototitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderproductId != null" >
+        ORDERPRODUCT_ID = #{record.orderproductId,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null" >
+        TIME = #{record.time,jdbcType=VARCHAR},
+      </if>
+      <if test="record.saycontent != null" >
+        SAYCONTENT = #{record.saycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indexs != null" >
+        INDEXS = #{record.indexs,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_comment_info
+    set ID = #{record.id,jdbcType=INTEGER},
+      INFO_ID = #{record.infoId,jdbcType=INTEGER},
+      SINFO_ID = #{record.sinfoId,jdbcType=INTEGER},
+      GINFO_ID = #{record.ginfoId,jdbcType=INTEGER},
+      CONTENT = #{record.content,jdbcType=VARCHAR},
+      REPLY_CONTENT = #{record.replyContent,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      UINFO_ID = #{record.uinfoId,jdbcType=VARCHAR},
+      IMAGE_SRC = #{record.imageSrc,jdbcType=VARCHAR},
+      IS_SHOW = #{record.isShow,jdbcType=VARCHAR},
+      LEVE = #{record.leve,jdbcType=DOUBLE},
+      PHOTOTITLE = #{record.phototitle,jdbcType=VARCHAR},
+      ORDERPRODUCT_ID = #{record.orderproductId,jdbcType=INTEGER},
+      TIME = #{record.time,jdbcType=VARCHAR},
+      SAYCONTENT = #{record.saycontent,jdbcType=VARCHAR},
+      INDEXS = #{record.indexs,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.CommentInfoModel" >
+    update t_comment_info
+    <set >
+      <if test="infoId != null" >
+        INFO_ID = #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="sinfoId != null" >
+        SINFO_ID = #{sinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="ginfoId != null" >
+        GINFO_ID = #{ginfoId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="replyContent != null" >
+        REPLY_CONTENT = #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="uinfoId != null" >
+        UINFO_ID = #{uinfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="imageSrc != null" >
+        IMAGE_SRC = #{imageSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        IS_SHOW = #{isShow,jdbcType=VARCHAR},
+      </if>
+      <if test="leve != null" >
+        LEVE = #{leve,jdbcType=DOUBLE},
+      </if>
+      <if test="phototitle != null" >
+        PHOTOTITLE = #{phototitle,jdbcType=VARCHAR},
+      </if>
+      <if test="orderproductId != null" >
+        ORDERPRODUCT_ID = #{orderproductId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        TIME = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="saycontent != null" >
+        SAYCONTENT = #{saycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="indexs != null" >
+        INDEXS = #{indexs,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.CommentInfoModel" >
+    update t_comment_info
+    set INFO_ID = #{infoId,jdbcType=INTEGER},
+      SINFO_ID = #{sinfoId,jdbcType=INTEGER},
+      GINFO_ID = #{ginfoId,jdbcType=INTEGER},
+      CONTENT = #{content,jdbcType=VARCHAR},
+      REPLY_CONTENT = #{replyContent,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      UINFO_ID = #{uinfoId,jdbcType=VARCHAR},
+      IMAGE_SRC = #{imageSrc,jdbcType=VARCHAR},
+      IS_SHOW = #{isShow,jdbcType=VARCHAR},
+      LEVE = #{leve,jdbcType=DOUBLE},
+      PHOTOTITLE = #{phototitle,jdbcType=VARCHAR},
+      ORDERPRODUCT_ID = #{orderproductId,jdbcType=INTEGER},
+      TIME = #{time,jdbcType=VARCHAR},
+      SAYCONTENT = #{saycontent,jdbcType=VARCHAR},
+      INDEXS = #{indexs,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

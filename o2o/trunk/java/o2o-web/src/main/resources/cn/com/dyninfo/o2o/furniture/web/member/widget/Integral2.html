@@ -1,0 +1,17 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab08">
+<#list data as integral>
+<tr>
+    <td style=" width:160px">${integral.time}</td>
+    <#if integral.jf gt 0 >
+    <td style=" width:130px">${integral.jf}</td>
+    <td style="width:130px;">-</td>
+    <#else>
+     <td style="width:130px;">-</td>
+    <td style=" width:130px">${integral.jf}</td>
+    </#if>
+	<td style="width:380x; padding-left:9px; text-align:center" >${integral.explain}</td>
+  </tr>
+
+  </#list>
+</table>

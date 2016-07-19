@@ -1,0 +1,22 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list data as type>
+<div class="meu_fubb_kuai2"  >
+<a href="${applicationPath}/shopList-${type.type_id}.html" class="zhu6">${type.name}</a>
+</div>
+<#if type_index lt data?size-1  >
+	<div class="meu_fubb_xian"><img src="${applicationPath}/img/meu_fubb_08.gif" /></div>
+</#if>
+</#list>

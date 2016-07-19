@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.GoodsSpecValModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.GoodsSpecValModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="GOODS_SPEC_ID" property="goodsSpecId" jdbcType="INTEGER" />
+    <result column="GOODS_ID" property="goodsId" jdbcType="INTEGER" />
+    <result column="VAL" property="val" jdbcType="VARCHAR" />
+    <result column="SPEC_SALES" property="specSales" jdbcType="REAL" />
+    <result column="SPEC_BAZAAR" property="specBazaar" jdbcType="REAL" />
+    <result column="SPEC_COST" property="specCost" jdbcType="REAL" />
+    <result column="SPEC_WEIGHT" property="specWeight" jdbcType="REAL" />
+    <result column="INVENTORY" property="inventory" jdbcType="REAL" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="IMG" property="img" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, GOODS_SPEC_ID, GOODS_ID, VAL, SPEC_SALES, SPEC_BAZAAR, SPEC_COST, SPEC_WEIGHT, 
+    INVENTORY, STATUS, IMG
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.GoodsSpecValModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_goods_spec_val
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_goods_spec_val
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_goods_spec_val
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.GoodsSpecValModelCriteria" >
+    delete from t_goods_spec_val
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.GoodsSpecValModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_goods_spec_val (GOODS_SPEC_ID, GOODS_ID, VAL, 
+      SPEC_SALES, SPEC_BAZAAR, SPEC_COST, 
+      SPEC_WEIGHT, INVENTORY, STATUS, 
+      IMG)
+    values (#{goodsSpecId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{val,jdbcType=VARCHAR}, 
+      #{specSales,jdbcType=REAL}, #{specBazaar,jdbcType=REAL}, #{specCost,jdbcType=REAL}, 
+      #{specWeight,jdbcType=REAL}, #{inventory,jdbcType=REAL}, #{status,jdbcType=INTEGER}, 
+      #{img,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.GoodsSpecValModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_goods_spec_val
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsSpecId != null" >
+        GOODS_SPEC_ID,
+      </if>
+      <if test="goodsId != null" >
+        GOODS_ID,
+      </if>
+      <if test="val != null" >
+        VAL,
+      </if>
+      <if test="specSales != null" >
+        SPEC_SALES,
+      </if>
+      <if test="specBazaar != null" >
+        SPEC_BAZAAR,
+      </if>
+      <if test="specCost != null" >
+        SPEC_COST,
+      </if>
+      <if test="specWeight != null" >
+        SPEC_WEIGHT,
+      </if>
+      <if test="inventory != null" >
+        INVENTORY,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="img != null" >
+        IMG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsSpecId != null" >
+        #{goodsSpecId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="val != null" >
+        #{val,jdbcType=VARCHAR},
+      </if>
+      <if test="specSales != null" >
+        #{specSales,jdbcType=REAL},
+      </if>
+      <if test="specBazaar != null" >
+        #{specBazaar,jdbcType=REAL},
+      </if>
+      <if test="specCost != null" >
+        #{specCost,jdbcType=REAL},
+      </if>
+      <if test="specWeight != null" >
+        #{specWeight,jdbcType=REAL},
+      </if>
+      <if test="inventory != null" >
+        #{inventory,jdbcType=REAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.GoodsSpecValModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_goods_spec_val
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_goods_spec_val
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsSpecId != null" >
+        GOODS_SPEC_ID = #{record.goodsSpecId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsId != null" >
+        GOODS_ID = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.val != null" >
+        VAL = #{record.val,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specSales != null" >
+        SPEC_SALES = #{record.specSales,jdbcType=REAL},
+      </if>
+      <if test="record.specBazaar != null" >
+        SPEC_BAZAAR = #{record.specBazaar,jdbcType=REAL},
+      </if>
+      <if test="record.specCost != null" >
+        SPEC_COST = #{record.specCost,jdbcType=REAL},
+      </if>
+      <if test="record.specWeight != null" >
+        SPEC_WEIGHT = #{record.specWeight,jdbcType=REAL},
+      </if>
+      <if test="record.inventory != null" >
+        INVENTORY = #{record.inventory,jdbcType=REAL},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.img != null" >
+        IMG = #{record.img,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_goods_spec_val
+    set ID = #{record.id,jdbcType=INTEGER},
+      GOODS_SPEC_ID = #{record.goodsSpecId,jdbcType=INTEGER},
+      GOODS_ID = #{record.goodsId,jdbcType=INTEGER},
+      VAL = #{record.val,jdbcType=VARCHAR},
+      SPEC_SALES = #{record.specSales,jdbcType=REAL},
+      SPEC_BAZAAR = #{record.specBazaar,jdbcType=REAL},
+      SPEC_COST = #{record.specCost,jdbcType=REAL},
+      SPEC_WEIGHT = #{record.specWeight,jdbcType=REAL},
+      INVENTORY = #{record.inventory,jdbcType=REAL},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      IMG = #{record.img,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.GoodsSpecValModel" >
+    update t_goods_spec_val
+    <set >
+      <if test="goodsSpecId != null" >
+        GOODS_SPEC_ID = #{goodsSpecId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null" >
+        GOODS_ID = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="val != null" >
+        VAL = #{val,jdbcType=VARCHAR},
+      </if>
+      <if test="specSales != null" >
+        SPEC_SALES = #{specSales,jdbcType=REAL},
+      </if>
+      <if test="specBazaar != null" >
+        SPEC_BAZAAR = #{specBazaar,jdbcType=REAL},
+      </if>
+      <if test="specCost != null" >
+        SPEC_COST = #{specCost,jdbcType=REAL},
+      </if>
+      <if test="specWeight != null" >
+        SPEC_WEIGHT = #{specWeight,jdbcType=REAL},
+      </if>
+      <if test="inventory != null" >
+        INVENTORY = #{inventory,jdbcType=REAL},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="img != null" >
+        IMG = #{img,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.GoodsSpecValModel" >
+    update t_goods_spec_val
+    set GOODS_SPEC_ID = #{goodsSpecId,jdbcType=INTEGER},
+      GOODS_ID = #{goodsId,jdbcType=INTEGER},
+      VAL = #{val,jdbcType=VARCHAR},
+      SPEC_SALES = #{specSales,jdbcType=REAL},
+      SPEC_BAZAAR = #{specBazaar,jdbcType=REAL},
+      SPEC_COST = #{specCost,jdbcType=REAL},
+      SPEC_WEIGHT = #{specWeight,jdbcType=REAL},
+      INVENTORY = #{inventory,jdbcType=REAL},
+      STATUS = #{status,jdbcType=INTEGER},
+      IMG = #{img,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,50 @@
+
+<div class="aaa">
+<#list data as item>
+<div class="a22_kuai">
+<div class="a22_kuai_time">
+
+${item.time?substring(0,4)}<br />
+${item.time?substring(5,10)}
+
+</div>
+<a href="weixing.html?action=${item.action}&id=${item.id}">
+<div class="a22_kuai_tui">
+<div class="a22_ti">${item.title}</div>
+<#if item.img?? >
+<div class="a22_tu">
+<img src="${item.img}" width="100%" height="100%" />
+</div>
+</#if>
+
+<div class="a22_ti22">${item.context}</div>
+<div class="a22_ti">阅读全文</div>
+</div>
+</a>
+</div>
+
+</#list>
+</div>
+
+<div class="bot">
+<div class="bot_01">
+<a href="javascript:;" back><img src="${applicationPath}/img/a22_09.gif" border="0" /></a>
+</div>
+<div class="bot_xian" ><img src="${applicationPath}/img/a22_10.gif" /></div>
+<div class="bot_02">
+<a href="javascript:;" home><img src="${applicationPath}/img/a22_11.gif" border="0" /></a>
+</div>
+<div class="bot_xian"><img src="${applicationPath}/img/a22_10.gif" /></div>
+<div class="bot_01">
+<a href="javascript:;" id="fenxiang"><img src="${applicationPath}/img/a22_13.gif" border="0" /></a>
+</div>
+</div>
+<script>
+	index.init();
+	
+    $("#fenxiang").click(function(){
+         _WXShare(null,null,null,"${title}","${title}");
+    })
+</script>
+</body>
+</html>

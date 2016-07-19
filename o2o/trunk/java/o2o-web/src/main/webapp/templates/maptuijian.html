@@ -1,0 +1,28 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list shopList as shop>
+	<#if shop_index lt 5>
+		<div class="sjdt_kai03_rightkai">
+			<a href="${applicationPath}/shop-${shop.s_id}.html">
+				<img src="${applicationPath}/upload/<#if shop.image?? >${shop.image}</#if>" width="100%" height="100%" border="0"/>
+			</a>
+		</div>
+	</#if>
+</#list>
+&nbsp;&nbsp;&nbsp;
+<img src="${applicationPath}/img/huanzu_01.gif" id="pageup"/>
+<img src="${applicationPath}/img/huanzu_03.gif" id="pagedown"/>
+<!-- 超页标志 -->
+<div id="pageFlag" style="display: none;">${pageIndexOut}</div>

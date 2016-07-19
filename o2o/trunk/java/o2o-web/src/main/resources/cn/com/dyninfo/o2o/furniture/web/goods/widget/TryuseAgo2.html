@@ -1,0 +1,33 @@
+
+<#list data as d>
+<#if d_index%5==0 >
+<div class="wanngqishiyong_kuai01">
+<#else>
+<div class="wanngqishiyong_kuai02">
+</#if>
+<div class="wanngqishiyong_kuai01_tu"><a href="${applicationPath}/tryuseSaidan.html?goodsid=${d.goods_id}"><img src="${applicationPath}/upload/goods/${d.defaultImage}"  width="100%" height="100%"/></a></div>
+<div class="wanngqishiyong_kuai01_zi"><a href="#" class="zhu1">ETUDE HOUSE伊蒂之屋甜蜜之恋晶莹炫彩唇膏</a></div>
+<div class="wanngqishiyong_kuai01_xing">
+<div class="wanngqishiyong_kuai01_xing_zi">综合评分:</div>
+<div class="wanngqishiyong_kuai01_xing_tu">
+<img src="${applicationPath}/img/wanqi_11.gif" />
+<img src="${applicationPath}/img/wanqi_11.gif" />
+<img src="${applicationPath}/img/wanqi_11.gif" />
+<img src="${applicationPath}/img/wanqi_11.gif" />
+<img src="${applicationPath}/img/wanqi_123.gif" />
+</div>
+</div>
+<div class="wanngqishiyong_kuai01_xing22">
+<div class="wanngqishiyong_kuai01_xing_zi">综合评分:</div>
+<div class="wanngqishiyong_kuai01_xing_zi22">所有用户</div>
+</div>
+<div class="wanngqishiyong_kuai01_xing22">
+<div class="wanngqishiyong_kuai01_xing_zi">商品价格：</div>
+<div class="wanngqishiyong_kuai01_xing_zi22">￥${d.bazaarMoney}</div>
+</div>
+<div class="wangqishiy_kanbao">
+<div class="wangqishiy_kanbao_zi">${d.pepoleno}份报告</div>
+<div class="wangqishiy_kanbao_tu"><a href="${applicationPath}/tryuseSaidan.html?goodsid=${d.goods_id}"><img src="${applicationPath}/img/wanqi_15.gif" border="0" /></a></div>
+</div>
+</div>
+</#list>

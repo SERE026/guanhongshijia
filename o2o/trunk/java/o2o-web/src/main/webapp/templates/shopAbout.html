@@ -1,0 +1,155 @@
+ <!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<link href="${applicationPath}/css/shangjia.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${applicationPath}/js/shop.js"></script>
+<script type="text/javascript" >
+	$(function(){
+		$(".gift_img_fudong").css("left",$("#gift_right").offset().left+678);
+		new page($(".fenye"),$(".fenyeBox"),"shopWidte");
+	})
+</script>
+<#if shop.qq??>
+<div style=" width:84px; height:158px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=${shop.qq}&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+<img src="${applicationPath}/img/xpkf.png" /></a>
+</div>
+<#else>
+<div style=" width:84px; height:158px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=800055495&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+<img src="${applicationPath}/img/xpkf.png" /></a>
+</div>
+</#if>
+
+<div class="gift_img_fudong">
+<div class="gift_x"><a href="javascript:;" class="colseBtn"><img src="${applicationPath}/img/xxx.png" width="100%" height="100%" border="0"/></a></div>
+<div class="gift_img"><a href="${applicationPath}/active.html" class="goodBtn"><img src="${applicationPath}/upload/yqlj/${activimg.img}" width="100%" height="100%" border="0" /></a></div>
+</div>
+
+<div class="shop">
+<div class="dingwei">
+
+首页 > 炫品商家 > <span class="STYLE10">${shopName}</span>
+
+</div>
+<div class="advertising">
+
+<#if dzImage??>
+<link href="css/slide.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript" src="${applicationPath}/js/slide.js"></script>
+<script>
+	$(function(){
+		new slide($("#slidedz"),false);
+	})
+</script>
+<div id="slidedz" class="wm_slide" style="width:1009px;height:282px;margin:auto;background-color:#f4f4f4">
+	<ul >
+		<#list dzImage?split(',') as adv>
+			<#if adv_index lt dzImage?split(',')?size-1>
+				<li  style="width:1009px;height:282px;">	
+				<!-- 在嵌套的循环中取相同索引 -->
+					<a target="_blank" href="${urlList?split(',')[adv_index]}">
+						<img src="${applicationPath}/merchants/${spId}/${adv}" width="100%" height="100%" />
+					</a>
+				</li>
+			</#if>
+		</#list>
+	</ul>
+</div>
+
+
+
+
+</#if>
+
+</div>
+
+<div class="box">
+<div class="left">
+<div class="left_topa">商家信息</div>
+<div class="left_list">
+<div class="left_list_module1">
+<div class="left_list_module1_dian">
+<a href="shop-${spId}.html"><img src="${applicationPath}/img/dianpu_17.gif" border="0" /></a>
+</div>
+<div class="left_list_module1_dian addMerchant" m="${spId}">
+<a href="javascript:;"><img src="${applicationPath}/img/dianpu_19.gif" border="0" /></a>
+</div>
+</div>
+</div>
+<div class="left_topa">商品分类</div>
+<div class="left_list">
+
+<#list goodSort as s>
+<div class="left_list_li">
+<div class="left_list_li_Arrow1"><img src="${applicationPath}/img/dianpu_26.gif" /></div>
+<div class="left_list_li_tit shop_sort" rt="${s.goodsSort_id}"><a href="javascript:;" class="zhu36">${s.name}</a></div>
+</div>
+<#list s.children as c>
+<div class="left_line">&nbsp;</div>
+<div class="left_list_li">
+<div class="left_list_li_Arrow2"><img src="${applicationPath}/img/dianpu_26.gif" /></div>
+<div class="left_list_li_tit shop_sort" rt="${s.goodsSort_id}"><a href="javascript:;" class="zhu36">${c.name}</a></div>
+</div>
+
+</#list>
+
+</#list>
+
+</div>
+<div class="left_topa">本店热销</div>
+<div class="left_list">
+<#list rxList as rx>
+
+<div class="left_list_li_recommend">
+<div class="left_list_li_recommend_img"><a href="item-${rx.goodId}.html"><img src="${applicationPath}/upload/goods/${rx.image}" width="100%" height="100%" border="0" /></a></div>
+<div class="left_list_li_recommend_nom">${rx_index+1}</div>
+<div class="left_list_li_recommend_tit">
+<a href="item-${rx.goodId}.html" class="zhu9">${rx.goodName}</a>
+</div>
+<div class="left_list_li_recommend_price">
+<a href="item-${rx.goodId}.html" class="zhu37">¥${rx.money?string('0.00')}</a>
+</div>
+</div>
+</#list>
+
+</div>
+</div>
+
+<div class="right" id="gift_right">
+<div class="gift" style="visibility:hidden"><!--以藏时候使用" style="visibility:hidden""-->
+<div class="gift_x">&nbsp;</div>
+<div class="gift_img" >&nbsp;</div>
+</div>
+
+
+<div class="sp01">
+<div class="sp01_zi">关于我们</div>
+<div class="sp01_xian">
+<div class="sp01_xian_lv">&nbsp;</div>
+</div>
+</div>
+<div class="dianpu_tuwen">
+${shop.desc}
+</div>
+<div class="touming7">&nbsp;</div>
+</div>
+</div>
+<div class="laadvertising">${gg}</div>
+</div>
+<script>
+	$(".gift_img_fudong").css("left",$("#gift_right").offset().left+678);
+</script>
+
+</div>
+

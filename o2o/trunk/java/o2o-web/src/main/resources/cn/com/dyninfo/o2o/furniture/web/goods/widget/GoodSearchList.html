@@ -1,0 +1,15 @@
+<#list data as g>
+<div class="xsp02_kuai goodBox">
+<div class="xsp02_kuai_tu"><a href="${applicationPath}/item-${g.GOODS_ID}.html"><img src="${applicationPath}/upload/goods/${g.IAMGE}" width="100%" height="100%" border="0" /></a></div>
+<div class="xsp_kuai_zi">
+<span class="STYLE1">${(g.money*1.0/g.bmoney*10)?string('0.0')}折/ </span>
+<a href="item-${g.GOODS_ID}.html" class="zhu18">${g.GOOD_NAME}</a></div>
+<div class="xsp_dajia">
+<div class="xsp_dajia_le">
+<span class="STYLE7">¥</span><span class="STYLE6">${g.money?string('0.00')}</span>&nbsp;<span class="STYLE8">¥${g.bmoney?string(0.00)}</span>
+</div>
+<div class="xsp_dajia_ri"><a href="${applicationPath}/item-${g.GOODS_ID}.html"><img src="${applicationPath}/img/an1.gif" border="0" /></a></div>
+</div>
+<div class="xsp_dianming">${g.S_NAME}</div>
+</div>
+</#list>

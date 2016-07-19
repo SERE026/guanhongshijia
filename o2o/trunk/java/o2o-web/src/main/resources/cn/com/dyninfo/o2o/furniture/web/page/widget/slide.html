@@ -1,0 +1,23 @@
+
+<script type="text/JavaScript" src="js/slide.js"></script>
+<link href="css/slide.css" rel="stylesheet" type="text/css" />
+
+<script>
+	$(function(){
+		new slide($("#slide${info.advwz_id}"),${isBtn});
+	})
+	
+</script>
+<div id="slide${info.advwz_id}" class="wm_slide" style="width:${info.advwz_width}px;height:${info.advwz_height}px;margin:auto;">
+	<ul >
+		<#list data as adv>
+		<li  style="width:${info.advwz_width}px;height:${info.advwz_height}px;">
+		<#if adv.adv_flie??>
+			<a target="_blank" href="${adv.adv_link}">
+				<img adv alt="${adv.adv_name}" src="${applicationPath}/upload/adv/${adv.adv_flie}" width="100%" height="100%">
+			</a>
+			</#if>
+		</li>
+		</#list>
+	</ul>
+</div>

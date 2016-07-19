@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.OrderModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.OrderModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ORDER_ID" property="orderId" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="ADDRESS_ID" property="addressId" jdbcType="VARCHAR" />
+    <result column="COUNT_ID" property="countId" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="VARCHAR" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="VARCHAR" />
+    <result column="SENDTIME" property="sendtime" jdbcType="VARCHAR" />
+    <result column="SENDSTATE" property="sendstate" jdbcType="VARCHAR" />
+    <result column="IS_PAY" property="isPay" jdbcType="VARCHAR" />
+    <result column="TIME" property="time" jdbcType="VARCHAR" />
+    <result column="PAYTIME" property="paytime" jdbcType="VARCHAR" />
+    <result column="SHOU_MEN" property="shouMen" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="SHOU_PHONE" property="shouPhone" jdbcType="VARCHAR" />
+    <result column="SHOU_TEL" property="shouTel" jdbcType="VARCHAR" />
+    <result column="ADDRESSINFO_ID" property="addressinfoId" jdbcType="VARCHAR" />
+    <result column="PAY_TYPE" property="payType" jdbcType="VARCHAR" />
+    <result column="SEND_TYPE" property="sendType" jdbcType="VARCHAR" />
+    <result column="HUIYUAN_ID" property="huiyuanId" jdbcType="VARCHAR" />
+    <result column="GOODS_ID" property="goodsId" jdbcType="VARCHAR" />
+    <result column="SENDORDER_ID" property="sendorderId" jdbcType="VARCHAR" />
+    <result column="PAYMENT_ID" property="paymentId" jdbcType="VARCHAR" />
+    <result column="REFUNDORDER_ID" property="refundorderId" jdbcType="VARCHAR" />
+    <result column="RETURNEDORDER_ID" property="returnedorderId" jdbcType="VARCHAR" />
+    <result column="RECEIVE_ADDRESS" property="receiveAddress" jdbcType="VARCHAR" />
+    <result column="APPLY_REFUND_TIME" property="applyRefundTime" jdbcType="INTEGER" />
+    <result column="RECEIVE_CODE" property="receiveCode" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="INTEGER" />
+    <result column="DISCOUNT_PRICE" property="discountPrice" jdbcType="DOUBLE" />
+    <result column="DLY_CODE" property="dlyCode" jdbcType="VARCHAR" />
+    <result column="RECEIVE_EMAIL" property="receiveEmail" jdbcType="VARCHAR" />
+    <result column="IPAYTIME" property="ipaytime" jdbcType="INTEGER" />
+    <result column="IS_REFUND" property="isRefund" jdbcType="VARCHAR" />
+    <result column="ORDER_PRICE" property="orderPrice" jdbcType="DOUBLE" />
+    <result column="ORIGINAL_PRICE" property="originalPrice" jdbcType="DOUBLE" />
+    <result column="POINT" property="point" jdbcType="INTEGER" />
+    <result column="PROTECT_PRICE" property="protectPrice" jdbcType="DOUBLE" />
+    <result column="RECEIVE_DATE" property="receiveDate" jdbcType="VARCHAR" />
+    <result column="RECEIVE_NAME" property="receiveName" jdbcType="VARCHAR" />
+    <result column="RECEIVE_PHONE" property="receivePhone" jdbcType="VARCHAR" />
+    <result column="MARCHANTS_ID" property="marchantsId" jdbcType="INTEGER" />
+    <result column="RECEIVE_TEL" property="receiveTel" jdbcType="VARCHAR" />
+    <result column="REFUND_TIME" property="refundTime" jdbcType="INTEGER" />
+    <result column="SHIPPING_PRICE" property="shippingPrice" jdbcType="DOUBLE" />
+    <result column="WEIGHT" property="weight" jdbcType="DOUBLE" />
+    <result column="COUNTY_ID" property="countyId" jdbcType="VARCHAR" />
+    <result column="DLYTYPE_ID" property="dlytypeId" jdbcType="INTEGER" />
+    <result column="WLCOMPANY_ID" property="wlcompanyId" jdbcType="INTEGER" />
+    <result column="DLY" property="dly" jdbcType="VARCHAR" />
+    <result column="PLAY_TYPE" property="playType" jdbcType="INTEGER" />
+    <result column="TRADENO" property="tradeno" jdbcType="VARCHAR" />
+    <result column="POINT_PRICE" property="pointPrice" jdbcType="DOUBLE" />
+    <result column="ISENDTIME" property="isendtime" jdbcType="INTEGER" />
+    <result column="ISURETIME" property="isuretime" jdbcType="INTEGER" />
+    <result column="SURETIME" property="suretime" jdbcType="VARCHAR" />
+    <result column="PRICE_SUM" property="priceSum" jdbcType="REAL" />
+    <result column="IS_RETURN" property="isReturn" jdbcType="VARCHAR" />
+    <result column="ENDTIME" property="endtime" jdbcType="VARCHAR" />
+    <result column="ACCOUNT" property="account" jdbcType="INTEGER" />
+    <result column="HUISTAT" property="huistat" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, ORDER_ID, STATE, STATUS, ADDRESS_ID, COUNT_ID, CITY_ID, PROVINCE_ID, SENDTIME, 
+    SENDSTATE, IS_PAY, TIME, PAYTIME, SHOU_MEN, POSTCODE, ADDRESS, SHOU_PHONE, SHOU_TEL, 
+    ADDRESSINFO_ID, PAY_TYPE, SEND_TYPE, HUIYUAN_ID, GOODS_ID, SENDORDER_ID, PAYMENT_ID, 
+    REFUNDORDER_ID, RETURNEDORDER_ID, RECEIVE_ADDRESS, APPLY_REFUND_TIME, RECEIVE_CODE, 
+    CREATE_TIME, DISCOUNT_PRICE, DLY_CODE, RECEIVE_EMAIL, IPAYTIME, IS_REFUND, ORDER_PRICE, 
+    ORIGINAL_PRICE, POINT, PROTECT_PRICE, RECEIVE_DATE, RECEIVE_NAME, RECEIVE_PHONE, 
+    MARCHANTS_ID, RECEIVE_TEL, REFUND_TIME, SHIPPING_PRICE, WEIGHT, COUNTY_ID, DLYTYPE_ID, 
+    WLCOMPANY_ID, DLY, PLAY_TYPE, TRADENO, POINT_PRICE, ISENDTIME, ISURETIME, SURETIME, 
+    PRICE_SUM, IS_RETURN, ENDTIME, ACCOUNT, HUISTAT
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.OrderModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_order
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.OrderModelCriteria" >
+    delete from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.OrderModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_order (ORDER_ID, STATE, STATUS, 
+      ADDRESS_ID, COUNT_ID, CITY_ID, 
+      PROVINCE_ID, SENDTIME, SENDSTATE, 
+      IS_PAY, TIME, PAYTIME, 
+      SHOU_MEN, POSTCODE, ADDRESS, 
+      SHOU_PHONE, SHOU_TEL, ADDRESSINFO_ID, 
+      PAY_TYPE, SEND_TYPE, HUIYUAN_ID, 
+      GOODS_ID, SENDORDER_ID, PAYMENT_ID, 
+      REFUNDORDER_ID, RETURNEDORDER_ID, RECEIVE_ADDRESS, 
+      APPLY_REFUND_TIME, RECEIVE_CODE, CREATE_TIME, 
+      DISCOUNT_PRICE, DLY_CODE, RECEIVE_EMAIL, 
+      IPAYTIME, IS_REFUND, ORDER_PRICE, 
+      ORIGINAL_PRICE, POINT, PROTECT_PRICE, 
+      RECEIVE_DATE, RECEIVE_NAME, RECEIVE_PHONE, 
+      MARCHANTS_ID, RECEIVE_TEL, REFUND_TIME, 
+      SHIPPING_PRICE, WEIGHT, COUNTY_ID, 
+      DLYTYPE_ID, WLCOMPANY_ID, DLY, 
+      PLAY_TYPE, TRADENO, POINT_PRICE, 
+      ISENDTIME, ISURETIME, SURETIME, 
+      PRICE_SUM, IS_RETURN, ENDTIME, 
+      ACCOUNT, HUISTAT)
+    values (#{orderId,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{addressId,jdbcType=VARCHAR}, #{countId,jdbcType=VARCHAR}, #{cityId,jdbcType=VARCHAR}, 
+      #{provinceId,jdbcType=VARCHAR}, #{sendtime,jdbcType=VARCHAR}, #{sendstate,jdbcType=VARCHAR}, 
+      #{isPay,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, #{paytime,jdbcType=VARCHAR}, 
+      #{shouMen,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{shouPhone,jdbcType=VARCHAR}, #{shouTel,jdbcType=VARCHAR}, #{addressinfoId,jdbcType=VARCHAR}, 
+      #{payType,jdbcType=VARCHAR}, #{sendType,jdbcType=VARCHAR}, #{huiyuanId,jdbcType=VARCHAR}, 
+      #{goodsId,jdbcType=VARCHAR}, #{sendorderId,jdbcType=VARCHAR}, #{paymentId,jdbcType=VARCHAR}, 
+      #{refundorderId,jdbcType=VARCHAR}, #{returnedorderId,jdbcType=VARCHAR}, #{receiveAddress,jdbcType=VARCHAR}, 
+      #{applyRefundTime,jdbcType=INTEGER}, #{receiveCode,jdbcType=VARCHAR}, #{createTime,jdbcType=INTEGER}, 
+      #{discountPrice,jdbcType=DOUBLE}, #{dlyCode,jdbcType=VARCHAR}, #{receiveEmail,jdbcType=VARCHAR}, 
+      #{ipaytime,jdbcType=INTEGER}, #{isRefund,jdbcType=VARCHAR}, #{orderPrice,jdbcType=DOUBLE}, 
+      #{originalPrice,jdbcType=DOUBLE}, #{point,jdbcType=INTEGER}, #{protectPrice,jdbcType=DOUBLE}, 
+      #{receiveDate,jdbcType=VARCHAR}, #{receiveName,jdbcType=VARCHAR}, #{receivePhone,jdbcType=VARCHAR}, 
+      #{marchantsId,jdbcType=INTEGER}, #{receiveTel,jdbcType=VARCHAR}, #{refundTime,jdbcType=INTEGER}, 
+      #{shippingPrice,jdbcType=DOUBLE}, #{weight,jdbcType=DOUBLE}, #{countyId,jdbcType=VARCHAR}, 
+      #{dlytypeId,jdbcType=INTEGER}, #{wlcompanyId,jdbcType=INTEGER}, #{dly,jdbcType=VARCHAR}, 
+      #{playType,jdbcType=INTEGER}, #{tradeno,jdbcType=VARCHAR}, #{pointPrice,jdbcType=DOUBLE}, 
+      #{isendtime,jdbcType=INTEGER}, #{isuretime,jdbcType=INTEGER}, #{suretime,jdbcType=VARCHAR}, 
+      #{priceSum,jdbcType=REAL}, #{isReturn,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, 
+      #{account,jdbcType=INTEGER}, #{huistat,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.OrderModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        ORDER_ID,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="addressId != null" >
+        ADDRESS_ID,
+      </if>
+      <if test="countId != null" >
+        COUNT_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="sendtime != null" >
+        SENDTIME,
+      </if>
+      <if test="sendstate != null" >
+        SENDSTATE,
+      </if>
+      <if test="isPay != null" >
+        IS_PAY,
+      </if>
+      <if test="time != null" >
+        TIME,
+      </if>
+      <if test="paytime != null" >
+        PAYTIME,
+      </if>
+      <if test="shouMen != null" >
+        SHOU_MEN,
+      </if>
+      <if test="postcode != null" >
+        POSTCODE,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="shouPhone != null" >
+        SHOU_PHONE,
+      </if>
+      <if test="shouTel != null" >
+        SHOU_TEL,
+      </if>
+      <if test="addressinfoId != null" >
+        ADDRESSINFO_ID,
+      </if>
+      <if test="payType != null" >
+        PAY_TYPE,
+      </if>
+      <if test="sendType != null" >
+        SEND_TYPE,
+      </if>
+      <if test="huiyuanId != null" >
+        HUIYUAN_ID,
+      </if>
+      <if test="goodsId != null" >
+        GOODS_ID,
+      </if>
+      <if test="sendorderId != null" >
+        SENDORDER_ID,
+      </if>
+      <if test="paymentId != null" >
+        PAYMENT_ID,
+      </if>
+      <if test="refundorderId != null" >
+        REFUNDORDER_ID,
+      </if>
+      <if test="returnedorderId != null" >
+        RETURNEDORDER_ID,
+      </if>
+      <if test="receiveAddress != null" >
+        RECEIVE_ADDRESS,
+      </if>
+      <if test="applyRefundTime != null" >
+        APPLY_REFUND_TIME,
+      </if>
+      <if test="receiveCode != null" >
+        RECEIVE_CODE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="discountPrice != null" >
+        DISCOUNT_PRICE,
+      </if>
+      <if test="dlyCode != null" >
+        DLY_CODE,
+      </if>
+      <if test="receiveEmail != null" >
+        RECEIVE_EMAIL,
+      </if>
+      <if test="ipaytime != null" >
+        IPAYTIME,
+      </if>
+      <if test="isRefund != null" >
+        IS_REFUND,
+      </if>
+      <if test="orderPrice != null" >
+        ORDER_PRICE,
+      </if>
+      <if test="originalPrice != null" >
+        ORIGINAL_PRICE,
+      </if>
+      <if test="point != null" >
+        POINT,
+      </if>
+      <if test="protectPrice != null" >
+        PROTECT_PRICE,
+      </if>
+      <if test="receiveDate != null" >
+        RECEIVE_DATE,
+      </if>
+      <if test="receiveName != null" >
+        RECEIVE_NAME,
+      </if>
+      <if test="receivePhone != null" >
+        RECEIVE_PHONE,
+      </if>
+      <if test="marchantsId != null" >
+        MARCHANTS_ID,
+      </if>
+      <if test="receiveTel != null" >
+        RECEIVE_TEL,
+      </if>
+      <if test="refundTime != null" >
+        REFUND_TIME,
+      </if>
+      <if test="shippingPrice != null" >
+        SHIPPING_PRICE,
+      </if>
+      <if test="weight != null" >
+        WEIGHT,
+      </if>
+      <if test="countyId != null" >
+        COUNTY_ID,
+      </if>
+      <if test="dlytypeId != null" >
+        DLYTYPE_ID,
+      </if>
+      <if test="wlcompanyId != null" >
+        WLCOMPANY_ID,
+      </if>
+      <if test="dly != null" >
+        DLY,
+      </if>
+      <if test="playType != null" >
+        PLAY_TYPE,
+      </if>
+      <if test="tradeno != null" >
+        TRADENO,
+      </if>
+      <if test="pointPrice != null" >
+        POINT_PRICE,
+      </if>
+      <if test="isendtime != null" >
+        ISENDTIME,
+      </if>
+      <if test="isuretime != null" >
+        ISURETIME,
+      </if>
+      <if test="suretime != null" >
+        SURETIME,
+      </if>
+      <if test="priceSum != null" >
+        PRICE_SUM,
+      </if>
+      <if test="isReturn != null" >
+        IS_RETURN,
+      </if>
+      <if test="endtime != null" >
+        ENDTIME,
+      </if>
+      <if test="account != null" >
+        ACCOUNT,
+      </if>
+      <if test="huistat != null" >
+        HUISTAT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="addressId != null" >
+        #{addressId,jdbcType=VARCHAR},
+      </if>
+      <if test="countId != null" >
+        #{countId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null" >
+        #{sendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendstate != null" >
+        #{sendstate,jdbcType=VARCHAR},
+      </if>
+      <if test="isPay != null" >
+        #{isPay,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="paytime != null" >
+        #{paytime,jdbcType=VARCHAR},
+      </if>
+      <if test="shouMen != null" >
+        #{shouMen,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="shouPhone != null" >
+        #{shouPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shouTel != null" >
+        #{shouTel,jdbcType=VARCHAR},
+      </if>
+      <if test="addressinfoId != null" >
+        #{addressinfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null" >
+        #{sendType,jdbcType=VARCHAR},
+      </if>
+      <if test="huiyuanId != null" >
+        #{huiyuanId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendorderId != null" >
+        #{sendorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentId != null" >
+        #{paymentId,jdbcType=VARCHAR},
+      </if>
+      <if test="refundorderId != null" >
+        #{refundorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="returnedorderId != null" >
+        #{returnedorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveAddress != null" >
+        #{receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="applyRefundTime != null" >
+        #{applyRefundTime,jdbcType=INTEGER},
+      </if>
+      <if test="receiveCode != null" >
+        #{receiveCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="discountPrice != null" >
+        #{discountPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="dlyCode != null" >
+        #{dlyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveEmail != null" >
+        #{receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ipaytime != null" >
+        #{ipaytime,jdbcType=INTEGER},
+      </if>
+      <if test="isRefund != null" >
+        #{isRefund,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPrice != null" >
+        #{orderPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="originalPrice != null" >
+        #{originalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="point != null" >
+        #{point,jdbcType=INTEGER},
+      </if>
+      <if test="protectPrice != null" >
+        #{protectPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="receiveDate != null" >
+        #{receiveDate,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveName != null" >
+        #{receiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="receivePhone != null" >
+        #{receivePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="marchantsId != null" >
+        #{marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="receiveTel != null" >
+        #{receiveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTime != null" >
+        #{refundTime,jdbcType=INTEGER},
+      </if>
+      <if test="shippingPrice != null" >
+        #{shippingPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="countyId != null" >
+        #{countyId,jdbcType=VARCHAR},
+      </if>
+      <if test="dlytypeId != null" >
+        #{dlytypeId,jdbcType=INTEGER},
+      </if>
+      <if test="wlcompanyId != null" >
+        #{wlcompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="dly != null" >
+        #{dly,jdbcType=VARCHAR},
+      </if>
+      <if test="playType != null" >
+        #{playType,jdbcType=INTEGER},
+      </if>
+      <if test="tradeno != null" >
+        #{tradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="pointPrice != null" >
+        #{pointPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="isendtime != null" >
+        #{isendtime,jdbcType=INTEGER},
+      </if>
+      <if test="isuretime != null" >
+        #{isuretime,jdbcType=INTEGER},
+      </if>
+      <if test="suretime != null" >
+        #{suretime,jdbcType=VARCHAR},
+      </if>
+      <if test="priceSum != null" >
+        #{priceSum,jdbcType=REAL},
+      </if>
+      <if test="isReturn != null" >
+        #{isReturn,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=INTEGER},
+      </if>
+      <if test="huistat != null" >
+        #{huistat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.OrderModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_order
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderId != null" >
+        ORDER_ID = #{record.orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addressId != null" >
+        ADDRESS_ID = #{record.addressId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.countId != null" >
+        COUNT_ID = #{record.countId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceId != null" >
+        PROVINCE_ID = #{record.provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendtime != null" >
+        SENDTIME = #{record.sendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendstate != null" >
+        SENDSTATE = #{record.sendstate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isPay != null" >
+        IS_PAY = #{record.isPay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.time != null" >
+        TIME = #{record.time,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paytime != null" >
+        PAYTIME = #{record.paytime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shouMen != null" >
+        SHOU_MEN = #{record.shouMen,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postcode != null" >
+        POSTCODE = #{record.postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shouPhone != null" >
+        SHOU_PHONE = #{record.shouPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shouTel != null" >
+        SHOU_TEL = #{record.shouTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addressinfoId != null" >
+        ADDRESSINFO_ID = #{record.addressinfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payType != null" >
+        PAY_TYPE = #{record.payType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendType != null" >
+        SEND_TYPE = #{record.sendType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.huiyuanId != null" >
+        HUIYUAN_ID = #{record.huiyuanId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsId != null" >
+        GOODS_ID = #{record.goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendorderId != null" >
+        SENDORDER_ID = #{record.sendorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentId != null" >
+        PAYMENT_ID = #{record.paymentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundorderId != null" >
+        REFUNDORDER_ID = #{record.refundorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.returnedorderId != null" >
+        RETURNEDORDER_ID = #{record.returnedorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveAddress != null" >
+        RECEIVE_ADDRESS = #{record.receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyRefundTime != null" >
+        APPLY_REFUND_TIME = #{record.applyRefundTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiveCode != null" >
+        RECEIVE_CODE = #{record.receiveCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.discountPrice != null" >
+        DISCOUNT_PRICE = #{record.discountPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.dlyCode != null" >
+        DLY_CODE = #{record.dlyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveEmail != null" >
+        RECEIVE_EMAIL = #{record.receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ipaytime != null" >
+        IPAYTIME = #{record.ipaytime,jdbcType=INTEGER},
+      </if>
+      <if test="record.isRefund != null" >
+        IS_REFUND = #{record.isRefund,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderPrice != null" >
+        ORDER_PRICE = #{record.orderPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.originalPrice != null" >
+        ORIGINAL_PRICE = #{record.originalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.point != null" >
+        POINT = #{record.point,jdbcType=INTEGER},
+      </if>
+      <if test="record.protectPrice != null" >
+        PROTECT_PRICE = #{record.protectPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.receiveDate != null" >
+        RECEIVE_DATE = #{record.receiveDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveName != null" >
+        RECEIVE_NAME = #{record.receiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivePhone != null" >
+        RECEIVE_PHONE = #{record.receivePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marchantsId != null" >
+        MARCHANTS_ID = #{record.marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiveTel != null" >
+        RECEIVE_TEL = #{record.receiveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundTime != null" >
+        REFUND_TIME = #{record.refundTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.shippingPrice != null" >
+        SHIPPING_PRICE = #{record.shippingPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.weight != null" >
+        WEIGHT = #{record.weight,jdbcType=DOUBLE},
+      </if>
+      <if test="record.countyId != null" >
+        COUNTY_ID = #{record.countyId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dlytypeId != null" >
+        DLYTYPE_ID = #{record.dlytypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.wlcompanyId != null" >
+        WLCOMPANY_ID = #{record.wlcompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.dly != null" >
+        DLY = #{record.dly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.playType != null" >
+        PLAY_TYPE = #{record.playType,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradeno != null" >
+        TRADENO = #{record.tradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pointPrice != null" >
+        POINT_PRICE = #{record.pointPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.isendtime != null" >
+        ISENDTIME = #{record.isendtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.isuretime != null" >
+        ISURETIME = #{record.isuretime,jdbcType=INTEGER},
+      </if>
+      <if test="record.suretime != null" >
+        SURETIME = #{record.suretime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priceSum != null" >
+        PRICE_SUM = #{record.priceSum,jdbcType=REAL},
+      </if>
+      <if test="record.isReturn != null" >
+        IS_RETURN = #{record.isReturn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.endtime != null" >
+        ENDTIME = #{record.endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.account != null" >
+        ACCOUNT = #{record.account,jdbcType=INTEGER},
+      </if>
+      <if test="record.huistat != null" >
+        HUISTAT = #{record.huistat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_order
+    set ID = #{record.id,jdbcType=INTEGER},
+      ORDER_ID = #{record.orderId,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      ADDRESS_ID = #{record.addressId,jdbcType=VARCHAR},
+      COUNT_ID = #{record.countId,jdbcType=VARCHAR},
+      CITY_ID = #{record.cityId,jdbcType=VARCHAR},
+      PROVINCE_ID = #{record.provinceId,jdbcType=VARCHAR},
+      SENDTIME = #{record.sendtime,jdbcType=VARCHAR},
+      SENDSTATE = #{record.sendstate,jdbcType=VARCHAR},
+      IS_PAY = #{record.isPay,jdbcType=VARCHAR},
+      TIME = #{record.time,jdbcType=VARCHAR},
+      PAYTIME = #{record.paytime,jdbcType=VARCHAR},
+      SHOU_MEN = #{record.shouMen,jdbcType=VARCHAR},
+      POSTCODE = #{record.postcode,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      SHOU_PHONE = #{record.shouPhone,jdbcType=VARCHAR},
+      SHOU_TEL = #{record.shouTel,jdbcType=VARCHAR},
+      ADDRESSINFO_ID = #{record.addressinfoId,jdbcType=VARCHAR},
+      PAY_TYPE = #{record.payType,jdbcType=VARCHAR},
+      SEND_TYPE = #{record.sendType,jdbcType=VARCHAR},
+      HUIYUAN_ID = #{record.huiyuanId,jdbcType=VARCHAR},
+      GOODS_ID = #{record.goodsId,jdbcType=VARCHAR},
+      SENDORDER_ID = #{record.sendorderId,jdbcType=VARCHAR},
+      PAYMENT_ID = #{record.paymentId,jdbcType=VARCHAR},
+      REFUNDORDER_ID = #{record.refundorderId,jdbcType=VARCHAR},
+      RETURNEDORDER_ID = #{record.returnedorderId,jdbcType=VARCHAR},
+      RECEIVE_ADDRESS = #{record.receiveAddress,jdbcType=VARCHAR},
+      APPLY_REFUND_TIME = #{record.applyRefundTime,jdbcType=INTEGER},
+      RECEIVE_CODE = #{record.receiveCode,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=INTEGER},
+      DISCOUNT_PRICE = #{record.discountPrice,jdbcType=DOUBLE},
+      DLY_CODE = #{record.dlyCode,jdbcType=VARCHAR},
+      RECEIVE_EMAIL = #{record.receiveEmail,jdbcType=VARCHAR},
+      IPAYTIME = #{record.ipaytime,jdbcType=INTEGER},
+      IS_REFUND = #{record.isRefund,jdbcType=VARCHAR},
+      ORDER_PRICE = #{record.orderPrice,jdbcType=DOUBLE},
+      ORIGINAL_PRICE = #{record.originalPrice,jdbcType=DOUBLE},
+      POINT = #{record.point,jdbcType=INTEGER},
+      PROTECT_PRICE = #{record.protectPrice,jdbcType=DOUBLE},
+      RECEIVE_DATE = #{record.receiveDate,jdbcType=VARCHAR},
+      RECEIVE_NAME = #{record.receiveName,jdbcType=VARCHAR},
+      RECEIVE_PHONE = #{record.receivePhone,jdbcType=VARCHAR},
+      MARCHANTS_ID = #{record.marchantsId,jdbcType=INTEGER},
+      RECEIVE_TEL = #{record.receiveTel,jdbcType=VARCHAR},
+      REFUND_TIME = #{record.refundTime,jdbcType=INTEGER},
+      SHIPPING_PRICE = #{record.shippingPrice,jdbcType=DOUBLE},
+      WEIGHT = #{record.weight,jdbcType=DOUBLE},
+      COUNTY_ID = #{record.countyId,jdbcType=VARCHAR},
+      DLYTYPE_ID = #{record.dlytypeId,jdbcType=INTEGER},
+      WLCOMPANY_ID = #{record.wlcompanyId,jdbcType=INTEGER},
+      DLY = #{record.dly,jdbcType=VARCHAR},
+      PLAY_TYPE = #{record.playType,jdbcType=INTEGER},
+      TRADENO = #{record.tradeno,jdbcType=VARCHAR},
+      POINT_PRICE = #{record.pointPrice,jdbcType=DOUBLE},
+      ISENDTIME = #{record.isendtime,jdbcType=INTEGER},
+      ISURETIME = #{record.isuretime,jdbcType=INTEGER},
+      SURETIME = #{record.suretime,jdbcType=VARCHAR},
+      PRICE_SUM = #{record.priceSum,jdbcType=REAL},
+      IS_RETURN = #{record.isReturn,jdbcType=VARCHAR},
+      ENDTIME = #{record.endtime,jdbcType=VARCHAR},
+      ACCOUNT = #{record.account,jdbcType=INTEGER},
+      HUISTAT = #{record.huistat,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.OrderModel" >
+    update t_order
+    <set >
+      <if test="orderId != null" >
+        ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="addressId != null" >
+        ADDRESS_ID = #{addressId,jdbcType=VARCHAR},
+      </if>
+      <if test="countId != null" >
+        COUNT_ID = #{countId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null" >
+        SENDTIME = #{sendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="sendstate != null" >
+        SENDSTATE = #{sendstate,jdbcType=VARCHAR},
+      </if>
+      <if test="isPay != null" >
+        IS_PAY = #{isPay,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        TIME = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="paytime != null" >
+        PAYTIME = #{paytime,jdbcType=VARCHAR},
+      </if>
+      <if test="shouMen != null" >
+        SHOU_MEN = #{shouMen,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="shouPhone != null" >
+        SHOU_PHONE = #{shouPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shouTel != null" >
+        SHOU_TEL = #{shouTel,jdbcType=VARCHAR},
+      </if>
+      <if test="addressinfoId != null" >
+        ADDRESSINFO_ID = #{addressinfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null" >
+        SEND_TYPE = #{sendType,jdbcType=VARCHAR},
+      </if>
+      <if test="huiyuanId != null" >
+        HUIYUAN_ID = #{huiyuanId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null" >
+        GOODS_ID = #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendorderId != null" >
+        SENDORDER_ID = #{sendorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentId != null" >
+        PAYMENT_ID = #{paymentId,jdbcType=VARCHAR},
+      </if>
+      <if test="refundorderId != null" >
+        REFUNDORDER_ID = #{refundorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="returnedorderId != null" >
+        RETURNEDORDER_ID = #{returnedorderId,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveAddress != null" >
+        RECEIVE_ADDRESS = #{receiveAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="applyRefundTime != null" >
+        APPLY_REFUND_TIME = #{applyRefundTime,jdbcType=INTEGER},
+      </if>
+      <if test="receiveCode != null" >
+        RECEIVE_CODE = #{receiveCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="discountPrice != null" >
+        DISCOUNT_PRICE = #{discountPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="dlyCode != null" >
+        DLY_CODE = #{dlyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveEmail != null" >
+        RECEIVE_EMAIL = #{receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ipaytime != null" >
+        IPAYTIME = #{ipaytime,jdbcType=INTEGER},
+      </if>
+      <if test="isRefund != null" >
+        IS_REFUND = #{isRefund,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPrice != null" >
+        ORDER_PRICE = #{orderPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="originalPrice != null" >
+        ORIGINAL_PRICE = #{originalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="point != null" >
+        POINT = #{point,jdbcType=INTEGER},
+      </if>
+      <if test="protectPrice != null" >
+        PROTECT_PRICE = #{protectPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="receiveDate != null" >
+        RECEIVE_DATE = #{receiveDate,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveName != null" >
+        RECEIVE_NAME = #{receiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="receivePhone != null" >
+        RECEIVE_PHONE = #{receivePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="marchantsId != null" >
+        MARCHANTS_ID = #{marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="receiveTel != null" >
+        RECEIVE_TEL = #{receiveTel,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTime != null" >
+        REFUND_TIME = #{refundTime,jdbcType=INTEGER},
+      </if>
+      <if test="shippingPrice != null" >
+        SHIPPING_PRICE = #{shippingPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        WEIGHT = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="countyId != null" >
+        COUNTY_ID = #{countyId,jdbcType=VARCHAR},
+      </if>
+      <if test="dlytypeId != null" >
+        DLYTYPE_ID = #{dlytypeId,jdbcType=INTEGER},
+      </if>
+      <if test="wlcompanyId != null" >
+        WLCOMPANY_ID = #{wlcompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="dly != null" >
+        DLY = #{dly,jdbcType=VARCHAR},
+      </if>
+      <if test="playType != null" >
+        PLAY_TYPE = #{playType,jdbcType=INTEGER},
+      </if>
+      <if test="tradeno != null" >
+        TRADENO = #{tradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="pointPrice != null" >
+        POINT_PRICE = #{pointPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="isendtime != null" >
+        ISENDTIME = #{isendtime,jdbcType=INTEGER},
+      </if>
+      <if test="isuretime != null" >
+        ISURETIME = #{isuretime,jdbcType=INTEGER},
+      </if>
+      <if test="suretime != null" >
+        SURETIME = #{suretime,jdbcType=VARCHAR},
+      </if>
+      <if test="priceSum != null" >
+        PRICE_SUM = #{priceSum,jdbcType=REAL},
+      </if>
+      <if test="isReturn != null" >
+        IS_RETURN = #{isReturn,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        ENDTIME = #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        ACCOUNT = #{account,jdbcType=INTEGER},
+      </if>
+      <if test="huistat != null" >
+        HUISTAT = #{huistat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.OrderModel" >
+    update t_order
+    set ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      ADDRESS_ID = #{addressId,jdbcType=VARCHAR},
+      COUNT_ID = #{countId,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=VARCHAR},
+      PROVINCE_ID = #{provinceId,jdbcType=VARCHAR},
+      SENDTIME = #{sendtime,jdbcType=VARCHAR},
+      SENDSTATE = #{sendstate,jdbcType=VARCHAR},
+      IS_PAY = #{isPay,jdbcType=VARCHAR},
+      TIME = #{time,jdbcType=VARCHAR},
+      PAYTIME = #{paytime,jdbcType=VARCHAR},
+      SHOU_MEN = #{shouMen,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      SHOU_PHONE = #{shouPhone,jdbcType=VARCHAR},
+      SHOU_TEL = #{shouTel,jdbcType=VARCHAR},
+      ADDRESSINFO_ID = #{addressinfoId,jdbcType=VARCHAR},
+      PAY_TYPE = #{payType,jdbcType=VARCHAR},
+      SEND_TYPE = #{sendType,jdbcType=VARCHAR},
+      HUIYUAN_ID = #{huiyuanId,jdbcType=VARCHAR},
+      GOODS_ID = #{goodsId,jdbcType=VARCHAR},
+      SENDORDER_ID = #{sendorderId,jdbcType=VARCHAR},
+      PAYMENT_ID = #{paymentId,jdbcType=VARCHAR},
+      REFUNDORDER_ID = #{refundorderId,jdbcType=VARCHAR},
+      RETURNEDORDER_ID = #{returnedorderId,jdbcType=VARCHAR},
+      RECEIVE_ADDRESS = #{receiveAddress,jdbcType=VARCHAR},
+      APPLY_REFUND_TIME = #{applyRefundTime,jdbcType=INTEGER},
+      RECEIVE_CODE = #{receiveCode,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=INTEGER},
+      DISCOUNT_PRICE = #{discountPrice,jdbcType=DOUBLE},
+      DLY_CODE = #{dlyCode,jdbcType=VARCHAR},
+      RECEIVE_EMAIL = #{receiveEmail,jdbcType=VARCHAR},
+      IPAYTIME = #{ipaytime,jdbcType=INTEGER},
+      IS_REFUND = #{isRefund,jdbcType=VARCHAR},
+      ORDER_PRICE = #{orderPrice,jdbcType=DOUBLE},
+      ORIGINAL_PRICE = #{originalPrice,jdbcType=DOUBLE},
+      POINT = #{point,jdbcType=INTEGER},
+      PROTECT_PRICE = #{protectPrice,jdbcType=DOUBLE},
+      RECEIVE_DATE = #{receiveDate,jdbcType=VARCHAR},
+      RECEIVE_NAME = #{receiveName,jdbcType=VARCHAR},
+      RECEIVE_PHONE = #{receivePhone,jdbcType=VARCHAR},
+      MARCHANTS_ID = #{marchantsId,jdbcType=INTEGER},
+      RECEIVE_TEL = #{receiveTel,jdbcType=VARCHAR},
+      REFUND_TIME = #{refundTime,jdbcType=INTEGER},
+      SHIPPING_PRICE = #{shippingPrice,jdbcType=DOUBLE},
+      WEIGHT = #{weight,jdbcType=DOUBLE},
+      COUNTY_ID = #{countyId,jdbcType=VARCHAR},
+      DLYTYPE_ID = #{dlytypeId,jdbcType=INTEGER},
+      WLCOMPANY_ID = #{wlcompanyId,jdbcType=INTEGER},
+      DLY = #{dly,jdbcType=VARCHAR},
+      PLAY_TYPE = #{playType,jdbcType=INTEGER},
+      TRADENO = #{tradeno,jdbcType=VARCHAR},
+      POINT_PRICE = #{pointPrice,jdbcType=DOUBLE},
+      ISENDTIME = #{isendtime,jdbcType=INTEGER},
+      ISURETIME = #{isuretime,jdbcType=INTEGER},
+      SURETIME = #{suretime,jdbcType=VARCHAR},
+      PRICE_SUM = #{priceSum,jdbcType=REAL},
+      IS_RETURN = #{isReturn,jdbcType=VARCHAR},
+      ENDTIME = #{endtime,jdbcType=VARCHAR},
+      ACCOUNT = #{account,jdbcType=INTEGER},
+      HUISTAT = #{huistat,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

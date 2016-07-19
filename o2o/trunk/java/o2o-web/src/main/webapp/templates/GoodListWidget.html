@@ -1,0 +1,34 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list data as g>
+<div class="xsp_kuai goodBox">
+<div class="xsp_kuai_tu1404"><a href="${applicationPath}/item-${g.GOODS_ID}.html"><img src="${applicationPath}/upload/goods/${g.IAMGE}" width="100%" height="100%" border="0" /></a></div>
+<div class="xsp_kuai_zi1404">
+
+<#if (g.money*1.0/g.bmoney*10) lt 10>
+	<span class="STYLE1">${(g.money*1.0/g.bmoney*10)?string('0.0')}折/ </span>
+</#if>
+
+
+<a href="item-${g.GOODS_ID}.html" class="zhu18">${g.GOOD_NAME}</a></div>
+<div class="xsp_dajia1404">
+<div class="xsp_dajia_le">
+<span class="STYLE7">¥</span><span class="STYLE6">${g.money?string('0.00')}</span>&nbsp;<span class="STYLE8">¥${g.bmoney?string(0.00)}</span>
+</div>
+<div class="xsp_dajia_ri"><a href="${applicationPath}/item-${g.GOODS_ID}.html"><img src="${applicationPath}/img/an1.gif" border="0" /></a></div>
+</div>
+<div class="xsp_dianming1404"><#if g.S_NAME??>${g.S_NAME}</#if></div>
+</div>
+</#list>

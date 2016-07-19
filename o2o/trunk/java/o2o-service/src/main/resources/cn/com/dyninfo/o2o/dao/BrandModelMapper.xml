@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.BrandModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.BrandModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="LOGO" property="logo" jdbcType="VARCHAR" />
+    <result column="PROVIDER" property="provider" jdbcType="VARCHAR" />
+    <result column="PROVIDER_PHONE" property="providerPhone" jdbcType="VARCHAR" />
+    <result column="PROVIDER_MOVABLE" property="providerMovable" jdbcType="VARCHAR" />
+    <result column="PROVIDER_ADDRESS" property="providerAddress" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="PS" property="ps" jdbcType="VARCHAR" />
+    <result column="T_INDEX" property="tIndex" jdbcType="INTEGER" />
+    <result column="IS_R" property="isR" jdbcType="VARCHAR" />
+    <result column="FLAG" property="flag" jdbcType="VARCHAR" />
+    <result column="MARCHANTS_ID" property="marchantsId" jdbcType="VARCHAR" />
+    <result column="PAIXU" property="paixu" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, NAME, LOGO, PROVIDER, PROVIDER_PHONE, PROVIDER_MOVABLE, PROVIDER_ADDRESS, STATUS, 
+    PS, T_INDEX, IS_R, FLAG, MARCHANTS_ID, PAIXU
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.BrandModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_brand
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_brand
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_brand
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.BrandModelCriteria" >
+    delete from t_brand
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.BrandModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_brand (NAME, LOGO, PROVIDER, 
+      PROVIDER_PHONE, PROVIDER_MOVABLE, PROVIDER_ADDRESS, 
+      STATUS, PS, T_INDEX, 
+      IS_R, FLAG, MARCHANTS_ID, 
+      PAIXU)
+    values (#{name,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, #{provider,jdbcType=VARCHAR}, 
+      #{providerPhone,jdbcType=VARCHAR}, #{providerMovable,jdbcType=VARCHAR}, #{providerAddress,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{ps,jdbcType=VARCHAR}, #{tIndex,jdbcType=INTEGER}, 
+      #{isR,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, #{marchantsId,jdbcType=VARCHAR}, 
+      #{paixu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.BrandModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_brand
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="logo != null" >
+        LOGO,
+      </if>
+      <if test="provider != null" >
+        PROVIDER,
+      </if>
+      <if test="providerPhone != null" >
+        PROVIDER_PHONE,
+      </if>
+      <if test="providerMovable != null" >
+        PROVIDER_MOVABLE,
+      </if>
+      <if test="providerAddress != null" >
+        PROVIDER_ADDRESS,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="ps != null" >
+        PS,
+      </if>
+      <if test="tIndex != null" >
+        T_INDEX,
+      </if>
+      <if test="isR != null" >
+        IS_R,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+      <if test="marchantsId != null" >
+        MARCHANTS_ID,
+      </if>
+      <if test="paixu != null" >
+        PAIXU,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="provider != null" >
+        #{provider,jdbcType=VARCHAR},
+      </if>
+      <if test="providerPhone != null" >
+        #{providerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="providerMovable != null" >
+        #{providerMovable,jdbcType=VARCHAR},
+      </if>
+      <if test="providerAddress != null" >
+        #{providerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="ps != null" >
+        #{ps,jdbcType=VARCHAR},
+      </if>
+      <if test="tIndex != null" >
+        #{tIndex,jdbcType=INTEGER},
+      </if>
+      <if test="isR != null" >
+        #{isR,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="marchantsId != null" >
+        #{marchantsId,jdbcType=VARCHAR},
+      </if>
+      <if test="paixu != null" >
+        #{paixu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.BrandModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_brand
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_brand
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logo != null" >
+        LOGO = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provider != null" >
+        PROVIDER = #{record.provider,jdbcType=VARCHAR},
+      </if>
+      <if test="record.providerPhone != null" >
+        PROVIDER_PHONE = #{record.providerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.providerMovable != null" >
+        PROVIDER_MOVABLE = #{record.providerMovable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.providerAddress != null" >
+        PROVIDER_ADDRESS = #{record.providerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ps != null" >
+        PS = #{record.ps,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tIndex != null" >
+        T_INDEX = #{record.tIndex,jdbcType=INTEGER},
+      </if>
+      <if test="record.isR != null" >
+        IS_R = #{record.isR,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        FLAG = #{record.flag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marchantsId != null" >
+        MARCHANTS_ID = #{record.marchantsId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paixu != null" >
+        PAIXU = #{record.paixu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_brand
+    set ID = #{record.id,jdbcType=INTEGER},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      LOGO = #{record.logo,jdbcType=VARCHAR},
+      PROVIDER = #{record.provider,jdbcType=VARCHAR},
+      PROVIDER_PHONE = #{record.providerPhone,jdbcType=VARCHAR},
+      PROVIDER_MOVABLE = #{record.providerMovable,jdbcType=VARCHAR},
+      PROVIDER_ADDRESS = #{record.providerAddress,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      PS = #{record.ps,jdbcType=VARCHAR},
+      T_INDEX = #{record.tIndex,jdbcType=INTEGER},
+      IS_R = #{record.isR,jdbcType=VARCHAR},
+      FLAG = #{record.flag,jdbcType=VARCHAR},
+      MARCHANTS_ID = #{record.marchantsId,jdbcType=VARCHAR},
+      PAIXU = #{record.paixu,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.BrandModel" >
+    update t_brand
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        LOGO = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="provider != null" >
+        PROVIDER = #{provider,jdbcType=VARCHAR},
+      </if>
+      <if test="providerPhone != null" >
+        PROVIDER_PHONE = #{providerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="providerMovable != null" >
+        PROVIDER_MOVABLE = #{providerMovable,jdbcType=VARCHAR},
+      </if>
+      <if test="providerAddress != null" >
+        PROVIDER_ADDRESS = #{providerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="ps != null" >
+        PS = #{ps,jdbcType=VARCHAR},
+      </if>
+      <if test="tIndex != null" >
+        T_INDEX = #{tIndex,jdbcType=INTEGER},
+      </if>
+      <if test="isR != null" >
+        IS_R = #{isR,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="marchantsId != null" >
+        MARCHANTS_ID = #{marchantsId,jdbcType=VARCHAR},
+      </if>
+      <if test="paixu != null" >
+        PAIXU = #{paixu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.BrandModel" >
+    update t_brand
+    set NAME = #{name,jdbcType=VARCHAR},
+      LOGO = #{logo,jdbcType=VARCHAR},
+      PROVIDER = #{provider,jdbcType=VARCHAR},
+      PROVIDER_PHONE = #{providerPhone,jdbcType=VARCHAR},
+      PROVIDER_MOVABLE = #{providerMovable,jdbcType=VARCHAR},
+      PROVIDER_ADDRESS = #{providerAddress,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      PS = #{ps,jdbcType=VARCHAR},
+      T_INDEX = #{tIndex,jdbcType=INTEGER},
+      IS_R = #{isR,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=VARCHAR},
+      MARCHANTS_ID = #{marchantsId,jdbcType=VARCHAR},
+      PAIXU = #{paixu,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ * All rights reserved.
+ *
+ * This file contains valuable properties of  SHENZHEN Eternal Dynasty
+ * Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+ * confidential information, ideas and expressions.    No part of this
+ * file may be reproduced or distributed in any form or by  any  means,
+ * or stored in a data base or a retrieval system,  without  the prior
+ * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ *
+ */
+
+@charset "utf-8";
+
+div,table,form,ul,li,dt,dd,dl,a,p,body,img{margin:0px; padding:0px; list-style-type:none; font-size:12px; font-family:"宋体"; text-decoration:none; color:#060401}
+img{border:0px;}
+.weapper{width:100%px; height:auto; margin:auto; background-image:url(../img/ba_02.gif); background-repeat:repeat-x; background-position:top;}
+.clear{width:0px; height:0px; clear:both;overflow:hidden;}
+.touming{width:19px; height:23px;}
+.kongbai{width:50px; height:40px; overflow:hidden;}
+
+
+
+.container{width:596px; height:444px; margin:auto;}
+.top{width:590px; height:55px; background-image:url(../img/asdf_03.gif); background-repeat:repeat-x; color:#FFFFFF; font-size:14px; font-weight:bold; line-height:55px; padding-left:6px}
+.middle{width:596px; height:auto;}
+.middle_1{width:239px;height:312px; float:left; margin-top:15px; margin-left:15px;border:#245381 solid 1px;overflow-y:scroll;display:inline}
+.middle_2{width:35px; height:auto; float:left;margin-left:28px;display:inline; margin-top:40px}
+*html .middle_2{width:35px; height:auto; float:left;margin-left:20px;display:inline;margin-top:40px}
+.middle_3{width:239px; height:312px; float:right; border:#245381 solid 1px; margin-top:15px; margin-left:10px; margin-right:15px; overflow-y:scroll;display:inline}
+.middle_4{width:239px;height:312px;}
+
+.tu{width:35px;height:24px; margin-top:60px}
+.bottom{width:596px; height:55px; border-top:#245381 solid 1px; margin-top:15px;}
+.bottom div{ float:right; margin-right:15px; margin-top:10px; width:auto; height:auto}
+.m_lie{width:239px; height:25px; line-height:25px; border-bottom:#dadee1 solid 1px; margin-top:0px}
+.m_lie a{ display:block}
+
+
+a.zhu1:link{ background-color:#ffffff}
+a.zhu1:visited{background-color:#ffffff}
+a.zhu1:hover{background-color:#fae07d}

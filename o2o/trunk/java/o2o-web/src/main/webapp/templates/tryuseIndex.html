@@ -1,0 +1,89 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/head.html' />
+<div class="kuai">
+<div class="hd_da">
+<div class="shi_guangg" style="overflow:hidden;">
+	${widget_tryuse_adv_pic1}
+</div>
+<div class="shi_top">
+<div class="shi_top_guangg">
+	${widget_tryuse_adv_slid1}
+</div>
+
+
+<!-- 设置菜单为选中----脚本 -->
+<script type="text/javascript">
+	$(function() {
+		$(".zhu4").each(function() {
+			if($(this).html() == "免费试用") {
+				$(this).parent().html("免费试用");
+			}
+		});
+	});
+</script>
+
+
+<div class="shi_top_wangqi">
+<div class="shi_hui">
+<div class="shi_hui_tu"><img src="${applicationPath}/img/sy01_06.gif" /></div>
+<div class="shi_hui_zi">往期试用惠顾</div>
+</div>
+<div class="shi_hui_wen">
+<div class="shi_hui_wen_kuai">
+<div class="shi_hui_wen_kuai_dian">&nbsp;</div>
+<div class="shi_hui_wen_kuai_zi"><a href="${applicationPath}/help-25.html" class="zhu1">如何查看试用申请是否通过</a></div>
+</div>
+<div class="shi_hui_wen_kuai">
+<div class="shi_hui_wen_kuai_dian">&nbsp;</div>
+<div class="shi_hui_wen_kuai_zi"><a href="${applicationPath}/help-26.html" class="zhu1">试用流程</a></div>
+</div>
+<div class="shi_hui_wen_kuai">
+<div class="shi_hui_wen_kuai_dian">&nbsp;</div>
+<div class="shi_hui_wen_kuai_zi"><a href="${applicationPath}/help-27.html" class="zhu1">查看我的试用申请</a></div>
+</div>
+</div>
+<div class="shi_hui_di"><a href="${applicationPath}/tryuseago.html" class="zhu57">>>查看全部试用报告</a></div>
+</div>
+
+
+</div>
+<div class="shiyonglida">
+<div class="shiyonglida_ti">
+<div class="shiyonglida_zi">最新试用</div>
+</div>
+${widget_tryuse_index_list}
+<div class="touming8">&nbsp;</div>
+
+
+</div>
+<div class="shiyonglida">
+<div class="shiyonglida_ti">
+<div class="shiyonglida_zi">即将推出</div>
+</div>
+<div class="su_jijiang">
+${widget_tryuse_index_ready}
+</div>
+
+
+
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+<#include 'common/buttom.html' />

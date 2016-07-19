@@ -1,0 +1,97 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/index_head.html' />
+
+<!-- 设置菜单为选中----脚本 -->
+<script type="text/javascript">
+	$(function() {
+		$(".zhu4").each(function() {
+			if($(this).html() == "首页") {
+				$(this).parent().html("首页");
+			}
+		});
+	});
+</script>
+
+
+<div class="kuai">
+<div class="touming14"> &nbsp;</div>
+<div class="ban">
+	
+	<div class="ban_tu">
+		${widget_index_advSild}
+	</div>
+
+	
+
+</div>
+	
+
+<div class="da">
+<div class="index_left">
+<div class="taitou_01">
+<div class="taitou_xiashi">HOT 炫品热销</div>
+</div>
+
+<div class="index_left_da goodsBox">
+<div class="touming">&nbsp;</div>
+${widget_index_goods}
+</div>
+<div class="clear">&nbsp;</div>
+<div class="jiazaishangpin addGoods"><a href="javascript:;"><img src="${applicationPath}/img/index_jizai.jpg" border="0"/></a></div>
+</div>
+
+<div class="index_right">
+
+<div class="taitou_02">
+<div class="taitou_xiashi">炫品美容</div>
+</div>
+
+
+<div class="index_right_dongtai">
+
+${widget_index_advSild_mr1}
+
+</div>
+<div class="touming2">&nbsp;</div>
+<div class="index_right_dongtai">
+${widget_index_advSild_mr2}
+</div>
+<div class="touming2">&nbsp;</div>
+<div class="index_right_dongtai">
+${widget_index_advSild_mr3}
+</div>
+<div class="touming2">&nbsp;</div>
+<div class="index_right_dongtai">
+${widget_index_advSild_mr4}
+</div>
+<div class="touming2">&nbsp;</div>
+
+</div>
+</div>
+</div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+<#include 'common/buttom.html' />

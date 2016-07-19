@@ -1,0 +1,12 @@
+
+<#list data as adv>
+<#if adv.adv_flie??>
+	<div style="width:${adv.advwz.advwz_width}px;height:${adv.advwz.advwz_height}px;overflow:hidden;margin:auto;<#if adv.adv_bgColor??>background-color:${adv.adv_bgColor}</#if>">
+		<a target="_blank" href="${adv.adv_link}">
+			<img adv alt="" src="${applicationPath}/upload/adv/${adv.adv_flie}" width="100%" height="100%">
+		</a>
+	</div>
+	</#if>
+</#list>
+
+

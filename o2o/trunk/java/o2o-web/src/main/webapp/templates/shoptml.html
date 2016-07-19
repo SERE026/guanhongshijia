@@ -1,0 +1,185 @@
+ <!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<link href="${applicationPath}/css/shangjia.css" rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AK4Z6oiZ4uGtRwpN9a1ksmS1"></script>
+	<div class="gift_img_fudong">
+	<div class="gift_x"><a href="javascript:;" class="colseBtn"><img src="${applicationPath}/img/xxx.png" width="100%" height="100%" border="0"/></a></div>
+	<div class="gift_img"><a href="${applicationPath}/active.html" class="goodBtn"><img src="${applicationPath}/upload/yqlj/${activimg.img}" width="100%" height="100%" border="0" /></a></div>
+	</div>
+<div class="shop">
+<div class="dingwei">
+<#if shop.qq??>
+<div style=" width:84px; height:158px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=${shop.qq}&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+<img src="${applicationPath}/img/xpkf.png" /></a>
+</div>
+<#else>
+<div style=" width:84px; height:158px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=800055495&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+<img src="${applicationPath}/img/xpkf.png" /></a>
+</div>
+</#if>
+
+<a href="http://www.c-1-tech.com/Dress">首页</a> > <a href="http://www.c-1-tech.com/Dress/shopMap.html">炫品商家</a> > <span class="STYLE10" id="style">${shopName}</span>
+<input type="hidden" id="shopId" value="${shopId}"/>
+<input type="hidden" id="cityName" value="${cityName}"/>
+</div>
+<div class="advertising">
+
+<#if dzImage??>
+
+<script type="text/JavaScript" src="${applicationPath}/js/slide.js"></script>
+<script>
+	$(function(){
+		new slide($("#slidedz"),false);
+	})
+</script>
+<div id="slidedz" class="wm_slide" style="width:1009px;height:282px;margin:auto;background-color:#f4f4f4">
+	<ul >
+		<#list dzImage?split(',') as adv>
+			<#if adv_index lt dzImage?split(',')?size-1>
+				<li  style="width:1009px;height:282px;">	
+				<!-- 在嵌套的循环中取相同索引 -->
+					<a target="_blank" href="${urlList?split(',')[adv_index]}">
+						<img src="${applicationPath}/merchants/${spId}/${adv}" width="100%" height="100%" />
+					</a>
+				</li>
+			</#if>
+		</#list>
+	</ul>
+</div>
+
+
+
+
+</#if>
+
+</div>
+<div class="box">
+<div class="left">
+<div class="left_topa">商家信息</div>
+<div class="left_list">
+<div class="left_list_module1">
+<div class="left_list_module1_dian">
+<a href="shop-${spId}-about.html"><img src="${applicationPath}/img/dianpu_21.gif" border="0" /></a>
+</div>
+<div class="left_list_module1_dian addMerchant" m="${spId}">
+<a href="javascript:;"><img src="${applicationPath}/img/dianpu_19.gif" border="0" /></a>
+</div>
+</div>
+</div>
+<div class="left_topa">地址信息</div>
+<div class="left_list" id="map" style="width:185px;height:250px;">
+
+
+</div>
+<div class="left_topa">商品分类</div>
+<div class="left_list">
+
+<#list goodSort as s>
+<div class="left_list_li">
+<div class="left_list_li_Arrow1"><img src="${applicationPath}/img/dianpu_26.gif" /></div>
+<div class="left_list_li_tit shop_sort" rt="${s.goodsSort_id}"><a href="javascript:;" class="zhu36">${s.name}</a></div>
+</div>
+<#list s.children as c>
+<div class="left_line">&nbsp;</div>
+<div class="left_list_li">
+<div class="left_list_li_Arrow2"><img src="${applicationPath}/img/dianpu_26.gif" /></div>
+<div class="left_list_li_tit shop_sort" rt="${s.goodsSort_id}"><a href="javascript:;" class="zhu36">${c.name}</a></div>
+</div>
+
+</#list>
+
+</#list>
+
+</div>
+<div class="left_topa">本店热销</div>
+<div class="left_list">
+<#list rxList as rx>
+
+<div class="left_list_li_recommend">
+<div class="left_list_li_recommend_img"><a href="item-${rx.goodId}.html"><img src="${applicationPath}/upload/goods/${rx.image}" width="100%" height="100%" border="0" /></a></div>
+<div class="left_list_li_recommend_nom">${rx_index+1}</div>
+<div class="left_list_li_recommend_tit">
+<a href="item-${rx.goodId}.html" class="zhu9">${rx.goodName}</a>
+</div>
+<div class="left_list_li_recommend_price">
+<a href="item-${rx.goodId}.html" class="zhu37">¥${rx.money?string('0.00')}</a>
+</div>
+</div>
+</#list>
+
+</div>
+</div>
+
+<div class="right" id="gift_right">
+
+<div class="taitou_022">
+<div class="taitou_xiashi2 btnText">全部商品</div>
+<div class="sp02_zida_fanhui btnAll" style="display:none"><a href="javascript:;" class="zhu38">返回所有列表</a></div>
+</div>
+
+<div class="right_box fenyeBox" Object="${Object}">
+<#list allGood as g>
+<div class="right_box_aa">
+<div class="right_box_aa_img"><a href="${applicationPath}/item-${g.goodId}.html"><img src="${applicationPath}/upload/goods/${g.image}" border="0" width="100%" height="100%"/></a></div>
+<div class="right_box_aa_tit"><a href="${applicationPath}/item-${g.goodId}.html" class="zhu9">${g.goodName}</a></div>
+<div class="right_box_aa_price"><a href="${applicationPath}/item-${g.goodId}.html" class="zhu37">¥${g.money?string('0.00')} </a></div>
+<div class="right_box_aa_an">
+<div class="right_box_aa_an_ka"><a href="javascript:;" class="addCars" dataValue="${g.goodId}"><img src="${applicationPath}/img/dianpu_35.gif" border="0" /></a></div>
+<div class="right_box_aa_an_kb"><a href="javascript:;" class="addFav" g_id="${g.goodId}"><img src="${applicationPath}/img/dianpu_37.gif" border="0" /></a></div>
+</div>
+</div>
+</#list>
+
+
+</div>
+<div class="touming7">&nbsp;</div>
+<div class="fenye" spId="${spId}" >
+
+</div>
+</div>
+</div>
+<div class="laadvertising">${gg}</div>
+</div>
+<div class="clear">&nbsp;</div>
+<script type="text/javascript" src="${applicationPath}/js/addCar.js"></script>
+<script type="text/javascript" src="${applicationPath}/js/favorites.js"></script>
+<script type="text/javascript" src="${applicationPath}/js/shop.js"></script>
+<script type="text/javascript" >
+	$(function(){
+		$(".gift_img_fudong").css("left",$("#gift_right").offset().left+678);
+		new page($(".fenye"),$(".fenyeBox"),"shopWidte");
+	})
+</script>
+<link href="css/slide.css" rel="stylesheet" type="text/css" />
+
+<script>
+	$(function(){
+			// 百度地图API功能
+		var map = new BMap.Map("map");
+		var point = new BMap.Point(${shop.longitude?string('0.00000')},${shop.latitude?string('0.00000')});
+		map.centerAndZoom(point,15); 
+		var marker = new BMap.Marker(point);
+		map.addOverlay(marker);
+		map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_ZOOM}));  //右下角，仅包含缩放按钮
+		 var id=$("#shopId").val();
+	 $("#map").click(function () {	
+		window.location.href="shopMaps.html?shopid="+id;
+	});
+	})
+	
+
+</script>
+

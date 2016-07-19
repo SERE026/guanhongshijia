@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.ActiveModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.ActiveModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="BDATE" property="bdate" jdbcType="VARCHAR" />
+    <result column="EDATE" property="edate" jdbcType="VARCHAR" />
+    <result column="BTIME" property="btime" jdbcType="VARCHAR" />
+    <result column="ETIME" property="etime" jdbcType="VARCHAR" />
+    <result column="BTIMEL" property="btimel" jdbcType="INTEGER" />
+    <result column="ETIMEL" property="etimel" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="VAL" property="val" jdbcType="DOUBLE" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="GAME_ID" property="gameId" jdbcType="INTEGER" />
+    <result column="FLAG" property="flag" jdbcType="INTEGER" />
+    <result column="GOODS_COUNT" property="goodsCount" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="ROLE" property="role" jdbcType="CHAR" />
+    <result column="MARCHANTS_ID" property="marchantsId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.com.dyninfo.o2o.model.ActiveModel" extends="BaseResultMap" >
+    <result column="PS" property="ps" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, BDATE, EDATE, BTIME, ETIME, BTIMEL, ETIMEL, TYPE, VAL, NAME, GAME_ID, FLAG, GOODS_COUNT, 
+    STATUS, ROLE, MARCHANTS_ID
+  </sql>
+  <sql id="Blob_Column_List" >
+    PS
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.com.dyninfo.o2o.model.ActiveModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_active
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.ActiveModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_active
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_active
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_active
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.ActiveModelCriteria" >
+    delete from t_active
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.ActiveModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_active (BDATE, EDATE, BTIME, 
+      ETIME, BTIMEL, ETIMEL, 
+      TYPE, VAL, NAME, GAME_ID, 
+      FLAG, GOODS_COUNT, STATUS, 
+      ROLE, MARCHANTS_ID, PS
+      )
+    values (#{bdate,jdbcType=VARCHAR}, #{edate,jdbcType=VARCHAR}, #{btime,jdbcType=VARCHAR}, 
+      #{etime,jdbcType=VARCHAR}, #{btimel,jdbcType=INTEGER}, #{etimel,jdbcType=INTEGER}, 
+      #{type,jdbcType=VARCHAR}, #{val,jdbcType=DOUBLE}, #{name,jdbcType=VARCHAR}, #{gameId,jdbcType=INTEGER}, 
+      #{flag,jdbcType=INTEGER}, #{goodsCount,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{role,jdbcType=CHAR}, #{marchantsId,jdbcType=INTEGER}, #{ps,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.ActiveModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_active
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bdate != null" >
+        BDATE,
+      </if>
+      <if test="edate != null" >
+        EDATE,
+      </if>
+      <if test="btime != null" >
+        BTIME,
+      </if>
+      <if test="etime != null" >
+        ETIME,
+      </if>
+      <if test="btimel != null" >
+        BTIMEL,
+      </if>
+      <if test="etimel != null" >
+        ETIMEL,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="val != null" >
+        VAL,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="gameId != null" >
+        GAME_ID,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+      <if test="goodsCount != null" >
+        GOODS_COUNT,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="role != null" >
+        ROLE,
+      </if>
+      <if test="marchantsId != null" >
+        MARCHANTS_ID,
+      </if>
+      <if test="ps != null" >
+        PS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bdate != null" >
+        #{bdate,jdbcType=VARCHAR},
+      </if>
+      <if test="edate != null" >
+        #{edate,jdbcType=VARCHAR},
+      </if>
+      <if test="btime != null" >
+        #{btime,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null" >
+        #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="btimel != null" >
+        #{btimel,jdbcType=INTEGER},
+      </if>
+      <if test="etimel != null" >
+        #{etimel,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="val != null" >
+        #{val,jdbcType=DOUBLE},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gameId != null" >
+        #{gameId,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="goodsCount != null" >
+        #{goodsCount,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=CHAR},
+      </if>
+      <if test="marchantsId != null" >
+        #{marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="ps != null" >
+        #{ps,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.ActiveModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_active
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_active
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.bdate != null" >
+        BDATE = #{record.bdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.edate != null" >
+        EDATE = #{record.edate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.btime != null" >
+        BTIME = #{record.btime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.etime != null" >
+        ETIME = #{record.etime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.btimel != null" >
+        BTIMEL = #{record.btimel,jdbcType=INTEGER},
+      </if>
+      <if test="record.etimel != null" >
+        ETIMEL = #{record.etimel,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        TYPE = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.val != null" >
+        VAL = #{record.val,jdbcType=DOUBLE},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameId != null" >
+        GAME_ID = #{record.gameId,jdbcType=INTEGER},
+      </if>
+      <if test="record.flag != null" >
+        FLAG = #{record.flag,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsCount != null" >
+        GOODS_COUNT = #{record.goodsCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.role != null" >
+        ROLE = #{record.role,jdbcType=CHAR},
+      </if>
+      <if test="record.marchantsId != null" >
+        MARCHANTS_ID = #{record.marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.ps != null" >
+        PS = #{record.ps,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_active
+    set ID = #{record.id,jdbcType=INTEGER},
+      BDATE = #{record.bdate,jdbcType=VARCHAR},
+      EDATE = #{record.edate,jdbcType=VARCHAR},
+      BTIME = #{record.btime,jdbcType=VARCHAR},
+      ETIME = #{record.etime,jdbcType=VARCHAR},
+      BTIMEL = #{record.btimel,jdbcType=INTEGER},
+      ETIMEL = #{record.etimel,jdbcType=INTEGER},
+      TYPE = #{record.type,jdbcType=VARCHAR},
+      VAL = #{record.val,jdbcType=DOUBLE},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      GAME_ID = #{record.gameId,jdbcType=INTEGER},
+      FLAG = #{record.flag,jdbcType=INTEGER},
+      GOODS_COUNT = #{record.goodsCount,jdbcType=INTEGER},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      ROLE = #{record.role,jdbcType=CHAR},
+      MARCHANTS_ID = #{record.marchantsId,jdbcType=INTEGER},
+      PS = #{record.ps,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_active
+    set ID = #{record.id,jdbcType=INTEGER},
+      BDATE = #{record.bdate,jdbcType=VARCHAR},
+      EDATE = #{record.edate,jdbcType=VARCHAR},
+      BTIME = #{record.btime,jdbcType=VARCHAR},
+      ETIME = #{record.etime,jdbcType=VARCHAR},
+      BTIMEL = #{record.btimel,jdbcType=INTEGER},
+      ETIMEL = #{record.etimel,jdbcType=INTEGER},
+      TYPE = #{record.type,jdbcType=VARCHAR},
+      VAL = #{record.val,jdbcType=DOUBLE},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      GAME_ID = #{record.gameId,jdbcType=INTEGER},
+      FLAG = #{record.flag,jdbcType=INTEGER},
+      GOODS_COUNT = #{record.goodsCount,jdbcType=INTEGER},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      ROLE = #{record.role,jdbcType=CHAR},
+      MARCHANTS_ID = #{record.marchantsId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.ActiveModel" >
+    update t_active
+    <set >
+      <if test="bdate != null" >
+        BDATE = #{bdate,jdbcType=VARCHAR},
+      </if>
+      <if test="edate != null" >
+        EDATE = #{edate,jdbcType=VARCHAR},
+      </if>
+      <if test="btime != null" >
+        BTIME = #{btime,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null" >
+        ETIME = #{etime,jdbcType=VARCHAR},
+      </if>
+      <if test="btimel != null" >
+        BTIMEL = #{btimel,jdbcType=INTEGER},
+      </if>
+      <if test="etimel != null" >
+        ETIMEL = #{etimel,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="val != null" >
+        VAL = #{val,jdbcType=DOUBLE},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gameId != null" >
+        GAME_ID = #{gameId,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="goodsCount != null" >
+        GOODS_COUNT = #{goodsCount,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="role != null" >
+        ROLE = #{role,jdbcType=CHAR},
+      </if>
+      <if test="marchantsId != null" >
+        MARCHANTS_ID = #{marchantsId,jdbcType=INTEGER},
+      </if>
+      <if test="ps != null" >
+        PS = #{ps,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.com.dyninfo.o2o.model.ActiveModel" >
+    update t_active
+    set BDATE = #{bdate,jdbcType=VARCHAR},
+      EDATE = #{edate,jdbcType=VARCHAR},
+      BTIME = #{btime,jdbcType=VARCHAR},
+      ETIME = #{etime,jdbcType=VARCHAR},
+      BTIMEL = #{btimel,jdbcType=INTEGER},
+      ETIMEL = #{etimel,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=VARCHAR},
+      VAL = #{val,jdbcType=DOUBLE},
+      NAME = #{name,jdbcType=VARCHAR},
+      GAME_ID = #{gameId,jdbcType=INTEGER},
+      FLAG = #{flag,jdbcType=INTEGER},
+      GOODS_COUNT = #{goodsCount,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      ROLE = #{role,jdbcType=CHAR},
+      MARCHANTS_ID = #{marchantsId,jdbcType=INTEGER},
+      PS = #{ps,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.ActiveModel" >
+    update t_active
+    set BDATE = #{bdate,jdbcType=VARCHAR},
+      EDATE = #{edate,jdbcType=VARCHAR},
+      BTIME = #{btime,jdbcType=VARCHAR},
+      ETIME = #{etime,jdbcType=VARCHAR},
+      BTIMEL = #{btimel,jdbcType=INTEGER},
+      ETIMEL = #{etimel,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=VARCHAR},
+      VAL = #{val,jdbcType=DOUBLE},
+      NAME = #{name,jdbcType=VARCHAR},
+      GAME_ID = #{gameId,jdbcType=INTEGER},
+      FLAG = #{flag,jdbcType=INTEGER},
+      GOODS_COUNT = #{goodsCount,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      ROLE = #{role,jdbcType=CHAR},
+      MARCHANTS_ID = #{marchantsId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

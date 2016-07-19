@@ -1,0 +1,25 @@
+
+<div class="sp02_shaixuan specBox" style="margin-top:15px">
+<div class="sp02_shaixuan_yixuan  selectBox" >
+<div class="sp_shaixuan_yixuan_aa ">已选择：</div>
+
+</div>
+
+<div class="sp02_shaixuan_kuai">
+<div class="sp02_shaixuan_kuai_tai">
+分类：
+</div>
+<div class="sp02_shaixuan_kuai_pin">
+<#list sortlist as d>
+	<div class="sp_shaixuan_xiaopai goodssort" data="${d.sortid}"><a href="javascript:;" class="zhu12" >${d.name}</a></div>
+</#list>
+</div>
+</div>
+<div class="touming4">&nbsp;</div>
+
+
+</div><!--收起时隐藏-->
+<div class="sp02list_right_shouqi specHidBtn"><a href="#"><img src="${applicationPath}/img/sp02_shouqi.gif" border="0" /></a></div>
+<div class="sp_shaixuan_shouqidian specShowBtn" style="display:none"><img src="${applicationPath}/img/zhakai.gif" /></div><!--点击收起之后显示-->
+
+<script src="${applicationPath}/js/TryuseAgo.js" type="text/javascript" ></script>

@@ -1,0 +1,86 @@
+/*
+ * Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ * All rights reserved.
+ *
+ * This file contains valuable properties of  SHENZHEN Eternal Dynasty
+ * Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+ * confidential information, ideas and expressions.    No part of this
+ * file may be reproduced or distributed in any form or by  any  means,
+ * or stored in a data base or a retrieval system,  without  the prior
+ * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ *
+ */
+
+@charset "utf-8";
+div,table,form,ul,li,dt,dd,dl,a,p,body,img{margin:0px; padding:0px; list-style-type:none; font-size:12px; font-family:"宋体"; text-decoration:none; color:#5c5c5c;}
+
+img{border:0px;}
+.clear{width:0px; height:0px; clear:both;overflow:hidden;}
+
+.conter{width:499px;height:auto; margin:auto;background-repeat:repeat-y;background-image:url(../img/da_02.gif); background-repeat:repeat-y;}
+.conter1{width:499px;height:32px; overflow:hidden; margin:auto; margin-top:0px; background-image:url(../img/da_01.gif); background-repeat:no-repeat; margin-top:90px; }
+.conter2{width:499px;height:36px; overflow:hidden; margin:auto; margin-top:0px; background-image:url(../img/bg1_02.gif); background-repeat:no-repeat}
+
+.logo{width:auto;height:60px; margin:0px 0 0 45px;}
+.logo1{width:auto;height:60px; float:left}
+.logo2{width:auto;height:20px;float:left; line-height:20px; margin-top:29px; color:#575757; font-family:Verdana, Arial, Helvetica, sans-serif;}
+
+.touming{ width:380px; height:23px; overflow:hidden; clear:both}
+
+
+.zhong{width:412px;min-height:140px; background-image:url(../img/bg_07_02.gif); background-repeat:repeat-y; margin-left:45px; margin-top:0}
+
+.zhong_xiao{width:386px;height:auto; margin:0 0 0 10px;}
+.zhong_kuai{ width:412px; height:20px; overflow:hidden;margin-left:45px;margin-top:5px;}
+.zhong_kuai2{ width:412px; height:20px; overflow:hidden;margin-left:45px;}
+
+
+
+
+
+
+.shuru{width:181px; height:34px; background-image:url(../img/xin_07.gif); background-repeat:no-repeat}
+
+.shuru_put{width:161px; height:16px; line-height:16px; margin:8px 0 0 8px; border:#FFFFFF solid 0px}
+*html .shuru_put{width:161px; height:16px; line-height:16px; margin:7px 0 0 8px; border:#FFFFFF solid 0px}
+*+html .shuru_put{width:161px; height:16px; line-height:16px; margin:7px 0 0 8px; border:#FFFFFF solid 0px}
+
+
+
+
+.shuru2{width:120px; height:34px; background-image:url(../img/xin_16.gif); background-repeat:no-repeat; float:left}
+.shuru_put2{width:80px; height:16px; line-height:16px; margin:9px 0 0 8px; border:#FFFFFF solid 0px}
+*html .shuru_put2{width:80px; height:16px; line-height:16px; margin:7px 0 0 8px; border:#FFFFFF solid 0px}
+*+html .shuru_put2{width:80px; height:16px; line-height:16px; margin:8px 0 0 8px; border:#FFFFFF solid 0px}
+
+.shuru2_left{width:40px; height:34px;float:left; line-height:38px; font-weight:bold; color:#0000FF; text-decoration:underline}
+
+.tishi{width:auto;height:auto; line-height:20px;color:#FF0000}
+
+.zhong_an{width:412px;height:38px; margin:10px 0 0 46px;}
+
+
+.zhong_an1{width:94px;height:38px; float:right;}
+.zhong_an2{width:94px;height:38px; float:right; margin-right:15px}
+.zhong_an3{width:116px;height:38px; float:left;}
+
+.wel{width:380px; height:auto; margin:10px 0 0 45px;}
+*html .wel{width:380px; height:auto; margin:10px 0 0 45px;}
+*+html .wel{width:380px; height:auto; margin:10px 0 0 45px;}
+
+
+.wel_a{width:220px; height:19px; margin:0}
+.wel_b{width:218px; height:20px;margin:0}
+
+
+
+
+
+
+
+
+
+
+
+
+

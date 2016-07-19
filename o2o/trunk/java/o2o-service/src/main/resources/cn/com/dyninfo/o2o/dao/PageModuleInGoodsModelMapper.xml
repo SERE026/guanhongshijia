@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.PageModuleInGoodsModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.PageModuleInGoodsModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PAGEMODULE_ID" property="pagemoduleId" jdbcType="INTEGER" />
+    <result column="GOOD_ID" property="goodId" jdbcType="INTEGER" />
+    <result column="INDEXS" property="indexs" jdbcType="INTEGER" />
+    <result column="EXPIRE_TIME" property="expireTime" jdbcType="VARCHAR" />
+    <result column="SHANGJIAINFO_ID" property="shangjiainfoId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, PAGEMODULE_ID, GOOD_ID, INDEXS, EXPIRE_TIME, SHANGJIAINFO_ID, CITY_ID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.PageModuleInGoodsModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_pagemodule_in_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_pagemodule_in_goods
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_pagemodule_in_goods
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.PageModuleInGoodsModelCriteria" >
+    delete from t_pagemodule_in_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.PageModuleInGoodsModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_pagemodule_in_goods (PAGEMODULE_ID, GOOD_ID, INDEXS, 
+      EXPIRE_TIME, SHANGJIAINFO_ID, CITY_ID
+      )
+    values (#{pagemoduleId,jdbcType=INTEGER}, #{goodId,jdbcType=INTEGER}, #{indexs,jdbcType=INTEGER}, 
+      #{expireTime,jdbcType=VARCHAR}, #{shangjiainfoId,jdbcType=INTEGER}, #{cityId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.PageModuleInGoodsModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_pagemodule_in_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pagemoduleId != null" >
+        PAGEMODULE_ID,
+      </if>
+      <if test="goodId != null" >
+        GOOD_ID,
+      </if>
+      <if test="indexs != null" >
+        INDEXS,
+      </if>
+      <if test="expireTime != null" >
+        EXPIRE_TIME,
+      </if>
+      <if test="shangjiainfoId != null" >
+        SHANGJIAINFO_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pagemoduleId != null" >
+        #{pagemoduleId,jdbcType=INTEGER},
+      </if>
+      <if test="goodId != null" >
+        #{goodId,jdbcType=INTEGER},
+      </if>
+      <if test="indexs != null" >
+        #{indexs,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null" >
+        #{expireTime,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjiainfoId != null" >
+        #{shangjiainfoId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.PageModuleInGoodsModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_pagemodule_in_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_pagemodule_in_goods
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.pagemoduleId != null" >
+        PAGEMODULE_ID = #{record.pagemoduleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodId != null" >
+        GOOD_ID = #{record.goodId,jdbcType=INTEGER},
+      </if>
+      <if test="record.indexs != null" >
+        INDEXS = #{record.indexs,jdbcType=INTEGER},
+      </if>
+      <if test="record.expireTime != null" >
+        EXPIRE_TIME = #{record.expireTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shangjiainfoId != null" >
+        SHANGJIAINFO_ID = #{record.shangjiainfoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_pagemodule_in_goods
+    set ID = #{record.id,jdbcType=INTEGER},
+      PAGEMODULE_ID = #{record.pagemoduleId,jdbcType=INTEGER},
+      GOOD_ID = #{record.goodId,jdbcType=INTEGER},
+      INDEXS = #{record.indexs,jdbcType=INTEGER},
+      EXPIRE_TIME = #{record.expireTime,jdbcType=VARCHAR},
+      SHANGJIAINFO_ID = #{record.shangjiainfoId,jdbcType=INTEGER},
+      CITY_ID = #{record.cityId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.PageModuleInGoodsModel" >
+    update t_pagemodule_in_goods
+    <set >
+      <if test="pagemoduleId != null" >
+        PAGEMODULE_ID = #{pagemoduleId,jdbcType=INTEGER},
+      </if>
+      <if test="goodId != null" >
+        GOOD_ID = #{goodId,jdbcType=INTEGER},
+      </if>
+      <if test="indexs != null" >
+        INDEXS = #{indexs,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null" >
+        EXPIRE_TIME = #{expireTime,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjiainfoId != null" >
+        SHANGJIAINFO_ID = #{shangjiainfoId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.PageModuleInGoodsModel" >
+    update t_pagemodule_in_goods
+    set PAGEMODULE_ID = #{pagemoduleId,jdbcType=INTEGER},
+      GOOD_ID = #{goodId,jdbcType=INTEGER},
+      INDEXS = #{indexs,jdbcType=INTEGER},
+      EXPIRE_TIME = #{expireTime,jdbcType=VARCHAR},
+      SHANGJIAINFO_ID = #{shangjiainfoId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ * All rights reserved.
+ *
+ * This file contains valuable properties of  SHENZHEN Eternal Dynasty
+ * Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+ * confidential information, ideas and expressions.    No part of this
+ * file may be reproduced or distributed in any form or by  any  means,
+ * or stored in a data base or a retrieval system,  without  the prior
+ * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+ *
+ */
+
+.font{color:#fff;font-size:12px;}
+.tab div{background-color:#e2eaed;float:left;margin-left:10px;width:60px;text-align:center;cursor:pointer;}
+.dialogBG{z-index:999;background-color:#cccccc;position:fixed;left:0;top:0;opacity:0.6;filter:progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75);}
+.ImageBox{z-index:1000;border:#d61900 solid 1px;background-color:#fff;position:fixed;}
+.ImageTitle{color:#fff;border:#fff solid 1px;background-color:#ff6600;font-size:12px;line-height:30px;text-align:center;}
+.ImageBody{background-color:#fff;width:100%;height:35px;}
+.ImageButton{background-color:#fff;width:100%;height:30px;margin:auto;position:absolute;buttom:0px;}
+.ImageButton ul li{float:left;width:50px;border:#ff6600 solid 1px;margin-left:66px;text-align:center;}
+.ImageButton a{font-size:12px;line-height:30px;color:#d61900;}
+.addFileBtn{font-size:12px;line-height:30px;color:#d61900;border:#ff6600 solid 1px;margin-left:10px;height:30px;width:50px;cursor:pointer;float:left}
+.fileName{margin-left:10px;float:left;width:180px;line-height:30px;}
+.fileInput{filter:progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=0,finishOpacity=0);opacity:0;width:50px;left:0px;height:30px;position:relative;top:-30px;}
+.currentUploadFile{line-height:30px;}
+.AttrValBox{border:#ff6600 solid 1px;margin:5px;height:40px;width:400px;}
+.AttrValBox input{margin:5px;float:left;}
+.AttrValBoxImage{height:30px;margin-left:5px;width:100px;float:left;}
+.AttrValBox a{margin:5px;float:left;}
+
+.goodsxingxiangImage{width:320px;height:200px;border:#cccccc solid 1px;margin:auto;text-align:center;pading:5px;}
+
+.goodsImage{width:320px;height:320px;border:#cccccc solid 1px;margin:auto;text-align:center;display:none;pading:5px;}
+.goodsImage img{width:320px;height:320px;}
+.ImageMinBox{width:100%;height:auto;min-height:50px;border:#cccccc solid 1px;margin-top:10px;}
+.minImage_p{float:left;}
+.ImageMinBox .minImage{width:40px;height:40px;margin:5px;border:#cccccc solid 1px}
+.minImageClose{position:relative;left:39px;top:-45px;width:8px;height:8px;background-image:url(kongzhi3.gif);cursor:pointer;}
+
+.ImageSelect {display:block;}
+#imgUrl{margin:auto;}
+.Temp{width:80px;}
+
+.money{widget:80px;}
+
+#mfimgUrl{margin:auto;}
+.mfgoodsImage{width:320px;height:320px;border:#cccccc solid 1px;margin:auto;text-align:center;display:none;pading:5px;}
+.mfgoodsImage img{width:320px;height:320px;}
+.mfImageMinBox{width:100%;height:auto;min-height:50px;border:#cccccc solid 1px;margin-top:10px;}
+.mfminImage_p{float:left;}
+.mfImageMinBox .mfminImage{width:40px;height:40px;margin:5px;border:#cccccc solid 1px}
+.mfminImageClose{position:relative;left:39px;top:-45px;width:8px;height:8px;background-image:url(kongzhi3.gif);cursor:pointer;}
+

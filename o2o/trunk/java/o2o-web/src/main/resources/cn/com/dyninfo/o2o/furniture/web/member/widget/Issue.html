@@ -1,0 +1,121 @@
+
+<form name="form1" id="form1" action="${applicationPath}/huiyuan_showorder_issue.html" method="post">
+<input type='hidden' name="photo_url" value=""/>
+<input type='hidden' name="product_id" value="${orderproduct }"/>
+<div class="splist_right">
+<div class="gr_r">
+<div class="gr_r_ti">
+我的晒单：&nbsp;&nbsp;<span class="STYLE25">（晒单可以获得相应积分，积分可参加每天的积分兑换活动，直接抵扣现金）</span>
+</div>
+<div class="gr_fadan">
+
+<div class="gr_fadan_tou">发表晒单</div>
+<div class="touming8">&nbsp;</div>
+
+<div class="gr_fadan_k2">
+
+<div class="gr_fadan_yichuan">
+
+<div class="spdetail_xiajiantou imgLeft">
+<a href="javascript:;"><img src="${applicationPath}/img/spjiantouleft.gif" border="0" /></a>
+</div>
+
+
+
+
+
+<div class="spdetail_xiajiantou22 imgBox imgRite">
+<a href="javascript:;"><img src="${applicationPath}/img/spjiantouright.gif" border="0" /></a>
+</div>
+</div>
+
+<div class="gr_fadan_k_zi">图片介绍：</div>
+<div class="gr_fadan_k_mokuai">
+ 	<script type="text/javascript" src="${applicationPath}/Dress/js/AC_OETags.js"></script>
+   		<script type="text/javascript" src="${applicationPath}/Dress/js/fileUpload.js"></script>
+		<!-- 上传附件按钮 -->
+		<script language="JavaScript" type="text/javascript">
+		function removeFiles(fileName){
+			document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
+		}
+		AC_FL_RunContent(
+			"src", "${applicationPath}/swf/shaiPoh",
+			"width", "100",
+			"height", "30",
+			"id", "fileUpload",
+			"quality", "high",
+			"bgcolor", "#ffffff",
+			"name", "fileUpload",
+			"wmode","transparent",
+			"allowScriptAccess","sameDomain",
+			"type", "application/x-shockwave-flash",
+			"pluginspage", "http://www.adobe.com/go/getflashplayer",
+			"flashVars","flexID=a&uploadURL=${applicationPath}/swf/uploadissue.jsp&label= 上传图片&succeed=a_completeUpload"
+		);
+		function a_completeUpload(fileName, realName){
+			var length=$(".img").length;
+			
+			var html='<div class="spdetail_left_xiaotu_k2 img select" >';
+				html+='<a href="javascript:;" ><img src="${applicationPath}/upload/issue/'+fileName+'" width="78" height="78" border="0"/></a>';
+				html+='<input type="hidden" name="issue_flie" value="'+fileName+'"/>';
+				html+='</div>';
+			if(length>=5){
+				$(".img").eq(length-5).css("display","none");
+			}
+			$(".img.select").removeClass("select");
+			$(".imgBox").before(html);
+			$(".errMsg").css("display","none");
+		}
+		</script>
+	<span class="errMsg" style="color:#ff0000;line-height:30px;display:none">请上传晒单照片！</span>
+</div>
+
+
+<div class="clear">&nbsp;</div>
+<div class="gr_fadan_k_right_k3">
+请上传3-20张图片，每张图片不超过4M，支持的图片格式为jpg，jpeg，bmp，png，gif； 
+按住“Ctrl”键，可一次选择多张；
+</div>
+</div>
+
+
+<div class="gr_fadan_k">
+<div class="gr_fadan_k_zi">对商品的满意度：</div>
+
+
+
+<div class="gr_fadan_k_right_k4 pifeng">
+<input name="pinfeng" type="hidden"  value="5"/>
+<img src="${applicationPath}/img/xing_cai.jpg" />
+<img src="${applicationPath}/img/xing_cai.jpg" />
+<img src="${applicationPath}/img/xing_cai.jpg" />
+<img src="${applicationPath}/img/xing_cai.jpg" />
+<img src="${applicationPath}/img/xing_cai.jpg" />
+</div>
+<div class="gr_fadan_k_right_k5">
+<img src="${applicationPath}/img/fashaidan_18.gif" />
+</div>
+</div>
+
+
+<div class="gr_fadan_k">
+<div class="gr_fadan_k_zi">对商品的短评：</div>
+
+
+
+<div style="width:300px;height:50px;">
+<textarea id="saycontent" name="saycontent" style="width:98%;height:45px;" ></textarea>
+</div>
+
+</div>
+
+
+
+<div class="gr_fadan_an01"><a href="javascript:toIssue();" class="zhu33">发表晒单</a></div>
+<div class="gr_fadan_fanhui"><a href="${applicationPath}/huiyuan_showorder.html" class="zhu35">返回列表页面</a></div>
+<div class="touming8">&nbsp;</div>
+</div>
+</div>
+
+</form>
+<script src="${applicationPath}/js/huiyuan_showorder_issue.js" ></script>

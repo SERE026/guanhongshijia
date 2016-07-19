@@ -1,0 +1,160 @@
+
+<script type="text/JavaScript" src="${applicationPath}/js/huiyuan_order.js"></script>
+<#list data as orderInfo>
+<div class="gr_r_tiweifu" >
+	<div class="gr4_a" >
+		<input name="checkboxs" type="checkbox" value="" i="${orderInfo.order_id}" p="${orderInfo.isPay}" class="orderList"/>
+		 <#if orderInfo.state=="1"> 
+		<input  type="hidden" value="1111" class="iii"/>
+		<input  type="hidden" value="${orderInfo.order_id }" class="orderid01"/>
+		 </#if>
+		 <#if orderInfo.state=="0"> 
+		<input  type="hidden" value="2222" class="iii"/>
+			<input  type="hidden" value="${orderInfo.order_id }" class="orderid01"/>
+		 </#if>
+	</div>
+	<div class="gr4_b">
+		订单编号：
+		<a href="#" class="zhu27">${orderInfo.order_id }</a>&nbsp;&nbsp;&nbsp;&nbsp;下单时间：${orderInfo.time}
+	</div>
+</div>
+<div class="huiyuan_k">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0"
+		class="huiyuan_tab">
+		<tr>
+
+			<td>
+				<#list orderInfo.orderProductList as productList>
+				<div class="huiyuan_xinxi" style="border-bottom: none">
+					<div class="hui_dingtu">
+						<img src="${applicationPath}/upload/goods/${productList.product.defaultImage}" width="100%" height="100%" />
+					</div>
+
+
+					<div class="hui_dingjieshao">
+						<div class="hui_dingjieshao_ming">
+							<a href="${applicationPath}/item-${productList.product.good.goods_id}.html" class="zhu24">${productList.product.name}
+
+							</a>
+						</div>
+						<div class="hui_dingjieshao_ming2">
+
+							<#if productList.goodSpec??> ${productList.goodSpec?replace("#","
+							") } </#if>
+						</div>
+					</div>
+					<div class="hui_dingjia">
+						<#if productList.goodMoney??> ${productList.goodMoney} </#if>
+					</div>
+					<div class="hui_dingjia">
+						<#if productList.num??> ${productList.num} </#if>
+					</div>
+				</div>
+				<#if orderInfo.state=="3">
+					<div class="hui_dingjia"><a href="${applicationPath}/item-${productList.product.good.goods_id}.html" class="zhu24">再次购买</a></div>
+					<#if productList.showstats=="0">
+						<div class="hui_dingjia"><a href="${applicationPath}/huiyuan_showorder_issue.html?orderproduct=${productList.order_product_id}" class="zhu24">晒单</a></div>
+					</#if>
+				</#if>
+				</#list>
+
+			</td>
+			<td>
+				<div class="huiyuan_k_c">
+					<span class="STYLE22">${orderInfo.orderPrice}</span>
+					<br />
+					(含快递:${orderInfo.shippingPrice} )
+				</div>
+			</td>
+			
+			<!-- 这一列显示订单状态及常规操作链接 ------------------------------------------------------------------------------------------------------------------------------------------------>
+			<td>
+				<div class="huiyuan_k_c">
+				
+				<!-- 订单状态 0：等待付款 -->
+				<#if orderInfo.state=="0">
+					<div class="huiyuan_k_c_wenzi">等待买家付款</div>
+				</#if>
+				
+				<!-- 订单状态 1：已付款 -->				
+				<#if orderInfo.state=="1">
+					<div class="huiyuan_k_c_wenzi2">等待卖家发货</div>
+				</#if>
+				
+				<!-- 订单状态 2：已发货 -->
+				<#if orderInfo.state=="2">
+					<div class="huiyuan_k_c_wenzi">卖家已发货</div> 
+					<div class="huiyuan_k_c_wenzi">
+						<a href="${applicationPath}/huiyuan_order_detail.html?logisticid=${orderInfo.order_id }" class="zhu24">查看物流</a>
+					</div>
+				</#if>
+				
+				<!-- 订单状态 3：确认完成 -->
+				<#if orderInfo.state=="3">
+					<div class="huiyuan_k_c_wenzi2">交易完成</div>
+					<!-- <div class="huiyuan_k_c_wenzi">
+						<a href="${applicationPath}/tuikuan.html?orderId=${orderInfo.order_id }" class="zhu24">申请退款/退货</a>
+					</div> -->
+				</#if>
+				
+				<!-- 订单状态 4/5：申请退款/退货 -->
+				<#if orderInfo.state=="4" || orderInfo.state=="5">
+					<!-- <div class="huiyuan_k_c_wenzi">退款/退货处理中</div> -->
+				</#if>
+				
+				<!-- 订单状态 6：交易失败 -->					
+				<#if orderInfo.state=="6">
+					<div class="huiyuan_k_c_wenzi2">交易失败</div>
+				</#if>
+				
+				<!-- 我是订单详情链接，始终都会显示在最后 -->
+				<div class="huiyuan_k_c_wenzi">
+					<a href="${applicationPath}/huiyuan_order_detail.html?orderid=${orderInfo.order_id }" class="zhu24">订单详情</a>
+				</div>
+				
+			</div>
+		</td>
+			
+		<!-- 这一列根据订单状态设置按钮操作 ---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+		<td style="border: none">
+			<div class="huiyuan_k_d">
+			
+				<!-- 订单还原/删除 -->
+				<#if tag??>
+					<div class="huiyuan_caozuo "><a href="javascript:;" style="color:#ffffff" class="goHuanyuan"  data="${orderInfo.order_id }">还原</a></div>
+					<div class="huiyuan_caozuokuai"><a href="${applicationPath}/huiyuan_order_detail.html?delbyid=${orderInfo.order_id }" class="zhu24">删除订单</a></div>
+				</#if>
+				<#if !tag??>
+				
+				<!-- 如果是0：等待付款 -->
+				<#if orderInfo.state=="0"> 
+					<div class="huiyuan_caozuo ">
+						<a href="javascript:;" style="color:#ffffff" class="goPlay"  data="${orderInfo.order_id }">付款</a>
+					</div>
+					<div class="huiyuan_caozuokuai">
+						<a href="${applicationPath}/huiyuan_order_detail.html?delorderid=${orderInfo.order_id }" class="zhu24">取消订单</a>
+					</div>
+				</#if>
+				
+				<!-- 如果是1：已付款 -->
+				<#if orderInfo.state=="1">
+					 <!-- <#if orderInfo.sendstate=="1">
+					 	<div class="huiyuan_caozuo"><a href="${applicationPath}/huiyuan_order_detail.html?sureorderid=${orderInfo.order_id }" style="color:#ffffff" class="shouhuo" name="shouhuo">收货</a></div>
+					 </#if>-->
+				</#if>
+				
+				<!-- 如果是2：已发货 -->
+				<#if orderInfo.state=="2"> 
+					 <div class="huiyuan_caozuo">
+					 	<a href="${applicationPath}/huiyuan_order_detail.html?sureorderid=${orderInfo.order_id }" style="color:#ffffff" class="shouhuo" name="shouhuo">收货</a>
+					 </div>
+				</#if>
+				
+			</#if>
+			</div>
+		</td>
+		</tr>
+	</table>
+</div>
+</#list>
+

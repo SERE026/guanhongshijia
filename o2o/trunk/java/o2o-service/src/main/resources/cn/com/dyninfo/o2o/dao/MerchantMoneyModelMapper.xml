@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.MerchantMoneyModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.MerchantMoneyModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="BRANK_CARD" property="brankCard" jdbcType="VARCHAR" />
+    <result column="BRANK_NAME" property="brankName" jdbcType="VARCHAR" />
+    <result column="FLAG" property="flag" jdbcType="INTEGER" />
+    <result column="MONEY" property="money" jdbcType="DOUBLE" />
+    <result column="PS" property="ps" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="INTEGER" />
+    <result column="HUIYUAN_ID" property="huiyuanId" jdbcType="INTEGER" />
+    <result column="MERCHANT_ID" property="merchantId" jdbcType="INTEGER" />
+    <result column="SHANGJIA_ID" property="shangjiaId" jdbcType="INTEGER" />
+    <result column="TIME" property="time" jdbcType="VARCHAR" />
+    <result column="ORDER_ID" property="orderId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, BRANK_CARD, BRANK_NAME, FLAG, MONEY, PS, TYPE, HUIYUAN_ID, MERCHANT_ID, SHANGJIA_ID, 
+    TIME, ORDER_ID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.MerchantMoneyModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_merchant_money
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_merchant_money
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_merchant_money
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.MerchantMoneyModelCriteria" >
+    delete from t_merchant_money
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.MerchantMoneyModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_merchant_money (BRANK_CARD, BRANK_NAME, FLAG, 
+      MONEY, PS, TYPE, HUIYUAN_ID, 
+      MERCHANT_ID, SHANGJIA_ID, TIME, 
+      ORDER_ID)
+    values (#{brankCard,jdbcType=VARCHAR}, #{brankName,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{money,jdbcType=DOUBLE}, #{ps,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{huiyuanId,jdbcType=INTEGER}, 
+      #{merchantId,jdbcType=INTEGER}, #{shangjiaId,jdbcType=INTEGER}, #{time,jdbcType=VARCHAR}, 
+      #{orderId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.MerchantMoneyModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_merchant_money
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="brankCard != null" >
+        BRANK_CARD,
+      </if>
+      <if test="brankName != null" >
+        BRANK_NAME,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+      <if test="money != null" >
+        MONEY,
+      </if>
+      <if test="ps != null" >
+        PS,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="huiyuanId != null" >
+        HUIYUAN_ID,
+      </if>
+      <if test="merchantId != null" >
+        MERCHANT_ID,
+      </if>
+      <if test="shangjiaId != null" >
+        SHANGJIA_ID,
+      </if>
+      <if test="time != null" >
+        TIME,
+      </if>
+      <if test="orderId != null" >
+        ORDER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="brankCard != null" >
+        #{brankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="brankName != null" >
+        #{brankName,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="ps != null" >
+        #{ps,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="huiyuanId != null" >
+        #{huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="merchantId != null" >
+        #{merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="shangjiaId != null" >
+        #{shangjiaId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.MerchantMoneyModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_merchant_money
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_merchant_money
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.brankCard != null" >
+        BRANK_CARD = #{record.brankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brankName != null" >
+        BRANK_NAME = #{record.brankName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        FLAG = #{record.flag,jdbcType=INTEGER},
+      </if>
+      <if test="record.money != null" >
+        MONEY = #{record.money,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ps != null" >
+        PS = #{record.ps,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null" >
+        TYPE = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.huiyuanId != null" >
+        HUIYUAN_ID = #{record.huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.merchantId != null" >
+        MERCHANT_ID = #{record.merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="record.shangjiaId != null" >
+        SHANGJIA_ID = #{record.shangjiaId,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null" >
+        TIME = #{record.time,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderId != null" >
+        ORDER_ID = #{record.orderId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_merchant_money
+    set ID = #{record.id,jdbcType=INTEGER},
+      BRANK_CARD = #{record.brankCard,jdbcType=VARCHAR},
+      BRANK_NAME = #{record.brankName,jdbcType=VARCHAR},
+      FLAG = #{record.flag,jdbcType=INTEGER},
+      MONEY = #{record.money,jdbcType=DOUBLE},
+      PS = #{record.ps,jdbcType=VARCHAR},
+      TYPE = #{record.type,jdbcType=INTEGER},
+      HUIYUAN_ID = #{record.huiyuanId,jdbcType=INTEGER},
+      MERCHANT_ID = #{record.merchantId,jdbcType=INTEGER},
+      SHANGJIA_ID = #{record.shangjiaId,jdbcType=INTEGER},
+      TIME = #{record.time,jdbcType=VARCHAR},
+      ORDER_ID = #{record.orderId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.MerchantMoneyModel" >
+    update t_merchant_money
+    <set >
+      <if test="brankCard != null" >
+        BRANK_CARD = #{brankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="brankName != null" >
+        BRANK_NAME = #{brankName,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        MONEY = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="ps != null" >
+        PS = #{ps,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="huiyuanId != null" >
+        HUIYUAN_ID = #{huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="merchantId != null" >
+        MERCHANT_ID = #{merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="shangjiaId != null" >
+        SHANGJIA_ID = #{shangjiaId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        TIME = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.MerchantMoneyModel" >
+    update t_merchant_money
+    set BRANK_CARD = #{brankCard,jdbcType=VARCHAR},
+      BRANK_NAME = #{brankName,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=INTEGER},
+      MONEY = #{money,jdbcType=DOUBLE},
+      PS = #{ps,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=INTEGER},
+      HUIYUAN_ID = #{huiyuanId,jdbcType=INTEGER},
+      MERCHANT_ID = #{merchantId,jdbcType=INTEGER},
+      SHANGJIA_ID = #{shangjiaId,jdbcType=INTEGER},
+      TIME = #{time,jdbcType=VARCHAR},
+      ORDER_ID = #{orderId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.PSAreaModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.PSAreaModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="AREANMAE" property="areanmae" jdbcType="VARCHAR" />
+    <result column="MRSCFR" property="mrscfr" jdbcType="DOUBLE" />
+    <result column="MRXZFR" property="mrxzfr" jdbcType="DOUBLE" />
+    <result column="PAYTYPE" property="paytype" jdbcType="VARCHAR" />
+    <result column="DLYTYPE_ID" property="dlytypeId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.com.dyninfo.o2o.model.PSAreaModel" extends="BaseResultMap" >
+    <result column="AREAID" property="areaid" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, AREANMAE, MRSCFR, MRXZFR, PAYTYPE, DLYTYPE_ID
+  </sql>
+  <sql id="Blob_Column_List" >
+    AREAID
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.com.dyninfo.o2o.model.PSAreaModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_psarea
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.PSAreaModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_psarea
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_psarea
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_psarea
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.PSAreaModelCriteria" >
+    delete from t_psarea
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.PSAreaModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_psarea (AREANMAE, MRSCFR, MRXZFR, 
+      PAYTYPE, DLYTYPE_ID, AREAID
+      )
+    values (#{areanmae,jdbcType=VARCHAR}, #{mrscfr,jdbcType=DOUBLE}, #{mrxzfr,jdbcType=DOUBLE}, 
+      #{paytype,jdbcType=VARCHAR}, #{dlytypeId,jdbcType=INTEGER}, #{areaid,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.PSAreaModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_psarea
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areanmae != null" >
+        AREANMAE,
+      </if>
+      <if test="mrscfr != null" >
+        MRSCFR,
+      </if>
+      <if test="mrxzfr != null" >
+        MRXZFR,
+      </if>
+      <if test="paytype != null" >
+        PAYTYPE,
+      </if>
+      <if test="dlytypeId != null" >
+        DLYTYPE_ID,
+      </if>
+      <if test="areaid != null" >
+        AREAID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areanmae != null" >
+        #{areanmae,jdbcType=VARCHAR},
+      </if>
+      <if test="mrscfr != null" >
+        #{mrscfr,jdbcType=DOUBLE},
+      </if>
+      <if test="mrxzfr != null" >
+        #{mrxzfr,jdbcType=DOUBLE},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="dlytypeId != null" >
+        #{dlytypeId,jdbcType=INTEGER},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.PSAreaModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_psarea
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_psarea
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.areanmae != null" >
+        AREANMAE = #{record.areanmae,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mrscfr != null" >
+        MRSCFR = #{record.mrscfr,jdbcType=DOUBLE},
+      </if>
+      <if test="record.mrxzfr != null" >
+        MRXZFR = #{record.mrxzfr,jdbcType=DOUBLE},
+      </if>
+      <if test="record.paytype != null" >
+        PAYTYPE = #{record.paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dlytypeId != null" >
+        DLYTYPE_ID = #{record.dlytypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.areaid != null" >
+        AREAID = #{record.areaid,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_psarea
+    set ID = #{record.id,jdbcType=INTEGER},
+      AREANMAE = #{record.areanmae,jdbcType=VARCHAR},
+      MRSCFR = #{record.mrscfr,jdbcType=DOUBLE},
+      MRXZFR = #{record.mrxzfr,jdbcType=DOUBLE},
+      PAYTYPE = #{record.paytype,jdbcType=VARCHAR},
+      DLYTYPE_ID = #{record.dlytypeId,jdbcType=INTEGER},
+      AREAID = #{record.areaid,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_psarea
+    set ID = #{record.id,jdbcType=INTEGER},
+      AREANMAE = #{record.areanmae,jdbcType=VARCHAR},
+      MRSCFR = #{record.mrscfr,jdbcType=DOUBLE},
+      MRXZFR = #{record.mrxzfr,jdbcType=DOUBLE},
+      PAYTYPE = #{record.paytype,jdbcType=VARCHAR},
+      DLYTYPE_ID = #{record.dlytypeId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.PSAreaModel" >
+    update t_psarea
+    <set >
+      <if test="areanmae != null" >
+        AREANMAE = #{areanmae,jdbcType=VARCHAR},
+      </if>
+      <if test="mrscfr != null" >
+        MRSCFR = #{mrscfr,jdbcType=DOUBLE},
+      </if>
+      <if test="mrxzfr != null" >
+        MRXZFR = #{mrxzfr,jdbcType=DOUBLE},
+      </if>
+      <if test="paytype != null" >
+        PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="dlytypeId != null" >
+        DLYTYPE_ID = #{dlytypeId,jdbcType=INTEGER},
+      </if>
+      <if test="areaid != null" >
+        AREAID = #{areaid,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.com.dyninfo.o2o.model.PSAreaModel" >
+    update t_psarea
+    set AREANMAE = #{areanmae,jdbcType=VARCHAR},
+      MRSCFR = #{mrscfr,jdbcType=DOUBLE},
+      MRXZFR = #{mrxzfr,jdbcType=DOUBLE},
+      PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      DLYTYPE_ID = #{dlytypeId,jdbcType=INTEGER},
+      AREAID = #{areaid,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.PSAreaModel" >
+    update t_psarea
+    set AREANMAE = #{areanmae,jdbcType=VARCHAR},
+      MRSCFR = #{mrscfr,jdbcType=DOUBLE},
+      MRXZFR = #{mrxzfr,jdbcType=DOUBLE},
+      PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      DLYTYPE_ID = #{dlytypeId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

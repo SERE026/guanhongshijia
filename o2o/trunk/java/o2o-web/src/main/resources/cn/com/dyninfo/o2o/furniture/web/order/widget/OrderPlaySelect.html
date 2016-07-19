@@ -1,0 +1,22 @@
+
+<form action="orderplay-${tradeNo}.html" name="orderPlay" method="post">
+<div class="g2_xian22">&nbsp;</div>
+<div class="g2_kuai22">
+<div class="g2_kuai_daxuan"><input name="account" type="checkbox" value="0" /></div>
+<div class="g2_kuai_zi">优先使用余额支付</div>
+<div class="g2_kuai_zi">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="STYLE17">余额不足部分请选择其它支付方式哦</span>
+</div>
+</div>
+<#list zflist as zf>
+
+<div class="g2_kuai22">
+<div class="g2_kuai_daxuan"><input name="zffs" type="radio" value="${zf.zffs_id}" /></div>
+<div class="g2_kuai_zi">${zf.name}</div>
+<div class="g2_kuai_zi">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="STYLE17">${zf.ps}</span>
+</div>
+</div>
+
+</#list>
+</form>

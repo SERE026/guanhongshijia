@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.WebModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.WebModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="SLT_W" property="sltW" jdbcType="VARCHAR" />
+    <result column="SLT_H" property="sltH" jdbcType="VARCHAR" />
+    <result column="GOODSXX_W" property="goodsxxW" jdbcType="VARCHAR" />
+    <result column="GOODXX_H" property="goodxxH" jdbcType="VARCHAR" />
+    <result column="GOOD_W" property="goodW" jdbcType="VARCHAR" />
+    <result column="GOOD_H" property="goodH" jdbcType="VARCHAR" />
+    <result column="IS_SY" property="isSy" jdbcType="VARCHAR" />
+    <result column="SY_NAME" property="syName" jdbcType="VARCHAR" />
+    <result column="SY_LOCATION" property="syLocation" jdbcType="VARCHAR" />
+    <result column="FONT_COLOR" property="fontColor" jdbcType="VARCHAR" />
+    <result column="FONT_SIZE" property="fontSize" jdbcType="VARCHAR" />
+    <result column="IS_CODE" property="isCode" jdbcType="VARCHAR" />
+    <result column="PAGE_SIZE" property="pageSize" jdbcType="VARCHAR" />
+    <result column="IS_LMPL" property="isLmpl" jdbcType="VARCHAR" />
+    <result column="IS_DISPALY" property="isDispaly" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="KEYWORD" property="keyword" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="BG_COLOR" property="bgColor" jdbcType="VARCHAR" />
+    <result column="BG_IMG" property="bgImg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, SLT_W, SLT_H, GOODSXX_W, GOODXX_H, GOOD_W, GOOD_H, IS_SY, SY_NAME, SY_LOCATION, 
+    FONT_COLOR, FONT_SIZE, IS_CODE, PAGE_SIZE, IS_LMPL, IS_DISPALY, DESCRIPTION, KEYWORD, 
+    TITLE, BG_COLOR, BG_IMG
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.WebModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_web
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_web
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_web
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.WebModelCriteria" >
+    delete from t_web
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.WebModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_web (SLT_W, SLT_H, GOODSXX_W, 
+      GOODXX_H, GOOD_W, GOOD_H, 
+      IS_SY, SY_NAME, SY_LOCATION, 
+      FONT_COLOR, FONT_SIZE, IS_CODE, 
+      PAGE_SIZE, IS_LMPL, IS_DISPALY, 
+      DESCRIPTION, KEYWORD, TITLE, 
+      BG_COLOR, BG_IMG)
+    values (#{sltW,jdbcType=VARCHAR}, #{sltH,jdbcType=VARCHAR}, #{goodsxxW,jdbcType=VARCHAR}, 
+      #{goodxxH,jdbcType=VARCHAR}, #{goodW,jdbcType=VARCHAR}, #{goodH,jdbcType=VARCHAR}, 
+      #{isSy,jdbcType=VARCHAR}, #{syName,jdbcType=VARCHAR}, #{syLocation,jdbcType=VARCHAR}, 
+      #{fontColor,jdbcType=VARCHAR}, #{fontSize,jdbcType=VARCHAR}, #{isCode,jdbcType=VARCHAR}, 
+      #{pageSize,jdbcType=VARCHAR}, #{isLmpl,jdbcType=VARCHAR}, #{isDispaly,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{bgColor,jdbcType=VARCHAR}, #{bgImg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.WebModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_web
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sltW != null" >
+        SLT_W,
+      </if>
+      <if test="sltH != null" >
+        SLT_H,
+      </if>
+      <if test="goodsxxW != null" >
+        GOODSXX_W,
+      </if>
+      <if test="goodxxH != null" >
+        GOODXX_H,
+      </if>
+      <if test="goodW != null" >
+        GOOD_W,
+      </if>
+      <if test="goodH != null" >
+        GOOD_H,
+      </if>
+      <if test="isSy != null" >
+        IS_SY,
+      </if>
+      <if test="syName != null" >
+        SY_NAME,
+      </if>
+      <if test="syLocation != null" >
+        SY_LOCATION,
+      </if>
+      <if test="fontColor != null" >
+        FONT_COLOR,
+      </if>
+      <if test="fontSize != null" >
+        FONT_SIZE,
+      </if>
+      <if test="isCode != null" >
+        IS_CODE,
+      </if>
+      <if test="pageSize != null" >
+        PAGE_SIZE,
+      </if>
+      <if test="isLmpl != null" >
+        IS_LMPL,
+      </if>
+      <if test="isDispaly != null" >
+        IS_DISPALY,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="keyword != null" >
+        KEYWORD,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="bgColor != null" >
+        BG_COLOR,
+      </if>
+      <if test="bgImg != null" >
+        BG_IMG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sltW != null" >
+        #{sltW,jdbcType=VARCHAR},
+      </if>
+      <if test="sltH != null" >
+        #{sltH,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsxxW != null" >
+        #{goodsxxW,jdbcType=VARCHAR},
+      </if>
+      <if test="goodxxH != null" >
+        #{goodxxH,jdbcType=VARCHAR},
+      </if>
+      <if test="goodW != null" >
+        #{goodW,jdbcType=VARCHAR},
+      </if>
+      <if test="goodH != null" >
+        #{goodH,jdbcType=VARCHAR},
+      </if>
+      <if test="isSy != null" >
+        #{isSy,jdbcType=VARCHAR},
+      </if>
+      <if test="syName != null" >
+        #{syName,jdbcType=VARCHAR},
+      </if>
+      <if test="syLocation != null" >
+        #{syLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="fontColor != null" >
+        #{fontColor,jdbcType=VARCHAR},
+      </if>
+      <if test="fontSize != null" >
+        #{fontSize,jdbcType=VARCHAR},
+      </if>
+      <if test="isCode != null" >
+        #{isCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pageSize != null" >
+        #{pageSize,jdbcType=VARCHAR},
+      </if>
+      <if test="isLmpl != null" >
+        #{isLmpl,jdbcType=VARCHAR},
+      </if>
+      <if test="isDispaly != null" >
+        #{isDispaly,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null" >
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="bgColor != null" >
+        #{bgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="bgImg != null" >
+        #{bgImg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.WebModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_web
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_web
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sltW != null" >
+        SLT_W = #{record.sltW,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sltH != null" >
+        SLT_H = #{record.sltH,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsxxW != null" >
+        GOODSXX_W = #{record.goodsxxW,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodxxH != null" >
+        GOODXX_H = #{record.goodxxH,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodW != null" >
+        GOOD_W = #{record.goodW,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodH != null" >
+        GOOD_H = #{record.goodH,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSy != null" >
+        IS_SY = #{record.isSy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.syName != null" >
+        SY_NAME = #{record.syName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.syLocation != null" >
+        SY_LOCATION = #{record.syLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fontColor != null" >
+        FONT_COLOR = #{record.fontColor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fontSize != null" >
+        FONT_SIZE = #{record.fontSize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isCode != null" >
+        IS_CODE = #{record.isCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pageSize != null" >
+        PAGE_SIZE = #{record.pageSize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isLmpl != null" >
+        IS_LMPL = #{record.isLmpl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDispaly != null" >
+        IS_DISPALY = #{record.isDispaly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keyword != null" >
+        KEYWORD = #{record.keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bgColor != null" >
+        BG_COLOR = #{record.bgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bgImg != null" >
+        BG_IMG = #{record.bgImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_web
+    set ID = #{record.id,jdbcType=INTEGER},
+      SLT_W = #{record.sltW,jdbcType=VARCHAR},
+      SLT_H = #{record.sltH,jdbcType=VARCHAR},
+      GOODSXX_W = #{record.goodsxxW,jdbcType=VARCHAR},
+      GOODXX_H = #{record.goodxxH,jdbcType=VARCHAR},
+      GOOD_W = #{record.goodW,jdbcType=VARCHAR},
+      GOOD_H = #{record.goodH,jdbcType=VARCHAR},
+      IS_SY = #{record.isSy,jdbcType=VARCHAR},
+      SY_NAME = #{record.syName,jdbcType=VARCHAR},
+      SY_LOCATION = #{record.syLocation,jdbcType=VARCHAR},
+      FONT_COLOR = #{record.fontColor,jdbcType=VARCHAR},
+      FONT_SIZE = #{record.fontSize,jdbcType=VARCHAR},
+      IS_CODE = #{record.isCode,jdbcType=VARCHAR},
+      PAGE_SIZE = #{record.pageSize,jdbcType=VARCHAR},
+      IS_LMPL = #{record.isLmpl,jdbcType=VARCHAR},
+      IS_DISPALY = #{record.isDispaly,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      KEYWORD = #{record.keyword,jdbcType=VARCHAR},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      BG_COLOR = #{record.bgColor,jdbcType=VARCHAR},
+      BG_IMG = #{record.bgImg,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.WebModel" >
+    update t_web
+    <set >
+      <if test="sltW != null" >
+        SLT_W = #{sltW,jdbcType=VARCHAR},
+      </if>
+      <if test="sltH != null" >
+        SLT_H = #{sltH,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsxxW != null" >
+        GOODSXX_W = #{goodsxxW,jdbcType=VARCHAR},
+      </if>
+      <if test="goodxxH != null" >
+        GOODXX_H = #{goodxxH,jdbcType=VARCHAR},
+      </if>
+      <if test="goodW != null" >
+        GOOD_W = #{goodW,jdbcType=VARCHAR},
+      </if>
+      <if test="goodH != null" >
+        GOOD_H = #{goodH,jdbcType=VARCHAR},
+      </if>
+      <if test="isSy != null" >
+        IS_SY = #{isSy,jdbcType=VARCHAR},
+      </if>
+      <if test="syName != null" >
+        SY_NAME = #{syName,jdbcType=VARCHAR},
+      </if>
+      <if test="syLocation != null" >
+        SY_LOCATION = #{syLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="fontColor != null" >
+        FONT_COLOR = #{fontColor,jdbcType=VARCHAR},
+      </if>
+      <if test="fontSize != null" >
+        FONT_SIZE = #{fontSize,jdbcType=VARCHAR},
+      </if>
+      <if test="isCode != null" >
+        IS_CODE = #{isCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pageSize != null" >
+        PAGE_SIZE = #{pageSize,jdbcType=VARCHAR},
+      </if>
+      <if test="isLmpl != null" >
+        IS_LMPL = #{isLmpl,jdbcType=VARCHAR},
+      </if>
+      <if test="isDispaly != null" >
+        IS_DISPALY = #{isDispaly,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null" >
+        KEYWORD = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="bgColor != null" >
+        BG_COLOR = #{bgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="bgImg != null" >
+        BG_IMG = #{bgImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.WebModel" >
+    update t_web
+    set SLT_W = #{sltW,jdbcType=VARCHAR},
+      SLT_H = #{sltH,jdbcType=VARCHAR},
+      GOODSXX_W = #{goodsxxW,jdbcType=VARCHAR},
+      GOODXX_H = #{goodxxH,jdbcType=VARCHAR},
+      GOOD_W = #{goodW,jdbcType=VARCHAR},
+      GOOD_H = #{goodH,jdbcType=VARCHAR},
+      IS_SY = #{isSy,jdbcType=VARCHAR},
+      SY_NAME = #{syName,jdbcType=VARCHAR},
+      SY_LOCATION = #{syLocation,jdbcType=VARCHAR},
+      FONT_COLOR = #{fontColor,jdbcType=VARCHAR},
+      FONT_SIZE = #{fontSize,jdbcType=VARCHAR},
+      IS_CODE = #{isCode,jdbcType=VARCHAR},
+      PAGE_SIZE = #{pageSize,jdbcType=VARCHAR},
+      IS_LMPL = #{isLmpl,jdbcType=VARCHAR},
+      IS_DISPALY = #{isDispaly,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      KEYWORD = #{keyword,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      BG_COLOR = #{bgColor,jdbcType=VARCHAR},
+      BG_IMG = #{bgImg,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

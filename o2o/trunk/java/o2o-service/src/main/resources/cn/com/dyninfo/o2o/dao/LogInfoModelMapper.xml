@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.LogInfoModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.LogInfoModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="TIME" property="time" jdbcType="VARCHAR" />
+    <result column="EXPLAIN" property="explain" jdbcType="VARCHAR" />
+    <result column="JF" property="jf" jdbcType="INTEGER" />
+    <result column="HUIYUAN_ID" property="huiyuanId" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="EXPLAIN_INFO" property="explainInfo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, TIME, EXPLAIN, JF, HUIYUAN_ID, TYPE, EXPLAIN_INFO
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.LogInfoModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_log_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_log_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_log_info
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.LogInfoModelCriteria" >
+    delete from t_log_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.LogInfoModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_log_info (TIME, EXPLAIN, JF, 
+      HUIYUAN_ID, TYPE, EXPLAIN_INFO
+      )
+    values (#{time,jdbcType=VARCHAR}, #{explain,jdbcType=VARCHAR}, #{jf,jdbcType=INTEGER}, 
+      #{huiyuanId,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{explainInfo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.LogInfoModel" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_log_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="time != null" >
+        TIME,
+      </if>
+      <if test="explain != null" >
+        EXPLAIN,
+      </if>
+      <if test="jf != null" >
+        JF,
+      </if>
+      <if test="huiyuanId != null" >
+        HUIYUAN_ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="explainInfo != null" >
+        EXPLAIN_INFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="explain != null" >
+        #{explain,jdbcType=VARCHAR},
+      </if>
+      <if test="jf != null" >
+        #{jf,jdbcType=INTEGER},
+      </if>
+      <if test="huiyuanId != null" >
+        #{huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="explainInfo != null" >
+        #{explainInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.LogInfoModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_log_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_log_info
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.time != null" >
+        TIME = #{record.time,jdbcType=VARCHAR},
+      </if>
+      <if test="record.explain != null" >
+        EXPLAIN = #{record.explain,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jf != null" >
+        JF = #{record.jf,jdbcType=INTEGER},
+      </if>
+      <if test="record.huiyuanId != null" >
+        HUIYUAN_ID = #{record.huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        TYPE = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.explainInfo != null" >
+        EXPLAIN_INFO = #{record.explainInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_log_info
+    set ID = #{record.id,jdbcType=INTEGER},
+      TIME = #{record.time,jdbcType=VARCHAR},
+      EXPLAIN = #{record.explain,jdbcType=VARCHAR},
+      JF = #{record.jf,jdbcType=INTEGER},
+      HUIYUAN_ID = #{record.huiyuanId,jdbcType=INTEGER},
+      TYPE = #{record.type,jdbcType=VARCHAR},
+      EXPLAIN_INFO = #{record.explainInfo,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.LogInfoModel" >
+    update t_log_info
+    <set >
+      <if test="time != null" >
+        TIME = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="explain != null" >
+        EXPLAIN = #{explain,jdbcType=VARCHAR},
+      </if>
+      <if test="jf != null" >
+        JF = #{jf,jdbcType=INTEGER},
+      </if>
+      <if test="huiyuanId != null" >
+        HUIYUAN_ID = #{huiyuanId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="explainInfo != null" >
+        EXPLAIN_INFO = #{explainInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.LogInfoModel" >
+    update t_log_info
+    set TIME = #{time,jdbcType=VARCHAR},
+      EXPLAIN = #{explain,jdbcType=VARCHAR},
+      JF = #{jf,jdbcType=INTEGER},
+      HUIYUAN_ID = #{huiyuanId,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=VARCHAR},
+      EXPLAIN_INFO = #{explainInfo,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

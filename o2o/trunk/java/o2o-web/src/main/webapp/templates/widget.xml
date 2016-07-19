@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<pages>
+	<page id="common">
+		<widget id="area">
+			<widgetType>ArearWidget</widgetType>
+		</widget>
+		<widget id="loginbar">
+			<widgetType>loginBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="top_advpic">
+			<widgetType>adv</widgetType>
+			<id>8</id>
+		</widget>
+		<widget id="buttom_advpic">
+			<widgetType>adv</widgetType>
+			<id>13</id>
+		</widget>
+		<widget id="goodsSort">
+			<widgetType>goodsSortWidget</widgetType>
+			<type>index</type>
+		</widget>
+		<widget id="merchantTypeWidget">
+			<widgetType>merchantTypeWidget</widgetType>
+		</widget>
+	</page>
+	<page id="/index.html">
+		<widget id="index_advSild">
+			<widgetType>adv</widgetType>
+			<id>7</id>
+			<isBtn>false</isBtn>
+		</widget>
+		<widget id="index_advSild2">
+			<widgetType>adv</widgetType>
+			<id>62</id>
+			<isBtn>false</isBtn>
+		</widget>
+		
+		<widget id="index_advSild_mr1">
+			<widgetType>adv</widgetType>
+			<id>9</id>
+			<isBtn>true</isBtn>
+		</widget>
+		<widget id="index_advSild_mr2">
+			<widgetType>adv</widgetType>
+			<id>10</id>
+			<isBtn>true</isBtn>
+		</widget>
+		<widget id="index_advSild_mr3">
+			<widgetType>adv</widgetType>
+			<id>11</id>
+			<isBtn>true</isBtn>
+		</widget>
+		<widget id="index_advSild_mr4">
+			<widgetType>adv</widgetType>
+			<id>12</id>
+			<isBtn>true</isBtn>
+		</widget>
+		<widget id="index_goods">
+			<widgetType>goodsWidget</widgetType>
+			<id>28</id>
+			<pageSize>12</pageSize>
+			<pageNo>1</pageNo>
+
+		</widget>
+	</page>
+	<page id="/register.html">
+		<widget id="register_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>14</id>
+		</widget>
+		<widget id="register_merchants">
+			<widgetType>loginBar</widgetType>
+			<action>merchants</action>
+		</widget>
+	</page>
+	<page id="/login.html">
+		<widget id="login_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>24</id>
+		</widget>
+	</page>
+	<page id="/shopMaps.html">
+		<widget id="shopMaps">
+			<widgetType>shopMaps</widgetType>
+		</widget>
+	</page>
+	<page id="/find_password_sucess.html"></page>
+
+	<page id="/huiyuan_message.html">
+
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+
+		<widget id="huiyuan_message_show">
+			<widgetType>message</widgetType>
+		</widget>
+
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+	<page id="/huiyuan_order.html">
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_order_list">
+			<widgetType>huiyuanBar</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+
+	<page id="/huiyuan_order_detail.html">
+		<widget id="huiyuan_order_detail">
+			<widgetType>orderDetail</widgetType>
+		</widget>
+	</page>
+	<page id="/huiyuan_personal.html">
+
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_personal_jbzl">
+			<widgetType>personal</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+	<page id="/huiyuan_adress.html">
+
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_adress_add">
+			<widgetType>adress</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+	<page id="/huiyuan_adress_modify.html">
+
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_adress_modify">
+			<widgetType>adressModify</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+	<page id="/huiyuan_integral.html">
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_integral_show">
+			<widgetType>integral</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+
+
+	<page id="/huiyuan_showorder_detail.html">
+
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_showorder_detail">
+			<widgetType>detail</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+
+	</page>
+	<page id="/huiyuan_showorder_issue.html">
+
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_showorder_issue">
+			<widgetType>issue</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+
+	<page id="/huiyuan_collect.html">
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_collect_show">
+			<widgetType>collect</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+	<page id="/huiyuan_showorder.html">
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_showorder_show">
+			<widgetType>showorder</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+
+	<page id="/item.html">
+		<widget id="itemGoods">
+			<widgetType>itemGoods</widgetType>
+		</widget>
+	</page>
+	<page id="/emil_success.html"></page>
+	<page id="/find_password.html"></page>
+	<page id="/modify_password.html"></page>
+	<page id="/modify_head.html">
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+
+		</widget>
+		<widget id="member_tx">
+			<widgetType>loginBar</widgetType>
+			<action>tx</action>
+			<folder>templates/costmer</folder>
+		</widget>
+	</page>
+	<page id="/cars.html">
+		<widget id="car">
+			<widgetType>carsWidget</widgetType>
+		</widget>
+	</page>
+	<page id="/confirmorder.html">
+		<widget id="confirm">
+			<widgetType>confirmOrder</widgetType>
+		</widget>
+	</page>
+	<page id="/orderplay.html">
+		<widget id="orderplay">
+			<widgetType>Orderplay</widgetType>
+		</widget>
+	</page>
+	<page id="/notify_url.html">
+		<widget id="notify">
+			<widgetType>notify</widgetType>
+		</widget>
+		<widget id="order_adv_bt10">
+			<widgetType>orderAdv</widgetType>
+		</widget>
+	</page>
+		<page id="/return_url.html">
+		<widget id="return">
+			<widgetType>return</widgetType>
+		</widget>
+	</page>
+	<page id="/GoodBrand.html">
+		<widget id="good_brand">
+			<widgetType>good_brand</widgetType>
+			<action>brand</action>
+		</widget>
+		<widget id="good_spec">
+			<widgetType>good_brand</widgetType>
+			<action>init</action>
+		</widget>
+		<widget id="goodAreaWidget">
+			<widgetType>goodAreaWidget</widgetType>
+		</widget>
+		<widget id="goodPath">
+			<widgetType>good_brand</widgetType>
+			<action>path</action>
+		</widget>
+	</page>
+	<page id="/GoodList.html">
+		<widget id="good_sort">
+			<widgetType>good_sort</widgetType>
+		</widget>
+		<widget id="list_sort_z">
+			<widgetType>list_sort</widgetType>
+			<modulId>33</modulId>
+		</widget>
+		<widget id="list_sort_y">
+			<widgetType>list_sort</widgetType>
+			<modulId>34</modulId>
+		</widget>
+		<widget id="list_path">
+			<widgetType>list_path</widgetType>
+		</widget>
+		<widget id="good_spec">
+			<widgetType>good_spec</widgetType>
+		</widget>
+		<widget id="goodAreaWidget">
+			<widgetType>goodAreaWidget</widgetType>
+		</widget>
+		<widget id="list_adv">
+			<widgetType>adv</widgetType>
+			<id>15</id>
+		</widget>
+	</page>
+	<page id="/shop.html">
+		<widget id="shopWidte">
+			<widgetType>shopWidte</widgetType>
+		</widget>
+	</page>
+	<page id="/active.html">
+		<widget id="active_widget">
+			<widgetType>active</widgetType>
+		</widget>
+		<widget id="top_advpic1">
+			<widgetType>adv</widgetType>
+			<id>21</id>
+		</widget>
+	</page>
+	<page id="/actitem.html">
+		<widget id="detail">
+			<widgetType>actDetail</widgetType>
+		</widget>
+	</page>
+	<page id="/shopList.html">
+		<widget id="tuijian">
+			<widgetType>shopList</widgetType>
+			<action>tuijian</action>
+		</widget>
+		<widget id="shoparea">
+			<widgetType>shopList</widgetType>
+			<action>shoparea</action>
+		</widget>
+		<widget id="shopSortName">
+			<widgetType>shopList</widgetType>
+			<action>shopSortName</action>
+		</widget>
+		<widget id="shop_pic">
+			<widgetType>adv</widgetType>
+			<id>17</id>
+		</widget>
+	</page>
+
+	<page id="/shopMap.html">
+		<widget id="map_pic">
+			<widgetType>adv</widgetType>
+			<id>18</id>
+		</widget>
+		<widget id="maptuijian">
+			<widgetType>shopList</widgetType>
+			<action>maptuijian</action>
+		</widget>
+		<widget id="mapArea">
+			<widgetType>merchantWidget</widgetType>
+			<action>area</action>
+		</widget>
+	</page>
+	<page id="/nrenj.html">
+		<widget id="nvrenjie">
+			<widgetType>shopList</widgetType>
+			<action>nvrenjie</action>
+		</widget>
+	</page>
+	<page id="/apply.html">
+		<widget id="busType">
+			<widgetType>applyWidget</widgetType>
+			<action>busType</action>
+		</widget>
+		<widget id="mhType">
+			<widgetType>applyWidget</widgetType>
+			<action>mhType</action>
+		</widget>
+	</page>
+	<page id="/chain.html">
+		<widget id="top_advpic1">
+			<widgetType>adv</widgetType>
+			<id>19</id>
+		</widget>
+		<widget id="top">
+			<widgetType>shopList</widgetType>
+			<action>chain_top</action>
+		</widget>
+		<widget id="tuijian">
+			<widgetType>shopList</widgetType>
+			<action>chain_tuijian</action>
+		</widget>
+	</page>
+	<page id="/brand.html">
+		<widget id="top_advpic1">
+			<widgetType>adv</widgetType>
+			<id>20</id>
+		</widget>
+		<widget id="data">
+			<widgetType>brand_Widget</widgetType>
+		</widget>
+	</page>
+
+	<page id="/bbs.html">
+		<widget id="top_advpic1">
+			<widgetType>adv</widgetType>
+			<id>22</id>
+		</widget>
+		<widget id="bbsSendWidget">
+			<widgetType>bbsSendWidget</widgetType>
+			<action>sendAdd</action>
+		</widget>
+	</page>
+	<page id="/bbs2.html">
+		<widget id="top_advpic1">
+			<widgetType>adv</widgetType>
+			<id>22</id>
+		</widget>
+		<widget id="title">
+			<widgetType>bbsWidget</widgetType>
+		</widget>
+		<widget id="send">
+			<widgetType>bbsSendWidget</widgetType>
+		</widget>
+	</page>
+	<page id="/goodSearch.html">
+		<widget id="goodSearch">
+			<widgetType>good_search</widgetType>
+			<action>init</action>
+		</widget>
+		<widget id="goodAreaWidget">
+			<widgetType>goodAreaWidget</widgetType>
+		</widget>
+	</page>
+	<page id="/game.html">
+		<widget id="gameHtml">
+			<widgetType>gameWidget</widgetType>
+		</widget>
+	</page>
+	<page id="/aboutus.html">
+		<widget id="aboutusMenu">
+			<widgetType>aboutusMenu</widgetType>
+		</widget>
+		<widget id="aboutusContent">
+			<widgetType>aboutusContent</widgetType>
+		</widget>
+	</page>
+	<page id="/help.html">
+		<widget id="helpContext">
+			<widgetType>help</widgetType>
+		</widget>
+	</page>
+	<page id="/qqLogin.html">
+		<widget id="qqLogin">
+			<widgetType>qqLogin</widgetType>
+		</widget>
+	</page>
+	<page id="/play_succeed.html">
+		<widget id="play_success">
+			<widgetType>play_success</widgetType>
+		</widget>
+		<widget id="order_adv_bt10">
+			<widgetType>orderAdv</widgetType>
+		</widget>
+	</page>
+	<page id="/ylnotify.html">
+		<widget id="ylnotify">
+			<widgetType>ylnotify</widgetType>
+		</widget>
+	</page>
+	<page id="/ylreturn.html">
+		<widget id="ylreturn">
+			<widgetType>ylreturn</widgetType>
+		</widget>
+	</page>
+	
+	<!-- 会员充值 -->
+	<page id="/huiyuan_chongzhi.html">
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+		<widget id="huiyuan_chongzhi_show">
+			<widgetType>account</widgetType>
+		</widget>
+	</page>
+	
+	<!-- 会员充值返回 -->
+	<page id="/chong_succeed.html">
+		<widget id="zfPlay_success">
+			<widgetType>zfPlay_success</widgetType>
+		</widget>
+	</page>
+	
+	
+	
+	
+	<!-- 支付宝支付 -->
+	<page id="/zfbpay.html">
+		<widget id="zfbpay">
+			<widgetType>zfbpay</widgetType>
+		</widget>
+	</page>
+	
+	<!-- 银联支付 -->
+	<page id="/ylpay.html">
+		<widget id="ylpay">
+			<widgetType>ylpay</widgetType>
+		</widget>
+	</page>
+	<page id="/orderPlay_select.html">
+		<widget id="order_play_select">
+			<widgetType>order_play_select</widgetType>
+		</widget>
+	</page>
+	<page id="/huangou.html">
+		<widget id="index_advSild">
+			<widgetType>adv</widgetType>
+			<id>28</id>
+			<isBtn>false</isBtn>
+		</widget>
+		
+		<widget id="brand_avd1">
+			<widgetType>adv</widgetType>
+			<id>29</id>
+			<isBtn>false</isBtn>
+		</widget>
+		
+		<widget id="brand_avd2">
+			<widgetType>adv</widgetType>
+			<id>30</id>
+			<isBtn>false</isBtn>
+		</widget>
+		
+		<widget id="brand_bottom_avd1">
+			<widgetType>adv</widgetType>
+			<id>31</id>
+			<isBtn>false</isBtn>
+		</widget>		
+	</page>
+	<page id="/xshop.html">
+		<widget id="adv_32">
+			<widgetType>adv</widgetType>
+			<id>32</id>
+			<isBtn>false</isBtn>
+		</widget>
+		<widget id="adv_top_right_1">
+			<widgetType>adv</widgetType>
+			<id>63</id>
+			<isBtn>false</isBtn>
+		</widget>
+		<widget id="adv_top_right_2">
+			<widgetType>adv</widgetType>
+			<id>64</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_33">
+			<widgetType>adv</widgetType>
+			<id>33</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_34">
+			<widgetType>adv</widgetType>
+			<id>34</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_35">
+			<widgetType>adv</widgetType>
+			<id>35</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_36">
+			<widgetType>adv</widgetType>
+			<id>36</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_37">
+			<widgetType>adv</widgetType>
+			<id>37</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_38">
+			<widgetType>adv</widgetType>
+			<id>38</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_39">
+			<widgetType>adv</widgetType>
+			<id>39</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_40">
+			<widgetType>adv</widgetType>
+			<id>40</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_41">
+			<widgetType>adv</widgetType>
+			<id>41</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_42">
+			<widgetType>adv</widgetType>
+			<id>42</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_43">
+			<widgetType>adv</widgetType>
+			<id>43</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_44">
+			<widgetType>adv</widgetType>
+			<id>44</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_45">
+			<widgetType>adv</widgetType>
+			<id>45</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_46">
+			<widgetType>adv</widgetType>
+			<id>46</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_47">
+			<widgetType>adv</widgetType>
+			<id>47</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_48">
+			<widgetType>adv</widgetType>
+			<id>48</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_49">
+			<widgetType>adv</widgetType>
+			<id>49</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_50">
+			<widgetType>adv</widgetType>
+			<id>50</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_51">
+			<widgetType>adv</widgetType>
+			<id>51</id>
+			<isBtn>false</isBtn>
+		</widget>	
+		<widget id="adv_52">
+			<widgetType>adv</widgetType>
+			<id>52</id>
+			<isBtn>false</isBtn>
+		</widget>
+		<widget id="adv_53">
+			<widgetType>adv</widgetType>
+			<id>53</id>
+			<isBtn>false</isBtn>
+		</widget>		
+	</page>
+	<page id="/play_complete.html">
+		<widget id="play_complete">
+			<widgetType>play_complete</widgetType>
+		</widget>
+	</page>
+	<page id="/hx_return.html">
+		<widget id="hx_return">
+			<widgetType>hx_return</widgetType>
+		</widget>
+	</page>
+	
+	
+	<!-- 会员退款 -->
+	<page id="/tuikuan.html">
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+		<widget id="tuikuan">
+			<widgetType>tuikuan</widgetType>
+		</widget>
+	</page>
+	
+	<!-- QQ登录手机号码验证 -->
+	<page id="/phoneCheck.html">
+		<widget id="register_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>14</id>
+		</widget>
+		<widget id="phoneCheck">
+			<widgetType>phoneCheck</widgetType>
+		</widget>
+	</page>
+	
+	<!-- 用户协议 -->
+	<page id="/xieyi.html">
+		<widget id="xieyi">
+			<widgetType>xieyi</widgetType>
+		</widget>
+	</page>
+	
+	<page id="/tryuseIndex.html">
+		<widget id="tryuse_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>54</id>
+		</widget>
+		<widget id="tryuse_adv_slid1">
+			<widgetType>adv</widgetType>
+			<id>55</id>
+			<isBtn>false</isBtn>
+		</widget>
+		<widget id="tryuse_index_list">
+			<widgetType>tryuseWidget</widgetType>
+			<type>1</type>
+		</widget>
+		<widget id="tryuse_index_ready">
+			<widgetType>tryuseWidget</widgetType>
+			<type>2</type>
+		</widget>
+	</page>
+	
+	
+	<page id="/tryuseapply.html">
+		<widget id="tryuse_apply">
+			<widgetType>tryuseApply</widgetType>
+		</widget>
+	</page>
+	
+	<page id="/tryuseago.html">
+		<widget id="tryuse_ago_list">
+			<widgetType>tryuseAgo</widgetType>
+		</widget>
+		<widget id="tryuse_ago_tou">
+				<widgetType>tryuseAgo</widgetType>
+				<action>page</action>
+		</widget>
+		<widget id="tryuse_ago_advpic1">
+			<widgetType>adv</widgetType>
+			<id>56</id>
+		</widget>
+	</page>
+	
+	<page id="/huiyuan_tryuse.html">
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+		<widget id="huiyuan_tryuse_list">
+			<widgetType>huiyuanTryuse</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+	<page id="/tryusedetail.html">
+		<widget id="tryuse_detail">
+			<widgetType>tryuseDetail</widgetType>
+		</widget>
+			<widget id="tryuse_detail_new">
+			<widgetType>tryuseDetail</widgetType>
+			<type>1</type>
+		</widget>
+			<widget id="tryuse_detail_say">
+			<widgetType>tryuseDetail</widgetType>action
+			<type>2</type>
+			<action>page</action>
+		</widget>
+	</page>
+	<page id="/tryuseSaidan.html">
+		<widget id="tryuse_detail">
+			<widgetType>tryuseDetail</widgetType>
+		</widget>
+		<widget id="tryuse_detail_new">
+			<widgetType>tryuseDetail</widgetType>
+			<type>1</type>
+		</widget>
+			<widget id="tryuse_saidan_list">
+			<widgetType>tryuseSaidan</widgetType>
+		</widget>
+	</page>
+	
+	<page id="/bbs_koubei.html">
+		<widget id="bbs_koubei_list">
+			<widgetType>bbskoubei</widgetType>
+		</widget>
+		<widget id="tryuse_detail_new">
+			<widgetType>tryuseDetail</widgetType>
+			<type>1</type>
+		</widget>
+		<widget id="bbs_koubei_gonggao">
+			<widgetType>bbsGongao</widgetType>
+		</widget>
+		<widget id="bbs_koubei_pic1">
+			<widgetType>adv</widgetType>
+			<id>22</id>
+		</widget>
+	</page>
+	
+
+	
+	<page id="/bbs_koubei_shaidan.html">
+		<widget id="bbs_shaidan_list">
+			<widgetType>bbssahidan</widgetType>
+		</widget>
+			<widget id="tryuse_detail_new">
+			<widgetType>tryuseDetail</widgetType>
+			<type>1</type>
+		</widget>
+		<widget id="bbs_shaidan_men">
+			<widgetType>bbssahidan</widgetType>
+			<action>getmen</action>
+		</widget>
+			<widget id="bbs_shaidan_say">
+			<widgetType>bbssahidan</widgetType>
+			<action>say</action>
+		</widget>
+	</page>
+	
+	<page id="/erweima.html">
+		
+	</page>
+	
+	<page id="/weixing/index.html">
+		<widget id="weixing">
+			<widgetType>weixing</widgetType>
+		</widget>
+	</page>
+	<page id="/active_deat.html">
+		<widget id="active_deat">
+			<widgetType>active_deat</widgetType>
+		</widget>
+	</page>
+	
+	
+</pages>

@@ -1,0 +1,42 @@
+
+<div class="gr_r_xiaoxi">
+<div class="gr_r_xiaoxi_zi">资产动态：</div>
+</div>
+<div class="gr_r_xbiaotou">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab06">
+  <tr>
+    <td style=" width:160px">日期</td>
+    <td style=" width:130px">资产动态</td>
+    <td style="width:130px;">交易状态</td>
+	<td style="width:380x;">详细说明</td>
+  </tr>
+</table>
+</div>
+
+
+
+<div class="gr_r_tabda">
+<table mm="a" width="100%" border="0" cellspacing="0" cellpadding="0" class="tab08">
+<#list liushui as info>
+  <tr class="dtr">
+    <td style=" width:160px"><#if info.date??>${info.date}</#if></td>
+    <td style=" width:130px">
+    	<#if info.flag==1>
+    		<span class="STYLE33">+ ${info.money?c}</span>
+    	<#else>
+    		<span class="STYLE35">${info.money?c}</span>
+    	</#if>
+    </td>
+    <td style="width:130px;">交易成功</td>
+	<td style="width:380x; padding-left:9px; text-align:left">${info.ps}</td>
+  </tr>
+</#list>
+</table>
+</div>
+
+
+
+
+</div>
+
+

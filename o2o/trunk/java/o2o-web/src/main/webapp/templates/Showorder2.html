@@ -1,0 +1,45 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tab11">
+
+<tbody>
+<#list data as d>
+<tr>
+<td style=" width:60px">
+<div class="dshai_tu">
+<img width="100%" height="100" src="${applicationPath}/upload/goods/${d.product.defaultImage}">
+</div>
+</td>
+<#if d.showstats=="1">
+<td style=" width:430px">
+<div class="dshai_wenzi"><a class="zhu24" href="${applicationPath}/huiyuan_showorder_detail.html?orderproduct=${d.order_product_id}">${d.product.name}</a></div>
+</td>
+<td style="width:134px;">${d.order.time}</td>
+<td style="width:134px;">
+	<span>已晒单</span><br>
+<#else>
+<td style=" width:430px">
+<div class="dshai_wenzi">${d.product.name}</div>
+</td>
+<td style="width:134px;">${d.order.time}</td>
+<td style="width:134px;">
+<span><a class="zhu24" href="${applicationPath}/huiyuan_showorder_issue.html?orderproduct=${d.order_product_id}">发表晒单</a></span><br>
+</#if>
+</td>
+</tr>
+</#list>
+
+
+
+</tbody></table>

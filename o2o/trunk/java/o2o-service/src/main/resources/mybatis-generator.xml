@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- classPathEntry 是引用的jdbc的类路径 -->
+    <classPathEntry location="E:/m2/mysql/mysql-connector-java/5.1.13/mysql-connector-java-5.1.13.jar" />
+
+    <context id="generatorTables" targetRuntime="MyBatis3">
+
+        <!--<plugin type="cn.com.dyninfo.o2o.generator.PaginationPlugin" />-->
+
+        <plugin type="org.mybatis.generator.plugins.MapperConfigPlugin">
+            <property name="fileName" value="mybatis-config.xml"/>
+            <property name="targetPackage" value="/"/>
+            <property name="targetProject" value="src/main/resources"/>
+        </plugin>
+        
+       <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+           <property name="searchString" value="Example"/>
+           <property name="replaceString" value="Criteria"/>
+       </plugin>
+        
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--
+            commentGenerator 是用来除去时间信息的，这在配合类似subversion的代码管理工具时使用很有效，
+            因为可以减少没有必要的注释迁入；
+        -->
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="true" />  
+        </commentGenerator>
+    
+        <!-- jdbcConnection是指定的jdbc的连接信息； -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1/o2o" userId="root"
+                        password="root.123">
+        </jdbcConnection>
+
+        <!-- javaTypeResolver式类型转换的信息，这里并没有用到； -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+    
+        <!-- javaModelGenerator是模型的生成信息，这里将指定这些Java model类的生成路径； -->
+        <javaModelGenerator targetPackage="cn.com.dyninfo.o2o.model"
+            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- sqlMapGenerator是mybatis 的sqlMapper XML文件的生成信息，包括生成路径等； -->
+        <sqlMapGenerator targetPackage="cn.com.dyninfo.o2o.dao"
+            targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+    
+        <!-- javaClientGenerator是应用接口的生成信息； -->
+        <javaClientGenerator type="XMLMAPPER" 
+            targetPackage="cn.com.dyninfo.o2o.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+    
+        <!-- table是用户指定的被生成相关信息的表，它必须在指定的jdbc连接中已经被建立。 -->
+        <table tableName="base_accapt_message_info" domainObjectName="AccaptMessageModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_attach_info" domainObjectName="AttachInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_controlgroup_info" domainObjectName="ControlGroupModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_log" domainObjectName="LogModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_message_info" domainObjectName="MessageModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_ognz_info" domainObjectName="OgnzInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_ognz_user" domainObjectName="OgnzUserModel">
+        </table>
+        <table tableName="base_rescontrol_relation" domainObjectName="ResControlRelModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_res_info" domainObjectName="ResInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_role_control" domainObjectName="RoleControlRelModel">
+        </table>
+        <table tableName="base_role_info" domainObjectName="RoleInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_user_info" domainObjectName="UserInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="base_user_role" domainObjectName="UserRoleRelModel">
+        </table>
+        <table tableName="t_aadvwz_info" domainObjectName="AAdvWzInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_aadv_info" domainObjectName="AAdvInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_active" domainObjectName="ActiveModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_active_goods" domainObjectName="ActiveGoodsModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_active_member_info" domainObjectName="ActiveMemberInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_address_member" domainObjectName="AddressMemberModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_adv" domainObjectName="AdvModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_advwz" domainObjectName="AdvWzModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_adv_goods" domainObjectName="AdvGoodsModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_agent_grade" domainObjectName="AgentGradeModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_amenu_info" domainObjectName="AMenuInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_ameunwz_info" domainObjectName="AMenuWzInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_areax_info" domainObjectName="AreaXInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_articles" domainObjectName="ArticlesModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_bbs_post_info" domainObjectName="BbsPostInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_bbs_userinfo" domainObjectName="BbsUserInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_brand" domainObjectName="BrandModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_brand_order" domainObjectName="BrandOrderModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_business_type" domainObjectName="BusinessTypeModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_cars" domainObjectName="CarsModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_cars_box" domainObjectName="CarsBoxModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_ckhdsp" domainObjectName="CkhdspModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_commentsay_info" domainObjectName="CommentSayModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_comment_info" domainObjectName="CommentInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_coupon" domainObjectName="CouponModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_coupon_member_rel" domainObjectName="CouponMemberRelModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_deliver_dly" domainObjectName="DeliverDlyModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_dlytype" domainObjectName="DlyTypeModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_faorites" domainObjectName="FaoritesModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_findpassword_info" domainObjectName="FindPasswordModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_goods" domainObjectName="GoodsModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_goodssort" domainObjectName="GoodsSortModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_goodstype" domainObjectName="GoodsTypeModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_goodstype_or_brand" domainObjectName="GoodsTypeOrBrandModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_goods_copy" domainObjectName="GoodsCopyModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_goods_delivery" domainObjectName="GoodsDeliveryModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_goods_spec_val" domainObjectName="GoodsSpecValModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_good_spec" domainObjectName="GoodSpecModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_goos_type_spec" domainObjectName="GoodTypeSpecModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_huiyuan_info" domainObjectName="HuiyuanInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_huiyuan_money" domainObjectName="HuiyuanMoneyModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_jfadd" domainObjectName="JfAddModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_jfadd_info" domainObjectName="JfAddInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_jffa" domainObjectName="JfFaModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_jffa_info" domainObjectName="JfFaInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_log_info" domainObjectName="LogInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_merchants_apply" domainObjectName="MerchantsApplyModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_merchant_money" domainObjectName="MerchantMoneyModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_merchant_order" domainObjectName="MerchantOrderModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_merchant_order_info" domainObjectName="MerchantOrderInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_merchant_type" domainObjectName="MerchantTypeModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_messagesend" domainObjectName="MessageSendModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_message_info" domainObjectName="MessageInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_note" domainObjectName="NoteModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_nrj" domainObjectName="NrjModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_order" domainObjectName="OrderModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_order_product" domainObjectName="OrderProductModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_pagemodule" domainObjectName="PageModuleModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_pagemodule_in_goods" domainObjectName="PageModuleInGoodsModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_page_path" domainObjectName="PagePathModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_payment" domainObjectName="PaymentModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_product" domainObjectName="ProductModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_psarea" domainObjectName="PSAreaModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_refundorder" domainObjectName="RefundOrderModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_returnedorder" domainObjectName="ReturneOrderModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_sendorder" domainObjectName="SendOrderModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_shangjia_info" domainObjectName="ShangjiaInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_show_good" domainObjectName="ShowGoodModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_size" domainObjectName="SizeModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_sms_log" domainObjectName="SmsLogModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_trade_info" domainObjectName="TradeInfoModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_tryuse_apply" domainObjectName="TryUseApplyModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_web" domainObjectName="WebModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_withdrawal" domainObjectName="WithdrawalModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_wlcompany" domainObjectName="WlCompanyModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_yqlj" domainObjectName="YqljModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+        <table tableName="t_zffs" domainObjectName="ZffsModel">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"  />
+        </table>
+
+    </context>
+</generatorConfiguration>  

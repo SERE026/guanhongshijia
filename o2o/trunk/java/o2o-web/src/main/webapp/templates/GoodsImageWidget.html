@@ -1,0 +1,48 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<script type="text/javascript" src="js/goodsImagebox.js"></script>
+<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+<link href="${applicationPath}/css/jqzoom.css" rel="stylesheet" type="text/css" />
+<div class="spdetail_left goodsImagebox">
+<div class="spdetail_left_datu ">
+<div class="spdetail_left_datu_xintu maxBox">
+<#if images?size gt 0>
+			<span class="tozoom"><img  class="jqzoom" alt="${applicationPath}/${images[0]}" src="${applicationPath}/${images[0]}" width="100%" height="100%" /></span>
+</#if>
+</div>
+</div>
+<div class="spdetail_left_xiaotu ">
+<#if images?size gt 3>
+<div class="spdetail_xiajiantou left">
+  <a href="javascript:;"><img src="${applicationPath}/img/spjiantouleft.gif" border="0" /></a></div>
+</#if>
+
+<#list images as img>  
+  
+<div class="spdetail_left_xiaotu_k<#if img_index gt 0>2</#if> imgMin" <#if img_index gt 2>style="display:none"</#if>>
+<a href="javascript:;" ><img src="${applicationPath}/${img}" width="78" height="78" border="0"/></a>
+</div>
+
+</#list>
+
+<#if images?size gt 3>
+
+<div class="spdetail_xiajiantou22 right">
+  <a href="javascript:;"><img src="${applicationPath}/img/spjiantouright.gif" border="0" /></a></div>
+  
+</#if>
+  
+</div>
+</div>
+

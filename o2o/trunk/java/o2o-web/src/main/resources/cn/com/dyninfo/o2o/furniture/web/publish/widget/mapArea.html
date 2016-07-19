@@ -1,0 +1,27 @@
+
+<script type="text/javascript">
+    var cityName="${cityName}";
+</script>
+
+<div class="gr_dizhi_bao_kuai_right_dd" style=" margin-left:0">
+
+<form name="form1" id="form1">
+<select name="menu1" class="gr_dizhi_bao_shuru01" id="provinceId">
+<option  value="">请选择省市/其它</option>
+
+</select>
+</form>
+</div>
+<div class="gr_dizhi_bao_kuai_right_dd">
+<form name="form1" id="form1">
+<select name="menu1"  class="gr_dizhi_bao_shuru01" <#if city??>dataVal="${city.id}"</#if> id="cityId">
+<option  value="">请选择城市</option>
+</select>
+</form>
+</div>
+<div class="gr_dizhi_bao_kuai_right_dd">
+<form name="form1" id="form1">
+<select name="menu1"  class="gr_dizhi_bao_shuru01" <#if province??>dataVal="${province.id}"</#if> id="countyId">
+<option value="">请选择区县</option>
+</select>
+</form>

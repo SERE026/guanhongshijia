@@ -1,0 +1,131 @@
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<link href="${applicationPath}/css/active.css" rel="stylesheet" type="text/css" />
+<div class="hd_gunda act hd_gundaBox">
+
+<script type="text/JavaScript" src="js/slide.js"></script>
+<link href="css/slide.css" rel="stylesheet" type="text/css" />
+
+<script>
+	$(function(){
+		new slide($("#slide${info.advwz_id}"),false);
+	})
+	
+</script>
+<div id="slide${info.advwz_id}" class="wm_slide" style="width:${info.advwz_width}px;height:${info.advwz_height}px;margin:auto;">
+	<ul >
+		<#list data as adv>
+		<li  style="width:${info.advwz_width}px;height:${info.advwz_height}px;">
+		<#if adv.adv_flie??>
+			<a target="_blank" href="${adv.adv_link}">
+				<img adv alt="${adv.adv_name}" src="${applicationPath}/upload/adv/${adv.adv_flie}" width="100%" height="100%">
+			</a>
+			</#if>
+		</li>
+		</#list>
+	</ul>
+</div>
+
+
+
+
+<!-- 
+
+<div class="slide">
+
+<#list topList as good>
+		<div style="width:1009px; height:320px;float:left" class="box" data="${good.goodName}">
+			<div class="hd_gunda_left" style="float:left"><a href="${applicationPath}/active-${good.actId}-${good.goodId}.html"><img src="${applicationPath}/upload/goods/${good.image}" width="100%" height="100%" border="0" /></a></div> 
+			<div class="hd_gunda_right">
+			<div class="hd_gunda_right_time">
+			<div class="hd_gunda_right_time_ta"><img src="${applicationPath}/img/hd_list_10.gif" /></div>
+			<div class="hd_gunda_right_time_tb acttime">${good.ctime}</div>
+			</div>
+		
+		
+			<div class="hd_gunda_right_wenzi">
+				<span class="STYLE1">
+				<#if good.xmoney==0>
+					10折/
+				</#if>
+				<#if good.xmoney!=0>
+				${(good.money*1.0/good.xmoney*10)?string(0.0)}折/
+				</#if>
+				 </span>
+					<#if good.description??>
+						${good.description}
+					</#if>
+				</div>
+				<div class="hd_gunda_right_jiage">
+					<div class="hd_gunda_right_jiage_qi">¥${good.money?string('0.0')}</div> 
+					<div class="hd_gunda_right_jiage_qi2">¥${good.xmoney?string('0')}</div>
+					<div class="hd_gunda_right_an"><a href="${applicationPath}/active-${good.actId}-${good.goodId}.html"><img src="${applicationPath}/img/hd_list_15.gif" border="0" /></a></div>
+				</div>
+				<div class="hd_gunda_right_xiaokuai">
+					<div class="hd_gunda_r_xkka">
+						<#if good.cnum  ==1>5.0</#if>
+						<#if good.cnum gt 1&&good.lv??>${(good.lv/good.cnum)?string('0.0')}</#if>分
+					</div>
+					<div class="hd_gunda_r_xkkxing"><img src="${applicationPath}/img/hd_list_19.gif" /></div>
+					<div class="hd_gunda_r_xkkbb">
+						<span class="STYLE27">${good.xiaoliang}</span>人已购买
+					</div>
+				</div>
+			</div>
+		</div>
+</#list>
+</div>
+
+ -->
+</div>
+
+
+
+
+<div class="taitou_03">
+<div class="taitou_xiashi">HOT活动商品</div>
+
+
+</div>
+<div class="hd_dada pageBox">
+
+
+
+</div>
+<div class="touming5">&nbsp;</div>
+<div class="fenye page">
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<script src="js/activePage.js"  type="text/javascript"></script>
+<script src="js/active.js"  type="text/javascript"></script>
+
+<script type="text/javascript">
+new act($(".act"));
+new page($(".page"),$(".pageBox"),"active");
+</script>
+
+

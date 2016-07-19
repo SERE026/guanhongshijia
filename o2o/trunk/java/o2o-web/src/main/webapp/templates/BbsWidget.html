@@ -1,0 +1,100 @@
+
+
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list data as b>
+
+<div class="xuanyan2_da_kuai">
+<div class="xuna2_left">
+<div class="xuanyan2_left_ming">
+<div class="xuanyan2_left_ming_tu"><img src="${applicationPath}/img/luntan_15.gif" /></div>
+<div class="xuanyan2_left_ming_zi">${b.user.name}</div>
+</div> 
+<div class="xuanyan2_left_xian">&nbsp;</div>
+<div class="xuanyan2_touda">
+<div class="xuanyan2_tou">
+
+<#if b.user.image??>
+	<img src="${applicationPath}/upload/${b.user.image}" width="100%" height="100%" />
+
+<#else>
+	<img src="${applicationPath}/img/morentouxiang.jpg" width="100%" height="100%" />
+</#if>
+
+</div>
+</div>
+<div class="xuanyan2_touxing">
+
+<#list 0..b.user.lev/4 as x>
+<#if x!=0>
+<div><img src="${applicationPath}/img/liuantang_xing_13.gif" /></div>
+</#if>
+</#list>
+<#list 0..b.user.lev%4 as x>
+<#if x!=0>
+<div><img src="${applicationPath}/img/liuantang_xing_15.gif" /></div>
+</#if>
+</#list>
+
+
+
+</div>
+
+
+<div class="xuanyan_jibie">
+<#if b.user.lev gt 4>
+论坛红人
+</#if>
+</div>
+
+
+
+
+
+<div class="touming11">&nbsp;</div>
+</div>
+<div class="xuna2_right">
+<div class="xy2_r_t2">
+<div class="xy2_r_t2_kk"><img src="${applicationPath}/img/xy2_05.gif" /></div>
+<div class="xy2_r_t2_kk">发表于： ${b.time}</div>
+<div class="xy2_r_t2_kk">|</div>
+<div class="xy2_r_t2_kk showZ"><a href="javascript:;" class="zhu12">只看楼主</a></div>
+<div class="xy2_r_t2_kk2">
+<#if b_index==0>
+楼主
+</#if>
+<#if b_index!=0>
+${b_index}楼
+</#if>
+</div>
+<div class="xy2_r_t2_kk2 font" mappend="context${b_index}" size="14">
+<a href="javascript:;" ><img src="${applicationPath}/img/xy2_09.gif" border="0" /></a></div>
+<div class="xy2_r_t2_kk2">
+<img src="${applicationPath}/img/xy2_08.gif" />
+</div>
+<div class="xy2_r_t2_kk2 font" mappend="context${b_index}"  size="12">
+<a href="javascript:;"><img src="${applicationPath}/img/xy2_07.gif" border="0" /></a></div>
+<div class="xy2_r_t2_kk2">
+字体大小：
+</div>
+</div>
+<div class="xy2_r_t2_xian">&nbsp;</div>
+<div class="xy2_r_zi context${b_index}">
+
+${b.context}
+
+</div>
+</div>
+</div>
+</#list>

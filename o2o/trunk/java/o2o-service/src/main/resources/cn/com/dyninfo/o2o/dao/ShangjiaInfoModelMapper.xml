@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.dyninfo.o2o.dao.ShangjiaInfoModelMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.dyninfo.o2o.model.ShangjiaInfoModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="CONTACTNAME" property="contactname" jdbcType="VARCHAR" />
+    <result column="CONTACTPHONE" property="contactphone" jdbcType="VARCHAR" />
+    <result column="LATITUDE" property="latitude" jdbcType="REAL" />
+    <result column="LONGITUDE" property="longitude" jdbcType="REAL" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="ORDER_INDEX" property="orderIndex" jdbcType="VARCHAR" />
+    <result column="INTRO" property="intro" jdbcType="VARCHAR" />
+    <result column="RECOMMENDED_INDEX" property="recommendedIndex" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="VARCHAR" />
+    <result column="COUNT_ID" property="countId" jdbcType="VARCHAR" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="VARCHAR" />
+    <result column="IMAGE" property="image" jdbcType="VARCHAR" />
+    <result column="PS" property="ps" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="AFFILIATION" property="affiliation" jdbcType="VARCHAR" />
+    <result column="APPKEY" property="appkey" jdbcType="VARCHAR" />
+    <result column="NRJ_ID" property="nrjId" jdbcType="INTEGER" />
+    <result column="TYPE_ID" property="typeId" jdbcType="INTEGER" />
+    <result column="FLAG" property="flag" jdbcType="INTEGER" />
+    <result column="DZ_IAMGE" property="dzIamge" jdbcType="VARCHAR" />
+    <result column="NRJ_IAMGE" property="nrjIamge" jdbcType="VARCHAR" />
+    <result column="SORT" property="sort" jdbcType="INTEGER" />
+    <result column="DAILI_ID" property="dailiId" jdbcType="VARCHAR" />
+    <result column="DZ_URL" property="dzUrl" jdbcType="VARCHAR" />
+    <result column="MONEY" property="money" jdbcType="DOUBLE" />
+    <result column="QQ" property="qq" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.com.dyninfo.o2o.model.ShangjiaInfoModelWithBLOBs" extends="BaseResultMap" >
+    <result column="DESC_INFO" property="descInfo" jdbcType="LONGVARCHAR" />
+    <result column="agent" property="agent" jdbcType="BINARY" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, ADDRESS, CONTACTNAME, CONTACTPHONE, LATITUDE, LONGITUDE, NAME, ORDER_INDEX, INTRO, 
+    RECOMMENDED_INDEX, CITY_ID, COUNT_ID, PROVINCE_ID, IMAGE, PS, STATE, USER_ID, AFFILIATION, 
+    APPKEY, NRJ_ID, TYPE_ID, FLAG, DZ_IAMGE, NRJ_IAMGE, SORT, DAILI_ID, DZ_URL, MONEY, 
+    QQ
+  </sql>
+  <sql id="Blob_Column_List" >
+    DESC_INFO, agent
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_shangjia_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModelCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_shangjia_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_shangjia_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_shangjia_info
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModelCriteria" >
+    delete from t_shangjia_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModelWithBLOBs" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_shangjia_info (ADDRESS, CONTACTNAME, CONTACTPHONE, 
+      LATITUDE, LONGITUDE, NAME, 
+      ORDER_INDEX, INTRO, RECOMMENDED_INDEX, 
+      CITY_ID, COUNT_ID, PROVINCE_ID, 
+      IMAGE, PS, STATE, USER_ID, 
+      AFFILIATION, APPKEY, NRJ_ID, 
+      TYPE_ID, FLAG, DZ_IAMGE, 
+      NRJ_IAMGE, SORT, DAILI_ID, 
+      DZ_URL, MONEY, QQ, DESC_INFO, 
+      agent)
+    values (#{address,jdbcType=VARCHAR}, #{contactname,jdbcType=VARCHAR}, #{contactphone,jdbcType=VARCHAR}, 
+      #{latitude,jdbcType=REAL}, #{longitude,jdbcType=REAL}, #{name,jdbcType=VARCHAR}, 
+      #{orderIndex,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, #{recommendedIndex,jdbcType=VARCHAR}, 
+      #{cityId,jdbcType=VARCHAR}, #{countId,jdbcType=VARCHAR}, #{provinceId,jdbcType=VARCHAR}, 
+      #{image,jdbcType=VARCHAR}, #{ps,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{affiliation,jdbcType=VARCHAR}, #{appkey,jdbcType=VARCHAR}, #{nrjId,jdbcType=INTEGER}, 
+      #{typeId,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}, #{dzIamge,jdbcType=VARCHAR}, 
+      #{nrjIamge,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{dailiId,jdbcType=VARCHAR}, 
+      #{dzUrl,jdbcType=VARCHAR}, #{money,jdbcType=DOUBLE}, #{qq,jdbcType=VARCHAR}, #{descInfo,jdbcType=LONGVARCHAR}, 
+      #{agent,jdbcType=BINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModelWithBLOBs" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_shangjia_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="contactname != null" >
+        CONTACTNAME,
+      </if>
+      <if test="contactphone != null" >
+        CONTACTPHONE,
+      </if>
+      <if test="latitude != null" >
+        LATITUDE,
+      </if>
+      <if test="longitude != null" >
+        LONGITUDE,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="orderIndex != null" >
+        ORDER_INDEX,
+      </if>
+      <if test="intro != null" >
+        INTRO,
+      </if>
+      <if test="recommendedIndex != null" >
+        RECOMMENDED_INDEX,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="countId != null" >
+        COUNT_ID,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="image != null" >
+        IMAGE,
+      </if>
+      <if test="ps != null" >
+        PS,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="affiliation != null" >
+        AFFILIATION,
+      </if>
+      <if test="appkey != null" >
+        APPKEY,
+      </if>
+      <if test="nrjId != null" >
+        NRJ_ID,
+      </if>
+      <if test="typeId != null" >
+        TYPE_ID,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+      <if test="dzIamge != null" >
+        DZ_IAMGE,
+      </if>
+      <if test="nrjIamge != null" >
+        NRJ_IAMGE,
+      </if>
+      <if test="sort != null" >
+        SORT,
+      </if>
+      <if test="dailiId != null" >
+        DAILI_ID,
+      </if>
+      <if test="dzUrl != null" >
+        DZ_URL,
+      </if>
+      <if test="money != null" >
+        MONEY,
+      </if>
+      <if test="qq != null" >
+        QQ,
+      </if>
+      <if test="descInfo != null" >
+        DESC_INFO,
+      </if>
+      <if test="agent != null" >
+        agent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contactname != null" >
+        #{contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="contactphone != null" >
+        #{contactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=REAL},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=REAL},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="orderIndex != null" >
+        #{orderIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null" >
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendedIndex != null" >
+        #{recommendedIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="countId != null" >
+        #{countId,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="ps != null" >
+        #{ps,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="affiliation != null" >
+        #{affiliation,jdbcType=VARCHAR},
+      </if>
+      <if test="appkey != null" >
+        #{appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="nrjId != null" >
+        #{nrjId,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="dzIamge != null" >
+        #{dzIamge,jdbcType=VARCHAR},
+      </if>
+      <if test="nrjIamge != null" >
+        #{nrjIamge,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="dailiId != null" >
+        #{dailiId,jdbcType=VARCHAR},
+      </if>
+      <if test="dzUrl != null" >
+        #{dzUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="descInfo != null" >
+        #{descInfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="agent != null" >
+        #{agent,jdbcType=BINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModelCriteria" resultType="java.lang.Integer" >
+    select count(*) from t_shangjia_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_shangjia_info
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.address != null" >
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactname != null" >
+        CONTACTNAME = #{record.contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactphone != null" >
+        CONTACTPHONE = #{record.contactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.latitude != null" >
+        LATITUDE = #{record.latitude,jdbcType=REAL},
+      </if>
+      <if test="record.longitude != null" >
+        LONGITUDE = #{record.longitude,jdbcType=REAL},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderIndex != null" >
+        ORDER_INDEX = #{record.orderIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intro != null" >
+        INTRO = #{record.intro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recommendedIndex != null" >
+        RECOMMENDED_INDEX = #{record.recommendedIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityId != null" >
+        CITY_ID = #{record.cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.countId != null" >
+        COUNT_ID = #{record.countId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provinceId != null" >
+        PROVINCE_ID = #{record.provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.image != null" >
+        IMAGE = #{record.image,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ps != null" >
+        PS = #{record.ps,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.affiliation != null" >
+        AFFILIATION = #{record.affiliation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appkey != null" >
+        APPKEY = #{record.appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nrjId != null" >
+        NRJ_ID = #{record.nrjId,jdbcType=INTEGER},
+      </if>
+      <if test="record.typeId != null" >
+        TYPE_ID = #{record.typeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.flag != null" >
+        FLAG = #{record.flag,jdbcType=INTEGER},
+      </if>
+      <if test="record.dzIamge != null" >
+        DZ_IAMGE = #{record.dzIamge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nrjIamge != null" >
+        NRJ_IAMGE = #{record.nrjIamge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sort != null" >
+        SORT = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.dailiId != null" >
+        DAILI_ID = #{record.dailiId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dzUrl != null" >
+        DZ_URL = #{record.dzUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.money != null" >
+        MONEY = #{record.money,jdbcType=DOUBLE},
+      </if>
+      <if test="record.qq != null" >
+        QQ = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.descInfo != null" >
+        DESC_INFO = #{record.descInfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.agent != null" >
+        agent = #{record.agent,jdbcType=BINARY},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_shangjia_info
+    set ID = #{record.id,jdbcType=INTEGER},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      CONTACTNAME = #{record.contactname,jdbcType=VARCHAR},
+      CONTACTPHONE = #{record.contactphone,jdbcType=VARCHAR},
+      LATITUDE = #{record.latitude,jdbcType=REAL},
+      LONGITUDE = #{record.longitude,jdbcType=REAL},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      ORDER_INDEX = #{record.orderIndex,jdbcType=VARCHAR},
+      INTRO = #{record.intro,jdbcType=VARCHAR},
+      RECOMMENDED_INDEX = #{record.recommendedIndex,jdbcType=VARCHAR},
+      CITY_ID = #{record.cityId,jdbcType=VARCHAR},
+      COUNT_ID = #{record.countId,jdbcType=VARCHAR},
+      PROVINCE_ID = #{record.provinceId,jdbcType=VARCHAR},
+      IMAGE = #{record.image,jdbcType=VARCHAR},
+      PS = #{record.ps,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=VARCHAR},
+      AFFILIATION = #{record.affiliation,jdbcType=VARCHAR},
+      APPKEY = #{record.appkey,jdbcType=VARCHAR},
+      NRJ_ID = #{record.nrjId,jdbcType=INTEGER},
+      TYPE_ID = #{record.typeId,jdbcType=INTEGER},
+      FLAG = #{record.flag,jdbcType=INTEGER},
+      DZ_IAMGE = #{record.dzIamge,jdbcType=VARCHAR},
+      NRJ_IAMGE = #{record.nrjIamge,jdbcType=VARCHAR},
+      SORT = #{record.sort,jdbcType=INTEGER},
+      DAILI_ID = #{record.dailiId,jdbcType=VARCHAR},
+      DZ_URL = #{record.dzUrl,jdbcType=VARCHAR},
+      MONEY = #{record.money,jdbcType=DOUBLE},
+      QQ = #{record.qq,jdbcType=VARCHAR},
+      DESC_INFO = #{record.descInfo,jdbcType=LONGVARCHAR},
+      agent = #{record.agent,jdbcType=BINARY}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_shangjia_info
+    set ID = #{record.id,jdbcType=INTEGER},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      CONTACTNAME = #{record.contactname,jdbcType=VARCHAR},
+      CONTACTPHONE = #{record.contactphone,jdbcType=VARCHAR},
+      LATITUDE = #{record.latitude,jdbcType=REAL},
+      LONGITUDE = #{record.longitude,jdbcType=REAL},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      ORDER_INDEX = #{record.orderIndex,jdbcType=VARCHAR},
+      INTRO = #{record.intro,jdbcType=VARCHAR},
+      RECOMMENDED_INDEX = #{record.recommendedIndex,jdbcType=VARCHAR},
+      CITY_ID = #{record.cityId,jdbcType=VARCHAR},
+      COUNT_ID = #{record.countId,jdbcType=VARCHAR},
+      PROVINCE_ID = #{record.provinceId,jdbcType=VARCHAR},
+      IMAGE = #{record.image,jdbcType=VARCHAR},
+      PS = #{record.ps,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=VARCHAR},
+      AFFILIATION = #{record.affiliation,jdbcType=VARCHAR},
+      APPKEY = #{record.appkey,jdbcType=VARCHAR},
+      NRJ_ID = #{record.nrjId,jdbcType=INTEGER},
+      TYPE_ID = #{record.typeId,jdbcType=INTEGER},
+      FLAG = #{record.flag,jdbcType=INTEGER},
+      DZ_IAMGE = #{record.dzIamge,jdbcType=VARCHAR},
+      NRJ_IAMGE = #{record.nrjIamge,jdbcType=VARCHAR},
+      SORT = #{record.sort,jdbcType=INTEGER},
+      DAILI_ID = #{record.dailiId,jdbcType=VARCHAR},
+      DZ_URL = #{record.dzUrl,jdbcType=VARCHAR},
+      MONEY = #{record.money,jdbcType=DOUBLE},
+      QQ = #{record.qq,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModelWithBLOBs" >
+    update t_shangjia_info
+    <set >
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contactname != null" >
+        CONTACTNAME = #{contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="contactphone != null" >
+        CONTACTPHONE = #{contactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        LATITUDE = #{latitude,jdbcType=REAL},
+      </if>
+      <if test="longitude != null" >
+        LONGITUDE = #{longitude,jdbcType=REAL},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="orderIndex != null" >
+        ORDER_INDEX = #{orderIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null" >
+        INTRO = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendedIndex != null" >
+        RECOMMENDED_INDEX = #{recommendedIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="countId != null" >
+        COUNT_ID = #{countId,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        IMAGE = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="ps != null" >
+        PS = #{ps,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="affiliation != null" >
+        AFFILIATION = #{affiliation,jdbcType=VARCHAR},
+      </if>
+      <if test="appkey != null" >
+        APPKEY = #{appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="nrjId != null" >
+        NRJ_ID = #{nrjId,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        TYPE_ID = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="dzIamge != null" >
+        DZ_IAMGE = #{dzIamge,jdbcType=VARCHAR},
+      </if>
+      <if test="nrjIamge != null" >
+        NRJ_IAMGE = #{nrjIamge,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        SORT = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="dailiId != null" >
+        DAILI_ID = #{dailiId,jdbcType=VARCHAR},
+      </if>
+      <if test="dzUrl != null" >
+        DZ_URL = #{dzUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        MONEY = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="qq != null" >
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="descInfo != null" >
+        DESC_INFO = #{descInfo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="agent != null" >
+        agent = #{agent,jdbcType=BINARY},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModelWithBLOBs" >
+    update t_shangjia_info
+    set ADDRESS = #{address,jdbcType=VARCHAR},
+      CONTACTNAME = #{contactname,jdbcType=VARCHAR},
+      CONTACTPHONE = #{contactphone,jdbcType=VARCHAR},
+      LATITUDE = #{latitude,jdbcType=REAL},
+      LONGITUDE = #{longitude,jdbcType=REAL},
+      NAME = #{name,jdbcType=VARCHAR},
+      ORDER_INDEX = #{orderIndex,jdbcType=VARCHAR},
+      INTRO = #{intro,jdbcType=VARCHAR},
+      RECOMMENDED_INDEX = #{recommendedIndex,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=VARCHAR},
+      COUNT_ID = #{countId,jdbcType=VARCHAR},
+      PROVINCE_ID = #{provinceId,jdbcType=VARCHAR},
+      IMAGE = #{image,jdbcType=VARCHAR},
+      PS = #{ps,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      AFFILIATION = #{affiliation,jdbcType=VARCHAR},
+      APPKEY = #{appkey,jdbcType=VARCHAR},
+      NRJ_ID = #{nrjId,jdbcType=INTEGER},
+      TYPE_ID = #{typeId,jdbcType=INTEGER},
+      FLAG = #{flag,jdbcType=INTEGER},
+      DZ_IAMGE = #{dzIamge,jdbcType=VARCHAR},
+      NRJ_IAMGE = #{nrjIamge,jdbcType=VARCHAR},
+      SORT = #{sort,jdbcType=INTEGER},
+      DAILI_ID = #{dailiId,jdbcType=VARCHAR},
+      DZ_URL = #{dzUrl,jdbcType=VARCHAR},
+      MONEY = #{money,jdbcType=DOUBLE},
+      QQ = #{qq,jdbcType=VARCHAR},
+      DESC_INFO = #{descInfo,jdbcType=LONGVARCHAR},
+      agent = #{agent,jdbcType=BINARY}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.dyninfo.o2o.model.ShangjiaInfoModel" >
+    update t_shangjia_info
+    set ADDRESS = #{address,jdbcType=VARCHAR},
+      CONTACTNAME = #{contactname,jdbcType=VARCHAR},
+      CONTACTPHONE = #{contactphone,jdbcType=VARCHAR},
+      LATITUDE = #{latitude,jdbcType=REAL},
+      LONGITUDE = #{longitude,jdbcType=REAL},
+      NAME = #{name,jdbcType=VARCHAR},
+      ORDER_INDEX = #{orderIndex,jdbcType=VARCHAR},
+      INTRO = #{intro,jdbcType=VARCHAR},
+      RECOMMENDED_INDEX = #{recommendedIndex,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=VARCHAR},
+      COUNT_ID = #{countId,jdbcType=VARCHAR},
+      PROVINCE_ID = #{provinceId,jdbcType=VARCHAR},
+      IMAGE = #{image,jdbcType=VARCHAR},
+      PS = #{ps,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      AFFILIATION = #{affiliation,jdbcType=VARCHAR},
+      APPKEY = #{appkey,jdbcType=VARCHAR},
+      NRJ_ID = #{nrjId,jdbcType=INTEGER},
+      TYPE_ID = #{typeId,jdbcType=INTEGER},
+      FLAG = #{flag,jdbcType=INTEGER},
+      DZ_IAMGE = #{dzIamge,jdbcType=VARCHAR},
+      NRJ_IAMGE = #{nrjIamge,jdbcType=VARCHAR},
+      SORT = #{sort,jdbcType=INTEGER},
+      DAILI_ID = #{dailiId,jdbcType=VARCHAR},
+      DZ_URL = #{dzUrl,jdbcType=VARCHAR},
+      MONEY = #{money,jdbcType=DOUBLE},
+      QQ = #{qq,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

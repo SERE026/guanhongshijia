@@ -1,0 +1,104 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#include 'common/head.html' />
+<div class="kuai">
+<div class="hd_da">
+<div class="shi_guangg" style="overflow:hidden;">
+ ${widget_bbs_koubei_pic1}
+</div>
+
+<!-- 设置菜单为选中----脚本 -->
+<script type="text/javascript">
+	$(function() {
+		$(".zhu4").each(function() {
+			if($(this).html() == "美丽宣言") {
+				$(this).parent().html("美丽宣言");
+			}
+		});
+	});
+</script>
+
+
+<div class="shiyongxiang" style="margin-top:15px">
+<div class="shiyongxiang_leftda">
+<div class="shiyongxiang_left">
+<div class="keqiang_ti">
+<div class="keqiang_ti_zi">炫品客户墙</div>
+</div>
+
+<div class="keqiang_biaiqian">
+<div class="keqiang_biaiqian_zi ">按标签分类：</div>
+<div class="keqiang_biaiqian_fenlei"><a href="javascript:;" class=" fenlei selected" data="0">全部</a></div>
+<div class="keqiang_biaiqian_fenlei"><a href="javascript:;" class="zhu58 fenlei" data="1">彩妆</a></div>
+<div class="keqiang_biaiqian_fenlei"><a href="javascript:;" class="zhu58 fenlei" data="2">护肤</a></div>
+<div class="keqiang_biaiqian_fenlei"><a href="javascript:;" class="zhu58 fenlei" data="3">美容</a></div>
+<div class="keqiang_biaiqian_fenlei"><a href="javascript:;" class="zhu58 fenlei" data="4">服饰</a></div>
+<div class="keqiang_biaiqian_fenlei"><a href="javascript:;" class="zhu58 fenlei" data="5">其它</a></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+<div class="clear">&nbsp;</div>
+
+<div class="koubei_kuaida">
+ ${widget_bbs_koubei_list}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+<div class="shiyongxiang_rightda">
+<div class="shiyongxiang_right">
+<div class="shiyongxiangr_zi">炫品公告</div>
+<div class="shiyongxiangr_xian">&nbsp;</div>
+<div class="koubei_xiwen">
+
+ ${widget_bbs_koubei_gonggao}
+ 
+
+</div>
+</div>
+
+
+
+
+</div>
+<div class="shiyongxiang_right">
+<div class="shiyongxiangr_zi">新鲜的试用</div>
+<div class="shiyongxiangr_xian">&nbsp;</div>
+ ${widget_tryuse_detail_new}
+</div>
+</div>
+<#include 'common/buttom.html' />

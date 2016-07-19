@@ -1,0 +1,140 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<div class="g1">
+<div class="g1_zia">购物车商品总数${data?size}</div>
+<div class="g1_zib"><a href="javascript:;" class="confirm"><img src="${applicationPath}/img/g_1_03.gif" border="0" /></a></div>
+<div class="g1_zic"><span class="STYLE10 selectGoodMoney">¥0.00</span></div>
+<div class="g1_zid">已选择商品（不含运费）</div>
+</div>
+<div class="g1_xian">&nbsp;</div>
+<div class="g1_tou">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab01">
+  <tr>
+    <td width="3%" style="border-right:none"><input class="carSelectAll" name="" type="checkbox" value="" /></td>
+    <td width="3%" style="border-right:none">全选</td>
+    <td width="27%">商品</td>
+    <td width="23%">商品信息</td>
+    <td width="11%">单价</td>
+    <td width="11%">数量</td>
+    <td width="11%">小计</td>
+    <td width="11%">操作</td>
+  </tr>
+</table>
+</div>
+
+<#list data as shop>
+
+<div class="g1_fahuoren">以下商品由&nbsp;<span class="STYLE10">${shop.shopName}</span>&nbsp;发货</div>
+<div class="g1_jvt">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab02">
+
+<#list shop.list as good>
+  <tr>
+    <td width="6%"><input class="carSelect" name="" checked="checked" type="checkbox" checked="checked"  value="" dataId="${good.id}" dataType="${good.type}" specVal="${good.specVal}" actInfo="${good.actInfo}" g_id="${good.good_id}"/></td>
+    <td width="9%">
+	<div class="tab02_tu"><a href="item-${good.good_id}.html"><img src="${applicationPath}/upload/goods/${good.image}" border="0" width="100%" height="100%" /></a></div>
+	</td>
+    <td width="18%" style="text-align:left">
+	  <a href="item-${good.good_id}.html" class="zhu9">${good.goodName}</a>	</td>
+    <td width="23%">
+		<#list good.spec as spec>
+			${spec.s_name}：${spec.v_val}<br/>
+		</#list>
+	</td>
+    <td width="11%"><span class="STYLE13">${(good.price+good.specMoney-good.actMoney)?string('0.00')}</span></td>
+    <td width="11%">
+	<div class="g1_jiajian">
+	<#if good.actFlag==0>
+		<div class="g1_jiajian_an subNum"><a href="javascript:;"><img src="${applicationPath}/img/g_1_08.gif" border="0" /></a></div>
+	</#if>
+	
+	<div class="g1_jiajian_shu">${good.num}</div>
+	<#if good.actFlag==0>
+		<div class="g1_jiajian_an addNum" attint="${good.inventory}"><a href="javascript:;"><img src="${applicationPath}/img/g_1_07.gif" border="0" /></a></div>
+	</#if>
+	</div>
+	</td>
+    <td width="12%"><span class="STYLE14">${((good.price+good.specMoney-good.actMoney)*good.num)?string('0.00')}</span></td>
+    <td width="10%">
+	<a href="javascript:;" class="zhu9 addFavorites"  dataId="${good.id}" dataType="${good.type}" specVal="${good.specVal}" actInfo="${good.actInfo}" g_id="${good.good_id}">移入收藏夹</a><br />
+	<a href="javascript:;" class="zhu9 delCarItem" dataId="${good.id}" dataType="${good.type}" specVal="${good.specVal}" actInfo="${good.actInfo}">删除</a>	
+	</td>
+  </tr>
+  </#list>
+</table>
+</div>
+</#list>
+<div class="g1_jiesuan">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab03">
+  <tr>
+    <td width="5%" style="border:none"><input class="carSelectAll"  name="" type="checkbox" value="" /></td>
+    <td width="42%" style="text-align:left; border:none">
+	<a href="#" class="zhu9">全选</a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="zhu9 delCar">删除</a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="zhu9 addFavoritesAll">批量移入收藏夹</a>	</td>
+	<td width="20%">已选择商品&nbsp;<span class="STYLE15 selectGoodNum">0</span>&nbsp;件</td>
+	<td width="21%">
+	合计（不含运费）&nbsp;<span class="STYLE15 selectGoodMoney">¥0.00</span>	</td>
+	<td width="12%">
+	  <a href="javascript:;" class="confirm"><img src="${applicationPath}/img/g_1_18.gif" border="0" /></a> </td>
+  </tr>
+</table>
+
+</div>
+<script src="js/Cars.js" type="text/javascript" ></script>
+
+
+
+<div class="g1_tuijian">
+<div class="g1_tuijian_top">
+<div class="g1_tuijian_top_ti">炫品为您推荐</div>
+</div>
+<div class="g1_tuijian_mid">
+<#if recommendList??>
+<#list recommendList as g>
+<div class="g1_tuijian_mid_kuai">
+<div class="g1_tuijian_mid_tu"><a href="item-${g.goods_id}.html"><img src="${applicationPath}/upload/goods/${g.defaultImage}" border="0" width="100%" height="100%" /></a></div>
+<div class="g1_tuijian_mid_zi">
+<a href="item-${g.goods_id}.html" class="zhu24">${g.name}</a></div>
+<div class="tujuina_jia">¥<span class="STYLE10">${g.goodMoney}</span></div>
+<div class="g1_tuijian_mid_zi">
+月销：${g.num}笔
+</div>
+</div>
+</#list>
+</#if>
+
+
+</div>
+</div>
+
+<div class="g1_tuijian">
+<div class="g1_tuijian_top">
+<div class="g1_tuijian_top_ti">最近浏览</div>
+</div>
+<div class="g1_tuijian_mid">
+
+<#list showList as g>
+<div class="g1_tuijian_mid_kuai">
+<div class="g1_tuijian_mid_tu"><a href="item-${g.goods_id}.html"><img src="${applicationPath}/upload/goods/${g.defaultImage}" border="0"  width="100%" height="100%" /></a></div>
+<div class="g1_tuijian_mid_zi">
+<a href="item-${g.goods_id}.html" class="zhu24">${g.name}</a></div>
+<div class="tujuina_jia">¥<span class="STYLE10">${g.goodMoney}</span></div>
+<div class="g1_tuijian_mid_zi">
+月销：${g.num}笔
+</div>
+</div>
+</#list>
+
+</div>
+</div>
+

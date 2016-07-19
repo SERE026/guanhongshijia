@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+
+<#list data as bbs>
+
+	<div class="xuanyan_kuai">
+	<div class="xuanyan_kuai_ti">
+	
+	<#if bbs.flag == 0>
+		<a href="${applicationPath}/bbs-${bbs.id}.html" class="<#if bbs.top==0>zhu52</#if><#if bbs.top==1>zhu51</#if>">【论坛公告】${bbs.title}</a>
+	
+	</#if>
+	<#if bbs.flag == 1>
+		<a href="${applicationPath}/bbs-${bbs.id}.html" class="<#if bbs.top==0>zhu52</#if><#if bbs.top==1>zhu51</#if>">【网站活动】${bbs.title}</a>
+	
+	</#if>
+	
+	<#if bbs.flag == 2>
+		<a href="${applicationPath}/bbs-${bbs.id}.html" class="<#if bbs.top==0>zhu52</#if><#if bbs.top==1>zhu51</#if>">【自由发帖】${bbs.title}</a>
+	
+	</#if>
+	
+	</div>
+	<div class="xuanyan_kuai_kxiao">
+	<#if bbs.user.bbs_id?contains("member")?string=="true">
+	<div class="xuanyan_kuai_kxiao_zi5">${bbs.user.name}</div>
+	<#else>
+	<div class="xuanyan_kuai_kxiao_zi2">${bbs.user.name}</div>
+	</#if>
+	<div class="xuanyan_kuai_kxiao_zi3">${bbs.time}</div>
+	</div>
+	<div class="xuanyan_kuai_kxiao">
+	<div class="xuanyan_kuai_kxiao_zi4">${bbs.hnum}</div>
+	<div class="xuanyan_kuai_kxiao_zi3">${bbs.snum}</div>
+	</div>
+	<div class="xuanyan_kuai_kxiao">
+	<div class="xuanyan_kuai_kxiao_zi5">
+		<#if bbs.hname??>
+			${bbs.hname.name}
+		</#if>
+	</div>
+	<div class="xuanyan_kuai_kxiao_zi3">
+	<#if bbs.hname??>
+			${bbs.htime}
+		</#if>
+	
+	
+	</div>
+	</div>
+	</div>
+</#list>
