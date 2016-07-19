@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.model.JfAddInfoModelCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface JfAddInfoModelMapper {
+public interface JfAddInfoModelMapper{
     int countByExample(JfAddInfoModelCriteria example);
 
     int deleteByExample(JfAddInfoModelCriteria example);
