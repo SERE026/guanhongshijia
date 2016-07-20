@@ -23,6 +23,6 @@ public class WebIndexController{
     public String index(HttpServletRequest request) {
 //        ModelAndView mav=new ModelAndView();
 //        mav.setViewName("/view/index.jsp");
-        return "/view/index.jsp";
+        return "/index";
     }
 }
