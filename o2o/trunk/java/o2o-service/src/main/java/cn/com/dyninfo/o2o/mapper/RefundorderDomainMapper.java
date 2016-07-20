@@ -7,5 +7,5 @@ import cn.com.dyninfo.o2o.model.RefundOrderModelCriteria;
 /**
  * Created by Administrator on 2016/7/19.
  */
-public interface RefundOrderDomainMapper extends BaseMapper<RefundOrderDomain, RefundOrderModelCriteria> {
+public interface RefundorderDomainMapper extends BaseMapper<RefundOrderDomain, RefundOrderModelCriteria> {
 }
