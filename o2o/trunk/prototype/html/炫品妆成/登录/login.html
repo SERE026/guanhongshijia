@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0032)http://localhost:8080/login.html -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>炫品妆成</title>
@@ -16,8 +16,8 @@
   <body>
  <script type="text/JavaScript" src="./login_files/login.js"></script>
 <script>
-	var servicePath="";
-	
+    var servicePath = "";
+
 </script>
 
 <div class="denglu">
@@ -38,23 +38,23 @@
 <div class="zhuce_k">
 <div class="zhuce_k_zi">账户：</div>
 <div class="zhuce_k_bao"><input name="accout" id="accout" type="text" value="邮箱/手机号/用户名" class="zhuce_k_baoshuru_aa"></div>
-<div class="zhuce_k_bao_shuom" id="accoutts" style="display:none">该账号尚未注册</div>
 </div>
+<div class="zhuce_k_bao_shuom"style="margin-left:80px;" id="accoutts" ></div>
 <div class="clear">&nbsp;</div>
 <div class="zhuce_k">
 <div class="zhuce_k_zi">密码：</div>
 <div class="zhuce_k_bao"><input name="password" id="password" type="password" class="zhuce_k_baoshuru_aa"></div>
 <div class="zhuce_k_bao_shuom" id="passworda"><a href="http://localhost:8080/find_password.html" class="zhu16">忘记密码？</a></div>
 </div>
-<div class="zhuce_k_bao_shuom" style="margin-left:70px;" id="passwordts"></div>
+<div class="zhuce_k_bao_shuom" style="margin-left:80px;display:block" id="passwordts"></div>
 
 <div class="clear">&nbsp;</div>
-<div class="zhuce_k">
+<div class="zhuce_k" style="margin-top:0;">
 <div class="zhuce_k_zi">验证码：</div>
 <div class="zhuce_k_bao"><input name="validinput" id="validinput" type="text" class="zhuce_k_baoshuru_bb" onkeydown="if(event.keyCode==13) submitdl();"></div>
 <div class="zhuce_k_bao_shuom"><span id="validCode"><img src="./login_files/validCode" onclick="validationCode()" title="我要换一个验证码"></span></div>
-<div class="zhuce_k_bao_shuom" id="validts" style="display:none">验证码错误</div>
 </div>
+    <div class="zhuce_k_bao_shuom" id="validts" style="margin-left:80px;display:block"></div>
 <div class="clear">&nbsp;</div>
 <div class="login_an01 submit"><a href="javascript:;"><img src="./login_files/denglu_06.gif" border="0"></a></div>
 <div class="login_liji"><a href="http://localhost:8080/register.html" class="zhu16">免费注册</a></div>

@@ -17,10 +17,10 @@ $(function(){
 		if(	$("#accout").val()=="邮箱/手机号/用户名"){
 			$("#accout").val("");
 		}
-		$("#accoutts").css("display","none");
+		$("#accoutts").text("");
 	});
 	$("#password").click(function(){
-		$("#passwordts").css("display","none");
+		$("#passwordts").text();
 	});
 	$("#validinput").blur(function(){
 			validcodeyz();
@@ -28,7 +28,6 @@ $(function(){
 	$("#password").blur(function(){
 		if($("#password").val()==""){
 			$("#passwordts").html("密码不能为空！");
-			$("#passwordts").css("display","");
 		}
 		//if($("#password").val().length<6||$("#password").val().length>12){
 		//	$("#passwordts").html("密码为6-12位！");
@@ -56,10 +55,8 @@ function accoutyz(){
 	var accout=$("#accout").val();
 	if(accout == ""){
 		$("#accoutts").html("账户名不能为空！");
-		$("#accoutts").css("display","");
 	}else if(accout.length<6||accout.length>15){
 		$("#accoutts").html("账户长度为6-15");
-		$("#accoutts").css("display","");
 	}
 }
 
@@ -68,10 +65,8 @@ function validcodeyz(){
 	var validinput=$("#validinput").val();
 	if(validinput==""){
 		$("#validts").html("验证码不能为空！");
-		$("#validts").css("display","");
 	}else if(validinput.length<4){
 		$("#validts").html("验证码格式不对！");
-		$("#validts").css("display","");
 	}
 }
 
@@ -109,7 +104,6 @@ function submitdl(){
 	  			validationCode();
 	  		}else if(data.status==4){
 	  			$("#accoutts").html("帐户不存在！");
-	  			$("#accoutts").css("display","");
 	  		}
 		  }
 		});	

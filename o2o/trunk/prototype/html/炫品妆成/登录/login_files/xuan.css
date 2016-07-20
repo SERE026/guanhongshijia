@@ -13,7 +13,7 @@
 
 
 @charset "utf-8";
-div,table,form,ul,li,dt,dd,dl,a,body,img{margin:0px; padding:0px; list-style-type:none; font-size:12px; font-family:"宋体"; text-decoration:none; color:#666666;overflow-x:hidden}
+div,table,form,ul,li,dt,dd,dl,a,body,img{margin:0px; padding:0px; list-style-type:none; font-size:12px; font-family:"宋体"; text-decoration:none; color:#666666;}
 img{border:0px;}
 /*background-color:#cdd8ff*/
 #map {overflow-x:auto}
@@ -106,7 +106,7 @@ img{border:0px;}
 .zhece_dakuai{ width:994px; height:393px; border:#dddddd solid 1px; margin-top:10px}   
 .zhece_dakuai_datu{width:430px; height:356px; float:left; margin:18px 0 0 15px; overflow:hidden;}   
 .zhece_dakuai_xiaodui{width:465px; height:356px; float:right; margin:18px 15px 0 0}  
-.zhuce_k{ width:465px; height:auto; margin-top:22px}  
+.zhuce_k{ width:465px; height:auto;overflow:hidden;}  
 .zhuce_k_zi{ width:70px; height:25px; line-height:25px; text-align:right; margin-right:5px;float:left; margin-top:3px}   
 .zhuce_k_bao{ width:auto; height:auto;float:left} 
 .zhuce_k_bao_shuom{ width:auto;height:24px; line-height:24px;float:left; color:#ff0000; margin-top:3px; margin-left:5px; overflow:hidden}         
@@ -121,9 +121,9 @@ img{border:0px;}
 .login_dakuai_datu{width:567px; height:390px; float:left; margin:18px 0 0 15px; overflow:hidden}  
 .login_dakuai_xiaodui{width:395px; height:426px; overflow:hidden;float:right; background-color:#f5f5f5;margin:0px 0px 0 0; padding-top:18px}     
 .login_ti{ width:300px; height:40px; line-height:40px; margin-top:10px; color:#000000; font-size:14px; font-weight:bold; margin-left:27px}   
-.login_an01{ width:80px; height:29px; margin-left:75px; margin-top:22px; float:left; display:inline}    
+.login_an01{ width:80px; height:29px; margin-left:75px; float:left; display:inline;margin-top:4px;}    
 
-.login_liji{ width:auto; height:29px; line-height:29px;margin-left:15px; margin-top:22px; float:left}    
+.login_liji{ width:auto; height:29px; line-height:29px;margin-left:15px; margin-top:4px; float:left}    
 .login_xian{ width:354px; height:2px; margin-left:20px;margin-top:15px;overflow:hidden; background-image:url(../img/login_xian01.gif); background-repeat:repeat-x;}   
 .login_ti22{ width:300px; height:40px; line-height:40px; margin-top:10px; color:#454545; font-size:12px;margin-left:27px}   
 .login_xiaodeng{ width:80px; height:24px; float:left}  

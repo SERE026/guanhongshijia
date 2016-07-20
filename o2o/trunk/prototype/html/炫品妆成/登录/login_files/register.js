@@ -33,7 +33,7 @@ $(function(){
 			psw2yz();
 		});
 		$("#validinput").click(function(){
-			$("#validts").css("display","none");
+		    $("#validts").text("");
 		});
 		
 		$("#btnOk").click(function(){
@@ -41,16 +41,15 @@ $(function(){
 		})
 		
 		$("#accout").click(function(){
-			$("#accoutts").css("display","none");
+		    $("#accoutts").text("");
 		});
 		
 		$("#password1").click(function(){
-			$("#psw1ts").css("display","none");
+		    $("#psw1ts").text("");
 		});
 		
 		$("#password2").click(function(){
-			$("#psw2ts").val("");
-			$("#psw2ts").css("display","none");
+			$("#psw2ts").text("");
 		});
 		
 		addEvent();
