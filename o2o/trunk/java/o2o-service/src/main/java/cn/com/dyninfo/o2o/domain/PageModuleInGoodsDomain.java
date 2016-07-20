@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.model.PageModuleInGoodsModel;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class PagModInGoodsDomain extends PageModuleInGoodsModel {
+public class PageModuleInGoodsDomain extends PageModuleInGoodsModel {
     private PageModuleDomain pageModule;
     private ShangjiaInfoDomain shangJiaInfo;
     private GoodsDomain goods;
