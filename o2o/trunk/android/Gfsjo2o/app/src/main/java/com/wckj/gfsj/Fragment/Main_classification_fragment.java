@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.wckj.gfsj.R;
 
@@ -21,9 +21,10 @@ public class Main_classification_fragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.fragment_main_main, null);
-        TextView tv_msg = (TextView) view.findViewById(R.id.tv_msg);
-        tv_msg.setText("cccc");
+        view =  inflater.inflate(R.layout.fragment_main_classification, null);
+//        TextView tv_msg = (TextView) view.findViewById(R.id.tv_msg);
+//        tv_msg.setText("cccc");
+        Button btn = (Button) view.findViewById(R.id.btn_chinese_furniture);
 
         return view;
     }
