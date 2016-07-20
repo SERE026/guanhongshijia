@@ -32,6 +32,9 @@ public class Main_main_fragment extends Fragment{
     }
     private void  initScroView() {
         mList = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            mList.add( new Shopping());
+        }
         mfancyCoverFlow = (FancyCoverFlow) view.findViewById(R.id.fancyCoverFlow);
         mMyFancyCoverFlowAdapter = new MyFancyCoverFlowAdapter(view.getContext(), mList);
         mfancyCoverFlow.setAdapter(mMyFancyCoverFlowAdapter);
