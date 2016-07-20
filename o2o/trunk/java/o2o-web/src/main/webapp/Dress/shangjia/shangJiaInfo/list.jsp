@@ -95,7 +95,7 @@
 						</td>
 					</tr>
 					<!-- 另起一行，用来显示地区查询 -->
-					<tr style="width: 35px;">
+					<tr style="height: 35px;">
 						<td></td>
 						<td></td>
 						<td></td>

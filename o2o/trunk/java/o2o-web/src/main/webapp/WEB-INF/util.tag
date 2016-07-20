@@ -18,7 +18,7 @@
       <uri>http://www.xx.com/functions/tag</uri>   
     <function>
         <name>print</name>   
-        <function-class>cn.com.dyninfo.o2o.old.model.Goods</function-class>
+        <function-class>cn.com.dyninfo.o2o.furniture.web.goods.model.Goods</function-class>
         <function-signature>java.lang.String
-            getStringLength(cn.com.dyninfo.o2o.old.model.Goods,java.lang.Integer)</function-signature>
+            getStringLength(cn.com.dyninfo.o2o.furniture.web.goods.model.Goods,java.lang.Integer)</function-signature>
     </function>

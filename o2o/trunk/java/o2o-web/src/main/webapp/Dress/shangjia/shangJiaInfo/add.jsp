@@ -112,7 +112,7 @@ $(function(){
 							</td>
 							<td class="discription"><span style="color:#ff0000">*</span>代理商级别：</td>
 							<td>
-								&nbsp;<select name="agent_grade_id"  style="width: 173px;">
+								&nbsp;<select name="agent_grade_id"  style="width: 154px;">
 								<c:forEach items="${agentGradeList}" var="agentGrade">
 									<option value="${agentGrade.id }">${agentGrade.name }</option>
 								</c:forEach>
@@ -163,7 +163,7 @@ $(function(){
 							</td>
 							<td class="discription"><span style="color:#ff0000">*</span>商家分类：</td>
 							<td colspan=3>
-								&nbsp;<select name="type_id"  style="width: 173px;">
+								&nbsp;<select name="type_id"  style="width: 154px;">
 									<c:forEach items="${merchantTypeList}" var="type">
 										<option value="${type.type_id }">${type.name }</option>
 									</c:forEach>

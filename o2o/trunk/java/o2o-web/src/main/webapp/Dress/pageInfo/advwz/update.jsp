@@ -64,7 +64,7 @@ $(function(){
     <tr>
    <td class="discription" style="width: 150px;" ><span style="color:#ff0000">*</span>广告类型:</td>
 									<td>
-							<select name="advwz_type" class="noNull" msg="广告类型不能为空！" style="width:173px; height:23px;" >
+							<select name="advwz_type" class="noNull" msg="广告类型不能为空！" style="width:154px; height:23px;" >
 									 <option id="fkzt1" value="">请选择</option>
 									  <option value="2"  <c:if test="${info.advwz_type=='2' }">selected</c:if>>幻灯片</option>
 						  <option value="1" <c:if test="${info.advwz_type=='1' }">selected</c:if>>图片</option>

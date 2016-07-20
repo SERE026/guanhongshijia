@@ -73,7 +73,7 @@ $(function(){
   <tr>
      <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>帖子类型:</td>
   	  <td >
-  	     <select name="flag" style="width:173px; height:23px;">
+  	     <select name="flag" style="width:154px; height:23px;">
   	                <option value="">请选择</option>
 					<option value="0">公告</option>
 					<option value="1">网站活动</option>

@@ -28,7 +28,7 @@
 
 <form method="post" id="czlist" name="form1" action="<%=request.getContextPath()%>/html/manage/brandOrder/merchant/list">
 
-<table cellspacing="2" cellpadding="0" class="tab2">
+<table cellspacing="2" cellpadding="0" class="tab2" style="width: 96%;margin: 0 auto;">
 	<tr>
 		<td class="tab2_top">
 			

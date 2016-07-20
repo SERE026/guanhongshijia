@@ -81,7 +81,7 @@ function openDialog(){
 						<td style="width: 20%;" class="discription"><fmt:message key="ognz.fname" />：</td>
 						<td>
 							<input type=hidden id="parent1" name=parent1 value="${ognz.id }"/>
-							<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${ognz.ognz_name }" style="width:173px;background-position:right"  class="inputread" readOnly/>
+							<input type=text id="parent1Name" onclick="openDialog()" name=parent1Name value="${ognz.ognz_name }" style="width:154px;background-position:right"  class="inputread" readOnly/>
 						</td>
 					</tr>
 					<tr>
@@ -89,7 +89,7 @@ function openDialog(){
 							<fmt:message key="sys.isUsed" />：
 						</td>
 						<td>
-							<select name="isUsed" id="select" style="width: 173px;">
+							<select name="isUsed" id="select" style="width: 154px;">
 								<option value="1" selected="selected">
 									<fmt:message key="button.yes"/>
 								</option>
@@ -102,7 +102,7 @@ function openDialog(){
 							<fmt:message key="ognz.isOgnz" />：
 						</td>
 						<td>
-							<select name="isognz" id="select" style="width:173px;">
+							<select name="isognz" id="select" style="width:154px;">
 								<option value="1" selected="selected">
 									<fmt:message key="button.yes"/>
 								</option>

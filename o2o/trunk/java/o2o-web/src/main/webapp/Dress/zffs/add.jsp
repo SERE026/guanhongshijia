@@ -106,7 +106,7 @@ $(function(){
 								<span>支付方式：</span>
 							</td>
 							<td>
-								 <select id="zffs" name="type" class="noNull" msg="支付方式不能为空！" style="width: 173px;">
+								 <select id="zffs" name="type" class="noNull" msg="支付方式不能为空！" style="width: 154px;">
 								 	<option value="">请选择要添加的支付方式</option>
 								 	<option value="0">支付宝即时到帐接口</option>
 								 	<option value="1">网银支付接口</option>

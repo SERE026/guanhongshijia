@@ -9,8 +9,8 @@
 <%@ page import="org.springframework.web.context.WebApplicationContext" %>
 <%@ page import="org.springframework.web.context.support.WebApplicationContextUtils" %>
 <%@ page import="cn.com.dyninfo.o2o.furniture.util.SystemConfig" %>
-<%@ page import="cn.com.dyninfo.o2o.old.model.AttachmentInfo" %>
-<%@ page import="cn.com.dyninfo.o2o.old.service.AttachmentService" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.admin.model.AttachmentInfo" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.admin.service.AttachmentService" %>
 
 
 <%@ page import="java.io.OutputStream" %>
@@ -21,8 +21,8 @@
 <%@ page import="javax.imageio.IIOException" %>
 <%@ page import="java.util.UUID" %>
 <%@ page import="cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo" %>
-<%@ page import="cn.com.dyninfo.o2o.old.service.UserService" %>
-<%@ page import="cn.com.dyninfo.o2o.old.model.UserInfo" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.admin.service.UserService" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.admin.model.UserInfo" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.

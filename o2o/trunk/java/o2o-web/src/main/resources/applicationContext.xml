@@ -63,82 +63,141 @@
 		<property name="poolPreparedStatements" value="true" />
 		<property name="defaultAutoCommit" value="true" />
 	</bean>
-	
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		
-		<property name="packagesToScan">
-			<list>
-				<value>cn.com.dyninfo.o2o.old.model</value>
-			</list>
-		</property>
-		
-		<property name="hibernateProperties">
-			
-			<props>
-				<prop key="connection.useUnicode">true</prop>
-				<prop key="connection.characterEncoding">utf-8</prop>
-				<prop key="hibernate.dialect">
-					${hibernate.dialect}
-				</prop>
-				<prop key="hibernate.show_sql">false</prop>
-				<prop key="hibernate.jdbc.batch_size">20</prop>
-				<prop key="hibernate.jdbc.fetch_size">20</prop>
-				<prop key="show_sql">false</prop>
-				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
-			</props>
-		</property>
-	</bean>
-	
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-	
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		
-		<tx:attributes>
-			<tx:method name="add*" propagation="REQUIRED" />
-			<tx:method name="del*" propagation="REQUIRED" />
-			<tx:method name="update*" propagation="REQUIRED" />
-			<tx:method name="change*" propagation="REQUIRED" />
-			<tx:method name="audit*" propagation="REQUIRED" />
-			<tx:method name="import*" propagation="REQUIRED" />
-			<tx:method name="checkCar" propagation="REQUIRED" />
-			<tx:method name="create" propagation="REQUIRED" />
-			<tx:method name="getOrderConfirm" propagation="REQUIRED" />
-			<tx:method name="checkCarGoodSpec" propagation="REQUIRED" />
-			<tx:method name="getUser" propagation="REQUIRED" />
-			<tx:method name="sendMessage" propagation="REQUIRED" />
-			<tx:method name="BuyGoods" propagation="REQUIRED" />
-			<!-- 经测试以下两个，如果不加权限，后台会报相同的 Connection is read-only.xxx 错误 -->
-			<!-- getGoodsByAct 如果不加权限，将导致：首页全部商家分类点具体的类型比如“化妆品店”进去，再点店铺进去，会报错误 -->
-			<tx:method name="getMerchantPageBywhere"
-				propagation="REQUIRED" />
-			<tx:method name="getGoodsByAct" propagation="REQUIRED" />
-			<tx:method name="updateGoodsAdv" propagation="REQUIRED" />
-			<!--  充值方法，需要开启权限 
-			-->
-			<tx:method name="chongzhi" propagation="REQUIRED" />
-			<tx:method name="*" propagation="REQUIRED" read-only="true" />
-		</tx:attributes>
-	</tx:advice>
-	
-	<aop:config>
-		<aop:pointcut id="allManagerMethod"
-			expression="execution(* cn.com.dyninfo.o2o.furniture.admin.service.*.*(..))" />
-		<aop:pointcut id="orderMethod"
-			expression="execution(* cn.com.dyninfo.o2o.furniture.web.order.service.*.*(..))" />
-		<aop:pointcut id="bbs"
-			expression="execution(* cn.com.dyninfo.o2o.furniture.web.bbs.service.*.*(..))" />
-		<aop:pointcut id="huiyuan"
-			expression="execution(* cn.com.dyninfo.o2o.furniture.web.member.service.*.*(..))" />
-		<aop:advisor pointcut-ref="allManagerMethod"
-			advice-ref="txAdvice" />
-		<aop:advisor pointcut-ref="orderMethod" advice-ref="txAdvice" />
-		<aop:advisor pointcut-ref="bbs" advice-ref="txAdvice" />
-		<aop:advisor pointcut-ref="huiyuan" advice-ref="txAdvice" />
-	</aop:config>
+    <context:component-scan base-package="
+        cn.com.dyninfo.o2o.dao,
+        cn.com.dyninfo.o2o.mapper,
+        cn.com.dyninfo.o2o.service"/>
+
+    <!-- enable autowire -->
+    <context:annotation-config />
+
+    <!-- enable transaction demarcation with annotations -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- transaction manager, use JtaTransactionManager for global tx -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--
+        define the SqlSessionFactory, notice that configLocation is not needed
+        when you use MapperFactoryBean
+    -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="failFast" value="true" />
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+    </bean>
+
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="
+        cn.com.dyninfo.o2o.dao,
+        cn.com.dyninfo.o2o.mapper
+        "/>
+
+        <!-- optional unless there are multiple session factories defined -->
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
+	<!--<bean id="sessionFactory"-->
+		<!--class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">-->
+		<!--<property name="dataSource" ref="dataSource" />-->
+		<!---->
+		<!--<property name="packagesToScan">-->
+			<!--<list>-->
+				<!--<value>cn.com.dyninfo.o2o.old.model</value>-->
+			<!--</list>-->
+		<!--</property>-->
+		<!---->
+		<!--<property name="hibernateProperties">-->
+			<!---->
+			<!--<props>-->
+				<!--<prop key="connection.useUnicode">true</prop>-->
+				<!--<prop key="connection.characterEncoding">utf-8</prop>-->
+				<!--<prop key="hibernate.dialect">-->
+					<!--${hibernate.dialect}-->
+				<!--</prop>-->
+				<!--<prop key="hibernate.show_sql">false</prop>-->
+				<!--<prop key="hibernate.jdbc.batch_size">20</prop>-->
+				<!--<prop key="hibernate.jdbc.fetch_size">20</prop>-->
+				<!--<prop key="show_sql">false</prop>-->
+				<!--&lt;!&ndash; <prop key="hibernate.hbm2ddl.auto">update</prop> &ndash;&gt;-->
+			<!--</props>-->
+		<!--</property>-->
+	<!--</bean>-->
+	<!---->
+	<!--<bean id="transactionManager"-->
+		<!--class="org.springframework.orm.hibernate3.HibernateTransactionManager">-->
+		<!--<property name="sessionFactory" ref="sessionFactory" />-->
+		<!--<property name="dataSource" ref="dataSource" />-->
+	<!--</bean>-->
+
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/content" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="defaultEncoding">UTF-8</prop>
+                <prop key="template_update_delay">0</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="number_format">0.##</prop>
+            </props>
+        </property>
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape" />
+            </map>
+        </property>
+    </bean>
+
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver" />
+
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+		<!---->
+		<!--<tx:attributes>-->
+			<!--<tx:method name="add*" propagation="REQUIRED" />-->
+			<!--<tx:method name="del*" propagation="REQUIRED" />-->
+			<!--<tx:method name="update*" propagation="REQUIRED" />-->
+			<!--<tx:method name="change*" propagation="REQUIRED" />-->
+			<!--<tx:method name="audit*" propagation="REQUIRED" />-->
+			<!--<tx:method name="import*" propagation="REQUIRED" />-->
+			<!--<tx:method name="checkCar" propagation="REQUIRED" />-->
+			<!--<tx:method name="create" propagation="REQUIRED" />-->
+			<!--<tx:method name="getOrderConfirm" propagation="REQUIRED" />-->
+			<!--<tx:method name="checkCarGoodSpec" propagation="REQUIRED" />-->
+			<!--<tx:method name="getUser" propagation="REQUIRED" />-->
+			<!--<tx:method name="sendMessage" propagation="REQUIRED" />-->
+			<!--<tx:method name="BuyGoods" propagation="REQUIRED" />-->
+			<!--&lt;!&ndash; 经测试以下两个，如果不加权限，后台会报相同的 Connection is read-only.xxx 错误 &ndash;&gt;-->
+			<!--&lt;!&ndash; getGoodsByAct 如果不加权限，将导致：首页全部商家分类点具体的类型比如“化妆品店”进去，再点店铺进去，会报错误 &ndash;&gt;-->
+			<!--<tx:method name="getMerchantPageBywhere"-->
+				<!--propagation="REQUIRED" />-->
+			<!--<tx:method name="getGoodsByAct" propagation="REQUIRED" />-->
+			<!--<tx:method name="updateGoodsAdv" propagation="REQUIRED" />-->
+			<!--&lt;!&ndash;  充值方法，需要开启权限 -->
+			<!--&ndash;&gt;-->
+			<!--<tx:method name="chongzhi" propagation="REQUIRED" />-->
+			<!--<tx:method name="*" propagation="REQUIRED" read-only="true" />-->
+		<!--</tx:attributes>-->
+	<!--</tx:advice>-->
+	<!---->
+	<!--<aop:config>-->
+		<!--<aop:pointcut id="allManagerMethod"-->
+			<!--expression="execution(* cn.com.dyninfo.o2o.furniture.admin.service.*.*(..))" />-->
+		<!--<aop:pointcut id="orderMethod"-->
+			<!--expression="execution(* cn.com.dyninfo.o2o.furniture.web.order.service.*.*(..))" />-->
+		<!--<aop:pointcut id="bbs"-->
+			<!--expression="execution(* cn.com.dyninfo.o2o.furniture.web.bbs.service.*.*(..))" />-->
+		<!--<aop:pointcut id="huiyuan"-->
+			<!--expression="execution(* cn.com.dyninfo.o2o.furniture.web.member.service.*.*(..))" />-->
+		<!--<aop:advisor pointcut-ref="allManagerMethod"-->
+			<!--advice-ref="txAdvice" />-->
+		<!--<aop:advisor pointcut-ref="orderMethod" advice-ref="txAdvice" />-->
+		<!--<aop:advisor pointcut-ref="bbs" advice-ref="txAdvice" />-->
+		<!--<aop:advisor pointcut-ref="huiyuan" advice-ref="txAdvice" />-->
+	<!--</aop:config>-->
 </beans>

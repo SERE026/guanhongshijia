@@ -9,8 +9,8 @@
 <%@ page import="org.springframework.web.context.WebApplicationContext" %>
 <%@ page import="org.springframework.web.context.support.WebApplicationContextUtils" %>
 <%@ page import="cn.com.dyninfo.o2o.furniture.util.SystemConfig" %>
-<%@ page import="cn.com.dyninfo.o2o.old.model.AttachmentInfo" %>
-<%@ page import="cn.com.dyninfo.o2o.old.service.AttachmentService" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.admin.model.AttachmentInfo" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.admin.service.AttachmentService" %>
 
 
 <%@ page import="java.io.OutputStream" %>

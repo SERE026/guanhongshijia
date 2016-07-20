@@ -98,7 +98,7 @@ $(function(){
 							</td>
 					<td class="discription"><span style="color:#ff0000">*</span>代理商级别：</td>
 					<td>
-						<select name="agent_grade_id"  style="width: 173px;">
+						<select name="agent_grade_id"  style="width: 154px;">
 						<c:forEach items="${agentGradeList}" var="agentGrade">
 							<option value="${agentGrade.id }" <c:if test="${info.agentGrade.id==agentGrade.id }">selected</c:if>>${agentGrade.name }</option>
 						</c:forEach>
@@ -146,7 +146,7 @@ $(function(){
 							</td>
 							<td class="discription"><span style="color:#ff0000">*</span>商家类型：</td>
 							<td colspan=3>
-								<select name="type_id"  style="width: 173px;">
+								<select name="type_id"  style="width: 154px;">
 									<c:forEach items="${merchantTypeList}" var="type">
 										<option value="${type.type_id }" <c:if test="${info.shanfJiaInfo.type.type_id==type.type_id }">selected</c:if>>${type.name }</option>
 									</c:forEach>

@@ -85,7 +85,7 @@ $(function(){
 	  <tr>
 	     <td class="discription" ><span style="color:#ff0000">*</span>类型:</td>
 	  	  <td >
-	  	  	<select name="type.goodsType_id" class="noNull" style="width: 173px;">
+	  	  	<select name="type.goodsType_id" class="noNull" style="width: 154px;">
 	  	  		<c:forEach items="${typeList}" var="type">
 	  	  			<option value="${type.goodsType_id }">${type.name }</option>
 	  	  		</c:forEach>
