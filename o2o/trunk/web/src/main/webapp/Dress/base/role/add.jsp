@@ -40,8 +40,6 @@ function submit(){
 			
 	</td>
 </tr>
-<tr>
-	<tr><td></td></tr>
 <td style="border:none; vertical-align:top">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">

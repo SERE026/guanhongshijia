@@ -49,7 +49,7 @@ $(function(){
    			$(".sm:eq(2) input").attr("msg","商城密匙不能为空！");
    			var html="<tr class='jianchen'>";
    				html+='<td class="discription"><span style="color: red;">商户简称：</span></td>';
-   				html+='<td>&nbsp;<input type="text" id="jianChen" name="jianChen" class="noNull" msg="商户简称不能为空！"/></td>';
+   				html+='<td><input type="text" id="jianChen" name="jianChen" class="noNull" msg="商户简称不能为空！"/></td>';
    				html+="</tr>";
    			$(".zfsm").before(html);
    		}
