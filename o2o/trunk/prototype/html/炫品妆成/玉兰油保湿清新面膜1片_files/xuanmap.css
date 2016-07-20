@@ -477,10 +477,10 @@ img{border:0px;}
 .sp_det_xiaotu{ width:auto; height:auto;}
 .sp_det_xiaotu2{ width:auto; height:auto; margin-top:8px}
 .xian02{ width:1200px; height:1px; overflow:hidden; margin-top:35px; margin-bottom:30px;background-color:#c8c8c8}
-.spdet_r_titou{width:758px; height:41px; margin-left:15px; border:#dddddd solid 1px;background-image:url(../img/spdet_hengbg.gif); background-repeat:repeat-x;}
+.spdet_r_titou{height:41px; margin-left:15px; border:#dddddd solid 1px;background-image:url(../img/spdet_hengbg.gif); background-repeat:repeat-x;}
 .spdet_r_titou_an{width:158px; height:41px; float:left; border-right:#dddddd solid 1px; background-color:#ffffff;line-height:41px; text-align:center; color:#f0125b; font-size:14px; font-weight:bold;}
 .spdet_r_titou_an a{width:158px; height:41px; display:block}
-.spdet_tuwen{ width:748px; height:auto; overflow:hidden}
+.spdet_tuwen{ height:auto; overflow:hidden}
 .spdet_tuwen_ti{ width:748px; height:34px; overflow:hidden; margin-top:20px; margin-left:20px}
 .spdet_tuwen_kuai{ width:auto; height:auto; overflow:hidden;margin-left:20px;word-wrap: break-word;}
 .shaidan{ width:990px; height:auto; margin:auto}
