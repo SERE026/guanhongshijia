@@ -7,32 +7,32 @@ import java.util.List;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class DlytypeDomain extends DlyTypeModel {
-    private WlcompanyDomain wlcompanyDomain;
-    private List<PsareaDomain> psareaDomainList;
-    private ShangJiaInfoDomain shangJiaInfoDomain;
+public class DlyTypeDomain extends DlyTypeModel {
+    private WlCompanyDomain wlcompanyDomain;
+    private List<PSAreaDomain> psareaDomainList;
+    private ShangjiaInfoDomain shangJiaInfoDomain;
 
-    public WlcompanyDomain getWlcompanyDomain() {
+    public WlCompanyDomain getWlcompanyDomain() {
         return wlcompanyDomain;
     }
 
-    public void setWlcompanyDomain(WlcompanyDomain wlcompanyDomain) {
+    public void setWlcompanyDomain(WlCompanyDomain wlcompanyDomain) {
         this.wlcompanyDomain = wlcompanyDomain;
     }
 
-    public List<PsareaDomain> getPsareaDomainList() {
+    public List<PSAreaDomain> getPsareaDomainList() {
         return psareaDomainList;
     }
 
-    public void setPsareaDomainList(List<PsareaDomain> psareaDomainList) {
+    public void setPsareaDomainList(List<PSAreaDomain> psareaDomainList) {
         this.psareaDomainList = psareaDomainList;
     }
 
-    public ShangJiaInfoDomain getShangJiaInfoDomain() {
+    public ShangjiaInfoDomain getShangJiaInfoDomain() {
         return shangJiaInfoDomain;
     }
 
-    public void setShangJiaInfoDomain(ShangJiaInfoDomain shangJiaInfoDomain) {
+    public void setShangJiaInfoDomain(ShangjiaInfoDomain shangJiaInfoDomain) {
         this.shangJiaInfoDomain = shangJiaInfoDomain;
     }
 }

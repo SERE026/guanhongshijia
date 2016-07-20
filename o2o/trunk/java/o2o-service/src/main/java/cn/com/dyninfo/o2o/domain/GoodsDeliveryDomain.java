@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class GoodsDeliveryDomain extends GoodsDeliveryModel {
     private GoodsDomain goods;
-    private List<DlytypeDomain> dlyList;
+    private List<DlyTypeDomain> dlyList;
 
     public GoodsDomain getGoods() {
         return goods;
@@ -19,11 +19,11 @@ public class GoodsDeliveryDomain extends GoodsDeliveryModel {
         this.goods = goods;
     }
 
-    public List<DlytypeDomain> getDlyList() {
+    public List<DlyTypeDomain> getDlyList() {
         return dlyList;
     }
 
-    public void setDlyList(List<DlytypeDomain> dlyList) {
+    public void setDlyList(List<DlyTypeDomain> dlyList) {
         this.dlyList = dlyList;
     }
 }

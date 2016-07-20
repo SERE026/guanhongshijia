@@ -6,14 +6,14 @@ import cn.com.dyninfo.o2o.model.GoodsSpecValModel;
  * Created by dyninfo on 2016/7/19.
  */
 public class GoodsSpecValDomain extends GoodsSpecValModel {
-    private GoodsSpecDomain spec;
+    private GoodSpecDomain spec;
     private GoodsDomain goods;
 
-    public GoodsSpecDomain getSpec() {
+    public GoodSpecDomain getSpec() {
         return spec;
     }
 
-    public void setSpec(GoodsSpecDomain spec) {
+    public void setSpec(GoodSpecDomain spec) {
         this.spec = spec;
     }
 

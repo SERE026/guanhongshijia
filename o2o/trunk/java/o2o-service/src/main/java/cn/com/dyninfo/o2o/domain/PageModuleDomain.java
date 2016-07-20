@@ -8,13 +8,13 @@ import java.util.List;
  * Created by dyninfo on 2016/7/19.
  */
 public class PageModuleDomain extends PageModuleModel {
-    private List<PagModInGoodsDomain> goodsList;
+    private List<PageModuleInGoodsDomain> goodsList;
 
-    public List<PagModInGoodsDomain> getGoodsList() {
+    public List<PageModuleInGoodsDomain> getGoodsList() {
         return goodsList;
     }
 
-    public void setGoodsList(List<PagModInGoodsDomain> goodsList) {
+    public void setGoodsList(List<PageModuleInGoodsDomain> goodsList) {
         this.goodsList = goodsList;
     }
 }

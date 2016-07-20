@@ -5,14 +5,14 @@ import cn.com.dyninfo.o2o.model.PSAreaModel;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class PsareaDomain extends PSAreaModel {
-    private DlytypeDomain dlytype;
+public class PSAreaDomain extends PSAreaModel {
+    private DlyTypeDomain dlytype;
 
-    public DlytypeDomain getDlytype() {
+    public DlyTypeDomain getDlytype() {
         return dlytype;
     }
 
-    public void setDlytype(DlytypeDomain dlytype) {
+    public void setDlytype(DlyTypeDomain dlytype) {
         this.dlytype = dlytype;
     }
 }

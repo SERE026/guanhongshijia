@@ -11,7 +11,7 @@ public class GoodsSortDomain extends GoodsSortModel {
     private GoodsSortDomain parent;
     private List<GoodsSortDomain> children;
     private GoodsTypeDomain type;
-    private ShangJiaInfoDomain merchants;
+    private ShangjiaInfoDomain merchants;
 
     public GoodsSortDomain getParent() {
         return parent;
@@ -37,11 +37,11 @@ public class GoodsSortDomain extends GoodsSortModel {
         this.type = type;
     }
 
-    public ShangJiaInfoDomain getMerchants() {
+    public ShangjiaInfoDomain getMerchants() {
         return merchants;
     }
 
-    public void setMerchants(ShangJiaInfoDomain merchants) {
+    public void setMerchants(ShangjiaInfoDomain merchants) {
         this.merchants = merchants;
     }
 }

@@ -8,14 +8,14 @@ import java.util.Set;
  * Created by dyninfo on 2016/7/19.
  */
 public class RoleInfoDomain extends RoleInfoModel {
-    private Set<ControlGroupInfoDomain> groups;
+    private Set<ControlGroupDomain> groups;
     private Set<UserInfoDomain> user;
 
-    public Set<ControlGroupInfoDomain> getGroups() {
+    public Set<ControlGroupDomain> getGroups() {
         return groups;
     }
 
-    public void setGroups(Set<ControlGroupInfoDomain> groups) {
+    public void setGroups(Set<ControlGroupDomain> groups) {
         this.groups = groups;
     }
 

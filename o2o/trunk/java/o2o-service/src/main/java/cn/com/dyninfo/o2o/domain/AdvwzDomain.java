@@ -8,13 +8,13 @@ import java.util.List;
  * Created by dyninfo on 2016/7/19.
  */
 public class AdvWzDomain extends AdvWzModel {
-    private List<AdvDomain> advDomainList;
+    private List<AdvWzDomain> AdvWzDomainList;
 
-    public List<AdvDomain> getAdvDomainList() {
-        return advDomainList;
+    public List<AdvWzDomain> getAdvWzDomainList() {
+        return AdvWzDomainList;
     }
 
-    public void setAdvDomainList(List<AdvDomain> advDomainList) {
-        this.advDomainList = advDomainList;
+    public void setAdvWzDomainList(List<AdvWzDomain> advWzDomainList) {
+        AdvWzDomainList = advWzDomainList;
     }
 }

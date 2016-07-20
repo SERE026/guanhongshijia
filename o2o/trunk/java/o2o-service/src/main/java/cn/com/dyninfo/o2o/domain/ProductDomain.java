@@ -9,9 +9,9 @@ import java.util.List;
  */
 public class ProductDomain extends ProductModel{
     private GoodsDomain good;
-    private List<TryuseApplyDomain> applyList;
+    private List<TryUseApplyDomain> applyList;
     private GoodsDeliveryDomain delivery;
-    private ShangJiaInfoDomain merchants;
+    private ShangjiaInfoDomain merchants;
     private GoodsSortDomain goodsSort;
     private GoodsTypeDomain goodsType;
     private GoodsSortDomain customSort;
@@ -25,11 +25,11 @@ public class ProductDomain extends ProductModel{
         this.good = good;
     }
 
-    public List<TryuseApplyDomain> getApplyList() {
+    public List<TryUseApplyDomain> getApplyList() {
         return applyList;
     }
 
-    public void setApplyList(List<TryuseApplyDomain> applyList) {
+    public void setApplyList(List<TryUseApplyDomain> applyList) {
         this.applyList = applyList;
     }
 
@@ -41,11 +41,11 @@ public class ProductDomain extends ProductModel{
         this.delivery = delivery;
     }
 
-    public ShangJiaInfoDomain getMerchants() {
+    public ShangjiaInfoDomain getMerchants() {
         return merchants;
     }
 
-    public void setMerchants(ShangJiaInfoDomain merchants) {
+    public void setMerchants(ShangjiaInfoDomain merchants) {
         this.merchants = merchants;
     }
 
@@ -81,13 +81,13 @@ public class ProductDomain extends ProductModel{
         this.brand = brand;
     }
 
-    public List<GoodsSpecDomain> getSpecList() {
+    public List<GoodSpecDomain> getSpecList() {
         return specList;
     }
 
-    public void setSpecList(List<GoodsSpecDomain> specList) {
+    public void setSpecList(List<GoodSpecDomain> specList) {
         this.specList = specList;
     }
 
-    private List<GoodsSpecDomain> specList;
+    private List<GoodSpecDomain> specList;
 }

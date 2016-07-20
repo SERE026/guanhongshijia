@@ -11,7 +11,7 @@ public class HuiyuanInfoDomain extends HuiyuanInfoModel {
     private AreaXInfoDomain province;
     private AreaXInfoDomain city;
     private AreaXInfoDomain region;
-    private List<LoginfoDomain> log;
+    private List<LogInfoDomain> log;
     private List<CommentInfoDomain> comment;
 
     public AreaXInfoDomain getProvince() {
@@ -38,11 +38,11 @@ public class HuiyuanInfoDomain extends HuiyuanInfoModel {
         this.region = region;
     }
 
-    public List<LoginfoDomain> getLog() {
+    public List<LogInfoDomain> getLog() {
         return log;
     }
 
-    public void setLog(List<LoginfoDomain> log) {
+    public void setLog(List<LogInfoDomain> log) {
         this.log = log;
     }
 

@@ -8,8 +8,8 @@ import cn.com.dyninfo.o2o.model.FaoritesModel;
 public class FavoritesDomain extends FaoritesModel {
     private HuiyuanInfoDomain member;
     private GoodsDomain good;
-    private ShangJiaInfoDomain shangJiaInfo;
-    private ShangJiaInfoDomain merchant;
+    private ShangjiaInfoDomain shangJiaInfo;
+    private ShangjiaInfoDomain merchant;
 
     public HuiyuanInfoDomain getMember() {
         return member;
@@ -27,19 +27,19 @@ public class FavoritesDomain extends FaoritesModel {
         this.good = good;
     }
 
-    public ShangJiaInfoDomain getShangJiaInfo() {
+    public ShangjiaInfoDomain getShangJiaInfo() {
         return shangJiaInfo;
     }
 
-    public void setShangJiaInfo(ShangJiaInfoDomain shangJiaInfo) {
+    public void setShangJiaInfo(ShangjiaInfoDomain shangJiaInfo) {
         this.shangJiaInfo = shangJiaInfo;
     }
 
-    public ShangJiaInfoDomain getMerchant() {
+    public ShangjiaInfoDomain getMerchant() {
         return merchant;
     }
 
-    public void setMerchant(ShangJiaInfoDomain merchant) {
+    public void setMerchant(ShangjiaInfoDomain merchant) {
         this.merchant = merchant;
     }
 }

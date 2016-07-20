@@ -10,7 +10,7 @@ import java.util.List;
 public class UserInfoDomain extends UserInfoModel {
     private List<OgnzInfoDomain> ognzs;
     private List<RoleInfoDomain> roles;
-    private ShangJiaInfoDomain shanfJiaInfo;
+    private ShangjiaInfoDomain shanfJiaInfo;
     private  UserInfoDomain daili;
     private  List<LogDomain> log;
     private  AgentGradeDomain agentGrade;
@@ -31,11 +31,11 @@ public class UserInfoDomain extends UserInfoModel {
         this.roles = roles;
     }
 
-    public ShangJiaInfoDomain getShanfJiaInfo() {
+    public ShangjiaInfoDomain getShanfJiaInfo() {
         return shanfJiaInfo;
     }
 
-    public void setShanfJiaInfo(ShangJiaInfoDomain shanfJiaInfo) {
+    public void setShanfJiaInfo(ShangjiaInfoDomain shanfJiaInfo) {
         this.shanfJiaInfo = shanfJiaInfo;
     }
 

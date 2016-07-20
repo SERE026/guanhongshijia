@@ -8,7 +8,7 @@ import cn.com.dyninfo.o2o.model.BrandOrderModel;
 public class BrandOrderDomain extends BrandOrderModel {
     private BrandDomain brandDomain;
     private AreaXInfoDomain areaInfoDomain;
-    private ShangJiaInfoDomain shangJiaInfoDomain;
+    private ShangjiaInfoDomain shangJiaInfoDomain;
 
     public BrandDomain getBrandDomain() {
         return brandDomain;
@@ -26,11 +26,11 @@ public class BrandOrderDomain extends BrandOrderModel {
         this.areaInfoDomain = areaInfoDomain;
     }
 
-    public ShangJiaInfoDomain getShangJiaInfoDomain() {
+    public ShangjiaInfoDomain getShangJiaInfoDomain() {
         return shangJiaInfoDomain;
     }
 
-    public void setShangJiaInfoDomain(ShangJiaInfoDomain shangJiaInfoDomain) {
+    public void setShangJiaInfoDomain(ShangjiaInfoDomain shangJiaInfoDomain) {
         this.shangJiaInfoDomain = shangJiaInfoDomain;
     }
 }

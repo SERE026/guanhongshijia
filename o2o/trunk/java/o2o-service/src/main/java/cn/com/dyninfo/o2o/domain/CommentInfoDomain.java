@@ -8,7 +8,7 @@ import cn.com.dyninfo.o2o.model.CommentInfoModel;
 public class CommentInfoDomain extends CommentInfoModel{
     private HuiyuanInfoDomain huiyuanInfoDomain;
     private UserInfoDomain userInfoDomain;
-    private ShangJiaInfoDomain shangJiaInfoDomain;
+    private ShangjiaInfoDomain shangJiaInfoDomain;
     private GoodsDomain goodsDomain;
 
     public HuiyuanInfoDomain getHuiyuanInfoDomain() {
@@ -27,11 +27,11 @@ public class CommentInfoDomain extends CommentInfoModel{
         this.userInfoDomain = userInfoDomain;
     }
 
-    public ShangJiaInfoDomain getShangJiaInfoDomain() {
+    public ShangjiaInfoDomain getShangJiaInfoDomain() {
         return shangJiaInfoDomain;
     }
 
-    public void setShangJiaInfoDomain(ShangJiaInfoDomain shangJiaInfoDomain) {
+    public void setShangJiaInfoDomain(ShangjiaInfoDomain shangJiaInfoDomain) {
         this.shangJiaInfoDomain = shangJiaInfoDomain;
     }
 

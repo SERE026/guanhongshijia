@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.model.TryUseApplyModel;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class TryuseApplyDomain extends TryUseApplyModel {
+public class TryUseApplyDomain extends TryUseApplyModel {
     private HuiyuanInfoDomain huiyuan;
     private GoodsDomain goods;
     private AreaXInfoDomain province;

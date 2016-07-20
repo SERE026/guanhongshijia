@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.model.RefundOrderModel;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class RefundorderDomain extends RefundOrderModel {
+public class RefundOrderDomain extends RefundOrderModel {
     public OrderDomain getOrder() {
         return order;
     }

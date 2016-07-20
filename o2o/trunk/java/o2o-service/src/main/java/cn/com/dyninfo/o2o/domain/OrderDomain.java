@@ -12,17 +12,17 @@ public class OrderDomain extends OrderModel {
 
     private ZffsDomain zffsDomain ;
     private List<OrderProductDomain> orderProductList;
-    private DlytypeDomain dlyType;
-    private WlcompanyDomain wlcompany;
+    private DlyTypeDomain dlyType;
+    private WlCompanyDomain wlcompany;
     private AreaXInfoDomain province;
     private AreaXInfoDomain city;
     private AreaXInfoDomain county;
     private HuiyuanInfoDomain huiyuan;
-    private ShangJiaInfoDomain merchants;
+    private ShangjiaInfoDomain merchants;
     private PaymentDomain payment;
-    private RefundorderDomain refundorder;
-    private ReturnedorderDomain returnedorder;
-    private SendorderDomain sendorder;
+    private RefundOrderDomain refundorder;
+    private ReturneOrderDomain returnedorder;
+    private SendOrderDomain sendorder;
 
     public ZffsDomain getZffsDomain() {
         return zffsDomain;
@@ -40,19 +40,19 @@ public class OrderDomain extends OrderModel {
         this.orderProductList = orderProductList;
     }
 
-    public DlytypeDomain getDlyType() {
+    public DlyTypeDomain getDlyType() {
         return dlyType;
     }
 
-    public void setDlyType(DlytypeDomain dlyType) {
+    public void setDlyType(DlyTypeDomain dlyType) {
         this.dlyType = dlyType;
     }
 
-    public WlcompanyDomain getWlcompany() {
+    public WlCompanyDomain getWlcompany() {
         return wlcompany;
     }
 
-    public void setWlcompany(WlcompanyDomain wlcompany) {
+    public void setWlcompany(WlCompanyDomain wlcompany) {
         this.wlcompany = wlcompany;
     }
 
@@ -88,11 +88,11 @@ public class OrderDomain extends OrderModel {
         this.huiyuan = huiyuan;
     }
 
-    public ShangJiaInfoDomain getMerchants() {
+    public ShangjiaInfoDomain getMerchants() {
         return merchants;
     }
 
-    public void setMerchants(ShangJiaInfoDomain merchants) {
+    public void setMerchants(ShangjiaInfoDomain merchants) {
         this.merchants = merchants;
     }
 
@@ -104,27 +104,27 @@ public class OrderDomain extends OrderModel {
         this.payment = payment;
     }
 
-    public RefundorderDomain getRefundorder() {
+    public RefundOrderDomain getRefundorder() {
         return refundorder;
     }
 
-    public void setRefundorder(RefundorderDomain refundorder) {
+    public void setRefundorder(RefundOrderDomain refundorder) {
         this.refundorder = refundorder;
     }
 
-    public ReturnedorderDomain getReturnedorder() {
+    public ReturneOrderDomain getReturnedorder() {
         return returnedorder;
     }
 
-    public void setReturnedorder(ReturnedorderDomain returnedorder) {
+    public void setReturnedorder(ReturneOrderDomain returnedorder) {
         this.returnedorder = returnedorder;
     }
 
-    public SendorderDomain getSendorder() {
+    public SendOrderDomain getSendorder() {
         return sendorder;
     }
 
-    public void setSendorder(SendorderDomain sendorder) {
+    public void setSendorder(SendOrderDomain sendorder) {
         this.sendorder = sendorder;
     }
 }

@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.model.LogInfoModel;
 /**
  * Created by dyninfo on 2016/7/19.
  */
-public class LoginfoDomain extends LogInfoModel {
+public class LogInfoDomain extends LogInfoModel {
     public HuiyuanInfoDomain getHuiyuan() {
         return huiyuan;
     }
