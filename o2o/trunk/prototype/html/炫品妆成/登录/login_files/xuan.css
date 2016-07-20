@@ -1284,7 +1284,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 
 .about{ width:770px; height:auto; margin-left:8px; overflow:hidden;}  
 .about_top{ width:770px; height:75px; line-height:75px; text-align:center; border-bottom:#dddddd solid 1px; font-family:"微软雅黑"; font-size:18px; color:#000000}  
-.about_top_tuwen{ width:750px; height:auto; overflow:auto; line-height:22px; color:#454545; font-size:12px; margin:25px 0 0 10px}  
+.about_top_tuwen{ width:750px; height:auto; line-height:22px; color:#454545; font-size:12px; margin:25px 0 0 10px}  
 
 /*
 .meu_1421{ width:166px; height:33px; background-image:url(../img/x1420bg_02.gif); background-repeat:no-repeat; line-height:33px; border-bottom:#eeeeee solid;} 
