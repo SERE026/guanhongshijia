@@ -109,7 +109,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>freemarker-page</servlet-name>
-		<url-pattern>index.html</url-pattern>
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 
     <filter>
