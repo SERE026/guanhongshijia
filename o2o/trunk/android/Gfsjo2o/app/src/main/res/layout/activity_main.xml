@@ -15,7 +15,7 @@
         android:layout_marginRight="40dp"
         android:layout_marginTop="30dp"
         android:text="10:27"
-        android:textColor="@color/color767f8e"
+        android:textColor="@color/color_f85b21"
         android:textSize="15sp"
         />
 
@@ -34,7 +34,7 @@
             android:layout_centerInParent="true"
             android:drawableLeft="@drawable/icon_serach"
             android:text="@string/main_search"
-            android:textColor="@color/color767f8e"
+            android:textColor="@color/color_767f8e"
             android:textSize="15sp"/>
     </RelativeLayout>
 
@@ -48,7 +48,7 @@
         android:drawableLeft="@drawable/icon_collect"
         android:drawablePadding="3dp"
         android:text="@string/main_collect"
-        android:textColor="@color/color767f8e"
+        android:textColor="@color/color_767f8e"
         android:textSize="19sp"
         />
 
@@ -62,7 +62,7 @@
         android:drawableLeft="@drawable/icon_shopping_cart"
         android:gravity="center"
         android:text="@string/main_shopping_cart"
-        android:textColor="@color/color767f8e"
+        android:textColor="@color/color_767f8e"
         android:textSize="19sp"
         />
 
@@ -76,7 +76,7 @@
         android:drawableLeft="@drawable/icon_center_person"
         android:drawablePadding="3dp"
         android:text="@string/main_mine_center"
-        android:textColor="@color/color767f8e"
+        android:textColor="@color/color_767f8e"
         android:textSize="19sp"
         />
 

@@ -83,9 +83,9 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
         tv_main.setBackgroundResource(R.id.tv_main==id?R.drawable.icon_main_bg:0);
         tv_main_classification.setBackgroundResource(R.id.tv_main_classification==id?R.drawable.icon_main_bg:0);
         tv_main_recommend.setBackgroundResource(R.id.tv_main_recommend==id?R.drawable.icon_main_bg:0);
-        tv_main.setTextColor(getResources().getColor(R.id.tv_main==id?R.color.colorfffffe:R.color.color767f8e));
-        tv_main_classification.setTextColor(getResources().getColor(R.id.tv_main_classification==id?R.color.colorfffffe:R.color.color767f8e));
-        tv_main_recommend.setTextColor(getResources().getColor(R.id.tv_main_recommend==id?R.color.colorfffffe:R.color.color767f8e));
+        tv_main.setTextColor(getResources().getColor(R.id.tv_main==id?R.color.color_fffffe:R.color.color_767f8e));
+        tv_main_classification.setTextColor(getResources().getColor(R.id.tv_main_classification==id?R.color.color_fffffe:R.color.color_767f8e));
+        tv_main_recommend.setTextColor(getResources().getColor(R.id.tv_main_recommend==id?R.color.color_fffffe:R.color.color_767f8e));
     }
 
 

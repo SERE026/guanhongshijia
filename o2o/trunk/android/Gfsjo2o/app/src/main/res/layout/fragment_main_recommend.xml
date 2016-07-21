@@ -11,12 +11,14 @@
         android:layout_marginRight="108.5dp"
         android:layout_marginBottom="90.5dp">
     <ImageView
+        android:id="@+id/iv_recommend_flag_pic"
         android:layout_width="167.5dp"
         android:layout_height="match_parent"
         android:src="@drawable/icon_public_image"
         android:scaleType="fitXY"
         />
         <GridView
+            android:layout_toRightOf="@+id/iv_recommend_flag_pic"
             android:id="@+id/gv_recommend"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

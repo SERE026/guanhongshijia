@@ -10,7 +10,7 @@
         android:id="@+id/rl_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color202834"
+        android:background="@color/color_202834"
         android:layout_marginTop="79.5dp"
         android:layout_marginLeft="314dp"
         android:layout_marginRight="314dp"
@@ -20,10 +20,10 @@
             android:id="@+id/tv_login_title"
             android:layout_width="match_parent"
             android:layout_height="65.5dp"
-            android:background="@color/color2b323d"
+            android:background="@color/color_2b323d"
             android:gravity="center"
             android:text="账户"
-            android:textColor="@color/color767f8e"
+            android:textColor="@color/color_767f8e"
             android:textSize="20sp"/>
 
         <EditText
@@ -42,7 +42,7 @@
             android:hint="用户名"
             android:gravity="center_vertical"
             android:textColor="@color/white"
-            android:textColorHint="@color/color1b232f"
+            android:textColorHint="@color/color_1b232f"
             android:textSize="16sp" >
 
             <requestFocus />
@@ -64,7 +64,7 @@
             android:hint="密码"
             android:gravity="center_vertical"
             android:textColor="@color/white"
-            android:textColorHint="@color/color1b232f"
+            android:textColorHint="@color/color_1b232f"
             android:textSize="16sp" >
 
             <requestFocus />
@@ -80,7 +80,7 @@
             android:layout_marginRight="60dp"
             android:background="#00000000"
             android:text="找回密码"
-            android:textColor="@color/colora4a5a5"
+            android:textColor="@color/color_a4a5a5"
             android:textSize="12sp"/>
 
         <Button

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg"
+    tools:context=".Activity.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_go_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:text="@string/common_go_back"
+        android:layout_marginLeft="40dp"
+        android:drawableLeft="@drawable/icon_go_back"
+        android:drawablePadding="20dp"
+        android:textColor="@color/color_b3b3b4"/>
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:text="10:27"
+        android:textColor="@color/color_767f8e"
+        android:textSize="15sp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_marginRight="40dp"
+        android:layout_toLeftOf="@id/tv_time"
+        android:background="@drawable/icon_bg_serach">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@drawable/icon_serach"
+            android:text="@string/main_search"
+            android:drawablePadding="3dp"
+            android:textColor="@color/color_767f8e"
+            android:textSize="15sp"/>
+    </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="87dp"
+        android:drawableLeft="@drawable/icon_more"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:drawablePadding="10dp"
+        android:text="@string/main_classification"/>
+
+    <GridView
+        android:id="@+id/gv_more_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginRight="140dp"
+        android:layout_marginBottom="53dp"
+        android:numColumns="4"
+        >
+    </GridView>
+
+</RelativeLayout>

@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <!-- 填充色 -->
-    <solid android:color="@color/color767f8e" />
+    <solid android:color="@color/color_767f8e" />
     <!-- 圆角 -->
     <corners android:radius="10dp" />
     <stroke

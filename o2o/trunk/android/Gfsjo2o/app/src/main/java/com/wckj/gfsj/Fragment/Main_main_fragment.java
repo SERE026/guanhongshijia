@@ -48,7 +48,7 @@ public class Main_main_fragment extends Fragment{
         mfancyCoverFlow.setActionDistance(FancyCoverFlow.ACTION_DISTANCE_AUTO);
       int num = Integer.MAX_VALUE / 2 % mList.size();
       int selectPosition = Integer.MAX_VALUE / 2 - num;
-      mfancyCoverFlow.setSelection(selectPosition);
+      mfancyCoverFlow.setSelection(1);
         mfancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

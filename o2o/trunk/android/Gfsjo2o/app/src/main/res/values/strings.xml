@@ -9,6 +9,7 @@
     <string name="main">首页</string>
     <string name="main_classification">分类</string>
     <string name="main_recommend">推荐</string>
+    <string name="common_go_back">返回</string>
 
     <string name="classification_china_furniture">新中式家具</string>
     <string name="classical_furniture">古典家具</string>
@@ -20,4 +21,19 @@
     <string name="classification_decorate">装饰大全</string>
     <string name="classification_classical_decoration">古典装饰材料</string>
     <string name="classification_lighting">古典灯饰</string>
+
+    <string name="classification_phoebe">金丝楠木</string>
+    <string name="classification_three_box_customization">三框定制</string>
+    <string name="classification_wood_carving">木雕</string>
+    <string name="classification_bead">串珠</string>
+    <string name="classification_Design_Institute">设计院</string>
+    <string name="classification_decoration_company">装修公司</string>
+    <string name="classification_Multi_Media">多媒体</string>
+    <string name="classification_Art_Finance">艺术金融</string>
+    <string name="classification_Classical_art">古典布艺</string>
+    <string name="classification_Ancient_kitchen_range">古灶坊</string>
+    <string name="classification_President_office_series">总裁办公系列</string>
+    <string name="classification_Chao_Ke_Hui">潮客荟</string>
+
+
 </resources>
