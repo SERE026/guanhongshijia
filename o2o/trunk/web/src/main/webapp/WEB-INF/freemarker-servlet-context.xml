@@ -42,5 +42,6 @@
         <property name="prefix" value="/" />
         <property name="suffix" value=".html" />
         <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="requestContextAttribute" value="rc"></property>
     </bean>
 </beans>
