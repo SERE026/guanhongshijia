@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_shopping_pic"
+        android:layout_width="145.5dp"
+        android:layout_height="132.5dp"
+        android:src="@drawable/icon_public_image"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:layout_marginTop="7dp"
+        android:id="@+id/tv_title_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/classification_software"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/tv_title_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:singleLine="true"
+        android:gravity="center"
+        android:text="@string/classification_decorate"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:background="@color/white"/>
+
+</RelativeLayout>

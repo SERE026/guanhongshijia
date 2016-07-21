@@ -5,6 +5,7 @@
 
     <ImageView
         android:id="@+id/iv_scro_main"
+        android:layout_gravity="center"
         android:layout_width="374dp"
         android:layout_height="296dp"
         android:scaleType="centerCrop"
