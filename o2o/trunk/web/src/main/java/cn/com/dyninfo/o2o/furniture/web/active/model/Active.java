@@ -63,7 +63,17 @@ public class Active implements Serializable{
 //	@AccessType(value = "property")
 //	@Column(name="IMG")
 //	private String img;//活动图片
-	
+
+
+	@AccessType(value = "property")
+	@Column(name="IMAGE")
+	private String image;//
+
+	@AccessType(value = "property")
+	@Column(name="SHORT_DESC")
+	private String shortdesc;//
+
+
 	@AccessType(value = "property")
 	@Column(name="BDATE")
 	private String bdate;//活动开始日期
@@ -131,6 +141,22 @@ public class Active implements Serializable{
 	@OrderBy(value="idnex asc ")
 	private List<ActiveGoods> deatList;
 
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getShortdesc() {
+		return shortdesc;
+	}
+
+	public void setShortdesc(String shortdesc) {
+		this.shortdesc = shortdesc;
+	}
 	
 	/**
 	 * @return the goods
