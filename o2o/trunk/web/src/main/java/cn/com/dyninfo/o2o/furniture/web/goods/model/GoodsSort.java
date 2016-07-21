@@ -93,9 +93,40 @@ public class GoodsSort {
 	@AccessType(value = "property")
 	@Column(name="REVEAL")
 	private String reveal="0";   //是否在全部商品分类中显示 0 不显示  1 显示
-;
-	
-	
+
+	@AccessType(value = "property")
+	@Column(name="EXTEND_SHOW")
+	private int extendshow;
+
+
+	@AccessType(value = "property")
+	@Column(name="GOODS_COUNT")
+	private int goodscount;
+
+	@AccessType(value = "property")
+	@Column(name="EXTEND_NAME")
+	private String extendname;
+
+	@AccessType(value = "property")
+	@Column(name="ENG_NAME")
+	private String engname;
+
+	@AccessType(value = "property")
+	@Column(name="ENG_DESC")
+	private String engdesc;
+
+	@AccessType(value = "property")
+	@Column(name="LARGE_IMG")
+	private String largeimg;
+
+
+	@AccessType(value = "property")
+	@Column(name="ADV_PIC")
+	private String advpic;
+
+	@AccessType(value = "property")
+	@Column(name="ADV_LINK")
+	private String advlink;
 	@Transient
 	private String levStr;
 	
@@ -107,6 +138,67 @@ public class GoodsSort {
 		return result;
 	}
 
+	public String getAdvpic() {
+		return advpic;
+	}
+
+	public void setAdvpic(String advpic) {
+		this.advpic = advpic;
+	}
+
+	public String getAdvlink() {
+		return advlink;
+	}
+
+	public void setAdvlink(String advlink) {
+		this.advlink = advlink;
+	}
+	public int getGoodscount() {
+		return goodscount;
+	}
+
+	public void setGoodscount(int goodscount) {
+		this.goodscount = goodscount;
+	}
+	public int getExtendshow() {
+		return extendshow;
+	}
+
+	public void setExtendshow(int extendshow) {
+		this.extendshow = extendshow;
+	}
+
+	public String getExtendname() {
+		return extendname;
+	}
+
+	public void setExtendname(String extendname) {
+		this.extendname = extendname;
+	}
+
+	public String getEngname() {
+		return engname;
+	}
+
+	public void setEngname(String engname) {
+		this.engname = engname;
+	}
+
+	public String getEngdesc() {
+		return engdesc;
+	}
+
+	public void setEngdesc(String engdesc) {
+		this.engdesc = engdesc;
+	}
+
+	public String getLargeimg() {
+		return largeimg;
+	}
+
+	public void setLargeimg(String largeimg) {
+		this.largeimg = largeimg;
+	}
 	public int getGoodsSort_id() {
 		return goodsSort_id;
 	}
