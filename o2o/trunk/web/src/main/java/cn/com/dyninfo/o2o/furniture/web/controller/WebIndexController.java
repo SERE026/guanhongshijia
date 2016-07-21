@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,6 +26,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class WebIndexController{
+    public static final int REMAI_SKU = 27;//热卖
+    public static final int QIANGGOU_SKU = 47;//抢购
+    public static final int REPIN_SKU =49;//热评
+    public static final int NEW_SKU =36;//新品
+    public static final int XIANSHI_SKU = 37;//限时
+
+    public static final int ONE_SKU = 1000101;//1F楼
+    public static final int TWO_SKU = 1000101;//2F楼
+    public static final int THREE_SKU = 1000101;//3F楼
+    public static final int FOUR_SKU = 1000101;//4F楼
     @Resource
     private GoodsService goodsService;
     @Resource
@@ -46,26 +57,55 @@ public class WebIndexController{
      */
     @RequestMapping(value= "index" )
     public String index(HttpServletRequest request, ModelMap mav) {
-        StringBuffer where=new StringBuffer();
-        PageInfo page = new PageInfo();
-        page.setPageSize(6);
-        page.setPageNo(1);
-        // where.append(" order by indexs");
-        HashMap<String, ?> data = goodsService.getListByPageWhere(where, page);
-        // 保存商品标签名字，便于页面加载
-        List<Goods> goodsList = (List<Goods>)data.get("DATA");
-        mav.addAttribute("goodsList", goodsList);
+//        StringBuffer where=new StringBuffer();
+//        PageInfo page = new PageInfo();
+//        page.setPageSize(6);
+//        page.setPageNo(1);
+//        // where.append(" order by indexs");
+//        HashMap<String, ?> data = goodsService.getListByPageWhere(where, page);
+//        // 保存商品标签名字，便于页面加载
+//        List<Goods> goodsList = (List<Goods>)data.get("DATA");
+//        mav.addAttribute("goodsList", goodsList);
+
 
         StringBuffer where1=new StringBuffer();
+        //所有的分类  一级。二级,三级
+        List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
+        mav.addAttribute("goodsSortList",dataList);
 
-        List<GoodsSort> goodsSortList =(List<GoodsSort>)goodsSortService.getListByWhere(where1);
-        mav.addAttribute("goodsSortList", goodsSortList);
+        //1F楼商品
+        List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+ONE_SKU));
+        mav.addAttribute("goodsSortList1",goodsSortList1);
+        List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ONE_SKU));
+        mav.addAttribute("goodsList1",goodsList1);
+        //2F楼商品
+        List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+TWO_SKU));
+        mav.addAttribute("goodsSortList2",goodsSortList2);
+        List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+TWO_SKU));
+        mav.addAttribute("goodsList2",goodsList2);
+        //3F楼商品
+        List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+THREE_SKU));
+        mav.addAttribute("goodsSortList3",goodsSortList3);
+        List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+THREE_SKU));
+        mav.addAttribute("goodsList3",goodsList3);
+        //4F楼商品
+        List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+FOUR_SKU));
+        mav.addAttribute("goodsSortList4",goodsSortList4);
+        List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+FOUR_SKU));
+        mav.addAttribute("goodsList4",goodsList4);
 
-        StringBuffer where2=new StringBuffer();
-        where2.append(" and n.pageModule_id="+27);
-        List<PageModule> pageModuleList =(List<PageModule>)pageModuleService.getListByWhere(where2);
-        mav.addAttribute("pageModuleList", pageModuleList);
 
+        //人气/疯狂抢购/热评/新品/限时抢购
+        List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+REMAI_SKU));
+        List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+QIANGGOU_SKU));
+        List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+REPIN_SKU));
+        List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+NEW_SKU));
+        List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+XIANSHI_SKU));
+        mav.addAttribute("reMai", reMaiList.get(0));
+        mav.addAttribute("qiangGou", qiangGouList.get(0));
+        mav.addAttribute("rePin", rePinList.get(0));
+        mav.addAttribute("new", newList.get(0));
+        mav.addAttribute("xianShi", xsList.get(0));
 
         return "/index";
     }
@@ -85,4 +125,5 @@ public class WebIndexController{
         mav.addAttribute("goods", goods);
         return "/details";
     }
+
 }
