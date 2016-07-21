@@ -470,7 +470,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
     }
         .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:140px;margin-top:20px;font-weight:bold;font-size:27px;
         }
-        .Floor .FloorImg ul {overflow:hidden;margin-top:80px;
+        .Floor .FloorImg ul {overflow:hidden;margin-top:15px;
         }
             .Floor .FloorImg ul li {
                 width:60px;height:24px;margin:6px 3px;
@@ -478,7 +478,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
                 .Floor .FloorImg ul li a {border:1px solid #dcd7d7;width:60px;line-height:24px;text-align:center;display:block;font-size:14px;color:black;
                 }
     .Floor .FloorImg img {
-        width:200px;height:200px;margin-top:80px;
+        width:200px;height:200px;margin-top:60px;
     }
 .floor-banner {overflow:hidden;
 }
@@ -556,8 +556,12 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
 .FloorBack > .backRight {float:right;font-size:7px;color:white;display:inline-block;transform:scale(0.7)
 }
-
-
+.FloorImg .tag {margin-top:28px;
+}
+    .FloorImg .tag .font6 {transform:scale(0.7);display:inline-block;font-size:6px;width:220px;margin-left:-32px;
+    }
+        .FloorImg .tag .font6 p {width:300px;
+        }
 /*跳转按钮*/
 .jump-btn {position:absolute;left:-50px;top:22%;
 }
