@@ -81,10 +81,10 @@ public class GoodsSortDAO extends BaseDAO{
 	public List<?> getListByWhere(StringBuffer where) {
 		
 		if(where!=null)
-			where.append(" order by n.index asc ");
+			where.append(" order by  n.extendshow desc,n.index asc ");
 		else{
 			where=new StringBuffer();
-			where.append(" order by n.EXTEND_SHOW asc,n.index asc  ");
+			where.append(" order byn.index asc  ");
 		}
 		return super.getListByWhere(where);
 	}
