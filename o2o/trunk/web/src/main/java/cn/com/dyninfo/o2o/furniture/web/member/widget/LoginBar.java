@@ -23,6 +23,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Component;
 
 import cn.com.dyninfo.o2o.furniture.util.ForwordTool;
@@ -343,7 +344,7 @@ public class LoginBar extends Widget{
 		info.setEditstat("0");
 		info.setFindtime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 		findpasswordService.addObj(info);
-		String msg="<div><p>尊敬的炫品妆城用户您好！</p><p>请点击进入这个地址进行密码修改，谢谢！：</p><span>http://www.c-1-tech.com/Dress/modify_password.html?uuid="+uuid
+		String msg="<div><p>尊敬的炫品妆城用户您好！</p><p>请点击进入这个地址进行密码修改，谢谢！：</p><span>http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/modify_password.html?uuid="+uuid
 		+"</span><p>如果上面的链接无法点击，您也可以复制链接，粘贴到您浏览器的地址栏内，然后按“回车”打开密码修改页面。</p></div>";
 		sendMessageService.addData("1", msg, email,"","找回密码");
 		this.putData("data",email);

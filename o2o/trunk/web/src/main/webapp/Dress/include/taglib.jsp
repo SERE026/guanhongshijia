@@ -2,7 +2,6 @@
 <%@ taglib prefix="fmt" uri="/WEB-INF/taglib/fmt.tld" %>
 <%@ taglib prefix="c" uri="/WEB-INF/taglib/c.tld" %>
 <%@ taglib prefix="fn" uri="/WEB-INF/taglib/fn.tld"%>
-
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.

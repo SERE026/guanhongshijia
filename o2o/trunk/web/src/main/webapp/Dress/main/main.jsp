@@ -1,5 +1,6 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -28,7 +29,7 @@
 
 
 <frameset rows="60,*,0" cols="*" frameborder="no" border="0" framespacing="0">
-  <frame src="<%=request.getContextPath() %>/Dress/main/banner.jsp" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" title="topFrame" />
+  <frame src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/main/banner.jsp" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" title="topFrame" />
   <frameset cols="200,*" rows="*" frameborder="no" border="0" framespacing="0">
     <frame src="<%=request.getContextPath() %>/html/manage/left" name="leftFrame" scrolling="no" noresize="noresize" id="leftFrame" title="leftFrame" style="width: 300px;" />
     <frame src="<%=request.getContextPath() %>/html/manage/main/right" name="mainFrame" id="mainFrame" title="index"  />

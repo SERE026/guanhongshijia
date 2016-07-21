@@ -1,4 +1,5 @@
-﻿<%@ page language="java" pageEncoding="UTF-8"%>
+﻿<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -13,23 +14,23 @@
   ~
   --%>
 
-<link href="<%=request.getContextPath()%>/Dress/css/kua.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/Dress/css/human2.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/DlyTypeInput.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/Eop.Dialog.Remote.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/eop.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/jquery.checktree.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/style/SelectTree.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/style/ckeditor.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/Dress/js/jq-dateinput/ui.datepicker.css" title="win2k-cold-1" />
-<link href="<%=request.getContextPath()%>/Dress/css/global.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/Dress/css/input.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/Dress/css/grid.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/Dress/css/validate.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/Dress/css/dialog.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/Dress/css/style.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/Dress/css/jquery.treeview.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/Dress/css/checktree.css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/kua.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/human2.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/DlyTypeInput.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/Eop.Dialog.Remote.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/eop.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery.checktree.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/style/SelectTree.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/style/ckeditor.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jq-dateinput/ui.datepicker.css" title="win2k-cold-1" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/global.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/input.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/grid.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/validate.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/dialog.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/style.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/jquery.treeview.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/checktree.css" />
 <script type="text/javascript">
 var falg = true;	
 function submit(){
@@ -103,17 +104,17 @@ $(function(){
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="<%=request.getContextPath()%>/html/manage/daili/list" title="<fmt:message key="button.back"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/return_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" />
 						</a>
 					</td>
 				</tr>
@@ -183,7 +184,7 @@ $(function(){
 							<td>
 			                  	 <input type="text"  disabled="true"  readonly="true" name="areaGroupName" dataType="string" required="true" class="noNull"   msg="区域不能为空！"/>
 			                     <input type="hidden"  disabled="true" id="areaGroupId" name="areaGroupId" />
-			                     <img border="none" class="editAreaImg" title="编辑地区" alt="编辑地区" src="<%=request.getContextPath()%>/Dress/img/liu1.jpg" class="regionSelect"/>
+			                     <img border="none" class="editAreaImg" title="编辑地区" alt="编辑地区" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/liu1.jpg" class="regionSelect"/>
 							</td>
 						</tr>
 			</table>

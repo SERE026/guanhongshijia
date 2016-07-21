@@ -18,7 +18,7 @@
  *******************************/
 function _WXShare(img,width,height,title,desc,url,appid){
     //初始化参数
-    img=img||'http://www.c-1-tech.com/Dress/img/index_03.gif';
+    img=img||'http://www.guanhongshijia.com/Dress/img/index_03.gif';
     width=width||100;
     height=height||100;
     title=title||document.title;

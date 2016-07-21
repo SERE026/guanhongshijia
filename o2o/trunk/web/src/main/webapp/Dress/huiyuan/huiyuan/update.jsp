@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp"%>
 <%--
@@ -31,7 +32,7 @@ $(function(){
 	})
 </script>
 <body>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/dialog.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/dialog.js"></script>
 <form name="form1" action="<%=request.getContextPath()%>/html/manage/huiyuan/update" method="post">
 <table cellspacing="2" cellpadding="0" class="tab2">
 	<tr>
@@ -46,17 +47,17 @@ $(function(){
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="<%=request.getContextPath()%>/html/manage/huiyuan/list" title="<fmt:message key="button.back"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/return_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" />
 						</a>
 					</td>
 				</tr>

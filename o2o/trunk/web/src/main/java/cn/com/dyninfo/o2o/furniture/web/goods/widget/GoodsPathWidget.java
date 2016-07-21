@@ -16,6 +16,7 @@ package cn.com.dyninfo.o2o.furniture.web.goods.widget;
 import java.util.List;
 import java.util.Map;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -68,19 +69,19 @@ public class GoodsPathWidget extends AbstractGoodsWidget {
 			
 			if (parent != null & g != null) {
 //				System.out.println(path);
-				path = "<a href=\"http://www.c-1-tech.com/Dress/GoodList-" + g.getGoodsSort_id() + ".html\">" + parent.getName() + "</a> > ";
-				path += "<a href=\"http://www.c-1-tech.com/Dress/GoodList-" + sort.getGoodsSort_id() + ".html\">" + sort.getName() + "</a>";
+				path = "<a href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/GoodList-" + g.getGoodsSort_id() + ".html\">" + parent.getName() + "</a> > ";
+				path += "<a href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/GoodList-" + sort.getGoodsSort_id() + ".html\">" + sort.getName() + "</a>";
 //				System.out.println(path);
 			} else {
 				// 如果没有父代
-				path += "<a href=\"http://www.c-1-tech.com/Dress/GoodList-" + sort.getGoodsSort_id() + ".html\">" + sort.getName() + "</a>";
+				path += "<a href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/GoodList-" + sort.getGoodsSort_id() + ".html\">" + sort.getName() + "</a>";
 			}
 			}
 		}else{
 			// 如果没有父代
-			path += "<a href=\"http://www.c-1-tech.com/Dress/GoodList-" + sort.getGoodsSort_id() + ".html\">" + sort.getName() + "</a>";
+			path += "<a href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/GoodList-" + sort.getGoodsSort_id() + ".html\">" + sort.getName() + "</a>";
 		}
-		return "<a href=\"http://www.c-1-tech.com/Dress/index.html\">首页</a> > " + path;
+		return "<a href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/index.html\">首页</a> > " + path;
 	} 
 	
 

@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -37,7 +38,7 @@ function cz(){
 					<tr>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/order/list">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" b="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" b="0" />
 							</a>
 						</td>
 						<td class="chazhaofanshi1"> 下单人：</td>
@@ -71,7 +72,7 @@ function cz(){
 						<td><input name="btime" type="text" id="btime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px;" value="${btime }" />
 						-<input name="etime" type="text" id="etime" readonly onclick="WdatePicker()" class="bianji_3 date" style="font-size: 12px;margin-left: 5px;" value="${etime }"/></td>
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" b="0" /></a>
+							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" b="0" /></a>
 						</td>						
 					</tr>
 					<!-- 如果是管理员，加入订单所属区域的搜索和商家名称搜索 -->
@@ -189,7 +190,7 @@ function cz(){
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="/Dress/include/nofenye.jsp">
+					<jsp:include page="<%=Constants.PAGE_JSP%>">
 						<jsp:param name="url" value="/html/manage/order/list" />
 					</jsp:include>
 				</table>

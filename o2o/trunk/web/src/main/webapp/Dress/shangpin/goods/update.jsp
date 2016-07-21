@@ -1,5 +1,5 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/top.jsp" %>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -97,10 +97,10 @@ $(function(){
 
 </script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/shangpin/goods/goods.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/shangpin/goods/ajaxfileupload.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/shangpin/goods/goods.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/shangpin/goods/ajaxfileupload.js"></script>
 
-<link href="<%=request.getContextPath()%>/Dress/shangpin/goods/goods.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/shangpin/goods/goods.css" rel="stylesheet" type="text/css" />
 
 <form name=form1 id="form1" action="<%=request.getContextPath()%>/html/manage/goods" method="post">
 <input type="hidden" name="_method" value="put" />
@@ -122,17 +122,17 @@ $(function(){
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="<%=request.getContextPath()%>/html/manage/goods/list" title="<fmt:message key="button.back"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/return_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" />
 						</a>
 					</td>
 				</tr>
@@ -180,8 +180,8 @@ $(function(){
 								<div class="ImageMinBox">
 									
 								</div>
-								<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/AC_OETags.js"></script>
-						   		<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/fileUpload.js"></script>
+								<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
+						   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
 								<!-- 上传附件按钮 -->
 								<script language="JavaScript" type="text/javascript">
 								var imageCount=0;
@@ -189,7 +189,7 @@ $(function(){
 									document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
 								}
 								AC_FL_RunContent(
-									"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
+									"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
 									"width", "100",
 									"height", "30",
 									"id", "fileUpload",
@@ -200,7 +200,7 @@ $(function(){
 									"allowScriptAccess","sameDomain",
 									"type", "application/x-shockwave-flash",
 									"pluginspage", "http://www.adobe.com/go/getflashplayer",
-									"flashVars","flexID=a&uploadURL=<%=request.getContextPath()%>/Dress/file/uploadgoods.jsp&label=图 片 上 传&succeed=a_completeUpload"
+									"flashVars","flexID=a&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/file/uploadgoods.jsp&label=图 片 上 传&succeed=a_completeUpload"
 								);
 								/**
 									上传产品照片
@@ -516,7 +516,7 @@ $(function(){
 								<script language="JavaScript" type="text/javascript">
 								var mfimageCount=0;
 								AC_FL_RunContent(
-									"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
+									"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
 									"width", "100",
 									"height", "30",
 									"id", "fileUploadx",
@@ -527,7 +527,7 @@ $(function(){
 									"allowScriptAccess","sameDomain",
 									"type", "application/x-shockwave-flash",
 									"pluginspage", "http://www.adobe.com/go/getflashplayer",
-									"flashVars","flexID=y&uploadURL=<%=request.getContextPath()%>/Dress/file/uploadhead.jsp&label=图 片 上 传&succeed=y_completeUpload"
+									"flashVars","flexID=y&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/file/uploadhead.jsp&label=图 片 上 传&succeed=y_completeUpload"
 								);
 								/**
 									上传产品照片

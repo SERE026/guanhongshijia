@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -57,17 +58,17 @@ function openRoleDialog(){
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="<%=request.getContextPath()%>/html/manage/user/list?ognzId=${ognzId }" title="<fmt:message key="button.back"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/return_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" />
 						</a>
 					</td>
 				</tr>

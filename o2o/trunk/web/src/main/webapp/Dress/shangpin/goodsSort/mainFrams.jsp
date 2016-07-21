@@ -1,5 +1,6 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -28,7 +29,7 @@
 
 
   <frameset cols="166,*" rows="*" frameborder="no" border="0" framespacing="0">
-    <frame src="<%=request.getContextPath() %>/Dress/shangpin/goodsSort/tree.jsp" name="leftFrame" scrolling="no" noresize="noresize" id="leftFrame" title="leftFrame" />
+    <frame src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/shangpin/goodsSort/tree.jsp" name="leftFrame" scrolling="no" noresize="noresize" id="leftFrame" title="leftFrame" />
     <frame src="<%=request.getContextPath() %>/html/manage/goodsSort/list" name="mainFrame" id="mainFrame" title="index"  />
   </frameset>
 <body>

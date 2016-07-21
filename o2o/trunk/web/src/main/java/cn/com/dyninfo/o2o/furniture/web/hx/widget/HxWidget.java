@@ -21,6 +21,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -65,14 +66,14 @@ public class HxWidget extends Widget {
 		String Currency_Type = "RMB" ; // 币种 RMB 人民币
 		String Gateway_Type = "01"; // 支付卡种  01 借记卡  04 IPS账户支付  08 IB支付  16 电话支付  64 储值卡支付
 		String Lang = "GB"; //语言
-		String Merchanturl = "http://www.c-1-tech.com/Dress/hx_return.html"; // 支付结果成功返回的商户URL
-		String FailUrl = "http://www.c-1-tech.com/Dress/hx_return.html"; // 支付结果失败返回的商户URL
+		String Merchanturl = "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/hx_return.html"; // 支付结果成功返回的商户URL
+		String FailUrl = "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/hx_return.html"; // 支付结果失败返回的商户URL
 		String ErrorUrl = "" ; // 支付结果错误返回的商户URL  建议传空
 		String Attach = ""; // 商户数据包
 		String OrderEncodeType = "5"; // 订单支付接口加密方式  5 md5摘要
 		String RetEncodeType = "17"; // 交易返回接口加密方式 16 md5withRsa   17 md5摘要
 		String Rettype = "0"; // 返回方式  0 无Server to Server   1 有Server to Server
-		String ServerUrl = "http://www.c-1-tech.com/Dress"; // Server to Server 返回页面URL
+		String ServerUrl = "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS; // Server to Server 返回页面URL
 //		cryptix.jce.provider.MD5 b = new cryptix.jce.provider.MD5(); // 订单支付接口的Md5摘要，原文=订单号+金额+日期+支付币种+商户证书
 		//订单加密的明文 billno+【订单编号】+ currencytype +【币种】+ amount +【订单金额】+ date +【订单日期】+ orderencodetype +【订单支付接口加密方式】+【商户内部证书字符串】 
 //		String SignMD5 = Md5Util.toMD5("billno"+Billno +"currencytype"+Currency_Type+"amount"+ Amount + "date" +Date +"orderencodetype"+OrderEncodeType + Mer_key).toLowerCase();

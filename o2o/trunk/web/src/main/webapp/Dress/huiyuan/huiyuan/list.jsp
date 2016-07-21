@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp"%>
 <%--
@@ -50,7 +51,7 @@
 	}
 </script>
 <body>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/dialog.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/dialog.js"></script>
 
 
 
@@ -69,13 +70,13 @@
 					<c:if test="${info.is_user==0}">
 						<td class="tab2_tou">
 							<a href="javascript:delall();">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_09.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_09.gif" border="0" />
 							</a>
 						</td>
 						</c:if>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/huiyuan/list">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 							</a>
 						</td>
 						<td class="chazhaofanshi1">会员昵称：</td>
@@ -85,7 +86,7 @@
 						<td class="chazhaofanshi1">会员注册时间：</td>
 						<td><input name="loginData" class="date" type="text" style="color:#494949" value="${loginData }"/></td>
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" border="0" /></a>
+							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" border="0" /></a>
 						</td>
 					</tr>
 				</table>
@@ -143,7 +144,7 @@
 							</c:if>
 						</tr>
 					</c:forEach>
-					<jsp:include page="/Dress/include/nofenye.jsp">
+					<jsp:include page="<%=Constants.PAGE_JSP%>">
 						<jsp:param name="url" value="/html/manage/huiyuan/list" />
 					</jsp:include>
 				</table>

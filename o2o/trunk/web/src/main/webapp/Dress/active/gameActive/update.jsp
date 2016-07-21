@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -13,7 +14,7 @@
   ~
   --%>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/kindeditor.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/kindeditor.js"></script>
 <script type="text/javascript">
 var falg = true;	
 function submit(){
@@ -28,7 +29,7 @@ $(function(){
 	   $("#form1").validate();
 	});
 KE.show({id : 'context',
-			imageUploadJson:'<%=request.getContextPath()%>/Dress/js/plugins/file.jsp'
+			imageUploadJson:'<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/plugins/file.jsp'
 	});
 </script>
 
@@ -45,17 +46,17 @@ KE.show({id : 'context',
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="<%=request.getContextPath()%>/html/manage/gameActive/list" title="<fmt:message key="button.back"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/return_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" />
 						</a>
 					</td>
 				</tr>
@@ -84,15 +85,15 @@ KE.show({id : 'context',
 				 <tr style="display:none">
      <td class="discription" >活动图片:</td>
   	   <td >
-  	  	<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/AC_OETags.js"></script>
-   		<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/fileUpload.js"></script>
+  	  	<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
+   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
 		<!-- 上传附件按钮 -->
 		<script language="JavaScript" type="text/javascript">
 		function removeFiles(fileName){
 			document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
 		}
 		AC_FL_RunContent(
-			"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
+			"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
 			"width", "100",
 			"height", "30",
 			"id", "fileUpload",

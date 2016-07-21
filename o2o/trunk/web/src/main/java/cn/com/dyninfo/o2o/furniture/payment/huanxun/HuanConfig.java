@@ -13,6 +13,8 @@
 
 package cn.com.dyninfo.o2o.furniture.payment.huanxun;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
+
 public class HuanConfig {
 
 	public static String pMerchantCode;//商户号
@@ -28,7 +30,7 @@ public class HuanConfig {
 	
 	public static String pResType="0";//交易的币种代码
 	
-	public static String pSuccessReturnUrl="http://www.c-1-tech.com/Dress/hxreturn.html";//
+	public static String pSuccessReturnUrl="http://" + Constants.DOMAIN_NAME + "/" + Constants.ADMIN_ADDRESS + "/hxreturn.html";//
 	/**
 	 * 持卡人录入/支付完成后, 环迅支付会把录入/支付结果信息发送到此参数提供的地址.
 	 * 注:非延时支付返回成功交易结果非延时支付返回成功交易结果; 

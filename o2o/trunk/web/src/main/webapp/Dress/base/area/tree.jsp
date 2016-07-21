@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -21,9 +22,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <title>区域选择</title>
-<link href="<%=request.getContextPath()%>/Dress/css/dialogSelection.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/jsTree/jquery.jstree.js"></script>
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/dialogSelection.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jsTree/jquery.jstree.js"></script>
 <script language="javascript">
 $(function () {  
     $("#divForTree").bind("select_node.jstree", //绑定节点点击事件

@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -14,14 +15,14 @@
   --%>
 
 <script type="text/JavaScript">
-var tb_pathToImage = "<%=request.getContextPath()%>/Dress/img/loadingAnimation.gif";
+var tb_pathToImage = "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/loadingAnimation.gif";
 	function submit(){
 	    document.form1.submit();
 	}
 </script>
-<script src="<%=request.getContextPath()%>/Dress/js/thickbox-compressed.js" type="text/javascript"></script>
-<link href="<%=request.getContextPath()%>/Dress/js/style/thickbox.css" media="screen" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/dialog.js"></script>
+<script src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/thickbox-compressed.js" type="text/javascript"></script>
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/style/thickbox.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/dialog.js"></script>
 
 
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2" height="100%" style="vertical-align:top;">
@@ -36,13 +37,13 @@ var tb_pathToImage = "<%=request.getContextPath()%>/Dress/img/loadingAnimation.g
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <tr>
         <td class="tab2_tou"><a href="javascript:submit();">
-        	<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" /></a></td>
+        	<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 			<a href="javascript:location.reload();">
-			<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 			<a href="<%=request.getContextPath()%>/html/manage/pageModule/list">
-			<img src="<%=request.getContextPath()%>/Dress/img/return_btn.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" /></a></td>
 
 <td>&nbsp;</td>
 </tr>
@@ -61,7 +62,7 @@ var tb_pathToImage = "<%=request.getContextPath()%>/Dress/img/loadingAnimation.g
 
   <table cellspacing="0" cellpadding="0" class="table3_da">
    
-  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/Dress/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
+  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
     <td colspan="4"><strong>编辑</strong></td>
   </tr>
     <tr>

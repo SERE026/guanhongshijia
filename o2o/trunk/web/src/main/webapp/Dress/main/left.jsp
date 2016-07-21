@@ -1,5 +1,6 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -14,9 +15,9 @@
   ~
   --%>
 
-<link href="<%=request.getContextPath()%>/Dress/css/kua.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/Dress/css/jquery.treeview.css" rel="stylesheet" type="text/css" />
-<SCRIPT type=text/javascript src="<%=request.getContextPath()%>/Dress/js/jquery.treeview.js"></SCRIPT>
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/kua.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/jquery.treeview.css" rel="stylesheet" type="text/css" />
+<SCRIPT type=text/javascript src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery.treeview.js"></SCRIPT>
 <script type="text/javascript">
 	var crrentMenu=null;
 	$(function(){
@@ -59,7 +60,7 @@ a.select{color:#d61900}
 </style>
 
 <div class="left">
-<div class="r_top"><img src="<%=request.getContextPath()%>/Dress/img/right_03.gif" /></div>
+<div class="r_top"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/right_03.gif" /></div>
 
 
 <c:forEach items="${resinfolist}" var="resinfo" varStatus="index">

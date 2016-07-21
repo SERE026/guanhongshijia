@@ -17,6 +17,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -153,7 +154,7 @@ public class AhuiyuanController{
 				String uid=request.getParameter("uid");
 				HuiyuanInfo huiyuan=(HuiyuanInfo) huiyuanService.getObjById(uid);
 				String json="{\"status\":0,\"data\":[";
-				json+="{\"jf\":\""+huiyuan.getJf()+"\",\"username\":\""+huiyuan.getUserName()+"\",\"imgtx\":\"http://www.c-1-tech.com/Dress/upload/"+huiyuan.getTxImage()+"\"}";
+				json+="{\"jf\":\""+huiyuan.getJf()+"\",\"username\":\""+huiyuan.getUserName()+"\",\"imgtx\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/"+huiyuan.getTxImage()+"\"}";
 				json+="]}";
 				ResponseUtil.printl(response, json, "json");
 			}catch(Exception e){

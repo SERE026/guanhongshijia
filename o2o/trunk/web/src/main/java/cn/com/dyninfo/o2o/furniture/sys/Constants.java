@@ -18,5 +18,11 @@ package cn.com.dyninfo.o2o.furniture.sys;
  */
 public class Constants {
 
-    public static String ADMIN_ADDRESS = "admin";
+    public static String DOMAIN_NAME = "www.guanhongshijia.com";
+
+    public static String ADMIN_ADDRESS = "Dress";
+
+    public static String PAGE_JSP = "/" + ADMIN_ADDRESS + "/include/nofenye.jsp";
+
+    public static String TOP_JSP = "/" + ADMIN_ADDRESS + "/include/top.jsp";
 }

@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -68,18 +69,18 @@
 					<tr>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/game/disAdd">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_07.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_07.gif" border="0" />
 							</a>
 						</td>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/game/list">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 							</a>
 						</td>
 						<td class="chazhaofanshi1">游戏名称：</td>
 						<td><input  name="name" type="text" style="color:#494949" value="${name }"/></td>
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" border="0" /></a>
+							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" border="0" /></a>
 						</td>
 					</tr>
 				</table>
@@ -115,7 +116,7 @@
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="/Dress/include/nofenye.jsp">
+					<jsp:include page="<%=Constants.PAGE_JSP%>">
 						<jsp:param name="url" value="/html/manage/discountActive/list" />
 					</jsp:include>
 				</table>

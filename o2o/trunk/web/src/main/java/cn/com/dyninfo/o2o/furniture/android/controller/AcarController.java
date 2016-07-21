@@ -21,6 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -88,7 +89,7 @@ public class AcarController{
 				}
 				
 				json+="{\"goodsname\":\""+carinfo.getGoods().getName().replace(" ", "")+"\",\"cars_box_id\":\""
-				+carinfo.getCars_box_id()+"\",\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"
+				+carinfo.getCars_box_id()+"\",\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"
 						+carinfo.getGoods().getDefaultImage()+"\",\"money\":"+carinfo.getPrice()+",\"num\":"+
 				carinfo.getNum()+",\"shopid\":\""+carinfo.getGoods().getMerchants().getShangjia_id()
 				+"\",\"shopname\":\""+carinfo.getGoods().getMerchants().getName()+"\",\"good_id\":\""

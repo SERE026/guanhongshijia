@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -61,17 +62,17 @@
 					<tr>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/merchantType/disAdd">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_07.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_07.gif" border="0" />
 							</a>
 						</td>
 						<td class="tab2_tou">
 							<a href="javascript:delall();">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_09.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_09.gif" border="0" />
 							</a>
 						</td>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/merchantType/list">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 							</a>
 						</td>
 					</tr>
@@ -110,7 +111,7 @@
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="/Dress/include/nofenye.jsp">
+					<jsp:include page="<%=Constants.PAGE_JSP%>">
 						<jsp:param name="url" value="/html/manage/merchantType/list" />
 					</jsp:include>
 				</table>

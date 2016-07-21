@@ -25,6 +25,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -110,7 +111,7 @@ public class AactiveController{
 					
 					json+="{\"goodId\":\""+map.get("goodId").toString()
 							+"\",\"actId\":\""+map.get("actId").toString()
-							+"\",\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"
+							+"\",\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"
 							+map.get("image").toString()+"\",\"goodName\":\""
 							+map.get("goodName").toString().replace(" ", "")
 							+"\",\"xmoney\":"+
@@ -162,7 +163,7 @@ public class AactiveController{
 				float discount=(float)(Math.round(xmoney/money*100))/10;
 				json.append("\"goodId\":\""+goods.getGoods_id()+"\",");
 				json.append("\"actId\":\""+act.getActive_id()+"\",");
-				json.append("\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"+goods.getDefaultImage()+"\",");
+				json.append("\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+goods.getDefaultImage()+"\",");
 				json.append("\"goodName\":\""+goods.getName().replace(" ", "")+"\",");
 				json.append("\"xmoney\":"+goods.getBazaarMoney()+",");
 				json.append("\"money\":"+money+",");
@@ -179,7 +180,7 @@ public class AactiveController{
 				float discount=(float)(Math.round(xmoney/money*100))/10;
 				json.append("\"goodId\":\""+goods.getGoods_id()+"\",");
 				json.append("\"actId\":\"0\",");
-				json.append("\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"+goods.getDefaultImage()+"\",");
+				json.append("\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+goods.getDefaultImage()+"\",");
 				json.append("\"goodName\":\""+goods.getName().replace(" ", "")+"\",");
 				json.append("\"xmoney\":"+goods.getBazaarMoney()+",");
 				json.append("\"money\":"+money+",");
@@ -384,7 +385,7 @@ public class AactiveController{
 		 AreaInfo arear=(AreaInfo)areaService.getObjById(id);
 		 Goods goods=(Goods) pagModInGoodsService.getRandGoods(arear!=null?arear.getId():"");
 		 if(goods!=null){
-				 String json = "{\"status\":0,\"lng\":"+goods.getMerchants().getLongitude()+",\"goodsid\":\""+goods.getGoods_id()+"\",\"xmoney\":"+goods.getSalesMoney()+",\"lat\":"+goods.getMerchants().getLatitude()+",\"money\":"+goods.getBazaarMoney()+",\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"+goods.getDefaultImage()+"\",\"shopid\":\""+goods.getMerchants().getShangjia_id()+"\",\"shopname\":\""+goods.getMerchants().getName()+"\",\"goodName\":\""+goods.getName().replace(" ", "");
+				 String json = "{\"status\":0,\"lng\":"+goods.getMerchants().getLongitude()+",\"goodsid\":\""+goods.getGoods_id()+"\",\"xmoney\":"+goods.getSalesMoney()+",\"lat\":"+goods.getMerchants().getLatitude()+",\"money\":"+goods.getBazaarMoney()+",\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+goods.getDefaultImage()+"\",\"shopid\":\""+goods.getMerchants().getShangjia_id()+"\",\"shopname\":\""+goods.getMerchants().getName()+"\",\"goodName\":\""+goods.getName().replace(" ", "");
 				 json+="\"}";
 				 ResponseUtil.printl(response, json, "json");
 		
@@ -417,7 +418,7 @@ public class AactiveController{
 				jsondata+="\"discount\":"+g.getDiscount()+",";
 				jsondata+="\"shopid\":"+g.getMerchants().getShangjia_id()+",";
 				jsondata+="\"shopname\":\""+g.getMerchants().getName()+"\",";
-				jsondata+="\"defaultImage\":\"http://www.c-1-tech.com/Dress/upload/goods/"+g.getDefaultImage()+"\"},";
+				jsondata+="\"defaultImage\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+g.getDefaultImage()+"\"},";
 			}
 			if(jsondata.length()>0)
 				jsondata=jsondata.substring(0,jsondata.length()-1);

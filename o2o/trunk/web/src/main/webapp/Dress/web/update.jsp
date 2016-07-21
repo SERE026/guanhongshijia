@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -32,7 +33,7 @@ alert("操作成功");
 </script>
 
 
-<Script Language="JavaScript" type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/colorPicker.js"></Script>
+<Script Language="JavaScript" type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/colorPicker.js"></Script>
 
 
 <form name="form1" id="form1" action="<%=request.getContextPath()%>/html/manage/web" method="post">
@@ -49,12 +50,12 @@ alert("操作成功");
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 				</tr>
@@ -104,14 +105,14 @@ alert("操作成功");
 						</c:if>
 						<div class="clear"></div>
 							<div style="width:200px;height:40px;">
-								<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/AC_OETags.js"></script>
-						   		<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/fileUpload.js"></script>
+								<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
+						   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
 								<!-- 上传附件按钮 -->
 								<script language="JavaScript" type="text/javascript">
 									var imageCount=0;
 									
 									AC_FL_RunContent(
-										"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
+										"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
 										"width", "200",
 											"height", "25",
 											"style","margin-top:12px",
@@ -123,7 +124,7 @@ alert("操作成功");
 										"allowScriptAccess","sameDomain",
 										"type", "application/x-shockwave-flash",
 										"pluginspage", "http://www.adobe.com/go/getflashplayer",
-										"flashVars","flexID=c&uploadURL=<%=request.getContextPath()%>/Dress/file/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
+										"flashVars","flexID=c&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/file/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
 									);
 									/**
 										上传产品照片

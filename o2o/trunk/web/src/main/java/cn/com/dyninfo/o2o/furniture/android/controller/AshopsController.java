@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -124,7 +125,7 @@ public class AshopsController{
 	 					Float m = Float.valueOf(money);
 	 					float discount= (float)(Math.round(xm/m*100))/10;
 	 					
-	 					json+="{\"goodId\":\""+goods.get("goodId")+"\",\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"+goods.get("image")+"\",\"goodName\":\""+goods.get("goodName").toString().replace(" ", "")+"\",\"bazaarMoney\":"+
+	 					json+="{\"goodId\":\""+goods.get("goodId")+"\",\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+goods.get("image")+"\",\"goodName\":\""+goods.get("goodName").toString().replace(" ", "")+"\",\"bazaarMoney\":"+
 	 					money+",\"salesMoney\":"+xmoney+",\"discount\":"+discount+"},";
 	 				}
 	 				if(json.length()>1){
@@ -195,7 +196,7 @@ public class AshopsController{
 				Double xm = list.get(i).getSalesMoney();
 				Double m = list.get(i).getBazaarMoney();
 				float discount= (float)(Math.round(xm/m*100))/10;
-					json+="{\"goods_id\":\""+list.get(i).getGoods_id()+"\",\"address\":\""+list.get(i).getMerchants().getAddress()+"\",\"discount\":"+discount+",\"name\":\""+list.get(i).getName()+"\",\"defaultImage\":\"http://www.c-1-tech.com/Dress/upload/goods/"+
+					json+="{\"goods_id\":\""+list.get(i).getGoods_id()+"\",\"address\":\""+list.get(i).getMerchants().getAddress()+"\",\"discount\":"+discount+",\"name\":\""+list.get(i).getName()+"\",\"defaultImage\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+
 					list.get(i).getDefaultImage()+"\",\"bazaarMoney\":\""+list.get(i).getBazaarMoney()+"\",\"salesMoney\":\""+list.get(i).getSalesMoney()+"\"},";
 				}
 			if(json.length()>20){
@@ -240,7 +241,7 @@ public class AshopsController{
 					int jl = Integer.parseInt(juli)/1000;
 //					System.out.println(Integer.parseInt(juli) +"_"+jl);
 					if(jl<50){
-					json+="{\"goods_id\":"+map.get("GOODS_ID").toString()+",\"distance\":\""+jl+"\",\"address\":\""+map.get("ADDRESS").toString()+"\",\"discount\":"+discount+",\"name\":\""+map.get("NAME").toString()+"\",\"defaultImage\":\"http://www.c-1-tech.com/Dress/upload/goods/"+
+					json+="{\"goods_id\":"+map.get("GOODS_ID").toString()+",\"distance\":\""+jl+"\",\"address\":\""+map.get("ADDRESS").toString()+"\",\"discount\":"+discount+",\"name\":\""+map.get("NAME").toString()+"\",\"defaultImage\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+
 					map.get("DEFAULT_IAMAGE").toString()+"\",\"bazaarMoney\":\""+map.get("BAZAARMONEY").toString()+"\",\"salesMoney\":\""+map.get("SALESMONEY").toString()+"\"},";
 					}
 					}
@@ -292,7 +293,7 @@ public class AshopsController{
 				discount+",\"shopname\":\""
 								+map.get("shopname").toString()+"\",\"goodsname\":\""
 				+map.get("goodsname").toString()+
-				"\",\"defaultImage\":\"http://www.c-1-tech.com/Dress/upload/goods/"+
+				"\",\"defaultImage\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+
 						map.get("DEFAULT_IAMAGE").toString()+"\",\"bazaarMoney\":"
 				+map.get("bazaarMoney").toString()+",\"salesMoney\":"
 						+map.get("SALESMONEY").toString()+"},";

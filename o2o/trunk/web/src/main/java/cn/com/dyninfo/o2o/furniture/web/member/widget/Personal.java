@@ -22,6 +22,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Component;
 
 import cn.com.dyninfo.o2o.furniture.util.SendMail;
@@ -225,7 +226,7 @@ public class Personal extends AbstractMemberWidget{
 //			System.out.println("------"+email);
 			if(huiyuan!=null){
 				UUID uuid=UUID.randomUUID();
-				String url = "http://www.c-1-tech.com/Dress/emil_success.html?data=1&uuid="+uuid;
+				String url = "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/emil_success.html?data=1&uuid="+uuid;
 				SendMail.send("炫品妆城-邮箱验证","<div><p>尊敬的"+huiyuan.getName()+"，您好！</p><p>请点击进入这个地址进行邮箱验证，谢谢！：</p><span>"+ url + 
 						"</span><p>如果上面的链接无法点击，您也可以复制链接，粘贴到您浏览器的地址栏内，然后按“回车”打开邮箱验证页面。</p>" +
 						"<br><br>" +

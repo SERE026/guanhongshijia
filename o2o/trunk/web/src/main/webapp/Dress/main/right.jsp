@@ -1,5 +1,6 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/taglib.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -19,13 +20,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title></title>
-<link href="<%=request.getContextPath()%>/Dress/css/human2.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/human2.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/ajax.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/FusionChart/FusionCharts.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/dialog.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/ajax.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/FusionChart/FusionCharts.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/dialog.js"></script>
 <script type="text/javascript">
 		$(function(){
 			resultAjax("<%=request.getContextPath()%>/html/manage/main/order","1=1",result,"txt");
@@ -36,7 +37,7 @@
 	    //画图(以指定 xml格式文件为数据源)  
         function DrawChart(divId,flashFileName,width,height,xmlUrl) {
             var myChartId = new Date().getTime();
-            var myChart = new FusionCharts("<%=request.getContextPath()%>/Dress/js/FusionChart/" + flashFileName, myChartId, width, height);
+            var myChart = new FusionCharts("<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/FusionChart/" + flashFileName, myChartId, width, height);
             //myChart.setDataURL("data.xml"); //获取xml格式数据源
             //myChart.setDataURL(xmlUrl); //获取xml格式数据源
             myChart.setDataXML(xmlUrl);

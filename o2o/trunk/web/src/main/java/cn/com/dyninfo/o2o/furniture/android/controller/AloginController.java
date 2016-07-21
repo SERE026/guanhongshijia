@@ -24,7 +24,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.com.dyninfo.o2o.furniture.util.MD5Encoder;
@@ -60,7 +62,7 @@ public class AloginController{
 	
 	 
 	 @RequestMapping("/login")
-	 public void login(HttpServletRequest request,HttpServletResponse response){
+	 public void login(HttpServletRequest request, HttpServletResponse response){
 		String un= request.getParameter("name");
 		String up= request.getParameter("psw");
 		 StringBuffer where=new StringBuffer();
@@ -89,7 +91,7 @@ public class AloginController{
 				}
 				request.getSession().setAttribute(Context.SESSION_MEMBER,list.get(0));
 				String json="{\"accout\":\""+huiyuan.getName()+"\",\"uid\":\""+huiyuan.getHuiYuan_id()+"\",\"name\":\""
-				+name+"\",\"txImage\":\"http://www.c-1-tech.com/Dress/upload/"+huiyuan.getTxImage()
+				+name+"\",\"txImage\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/"+huiyuan.getTxImage()
 				+"\",\"jf\":"+huiyuan.getJf()+"}";
 				String newJson="{\"status\":0,\"data\":"+json+"}";
 				ResponseUtil.printl(response, newJson, "json");

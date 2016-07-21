@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -31,10 +32,10 @@ $(function(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <tr>
         <td class="tab2_tou"><a href="javascript:submit();">
-        	<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" /></a></td>
+        	<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 			<a href="javascript:location.reload();">
-			<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" /></a></td>
 
 <td>&nbsp;</td>
 </tr>
@@ -53,15 +54,15 @@ $(function(){
    
  <td class="discription" style="width: 150px;">上传图片:</td>
 	<td >
-  	 	<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/AC_OETags.js"></script>
-   		<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/fileUpload.js"></script>
+  	 	<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
+   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
 		<!-- 上传附件按钮 -->
 		<script language="JavaScript" type="text/javascript">
 		function removeFiles(fileName){
 			document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
 		}
 		AC_FL_RunContent(
-			"src", "<%=request.getContextPath()%>/Dress/swf/fileUpload",
+			"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
 			"width", "100",
 				"height", "25",
 				"style","margin-top:6px",
@@ -73,7 +74,7 @@ $(function(){
 			"allowScriptAccess","sameDomain",
 			"type", "application/x-shockwave-flash",
 			"pluginspage", "http://www.adobe.com/go/getflashplayer",
-			"flashVars","flexID=a&uploadURL=<%=request.getContextPath()%>/Dress/file/uploadyqlj.jsp&label=图 片 上 传&succeed=a_completeUpload"
+			"flashVars","flexID=a&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/file/uploadyqlj.jsp&label=图 片 上 传&succeed=a_completeUpload"
 		);
 		
 		function a_completeUpload(fileName, realName){

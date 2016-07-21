@@ -22,6 +22,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -78,7 +79,7 @@ public class AgoodsController{
 				Float m = Float.valueOf(money);
 				float discount= (float)(Math.round(xm/m*100))/10;
 				
-				json+="{\"goodId\":\""+good.getGoods_id()+"\",\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"+good.getDefaultImage()+"\",\"goodName\":\""+good.getName().replace(" ", "")+"\",\"bazaarMoney\":"+
+				json+="{\"goodId\":\""+good.getGoods_id()+"\",\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+good.getDefaultImage()+"\",\"goodName\":\""+good.getName().replace(" ", "")+"\",\"bazaarMoney\":"+
 				good.getBazaarMoney()+",\"shopid\":"+good.getMerchants().getShangjia_id()+",\"shopname\":"+good.getMerchants().getShangjia_id()+",\"salesMoney\":"+good.getSalesMoney()+",\"discount\":"+discount+"},";
 		 }
 		 if(json.length()>0&&json.charAt(json.length()-1)==','){
@@ -147,7 +148,7 @@ public class AgoodsController{
 					Float m = Float.valueOf(money);
 					float discount= (float)(Math.round(xm/m*100))/10;
 					
-					json+="{\"goodId\":\""+map.get("GOODS_ID").toString()+"\",\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"+map.get("IAMGE").toString()+"\",\"goodName\":\""+map.get("GOOD_NAME").toString().replace(" ", "")+"\",\"bazaarMoney\":"+
+					json+="{\"goodId\":\""+map.get("GOODS_ID").toString()+"\",\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+map.get("IAMGE").toString()+"\",\"goodName\":\""+map.get("GOOD_NAME").toString().replace(" ", "")+"\",\"bazaarMoney\":"+
 					map.get("bmoney").toString()
 					+",\"shopid\":\""+map.get("shopid").toString()+"\""
 					+",\"shopname\":\""+map.get("S_NAME").toString()+"\""
@@ -192,7 +193,7 @@ public class AgoodsController{
 					Float m = Float.valueOf(money);
 					float discount= (float)(Math.round(xm/m*100))/10;
 					
-				 json+="{\"name\":\""+good.getName()+"\",\"imgUrl\":\"http://www.c-1-tech.com/Dress/upload/goods/"+good.getDefaultImage();
+				 json+="{\"name\":\""+good.getName()+"\",\"imgUrl\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+good.getDefaultImage();
 				 json+="\",\"discount\":"+discount+",\"shopid\":\""+good.getMerchants().getShangjia_id()+"\",\"shopname\":\""+good.getMerchants().getName()+"\",\"goods_id\":\""+good.getGoods_id()+"\",\"salesMoney\":"+good.getSalesMoney()+",\"bazaarMoney\":"+good.getBazaarMoney();
 				   json+="},";
 				}
@@ -228,7 +229,7 @@ public class AgoodsController{
 			 String json="";
 			 for(int i=0;i<list.size();i++){
 				 Goods good=list.get(i);
-				 json+="{\"name\":\""+good.getName()+"\",\"imgUrl\":\"http://www.c-1-tech.com/Dress/upload/goods/"+good.getDefaultImage();
+				 json+="{\"name\":\""+good.getName()+"\",\"imgUrl\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+good.getDefaultImage();
 				 json+="\",\"shopname\":\""+good.getMerchants().getName()+"\",\"shopid\":\""+good.getMerchants().getShangjia_id()+"\",\"salesMoney\":\""+good.getSalesMoney()+"\",\"goods_id\":"+good.getGoods_id()+",\"bazaarMoney\":"+good.getBazaarMoney();
 				   json+="},";
 				}

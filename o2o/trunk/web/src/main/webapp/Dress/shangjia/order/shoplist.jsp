@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -13,7 +14,7 @@
   ~
   --%>
 
-<script src="<%=request.getContextPath()%>/Dress/js/address.js"></script>
+<script src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/address.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$(".saveGoos").click(function(){
@@ -66,7 +67,7 @@
 					<tr>
 						<td class="tab2_tou">
 							<a href="javascript:;" class="saveGoos">
-								<img src="<%=request.getContextPath()%>/Dress/img/dfdf.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/dfdf.gif" border="0" />
 							</a>
 						</td>
 						<td >商家名称：</td>
@@ -86,7 +87,7 @@
 								</select>
 						</td> -->
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" border="0" /></a>
+							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" border="0" /></a>
 						</td>
 					</tr>
 				</table>
@@ -136,7 +137,7 @@
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="/Dress/include/nofenye.jsp">
+					<jsp:include page="<%=Constants.PAGE_JSP%>">
 						<jsp:param name="url" value="/html/manage/goods/list" />
 					</jsp:include>
 				</table>

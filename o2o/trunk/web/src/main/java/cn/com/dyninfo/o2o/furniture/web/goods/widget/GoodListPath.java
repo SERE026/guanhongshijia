@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Component;
 
 import cn.com.dyninfo.o2o.furniture.web.framework.facade.Widget;
@@ -58,16 +59,16 @@ public class GoodListPath extends Widget {
 			GoodsSort g = (GoodsSort)children.get(0);
 			if (sort.getParent().getParent() != null) {
 //				System.out.println("父代的父代不为空，=" + sort.getParent().getParent().getName());
-				sortName=" <a href=\"http://www.c-1-tech.com/Dress/GoodList-" + g.getGoodsSort_id() + ".html\">" + sort.getParent().getParent().getName() + "</a>";
+				sortName=" <a href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/GoodList-" + g.getGoodsSort_id() + ".html\">" + sort.getParent().getParent().getName() + "</a>";
 			} else {
 //				System.out.println("只是父代不为空，=" + sort.getParent().getName());
-				sortName=" <a href=\"http://www.c-1-tech.com/Dress/GoodList-" + g.getGoodsSort_id() + ".html\">" + sort.getParent().getName() + "</a>";
+				sortName=" <a href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/GoodList-" + g.getGoodsSort_id() + ".html\">" + sort.getParent().getName() + "</a>";
 			}
 		} else {
 			// 如果没有父代
 			List children = sort.getChildren();
 			GoodsSort g = (GoodsSort)children.get(0);
-			sortName=" <a href=\"http://www.c-1-tech.com/Dress/GoodList-" + g.getGoodsSort_id() + ".html\">" + sort.getName() + "</a>";
+			sortName=" <a href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/GoodList-" + g.getGoodsSort_id() + ".html\">" + sort.getName() + "</a>";
 		}
 		return sortName;
 	}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="cn.com.dyninfo.o2o.furniture.util.PageInfo"%>
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -64,7 +65,7 @@ if(tpage==0){
 	</td>
 </tr>
 <%} %>
-<tr style="background-image:url(<%=request.getContextPath()%>/Dress/img/biao_22.gif)">
+<tr style="background-image:url(<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_22.gif)">
 	<td style="border-right:none;"></td>
 	 <td colspan="100" style="text-align:center;border-left:none;" valign="middle" >
 	 
@@ -73,7 +74,7 @@ if(tpage==0){
 	<div style="float:left;margin-top:4px;">
 	<%if(tpage>0){ %>
 	<a href="javascript:goPageTo('${PAGE_INFO.pageNo-1 }')">
-		<img src="<%=request.getContextPath()%>/Dress/img/tab2_fenye_25.gif" border="0" />
+		<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/tab2_fenye_25.gif" border="0" />
 	</a>
 	<%} %>
 </div>
@@ -114,7 +115,7 @@ for(int i=0;i<tpage+5&t<5;i++)
 	<%if(tpage>0){ %>
 <div style="float:left;margin-left:10px;margin-top:4px;">
 <a href="javascript:goPageTo('${PAGE_INFO.pageNo+1 }')">
-<img src="<%=request.getContextPath()%>/Dress/img/tab2_fenye_31.gif" border="0" /></a>
+<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/tab2_fenye_31.gif" border="0" /></a>
 </div>
 <div style="float:left;margin-left:10px;width:100px;margin-top:3px;"><a href="javascript:jump();">转到</a>
 	<input style="width:50px;height:12px;margin-left:0px;" type="text" id="ys" value="${PAGE_INFO.pageNo}">页

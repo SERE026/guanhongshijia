@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -85,24 +86,24 @@ public class Ylreturn extends Widget {
 						Double d=orderService.getTradeMoney(trade_no);
 						if(d<=huiyuan.getMoney()){
 							orderService.updateOrderPlay(trade_no);
-							this.putData("html", "<script>window.location.href=\"http://www.c-1-tech.com/Dress/play_succeed-"+trade_no+".html?result=succeed\";</script>");
+							this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+trade_no+".html?result=succeed\";</script>");
 							//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+trade_no+".html?result=success");
 							return ;
 						}else{
-							this.putData("html", "<script>window.location.href=\"http://www.c-1-tech.com/Dress/play_succeed-"+trade_no+".html?result=fail\";</script>");
+							this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+trade_no+".html?result=fail\";</script>");
 							//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+trade_no+".html?result=fail");
 							return ;
 						}
 					}else{
-						this.putData("html", "<script>window.location.href=\"http://www.c-1-tech.com/Dress/chong_succeed-"+trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
+						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/chong_succeed-"+trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
 						//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"chong_succeed-"+trade_no+".html?result=succeed&money="+trade.getMoney());
 						return ;
 					}
 				}else{
 					if(trade.getFlag()==1){//订单支付
-						this.putData("html", "<script>window.location.href=\"http://www.c-1-tech.com/Dress/play_succeed-"+trade_no+".html?result=succeed\";</script>");
+						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+trade_no+".html?result=succeed\";</script>");
 					}else{
-						this.putData("html", "<script>window.location.href=\"http://www.c-1-tech.com/Dress/chong_succeed-"+trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
+						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/chong_succeed-"+trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
 					}
 					
 				}
@@ -115,11 +116,11 @@ public class Ylreturn extends Widget {
 					response.getWriter().append("<br>失败原因:"+resArr[11]);
 				}
 				if(trade.getFlag()==1){
-					this.putData("html", "<script>window.location.href=\"http://www.c-1-tech.com/Dress/play_succeed-"+trade_no+".html?result=fail\";</script>");
+					this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+trade_no+".html?result=fail\";</script>");
 					//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+trade_no+".html?result=fail");
 					//response.setStatus(HttpServletResponse.SC_OK);
 				}else{
-					this.putData("html", "<script>window.location.href=\"http://www.c-1-tech.com/Dress/chong_succeed-"+trade_no+".html?result=fail\";</script>");
+					this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/chong_succeed-"+trade_no+".html?result=fail\";</script>");
 					//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"chong_succeed-"+trade_no+".html?result=fail&money="+trade.getMoney());
 				}
 			}

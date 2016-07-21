@@ -1,5 +1,6 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/taglib.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -19,9 +20,9 @@
 <head>
 <title><fmt:message key="sys.welcome" /> <fmt:message
 		key="sys.name" /></title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Dress/css/login.css" />
-<script type="text/javascript"  src="<%=request.getContextPath()%>/Dress/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript"  src="<%=request.getContextPath()%>/Dress/js/ajax.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/login.css" />
+<script type="text/javascript"  src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/ajax.js"></script>
 <script language="javascript">
 function validationCode(){
 	var vSpan = document.getElementById('validCode');
@@ -94,15 +95,15 @@ function resett(){
 <div class="conter">
 
 <div class="logo">
-<div class="logo1"><img src="<%=request.getContextPath() %>/Dress/img/xitongming.gif" /></div>
+<div class="logo1"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/xitongming.gif" /></div>
 <div class="logo2"><fmt:message key="sys.version" /></div>
 </div>
-<div class="zhong_kuai"><img src="<%=request.getContextPath() %>/Dress/img/bg_07_01.gif" /></div>
+<div class="zhong_kuai"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/bg_07_01.gif" /></div>
 <div class="zhong">
 <div class="zhong_xiao">
 <table width="100%" border="0" cellspacing="" cellpadding="5">
   <tr>
-    <td width="20%"><img src="<%=request.getContextPath() %>/Dress/img/xin_10.gif" /></td>
+    <td width="20%"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/xin_10.gif" /></td>
     <td width="51%">
 	<div class="shuru"><input name="j_username" type="text" class="shuru_put" id="j_username"
 						onkeyup="resett();" /></div>
@@ -112,7 +113,7 @@ function resett(){
 	</td>
   </tr>
     <tr>
-    <td><img src="<%=request.getContextPath() %>/Dress/img/xin_14.gif" /></td>
+    <td><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/xin_14.gif" /></td>
     <td>
 	<div class="shuru"><input name="j_password" type="password" class="shuru_put" id="j_password"
 						onkeyup="resett();" /></div>
@@ -122,7 +123,7 @@ function resett(){
 	</td>
   </tr>
     <tr>
-    <td><img src="<%=request.getContextPath() %>/Dress/img/xin_18.gif" /></td>
+    <td><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/xin_18.gif" /></td>
     <td>
 	<div class="shuru2">
 	<input name="j_valid" type="text" class="shuru_put2" onkeyup="resett();" onkeydown="if(event.keyCode==13) go();"/>
@@ -141,13 +142,13 @@ function resett(){
 </table>
 </div>
 </div>
-<div class="zhong_kuai2"><img src="<%=request.getContextPath() %>/Dress/img/bg_07_03.gif" /></div>
+<div class="zhong_kuai2"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/bg_07_03.gif" /></div>
 
 <div class="clear"></div>
 <div class="zhong_an">
-<div class="zhong_an3"><a href="http://www.c-1-tech.com/" target="_blank"><img src="<%=request.getContextPath() %>/Dress/img/logo_a.gif" /></a></div>
-<div class="zhong_an1"><a href="javascript:;" onclick="document.form1.reset();"><img src="<%=request.getContextPath() %>/Dress/img/xin_21.gif" border="0" /></a></div>
-<div class="zhong_an2"><a href="javascript:;" onclick="go();"><img src="<%=request.getContextPath() %>/Dress/img/xin_23.gif" border="0" /></a></div>
+<div class="zhong_an3"><a href="<%=request.getContextPath()%>/" target="_blank"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/logo_a.gif" /></a></div>
+<div class="zhong_an1"><a href="javascript:;" onclick="document.form1.reset();"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/xin_21.gif" border="0" /></a></div>
+<div class="zhong_an2"><a href="javascript:;" onclick="go();"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/xin_23.gif" border="0" /></a></div>
 </div>
 <div class="clear"></div>
 </div>
@@ -159,7 +160,7 @@ function resett(){
 <script language="javascript">
 //框架判断
 if(top != this){
-	top.location = '<%=request.getContextPath()%>/Dress/index.jsp';
+	top.location = '<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/index.jsp';
 }
 validationCode();
 </script>

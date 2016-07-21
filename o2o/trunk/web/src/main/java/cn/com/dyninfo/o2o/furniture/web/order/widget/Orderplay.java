@@ -18,6 +18,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -132,7 +133,7 @@ public class Orderplay extends Widget {
 							order.setIsPay("1");
 							orderService.updateObj(order);
 						}
-						ResponseUtil.printl(this.HttpResponse, "<script>window.location.href=\"http://www.c-1-tech.com/Dress/play_succeed-"+trade.getTrade_id()+".html?result=succeed\";</script>");
+						ResponseUtil.printl(this.HttpResponse, "<script>window.location.href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+trade.getTrade_id()+".html?result=succeed\";</script>");
 						return ;
 					}
 				}else{

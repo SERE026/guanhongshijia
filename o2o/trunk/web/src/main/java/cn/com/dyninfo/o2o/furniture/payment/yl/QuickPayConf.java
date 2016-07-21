@@ -12,6 +12,9 @@
  */
 
 package cn.com.dyninfo.o2o.furniture.payment.yl;
+
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
+
 /**
  * 名称：支付配置类
  * 功能：配置类
@@ -46,9 +49,9 @@ public class QuickPayConf {
 	//商户名称
 	public  static String merName="炫品妆成";
 	//前台通知
-	public  static String merFrontEndUrl = "http://www.c-1-tech.com/Dress/ylreturn.html";
+	public  static String merFrontEndUrl = "http://" + Constants.DOMAIN_NAME + "/" + Constants.ADMIN_ADDRESS + "/ylreturn.html";
 	//后台通知
-	public  static String merBackEndUrl = "http://www.c-1-tech.com/Dress/ylnotify.html";
+	public  static String merBackEndUrl = "http://" + Constants.DOMAIN_NAME + "/" + Constants.ADMIN_ADDRESS + "/ylnotify.html";
 	
 	//加密方式
 	public final static String signType="MD5";

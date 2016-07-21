@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -112,12 +113,12 @@
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-							<img src="<%=request.getContextPath()%>/Dress/img/submit_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 				</tr>
@@ -154,14 +155,14 @@
 									</div>
 								</div>
 								<div style="width:200px;height:40px;margin:auto">
-								<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/AC_OETags.js"></script>
-						   		<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/fileUpload.js"></script>
+								<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
+						   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
 								<!-- 上传附件按钮 -->
 								<script language="JavaScript" type="text/javascript">
 									var imageCount=0;
 									
 									AC_FL_RunContent(
-										"src", "<%=request.getContextPath()%>/Dress/upload/merchants/updxiang",
+										"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/upload/merchants/updxiang",
 										"width", "200",
 										"height", "40",
 										"id", "fileUpload",
@@ -172,7 +173,7 @@
 										"allowScriptAccess","sameDomain",
 										"type", "application/x-shockwave-flash",
 										"pluginspage", "http://www.adobe.com/go/getflashplayer",
-										"flashVars","flexID=c&uploadURL=<%=request.getContextPath()%>/Dress/file/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
+										"flashVars","flexID=c&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/file/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
 									);
 									/**
 										上传产品照片
@@ -294,8 +295,8 @@
 									</c:if>--> 
 								</div>
 								
-										<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/AC_OETags.js"></script>
-								   		<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/fileUpload.js"></script>
+										<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
+								   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
 										<!-- 上传附件按钮 -->
 										<script language="JavaScript" type="text/javascript">
 											function addDzEvent(){
@@ -313,7 +314,7 @@
 												document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
 											}
 											AC_FL_RunContent(
-												"src", "<%=request.getContextPath()%>/Dress/upload/merchants/uploaddz",
+												"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/upload/merchants/uploaddz",
 												"width", "100",
 												"height", "30",
 												"id", "fileUpload",
@@ -324,7 +325,7 @@
 												"allowScriptAccess","sameDomain",
 												"type", "application/x-shockwave-flash",
 												"pluginspage", "http://www.adobe.com/go/getflashplayer",
-												"flashVars","flexID=d&userID=${UserInfo.login_id}&uploadURL=<%=request.getContextPath()%>/Dress/upload/merchants/uploadx.jsp&label=图 片 上 传&succeed=a_completeUpload"
+												"flashVars","flexID=d&userID=${UserInfo.login_id}&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/upload/merchants/uploadx.jsp&label=图 片 上 传&succeed=a_completeUpload"
 											);
 											/**
 												上传产品照片
@@ -372,8 +373,8 @@
 									</c:if>
 								</div>
 								
-								<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/AC_OETags.js"></script>
-								   		<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/fileUpload.js"></script>
+								<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
+								   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
 										<!-- 上传附件按钮 -->
 										<script language="JavaScript" type="text/javascript">
 											function addNRJ_DzEvent(){
@@ -388,7 +389,7 @@
 												document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
 											}
 											AC_FL_RunContent(
-												"src", "<%=request.getContextPath()%>/Dress/upload/merchants/uploaddz",
+												"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/upload/merchants/uploaddz",
 												"width", "100",
 												"height", "30",
 												"id", "fileUpload",
@@ -399,7 +400,7 @@
 												"allowScriptAccess","sameDomain",
 												"type", "application/x-shockwave-flash",
 												"pluginspage", "http://www.adobe.com/go/getflashplayer",
-												"flashVars","flexID=n&userID=${UserInfo.login_id}&uploadURL=<%=request.getContextPath()%>/Dress/upload/merchants/uploadx.jsp&label=图 片 上 传&succeed=b_completeUpload"
+												"flashVars","flexID=n&userID=${UserInfo.login_id}&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/upload/merchants/uploadx.jsp&label=图 片 上 传&succeed=b_completeUpload"
 											);
 											/**
 												上传产品照片
@@ -441,7 +442,7 @@
 								会员邀请地址：
 							</td>
 							<td >
-								http://www.c-1-tech.com/Dress/register.html?p=${info.affiliation }
+								<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/register.html?p=${info.affiliation }
 							</td>
 						</tr>
 						<tr>

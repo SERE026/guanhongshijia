@@ -1,5 +1,6 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp"%>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -42,7 +43,7 @@ function cz(){
 					<tr>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/fsjhy/list">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif"
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif"
 									b="0" /> </a>
 						</td>
 						<td class="chazhaofanshi1">
@@ -57,11 +58,11 @@ function cz(){
 						</td>
 						<td class="tab2_tou">
 							<a href="javascript:cz();"><img
-									src="<%=request.getContextPath()%>/Dress/img/222.gif" b="0" />
+									src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" b="0" />
 							</a>
 						</td>
 						<td class="tab2_tou">
-							<a href="javascript:exportt();"><img src="<%=request.getContextPath()%>/Dress/img/chu.GIF" border="0" /></a>
+							<a href="javascript:exportt();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/chu.GIF" border="0" /></a>
 						</td>
 					</tr>
 				</table>
@@ -120,7 +121,7 @@ function cz(){
 						</td>
 					</tr>
 				</c:forEach>
-				<jsp:include page="/Dress/include/nofenye.jsp">
+				<jsp:include page="<%=Constants.PAGE_JSP%>">
 					<jsp:param name="url" value="/html/manage/fsjhy/list" />
 				</jsp:include>
 			</table>

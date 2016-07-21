@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/taglib.jsp"%>
 <%--
@@ -19,11 +20,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 
-<link href="<%=request.getContextPath()%>/Dress/js/tree/zTreeStyle.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/jquery-1.4.2.min.js"></script>
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/tree/zTreeStyle.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery-1.4.2.min.js"></script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/tree/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/tree/jquery.ztree.excheck-3.5.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/tree/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/tree/jquery.ztree.excheck-3.5.min.js"></script>
 <script type="text/javascript">
 <!--
 	function onCheck(e, treeId, treeNode) {

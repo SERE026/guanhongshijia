@@ -41,7 +41,7 @@ public class Test {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			String url="jdbc:mysql://115.29.4.130:3306/dress?user=user&password=user";
+			String url="jdbc:mysql://115.29.4.130:3306/o2o?user=user&password=user";
 			Connection con = DriverManager.getConnection(url);
 			Statement st=con.createStatement();
 			//ResultSet rs=st.executeQuery("select goodssort_id from t_goodssort where parent_id is null ");

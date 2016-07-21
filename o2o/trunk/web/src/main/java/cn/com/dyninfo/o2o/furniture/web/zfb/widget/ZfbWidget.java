@@ -18,6 +18,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -70,8 +71,8 @@ public class ZfbWidget extends Widget {
 		sParaTemp.put("partner", AlipayConfig.partner); // 合作者（商家）的身份ID，以2088开头由16位纯数字组成的字符串
 		sParaTemp.put("_input_charset", AlipayConfig.input_charset); // 表单提交时编码类型
 		sParaTemp.put("payment_type", "1"); // 支付类型（1：代表？？）
-		sParaTemp.put("notify_url", "http://www.c-1-tech.com/Dress/notify_url.html"); // 需http://格式的完整路径，不能加?id=123这类自定义参数。服务器异步通知页面路径（这是为了防止用户在充值后立即关闭页面，这样的说法是否正确？？？）
-		sParaTemp.put("return_url", "http://www.c-1-tech.com/Dress/return_url.html"); // 需http://格式的完整路径，不能加?id=123这类自定义参数。服务器同步通知页面路径（支付宝付款成功/失败时，会传入一系列参数到这个页面） 
+		sParaTemp.put("notify_url", "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/notify_url.html"); // 需http://格式的完整路径，不能加?id=123这类自定义参数。服务器异步通知页面路径（这是为了防止用户在充值后立即关闭页面，这样的说法是否正确？？？）
+		sParaTemp.put("return_url", "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/return_url.html"); // 需http://格式的完整路径，不能加?id=123这类自定义参数。服务器同步通知页面路径（支付宝付款成功/失败时，会传入一系列参数到这个页面）
 		sParaTemp.put("seller_email", AlipayConfig.zfbNo); // 商家（卖家）支付宝账号（这个账号必须是申请过即时到账交易的）
 		sParaTemp.put("body", body); // 交易内容描述
 		sParaTemp.put("out_trade_no", tradeno);
@@ -80,7 +81,7 @@ public class ZfbWidget extends Widget {
 		
 		sParaTemp.put("total_fee", total_fee); // 交易金额
 		
-		sParaTemp.put("show_url", "http://www.c-1-tech.com/Dress"); // 商品展示地址，具体指的是？？？？
+		sParaTemp.put("show_url", "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS ); // 商品展示地址，具体指的是？？？？
 		sParaTemp.put("anti_phishing_key", ""); // 防钓鱼时间戳
 		sParaTemp.put("exter_invoke_ip", exter_invoke_ip); // 客户端的IP地址
 		

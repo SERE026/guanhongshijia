@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.LoginUser;
 
 /** 
@@ -67,9 +68,9 @@ public class ValidCodeFilter implements Filter {
 			if(LoginUser.checkUser(j_username))
 				filterChain.doFilter(req, rep);
 			else
-				response.sendRedirect(request.getContextPath() + "/Dress/index.jsp?login_error=5");
+				response.sendRedirect(request.getContextPath() + "/" + Constants.ADMIN_ADDRESS + "/index.jsp?login_error=5");
 		}else{
-			response.sendRedirect(request.getContextPath() + "/Dress/index.jsp?login_error=2");
+			response.sendRedirect(request.getContextPath() + "/" + Constants.ADMIN_ADDRESS + "/index.jsp?login_error=2");
 		}
 	}
 

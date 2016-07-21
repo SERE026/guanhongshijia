@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -13,7 +14,7 @@
   ~
   --%>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/shangpin/goods/ajaxfileupload.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/shangpin/goods/ajaxfileupload.js"></script>
 <style type="text/css">
 .upfile{width:30px;margin-left:-60px;filter:progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=0,finishOpacity=0);opacity:0;}
 </style>
@@ -86,7 +87,7 @@
         $.ajaxFileUpload
         (
             {
-                url:"<%=request.getContextPath()%>/Dress/shangjia/info/upload.jsp",//用于文件上传的服务器端请求地址
+                url:"<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/shangjia/info/upload.jsp",//用于文件上传的服务器端请求地址
                 secureuri:false,//一般设置为false
                 fileElementId:'fileupload',//文件上传空间的id属性  <input type="file" id="file" name="file" />
                 dataType: 'json',//返回值类型 一般设置为json
@@ -129,12 +130,12 @@
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou" >
 						<a href="javascript:window.history.go(-1);">
-						<img src="<%=request.getContextPath()%>/Dress/img/return_btn.gif" border="0" /></a>
+						<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" /></a>
 					</td>
 				</tr>
 			</table>
@@ -156,8 +157,8 @@
 								店铺文件：
 							</td>
 							<td colspan="5">
-								<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/AC_OETags.js"></script>
-						   		<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/fileUpload.js"></script>
+								<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
+						   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
 								<!-- 上传附件按钮 -->
 								<script language="JavaScript" type="text/javascript">
 									var imageCount=0;
@@ -165,7 +166,7 @@
 										document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
 									}
 									AC_FL_RunContent(
-										"src", "<%=request.getContextPath()%>/Dress/upload/merchants/fileUpload",
+										"src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/upload/merchants/fileUpload",
 										"width", "100",
 										"height", "30",
 										"id", "fileUpload",
@@ -176,7 +177,7 @@
 										"allowScriptAccess","sameDomain",
 										"type", "application/x-shockwave-flash",
 										"pluginspage", "http://www.adobe.com/go/getflashplayer",
-										"flashVars","flexID=a&userID=${UserInfo.login_id}&uploadURL=<%=request.getContextPath()%>/Dress/upload/merchants/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
+										"flashVars","flexID=a&userID=${UserInfo.login_id}&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/upload/merchants/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
 									);
 									
 									/**

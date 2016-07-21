@@ -1,3 +1,4 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
@@ -68,18 +69,18 @@
 					<tr>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/gameActive/disAdd">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_07.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_07.gif" border="0" />
 							</a>
 						</td>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/gameActive/list">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 							</a>
 						</td>
 						<td class="chazhaofanshi1">活动主题：</td>
 						<td><input  name="title" type="text" style="color:#494949" value="${title }"/></td>
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" border="0" /></a>
+							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" border="0" /></a>
 						</td>
 					</tr>
 				</table>
@@ -110,7 +111,7 @@
 							   <td class="td_a">${info.bdate}&nbsp;${info.btime}</td>
 							   <td class="td_a">${info.edate}&nbsp;${info.etime}</td>
 							    <td class="td_a">${info.game.name}</td>
-							    <td class="td_a">http://www.c-1-tech.com/Dress/active-${info.active_id }.html</td>
+							    <td class="td_a"><%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/active-${info.active_id }.html</td>
 								<td>
 								<a href="<%=request.getContextPath()%>/html/manage/gameActive/${info.active_id}/show" class="zhu2">
 									查看</a>&nbsp;
@@ -134,7 +135,7 @@
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="/Dress/include/nofenye.jsp">
+					<jsp:include page="<%=Constants.PAGE_JSP%>">
 						<jsp:param name="url" value="/html/manage/gameActive/list" />
 					</jsp:include>
 				</table>

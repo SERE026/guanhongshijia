@@ -13,6 +13,8 @@
 
 package cn.com.dyninfo.o2o.furniture.util;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -26,7 +28,7 @@ public class SqlJdbcCon {
 	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection  con=DriverManager.getConnection("jdbc:mysql://"+ip+":3306/Dress?characterEncoding=utf-8","root","user");
+			Connection  con=DriverManager.getConnection("jdbc:mysql://"+ip+":3306/o2o?characterEncoding=utf-8","root","user");
 			return con;
 		} catch (ClassNotFoundException e) {
 			//e.printStackTrace();

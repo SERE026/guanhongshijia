@@ -19,6 +19,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -75,7 +76,7 @@ public class AindexController{
 	  			for(int i=0;i<list.size();i++){
 	  				
 	  			AadvInfo info=list.get(i);
-	  				js+="{\"aadv_id\":\""+info.getAadv_id()+"\",\"name\":\""+info.getName()+"\",\"img\":\"http://www.c-1-tech.com/Dress/upload/adv/"+info.getImg()+"\"},";
+	  				js+="{\"aadv_id\":\""+info.getAadv_id()+"\",\"name\":\""+info.getName()+"\",\"img\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/adv/"+info.getImg()+"\"},";
 	  			}
 	  			js=js.substring(0,js.lastIndexOf(","));
 	  			js+="]";
@@ -102,7 +103,7 @@ public class AindexController{
 	  			String js ="[";
 	  			for(int i=0;i<list.size();i++){
 	  			AmenuInfo info=list.get(i);
-	  				js+="{\"amenu_id\":\""+info.getAmenu_id()+"\",\"name\":\""+info.getAmenu_name()+"\",\"img\":\"http://www.c-1-tech.com/Dress/upload/adv/"+info.getImg()+"\"},";
+	  				js+="{\"amenu_id\":\""+info.getAmenu_id()+"\",\"name\":\""+info.getAmenu_name()+"\",\"img\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/adv/"+info.getImg()+"\"},";
 	  			}
 	  			
 	  			js=js.substring(0,js.lastIndexOf(","));
@@ -152,7 +153,7 @@ public class AindexController{
 	 					Float m = Float.valueOf(money);
 	 					float discount= (float)(Math.round(xm/m*100))/10;
 	 					
-	 					json+="{\"goodId\":\""+goods.getGoods_id()+"\",\"image\":\"http://www.c-1-tech.com/Dress/upload/goods/"+goods.getDefaultImage()+"\",\"goodName\":\""+goods.getName().replace(" ", "")+"\",\"bazaarMoney\":"+
+	 					json+="{\"goodId\":\""+goods.getGoods_id()+"\",\"image\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"+goods.getDefaultImage()+"\",\"goodName\":\""+goods.getName().replace(" ", "")+"\",\"bazaarMoney\":"+
 	 					money+",\"shopid\":"+goods.getMerchants().getShangjia_id()+",\"shopname\":\""+goods.getMerchants().getName()+"\",\"salesMoney\":"+xmoney+",\"discount\":"+discount+"},";
 	 				}
 	 				if(json.length()>1){

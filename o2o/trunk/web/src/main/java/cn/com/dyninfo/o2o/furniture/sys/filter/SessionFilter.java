@@ -18,6 +18,8 @@
  */
 package cn.com.dyninfo.o2o.furniture.sys.filter;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -61,8 +63,8 @@ public class SessionFilter implements Filter {
 			try{
 				PrintWriter out=response.getWriter();
 				out.print("<script language='javascript'>");
-				out.print("if(window.parent) window.parent.location='"+request.getContextPath()+"/Dress/index.jsp?login_error=3';");//重定向到登录页面
-				out.print("else window.location='"+request.getContextPath()+"/Dress/index.jsp?login_error=3';");
+				out.print("if(window.parent) window.parent.location='"+request.getContextPath()+"/" + Constants.ADMIN_ADDRESS + "/index.jsp?login_error=3';");//重定向到登录页面
+				out.print("else window.location='"+request.getContextPath()+"/" + Constants.ADMIN_ADDRESS + "/index.jsp?login_error=3';");
 				out.print("</script>");
 				return;
 			}catch(Exception e){

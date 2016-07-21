@@ -1,5 +1,6 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -45,8 +46,8 @@ fnhelp=function(){
 
        
  <div class="top">
-<div class="top_1"><img src="<%=request.getContextPath() %>/Dress/img/top_02.gif" /></div>
-<div class="top_2"><a href="#"><img src="<%=request.getContextPath() %>/Dress/img/top_tit.gif" border="0" /></a></div>
+<div class="top_1"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/top_02.gif" /></div>
+<div class="top_2"><a href="#"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/top_tit.gif" border="0" /></a></div>
 <div class="top_wenzi">
  <script type="text/javascript">
  
@@ -100,7 +101,7 @@ window.onload=function(){
 	function result(data){
 		var message="";
 		if(data[0].accaptList.length>0){
-			$(".mailImg").attr("src","<%=request.getContextPath()%>/Dress/img/top_bg_02-07.gif");
+			$(".mailImg").attr("src","<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/top_bg_02-07.gif");
 			if(i!=data[0].accaptList.length){
 				i=data[0].accaptList.length;
 				for(var j=0;j<i;j++){
@@ -116,7 +117,7 @@ window.onload=function(){
 				}
 			}
 		}else{
-			$(".mailImg").attr("src","<%=request.getContextPath()%>/Dress/img/top_bg_02.gif");
+			$(".mailImg").attr("src","<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/top_bg_02.gif");
 		}
 		
 	}
@@ -175,10 +176,10 @@ function closeDiv (id){
 
 </script>
 </div>
-<div class="top_3"><a href="<%=request.getContextPath()%>/html/manage/main/exit" class="exit"><img src="<%=request.getContextPath() %>/Dress/img/top_07.gif" border="0" /></a></div>
-<div class="top_3"><a href="<%=request.getContextPath()%>/html/manage/main/right" class="goIndex" target="mainFrame"><img src="<%=request.getContextPath() %>/Dress/img/top_04.gif" border="0" /></a></div>
+<div class="top_3"><a href="<%=request.getContextPath()%>/html/manage/main/exit" class="exit"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/top_07.gif" border="0" /></a></div>
+<div class="top_3"><a href="<%=request.getContextPath()%>/html/manage/main/right" class="goIndex" target="mainFrame"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/top_04.gif" border="0" /></a></div>
 <!-- 弃用 消息
-<div class="top_3" style="line-height:50px;width:55px;height:57px;" ><a href="<%=request.getContextPath() %>/html/Manage/accapt/list" target="mainFrame" class="goIndex"><img src="<%=request.getContextPath() %>/Dress/img/top_bg_02.gif" border="0" width="100%" height="100%" class="mailImg" /></a></div>
+<div class="top_3" style="line-height:50px;width:55px;height:57px;" ><a href="<%=request.getContextPath() %>/html/Manage/accapt/list" target="mainFrame" class="goIndex"><img src="<%=request.getContextPath() %>/<%=Constants.ADMIN_ADDRESS%>/img/top_bg_02.gif" border="0" width="100%" height="100%" class="mailImg" /></a></div>
  -->
 
 <div class="top_3" style="line-height:50px;color:#ffffff;font-size:20px;width:100px;">${UserInfo.user_name }</div>

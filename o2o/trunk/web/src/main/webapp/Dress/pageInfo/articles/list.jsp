@@ -1,5 +1,5 @@
-
-  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/Dress/include/taglib.jsp"%>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -20,8 +20,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <title><fmt:message key="cg.title" /></title>
-<link href="<%=request.getContextPath()%>/Dress/css/human2.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/jquery-1.4.2.min.js"></script>
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/human2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery-1.4.2.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
@@ -53,7 +53,7 @@ function cz(){
 	}
 </script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/dialog.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/dialog.js"></script>
 
 
 
@@ -72,19 +72,19 @@ function cz(){
 					<tr>
 							<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/articles/disAdd">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_07.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_07.gif" border="0" />
 							</a>
 						</td>
 						<td class="tab2_tou">
 							
 							<a href="<%=request.getContextPath()%>/html/manage/articles/list">
-								<img src="<%=request.getContextPath()%>/Dress/img/biao_03.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
 							</a>
 						</td>
 						<td class="chazhaofanshi1">文章名称：</td>
 						<td><input class="title" name="title" id="title" type="text" style="color:#494949" value="${title }"/></td>
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/Dress/img/222.gif" border="0" /></a>
+							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" border="0" /></a>
 						</td>
 					</tr>
 				</table>
@@ -129,7 +129,7 @@ function cz(){
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="/Dress/include/nofenye.jsp">
+					<jsp:include page="<%=Constants.PAGE_JSP%>">
 						<jsp:param name="url" value="/html/manage/articles/list" />
 					</jsp:include>
 				</table>

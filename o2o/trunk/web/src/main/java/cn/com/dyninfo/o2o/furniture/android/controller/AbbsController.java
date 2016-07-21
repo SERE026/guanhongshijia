@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -73,10 +74,10 @@ public class AbbsController{
 					 if(info.getInfo()!=null&&info.getInfo().getComment()!=null){
 						 num=info.getInfo().getComment().size();
 						 json+="{\"goodsname\":\""+(info.getGinfo() == null ? "": info.getGinfo().getName())+
-								 "\",\"imgUrl\":\"http://www.c-1-tech.com/Dress/upload/goods/"
+								 "\",\"imgUrl\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/goods/"
 								 +(info.getGinfo() == null ? "" : info.getGinfo().getDefaultImage());
 						 json+="\",\"bbsid\":\""+info.getComment_id()+"\",\"huiyuanname\":\""
-								 +(info.getInfo() == null ? "" : info.getInfo().getName())+"\",\"txImage\":\"http://www.c-1-tech.com/Dress/upload/"
+								 +(info.getInfo() == null ? "" : info.getInfo().getName())+"\",\"txImage\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/"
 								 +(info.getInfo() == null ? "" : info.getInfo().getTxImage())+
 						 	"\",\"bbsnum\":"+num+"},";
 					 }
@@ -109,7 +110,7 @@ public class AbbsController{
 				 if(info.getInfo()!=null&&info.getInfo().getComment()!=null){
 					 num=info.getInfo().getComment().size();
 				 }
-				String json = "{\"status\":0,\"data\":[{\"huiyuanname\":\""+info.getInfo().getName()+"\",\"content\":\""+info.getContent()+"\",\"txImage\":\"http://www.c-1-tech.com/Dress/upload/"+info.getInfo().getTxImage()+"\",\"bbsnum\":"+num+",\"time\":\""+info.getTime()+"\",\"imageSrc\":\""+info.getImageSrc()+"\"}]}";
+				String json = "{\"status\":0,\"data\":[{\"huiyuanname\":\""+info.getInfo().getName()+"\",\"content\":\""+info.getContent()+"\",\"txImage\":\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/upload/"+info.getInfo().getTxImage()+"\",\"bbsnum\":"+num+",\"time\":\""+info.getTime()+"\",\"imageSrc\":\""+info.getImageSrc()+"\"}]}";
 				ResponseUtil.printl(response, json, "json");
 			}else{
 	  			ResponseUtil.printl(response, "{\"status\":1}", "json");

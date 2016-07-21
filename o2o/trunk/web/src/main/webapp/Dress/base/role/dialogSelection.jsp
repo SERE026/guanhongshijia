@@ -1,5 +1,6 @@
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 	
 <%@ include file="/Dress/include/taglib.jsp"%>
 <%--
@@ -21,9 +22,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <title>用户选择</title>
-<link href="<%=request.getContextPath()%>/Dress/css/dialogSelection.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/Dress/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Dress/js/jsTree/jquery.jstree.js"></script>
+<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/dialogSelection.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jsTree/jquery.jstree.js"></script>
 
 <script language="javascript">
 var ids = "";
@@ -129,8 +130,8 @@ function saveValue(){
 <div class="middle">
 <div class="middle_1" id="divForTree"></div>
 <div class="middle_2">
-<div class="tu"><a href="javascript:addValue();"><img src="<%=request.getContextPath()%>/Dress/img/asdf_06.gif" border="0" /></a></div>
-<div class="tu"><a href="javascript:deleteValue();"><img src="<%=request.getContextPath()%>/Dress/img/asdf_10.gif" border="0" /></a></div>
+<div class="tu"><a href="javascript:addValue();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/asdf_06.gif" border="0" /></a></div>
+<div class="tu"><a href="javascript:deleteValue();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/asdf_10.gif" border="0" /></a></div>
 </div>
 <div class="middle_3" id="selected">
 <c:forEach var='Info' items='${selectedList}'>
@@ -141,8 +142,8 @@ function saveValue(){
 </div>
 <div class="clear">&nbsp;</div>
 <div class="bottom">
-<div><a href="#" onclick="window.close();"><img src="<%=request.getContextPath()%>/Dress/img/input1_09.gif" border="0" /></a></div>
-<div><a href="#" onclick="saveValue();"><img src="<%=request.getContextPath()%>/Dress/img/input1_07.gif" border="0" /></a></div>
+<div><a href="#" onclick="window.close();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/input1_09.gif" border="0" /></a></div>
+<div><a href="#" onclick="saveValue();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/input1_07.gif" border="0" /></a></div>
 </div>
 
 </div>
