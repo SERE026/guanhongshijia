@@ -4,15 +4,29 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/rl_recommend_color"
         android:layout_width="169dp"
         android:layout_height="109dp"
-        android:background="@color/color_fdd03f"
+        android:background="@color/color_2b323d"
+        android:gravity="center"
         >
 
         <ImageView
+            android:id="@+id/iv_more_reocommend_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/icon_public_classification"/>
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/color_121212"
+            android:layout_below="@+id/iv_more_reocommend_pic"
+            android:text="@string/classification_decorate"/>
     </RelativeLayout>
 
 </LinearLayout>

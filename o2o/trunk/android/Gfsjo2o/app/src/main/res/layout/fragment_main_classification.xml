@@ -7,7 +7,6 @@
         android:id="@+id/rl_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_202834"
         android:layout_marginTop="76dp"
         android:layout_marginLeft="108.5dp"
         android:layout_marginRight="108.5dp"
@@ -167,7 +166,7 @@
             android:layout_below="@id/btn_news"
             android:layout_marginTop="6.5dp"
             android:gravity="center"
-            android:text=""
+            android:text="更多"
             android:textColor="@color/color_2d1710"
             android:textSize="20sp"/>
 
