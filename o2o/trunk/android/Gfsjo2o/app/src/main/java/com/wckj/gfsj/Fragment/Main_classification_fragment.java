@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wckj.gfsj.Activity.MainMoreActivity;
+import com.wckj.gfsj.Activity.SetPasswordActivity;
 import com.wckj.gfsj.R;
 
 /**
@@ -26,6 +27,7 @@ public class Main_classification_fragment extends Fragment implements View.OnCli
 //        TextView tv_msg = (TextView) view.findViewById(R.id.tv_msg);
 //        tv_msg.setText("cccc");
          view.findViewById(R.id.btn_chinese_furniture).setOnClickListener(this);
+        view.findViewById(R.id.btn_classical_furniture).setOnClickListener(this);
 
         return view;
     }
@@ -36,6 +38,10 @@ public class Main_classification_fragment extends Fragment implements View.OnCli
             case R.id.btn_chinese_furniture:
                 Intent intent = new Intent(view.getContext(), MainMoreActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.btn_classical_furniture:
+                Intent intent1 = new Intent(view.getContext(), SetPasswordActivity.class);
+                startActivity(intent1);
                 break;
         }
     }

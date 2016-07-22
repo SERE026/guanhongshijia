@@ -19,15 +19,18 @@
         <!-- 主页 -->
         <activity
         android:name="com.wckj.gfsj.Activity.MainActivity"
-        android:launchMode="singleTask"
-        android:screenOrientation="portrait"
-        />
+        android:launchMode="singleTask"/>
+        <!--android:screenOrientation="portrait"-->
+        <!--/>-->
         <!-- 更多 -->
         <activity
             android:name="com.wckj.gfsj.Activity.MainMoreActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            />
+            android:launchMode="singleTask"/>
+            <!--android:screenOrientation="portrait"-->
+            <!--/>-->
+
+        <activity android:name=".Activity.SetPasswordActivity"
+            android:launchMode="singleTask"/>
 
     </application>
 
