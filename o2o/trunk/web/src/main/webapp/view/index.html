@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>首页</title>
     <link href="../css/index.css" rel="stylesheet" />
-    <script type="text/javascript">
-        var servicePath="${rc.contextPath}";
+   <script type="text/javascript">
+     //  alert(${rc.contextPath});
     </script>
 </head>
 <body>
@@ -272,53 +272,27 @@
             <ul>
                 <li><a class="Classification-goods" href="javascript:void(0)">所有商品分类</a>
                     <ul>
-                        <li><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />新中式家具</a></li>
-                        <li>
-                            <div class="Chinese-style furniture">
-                                <ul>
-                                    <li class="prompt"><a href="javascript:void(0)">客厅</a>
-                                    </li>
-                                    <li class="prompt"><a href="javascript:void(0)">客房</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">餐厅</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">茶室</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">明室</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">清式</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">办公系列</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />古典灯饰</a></li>
-                        <li>
-                            <div class="classical furniture">
-                                <ul>
-                                    <li class="prompt"><a href="javascript:void(0)">客厅</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">客房</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">餐厅</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">茶室</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">明室</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">清式</a></li>
-                                    <li class="prompt"><a href="javascript:void(0)">办公系列</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="prompt"><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />古典灯饰材料</a>
 
+                       <#list goodsSortList as p>
+                           <#if p_index lt 4>
+                        <li><a href="javascript:void(0)">
+                            <img src="../img/icon.png" />${p.name?if_exists}</a>
                         </li>
-                        <li class="prompt"><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />珍品红酒</a></li>
-                        <li class="prompt"><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />珍品古茶</a></li>
-                        <li class="prompt"><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />软装大全</a></li>
-                        <li class="prompt"><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />文房四宝</a></li>
-                        <li class="prompt"><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />字画</a></li>
-                        <li class="prompt"><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />装饰大全</a></li>
+                           <#if p.extendshow==1>
+                               <li>
+                                   <div class="classical furniture">
+                                       <ul>
+                                           <#list p.children as c>
+                                                   <li class="prompt" id="pro${c.goodsSort_id}"><a href="javascript:void(0)">${c.name?if_exists}</a></li>
+                                               <#if p_index==5><#break></#if>
+                                           </#list>
+                                       </ul>
+                                   </div>
+                               </li>
+                           </#if>
+                           </#if>
+
+                        </#list>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0)">云导购</a></li>
@@ -330,7 +304,7 @@
                 <li><a href="javascript:void(0)">全屋高端定制</a></li>
             </ul>
 
-            <div class="three-level">
+<!--          <div class="three-level">
                 <h4><span>卧室家具</span>&nbsp;>></h4>
                 <span>卧室1279件商品>></span>
                 <ul>
@@ -350,19 +324,27 @@
                 <div>
                     <img width="370" height="160" src="../img/10.png" />
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
 <div class="advertising">
     <div class="focus" id="focus001">
         <ul>
-            <li><a href="javascript:void(0)" target="_blank">
+
+            <#list advwzList.adv as p>
+            <li>
+                <a href="http://www.baidu.com" target="_blank">
+                <img src="../img/20.png" /><!--adv_flie-->
+                </a>
+            </li>
+                <#if p_index==2><#break></#if>
+            </#list>
+
+ <!--           <li><a href="javascript:void(0)" target="_blank">
                 <img src="../img/20.png" /></a></li>
             <li><a href="javascript:void(0)" target="_blank">
-                <img src="../img/20.png" /></a></li>
-            <li><a href="javascript:void(0)" target="_blank">
-                <img src="../img/20.png" /></a></li>
+                <img src="../img/20.png" /></a></li>-->
         </ul>
     </div>
     <div class="advertising-back">
@@ -401,230 +383,82 @@
         </ul>
     </div>
     <div class="Showcase">
-        <!--<div class="jump-btn font14">
-            <ul>
-                <li><a href="#FloorOne">客厅系列</a></li>
-                <li><a href="#FloorTwo">书房系列</a></li>
-                <li><a href="#FloorThree">卧室系列</a></li>
-                <li><a href="#FloorFour">餐厅系列</a></li>
-                <li><a href="javascript:void(0);">高端定制</a></li>
-                <li><a href="javascript:void(0);">灯饰软装</a></li>
-            </ul>
-        </div>-->
         <!--展示区-->
         <ul class="borderHover n1 block_red">
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥111.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">111Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥111.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
+            <#list reMai.goodsList as p>
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="javascript:void(0)">
+                            <img src="${p.goods.defaultImage}"/></a></dt>
+                        <dd class="dd-Item-name"><a href="javascript:void(0)">${p.goods.name}</a></dd>
+                        <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    </dl>
+                </li>
+                <#if p_index==5><#break></#if>
+            </#list>
         </ul>
 
         <ul class="borderHover n2">
+            <#list qiangGou.goodsList as p>
             <li>
                 <dl class="Item-introduction">
                     <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">2222Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥222.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                        <img src="${p.goods.defaultImage}" /></a></dt>
+                    <dd class="dd-Item-name"><a href="javascript:void(0)">
+                        ${p.goods.name}</a></dd>
+                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                 </dl>
             </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
+                <#if p_index==5><#break></#if>
+            </#list>
+
         </ul>
 
         <ul class="borderHover n3">
+            <#list rePin.goodsList as p>
             <li>
                 <dl class="Item-introduction">
                     <dt><a href="javascript:void(0)">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">3333Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥333.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    <dd class="dd-Item-name"><a href="javascript:void(0)">
+                        ${p.goods.name}</a></dd>
+                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                 </dl>
             </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
+                <#if p_index==5><#break></#if>
+            </#list>
+
         </ul>
 
         <ul class="borderHover n4">
+            <#list new.goodsList as p>
             <li>
                 <dl class="Item-introduction">
                     <dt><a href="javascript:void(0)">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">4444444Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥444.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    <dd class="dd-Item-name"><a href="javascript:void(0)">
+                        ${p.goods.name}</a></dd>
+                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                 </dl>
             </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
+                <#if p_index==5><#break></#if>
+            </#list>
+
         </ul>
 
         <ul class="borderHover n5">
+            <#list xianShi.goodsList as p>
             <li>
                 <dl class="Item-introduction">
                     <dt><a href="javascript:void(0)">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">5555555Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥555.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    <dd class="dd-Item-name"><a href="javascript:void(0)">
+                        ${p.goods.name}</a></dd>
+                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                 </dl>
             </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
-            <li>
-                <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
-                        <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                    <dd class="price"><b>￥360.00</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                </dl>
-            </li>
+                <#if p_index==5><#break></#if>
+            </#list>
         </ul>
     </div>
     <div class="Time-limit">
@@ -690,7 +524,7 @@
         <div class="FloorHead">
             <div class="FloorID">
                 <img src="../img/house.png" />
-                <b>1F</b><span>客厅系列</span>
+                <b>1F</b><span>${goodsSortList1.name}</span>
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
@@ -698,113 +532,66 @@
             </div>
         </div>
         <div class="FloorImg">
-            <h1>客厅系列</h1>
+            <h1>${goodsSortList1.name}</h1>
+            <div class="tag">
+                <p>${goodsSortList1.engname?if_exists}</p>
+                <div class="font6"><p>${goodsSortList1.engdesc?if_exists}</p></div>
+            </div>
             <ul>
-                <li><a href="javascript:void(0);">沙发</a></li>
-                <li><a href="javascript:void(0);">电视柜</a></li>
-                <li><a href="javascript:void(0);">茶几</a></li>
-                <li><a href="javascript:void(0);">展示柜</a></li>
-                <li><a href="javascript:void(0);">酒柜</a></li>
-                <li><a href="javascript:void(0);">休闲椅</a></li>
+                <#list goodsSortList1.children as d>
+                    <li><a href="javascript:void(0);">${d.name?if_exists}</a></li>
+                </#list>
             </ul>
             <img src="../img/08.png" />
         </div>
         <div class="floor-banner">
             <div>
                 <ul class="borderHover">
-                    <#list goodsList as p>
-                    <li>
-                        <dl class="">
-                            <dt><a href="/item-${p.goods_id}.html">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">${p.name}</a></dd>
-                            <dd class="price"><b class="Item-price">￥${p.bazaarMoney}</b></dd>
-                        </dl>
-                    </li>
-                        </#list>
- <!--                   <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>-->
+                    <#list goodsList1 as d>
+                        <#if d_index lt 6 >
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        ${d.name?if_exists}</a></dd>
+                                    <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
+                                </dl>
+                            </li>
+                        </#if>
+                    </#list>
                 </ul>
             </div>
             <div class="floor-banner-img">
-                <img src="../img/07.png" /><br />
-                <img src="../img/08.png" />
+                <#list goodsList1 as d>
+                    <#if d_index == 7>
+                        <img src="../img/07.png" /><br />
+                    </#if>
+                    <#if d_index == 8>
+                        <img src="../img/07.png" /><br />
+                    </#if>
+                </#list>
             </div>
         </div>
         <div class="Floor-bottom">
             <br />
             <ul class="borderHover">
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
+                <#list goodsList1 as d>
+                    <#if d_index gt 8 && d_index lt 12 >
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    ${d.name?if_exists}</a></dd>
+                                <dd class="hot-cakes">（热销${d.num}件）</dd>
+                                <dd class="Item-price"><b>￥${d.salesMoney}</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+                    </#if>
+                </#list>
             </ul>
         </div>
     </div>
@@ -812,7 +599,7 @@
         <div class="FloorHead">
             <div class="FloorID">
                 <img src="../img/house.png" />
-                <b>2F</b><span>书房系列</span>
+                <b>2F</b><span>${goodsSortList2.name}</span>
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
@@ -820,111 +607,66 @@
             </div>
         </div>
         <div class="FloorImg">
-            <h1>书房系列</h1>
+            <h1>${goodsSortList2.name}</h1>
+            <div class="tag">
+                <p>${goodsSortList2.engname?if_exists}</p>
+                <div class="font6"><p>${goodsSortList2.engdesc?if_exists}</p></div>
+            </div>
             <ul>
-                <li><a href="javascript:void(0);">沙发</a></li>
-                <li><a href="javascript:void(0);">电视柜</a></li>
-                <li><a href="javascript:void(0);">茶几</a></li>
-                <li><a href="javascript:void(0);">展示柜</a></li>
-                <li><a href="javascript:void(0);">酒柜</a></li>
-                <li><a href="javascript:void(0);">休闲椅</a></li>
+                <#list goodsSortList2.children as d>
+                    <li><a href="javascript:void(0);">${d.name?if_exists}</a></li>
+                </#list>
             </ul>
             <img src="../img/08.png" />
         </div>
         <div class="floor-banner">
             <div>
                 <ul class="borderHover">
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
+                    <#list goodsList2 as d>
+                        <#if d_index lt 6 >
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        ${d.name?if_exists}</a></dd>
+                                    <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
+                                </dl>
+                            </li>
+                        </#if>
+                    </#list>
                 </ul>
             </div>
             <div class="floor-banner-img">
-                <img src="../img/07.png" /><br />
-                <img src="../img/08.png" />
+                <#list goodsList2 as d>
+                    <#if d_index == 7>
+                        <img src="../img/07.png" /><br />
+                    </#if>
+                    <#if d_index == 8>
+                        <img src="../img/07.png" /><br />
+                    </#if>
+                </#list>
             </div>
         </div>
         <div class="Floor-bottom">
             <br />
             <ul class="borderHover">
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
+                <#list goodsList2 as d>
+                    <#if d_index gt 8 && d_index lt 12 >
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    ${d.name?if_exists}</a></dd>
+                                <dd class="hot-cakes">（热销${d.num}件）</dd>
+                                <dd class="Item-price"><b>￥${d.salesMoney}</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+                    </#if>
+                </#list>
             </ul>
         </div>
     </div>
@@ -932,7 +674,7 @@
         <div class="FloorHead">
             <div class="FloorID">
                 <img src="../img/house.png" />
-                <b>3F</b><span>餐厅系列</span>
+                <b>3F</b><span>${goodsSortList3.name}</span>
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
@@ -940,119 +682,75 @@
             </div>
         </div>
         <div class="FloorImg">
-            <h1>餐厅系列</h1>
+            <h1>${goodsSortList3.name}</h1>
+            <div class="tag">
+                <p>${goodsSortList3.engname?if_exists}</p>
+                <div class="font6"><p>${goodsSortList3.engdesc?if_exists}</p></div>
+            </div>
             <ul>
-                <li><a href="javascript:void(0);">沙发</a></li>
-                <li><a href="javascript:void(0);">电视柜</a></li>
-                <li><a href="javascript:void(0);">茶几</a></li>
-                <li><a href="javascript:void(0);">展示柜</a></li>
-                <li><a href="javascript:void(0);">酒柜</a></li>
-                <li><a href="javascript:void(0);">休闲椅</a></li>
+                <#list goodsSortList3.children as d>
+                    <li><a href="javascript:void(0);">${d.name?if_exists}</a></li>
+                </#list>
             </ul>
             <img src="../img/08.png" />
         </div>
         <div class="floor-banner">
             <div>
                 <ul class="borderHover">
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
+                    <#list goodsList3 as d>
+                        <#if d_index lt 6 >
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        ${d.name?if_exists}</a></dd>
+                                    <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
+                                </dl>
+                            </li>
+                        </#if>
+                    </#list>
                 </ul>
             </div>
             <div class="floor-banner-img">
-                <img src="../img/07.png" /><br />
-                <img src="../img/08.png" />
+                <#list goodsList3 as d>
+                    <#if d_index == 7>
+                        <img src="../img/07.png" /><br />
+                    </#if>
+                    <#if d_index == 8>
+                        <img src="../img/07.png" /><br />
+                    </#if>
+                </#list>
             </div>
         </div>
         <div class="Floor-bottom">
             <br />
             <ul class="borderHover">
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
+                <#list goodsList3 as d>
+                    <#if d_index gt 8 && d_index lt 12 >
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    ${d.name?if_exists}</a></dd>
+                                <dd class="hot-cakes">（热销${d.num}件）</dd>
+                                <dd class="Item-price"><b>￥${d.salesMoney}</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+                    </#if>
+                </#list>
             </ul>
         </div>
     </div>
+
     <div id="FloorFour" class="Floor FloorFour">
         <div class="FloorHead">
             <div class="FloorID">
                 <img src="../img/house.png" />
-                <b>4F</b><span>卧室系列</span>
+                <b>4F</b><span>${goodsSortList4.name}</span>
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
@@ -1060,120 +758,91 @@
             </div>
         </div>
         <div class="FloorImg">
-            <h1>卧室系列</h1>
+            <h1>${goodsSortList4.name}</h1>
+            <div class="tag">
+                <p>${goodsSortList4.engname?if_exists}</p>
+                <div class="font6"><p>${goodsSortList4.engdesc?if_exists}</p></div>
+            </div>
             <ul>
-                <li><a href="javascript:void(0);">沙发</a></li>
-                <li><a href="javascript:void(0);">电视柜</a></li>
-                <li><a href="javascript:void(0);">茶几</a></li>
-                <li><a href="javascript:void(0);">展示柜</a></li>
-                <li><a href="javascript:void(0);">酒柜</a></li>
-                <li><a href="javascript:void(0);">休闲椅</a></li>
+                <#list goodsSortList4.children as d>
+                    <li><a href="javascript:void(0);">${d.name?if_exists}</a></li>
+                </#list>
             </ul>
-            <img src="../img/08.png" />
+                <img src="../img/08.png" />
         </div>
         <div class="floor-banner">
             <div>
                 <ul class="borderHover">
-                    <li>
+                    <#list goodsList4 as d>
+                        <#if d_index lt 6 >
+                        <li>
                         <dl class="">
                             <dt><a href="javascript:void(0)">
                                 <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                ${d.name?if_exists}</a></dd>
+                            <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
                         </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
+                     </li>
+                        </#if>
+                    </#list>
                 </ul>
             </div>
             <div class="floor-banner-img">
-                <img src="../img/07.png" /><br />
-                <img src="../img/08.png" />
+                <#list goodsList4 as d>
+                    <#if d_index == 7>
+                        <img src="../img/07.png" /><br />
+                    </#if>
+                    <#if d_index == 8>
+                        <img src="../img/07.png" /><br />
+                    </#if>
+                </#list>
             </div>
         </div>
         <div class="Floor-bottom">
             <br />
             <ul class="borderHover">
+                <#list goodsList4 as d>
+                    <#if d_index gt 8 && d_index lt 12 >
                 <li>
                     <dl class="Item-introduction">
                         <dt><a href="javascript:void(0)">
                             <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
+                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                            ${d.name?if_exists}</a></dd>
+                        <dd class="hot-cakes">（热销${d.num}件）</dd>
+                        <dd class="Item-price"><b>￥${d.salesMoney}</b></dd>
                         <dd><a class="Add-art" href="javascript:void(0)">
                             <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                     </dl>
                 </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
+                    </#if>
+                </#list>
             </ul>
         </div>
     </div>
+
+
+    <!--第五楼-->
+<!--    <div id="FloorFive" class="Floor FloorFive">
+
+        <div class="FloorHead">
+            <div class="FloorID">
+                <img src="../img/house.png" />
+                <b>5F</b><span>综合系列</span>
+            </div>
+            <div class="FloorBack">
+                <span class="backLeft">SANITARY WARE</span>
+                <span class="backRight">查看更多 MORE</span>
+            </div>
+        </div>-->
+
     <div id="FloorFive" class="Floor FloorFive">
         <div class="FloorHead">
             <div class="FloorID">
                 <img src="../img/house.png" />
                 <b>5F</b><span>综合系列</span>
-                <ul>
+                <ul class="FiveNav">
                     <li class="FH_current">红木家具</li>
                     <li>古典灯饰</li>
                     <li>办公系列</li>
@@ -1189,118 +858,141 @@
                 <span class="backRight">查看更多 MORE</span>
             </div>
         </div>
-        <div class="FloorImg">
-            <h1>综合系列</h1>
-            <ul>
-                <li><a href="javascript:void(0);">沙发</a></li>
-                <li><a href="javascript:void(0);">电视柜</a></li>
-                <li><a href="javascript:void(0);">茶几</a></li>
-                <li><a href="javascript:void(0);">展示柜</a></li>
-                <li><a href="javascript:void(0);">酒柜</a></li>
-                <li><a href="javascript:void(0);">休闲椅</a></li>
-            </ul>
-            <img src="../img/08.png" />
-        </div>
-        <div class="floor-banner">
-            <div>
+
+
+        <div class="FiveContent">
+            <div class="FloorImg">
+                <h1>综合系列</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+
+                <ul>
+                    <li><a href="javascript:void(0);"><img src="../img/08.png"/></a></li>
+                    <li><a href="javascript:void(0);"><img src="../img/08.png"/></a></li>
+                    <li><a href="javascript:void(0);"><img src="../img/08.png" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="../img/08.png"  /></a></li>
+                </ul>
+
+            </div>
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+                        <li>
+                            <dl class="">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+                    <img src="../img/07.png" /><br />
+                    <img src="../img/08.png" />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
                 <ul class="borderHover">
                     <li>
-                        <dl class="">
+                        <dl class="Item-introduction">
                             <dt><a href="javascript:void(0)">
                                 <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                            <dd class="hot-cakes">（热销1285件）</dd>
+                            <dd class="Item-price"><b>￥360.00</b></dd>
+                            <dd><a class="Add-art" href="javascript:void(0)">
+                                <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                         </dl>
                     </li>
                     <li>
-                        <dl class="">
+                        <dl class="Item-introduction">
                             <dt><a href="javascript:void(0)">
                                 <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                            <dd class="hot-cakes">（热销1285件）</dd>
+                            <dd class="Item-price"><b>￥360.00</b></dd>
+                            <dd><a class="Add-art" href="javascript:void(0)">
+                                <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                         </dl>
                     </li>
                     <li>
-                        <dl class="">
+                        <dl class="Item-introduction">
                             <dt><a href="javascript:void(0)">
                                 <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="price"><b class="Item-price">￥360.00</b></dd>
+                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
+                            <dd class="hot-cakes">（热销1285件）</dd>
+                            <dd class="Item-price"><b>￥360.00</b></dd>
+                            <dd><a class="Add-art" href="javascript:void(0)">
+                                <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                         </dl>
                     </li>
                 </ul>
             </div>
-            <div class="floor-banner-img">
-                <img src="../img/07.png" /><br />
-                <img src="../img/08.png" />
-            </div>
         </div>
-        <div class="Floor-bottom">
-            <br />
-            <ul class="borderHover">
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="hot-cakes">（热销1285件）</dd>
-                        <dd class="Item-price"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
 
-<#include "../templates/common/buttom.html"/>
+
+        <div class="FiveContent none">2</div>
+        <div class="FiveContent none">3</div>
+        <div class="FiveContent none">4</div>
+        <div class="FiveContent none">5</div>
+        <div class="FiveContent none">6</div>
+        <div class="FiveContent none">7</div>
+        <div class="FiveContent none">8</div>
+
+
+
+
+
+
+    </div>
+    <!--底部includ-->
+
 
 <div class="PlacedTop2">
     <ul>
@@ -1311,13 +1003,60 @@
 </div>
 
 
+
+
+    <!--菜单栏展示第三级目录-->
+    <#list goodsSortList as p>
+        <#if p_index lt 4>
+        <#if p.extendshow==1>
+            <#list p.children as c>
+                    <div id="pr${c.goodsSort_id}">
+                        <div class="three-level">
+                            <h4><span>${c.name?if_exists}</span>&nbsp;>></h4>
+                            <span>${c.name?if_exists}${c.goodscount}件商品>></span>
+                            <ul>
+                                <#list c.children as d>
+                                <li><a href="javascript:void(0)">${d.name?if_exists}</a></li>
+                                </#list>
+                            </ul>
+                            <div>
+                                <img width="370" height="160" src="../img/10.png" />
+                            </div>
+                        </div>
+                    </div>
+            </#list>
+        </#if>
+
+        <#if p.extendshow==0>
+            <div id="pr${p.goodsSort_id}"  >
+                <div class="three-level">
+                    <h4><span>${p.name?if_exists}</span>&nbsp;>></h4>
+                    <span>${p.name?if_exists}${p.goodscount}件商品>></span>
+                    <ul>
+                        <#list p.children as cc>
+                        <li><a href="javascript:void(0)">${cc.name?if_exists}</a></li>
+                        </#list>
+                    </ul>
+                    <div>
+                        <img width="370" height="160" src="../img/10.png" />
+                    </div>
+                </div>
+            </div>
+        </#if>
+        </#if>
+    </#list>
+
+</div>
 <script src="../js/jquery-1.8.2.js"></script>
 <script src="../js/index2.js"></script>
-<script src="../js/sl2.js"></script>-
+<script src="../js/sl2.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $.focus("#focus001");
     });
+
+
+
 </script>
 </body>
 </html>
