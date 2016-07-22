@@ -15,7 +15,7 @@
         android:layout_marginRight="40dp"
         android:layout_marginTop="30dp"
         android:text="10:27"
-        android:textColor="@color/color_f85b21"
+        android:textColor="@color/color_767f8e"
         android:textSize="15sp"
         />
 
