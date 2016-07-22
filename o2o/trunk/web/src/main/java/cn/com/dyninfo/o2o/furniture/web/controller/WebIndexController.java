@@ -1,41 +1,36 @@
 package cn.com.dyninfo.o2o.furniture.web.controller;
 
-import cn.com.dyninfo.o2o.furniture.admin.controller.BaseController;
-import cn.com.dyninfo.o2o.furniture.util.PageInfo;
-import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
+import cn.com.dyninfo.o2o.furniture.util.CookTool;
+import cn.com.dyninfo.o2o.furniture.web.active.model.Active;
+import cn.com.dyninfo.o2o.furniture.web.active.service.GameActiveService;
+import cn.com.dyninfo.o2o.furniture.web.address.model.AreaBase;
+import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
+import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
+import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.PageModule;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.*;
-import cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo;
+import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
+import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
+import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
  * Created by dyninfo on 2016/7/15.
  */
 @Controller
-@RequestMapping("/")
 public class WebIndexController{
-    public static final int REMAI_SKU = 27;//热卖
-    public static final int QIANGGOU_SKU = 47;//抢购
-    public static final int REPIN_SKU =49;//热评
-    public static final int NEW_SKU =36;//新品
-    public static final int XIANSHI_SKU = 37;//限时
-
-    public static final int ONE_SKU = 1000101;//1F楼
-    public static final int TWO_SKU = 1000101;//2F楼
-    public static final int THREE_SKU = 1000101;//3F楼
-    public static final int FOUR_SKU = 1000101;//4F楼
     @Resource
     private GoodsService goodsService;
     @Resource
@@ -50,57 +45,101 @@ public class WebIndexController{
     @Resource
     private PageModuleService  pageModuleService;
 
+    @Resource
+    private GameActiveService activeService;
+
+    @Resource
+    private AdvwzService advwzService;
+
+    @Resource
+    private AreaService areaService;
+    @Resource
+    private ShangJiaService shangJiaService;
     /**
      * 首页页面
      * @param request
      * @return
      */
-    @RequestMapping(value= "index" )
-    public String index(HttpServletRequest request, ModelMap mav) {
-//        StringBuffer where=new StringBuffer();
-//        PageInfo page = new PageInfo();
-//        page.setPageSize(6);
-//        page.setPageNo(1);
-//        // where.append(" order by indexs");
-//        HashMap<String, ?> data = goodsService.getListByPageWhere(where, page);
-//        // 保存商品标签名字，便于页面加载
-//        List<Goods> goodsList = (List<Goods>)data.get("DATA");
-//        mav.addAttribute("goodsList", goodsList);
+    @RequestMapping(value= "/index" )
+    public String index(HttpServletRequest request, ModelMap mav,String id,HttpServletResponse response) {
+//        if (id == null) {
+//           id = "510600";
+//        }
+//获取城市地址
+//        Object obj=request.getSession().getAttribute(Context.SESSION_AEAR);
+//        if(obj==null){
+//            String city= CookTool.getCookIEValue("city", request);
+//            if(city==null||!city.equals("ALL")){
+//                if(city==null||city.equals("")){
+//                    String cityName= CityTool.getClientCityId(request);
+//                   // AreaService areaService= SpringContext.getBean("areaService");
+//                    List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"' and n.isDefault=1 "));
+//                    if(list.size()>0){
+//                        request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
+//                    }
+//                }else{
+//                    AreaService areaService=SpringContext.getBean("areaService");
+//                    obj=areaService.getObjById(city);
+//                    request.getSession().setAttribute(Context.SESSION_AEAR, obj);
+//                }
+//            }
+//        }
+//        if(id.equals("ALL")){
+//            request.getSession().removeAttribute(Context.SESSION_AEAR);
+//            CookTool.addCookValue("city", "ALL", response);
+//        }else{
+//            AreaInfo area=(AreaInfo) areaService.getObjById(id);
+//            CookTool.addCookValue("city", area.getId(), response);
+//            if(area!=null&&area.getIsDefault().equals("1")){
+//                Cookie ck=new Cookie(Context.COOKIE_AEAR_ID,area.getId());
+//                ck.setPath("/");
+//                ck.setMaxAge(365*24*60*60*1000);
+//                response.addCookie(ck);
+//                request.getSession().setAttribute(Context.SESSION_AEAR, area);
+//            }else{
+//            }
+//        }
 
 
-        StringBuffer where1=new StringBuffer();
         //所有的分类  一级。二级,三级
         List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
         mav.addAttribute("goodsSortList",dataList);
 
+        //首页广告图
+        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
+        mav.addAttribute("advwzList",advwzList.get(0));
+
+        //显示抢购商品
+        List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.ACTIVE_ID="+Constants.ACTIVE_SKU));
+        mav.addAttribute("activeList",activeList);
+
         //1F楼商品
-        List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+ONE_SKU));
-        mav.addAttribute("goodsSortList1",goodsSortList1);
-        List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ONE_SKU));
+        List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
+        List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.ONE_SKU));
+        mav.addAttribute("goodsSortList1",goodsSortList1.get(0));
         mav.addAttribute("goodsList1",goodsList1);
         //2F楼商品
-        List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+TWO_SKU));
-        mav.addAttribute("goodsSortList2",goodsSortList2);
-        List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+TWO_SKU));
+        List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.TWO_SKU));
+        List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.TWO_SKU));
+        mav.addAttribute("goodsSortList2",goodsSortList2.get(0));
         mav.addAttribute("goodsList2",goodsList2);
         //3F楼商品
-        List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+THREE_SKU));
-        mav.addAttribute("goodsSortList3",goodsSortList3);
-        List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+THREE_SKU));
+        List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.THREE_SKU));
+        List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.THREE_SKU));
+        mav.addAttribute("goodsSortList3",goodsSortList3.get(0));
         mav.addAttribute("goodsList3",goodsList3);
         //4F楼商品
-        List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+FOUR_SKU));
-        mav.addAttribute("goodsSortList4",goodsSortList4);
-        List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+FOUR_SKU));
+        List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.FOUR_SKU));
+        List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU));
+        mav.addAttribute("goodsSortList4",goodsSortList4.get(0));
         mav.addAttribute("goodsList4",goodsList4);
 
-
-        //人气/疯狂抢购/热评/新品/限时抢购
-        List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+REMAI_SKU));
-        List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+QIANGGOU_SKU));
-        List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+REPIN_SKU));
-        List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+NEW_SKU));
-        List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+XIANSHI_SKU));
+        //热卖商品/疯狂抢购/热评商品/新品上架/限时抢购
+        List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REMAI_SKU));
+        List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.QIANGGOU_SKU));
+        List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REPIN_SKU));
+        List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.NEW_SKU));
+        List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.XIANSHI_SKU));
         mav.addAttribute("reMai", reMaiList.get(0));
         mav.addAttribute("qiangGou", qiangGouList.get(0));
         mav.addAttribute("rePin", rePinList.get(0));
@@ -114,7 +153,7 @@ public class WebIndexController{
      * @param request
      * @return
      */
-    @RequestMapping(value= "details" )
+    @RequestMapping(value= "/details" )
     public String details(HttpServletRequest request, ModelMap mav,String id) {
         //获取商品详情
         if (id == null) {
@@ -124,6 +163,33 @@ public class WebIndexController{
         Goods goods = (Goods)goodsService.getObjById(id);
         mav.addAttribute("goods", goods);
         return "/details";
+    }
+
+    @RequestMapping(value= "/getCity" )
+    @ResponseBody
+    public AreaBase getCity(HttpServletRequest request, ModelMap mav, String id, HttpServletResponse response) {
+
+        if(id.equals("ALL")){
+            request.getSession().removeAttribute(Context.SESSION_AEAR);
+            CookTool.addCookValue("city", "ALL", response);
+            return null;
+        }else{
+            AreaInfo area=(AreaInfo) areaService.getObjById(id);
+            CookTool.addCookValue("city", area.getId(), response);
+            if(area!=null) {//&&area.getIsDefault().equals("1")
+                Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
+                ck.setPath("/");
+                ck.setMaxAge(365 * 24 * 60 * 60 * 1000);
+                response.addCookie(ck);
+                request.getSession().setAttribute(Context.SESSION_AEAR, area);
+            }
+            int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()));
+            AreaBase areaBase=new AreaBase();
+            areaBase.setId(area.getId());
+            areaBase.setName(area.getName());
+            areaBase.setNum(num);
+            return areaBase;
+            }
     }
 
 }
