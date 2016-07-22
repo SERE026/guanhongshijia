@@ -164,7 +164,7 @@ public class WebIndexController{
         mav.addAttribute("goods", goods);
         return "/details";
     }
-
+    //切换城市，获取城市ID与相关数据
     @RequestMapping(value= "/getCity" )
     @ResponseBody
     public AreaBase getCity(HttpServletRequest request, ModelMap mav, String id, HttpServletResponse response) {
