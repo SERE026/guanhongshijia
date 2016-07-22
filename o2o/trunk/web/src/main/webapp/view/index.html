@@ -44,16 +44,16 @@
                         </div>
                         <div class="showPanel showPanel2 f-cb">
                             <div class="hot_city" id="JS_header_city_hot">
-                                <a href="javascript:void(0);" class="site_all Left" citycode="000000">全国站</a>
-                                <a href="javascript:void(0);" provincecode="110000" class="for_search">北京市</a>
-                                <a href="javascript:void(0);" provincecode="120000" class="for_search">天津市</a>
-                                <a href="javascript:void(0);" provincecode="500000" class="for_search">重庆市</a>
-                                <a href="javascript:void(0);" citycode="440300" class="for_search">深圳市</a>
+                                <a href="javascript:void(0);" class="site_all Left" cityid="ALL" onclick="changeCity(this)">全国站</a>
+                                <a href="javascript:void(0);" provincecode="110000" class="for_search" cityid="110000" onclick="changeCity(this)">北京市</a>
+                                <a href="javascript:void(0);" provincecode="120000" class="for_search" cityid="120000" onclick="changeCity(this)">天津市</a>
+                                <a href="javascript:void(0);" provincecode="500000" class="for_search" cityid="500000" onclick="changeCity(this)">重庆市</a>
+                                <a href="javascript:void(0);" citycode="440300" class="for_search" cityid="440300" onclick="changeCity(this)">深圳市</a>
                             </div>
-                            <div class="mt10">
+    <!--                        <div class="mt10">
                                 <div id="JS_search_city_tip_header" class="search_city_tip">对不起，没搜索到这个城市。</div>
                                 <input id="JS_search_city_input_header" class="search_city_input" placeholder="城市名称"><input type="button" id="JS_search_city_submit_header" class="search_city_submit" value="搜索">
-                            </div>
+                            </div>-->
                             <div class="city_words mt10" id="JS_header_city_char"><a href="javascript:void(0)" anchorname="charA">A</a><a href="javascript:void(0)" anchorname="charB">B</a><a href="javascript:void(0)" anchorname="charC">C</a><a href="javascript:void(0)" anchorname="charD">D</a><a href="javascript:void(0)" anchorname="charE">E</a><a href="javascript:void(0)" anchorname="charF">F</a><a href="javascript:void(0)" anchorname="charG">G</a><a href="javascript:void(0)" anchorname="charH">H</a><a href="javascript:void(0)" anchorname="charI">I</a><a href="javascript:void(0)" anchorname="charJ">J</a><a href="javascript:void(0)" anchorname="charK">K</a><a href="javascript:void(0)" anchorname="charL">L</a><a href="javascript:void(0)" anchorname="charM">M</a><a href="javascript:void(0)" anchorname="charN">N</a><a href="javascript:void(0)" anchorname="charP">P</a><a href="javascript:void(0)" anchorname="charQ">Q</a><a href="javascript:void(0)" anchorname="charR">R</a><a href="javascript:void(0)" anchorname="charS">S</a><a href="javascript:void(0)" anchorname="charT">T</a><a href="javascript:void(0)" anchorname="charW">W</a><a href="javascript:void(0)" anchorname="charX">X</a><a href="javascript:void(0)" anchorname="charY">Y</a><a href="javascript:void(0)" anchorname="charZ">Z</a></div>
                         </div>
                         <div class="scrollBody">
@@ -363,7 +363,9 @@
                 <p>高端定制尽在老东方</p>
                 <p>观红世家夜市O2O云平台</p>
                 <img src="" />
-                <p class="thisHome"><b>深圳<label>1</label>家</b></p>
+                <p class="thisHome" id="area">
+                    <b>深圳市<label>1</label>家</b>
+                </p>
                 <p class="national">全国19家体验馆</p>
                 <p><a class="findHome" href="javascript:void(0);">查找身边的体验馆</a></p>
                 <p>网站浏览&nbsp;实体店购买一站式服务！</p>
@@ -1055,8 +1057,29 @@
         $.focus("#focus001");
     });
 
-
-
+    //切换城市 更改体验馆数据
+    function changeCity(obj){
+        var cityId=$(obj).attr("cityid");
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8081/getCity.htm",
+            data:{"id":cityId},
+            dataType: "json",
+            success: function(result) {
+                var area=result;
+                if(area!=null){
+                    $("#area").empty();
+                    var _html = ['<b id=>'+area.name+'<label>'+area.num+'</label>家</b>'];
+                    $("#area").append(_html.join(''));
+                }else{
+                    $("#area").empty();
+                }
+            },
+            error: function (a,b,c,d) {
+                alert("数据错误");
+            }
+        });
+    }
 </script>
 </body>
 </html>
