@@ -1,13 +1,13 @@
 package com.wckj.gfsj.Activity;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Adapter.MoreRecommendAdapter;
 import com.wckj.gfsj.Bean.CommodityCategory;
+import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.R;
 
 import java.util.ArrayList;
@@ -16,27 +16,52 @@ import java.util.ArrayList;
  * Created by jinlei on 2016/7/21.
  * 更多
  */
-public class MainMoreActivity extends Activity implements View.OnClickListener {
+public class MainMoreActivity extends BaseNewActivity implements View.OnClickListener {
 
     private GridView gv_more_recommend;
     private TextView tv_go_back;
     private ArrayList<CommodityCategory> mList;
     private MoreRecommendAdapter mRecommendMoreAdapter;
+    private View view;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_more_shopping);
-        initView();
+    protected void init() {
+
     }
 
-    private void initView() {
-        gv_more_recommend = (GridView) findViewById(R.id.gv_more_recommend);
-        findViewById(R.id.tv_go_back).setOnClickListener(this);
+    @Override
+    protected View onCreateTitleView(LayoutInflater inflater) {
+        View titleView = inflater.inflate(R.layout.layout_title_main_more, null);
+        titleView. findViewById(R.id.tv_go_back).setOnClickListener(this);
+        return titleView;
+    }
+
+    @Override
+    protected View onCreateSuccessView() {
+        view = inflater.inflate(R.layout.activity_more_shopping, null);
+        initView();
+        return view;
+    }
+
+    @Override
+    protected void refreshOrLoadView() {
+
+    }
+
+    @Override
+    protected void load() {
         mList = new ArrayList<>();
         for (int i = 0; i <8 ; i++) {
             mList.add(new CommodityCategory());
         }
+        showPageState(FrameLoadLayout.LoadResult.success);
+    }
+
+    private void initView() {
+        gv_more_recommend = (GridView) view.findViewById(R.id.gv_more_recommend);
+
+
         mRecommendMoreAdapter = new MoreRecommendAdapter(this, mList);
         gv_more_recommend.setAdapter(mRecommendMoreAdapter);
     }

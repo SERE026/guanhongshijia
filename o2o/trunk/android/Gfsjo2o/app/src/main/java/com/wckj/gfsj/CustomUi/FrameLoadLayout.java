@@ -2,10 +2,14 @@ package com.wckj.gfsj.CustomUi;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.wckj.gfsj.R;
 
 
 /**
@@ -159,30 +163,29 @@ public abstract class FrameLoadLayout extends FrameLayout {
      * 正在加载中得界面
      */
     private View createLoadingView() {
-//        View startLoadView = LayoutInflater.from(getContext()).inflate(
-//                R.layout.public_startloading, null);
-//        rotateLoadingView = (RotateLoadingView) startLoadView
-//                .findViewById(R.id.rotateLoadingView);
-        return null;
+        View startLoadView = LayoutInflater.from(getContext()).inflate(
+                R.layout.layout_loading, null);
+
+        return startLoadView;
     }
 
     /**
      * 错误得界面没有网络得
      */
     private View createErrorView() {
-//        View notNetWork = LayoutInflater.from(getContext()).inflate(
-//                R.layout.mr_networkerror, null);
-//        RelativeLayout btn = (RelativeLayout) notNetWork
-//                .findViewById(R.id.btn_network);
-//
-//        btn.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//
-//                showState();
-//            }
-//        });
-        return null;
+        View notNetWork = LayoutInflater.from(getContext()).inflate(
+                R.layout.mr_networkerror, null);
+        RelativeLayout btn = (RelativeLayout) notNetWork
+                .findViewById(R.id.btn_network);
+
+        btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                showState();
+            }
+        });
+        return notNetWork;
     }
 
     public ImageView tv_networktext;
@@ -194,23 +197,18 @@ public abstract class FrameLoadLayout extends FrameLayout {
      */
 
     private View createEmptyView() {
-//        View noDataView = LayoutInflater.from(getContext()).inflate(
-//                R.layout.mr_public_nodata, null);
-//        tv_networktext = (ImageView) noDataView
-//                .findViewById(R.id.tv_networktext);
-//        tv_msgtext1 = (TextView) noDataView.findViewById(R.id.tv_msgtext1);
-//        tv_msgtext2 = (TextView) noDataView.findViewById(R.id.tv_msgtext2);
-//        tv_msgtext1.setVisibility(View.GONE);
-//        RelativeLayout rl_nodata = (RelativeLayout) noDataView
-//                .findViewById(R.id.rl_nodata);
-//        rl_nodata.setOnClickListener(new OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                showState();
-//            }
-//        });
-        return null;
+        View notNetWork = LayoutInflater.from(getContext()).inflate(
+                R.layout.mr_networkerror, null);
+        RelativeLayout btn = (RelativeLayout) notNetWork
+                .findViewById(R.id.btn_network);
+        btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                showState();
+            }
+        });
+        return notNetWork;
     }
 
     public enum LoadResult {
