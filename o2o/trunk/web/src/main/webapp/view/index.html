@@ -6,15 +6,18 @@
     <link href="../css/index.css" rel="stylesheet" />
    <script type="text/javascript">
      //  alert(${rc.contextPath});
+     var servicePath="http://localhost:8081";
     </script>
 </head>
 <body>
 <div style="background-color: #f0ecec;">
     <div class="head-top font14">
         <div>
-            <a class="positioning" href="javascript:void(0);">深圳</a><label class="head-welcome inline-block">欢迎光临观红世家</label><a class="head-login inline-block" href="javascript:void(0)">请登录</a>&nbsp;&nbsp;<a class="inline-block" href="javascript:void(0)">免费注册</a>
+            <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
+            <a class="head-login inline-block" href="http://localhost:8081/login.html">请登录</a>&nbsp;&nbsp;
+            <a class="inline-block" href="http://localhost:8081/register.html">免费注册</a>
             <ul class="head-ul font14">
-                <li><a href="javascript:void(0)">我的信息</a></li>
+                <li><a href="http://localhost:8081/login.html">我的信息</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
                 <li><a href="javascript:void(0)">关注观红世家</a></li>
                 <li><a href="javascript:void(0)">客服中心</a></li>
@@ -245,12 +248,12 @@
                         <li>店铺</li>
                     </ul>
                 </div>
-                <input class="Search-Text" type="text" placeholder="输入您想要搜索的关键字" />
+                <input class="Search-Text" type="text" placeholder="输入您想要搜索的关键字" value=""/>
                     <span class="search">
                         <i></i>
                         <label>搜索</label></span>
-                <a class="My-mall font14" href="javascript:void(0)">我的商城</a>
-                <a class="settlement font14" href="javascript:void(0)">购物车结算</a>
+                <a class="My-mall font14" href="http://localhost:8081/login.html">我的商城</a>
+                <a class="settlement font14" href="http://localhost:8081/cars.html">购物车结算</a>
             </div>
             <div>
                 <ul class="hot-search font14">
@@ -390,7 +393,7 @@
             <#list reMai.goodsList as p>
                 <li>
                     <dl class="Item-introduction">
-                        <dt><a href="javascript:void(0)">
+                        <dt><a href="">
                             <img src="${p.goods.defaultImage}"/></a></dt>
                         <dd class="dd-Item-name"><a href="javascript:void(0)">${p.goods.name}</a></dd>
                         <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
@@ -1080,6 +1083,33 @@
             }
         });
     }
+
+
+
+    // 搜索按钮
+    $(".search").click(function () {
+        var date=$(".Search-Text").val();
+        if(date==''||date==null){
+            alert("请输入搜索的宝贝！");
+        }
+        var html = "<form id=\"searchFrom\" action=\"" + servicePath + "/goodSearch.html\" method=\"post\">";
+        html += "<input type=\"hidden\" name=\"key\" value=\"" + $(".Search-Text").val() + "\">";
+        html += "</form>";
+        if($(".Search-Text").val().length>0){
+            $(window.document.body).append(html);
+            $("#searchFrom").submit();
+        }
+    });
+    //输入宝贝的提示
+//    $("[search]").focus(function(){
+//        if($(this).val()=="请输入宝贝名称"){
+//            $(this).val("");
+//        }
+//    }).blur(function(){
+//        if($(this).val()==""){
+//            $(this).val("请输入宝贝名称");
+//        }
+//    })
 </script>
 </body>
 </html>
