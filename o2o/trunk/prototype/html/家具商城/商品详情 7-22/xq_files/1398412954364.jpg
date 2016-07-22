@@ -1,0 +1,24 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>404页面</title>
+<link rel="stylesheet" type="text/css"
+	href="/Dress/css/login.css" />
+<style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+-->
+</style>
+</head>
+<body>
+<div style="width:450px; height:200px; margin-top:100px; margin-left:200px">
+<div style="width:256px; height:256px; overflow:hidden; margin:auto"><img src="/Dress/img/quanxian.jpg"/></div>
+<div style="width:auto; height:auto; text-align:center; font-size:18px; font-weight:bold; padding-top:20px; margin-left:130px">
+	很抱歉，您访问的资源未找到&nbsp;&nbsp;<a href="#" onclick="history.back();">返回&lt;&lt;</a>
+</div>
+</div>
+</body>
+</html>
