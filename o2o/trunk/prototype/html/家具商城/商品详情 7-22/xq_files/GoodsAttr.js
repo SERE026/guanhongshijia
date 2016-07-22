@@ -13,7 +13,7 @@
  */
 
 $(function () {
-	inititem();
+    inititem();
 	$(".attTextBtn").click(function () {
 		var content =$(this).html();
 		if($(this).find(".sssss").length==0){
@@ -21,9 +21,9 @@ $(function () {
 				$(this).parent().find(".attTextBtn.sp_xinghao").removeClass("sp_xinghao").addClass("sp_xingha2");//去掉可点击的状态
 				$(this).removeClass("sp_xingha2");
 				$(this).addClass("sp_xinghao");
-				var html='<div class="sp_xinghao_left  sssss"><img src="'+servicePath+'/img/changkuan_10.gif" /></div>';
+				var html='<div class="sp_xinghao_left  sssss"><img src="'+servicePath+'./img/changkuan_10.gif" /></div>';
 					html+='<div class="sp_xinghao_zheng">'+content+'</div>';
-					html+='<div class="sp_xinghao_right"><img src="'+servicePath+'/img/changkuan_13.gif" /></div>';
+					html+='<div class="sp_xinghao_right"><img src="'+servicePath+'./img/changkuan_13.gif" /></div>';
 				$(this).html(html);
 				updateMoney();
 		}
@@ -65,9 +65,9 @@ function inititem(){
 	//
 	$(".index1").each(function(){
 		var content = $(this).html();
-		var html='<div class="sp_xinghao_left  sssss"><img src="'+servicePath+'/img/changkuan_10.gif" /></div>';
+		var html='<div class="sp_xinghao_left  sssss"><img src="'+servicePath+'./img/changkuan_10.gif" /></div>';
 		html+='<div class="sp_xinghao_zheng">'+content+'</div>';
-		html+='<div class="sp_xinghao_right"><img src="'+servicePath+'/img/changkuan_13.gif" /></div>';
+		html+='<div class="sp_xinghao_right"><img src="'+servicePath+'./img/changkuan_13.gif" /></div>';
 		$(this).html(html);
 	
 	});

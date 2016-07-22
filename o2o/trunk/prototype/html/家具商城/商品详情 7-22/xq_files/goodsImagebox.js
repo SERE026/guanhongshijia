@@ -20,31 +20,34 @@ function goodsImagebox(obj){
 			box.event();
 		},
 		event:function(){
-			box.current.find(".left").click(function(){
-				if(box.index<box.current.find(".imgMin").length-3){
-					box.current.find(".imgMin").eq(box.index).css("display","none");
-					box.current.find(".imgMin").eq(box.index+3).css("display","");
-					box.index++;
-					var maxImg=box.current.find(".imgMin").eq(box.index).find("img").attr("src");
-					box.current.find(".maxBox img").attr("src",maxImg);
-					box.current.find(".spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k").addClass("spdetail_left_xiaotu_k2");
-					box.current.find(".imgMin").eq(box.index).addClass("spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k2");
+		    box.current.find(".left").click(function () {
+		        if (box.index < box.current.find(".imgMin").length - 3) {
+
+		            $(".imgMin:first").animate({ "margin-left": '-110px' });
+		            //box.current.find(".imgMin").eq(box.index).animate()
+					//box.current.find(".imgMin").eq(box.index+3).css("display","");
+					//box.index++;
+					//var maxImg=box.current.find(".imgMin").eq(box.index).find("img").attr("src");
+					//box.current.find(".maxBox img").attr("src",maxImg);
+					//box.current.find(".spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k").addClass("spdetail_left_xiaotu_k2");
+					//box.current.find(".imgMin").eq(box.index).addClass("spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k2");
 				}
 			});
-			box.current.find(".right").click(function(){
-				if(box.index>0){
-					box.current.find(".imgMin").eq(box.index-1).css("display","");
-					box.current.find(".imgMin").eq(box.index+2).css("display","none");
-					box.index--;
-					var maxImg=box.current.find(".imgMin").eq(box.index).find("img").attr("src").replace("min","");
-					box.current.find(".maxBox img").attr("src",maxImg);
-					box.current.find(".spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k").addClass("spdetail_left_xiaotu_k2");
-					box.current.find(".imgMin").eq(box.index).addClass("spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k2");
+		    box.current.find(".right").click(function () {
+		        $(".imgMin:first").animate({ "margin-left": '10px' });
+		        if (box.index > 0) {
+					//box.current.find(".imgMin").eq(box.index-1).css("display","");
+					//box.current.find(".imgMin").eq(box.index+2).css("display","none");
+					//box.index--;
+					//var maxImg=box.current.find(".imgMin").eq(box.index).find("img").attr("src").replace("min","");
+					//box.current.find(".maxBox img").attr("src",maxImg);
+					//box.current.find(".spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k").addClass("spdetail_left_xiaotu_k2");
+					//box.current.find(".imgMin").eq(box.index).addClass("spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k2");
 					
 				
 				}
 			});
-			box.current.find(".imgMin").click(function(){
+			box.current.find(".imgMin").mouseover(function(){
 				box.current.find(".spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k").addClass("spdetail_left_xiaotu_k2");
 				$(this).addClass("spdetail_left_xiaotu_k").removeClass("spdetail_left_xiaotu_k2");
 				var maxImg=$(this).find("img").attr("src").replace("min","");

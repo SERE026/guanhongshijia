@@ -52,7 +52,7 @@
 			    ////////////////////////////////////////////////////////////////////////////
 			    var bigimage = $(".maxBox img.jqzoom").attr("src");
 			    ////////////////////////////////////////////////////////////////////////////
-				bigimage=bigimage.substring(0,bigimage.lastIndexOf("."))+"max"+bigimage.substring(bigimage.lastIndexOf("."));
+				bigimage=bigimage.substring(0,bigimage.lastIndexOf("."))+bigimage.substring(bigimage.lastIndexOf("."));
 
 			    if($("div.zoomdiv").get().length == 0){
 			   		 $(this).after("<div style='width:320px;z-index:100;position:absolute;height:320px;overflow:hidden;border:#cccccc solid 1px;'><div class='zoomdiv'><div style='width:620px;height:620px;'><img class='bigimg' src='"+bigimage+"' width='100%' height='100%'/></div></div></div>");
