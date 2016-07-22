@@ -645,3 +645,15 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
     }
     .PlacedTop2 ul li {width:43px;line-height:43px;border:1px solid red;float:none;text-align:center;height:43px;
     }
+
+.FiveContent {height:770px;
+}
+    .FiveContent .FloorImg ul li {border:1px solid red;width:90px;margin-top:17px;height:30px;line-height:30px;
+    }
+        .FiveContent .FloorImg ul li:nth-child(2), .FiveContent .FloorImg ul li:nth-child(4) {margin-left:10px;
+        }
+        .FiveContent .FloorImg ul li a {width:90px;height:30px;line-height:30px;
+        }
+.none {
+    display: none;
+}

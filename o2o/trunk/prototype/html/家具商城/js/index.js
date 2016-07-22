@@ -8,6 +8,8 @@
     Backswitch();
 
     cityList();
+
+    FloorFive();// 5楼
 })
 function head() {
     $(".Search-categories").mouseover(function () { $(".Search-categories>ul").show(); })
@@ -112,5 +114,12 @@ function cityList() {
         var cityValue = $(this).text();
         $(".city-name").text(cityValue);
         $(".hide_city_group").hide();
+    })
+}
+
+function FloorFive() {
+    $(".FiveNav li").click(function () {
+        var num = $(this).index();
+        $(".FiveContent:eq(" + num + ")").removeClass("none").siblings(".FiveContent").addClass("none");
     })
 }
