@@ -481,7 +481,7 @@ img{border:0px;}
 .spdet_r_titou{width:962px; height:41px; margin-left:15px; border:#dddddd solid 1px;background-image:url(../img/spdet_hengbg.gif); background-repeat:repeat-x;}
 .spdet_r_titou_an{width:120px; height:41px; float:left; border-right:#dddddd solid 1px; background-color:#ffffff;line-height:41px; text-align:center; color:#f0125b; font-size:14px; font-weight:bold;}
 .spdet_r_titou_an a{width:120px; height:41px; display:block}
-.spdet_tuwen{ width:748px; height:auto; overflow:hidden}
+.spdet_tuwen{ width:980px; height:auto; overflow:hidden}
 .spdet_tuwen_ti{ width:748px; height:34px; overflow:hidden; margin-top:20px; margin-left:20px}
 .spdet_tuwen_kuai{ width:auto; height:auto; overflow:hidden;margin-left:20px;word-wrap: break-word;}
 .shaidan{ width:990px; height:auto; margin:auto}
@@ -1744,8 +1744,238 @@ a.zhu56:hover{color:#ff0000}
 .ya_tab_item_selected a{font-weight: 700;display: block;height: 100%;line-height: 46px;color: #F0125D!important;border-left: 1px solid #cfbfb1;border-right: 1px solid #cfbfb1;}
 
 
+/*7-22修改*/
+.yt_product_footer_west{float:left;}
+.yt_customer_service{width:212px;border:1px solid #ddd;font-family:"Arial";color:#333;margin-bottom:10px;}
+.yt_customer_service_title{padding: 0 0 0 15px; height: 30px;line-height: 30px;background-color: #fafafa;border-bottom: 1px solid #e5e5e5;}
+.yt_customer_service_info{width:190px;margin:0 auto;}
+.yt_customer_service_info  div span{height:32px;line-height:32px;font-size:14px;}
+.yt_customer_service_info  div  p{padding-left:26px;margin-bottom: 13px;margin-top:6px}
+.yt_customer_service_online{border-top:1px dotted #ddd;}
+.yt_customer_service_tel{border-top:1px dotted #ddd;}
+.yt_hot_sale{width:212px;border:1px solid #ddd;font-family:"Arial";color:#333;margin-bottom:10px;}
+.yt_hot_sale_title{padding: 0 0 0 15px; height: 30px;line-height: 30px;background-color: #fafafa;border-bottom: 1px solid #e5e5e5;}
+.yt_new_product_top{width:212px;border:1px solid #ddd;font-family:"Arial";color:#333;margin-top:10px;}
+.yt_new_product_top_title{padding: 0 0 0 15px; height: 30px;line-height: 30px;background-color: #fafafa;border-bottom: 1px solid #e5e5e5;}
+.yt_in_store_recommend{width:212px;border:1px solid #ddd;font-family:"Arial";margin-top:10px;}
+.yt_in_store_recommend_title{padding: 0 0 0 15px; height: 30px;line-height: 30px;background-color: #fafafa;border-bottom: 1px solid #e5e5e5;}
 
+.yt_product_wrap .tab_content_item {
+	border:1px solid #dfdfdf;
+	border-top:none;
+	margin-bottom:30px;
+    min-height:460px;
+}
+.rate-header-tags {
+    display: block;
+}
+.rate-score {
+    width: 75px;
+    padding: 0px 20px;
+    text-align: center;
+}
 
+.rate-score h4 {
+    color: #404040;
+    font-size: 12px;
+    font-weight: 100;
+}
 
+.rate-score strong {
+    color: #f60;
+    font-family: arial;
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0 2px;
+}
+.rate-score, .rate-graph {
+    position: absolute;
+    left: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+.tm-rate{
+	overflow: hidden;   
+}
+.rate-header {
+	position: relative;
+    padding-Left: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.master-bar{
+    width: 300px;
+    left: 150px;
+}
+.master-cell{
+	position:relative;
+	font-size:12px;
+	padding-left:80px;
+    padding-top: 5px;
+	margin-top:10px;
+}
+.master-cell-words{
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.master-cell-bar{
+	background-color:#ccc;
+	width:100px;
+    height: 12px;
+}
+.master-cell-inbar{
+	background-color:red;
+	width:50px;
+    height: 12px;
+}
+.rate-toolbar .rate-filter label {
+    padding-right: 5px;
+    display: inline-block;
+}
+.rate-toolbar {
+    line-height: 24px;
+    text-align: right;
+}
+.rate-toolbar {
+    background: #EFEFEF none repeat scroll 0% 0%;
+    border: 1px solid #C8C8C8;
+    height: 24px;
+    line-height: 24px;
+    padding: 5px 10px;
+    text-align: right;
+}
+.rate-toolbar .rate-filter {
+    float: left;
+    overflow: hidden;
+    padding-left: 2px;
+}
+.rate-toolbar .rate-filter input {
+    margin-right: 3px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.rate-grid {
+    width: 100%;
+}
+
+.rate-grid .tm-col-master {
+    width: 640px;
+    padding-right: 30px;
+}
+.rate-tag-box {
+    width: 450px;
+    position: relative;
+    padding-left: 80px;
+    top: -75px;
+    left: 220px;
+}
+.rate-tag-box, .rate-tag-label, .rate-tag-list, .rate-tag-toggle {
+    display: inline-block;
+    vertical-align: top;
+}
+.rate-score, .rate-graph {
+    position: absolute;
+    left: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+.rate-tag-label {
+   	position: absolute;
+    left: 0px;
+    color: #CCC;
+    height: 61px;
+    margin-top: 10px;
+    font-size: 11px;
+    line-height: 12px;
+    padding: 0px 12px 0px 10px;
+    /*background: transparent url("//img.alicdn.com/tps/i3/T12eC3XklrXXXXXXXX-15-52.png") no-repeat scroll right center;*/
+}
+.rate-tag-list {
+    position: relative;
+    width: 450px;
+    overflow: hidden;
+}
+.rate-tag-inner {
+    overflow: hidden;
+}
+.rate-tag-list span {
+    float: left;
+    height: 22px;
+    margin: 7px 6px 6px;
+}
+
+.rate-tag-list .tag-posi .selected, .rate-tag-list .tag-posi lable:hover {
+    background: #ffe2e2;
+    border-color: #b10000;
+    color: #b10000;
+}
+
+.rate-tag-list .rate-tag-inner lable {
+    position: relative;
+    float: left;
+    border-radius: 2px;
+    line-height: 18px;
+    padding: 1px 10px;
+    background: #FFF none repeat scroll 0% 0%;
+    box-shadow: 2px 2px 1px #F2F2F2;
+    border: 1px solid #D3F4E4;
+    white-space: nowrap;
+    color: #409280;
+}
+#mytable{
+	margin-top: 50px;
+}
+#mytable table{
+	width:100%;
+}
+.tm-rate-premiere, .tm-rate-append {
+    clear: both;
+    position: relative;
+    padding-left: 105px;
+}
+.tm-rate-premiere .tm-rate-tag, .tm-rate-append .tm-rate-tag {
+    width: 104px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}
+.tm-rate-tag .tm-rate-title {
+    color: #999;
+}
+.col-meta {
+     width: 180px;
+     color: #999;
+     text-align: center;
+     vertical-align:top;
+ }
+ .rate-grid .col-meta p span {
+     color: #666;
+ }
+ .col-author {
+     padding-right: 0;
+     color: #666;
+     text-align: center;
+     vertical-align:top;
+ }
+ .rate-grid .rate-user-info span {
+     color: #999;
+ }
+ .tm-rate-premiere {
+    padding-bottom: 10px;
+    min-height: 40px;
+}
+
+.table-c table{border:1px solid #d1d1d1;font-family: 微软雅黑;font-size: 14px;}
+.table-c table tr{line-height: 45px;height:45px;}
+.table-c table td{text-align: center;}
+.table-c table th{text-align: center;font-weight: bold;}
+.table_td{border-top:1px solid #d1d1d1;}
+.top-bottom-middle{border-top:1px solid #d1d1d1;height:35px;top:50%;margin-top:-100px;}
+.none {display:none;}
+#J_Detail {margin-left:20px;
+}
 
 
