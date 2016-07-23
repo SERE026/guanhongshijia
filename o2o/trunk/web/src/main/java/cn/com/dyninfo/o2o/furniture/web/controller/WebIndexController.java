@@ -94,7 +94,7 @@ public class WebIndexController{
         mav.addAttribute("advwzList",advwzList.get(0));
 
         //显示抢购商品
-        List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.ACTIVE_ID="+Constants.ACTIVE_SKU));
+        List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
         mav.addAttribute("activeList",activeList);
 
         //1F楼商品
