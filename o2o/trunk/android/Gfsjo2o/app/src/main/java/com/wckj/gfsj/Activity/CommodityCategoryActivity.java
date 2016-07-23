@@ -44,11 +44,11 @@ public class CommodityCategoryActivity extends BaseNewActivity implements View.O
 
 
     @Subscribe(threadMode = ThreadMode.MainThread)
-   public void  onMainTimeEvent(TimeEvent time){
-        if(tv_time!=null){
-            tv_time.setText(time.getTime());
-        }
-    }
+//   public void  onMainTimeEvent(TimeEvent time){
+//        if(tv_time!=null){
+//            tv_time.setText(time.getTime());
+//        }
+//    }
 
     @Override
     public void onClick(View v) {
