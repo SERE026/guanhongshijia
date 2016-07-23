@@ -3,6 +3,8 @@ package com.wckj.gfsj.Utils;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.wckj.gfsj.Application.AppApplication;
+
 
 /**
  * 全局Toast显示

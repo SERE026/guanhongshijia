@@ -1,9 +1,9 @@
 package com.wckj.gfsj.Activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -13,7 +13,7 @@ import com.wckj.gfsj.R;
 
 import java.util.List;
 
-public abstract  class BaseNewActivity extends Activity {
+public abstract  class BaseNewActivity extends FragmentActivity {
     protected FrameLoadLayout loadPage;
     protected Handler handler;
     protected LayoutInflater inflater;//父类的插入器
@@ -137,7 +137,6 @@ public abstract  class BaseNewActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         handler = null;
-        finish();
     }
 
 }

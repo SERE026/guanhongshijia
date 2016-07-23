@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.wckj.gfsj.Bean.CommodityCategory;
+import com.wckj.gfsj.Bean.Commodity_level_two;
 import com.wckj.gfsj.R;
 
 import java.util.List;
@@ -19,8 +19,8 @@ import java.util.List;
  */
 public class MoreRecommendAdapter extends BaseAdapter{
     private Context mcon;
-    private List<CommodityCategory> mList;
-    public MoreRecommendAdapter(Context mcon, List<CommodityCategory> mList) {
+    private List<Commodity_level_two> mList;
+    public MoreRecommendAdapter(Context mcon, List<Commodity_level_two> mList) {
         this.mcon=mcon;
         this.mList=mList;
     }
@@ -53,7 +53,7 @@ public class MoreRecommendAdapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final CommodityCategory item = (CommodityCategory) getItem(position);
+        final Commodity_level_two item = (Commodity_level_two) getItem(position);
         holder.rl_recommend_color.setBackgroundColor(mcon.getResources().getColor(R.color.color_2c3c5c));
         holder.iv_more_reocommend_pic.setImageResource(R.drawable.icon_public_classification);
         holder.tv_desc.setText("厂家直销快来购买");

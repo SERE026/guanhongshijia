@@ -9,7 +9,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".Activity.LogoActivity" >
+        <activity android:name=".Activity.LogoActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,18 +20,26 @@
         <!-- 主页 -->
         <activity
         android:name="com.wckj.gfsj.Activity.MainActivity"
-        android:launchMode="singleTask"/>
-        <!--android:screenOrientation="portrait"-->
-        <!--/>-->
+        android:launchMode="singleTask"
+        android:screenOrientation="landscape"
+       />
+        <activity
+            android:name="com.wckj.gfsj.Activity.CommodityLevelTwoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+
+            />
         <!-- 更多 -->
         <activity
             android:name="com.wckj.gfsj.Activity.MainMoreActivity"
-            android:launchMode="singleTask"/>
-            <!--android:screenOrientation="portrait"-->
-            <!--/>-->
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            />
 
         <activity android:name=".Activity.SetPasswordActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            />
 
     </application>
 

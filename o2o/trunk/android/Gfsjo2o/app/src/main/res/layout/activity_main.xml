@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="21dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="31dp"
         android:layout_toLeftOf="@id/tv_time"
         android:background="@drawable/icon_bg_serach">
 

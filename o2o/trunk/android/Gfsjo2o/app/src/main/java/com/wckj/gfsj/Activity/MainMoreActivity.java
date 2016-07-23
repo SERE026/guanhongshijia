@@ -6,7 +6,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Adapter.MoreRecommendAdapter;
-import com.wckj.gfsj.Bean.CommodityCategory;
+import com.wckj.gfsj.Bean.Commodity_level_two;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.R;
 
@@ -14,13 +14,13 @@ import java.util.ArrayList;
 
 /**
  * Created by jinlei on 2016/7/21.
- * 更多
+ * 更多一级商品列表
  */
 public class MainMoreActivity extends BaseNewActivity implements View.OnClickListener {
 
     private GridView gv_more_recommend;
     private TextView tv_go_back;
-    private ArrayList<CommodityCategory> mList;
+    private ArrayList<Commodity_level_two> mList;
     private MoreRecommendAdapter mRecommendMoreAdapter;
     private View view;
 
@@ -53,7 +53,7 @@ public class MainMoreActivity extends BaseNewActivity implements View.OnClickLis
     protected void load() {
         mList = new ArrayList<>();
         for (int i = 0; i <8 ; i++) {
-            mList.add(new CommodityCategory());
+            mList.add(new Commodity_level_two());
         }
         showPageState(FrameLoadLayout.LoadResult.success);
     }
@@ -74,4 +74,5 @@ public class MainMoreActivity extends BaseNewActivity implements View.OnClickLis
                 break;
         }
     }
+
 }

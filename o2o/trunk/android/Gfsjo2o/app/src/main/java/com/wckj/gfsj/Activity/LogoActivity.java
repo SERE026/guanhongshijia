@@ -11,7 +11,7 @@ import com.wckj.gfsj.R;
 
 /**
  * 公司logo页面 欢迎页面
- *
+ *acr
  */
 public class LogoActivity extends Activity  {
     private int SPLASH_DISPLAY_LENGHT = 1500; // 延迟进入

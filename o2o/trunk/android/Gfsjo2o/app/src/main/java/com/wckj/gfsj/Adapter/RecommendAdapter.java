@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.wckj.gfsj.Bean.Shopping;
+import com.wckj.gfsj.Bean.Commodity_level_one;
 import com.wckj.gfsj.R;
 
 import java.util.List;
@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class RecommendAdapter extends BaseAdapter{
     private Context mcon;
-    private List<Shopping> mList;
-    public RecommendAdapter(Context mcon, List<Shopping> mList) {
+    private List<Commodity_level_one> mList;
+    public RecommendAdapter(Context mcon, List<Commodity_level_one> mList) {
         this.mcon=mcon;
         this.mList=mList;
     }
@@ -52,7 +52,7 @@ public class RecommendAdapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final Shopping item = (Shopping) getItem(position);
+        final Commodity_level_one item = (Commodity_level_one) getItem(position);
         holder.iv_shopping_pic.setImageResource(R.drawable.icon_public_image);
         holder.tv_name.setText("直降200快");
         holder.tv_title_desc.setText("厂家直销快来购买");

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 import com.dalong.francyconverflow.FancyCoverFlow;
 import com.dalong.francyconverflow.FancyCoverFlowAdapter;
-import com.wckj.gfsj.Bean.Shopping;
+import com.wckj.gfsj.Bean.Commodity_level_one;
 import com.wckj.gfsj.R;
 
 import java.util.List;
@@ -21,9 +21,9 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
 
     private Context mContext;
 
-    public List<Shopping> mList;
+    public List<Commodity_level_one> mList;
 
-    public MyFancyCoverFlowAdapter(Context context, List<Shopping> list) {
+    public MyFancyCoverFlowAdapter(Context context, List<Commodity_level_one> list) {
         mContext = context;
         this.mList = list;
     }
@@ -41,7 +41,7 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final Shopping item = (Shopping) getItem(position);
+        final Commodity_level_one item = (Commodity_level_one) getItem(position);
         holder.iv_scro_main.setImageResource(R.drawable.icon_public_image);
 
         return convertView;

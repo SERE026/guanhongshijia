@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.wckj.gfsj.Adapter.RecommendAdapter;
-import com.wckj.gfsj.Bean.Shopping;
+import com.wckj.gfsj.Bean.Commodity_level_one;
 import com.wckj.gfsj.R;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class Main_recommend_fragment extends Fragment{
 
     private View view;
     private GridView gv_recommend;
-    private ArrayList<Shopping> mShopping;
+    private ArrayList<Commodity_level_one> mShopping;
     private RecommendAdapter mRecommendAdapter;
 
     @Override
@@ -36,7 +36,7 @@ public class Main_recommend_fragment extends Fragment{
         gv_recommend = (GridView) view.findViewById(R.id.gv_recommend);
          mShopping = new ArrayList<>();
         for (int i = 0; i <8 ; i++) {
-            mShopping.add(new Shopping());
+            mShopping.add(new Commodity_level_one());
         }
         mRecommendAdapter = new RecommendAdapter(view.getContext(), mShopping);
         gv_recommend.setAdapter(mRecommendAdapter);

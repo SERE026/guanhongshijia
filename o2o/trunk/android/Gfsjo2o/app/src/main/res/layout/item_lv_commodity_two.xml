@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_two_name"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:textColor="@color/color_bcbcbc"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:text="@string/classification_Ancient_kitchen_range"
+        android:layout_marginBottom="11dp"
+        />
+
+</RelativeLayout>
