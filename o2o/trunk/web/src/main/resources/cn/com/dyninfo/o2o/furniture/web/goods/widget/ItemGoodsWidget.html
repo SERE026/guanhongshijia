@@ -1,151 +1,519 @@
 
 <script src="js/Cars.js" type="text/javascript" ></script>
+<script src="js/goodsImagebox.js" type="text/javascript" ></script>
+<script src="js/jquery.jqzoom.js" type="text/javascript" ></script>
+<script type="text/javascript">
+	var servicePath="${applicationPath}";
+</script>
+<link href="css/jqzoom.css" rel="stylesheet" type="text/css">
+<link >
 <#if good.merchants??>
-<#if good.merchants.qq??>
-  <div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
-	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=${good.merchants.qq}&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
-	<img src="${applicationPath}/img/xpkf.png" /></a>
-	</div>
-<#else>
-<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
-	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=800055495&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
-<img src="${applicationPath}/img/xpkf.png" /></a>
-</div>
-</#if>
+	<#if good.merchants.qq??>
+		<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+			<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=${good.merchants.qq}&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+				<img src="${applicationPath}/img/xpkf.png" /></a>
+		</div>
+		<#else>
+			<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+				<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=800055495&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+					<img src="${applicationPath}/img/xpkf.png" /></a>
+			</div>
+	</#if>
 </#if>
 <div class="kuai">
-<div class="sp_list">
-<div class="dingwei">
-${widget_goods_path}
+	<div class="sp_list">
+		<div class="dingwei">
+			${widget_goods_path}
 
-</div>
-<div class="spdetail">
-
-
-<div class="spdetail">
+		</div>
+		<div class="spdetail">
 
 
-${widget_goods_image}
+			<div class="spdetail">
 
 
-<div class="spdetail_right">
-<div class="spdetail_right_ming">${good.name}</div>
-<div class="spdetail_right_jia">
-
-<span class="STYLE11_5">会员价：</span>
-<span class="STYLE11_4">¥</span>
-<span class="STYLE11_2 salesMoney">${good.goodMoney}</span>
-&nbsp;&nbsp;<span class="STYLE11_3">¥${good.bazaarMoney}</span>
-</div>
+				${widget_goods_image}
 
 
-<div class="spdetail_right_gr goodsMoney" dataValue="${good.goodMoney}">
-${widget_goods_attr}
-
-</div>
-<div style="clear:both">&nbsp;</div>
-<div class="spdetail_right_gr_kk">
-<div class="spdetail_right_gr_kk_left">数量：</div>
-<div class="spdetail_right_gr_kk_right">
-<div class="spdetail_right_shulaing">
-<div class="spdetail_right_shulaing_shu"><span id="buyNum">1</span></div>
-<div class="spdetail_right_shulaing_shujaj">
-<div class="spdetail_right_shulaing_shujaj_aa" id="jia"><a href="#"><img src="${applicationPath}/img/shiliang14_05.gif" border="0" /></a></div>
-<div class="spdetail_right_shulaing_shujaj_bb" id="jian"><a href="#"><img src="${applicationPath}/img/shiliang14_08.gif" border="0" /></a></div>
-</div>
-</div>
-<div class="spdetail_right_kucun">库存<span id="kucunNum">${good.inventory}</span>件</div>
-
-</div>
-</div>
-
-
-<div class="clear">&nbsp;</div>
-<div class="spdetail_right_xian">&nbsp;</div>
-<div class="spgr">
-<div class="spgr_an01 addBuy" dataValue="${good.goods_id}"><a href="#"><img src="${applicationPath}/img/zhijiemai.gif" /></a></div>
-<div class="spgr_an01 addCars" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#"><img src="${applicationPath}/img/spdet_13.gif" /></a></div>
-<div class="spgr_an02" g="${good.goods_id}">
-<a href="javascript:;" class="zhu21 addFav">收藏（${favoritesNum}）</a></div>
-<div class="spgr_an03"><a href="${applicationPath}/shop-${good.merchants.shangjia_id}.html" class="zhu22">去店铺首页</a></div>
-</div>
-<div class="clear">&nbsp;</div>
-<div class="sp_xiala">
-销量：最近${good.num}人已经购买，<span class="STYLE12">${showCount}</span>人正在抢购
-</div>
-<div class="sp_det_xiaotu" style="display:none">
-<img src="${applicationPath}/img/kf01.gif" />
-</div>
-<div class="spdetail_right_xian" style="margin:0">&nbsp;</div>
-<div class="clear">&nbsp;</div>
-<div class="sp_det_xiaotu2">
-${widget_share}
-</div>
-
-</div>
-</div>
-<script src="js/favorites.js" type="text/javascript"></script>
+				<!--<div class="spdetail_right">
+                <div class="spdetail_right_ming">${good.name}</div>
+                <div class="spdetail_right_jia">-->
+				<div class="spdetail_right">
+					<div class="spdetail_right_ming">${good.name}</div>
+					<div style="height:32px;margin-top:-8px;"><p>大气书桌椅套装，精美雕刻，打造奢华复古风，大面积镂空和空间错位设计，整体不显厚重。配套书椅，设计符合人体工学，舒适实用。大气书桌椅套装，精美雕刻，打造奢华复古风，大面积镂空和空间错位设计，整体不显厚重。配套书椅，设计符合人体工学，舒适实用。</p></div>
+					<div class="spdetail_right_jia">
 
 
 
 
 
-
-<div class="clear">&nbsp;</div>
-<div class="xian02">&nbsp;</div>
-<div class="clear">&nbsp;</div>
-<div class="splist_left">
-<div class="rexiao" style="margin:0">
-<div class="rexiao_top">同类最热销商品</div>
-
-<#list Sortlist as sg>
-<div class="rexiao_kuai">
-<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
-<div class="rexiao_kuai_zijie">
-<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
-</div>
-<div class="rexoa_xiaojia">
-￥${sg.salesMoney?string('0.00')}
-</div>
-</div>
-</#list>
+						<span class="STYLE11_5">会员价：</span>
+						<span class="STYLE11_4">￥</span>
+						<span class="STYLE11_2 salesMoney">${good.goodMoney}</span>
+						&nbsp;&nbsp;<span class="STYLE11_3">￥${good.bazaarMoney}</span>
+					</div>
 
 
-</div>
-<div class="rexiao">
-<div class="rexiao_top">最近浏览过的商品</div>
+					<div class="spdetail_right_gr goodsMoney" dataValue="${good.goodMoney}">
+						<!--${widget_goods_attr}-->
 
-<#list showList as sg>
-<div class="rexiao_kuai">
-<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
-<div class="rexiao_kuai_zijie">
-<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
-</div>
-<div class="rexoa_xiaojia">
-￥${sg.goodMoney?string('0.00')}
-</div>
-</div>
-</#list>
+						<script type="text/javascript">
 
-</div>
-</div>
-
-<div class="splist_right" style=" width:830px; overflow:hidden; float:right">
-<div class="spdet_r_titou">
-<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">商品详情</a></div>
-<div class="spdet_r_titou_an"><a href="#s" class="zhu23">产品晒单</a></div>
-</div>
-
-<div class="clear">&nbsp;</div>
-${widget_goods_tuWen}
+						</script>
+						<script src="../js/GoodsAttr.js" type="text/javascript"></script>
 
 
-</div>
-</div>
-</div>
 
-<div class="clear" id="s" name="s">&nbsp;</div>
-${widget_comment}
+<!--						<div class="spdetail_right_gr_kk goodsAttr" item="0" datatype="Text">
+							<div class="spdetail_right_gr_kk_left" style="width:auto">类型：</div>
+							<div class="spdetail_right_gr_kk_right">
+								<div class="attTextBtn sp_xinghao" data-value="350:99:"><div class="sp_xinghao_left  sssss"><img src="img/changkuan_10.gif"></div><div class="sp_xinghao_zheng">
+									雕花书桌单件（书桌*1）
+								</div><div class="sp_xinghao_right"><img src="img/changkuan_13.gif"></div></div>
+								<div class="sp_xingha2 attTextBtn" data-value="">
+									雕花书桌(书桌*1+椅子*1）
+								</div>
+								<div class="sp_xingha2 attTextBtn" data-value="">
+									书椅单件
+								</div>
+
+							</div>
+						</div>
+						<div class="touming5">&nbsp;</div>
+
+						<div class="spdetail_right_gr_kk goodsAttr" item="1" datatype="Image">
+							<div class="spdetail_right_gr_kk_left" style="width:auto">颜色：</div>
+							<div class="spdetail_right_gr_kk_right">
+								<div class="attTextBtn sp_xinghao" data-value=""><div class="sp_xinghao_left  sssss"><img src="img/changkuan_10.gif"></div><div class="sp_xinghao_zheng">
+									原木色
+								</div><div class="sp_xinghao_right"><img src="img/changkuan_13.gif"></div></div>
+							</div>
+						</div>
+						<div class="touming5">&nbsp;</div>
+
+						<div class="spdetail_right_gr_kk goodsAttr" item="1" datatype="Image">
+							<div class="spdetail_right_gr_kk_left" style="width:auto">规格：</div>
+							<div class="spdetail_right_gr_kk_right">
+								<div class="attTextBtn sp_xinghao" data-value=""><div class="sp_xinghao_left  sssss"><img src="img/changkuan_10.gif"></div><div class="sp_xinghao_zheng">
+									雕花书桌单件（书桌*1）原木色
+								</div><div class="sp_xinghao_right"><img src="img/changkuan_13.gif"></div></div>
+							</div>
+						</div>
+						<div class="touming5">&nbsp;</div>-->
+
+
+
+					</div>
+					<div style="clear:both">&nbsp;</div>
+					<div class="spdetail_right_gr_kk">
+						<div class="spdetail_right_gr_kk_left">数量：</div>
+						<div class="spdetail_right_gr_kk_right">
+							<div class="spdetail_right_shulaing">
+								<div class="spdetail_right_shulaing_shu"><span id="buyNum">1</span></div>
+								<div class="spdetail_right_shulaing_shujaj">
+									<div class="spdetail_right_shulaing_shujaj_aa" id="jia"><a href="#"><img src="${applicationPath}/img/shiliang14_05.gif" border="0" /></a></div>
+									<div class="spdetail_right_shulaing_shujaj_bb" id="jian"><a href="#"><img src="${applicationPath}/img/shiliang14_08.gif" border="0" /></a></div>
+								</div>
+							</div>
+							<div class="spdetail_right_kucun">库存<span id="kucunNum">${good.inventory}</span>件</div>
+
+						</div>
+					</div>
+
+
+					<div class="clear">&nbsp;</div>
+					<div class="spdetail_right_xian">&nbsp;</div>
+					<div class="spgr">
+
+						<div class="spgr_an01 addBuy" dataValue="${good.goods_id}"><a href="#"><img src="${applicationPath}/img/zhijiemai.gif" /></a></div>
+						<div class="spgr_an01 addCars" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#"><img src="${applicationPath}/img/spdet_13.gif" /></a></div>
+
+						<div class="spgr_an01" datavalue="113" style="margin-left:5px"><a href="#">音频云导购</a></div>
+						<div class="spgr_an02" g="${good.goods_id}">
+							<a href="javascript:;" class="zhu21 addFav">收藏（${favoritesNum}）</a></div>
+						<div class="spgr_an03"><a href="${applicationPath}/shop-${good.merchants.shangjia_id}.html" class="zhu22">去店铺首页</a></div>
+					</div>
+					<div class="clear">&nbsp;</div>
+
+					<dl class="yt_product_buy_promise">
+						<dt>服务承诺</dt>
+						<!--	<dd>
+                                <ul>
+                                    <li>
+                                        <a class="a1" href="javascript:void(0)">7天无理由退换货</a>
+                                        <div class="dorpdown" style="width: 320px;">
+                                            <div class="arrow"></div>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;7天无理由退换货，是指消费者在雅堂购物后，在签收货物后7天内，如因主观原因不愿意完成本次交易，可以提出“7天无理由退换货”的申请，并且买家退货的货物不得影响卖家的二次销售，商品返回运费由买家承担。<br>
+                                            <p align="right"><a href="/yatang/company/yatang-footer-link/day60.jsp" target="_blank" class="a-org">查看详情&gt;&gt;</a></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="a1" href="javascript:void(0)">一年质保</a>
+                                        <div class="dorpdown" style="width: 320px;">
+                                            <div class="arrow"></div>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;一年质保服务，是指商家承诺当消费者购买其店铺内含有“一年质保”服务的商品后，若该商品在一年内出现质量问题，则商家将根据商品的实际故障情况，向消费者提供维修或补寄零配件或更换全新商品，以确保消费者可再正常使用该商品的附加服务。<br>
+                                            <p align="right"><a href="/yatang/company/yatang-footer-link/a-year-quality.jsp" target="_blank" class="a-org">查看详情&gt;&gt;</a></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="a1" href="javascript:void(0)">假一赔五</a>
+                                        <div class="dorpdown" style="width: 380px;">
+                                            <div class="arrow"></div>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;当买家购买商家在www.yatang.cn（雅堂）网站出售的商品，在收到货物后，如买家认为该商品为假冒（包括盗版）商品或非原厂正品、未经报关进口商品、假冒材质成份商品（其中假冒商品、未经报关进口商品、假冒材质成份商品的定义以雅堂规则规定为准）...<br>
+                                            <p align="right"><a href="/yatang/company/yatang-footer-link/false-compensate-five.jsp" target="_blank" class="a-org">查看详情&gt;&gt;</a></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="a1" href="javascript:void(0)">配装一体 </a>
+                                        <div class="dorpdown" style="width: 320px;">
+                                            <div class="arrow"></div>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;配装一体是指消费者在雅堂平台上购买家装大件类商品时，商家承诺对于其店铺内含有“配、装一体”的商品，如消费者购买该商品时填写的详细收货地址（以下统称“收货地址”）在商家承诺提供“配装一体”的区域内，则向消费者提供送货到消费者收货地址...<br>
+                                            <p align="right"><a href="/yatang/company/yatang-footer-link/distribution-and-installation.jsp" target="_blank" class="a-org">查看详情&gt;&gt;</a></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </dd>-->
+					</dl>
+
+
+					<#--<div class="sp_xiala">
+					销量：最近${good.num}人已经购买，<span class="STYLE12">${showCount}</span>人正在抢购
+				</div>
+				<div class="sp_det_xiaotu" style="display:none">
+					<img src="${applicationPath}/img/kf01.gif" />
+				</div>
+				<div class="spdetail_right_xian" style="margin:0">&nbsp;</div>
+				<div class="clear">&nbsp;</div>
+				<div class="sp_det_xiaotu2">-->
+					<#--${widget_share}
+					</div>-->
+
+				</div>
+			</div>
+			<script src="js/favorites.js" type="text/javascript"></script>
+
+
+
+
+
+
+			<div class="clear">&nbsp;</div>
+			<div class="xian02">&nbsp;</div>
+			<div class="clear">&nbsp;</div>
+
+			<div class="yt_product_footer_west">
+				<div class="yt_customer_service">
+					<div class="yt_customer_service_title">
+						客服中心
+					</div>
+					<div class="yt_customer_service_info">
+						<div class="yt_customer_service_time">
+							<span>工作时间</span>
+							<p>周一至周五&nbsp;:&nbsp;9:00-21:00</p>
+							<p>周六至周日&nbsp;:&nbsp;9:00-18:00</p>
+						</div>
+						<div class="yt_customer_service_online">
+							<span>在线咨询</span>
+							<p>
+								售前客服
+								<span style="overflow: hidden;">
+
+                                    <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=800158078&amp;aty=0&amp;a=0&amp;curl=&amp;ty=1" class="yt_merchant_link_image" target="_blank"></a>
+
+                                </span>
+							</p>
+						</div>
+						<div class="yt_customer_service_tel">
+							<span>联系方式</span>
+							<p>联系电话&nbsp;:&nbsp;400-050-3328</p>
+						</div>
+					</div>
+				</div>
+				<div class="yt_hot_sale">
+
+					<div class="yt_hot_sale_title">
+						热门销售
+					</div>
+					<div class="yt_hot_sale_info">
+					</div>
+
+				</div>
+				<div class="yt_new_product_top">
+
+					<div class="yt_new_product_top_title">
+						新品榜单
+					</div>
+					<div class="yt_new_product_top_info">
+					</div>
+
+				</div>
+				<div class="yt_clean"></div>
+				<div class="yt_in_store_recommend">
+
+					<div class="yt_in_store_recommend_title">
+						店长推荐
+					</div>
+
+				</div>
+			</div>
+
+			<div class="splist_right" style=" width:980px; overflow:hidden; float:right">
+				<div class="spdet_r_titou">
+					<div class="spdet_r_titou_an ya_tab_item_selected"><a href="javascript:;" class="zhu23">商品详情</a></div>
+					<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">累计评价</a></div>
+					<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">成交记录</a></div>
+					<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">服务保障</a></div>
+				</div>
+				<script type="text/javascript">
+					$(function () {
+						$("body").delegate(".spdet_r_titou_an", "click", function () {
+							$(this).addClass("ya_tab_item_selected").siblings(".spdet_r_titou_an").removeClass("ya_tab_item_selected");
+							var index = $(this).index();
+							$(".spdet_tuwen").fadeOut(0).eq(index).fadeIn();
+						})
+					})
+				</script>
+				<div class="clear">&nbsp;</div>
+
+				<div class="spdet_tuwen">
+					<div class="spdet_tuwen_ti"><!-- <img src="/img/spdet_25.gif" /> --></div>
+					<div class="spdet_tuwen_kuai">
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170933488_875.jpg" style=""><img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170933551_874.jpg" style=""><img src="./xq_files/20140425160240_797.jpg" alt=""><img src="./xq_files/20140425160243_587.jpg" alt=""><img src="./xq_files/20140425160248_576.jpg" alt=""><img src="./xq_files/20140425160256_574.jpg" alt=""><img src="./xq_files/20140425160303_630.jpg" alt="">
+					</div>
+					<div class="spdet_tuwen_ti"><!-- <img src="/img/spdet_28.gif" /> --></div>
+					<div class="spdet_tuwen_kuai">
+
+					</div>
+				</div>
+				<div class="spdet_tuwen none">
+					<div id="J_Detail">
+						<div id="J_Reviews" class="J_DetailSection tm-curTab">
+							<div class="tm-rate">
+								<div class="rate-header rate-header-tags">
+									<div class="rate-score">
+										<div style="font-size: 20px; color: red; text-align: center;">
+											<span style="font-size: 40px;">100</span>%
+										</div>
+										<p>好评度</p>
+									</div>
+									<div class="master-bar">
+										<div class="master-cell">
+											<div class="master-cell-words">
+												好评
+												<span>(100%)</span>
+											</div>
+											<div class="master-cell-bar">
+												<div class="master-cell-inbar" style="width: 100px;"></div>
+											</div>
+										</div>
+										<div class="master-cell">
+											<div class="master-cell-words">
+												中评
+												<span>(0%)</span>
+											</div>
+											<div class="master-cell-bar">
+												<div class="master-cell-inbar" style="width: 0px;"></div>
+											</div>
+										</div>
+										<div class="master-cell">
+											<div class="master-cell-words">
+												差评
+												<span>(0%)</span>
+											</div>
+											<div class="master-cell-bar">
+												<div class="master-cell-inbar" style="width: 0px;"></div>
+											</div>
+										</div>
+									</div>
+									<div class="rate-tag-box">
+										<div class="rate-tag-label">
+											<span>大家都选择：</span>
+										</div>
+										<div class="rate-tag-list">
+											<div class="rate-tag-inner">
+                                                <span class="tag-posi">
+                                                    <lable data-posi="1" data-id="620">
+           质量好(0)
+           <s></s>
+          </lable>
+                                                </span>
+                                                <span class="tag-posi">
+                                                    <lable data-posi="1" data-id="620">
+           质量一般(0)
+           <s></s>
+          </lable>
+                                                </span>
+                                                <span class="tag-posi">
+                                                    <lable data-posi="1" data-id="620">
+           服务好(0)
+           <s></s>
+          </lable>
+                                                </span>
+                                                <span class="tag-posi">
+                                                    <lable data-posi="1" data-id="620">
+           服务一般(0)
+           <s></s>
+          </lable>
+                                                </span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="yt_product_footer_main" style="margin-left: 0px;">
+									<div class="rate-toolbar">
+                                        <span class="rate-filter">
+                                            <input class="rate-list-all rate-radio-group" id="evaluaionType" type="radio" name="radiogrounp" value="0" onclick="com.product.evalution.optionEvalutionType(0)">
+                                            <label for="">全部(6)</label>
+                                            <input class="rate-list-append rate-radio-group" id="Radio1" type="radio" name="radiogrounp" value="1" onclick="    com.product.evalution.optionEvalutionType(1)">
+                                            <label for="J_RateWithAppend1461291610893">追评 (0)</label>
+                                        </span>
+									</div>
+								</div>
+								<div id="mytable">
+									<table>
+										<tbody>
+										<tr>
+											<td class="tm-col-master" width="650">
+												<div class="tm-rate-premiere">
+													<div class="tm-rate-tag">
+														<div class="tm-rate-title">初次评价:</div>
+														<div class="tm-rate-date">2016/03/05</div>
+													</div>
+													<div class="tm-rate-content">
+														<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">产品货真价实，木质很好颜色和款式跟图片都没有差别，做工方面也比较精细！总之很满意的！</div>
+													</div>
+												</div>
+											</td>
+											<td class="col-meta">
+												<div class="rate-sku">
+													<p title="颜色分类:"><span>颜色分类：</span></p>
+												</div>
+												<div class="rate-user-profile">
+													<p title=""><span>尺寸：</span></p>
+												</div>
+											</td>
+											<td class="col-author">
+												<div class="rate-user-info">笮**人<span>（匿名）</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="tm-col-master" width="650">
+												<div class="tm-rate-premiere">
+													<div class="tm-rate-tag">
+														<div class="tm-rate-title">初次评价:</div>
+														<div class="tm-rate-date">2016/02/09</div>
+													</div>
+													<div class="tm-rate-content">
+														<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">第一次在网上买家具，内心一直忐忑，没想到收到货后，却给了我一个大大的惊喜，纯实木，高档、大气，细节方面考虑得非常到位，基本挑不出毛病，价格比实体店便宜很多，全五分</div>
+													</div>
+												</div>
+											</td>
+											<td class="col-meta">
+												<div class="rate-sku">
+													<p title="颜色分类:"><span>颜色分类：</span></p>
+												</div>
+												<div class="rate-user-profile">
+													<p title=""><span>尺寸：</span></p>
+												</div>
+											</td>
+											<td class="col-author">
+												<div class="rate-user-info">y**9<span>（匿名）</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="tm-col-master" width="650">
+												<div class="tm-rate-premiere">
+													<div class="tm-rate-tag">
+														<div class="tm-rate-title">初次评价:</div>
+														<div class="tm-rate-date">2016/02/02</div>
+													</div>
+													<div class="tm-rate-content">
+														<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">做工比想象中的还要好，包装非常严实，款式漂亮，尺寸标准，没有色差，看起来很上档次，桌子的面积适中，无异味，和卖家描述的一样，客服服务态度很好，物流很快 ，太满意了</div>
+													</div>
+												</div>
+											</td>
+											<td class="col-meta">
+												<div class="rate-sku">
+													<p title="颜色分类:"><span>颜色分类：</span></p>
+												</div>
+												<div class="rate-user-profile">
+													<p title=""><span>尺寸：</span></p>
+												</div>
+											</td>
+											<td class="col-author">
+												<div class="rate-user-info">x**6<span>（匿名）</span></div>
+											</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+				<#--
+
+				<div class="clear">&nbsp;</div>
+			<div class="splist_left">
+				<div class="rexiao" style="margin:0">
+					<div class="rexiao_top">同类最热销商品</div>
+
+					<#list Sortlist as sg>
+						<div class="rexiao_kuai">
+							<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+							<div class="rexiao_kuai_zijie">
+								<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
+							</div>
+							<div class="rexoa_xiaojia">
+								￥${sg.salesMoney?string('0.00')}
+							</div>
+						</div>
+					</#list>
+
+
+				</div>
+				<div class="rexiao">
+					<div class="rexiao_top">最近浏览过的商品</div>
+
+					<#list showList as sg>
+						<div class="rexiao_kuai">
+							<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+							<div class="rexiao_kuai_zijie">
+								<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
+							</div>
+							<div class="rexoa_xiaojia">
+								￥${sg.goodMoney?string('0.00')}
+							</div>
+						</div>
+					</#list>
+
+				</div>
+			</div>
+
+			<div class="splist_right" style=" width:830px; overflow:hidden; float:right">
+				<div class="spdet_r_titou">
+					<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">商品详情</a></div>
+					<div class="spdet_r_titou_an"><a href="#s" class="zhu23">产品晒单</a></div>
+				</div>
+
+				<div class="clear">&nbsp;</div>
+				${widget_goods_tuWen}
+				-->
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="clear" id="s" name="s">&nbsp;</div>
+	${widget_comment}
 </div>
 
 
