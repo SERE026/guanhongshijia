@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.R;
 
 import de.greenrobot.event.EventBus;

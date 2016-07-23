@@ -23,7 +23,7 @@ public class OwerToastShow {
 	}
 	public static void show(String msg) {
 		if (toast == null) {
-//			toast = Toast.makeText(AppApplication.context, msg, Toast.LENGTH_SHORT);
+			toast = Toast.makeText(AppApplication.context, msg, Toast.LENGTH_SHORT);
 		} else {
 			toast.setText(msg);
 		}
