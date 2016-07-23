@@ -1,6 +1,7 @@
 package cn.com.dyninfo.o2o.furniture.web.controller;
 
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
+import cn.com.dyninfo.o2o.furniture.util.CityTool;
 import cn.com.dyninfo.o2o.furniture.util.CookTool;
 import cn.com.dyninfo.o2o.furniture.web.active.model.Active;
 import cn.com.dyninfo.o2o.furniture.web.active.service.GameActiveService;
@@ -61,11 +62,9 @@ public class WebIndexController{
      * @return
      */
     @RequestMapping(value= "/index" )
-    public String index(HttpServletRequest request, ModelMap mav,String id,HttpServletResponse response) {
-//        if (id == null) {
-//           id = "510600";
-//        }
-//获取城市地址
+    public String index(HttpServletRequest request, ModelMap mav,HttpServletResponse response) {
+
+    //获取城市地址
 //        Object obj=request.getSession().getAttribute(Context.SESSION_AEAR);
 //        if(obj==null){
 //            String city= CookTool.getCookIEValue("city", request);
@@ -78,25 +77,10 @@ public class WebIndexController{
 //                        request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
 //                    }
 //                }else{
-//                    AreaService areaService=SpringContext.getBean("areaService");
+//               //     AreaService areaService=SpringContext.getBean("areaService");
 //                    obj=areaService.getObjById(city);
 //                    request.getSession().setAttribute(Context.SESSION_AEAR, obj);
 //                }
-//            }
-//        }
-//        if(id.equals("ALL")){
-//            request.getSession().removeAttribute(Context.SESSION_AEAR);
-//            CookTool.addCookValue("city", "ALL", response);
-//        }else{
-//            AreaInfo area=(AreaInfo) areaService.getObjById(id);
-//            CookTool.addCookValue("city", area.getId(), response);
-//            if(area!=null&&area.getIsDefault().equals("1")){
-//                Cookie ck=new Cookie(Context.COOKIE_AEAR_ID,area.getId());
-//                ck.setPath("/");
-//                ck.setMaxAge(365*24*60*60*1000);
-//                response.addCookie(ck);
-//                request.getSession().setAttribute(Context.SESSION_AEAR, area);
-//            }else{
 //            }
 //        }
 
@@ -153,7 +137,7 @@ public class WebIndexController{
      * @param request
      * @return
      */
-    @RequestMapping(value= "/details" )
+   // @RequestMapping(value= "/details" )
     public String details(HttpServletRequest request, ModelMap mav,String id) {
         //获取商品详情
         if (id == null) {
