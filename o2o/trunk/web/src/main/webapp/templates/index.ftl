@@ -7,19 +7,6 @@
     <script src="/js/jquery-1.8.2.js"></script>
     <script type="text/javascript">
     var servicePath="${rc.contextPath}";
-    $(function () {
-        head();
-        //suspension();
-        Timelimit();
-        //PlacedTop(); //置顶
-        prompt();
-
-        Backswitch();
-
-        cityList();
-
-        FloorFive();// 5楼
-    })
     </script>
 </head>
 <body>
@@ -1010,7 +997,7 @@
 
     </div>
     <!--底部includ-->
-
+<#include 'common/buttom.html' />
 
 
 

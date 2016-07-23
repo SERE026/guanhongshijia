@@ -40,7 +40,7 @@
         <property name="contentType" value="text/html;charset=utf-8"></property>
         <property name="cache" value="false" />
         <property name="prefix" value="/" />
-        <property name="suffix" value=".html" />
+        <property name="suffix" value=".ftl" />
         <property name="exposeSpringMacroHelpers" value="true" />
         <property name="requestContextAttribute" value="rc"></property>
     </bean>

@@ -90,7 +90,7 @@
 
 	<bean id="freemarkerConfig"
 		  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="/view" />
+		<property name="templateLoaderPath" value="/templates" />
 		<property name="freemarkerSettings">
 			<props>
 				<prop key="defaultEncoding">UTF-8</prop>
