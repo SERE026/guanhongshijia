@@ -5,8 +5,8 @@
     <title>首页</title>
     <link href="../css/index.css" rel="stylesheet" />
    <script type="text/javascript">
-     //  alert(${rc.contextPath});
-     var servicePath="http://localhost:8081";
+    var servicePath="${rc.contextPath}";
+
     </script>
 </head>
 <body>
@@ -14,10 +14,10 @@
     <div class="head-top font14">
         <div>
             <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
-            <a class="head-login inline-block" href="http://localhost:8081/login.html">请登录</a>&nbsp;&nbsp;
-            <a class="inline-block" href="http://localhost:8081/register.html">免费注册</a>
+            <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>&nbsp;&nbsp;
+            <a class="inline-block" href="${rc.contextPath}/register.html">免费注册</a>
             <ul class="head-ul font14">
-                <li><a href="http://localhost:8081/login.html">我的信息</a></li>
+                <li><a href="${rc.contextPath}/login.html">我的信息</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
                 <li><a href="javascript:void(0)">关注观红世家</a></li>
                 <li><a href="javascript:void(0)">客服中心</a></li>
@@ -252,8 +252,8 @@
                     <span class="search">
                         <i></i>
                         <label>搜索</label></span>
-                <a class="My-mall font14" href="http://localhost:8081/login.html">我的商城</a>
-                <a class="settlement font14" href="http://localhost:8081/cars.html">购物车结算</a>
+                <a class="My-mall font14" href="${rc.contextPath}/login.html">我的商城</a>
+                <a class="settlement font14" href="${rc.contextPath}/cars.html">购物车结算</a>
             </div>
             <div>
                 <ul class="hot-search font14">
@@ -393,9 +393,9 @@
             <#list reMai.goodsList as p>
                 <li>
                     <dl class="Item-introduction">
-                        <dt><a href="">
+                        <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                             <img src="${p.goods.defaultImage}"/></a></dt>
-                        <dd class="dd-Item-name"><a href="javascript:void(0)">${p.goods.name}</a></dd>
+                        <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">${p.goods.name}</a></dd>
                         <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                     </dl>
                 </li>
@@ -407,9 +407,9 @@
             <#list qiangGou.goodsList as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
+                    <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         <img src="${p.goods.defaultImage}" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">
+                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
                     <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                 </dl>
@@ -423,9 +423,9 @@
             <#list rePin.goodsList as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
+                    <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">
+                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
                     <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                 </dl>
@@ -439,9 +439,9 @@
             <#list new.goodsList as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
+                    <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">
+                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
                     <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                 </dl>
@@ -455,9 +455,9 @@
             <#list xianShi.goodsList as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="javascript:void(0)">
+                    <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="javascript:void(0)">
+                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
                     <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                 </dl>
