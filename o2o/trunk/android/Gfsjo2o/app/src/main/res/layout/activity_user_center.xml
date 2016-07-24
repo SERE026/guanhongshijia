@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_left"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="235dp">
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:drawableLeft="@drawable/icon_user_center"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="Hi, hsuahhi"
+            android:textSize="20sp"
+            android:textColor="@color/color_ccced3"/>
+
+        <Button
+            android:id="@+id/btn_my_order"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/tv_user_name"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_user_center_style"
+            android:drawableRight="@drawable/icon_arrow"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="我的订单"
+            style="@style/item_text_style"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/btn_my_order"
+            android:background="@color/color_e3e6eb"/>
+
+        <Button
+            android:id="@+id/btn_brokerage"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/btn_my_order"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/btn_user_center_style"
+            android:drawableRight="@drawable/icon_arrow"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="我的佣金"
+            style="@style/item_text_style"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/btn_brokerage"
+            android:background="@color/color_e3e6eb"/>
+
+        <Button
+            android:id="@+id/btn_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/btn_brokerage"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/btn_user_center_style"
+            android:drawableRight="@drawable/icon_arrow"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="个人信息"
+            style="@style/item_text_style"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/btn_user_info"
+            android:background="@color/color_e3e6eb"/>
+
+        <Button
+            android:id="@+id/btn_my_follow"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/btn_user_info"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/btn_user_center_style"
+            android:drawableRight="@drawable/icon_arrow"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="我的关注"
+            style="@style/item_text_style"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/btn_my_follow"
+            android:background="@color/color_e3e6eb"/>
+
+        <Button
+            android:id="@+id/btn_set_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/btn_my_follow"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/btn_user_center_style"
+            android:drawableRight="@drawable/icon_arrow"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="设置密码"
+            style="@style/item_text_style"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/btn_set_pwd"
+            android:background="@color/color_e3e6eb"/>
+
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/btn_set_pwd"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/btn_user_center_style"
+            android:drawableRight="@drawable/icon_arrow"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="退出账号"
+            style="@style/item_text_style"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/btn_exit"
+            android:background="@color/color_e3e6eb"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

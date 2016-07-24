@@ -17,7 +17,7 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
     private TextView tv_go_back;
     private View view;
     private Button mBtnSet, mBtnModify, mBtnFind;
-    private RelativeLayout mRlSetPwd, mRlModifyPwd;
+    private RelativeLayout mRlSetPwd, mRlModifyPwd, mRlFindPwd;
 
 
     @Override
@@ -62,6 +62,7 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
 
         mRlSetPwd = (RelativeLayout) view.findViewById(R.id.rl_set_pwd);
         mRlModifyPwd = (RelativeLayout) view.findViewById(R.id.rl_modify_pwd);
+        mRlFindPwd = (RelativeLayout) view.findViewById(R.id.rl_find_pwd);
     }
 
     @Override
@@ -73,12 +74,17 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
             case R.id.btn_set:
                 mRlSetPwd.setVisibility(View.VISIBLE);
                 mRlModifyPwd.setVisibility(View.GONE);
+                mRlFindPwd.setVisibility(View.GONE);
                 break;
             case R.id.btn_modify:
                 mRlSetPwd.setVisibility(View.GONE);
                 mRlModifyPwd.setVisibility(View.VISIBLE);
+                mRlFindPwd.setVisibility(View.GONE);
                 break;
             case R.id.btn_find:
+                mRlSetPwd.setVisibility(View.GONE);
+                mRlModifyPwd.setVisibility(View.GONE);
+                mRlFindPwd.setVisibility(View.VISIBLE);
                 break;
         }
     }

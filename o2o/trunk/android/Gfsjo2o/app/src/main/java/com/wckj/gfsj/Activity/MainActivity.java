@@ -1,6 +1,5 @@
 package com.wckj.gfsj.Activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -8,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.wckj.gfsj.Fragment.Collect_fragment;
 import com.wckj.gfsj.Fragment.Main_fragment;
@@ -49,7 +47,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         setTabSelection(0);
     }
 
-    private void setTabSelection(int index) {
+    public void setTabSelection(int index) {
         // 开启一个Fragment事务
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         // 设置切换动画

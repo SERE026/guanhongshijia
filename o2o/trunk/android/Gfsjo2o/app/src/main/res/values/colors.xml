@@ -54,6 +54,11 @@
     <color name="color_4f2a2a">#4f2a2a</color>
     <color name="color_2f2b34">#2f2b34</color>
     <color name="color_97888a">#97888a</color>
+    <color name="color_b19f9f">#b19f9f</color>
+    <color name="color_572a27">#572a27</color>
+    <color name="color_fcfefe">#fcfefe</color>
+    <color name="color_ccced3">#ccced3</color>
+    <color name="color_a18887">#a18887</color>
     <color name="color_transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
 </resources>

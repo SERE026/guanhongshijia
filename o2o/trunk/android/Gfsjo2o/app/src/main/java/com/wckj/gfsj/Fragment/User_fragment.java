@@ -1,5 +1,6 @@
 package com.wckj.gfsj.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,13 +12,18 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Activity.MainActivity;
+import com.wckj.gfsj.Activity.UserCenterActivity;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 /**
  * Created by 小爱爱 on 2016/7/18.
  * 用户
  */
-public class User_fragment extends Fragment {
+public class User_fragment extends Fragment implements View.OnClickListener {
+
+    private static final int INTO_USER_CENTER = 100;
 
     private RelativeLayout mRlLogin;
     private TextView mTvLoginTitle;
@@ -36,7 +42,35 @@ public class User_fragment extends Fragment {
         mEtPassword = (EditText) view.findViewById(R.id.et_password);
         mBtnFindPassword = (Button) view.findViewById(R.id.btn_find_password);
         mBtnLogin = (Button) view.findViewById(R.id.btn_login);
+        mBtnLogin.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_login:
+                String userName = mEtUsername.getText().toString().trim();
+                String userPwd  = mEtPassword.getText().toString().trim();
+                if (userName.equals("123") && userPwd.equals("123")) {
+                    Intent intent = new Intent(view.getContext(), UserCenterActivity.class);
+                    startActivityForResult(intent, INTO_USER_CENTER);
+                } else {
+                    OwerToastShow.show("用户名或密码错误");
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == INTO_USER_CENTER) {
+            MainActivity parentActivity = (MainActivity) getActivity();
+            parentActivity.setTabSelection(0);
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
