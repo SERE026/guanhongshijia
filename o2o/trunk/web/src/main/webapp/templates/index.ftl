@@ -11,12 +11,12 @@
 </head>
 <body>
 <div style="background-color: #f0ecec;">
-    <div class="head-top font14">
+    <div class="head-top">
         <div>
             <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
-            <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>&nbsp;&nbsp;
-            <a class="inline-block" href="${rc.contextPath}/register.html">免费注册</a>
-            <ul class="head-ul font14">
+            <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
+            <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
+            <ul class="head-ul">
                 <li><a href="${rc.contextPath}/login.html">我的信息</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
                 <li><a href="javascript:void(0)">关注观红世家</a></li>
@@ -34,7 +34,7 @@
         </div>
         <div class="head-city">
             <div class="city">
-                <label class="color-red city-name">全国站</label>&nbsp;<label class="Switch-city">切换城市<!--<i></i>--></label>
+                <label class="color-red city-name">全国站</label><label class="Switch-city">切换城市<!--<i></i>--></label>
                 <div id="JS_header_city_bar_box" class="hide_city_group">
                     <div class="hideMap">
                         <div class="showPanel f-cb">

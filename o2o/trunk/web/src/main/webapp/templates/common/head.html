@@ -126,13 +126,13 @@ ${widget_area}
 
 
 <div style="background-color: #f0ecec;">
-    <div class="head-top font14">
+    <div class="head-top">
         <div>
-           <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
-            <a class="head-login inline-block" href="http://localhost:8081/login.html">请登录</a>&nbsp;&nbsp;
-            <a class="inline-block" href="http://localhost:8081/register.html">免费注册</a>
-            <ul class="head-ul font14">
-                <li><a href="http://localhost:8081/login.html">我的信息</a></li>
+            <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
+            <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
+            <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
+            <ul class="head-ul">
+                <li><a href="${rc.contextPath}/login.html">我的信息</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
                 <li><a href="javascript:void(0)">关注观红世家</a></li>
                 <li><a href="javascript:void(0)">客服中心</a></li>
@@ -142,14 +142,14 @@ ${widget_area}
     </div>
 
 </div>
-<div class="head" style="width: 100%;">
+<div class="head">
     <div class="head-logo">
         <div class="logo">
             <img src="../img/logo.jpg" />
         </div>
         <div class="head-city">
             <div class="city">
-                <label class="color-red city-name">全国站</label>&nbsp;<label class="Switch-city">切换城市</label>
+                <label class="color-red city-name">全国站</label><label class="Switch-city">切换城市<!--<i></i>--></label>
                 <div id="JS_header_city_bar_box" class="hide_city_group">
                     <div class="hideMap">
                         <div class="showPanel f-cb">
@@ -168,7 +168,10 @@ ${widget_area}
                                 <a href="javascript:void(0);" provincecode="500000" class="for_search" cityid="500000" onclick="changeCity(this)">重庆市</a>
                                 <a href="javascript:void(0);" citycode="440300" class="for_search" cityid="440300" onclick="changeCity(this)">深圳市</a>
                             </div>
-
+                            <!--                        <div class="mt10">
+                                                        <div id="JS_search_city_tip_header" class="search_city_tip">对不起，没搜索到这个城市。</div>
+                                                        <input id="JS_search_city_input_header" class="search_city_input" placeholder="城市名称"><input type="button" id="JS_search_city_submit_header" class="search_city_submit" value="搜索">
+                                                    </div>-->
                             <div class="city_words mt10" id="JS_header_city_char"><a href="javascript:void(0)" anchorname="charA">A</a><a href="javascript:void(0)" anchorname="charB">B</a><a href="javascript:void(0)" anchorname="charC">C</a><a href="javascript:void(0)" anchorname="charD">D</a><a href="javascript:void(0)" anchorname="charE">E</a><a href="javascript:void(0)" anchorname="charF">F</a><a href="javascript:void(0)" anchorname="charG">G</a><a href="javascript:void(0)" anchorname="charH">H</a><a href="javascript:void(0)" anchorname="charI">I</a><a href="javascript:void(0)" anchorname="charJ">J</a><a href="javascript:void(0)" anchorname="charK">K</a><a href="javascript:void(0)" anchorname="charL">L</a><a href="javascript:void(0)" anchorname="charM">M</a><a href="javascript:void(0)" anchorname="charN">N</a><a href="javascript:void(0)" anchorname="charP">P</a><a href="javascript:void(0)" anchorname="charQ">Q</a><a href="javascript:void(0)" anchorname="charR">R</a><a href="javascript:void(0)" anchorname="charS">S</a><a href="javascript:void(0)" anchorname="charT">T</a><a href="javascript:void(0)" anchorname="charW">W</a><a href="javascript:void(0)" anchorname="charX">X</a><a href="javascript:void(0)" anchorname="charY">Y</a><a href="javascript:void(0)" anchorname="charZ">Z</a></div>
                         </div>
                         <div class="scrollBody">
@@ -329,7 +332,7 @@ ${widget_area}
 
                                 </div>
 
-                                <!--table id="JS_header_city_list" class="city_list">
+                                <!-- table id="JS_header_city_list" class="city_list">
                                 <tbody>
                                 <tr>
                                     <th width="21">
@@ -341,14 +344,14 @@ ${widget_area}
                                 </tr>
                                 </tbody>
                             </table>
-                            -->
+                             -->
                             </div>
                             <div class="scrollBar"><span id="JS_header_city_bar" style="margin-top: 18px;"></span></div>
                         </div>
                     </div>
                 </div>
             </div>
-  <!--        <h4>观红赏灯O2O商城</h4>
+            <!-- <h4>观红赏灯O2O商城</h4>
             <h4>首家音视频多媒体平台</h4>-->
 
         </div>
@@ -364,8 +367,8 @@ ${widget_area}
                     <span class="search">
                         <i></i>
                         <label>搜索</label></span>
-                <a class="My-mall font14" href="http://localhost:8081/login.html">我的商城</a>
-                <a class="settlement font14" href="http://localhost:8081/cars.html">购物车结算</a>
+                <a class="My-mall font14" href="${rc.contextPath}/login.html">我的商城</a>
+                <a class="settlement font14" href="${rc.contextPath}/cars.html">购物车结算</a>
             </div>
             <div>
                 <ul class="hot-search font14">

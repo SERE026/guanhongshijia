@@ -1,97 +1,19 @@
-﻿* {margin:0;padding:0;font:12px/150% Arial, Verdana, "\5b8b\4f53";
-}
-html{-webkit-text-size-adjust:none;}
-.font14 {font-size:14px;
-}
-.color-red {color:red;
-}
-a {text-decoration:none;
-}
-ul li {float:left;list-style-type:none;
-}
-.head {width:64%;margin:0px auto;height:200px;width:1200px;padding-top:25px;
-}
-.head-top {width:1200px;height:30px;margin:0px auto;
-}
-.head-top > div {width:98%;margin:0 auto;
-}
-    .head-top a, .head-top label {color:#a5a2a2;
-    }
-.head-welcome {font-weight:bold;
-}
-.head-login {margin-left:34px;
-}
-.head-ul {
-overflow:hidden;display:block;float:right;height:30px;width:530px;
-}
-    .head-ul li {line-height:30px;margin-left:1.5em;
-    }
-        .head-ul li:nth-child(2) {width:22%;
-        }
-        
-.inline-block {display:inline-block;line-height:30px;
-}
-.head-logo {width:98%;margin:60px auto;/*overflow:hidden;*/
-}
-.logo {float:left;
-}
-.head-city {float:left;padding-top:1.5em;margin-left:1.5em;
-}
-    .head-city .city {line-height:38px;position:relative;
-    }
-.head-city .cityList {position:absolute;width:400px;height:400px;border:1px solid #572a27;z-index:3;background-color:white;font-size:15px;padding:10px;top:30px;left:53px;display:none;
-}
-.hotCity {overflow:hidden;
-}
-    .hotCity li {margin-left:0.5em;line-height:32px;
-    }
-        .hotCity li:first-child {margin-left:0;
-        }
-    .hotCity li a {color:black;
-    }
-    .head-city .thisCity {overflow:hidden;
-    }
-.thisCity .findHome {float:right;width:100px;line-height:24px;margin:0 10px;font-size:12px;
-}
-.searchCity input {height:22px;line-height:22px;
-}
-    .searchCity input[type='button'] {height:26px;width:42px;
-    }
-.letterList {overflow:hidden;
-}
-.letterList li {line-height:38px;color:red;  width:15px;text-align:center;
-}
-
-
-
-.search {float:left;background-color:#572a27;color:white;width:80px;line-height:40px;text-align:center;}
-.search-criteria {padding-top:2em;float:right;margin-right:4px;width:64%;
-}
-    .search-criteria > div {overflow:hidden;
-    }
-.Search-categories {float:left;border-top:2px solid #572a27;border-bottom:2px solid #572a27;border-left:2px solid #572a27;width:80px;line-height:36px;text-align:center;
-}
-    .Search-categories option {height:40px;
-    }
-.Search-Text {font-size:14px;width:340px;float:left;border:2px solid #572a27;line-height:36px;padding-left:10px;height:36px;
-}
-.search label {margin-left:4px;
-}
-.search img {padding-top:1px;
-}
+﻿
 .My-mall,.settlement {background-color:#fcfcfc;display:block;text-decoration:none;width:100px;line-height:36px;float:left;text-align:center;margin-left:20px;color:#808080;border:2px solid #f5f5f5;
 }
 .settlement {margin-left:6px;
 }
 .hot-search {line-height:44px;overflow:hidden;
 }
-.hot-search li {color:#aaa;margin-left:4px;
+.hot-search li {color:#aaa;margin-left:4px;line-height:30px;
 }
-    .hot-search li:first-child {margin-left:0;
-    }
-    .hot-search li a {text-decoration:none;color:#aaa;
-    }
+.hot-search li:first-child {margin-left:0;
+}
+.hot-search li a {text-decoration:none;color:#aaa;
+}
 .head-logo .Switch-city {border:1px solid #ccc;font-size:12px;padding:1px 4px;
+}
+.hide_city_group {position:absolute;top:9px;left:33px;display:none;
 }
 
 
@@ -161,15 +83,15 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
 .ImgList {border:1px solid #ccc;width:488px;height:110px;
 }
-.spdetail_xiajiantou {float:left;width:30px;height:110px;border:1px solid red;
+.spdetail_xiajiantou {float:left;width:30px;height:110px;
 }
-.imgMin-Div .imgMin {width:110px;height:110px;float:left;margin-left:24px;
+.imgMin-Div .imgMin {width:82px;height:82px;float:left;margin-left:24px;
 }
-.imgMin a {display:block;text-align:center;width:110px;height:110px;}
-    .imgMin a img {margin-top:2px;
-    }
-.spdetail_xiajiantou22 {float:right;width:30px;height:110px;border:1px solid red;
+.imgMin a {display:block;width:82px;height:82px;}
+
+.spdetail_xiajiantou22 {float:right;width:30px;height:110px;
 }
+.STYLE11_3{float: right;text-decoration: none;margin-top: 15px;}
 .yt_product_info_title .yt_product_info_main_title{display: block;font-weight: bold;margin-bottom:10px; font-size:18px;line-height: 150%;font-family:'Microsoft YaHei';}
 
 
@@ -270,7 +192,7 @@ label.atg_store_pickerLabel{
 .yt_product_tab_box{border: 1px solid #dfdfdf;margin:0;padding:0;font-family: arial;font-size:12px;}
 .yt_product_tab{width: 100%;position: relative;background-color: #fff;height: 48px;list-style: none;}
 .yt_product_tab li{float: left;margin-left: -1px;height: 48px;line-height: 48px;display: block;cursor: pointer;}
-.yt_product_tab a{text-decoration: none;border-right: 1px dotted #d2d2d2;color: #333;padding: 0 20px;}
+.yt_product_tab a{text-decoration: none;border-right: 1px dotted #d2d2d2;color: #333;padding: 0 20px;line-height: 48px;}
 .yt_product_tab a em{color: #35a;margin: 0 3px;}
 .yt_product_tab .ya_tab_item_selected{position: relative;border-top: 2px solid #b00000;height: 47px;margin: -1px 0 0 -1px;z-index: 1;padding: 0;}
 .yt_product_tab .ya_tab_item_selected:after{content: ' ';display: block;border-width: 5px;border-style: solid;border-color: #b00000 transparent transparent;

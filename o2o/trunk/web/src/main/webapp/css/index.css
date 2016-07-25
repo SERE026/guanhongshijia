@@ -1,12 +1,6 @@
-﻿* {margin:0;padding:0;
-}
-html {font:12px/150% Arial, Verdana, "\5b8b\4f53";
-}
-img {border:none;
+﻿* {margin:0;padding:0;font:12px/150% Arial, Verdana, "\5b8b\4f53";
 }
 html{-webkit-text-size-adjust:none;}
-input[type='text'] {outline:none;
-}
 .font14 {font-size:14px;
 }
 .color-red {color:red;
@@ -19,30 +13,31 @@ ul li {float:left;list-style-type:none;
 }
 .head-top {width:1200px;height:30px;margin:0px auto;
 }
-.positioning {padding:3px 9px;background-color:red;color:white!important;
-}
 .head-top > div {width:98%;margin:0 auto;
 }
-    .head-top a, .head-top label {color:#83817f;font-weight:bold;
-    }
-.head-welcome {font-weight:bold;margin-left:10px;
+.head-top a, .head-top label {color:#a5a2a2;
+}
+.head-welcome {font-weight:bold;
 }
 .head-login {margin-left:34px;
 }
 .head-ul {
-overflow:hidden;display:block;float:right;height:30px;width:530px;
+    overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
-    .head-ul li {line-height:30px;margin-left:1.5em;
-    } 
-.inline-block {display:inline-block;line-height:30px;
+.head-ul li {line-height:30px;margin-left:1.5em;
 }
-.head-logo {width:98%;margin:60px auto;/*overflow:hidden;*/
+.head-ul li:nth-child(2) {width:22%;
 }
-.logo {float:left;
+
+.inline-block {line-height:30px;
+}
+.head-logo {width:98%;margin:60px auto 0;/*overflow:hidden;*/
+}
+.logo {float:left;width: 120px;margin: 0;
 }
 .head-city {float:left;padding-top:1.5em;margin-left:1.5em;
 }
-    .head-city .city {line-height:38px;position:relative;
+    .head-city .city {position:relative;
     }
 .head-city .cityList {position:absolute;width:400px;height:400px;border:1px solid #572a27;z-index:3;background-color:white;font-size:15px;padding:10px;top:30px;left:53px;display:none;
 }
@@ -71,6 +66,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 
 
 .search {float:left;background-color:#572a27;color:white;width:80px;line-height:40px;text-align:center;}
+.search>label{line-height:40px;}
 .search-criteria {padding-top:2em;float:right;margin-right:4px;width:64%;
 }
     .search-criteria > div {overflow:hidden;
@@ -107,7 +103,7 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
     }
     .hot-search li a {text-decoration:none;color:#aaa;
     }
-.head-logo .Switch-city {border:1px solid #ccc;font-size:12px;padding:1px 4px;
+.head-logo .Switch-city {border:1px solid #ccc;font-size:12px;padding:1px 4px;margin-left: 0.5em;
 }
 .hide_city_group {position:absolute;top:9px;left:33px;display:none;
 }
@@ -659,3 +655,5 @@ overflow:hidden;display:block;float:right;height:30px;width:530px;
 .none {
     display: none;
 }
+
+.kuai{margin-top: -30px;}

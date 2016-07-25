@@ -13,7 +13,7 @@
 
 
 @charset "utf-8";
-div,table,form,ul,li,dt,dd,dl,a,body,img{margin:0px; padding:0px; list-style-type:none; font-size:12px; font-family:"宋体"; text-decoration:none; color:#666666;overflow-x:hidden}
+div,table,form,ul,li,dt,dd,dl,a,body,img{margin:0px; padding:0px; list-style-type:none; font-size:12px; font-family:"宋体"; text-decoration:none; color:#666666;}
 img{border:0px;}
 /*background-color:#cdd8ff*/
 #map {overflow-x:auto}
@@ -458,6 +458,7 @@ img{border:0px;}
 .spdetail_right_shulaing{width:auto; height:31px; float:left; margin:10px 0 0 10px}
 .spdetail_right_shulaing_shu{ width:59px; height:31px; float:left; background-image:url(../img/shiliang14_03.gif); background-repeat:no-repeat; line-height:31px; padding-left:5px}
 .spdetail_right_shulaing_shujaj{ width:18px; height:31px; float:left; margin-left:1px}
+.spdetail_right_shulaing_shu span{line-height: 31px;}
 .spdetail_right_shulaing_shujaj_aa{ width:18px; height:14px;}
 .spdetail_right_shulaing_shujaj_bb{ width:18px; height:14px; margin-top:3px}
 .spdetail_right_kucun{width:auto; height:31px; line-height:31px; font-family:""; color:#999999;float:left; margin:10px 0 0 10px}
@@ -475,7 +476,8 @@ img{border:0px;}
 
 .spdetail_right_xian{ width:623px; height:1px; overflow:hidden; background-image:url(../img/xian01.gif); background-repeat:repeat-x; margin-top:18px}
 .spgr{width:623px; height:auto; margin-top:15px;}
-.spgr_an01{width:165px; height:40px;float:left;}
+.spgr_an01{width:165px; height:40px;float:left;text-align: center;background-color: red;line-height: 40px;}
+.spgr_an01 a{line-height: 40px;color:white;font-size: 16px;font-weight: bold; }
 .spgr_an02{width:123px; height:38px; background-image:url(../img/spdet_an2.gif); background-repeat:repeat-x; border:#e0e0e0 solid 1px;float:left; margin-left:15px; line-height:38px; text-align:center}
 .spgr_an02 a{width:123px; height:38px; display:block}
 .spgr_an03{width:auto; height:20px; line-height:20px;float:left; overflow:hidden; margin-left:15px; margin-top:15px}

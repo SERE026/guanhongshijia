@@ -62,7 +62,6 @@ ${widget_goods_attr}
 
 
 <div class="clear">&nbsp;</div>
-<div class="spdetail_right_xian">&nbsp;</div>
 <div class="spgr">
 <div class="spgr_an01 addBuy" dataValue="${good.goods_id}"><a href="#">直接购买</a></div>
 <div class="spgr_an01 addCars" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#">加入购物车</a></div>
@@ -73,13 +72,33 @@ ${widget_goods_attr}
 <div class="spgr_an03"><a href="${applicationPath}/shop-${good.merchants.shangjia_id}.html" class="zhu22">去店铺首页</a></div>
 </div>-->
 <div class="clear">&nbsp;</div>
+
+	<dl class="yt_product_buy_promise">
+		<dt>服务承诺</dt>
+		<dd>
+			<ul>
+				<li>
+					<a class="a1" href="javascript:void(0)">7天无理由退换货</a>
+				</li>
+				<li>
+					<a class="a1" href="javascript:void(0)">一年质保</a>
+				</li>
+				<li>
+					<a class="a1" href="javascript:void(0)">假一赔五</a>
+				</li>
+				<li>
+					<a class="a1" href="javascript:void(0)">配装一体 </a>
+				</li>
+			</ul>
+		</dd>
+	</dl>
 <div class="sp_xiala">
 <!--销量：最近${good.num}人已经购买，<span class="STYLE12">${showCount}</span>人正在抢购-->
 </div>
+
 <div class="sp_det_xiaotu" style="display:none">
 <img src="${applicationPath}/img/kf01.gif" />
 </div>
-<div class="spdetail_right_xian" style="margin:0">&nbsp;</div>
 <div class="clear">&nbsp;</div>
 <#--<div class="sp_det_xiaotu2">
 ${widget_share}
@@ -98,7 +117,7 @@ ${widget_share}
 <div class="xian02">&nbsp;</div>
 <div class="clear">&nbsp;</div>
 <div class="splist_left">
-<div class="rexiao" style="margin:0">
+<div class="rexiao" style="margin:0;border: none;">
 <#--<div class="rexiao_top">同类最热销商品</div>
 
 <#list Sortlist as sg>
@@ -129,7 +148,6 @@ ${widget_share}
 </div>
 </div>
 </#list>-->
-
 </div>
 </div>
 
@@ -617,9 +635,8 @@ ${widget_comment}
 		})
 		$(".imgMin a").hover(function () {
 			var src = $(this).children().attr("src");
-			$(this).children().css({ "border": "2px solid #572a27", "margin-top": "1px" });
-			$(this).parent().siblings(".imgMin").find("img").css({ "border": "none", "margin-top": "2px" });
-			console.log(src)
+			$(this).parent().removeClass('spdetail_left_xiaotu_k2').addClass('spdetail_left_xiaotu_k');
+			$(this).parent().siblings(".imgMin").removeClass('spdetail_left_xiaotu_2').addClass('spdetail_left_xiaotu_k2');
 			$(".ImgShow").attr("src", src);
 		})
 		$(".ImgList>.right>a").click(function () {
