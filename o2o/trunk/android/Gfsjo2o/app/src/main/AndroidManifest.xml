@@ -35,7 +35,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             />
-
         <activity android:name=".Activity.SetPasswordActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"

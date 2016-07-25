@@ -1,19 +1,26 @@
 package com.wckj.gfsj.Activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
+import com.wckj.gfsj.Bean.TimeEvent;
+import com.wckj.gfsj.Bean.TimeUtils;
 import com.wckj.gfsj.Fragment.Collect_fragment;
 import com.wckj.gfsj.Fragment.Main_fragment;
 import com.wckj.gfsj.Fragment.Search_fragment;
 import com.wckj.gfsj.Fragment.Shopping_cart_fragment;
 import com.wckj.gfsj.Fragment.User_fragment;
 import com.wckj.gfsj.R;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * 主页
@@ -23,6 +30,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     private Fragment main_fragment,searchFragment,user_fragment,shopping_cart_fragment,collect_fragment;
     private FragmentManager fragmentManager;
+    private TextView tv_time;
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            EventBus.getDefault().post(new TimeEvent(TimeUtils.showTime(TimeUtils.getSystemTime())));
+            tv_time.setText(TimeUtils.showTime(TimeUtils.getSystemTime()));
+            handler.sendEmptyMessageDelayed(0,1000);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +54,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         findViewById(R.id.tv_collect).setOnClickListener(this);
         findViewById(R.id.tv_shopping_cart).setOnClickListener(this);
         findViewById(R.id.tv_mine_center).setOnClickListener(this);
+        tv_time = (TextView) findViewById(R.id.tv_time);
 
-
+        handler.sendEmptyMessage(0);
         FrameLayout fl_context = (FrameLayout) findViewById(R.id.fl_context);
     }
 
