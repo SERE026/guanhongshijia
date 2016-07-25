@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Bean.TimeEvent;
-import com.wckj.gfsj.Bean.TimeUtils;
+import com.wckj.gfsj.Utils.TimeUtils;
 import com.wckj.gfsj.Fragment.Collect_fragment;
 import com.wckj.gfsj.Fragment.Main_fragment;
 import com.wckj.gfsj.Fragment.Search_fragment;
