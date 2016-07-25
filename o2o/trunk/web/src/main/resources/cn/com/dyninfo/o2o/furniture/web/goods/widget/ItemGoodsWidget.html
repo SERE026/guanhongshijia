@@ -1,336 +1,340 @@
 
 <script src="js/Cars.js" type="text/javascript" ></script>
-<script src="js/goodsImagebox.js" type="text/javascript" ></script>
-<script src="js/jquery.jqzoom.js" type="text/javascript" ></script>
-<script type="text/javascript">
-	var servicePath="${applicationPath}";
-</script>
-<link href="css/jqzoom.css" rel="stylesheet" type="text/css">
-<link >
+<link href="css/GoodsDetails.css" rel="stylesheet" />
 <#if good.merchants??>
-	<#if good.merchants.qq??>
-		<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
-			<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=${good.merchants.qq}&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
-				<img src="${applicationPath}/img/xpkf.png" /></a>
-		</div>
-		<#else>
-			<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
-				<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=800055495&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
-					<img src="${applicationPath}/img/xpkf.png" /></a>
-			</div>
-	</#if>
+<#if good.merchants.qq??>
+  <div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=${good.merchants.qq}&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+	<img src="${applicationPath}/img/xpkf.png" /></a>
+	</div>
+<#else>
+<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=800055495&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
+<img src="${applicationPath}/img/xpkf.png" /></a>
+</div>
+</#if>
 </#if>
 <div class="kuai">
-	<div class="sp_list">
-		<div class="dingwei">
-			${widget_goods_path}
+<div class="sp_list">
+<div class="dingwei">
+${widget_goods_path}
 
-		</div>
-		<div class="spdetail">
-
-
-			<div class="spdetail">
+</div>
+<div class="spdetail">
 
 
-				${widget_goods_image}
+<div class="spdetail">
 
 
-				<!--<div class="spdetail_right">
-                <div class="spdetail_right_ming">${good.name}</div>
-                <div class="spdetail_right_jia">-->
-				<div class="spdetail_right">
-					<div class="spdetail_right_ming">${good.name}</div>
-					<div style="height:32px;margin-top:-8px;"><p>大气书桌椅套装，精美雕刻，打造奢华复古风，大面积镂空和空间错位设计，整体不显厚重。配套书椅，设计符合人体工学，舒适实用。大气书桌椅套装，精美雕刻，打造奢华复古风，大面积镂空和空间错位设计，整体不显厚重。配套书椅，设计符合人体工学，舒适实用。</p></div>
-					<div class="spdetail_right_jia">
+${widget_goods_image}
 
 
+<div class="spdetail_right">
+<div class="spdetail_right_ming">${good.name}</div>
+<div class="spdetail_right_jia">
+
+<span class="STYLE11_5">雅堂价：</span>
+<span class="STYLE11_4">¥</span>
+<span class="STYLE11_2 salesMoney">${good.goodMoney}</span>
+&nbsp;&nbsp;<span class="STYLE11_3">成交记录${good.num}件</span>
+</div>
 
 
+<div class="spdetail_right_gr goodsMoney" dataValue="${good.goodMoney}">
+${widget_goods_attr}
 
-						<span class="STYLE11_5">会员价：</span>
-						<span class="STYLE11_4">￥</span>
-						<span class="STYLE11_2 salesMoney">${good.goodMoney}</span>
-						&nbsp;&nbsp;<span class="STYLE11_3">￥${good.bazaarMoney}</span>
-					</div>
+</div>
+<div style="clear:both">&nbsp;</div>
+<div class="spdetail_right_gr_kk">
+<div class="spdetail_right_gr_kk_left">数量：</div>
+<div class="spdetail_right_gr_kk_right">
+<div class="spdetail_right_shulaing">
+<div class="spdetail_right_shulaing_shu"><span id="buyNum">1</span></div>
+<div class="spdetail_right_shulaing_shujaj">
+<div class="spdetail_right_shulaing_shujaj_aa" id="jia"><a href="#"><img src="${applicationPath}/img/shiliang14_05.gif" border="0" /></a></div>
+<div class="spdetail_right_shulaing_shujaj_bb" id="jian"><a href="#"><img src="${applicationPath}/img/shiliang14_08.gif" border="0" /></a></div>
+</div>
+</div>
+<div class="spdetail_right_kucun">库存<span id="kucunNum">${good.inventory}</span>件</div>
+
+</div>
+</div>
 
 
-					<div class="spdetail_right_gr goodsMoney" dataValue="${good.goodMoney}">
-						<!--${widget_goods_attr}-->
+<div class="clear">&nbsp;</div>
+<div class="spdetail_right_xian">&nbsp;</div>
+<div class="spgr">
+<div class="spgr_an01 addBuy" dataValue="${good.goods_id}"><a href="#">直接购买</a></div>
+<div class="spgr_an01 addCars" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#">加入购物车</a></div>
+	<div class="spgr_an01 addYun" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#">音视频云导购</a></div>
 
-						<script type="text/javascript">
+	<#--<div class="spgr_an02" g="${good.goods_id}">
+<a href="javascript:;" class="zhu21 addFav">收藏（${favoritesNum}）</a></div>
+<div class="spgr_an03"><a href="${applicationPath}/shop-${good.merchants.shangjia_id}.html" class="zhu22">去店铺首页</a></div>
+</div>-->
+<div class="clear">&nbsp;</div>
+<div class="sp_xiala">
+<!--销量：最近${good.num}人已经购买，<span class="STYLE12">${showCount}</span>人正在抢购-->
+</div>
+<div class="sp_det_xiaotu" style="display:none">
+<img src="${applicationPath}/img/kf01.gif" />
+</div>
+<div class="spdetail_right_xian" style="margin:0">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<#--<div class="sp_det_xiaotu2">
+${widget_share}
+</div>-->
 
-						</script>
-						<script src="../js/GoodsAttr.js" type="text/javascript"></script>
-
-
-
-<!--						<div class="spdetail_right_gr_kk goodsAttr" item="0" datatype="Text">
-							<div class="spdetail_right_gr_kk_left" style="width:auto">类型：</div>
-							<div class="spdetail_right_gr_kk_right">
-								<div class="attTextBtn sp_xinghao" data-value="350:99:"><div class="sp_xinghao_left  sssss"><img src="img/changkuan_10.gif"></div><div class="sp_xinghao_zheng">
-									雕花书桌单件（书桌*1）
-								</div><div class="sp_xinghao_right"><img src="img/changkuan_13.gif"></div></div>
-								<div class="sp_xingha2 attTextBtn" data-value="">
-									雕花书桌(书桌*1+椅子*1）
-								</div>
-								<div class="sp_xingha2 attTextBtn" data-value="">
-									书椅单件
-								</div>
-
-							</div>
-						</div>
-						<div class="touming5">&nbsp;</div>
-
-						<div class="spdetail_right_gr_kk goodsAttr" item="1" datatype="Image">
-							<div class="spdetail_right_gr_kk_left" style="width:auto">颜色：</div>
-							<div class="spdetail_right_gr_kk_right">
-								<div class="attTextBtn sp_xinghao" data-value=""><div class="sp_xinghao_left  sssss"><img src="img/changkuan_10.gif"></div><div class="sp_xinghao_zheng">
-									原木色
-								</div><div class="sp_xinghao_right"><img src="img/changkuan_13.gif"></div></div>
-							</div>
-						</div>
-						<div class="touming5">&nbsp;</div>
-
-						<div class="spdetail_right_gr_kk goodsAttr" item="1" datatype="Image">
-							<div class="spdetail_right_gr_kk_left" style="width:auto">规格：</div>
-							<div class="spdetail_right_gr_kk_right">
-								<div class="attTextBtn sp_xinghao" data-value=""><div class="sp_xinghao_left  sssss"><img src="img/changkuan_10.gif"></div><div class="sp_xinghao_zheng">
-									雕花书桌单件（书桌*1）原木色
-								</div><div class="sp_xinghao_right"><img src="img/changkuan_13.gif"></div></div>
-							</div>
-						</div>
-						<div class="touming5">&nbsp;</div>-->
+</div>
+</div>
+<script src="js/favorites.js" type="text/javascript"></script>
 
 
 
-					</div>
-					<div style="clear:both">&nbsp;</div>
-					<div class="spdetail_right_gr_kk">
-						<div class="spdetail_right_gr_kk_left">数量：</div>
-						<div class="spdetail_right_gr_kk_right">
-							<div class="spdetail_right_shulaing">
-								<div class="spdetail_right_shulaing_shu"><span id="buyNum">1</span></div>
-								<div class="spdetail_right_shulaing_shujaj">
-									<div class="spdetail_right_shulaing_shujaj_aa" id="jia"><a href="#"><img src="${applicationPath}/img/shiliang14_05.gif" border="0" /></a></div>
-									<div class="spdetail_right_shulaing_shujaj_bb" id="jian"><a href="#"><img src="${applicationPath}/img/shiliang14_08.gif" border="0" /></a></div>
-								</div>
-							</div>
-							<div class="spdetail_right_kucun">库存<span id="kucunNum">${good.inventory}</span>件</div>
-
-						</div>
-					</div>
 
 
-					<div class="clear">&nbsp;</div>
-					<div class="spdetail_right_xian">&nbsp;</div>
-					<div class="spgr">
 
-						<div class="spgr_an01 addBuy" dataValue="${good.goods_id}"><a href="#"><img src="${applicationPath}/img/zhijiemai.gif" /></a></div>
-						<div class="spgr_an01 addCars" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#"><img src="${applicationPath}/img/spdet_13.gif" /></a></div>
+<div class="clear">&nbsp;</div>
+<div class="xian02">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="splist_left">
+<div class="rexiao" style="margin:0">
+<#--<div class="rexiao_top">同类最热销商品</div>
 
-						<div class="spgr_an01" datavalue="113" style="margin-left:5px"><a href="#">音频云导购</a></div>
-						<div class="spgr_an02" g="${good.goods_id}">
-							<a href="javascript:;" class="zhu21 addFav">收藏（${favoritesNum}）</a></div>
-						<div class="spgr_an03"><a href="${applicationPath}/shop-${good.merchants.shangjia_id}.html" class="zhu22">去店铺首页</a></div>
-					</div>
-					<div class="clear">&nbsp;</div>
-
-					<dl class="yt_product_buy_promise">
-						<dt>服务承诺</dt>
-						<!--	<dd>
-                                <ul>
-                                    <li>
-                                        <a class="a1" href="javascript:void(0)">7天无理由退换货</a>
-                                        <div class="dorpdown" style="width: 320px;">
-                                            <div class="arrow"></div>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;7天无理由退换货，是指消费者在雅堂购物后，在签收货物后7天内，如因主观原因不愿意完成本次交易，可以提出“7天无理由退换货”的申请，并且买家退货的货物不得影响卖家的二次销售，商品返回运费由买家承担。<br>
-                                            <p align="right"><a href="/yatang/company/yatang-footer-link/day60.jsp" target="_blank" class="a-org">查看详情&gt;&gt;</a></p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="a1" href="javascript:void(0)">一年质保</a>
-                                        <div class="dorpdown" style="width: 320px;">
-                                            <div class="arrow"></div>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;一年质保服务，是指商家承诺当消费者购买其店铺内含有“一年质保”服务的商品后，若该商品在一年内出现质量问题，则商家将根据商品的实际故障情况，向消费者提供维修或补寄零配件或更换全新商品，以确保消费者可再正常使用该商品的附加服务。<br>
-                                            <p align="right"><a href="/yatang/company/yatang-footer-link/a-year-quality.jsp" target="_blank" class="a-org">查看详情&gt;&gt;</a></p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="a1" href="javascript:void(0)">假一赔五</a>
-                                        <div class="dorpdown" style="width: 380px;">
-                                            <div class="arrow"></div>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;当买家购买商家在www.yatang.cn（雅堂）网站出售的商品，在收到货物后，如买家认为该商品为假冒（包括盗版）商品或非原厂正品、未经报关进口商品、假冒材质成份商品（其中假冒商品、未经报关进口商品、假冒材质成份商品的定义以雅堂规则规定为准）...<br>
-                                            <p align="right"><a href="/yatang/company/yatang-footer-link/false-compensate-five.jsp" target="_blank" class="a-org">查看详情&gt;&gt;</a></p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="a1" href="javascript:void(0)">配装一体 </a>
-                                        <div class="dorpdown" style="width: 320px;">
-                                            <div class="arrow"></div>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;配装一体是指消费者在雅堂平台上购买家装大件类商品时，商家承诺对于其店铺内含有“配、装一体”的商品，如消费者购买该商品时填写的详细收货地址（以下统称“收货地址”）在商家承诺提供“配装一体”的区域内，则向消费者提供送货到消费者收货地址...<br>
-                                            <p align="right"><a href="/yatang/company/yatang-footer-link/distribution-and-installation.jsp" target="_blank" class="a-org">查看详情&gt;&gt;</a></p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </dd>-->
-					</dl>
+<#list Sortlist as sg>
+<div class="rexiao_kuai">
+<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+<div class="rexiao_kuai_zijie">
+<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
+</div>
+<div class="rexoa_xiaojia">
+￥${sg.salesMoney?string('0.00')}
+</div>
+</div>
+</#list>
 
 
-					<#--<div class="sp_xiala">
-					销量：最近${good.num}人已经购买，<span class="STYLE12">${showCount}</span>人正在抢购
-				</div>
-				<div class="sp_det_xiaotu" style="display:none">
-					<img src="${applicationPath}/img/kf01.gif" />
-				</div>
-				<div class="spdetail_right_xian" style="margin:0">&nbsp;</div>
-				<div class="clear">&nbsp;</div>
-				<div class="sp_det_xiaotu2">-->
-					<#--${widget_share}
-					</div>-->
+</div>
+<div class="rexiao">
+<div class="rexiao_top">最近浏览过的商品</div>
 
-				</div>
+<#list showList as sg>
+<div class="rexiao_kuai">
+<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+<div class="rexiao_kuai_zijie">
+<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
+</div>
+<div class="rexoa_xiaojia">
+￥${sg.goodMoney?string('0.00')}
+</div>
+</div>
+</#list>-->
+
+</div>
+</div>
+
+<div class="yt_product_footer">
+	<div class="yt_product_footer_west">
+		<div class="yt_customer_service">
+			<div class="yt_customer_service_title">
+				客服中心
 			</div>
-			<script src="js/favorites.js" type="text/javascript"></script>
-
-
-
-
-
-
-			<div class="clear">&nbsp;</div>
-			<div class="xian02">&nbsp;</div>
-			<div class="clear">&nbsp;</div>
-
-			<div class="yt_product_footer_west">
-				<div class="yt_customer_service">
-					<div class="yt_customer_service_title">
-						客服中心
-					</div>
-					<div class="yt_customer_service_info">
-						<div class="yt_customer_service_time">
-							<span>工作时间</span>
-							<p>周一至周五&nbsp;:&nbsp;9:00-21:00</p>
-							<p>周六至周日&nbsp;:&nbsp;9:00-18:00</p>
-						</div>
-						<div class="yt_customer_service_online">
-							<span>在线咨询</span>
-							<p>
-								售前客服
+			<div class="yt_customer_service_info">
+				<div class="yt_customer_service_time">
+					<span>工作时间</span>
+					<p>周一至周五&nbsp;:&nbsp;9:00-21:00</p>
+					<p>周六至周日&nbsp;:&nbsp;9:00-18:00</p>
+				</div>
+				<div class="yt_customer_service_online">
+					<span>在线咨询</span>
+					<p>
+						售前客服
 								<span style="overflow: hidden;">
 
                                     <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=800158078&amp;aty=0&amp;a=0&amp;curl=&amp;ty=1" class="yt_merchant_link_image" target="_blank"></a>
 
                                 </span>
-							</p>
-						</div>
-						<div class="yt_customer_service_tel">
-							<span>联系方式</span>
-							<p>联系电话&nbsp;:&nbsp;400-050-3328</p>
-						</div>
-					</div>
+					</p>
 				</div>
-				<div class="yt_hot_sale">
-
-					<div class="yt_hot_sale_title">
-						热门销售
-					</div>
-					<div class="yt_hot_sale_info">
-					</div>
-
-				</div>
-				<div class="yt_new_product_top">
-
-					<div class="yt_new_product_top_title">
-						新品榜单
-					</div>
-					<div class="yt_new_product_top_info">
-					</div>
-
-				</div>
-				<div class="yt_clean"></div>
-				<div class="yt_in_store_recommend">
-
-					<div class="yt_in_store_recommend_title">
-						店长推荐
-					</div>
-
+				<div class="yt_customer_service_tel">
+					<span>联系方式</span>
+					<p>联系电话&nbsp;:&nbsp;400-050-3328</p>
 				</div>
 			</div>
+		</div>
+		<div class="yt_hot_sale">
 
-			<div class="splist_right" style=" width:980px; overflow:hidden; float:right">
-				<div class="spdet_r_titou">
-					<div class="spdet_r_titou_an ya_tab_item_selected"><a href="javascript:;" class="zhu23">商品详情</a></div>
-					<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">累计评价</a></div>
-					<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">成交记录</a></div>
-					<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">服务保障</a></div>
-				</div>
-				<script type="text/javascript">
-					$(function () {
-						$("body").delegate(".spdet_r_titou_an", "click", function () {
-							$(this).addClass("ya_tab_item_selected").siblings(".spdet_r_titou_an").removeClass("ya_tab_item_selected");
-							var index = $(this).index();
-							$(".spdet_tuwen").fadeOut(0).eq(index).fadeIn();
-						})
-					})
-				</script>
-				<div class="clear">&nbsp;</div>
+			<div class="yt_hot_sale_title">
+				热门销售
+			</div>
+			<div class="yt_hot_sale_info">
+			</div>
 
-				<div class="spdet_tuwen">
-					<div class="spdet_tuwen_ti"><!-- <img src="/img/spdet_25.gif" /> --></div>
-					<div class="spdet_tuwen_kuai">
-						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170933488_875.jpg" style=""><img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170933551_874.jpg" style=""><img src="./xq_files/20140425160240_797.jpg" alt=""><img src="./xq_files/20140425160243_587.jpg" alt=""><img src="./xq_files/20140425160248_576.jpg" alt=""><img src="./xq_files/20140425160256_574.jpg" alt=""><img src="./xq_files/20140425160303_630.jpg" alt="">
-					</div>
-					<div class="spdet_tuwen_ti"><!-- <img src="/img/spdet_28.gif" /> --></div>
-					<div class="spdet_tuwen_kuai">
+		</div>
+		<div class="yt_new_product_top">
 
-					</div>
-				</div>
-				<div class="spdet_tuwen none">
-					<div id="J_Detail">
-						<div id="J_Reviews" class="J_DetailSection tm-curTab">
-							<div class="tm-rate">
-								<div class="rate-header rate-header-tags">
-									<div class="rate-score">
-										<div style="font-size: 20px; color: red; text-align: center;">
-											<span style="font-size: 40px;">100</span>%
-										</div>
-										<p>好评度</p>
+			<div class="yt_new_product_top_title">
+				新品榜单
+			</div>
+			<div class="yt_new_product_top_info">
+			</div>
+
+		</div>
+		<div class="yt_clean"></div>
+		<div class="yt_in_store_recommend">
+
+			<div class="yt_in_store_recommend_title">
+				店长推荐
+			</div>
+
+		</div>
+	</div>
+	<div class="yt_product_footer_main">
+		<div class="yt_product_tab_box">
+			<ul class="yt_product_tab">
+				<li class="yt_product_tabObj ya_tab_item_selected">
+					<a href="javascript:void(0)">商品详情</a>
+				</li>
+				<li class="yt_product_tabObj">
+					<a href="javascript:void(0)">累计评价<em style="color: red; font-size: 14px; font-weight: bold;" id="cumulativeEvaluation"></em></a>
+				</li>
+				<li class="yt_product_tabObj">
+					<!-- style="display:none;" -->
+					<a href="javascript:void(0)">成交记录<label id="product_transaction_count_two" style="color: red; font-size: 14px; font-weight: bold;">${good.num}</label>
+					</a>
+				</li>
+				<li class="yt_product_tabObj">
+					<a href="javascript:void(0)">服务保障</a>
+				</li>
+				<li class="yt_tab_qrcode" style="display: none;">
+					<a class="yt_tab_qr_tagger" href="#">手机购买</a>
+					<!-- <img class="yt_tab_qrcode_icon" src="..jpg" alt="" /> -->
+				</li>
+			</ul>
+		</div>
+
+		<div class="yt_product_wrap">
+
+			<div class="tab_content_item" style="text-align: center;">
+				<!-- 商品详情 -->
+<!--				<div id="tempConten">
+					<p style="text-align: center;">
+						<br>
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170933488_875.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170933551_874.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170935261_383.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170935169_457.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170935309_521.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170935776_41.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170936584_108.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170936610_98.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170937677_551.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170936805_903.jpg" style="">
+					</p>
+					<p>
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160705170937192_387.jpg" style="">
+					</p>
+					<p style="text-align: center;">
+						<a href="http://www.yatang.cn/yatang/store/expstore/expNationwide.jsp" target="_blank">
+							<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160527095922283_838.jpg"></a>
+					</p>
+					<p style="text-align: center;">
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160527095925289_488.jpg">
+					</p>
+					<p style="text-align: center;">
+						<a href="http://www.yatang.cn/yatang/store/company/yatang-footer-link/distribution-and-installation.jsp" target="_blank">
+							<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160527095927988_79.jpg"></a>
+					</p>
+					<p style="text-align: center;">
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/2016052709593662_15.jpg">
+					</p>
+					<p style="text-align: center;">
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160527095939793_373.jpg">
+					</p>
+					<p style="text-align: center;">
+						<img src="http://images2.yatang.cn/fmf/4028821754938548015498451d7f0165/catalogMedia/productHtmlImg/20160527095943689_82.jpg">
+					</p>
+					<p style="text-align: center;">
+						<br>
+					</p>
+					<p>
+						<br>
+					</p>
+					<p>
+						<br>
+					</p>
+					<p>
+						<br>
+					</p>
+				</div>-->
+				${widget_goods_tuWen}
+			</div>
+			<div class="tab_content_item" style="display: none;">
+			<!--	<div id="J_Detail">
+					<div id="J_Reviews" class="J_DetailSection tm-curTab">
+						<div class="tm-rate">
+							<div class="rate-header rate-header-tags">
+								<div class="rate-score">
+									<div style="font-size: 20px; color: red; text-align: center;">
+										<span style="font-size: 40px;">100</span>%
 									</div>
-									<div class="master-bar">
-										<div class="master-cell">
-											<div class="master-cell-words">
-												好评
-												<span>(100%)</span>
-											</div>
-											<div class="master-cell-bar">
-												<div class="master-cell-inbar" style="width: 100px;"></div>
-											</div>
+									<p>好评度</p>
+								</div>
+								<div class="master-bar">
+									<div class="master-cell">
+										<div class="master-cell-words">
+											好评
+											<span>(100%)</span>
 										</div>
-										<div class="master-cell">
-											<div class="master-cell-words">
-												中评
-												<span>(0%)</span>
-											</div>
-											<div class="master-cell-bar">
-												<div class="master-cell-inbar" style="width: 0px;"></div>
-											</div>
-										</div>
-										<div class="master-cell">
-											<div class="master-cell-words">
-												差评
-												<span>(0%)</span>
-											</div>
-											<div class="master-cell-bar">
-												<div class="master-cell-inbar" style="width: 0px;"></div>
-											</div>
+										<div class="master-cell-bar">
+											<div class="master-cell-inbar" style="width: 100px;"></div>
 										</div>
 									</div>
-									<div class="rate-tag-box">
-										<div class="rate-tag-label">
-											<span>大家都选择：</span>
+									<div class="master-cell">
+										<div class="master-cell-words">
+											中评
+											<span>(0%)</span>
 										</div>
-										<div class="rate-tag-list">
-											<div class="rate-tag-inner">
+										<div class="master-cell-bar">
+											<div class="master-cell-inbar" style="width: 0px;"></div>
+										</div>
+									</div>
+									<div class="master-cell">
+										<div class="master-cell-words">
+											差评
+											<span>(0%)</span>
+										</div>
+										<div class="master-cell-bar">
+											<div class="master-cell-inbar" style="width: 0px;"></div>
+										</div>
+									</div>
+								</div>
+								<div class="rate-tag-box">
+									<div class="rate-tag-label">
+										<span>大家都选择：</span>
+									</div>
+									<div class="rate-tag-list">
+										<div class="rate-tag-inner">
                                                 <span class="tag-posi">
                                                     <lable data-posi="1" data-id="620">
            质量好(0)
@@ -355,167 +359,295 @@
            <s></s>
           </lable>
                                                 </span>
-											</div>
 										</div>
 									</div>
 								</div>
-								<div class="yt_product_footer_main" style="margin-left: 0px;">
-									<div class="rate-toolbar">
+							</div>
+							<div class="yt_product_footer_main" style="margin-left: 0px;">
+								<div class="rate-toolbar">
                                         <span class="rate-filter">
                                             <input class="rate-list-all rate-radio-group" id="evaluaionType" type="radio" name="radiogrounp" value="0" onclick="com.product.evalution.optionEvalutionType(0)">
                                             <label for="">全部(6)</label>
                                             <input class="rate-list-append rate-radio-group" id="Radio1" type="radio" name="radiogrounp" value="1" onclick="    com.product.evalution.optionEvalutionType(1)">
                                             <label for="J_RateWithAppend1461291610893">追评 (0)</label>
                                         </span>
-									</div>
 								</div>
-								<div id="mytable">
-									<table>
-										<tbody>
-										<tr>
-											<td class="tm-col-master" width="650">
-												<div class="tm-rate-premiere">
-													<div class="tm-rate-tag">
-														<div class="tm-rate-title">初次评价:</div>
-														<div class="tm-rate-date">2016/03/05</div>
-													</div>
-													<div class="tm-rate-content">
-														<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">产品货真价实，木质很好颜色和款式跟图片都没有差别，做工方面也比较精细！总之很满意的！</div>
-													</div>
+							</div>
+							<div id="mytable">
+								<table>
+									<tbody>
+									<tr>
+										<td class="tm-col-master" width="650">
+											<div class="tm-rate-premiere">
+												<div class="tm-rate-tag">
+													<div class="tm-rate-title">初次评价:</div>
+													<div class="tm-rate-date">2016/03/05</div>
 												</div>
-											</td>
-											<td class="col-meta">
-												<div class="rate-sku">
-													<p title="颜色分类:"><span>颜色分类：</span></p>
+												<div class="tm-rate-content">
+													<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">产品货真价实，木质很好颜色和款式跟图片都没有差别，做工方面也比较精细！总之很满意的！</div>
 												</div>
-												<div class="rate-user-profile">
-													<p title=""><span>尺寸：</span></p>
+											</div>
+										</td>
+										<td class="col-meta">
+											<div class="rate-sku">
+												<p title="颜色分类:"><span>颜色分类：</span></p>
+											</div>
+											<div class="rate-user-profile">
+												<p title=""><span>尺寸：</span></p>
+											</div>
+										</td>
+										<td class="col-author">
+											<div class="rate-user-info">笮**人<span>（匿名）</span></div>
+										</td>
+									</tr>
+									<tr>
+										<td class="tm-col-master" width="650">
+											<div class="tm-rate-premiere">
+												<div class="tm-rate-tag">
+													<div class="tm-rate-title">初次评价:</div>
+													<div class="tm-rate-date">2016/02/09</div>
 												</div>
-											</td>
-											<td class="col-author">
-												<div class="rate-user-info">笮**人<span>（匿名）</span></div>
-											</td>
-										</tr>
-										<tr>
-											<td class="tm-col-master" width="650">
-												<div class="tm-rate-premiere">
-													<div class="tm-rate-tag">
-														<div class="tm-rate-title">初次评价:</div>
-														<div class="tm-rate-date">2016/02/09</div>
-													</div>
-													<div class="tm-rate-content">
-														<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">第一次在网上买家具，内心一直忐忑，没想到收到货后，却给了我一个大大的惊喜，纯实木，高档、大气，细节方面考虑得非常到位，基本挑不出毛病，价格比实体店便宜很多，全五分</div>
-													</div>
+												<div class="tm-rate-content">
+													<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">第一次在网上买家具，内心一直忐忑，没想到收到货后，却给了我一个大大的惊喜，纯实木，高档、大气，细节方面考虑得非常到位，基本挑不出毛病，价格比实体店便宜很多，全五分</div>
 												</div>
-											</td>
-											<td class="col-meta">
-												<div class="rate-sku">
-													<p title="颜色分类:"><span>颜色分类：</span></p>
+											</div>
+										</td>
+										<td class="col-meta">
+											<div class="rate-sku">
+												<p title="颜色分类:"><span>颜色分类：</span></p>
+											</div>
+											<div class="rate-user-profile">
+												<p title=""><span>尺寸：</span></p>
+											</div>
+										</td>
+										<td class="col-author">
+											<div class="rate-user-info">y**9<span>（匿名）</span></div>
+										</td>
+									</tr>
+									<tr>
+										<td class="tm-col-master" width="650">
+											<div class="tm-rate-premiere">
+												<div class="tm-rate-tag">
+													<div class="tm-rate-title">初次评价:</div>
+													<div class="tm-rate-date">2016/02/02</div>
 												</div>
-												<div class="rate-user-profile">
-													<p title=""><span>尺寸：</span></p>
+												<div class="tm-rate-content">
+													<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">做工比想象中的还要好，包装非常严实，款式漂亮，尺寸标准，没有色差，看起来很上档次，桌子的面积适中，无异味，和卖家描述的一样，客服服务态度很好，物流很快 ，太满意了</div>
 												</div>
-											</td>
-											<td class="col-author">
-												<div class="rate-user-info">y**9<span>（匿名）</span></div>
-											</td>
-										</tr>
-										<tr>
-											<td class="tm-col-master" width="650">
-												<div class="tm-rate-premiere">
-													<div class="tm-rate-tag">
-														<div class="tm-rate-title">初次评价:</div>
-														<div class="tm-rate-date">2016/02/02</div>
-													</div>
-													<div class="tm-rate-content">
-														<div class="tm-rate-fulltxt" style="max-width: 550px; word-break: break-all;">做工比想象中的还要好，包装非常严实，款式漂亮，尺寸标准，没有色差，看起来很上档次，桌子的面积适中，无异味，和卖家描述的一样，客服服务态度很好，物流很快 ，太满意了</div>
-													</div>
-												</div>
-											</td>
-											<td class="col-meta">
-												<div class="rate-sku">
-													<p title="颜色分类:"><span>颜色分类：</span></p>
-												</div>
-												<div class="rate-user-profile">
-													<p title=""><span>尺寸：</span></p>
-												</div>
-											</td>
-											<td class="col-author">
-												<div class="rate-user-info">x**6<span>（匿名）</span></div>
-											</td>
-										</tr>
-										</tbody>
-									</table>
-								</div>
+											</div>
+										</td>
+										<td class="col-meta">
+											<div class="rate-sku">
+												<p title="颜色分类:"><span>颜色分类：</span></p>
+											</div>
+											<div class="rate-user-profile">
+												<p title=""><span>尺寸：</span></p>
+											</div>
+										</td>
+										<td class="col-author">
+											<div class="rate-user-info">x**6<span>（匿名）</span></div>
+										</td>
+									</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
-				</div>
-
-
-
-
-
-
-
-				<#--
-
-				<div class="clear">&nbsp;</div>
-			<div class="splist_left">
-				<div class="rexiao" style="margin:0">
-					<div class="rexiao_top">同类最热销商品</div>
-
-					<#list Sortlist as sg>
-						<div class="rexiao_kuai">
-							<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
-							<div class="rexiao_kuai_zijie">
-								<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
-							</div>
-							<div class="rexoa_xiaojia">
-								￥${sg.salesMoney?string('0.00')}
-							</div>
-						</div>
-					</#list>
-
-
-				</div>
-				<div class="rexiao">
-					<div class="rexiao_top">最近浏览过的商品</div>
-
-					<#list showList as sg>
-						<div class="rexiao_kuai">
-							<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
-							<div class="rexiao_kuai_zijie">
-								<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
-							</div>
-							<div class="rexoa_xiaojia">
-								￥${sg.goodMoney?string('0.00')}
-							</div>
-						</div>
-					</#list>
-
-				</div>
+				</div>-->
+				${widget_comment}
 			</div>
 
-			<div class="splist_right" style=" width:830px; overflow:hidden; float:right">
-				<div class="spdet_r_titou">
-					<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">商品详情</a></div>
-					<div class="spdet_r_titou_an"><a href="#s" class="zhu23">产品晒单</a></div>
+			<div class="tab_content_item" style="display: none;">
+				<div id="product_tranaction_record" style="height: auto;">
+					<div class="table-c">
+						<table width="975" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+							<tr style="background-color: #e5e5e5;">
+								<th style="width: 235px;">买家</th>
+								<th>商品详情</th>
+								<th style="width: 154px;">数量</th>
+								<th style="width: 207px;">成交时间</th>
+							</tr>
+							<tr>
+								<td class="table_td">笮***人</td>
+								<td class="table_td">原木色，雕花书桌(书桌*1+椅子*1）</td>
+								<td class="table_td">1</td>
+								<td class="table_td">2016-03-02 10:04:19</td>
+							</tr>
+							<tr>
+								<td class="table_td">久***i</td>
+								<td class="table_td">原木色，雕花书桌(书桌*1+椅子*1）</td>
+								<td class="table_td">1</td>
+								<td class="table_td">2016-03-01 22:25:09</td>
+							</tr>
+							<tr>
+								<td class="table_td">w***8</td>
+								<td class="table_td">原木色，雕花书桌(书桌*1+椅子*1）</td>
+								<td class="table_td">1</td>
+								<td class="table_td">2016-02-29 11:01:06</td>
+							</tr>
+							<tr>
+								<td class="table_td">l***m</td>
+								<td class="table_td">雕花书桌单件（书桌*1）</td>
+								<td class="table_td">1</td>
+								<td class="table_td">2016-02-18 12:57:34</td>
+							</tr>
+							<tr>
+								<td class="table_td">y***o</td>
+								<td class="table_td">雕花书桌单件（书桌*1）</td>
+								<td class="table_td">1</td>
+								<td class="table_td">2016-02-09 17:27:35</td>
+							</tr>
+							<tr>
+								<td class="table_td">y***u</td>
+								<td class="table_td">雕花书桌单件（书桌*1）</td>
+								<td class="table_td">1</td>
+								<td class="table_td">2016-02-07 15:50:00</td>
+							</tr>
+							<tr>
+								<td class="table_td">风***变</td>
+								<td class="table_td">雕花书桌单件（书桌*1）</td>
+								<td class="table_td">1</td>
+								<td class="table_td">2016-02-07 15:47:00</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-
-				<div class="clear">&nbsp;</div>
-				${widget_goods_tuWen}
-				-->
-
-
+			</div>
+			<div class="tab_content_item" style="display: none;">
+				<!-- 家装服务详情 -->
+				<div id="Div1">
+					<div style="padding: 25px; border: 0px solid #dfdfdf; border-top: none; height: 1100px; font-family: 'Microsoft YaHei';">
+						<div style="text-align: center">
+							<img src="http://images1.yatang.cn/fmf/img/product/u217_03.gif">
+						</div>
+						<div style="margin-left: 60px; border-bottom: 1px dashed #dfdfdf;">
+							<div style="position: relative">
+								<img src="http://images1.yatang.cn/fmf/img/product/u217_07.gif" style="display: block; left: -60px; position: absolute; top: 30px">
+								<div style="font-size: 18px; padding: 30px 0 10px;">
+									7天无理由退换货
+								</div>
+								<div style="font-size: 16px; color: #C40000;">
+									服务介绍
+								</div>
+								<div style="padding: 20px 0; font-size: 16px; line-height: 24px;">
+									7天无理由退换货，是指消费者在雅堂购物后，在签收货物后7天内，如因主观原因不愿意完成本次交易，可以提出“7天无理由退换货”的申请，并且买家退货的货物不得影响卖家的二次销售，商品返回运费由买家承担。
+								</div>
+							</div>
+						</div>
+						<div style="margin-left: 60px; border-bottom: 1px dashed #dfdfdf;">
+							<div style="position: relative">
+								<img src="http://images1.yatang.cn/fmf/img/product/u217_10.gif" style="display: block; left: -60px; position: absolute; top: 30px">
+								<div style="font-size: 18px; padding: 30px 0 10px;">
+									一年质保
+								</div>
+								<div style="font-size: 16px; color: #C40000;">
+									服务介绍
+								</div>
+								<div style="padding: 20px 0; font-size: 16px; line-height: 24px;">
+									一年质保服务，是指商家承诺当消费者购买其店铺内含有"一年质保"服务的商品后，若该商品在一年内出现质量问题，则商家将根据商品的实际故障情况，向消费者提供维修或补寄零配件或更换全新商品，以确保消费者可再正常使用该商品的附加服务。
+								</div>
+							</div>
+						</div>
+						<div style="margin-left: 60px; border-bottom: 1px dashed #dfdfdf;">
+							<div style="position: relative">
+								<img src="http://images1.yatang.cn/fmf/img/product/u217_13.gif" style="display: block; left: -60px; position: absolute; top: 30px">
+								<div style="font-size: 18px; padding: 30px 0 10px;">
+									假一赔五
+								</div>
+								<div style="font-size: 16px; color: #C40000;">
+									服务介绍
+								</div>
+								<div style="padding: 20px 0; font-size: 16px; line-height: 24px;">
+									当买家购买商家在雅堂(www.YaTang.cn)平台出售的商品，在收到货物后，如买家认为该商品为假冒（包括盗版）商品或非原厂正品、未经报关进口商品、假冒材质成份商品（其中假冒商品、未经报关进口商品、假冒材质成份商品的定义以雅堂规则规定为准），且买家与商家协商未果的前提下，买家在雅堂指定期间内发起针对商家的维权，申请消费者保障赔付时，如雅堂判定买家赔付申请成立，将向买家退回其实际支付的商品价款，并增加赔偿其受到的损失，增加赔偿的金额为买家实际支付商品价款的四倍，并由商家承担维权所涉商品所有物流费用。
+								</div>
+							</div>
+						</div>
+						<div style="margin-left: 60px;">
+							<div style="position: relative">
+								<img src="http://images1.yatang.cn/fmf/img/product/u217_15.gif" style="display: block; left: -60px; position: absolute; top: 30px">
+								<div style="font-size: 18px; padding: 30px 0 10px;">
+									配装一体
+								</div>
+								<div style="font-size: 16px; color: #C40000;">
+									服务介绍
+								</div>
+								<div style="padding: 20px 0; font-size: 16px; line-height: 24px;">
+									当买家在雅堂平台上购买家装大件类商品时，商家承诺对于其店铺内含有"配装一体"的商品，如消费者购买该商品时填写的详细收货地址（以下统称“收货地址”）在商家承诺提供"配装一体"的区域内，则向消费者提供送货到消费者收货地址（包括但不限于长途干线运输、同城配送、搬楼、安装）的特殊服务。
+								</div>
+							</div>
+						</div>
+						<div style="text-align: center">
+							<a href="/yatang/store/company/yatang-footer-link/day60.jsp" target="_blank" style="display: inline-block; background: #c40000; color: #fff; font-size: 16px; padding: 10px 30px; text-decoration: none;">查看更多服务详情</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
-	<div class="clear" id="s" name="s">&nbsp;</div>
-	${widget_comment}
 </div>
 
 
+
+<#--<div class="splist_right" style=" width:830px; overflow:hidden; float:right">
+<div class="spdet_r_titou">
+<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">商品详情</a></div>
+<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">产品晒单</a></div>
+	<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">成交记录${good.num}</a></div>
+	<div class="spdet_r_titou_an"><a href="javascript:;" class="zhu23">服务保障</a></div>
+</div>
+
+<div class="clear">&nbsp;</div>
+${widget_goods_tuWen}
+
+
+</div>
+</div>
+</div>
+
+<div class="clear" id="s" name="s">&nbsp;</div>
+${widget_comment}
+</div>-->
+
+<script>
+	$(function () {
+		$(".ImgList>.left>a").click(function () {
+			$(".imgMin-Div>div:first").animate({ "margin-left": '-110px' });
+		})
+		$(".imgMin a").hover(function () {
+			var src = $(this).children().attr("src");
+			$(this).children().css({ "border": "2px solid #572a27", "margin-top": "1px" });
+			$(this).parent().siblings(".imgMin").find("img").css({ "border": "none", "margin-top": "2px" });
+			console.log(src)
+			$(".ImgShow").attr("src", src);
+		})
+		$(".ImgList>.right>a").click(function () {
+			$(".imgMin-Div>div:first").animate({ "margin-left": '24px' });
+		})
+
+		$(".yt_product_tabObj").bind("click", function () {
+			$(this).addClass("ya_tab_item_selected").siblings(".yt_product_tabObj").removeClass("ya_tab_item_selected");
+			var index = $(this).index();
+			$(".tab_content_item").fadeOut(0).eq(index).fadeIn();
+		});
+
+		$(".yt_product_buy_classify dd a").click(function () {
+			console.log($(this).text())
+			$(this).addClass("yt_current").siblings().removeClass("yt_current");
+		})
+		$(".nav-ul>ul>li>ul").click(function () {
+			$(".nav-ul>ul>li>ul").show();
+		})
+		$(document).mouseover(function (e) {
+			var _con = $('.Classification-goods,.nav-ul>ul>li>ul,.three-level');   // 设置目标区域
+			if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+				$(".nav-ul>ul>li>ul").hide();
+			} else {
+				$(".nav-ul>ul>li>ul").show();
+			}
+		});
+	})
+</script>
 
 
