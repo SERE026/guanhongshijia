@@ -123,28 +123,37 @@
         <TextView
             android:id="@+id/tv_brand_3"
             android:layout_toLeftOf="@id/iv_more_right"
+            android:gravity="center_vertical"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:textColor="@color/color_767f8e"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:layout_marginRight="15dp"
             />
         <TextView
             android:id="@+id/tv_brand_2"
             android:layout_toLeftOf="@id/tv_brand_3"
+            android:gravity="center_vertical"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:textColor="@color/color_767f8e"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:layout_marginRight="15dp"
             />
         <TextView
             android:id="@+id/tv_brand_1"
             android:layout_toLeftOf="@id/tv_brand_2"
+            android:gravity="center_vertical"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:textColor="@color/color_767f8e"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:layout_marginRight="15dp"
             />
         <ImageView

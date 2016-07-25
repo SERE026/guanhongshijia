@@ -3,6 +3,7 @@ package com.wckj.gfsj.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Adapter.CommonAdapter;
@@ -27,6 +28,8 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
     private ArrayList<Commodity_level_three> mList;
     private GridView gv_commodity_three;
     private CommonAdapter mlvAdapter;
+    private TextView tv_brand_1,tv_brand_2,tv_brand_3;
+    private ImageView iv_more_left;
 
     @Override
     protected void init() {
@@ -39,6 +42,12 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
         titleView. findViewById(R.id.rl_brand).setVisibility(View.VISIBLE);
         titleView. findViewById(R.id.tv_go_back).setOnClickListener(this);
         tv_time = (TextView) titleView.findViewById(R.id.tv_time);
+        titleView.findViewById(R.id.iv_more_right).setOnClickListener(this);
+        iv_more_left = (ImageView) titleView.findViewById(R.id.iv_more_left);
+        iv_more_left.setOnClickListener(this);
+        tv_brand_3 = (TextView) titleView.findViewById(R.id.tv_brand_3);
+        tv_brand_2 = (TextView) titleView.findViewById(R.id.tv_brand_2);
+        tv_brand_1 = (TextView) titleView.findViewById(R.id.tv_brand_1);
 
         return titleView;
     }
@@ -78,6 +87,9 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
         for (int i = 0; i <8 ; i++) {
             mList.add(new Commodity_level_three());
         }
+        tv_brand_1.setText("啊啊啊");
+        tv_brand_1.setText("帮不帮");
+        tv_brand_1.setText("错错错");
         showPageState(FrameLoadLayout.LoadResult.success);
     }
 
@@ -87,17 +99,45 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
             case R.id.tv_go_back:
                 finish();
                 break;
+            case R.id.iv_more_left://下一页
+
+                break;
+            case R.id.iv_more_right://上一页
+
+                break;
+            case R.id.tv_brand_3:
+                setColorBackground(R.id.tv_brand_3);
+                break;
+            case R.id.tv_brand_2:
+                setColorBackground(R.id.tv_brand_2);
+                break;
+            case R.id.tv_brand_1:
+                setColorBackground(R.id.tv_brand_1);
+                break;
+        }
+    }
+
+    /**
+     * 设置分类的颜色
+     */
+    private  void setColorBackground(int id){
+        tv_brand_3.setBackgroundResource(R.id.tv_main==id?R.drawable.icon_main_bg:0);
+        tv_brand_2.setBackgroundResource(R.id.tv_main_classification==id?R.drawable.icon_main_bg:0);
+        tv_brand_1.setBackgroundResource(R.id.tv_main_recommend==id?R.drawable.icon_main_bg:0);
+        tv_brand_3.setTextColor(getResources().getColor(R.id.tv_main==id?R.color.color_fffffe:R.color.color_767f8e));
+        tv_brand_2.setTextColor(getResources().getColor(R.id.tv_main_classification==id?R.color.color_fffffe:R.color.color_767f8e));
+        tv_brand_1.setTextColor(getResources().getColor(R.id.tv_main_recommend==id?R.color.color_fffffe:R.color.color_767f8e));
+    }
+
+    @Subscribe(threadMode = ThreadMode.MainThread)
+    public void  onMainTimeEvent(TimeEvent time){
+        if(tv_time!=null){
+            tv_time.setText(time.getTime());
         }
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
-    }
-    @Subscribe(threadMode = ThreadMode.MainThread)
-    public void  onMainTimeEvent(TimeEvent time){
-        if(tv_time!=null){
-            tv_time.setText(time.getTime());
-        }
     }
 }
