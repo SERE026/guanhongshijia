@@ -603,22 +603,6 @@ ${widget_comment}
 <script>
 	$(function () {
 
-		///点击字母跳到
-		$("#JS_header_city_char a").bind("click", function () {
-			var anchorname = $(this).attr("anchorname");
-			var getchar = document.getElementById(anchorname);
-			if (getchar) {
-				getchar.scrollIntoView(false);
-			}
-		});
-
-		$(".hot_city a,.city_list .icity_names a").bind("click", function () {
-			var cityValue = $(this).text();
-			$(".city-name").text(cityValue);
-			$(".hide_city_group").hide();
-		})
-
-
 		$(".ImgList>.left>a").click(function () {
 			$(".imgMin-Div>div:first").animate({ "margin-left": '-110px' });
 		})
@@ -652,17 +636,7 @@ ${widget_comment}
 			} else {
 				$(".nav-ul>ul>li>ul").show();
 			}
-
-			var con2 = $('.Switch-city,.hide_city_group');   // 设置目标区域
-			if (!con2.is(e.target) && con2.has(e.target).length === 0) { // Mark 1
-				$(".hide_city_group").hide();
-			} else {
-				$(".hide_city_group").show();
-			}
 		});
-
-
-
 	})
 </script>
 

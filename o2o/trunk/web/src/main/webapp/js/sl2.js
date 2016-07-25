@@ -1,4 +1,6 @@
 $(function() {
+
+	cityList();//城市切换
 	jQuery.focus = function(slid) {
 		var sWidth = $(slid).width(); //获取焦点图的宽度（显示面积）
 		var len = $(slid).find("ul li").length; //获取焦点图个数
@@ -71,3 +73,29 @@ $(function() {
 	};
 	
 });
+
+function cityList() {
+	$(document).mouseover(function (e) {
+		var _con = $('.Switch-city,.hide_city_group');   // 设置目标区域
+		if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+			$(".hide_city_group").hide();
+		} else {
+			$(".hide_city_group").show();
+		}
+	});
+
+	///点击字母跳到
+	$("#JS_header_city_char a").bind("click", function () {
+		var anchorname = $(this).attr("anchorname");
+		var getchar = document.getElementById(anchorname);
+		if (getchar) {
+			getchar.scrollIntoView(false);
+		}
+	});
+
+	$(".hot_city a,.city_list .icity_names a").bind("click", function () {
+		var cityValue = $(this).text();
+		$(".city-name").text(cityValue);
+		$(".hide_city_group").hide();
+	})
+}
