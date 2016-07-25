@@ -56,7 +56,7 @@
                                 <a href="javascript:void(0);" provincecode="110000" class="for_search" cityid="110000" onclick="changeCity(this)">北京市</a>
                                 <a href="javascript:void(0);" provincecode="120000" class="for_search" cityid="120000" onclick="changeCity(this)">天津市</a>
                                 <a href="javascript:void(0);" provincecode="500000" class="for_search" cityid="500000" onclick="changeCity(this)">重庆市</a>
-                                <a href="javascript:void(0);" citycode="440300" class="for_search" cityid="440300" onclick="changeCity(this)">深圳市</a>
+                                <a href="javascript:void(0);" provincecode="440300" class="for_search" cityid="440300" onclick="changeCity(this)">深圳市</a>
                             </div>
     <!--                        <div class="mt10">
                                 <div id="JS_search_city_tip_header" class="search_city_tip">对不起，没搜索到这个城市。</div>
@@ -70,171 +70,152 @@
                                     <div class="icity_names_wrap" id="charB">
                                         <a class="icity_firstword" href="javascript:void(0);">B</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" provincecode="110000">北京市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="130600">保定市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="371600">滨州市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="511900">巴中市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="110000">北京市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130600">保定市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371600">滨州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511900">巴中市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charC">
                                         <a class="icity_firstword" href="javascript:void(0);">C</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="130900">沧州市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430100">长沙市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430700">常德市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="431000">郴州市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" provincecode="500000">重庆市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="510100">成都市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130900">沧州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430100">长沙市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430700">常德市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="431000">郴州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="500000">重庆市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510100">成都市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charD">
                                         <a class="icity_firstword" href="javascript:void(0);">D</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370500">东营市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="371400">德州市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="510600">德阳市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="511700">达州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370500">东营市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371400">德州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510600">德阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511700">达州市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charG">
                                         <a class="icity_firstword" href="javascript:void(0);">G</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="510800">广元市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510800">广元市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charH">
                                         <a class="icity_firstword" href="javascript:void(0);">H</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="130400">邯郸市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="131100">衡水市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430400">衡阳市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="431200">怀化市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130400">邯郸市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="131100">衡水市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430400">衡阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="431200">怀化市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charJ">
                                         <a class="icity_firstword" href="javascript:void(0);">J</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370100">济南市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370800">济宁市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370100">济南市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370800">济宁市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charL">
                                         <a class="icity_firstword" href="javascript:void(0);">L</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="131000">廊坊市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="371200">莱芜市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="371300">临沂市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="371500">聊城市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="431300">娄底市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="510500">泸州市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="511100">乐山市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="513400">凉山彝族自治州</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="131000">廊坊市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371200">莱芜市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371300">临沂市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371500">聊城市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="431300">娄底市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510500">泸州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511100">乐山市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="513400">凉山彝族自治州</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charM">
                                         <a class="icity_firstword" href="javascript:void(0);">M</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="510700">绵阳市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="511400">眉山市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510700">绵阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511400">眉山市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charN">
                                         <a class="icity_firstword" href="javascript:void(0);">N</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="511000">内江市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="511300">南充市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511000">内江市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511300">南充市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charQ">
                                         <a class="icity_firstword" href="javascript:void(0);">Q</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="130300">秦皇岛市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370200">青岛市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130300">秦皇岛市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370200">青岛市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charR">
                                         <a class="icity_firstword" href="javascript:void(0);">R</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="371100">日照市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371100">日照市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charS">
                                         <a class="icity_firstword" href="javascript:void(0);">S</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="130100">石家庄市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430500">邵阳市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="440300">深圳市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="510900">遂宁市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130100">石家庄市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430500">邵阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="440300">深圳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510900">遂宁市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charT">
                                         <a class="icity_firstword" href="javascript:void(0);">T</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" provincecode="120000">天津市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="130200">唐山市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370900">泰安市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="120000">天津市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130200">唐山市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370900">泰安市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charW">
                                         <a class="icity_firstword" href="javascript:void(0);">W</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370700">潍坊市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="371000">威海市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370700">潍坊市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371000">威海市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charX">
                                         <a class="icity_firstword" href="javascript:void(0);">X</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="130500">邢台市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430300">湘潭市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130500">邢台市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430300">湘潭市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charY">
                                         <a class="icity_firstword" href="javascript:void(0);">Y</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="321000">扬州市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370600">烟台市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430600">岳阳市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430900">益阳市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="431100">永州市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="511500">宜宾市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="511800">雅安市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="321000">扬州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370600">烟台市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430600">岳阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430900">益阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="431100">永州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511500">宜宾市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511800">雅安市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charZ">
                                         <a class="icity_firstword" href="javascript:void(0);">Z</a>
                                         <div class="icity_names">
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="130700">张家口市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370300">淄博市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="370400">枣庄市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430200">株洲市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="430800">张家界市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="510300">自贡市</a>
-                                            <a class="icity_names_a for_search" href="javascript:void(0);" citycode="512000">资阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130700">张家口市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370300">淄博市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370400">枣庄市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430200">株洲市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430800">张家界市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510300">自贡市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="512000">资阳市</a>
                                         </div>
                                     </div>
 
-
-
-
-
-
-
                                 </div>
 
-                                <!-- table id="JS_header_city_list" class="city_list">
-                                <tbody>
-                                <tr>
-                                    <th width="21">
-                                        <div>A</div>
-                                    </th>
-                                    <td>
-                                        <a href="">Anshan</a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                             -->
                             </div>
                             <div class="scrollBar"><span id="JS_header_city_bar" style="margin-top: 18px;"></span></div>
                         </div>
