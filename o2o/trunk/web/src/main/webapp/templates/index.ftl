@@ -3,11 +3,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>首页</title>
-    <link href="../css/index.css" rel="stylesheet" />
+  <link href="../css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.8.2.js"></script>
     <script type="text/javascript">
     var servicePath="${rc.contextPath}";
     </script>
+    <style>
+        .Add-art{
+            border:none !important;
+        }
+    </style>
 </head>
 <body>
 <div style="background-color: #f0ecec;">
@@ -43,7 +48,7 @@
                                     当前城市: <strong id="JS_city_current_city">全国</strong>
                                 </div>
                             </div>
-                            <a class="near" target="_blank" href="javascript:void(0);">附近的体验馆</a>
+                            <a class="near" target="_blank" href="${rc.contextPath}/shopMap.html">附近的体验馆</a>
                         </div>
                         <div class="showPanel showPanel2 f-cb">
                             <div class="hot_city" id="JS_header_city_hot">
@@ -279,7 +284,7 @@
                        <#list goodsSortList as p>
                            <#if p_index lt 4>
                         <li><a href="javascript:void(0)">
-                            <img src="../img/icon.png" />${p.name?if_exists}</a>
+                            <img src="${rc.contextPath}${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
                         </li>
                            <#if p.extendshow==1>
                                <li>
@@ -337,7 +342,7 @@
 
             <#list advwzList.adv as p>
             <li>
-                <a href="http://www.baidu.com" target="_blank">
+                <a href="#" target="_blank">
                 <img src="../img/20.png" /><!--adv_flie-->
                 </a>
             </li>
@@ -370,7 +375,7 @@
                     <b>深圳市<label>1</label>家</b>
                 </p>
                 <p class="national">全国19家体验馆</p>
-                <p><a class="findHome" href="javascript:void(0);">查找身边的体验馆</a></p>
+                <p><a class="findHome" href="${rc.contextPath}/shopMap.html">查找身边的体验馆</a></p>
                 <p>网站浏览&nbsp;实体店购买一站式服务！</p>
             </div>
         </div>
@@ -396,10 +401,10 @@
                         <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                             <img src="${p.goods.defaultImage}"/></a></dt>
                         <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">${p.goods.name}</a></dd>
-                        <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                        <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                     </dl>
                 </li>
-                <#if p_index==5><#break></#if>
+                <#if p_index==4><#break></#if>
             </#list>
         </ul>
 
@@ -411,10 +416,11 @@
                         <img src="${p.goods.defaultImage}" /></a></dt>
                     <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
-                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
+                        <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
-                <#if p_index==5><#break></#if>
+                <#if p_index==4><#break></#if>
             </#list>
 
         </ul>
@@ -427,10 +433,11 @@
                         <img src="../img/03.jpg" /></a></dt>
                     <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
-                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
+                        <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
-                <#if p_index==5><#break></#if>
+                <#if p_index==4><#break></#if>
             </#list>
 
         </ul>
@@ -443,10 +450,11 @@
                         <img src="../img/03.jpg" /></a></dt>
                     <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
-                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
+                        <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
-                <#if p_index==5><#break></#if>
+                <#if p_index==4><#break></#if>
             </#list>
 
         </ul>
@@ -459,10 +467,11 @@
                         <img src="../img/03.jpg" /></a></dt>
                     <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
-                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
+                        <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
-                <#if p_index==5><#break></#if>
+                <#if p_index==4><#break></#if>
             </#list>
         </ul>
     </div>
@@ -473,50 +482,22 @@
                 <img src="../img/04.jpg" />
             </div>
             <ul class="borderHover">
+
+            <#list activeList as p>
                 <li>
                     <dl class="">
                         <dt><a href="javascript:void(0)">
                             <img src="../img/03.jpg" /></a></dt>
                         <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
-                        <dd class="ItemName"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="ItemPrice"><b>￥360.00</b></dd>
+                        <dd class="ItemName"><a href="javascript:void(0)">${p.name?if_exists}</a></dd>
+                        <dd class="ItemPrice"><b>￥${p.salesMoney}</b></dd>
                         <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            <#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                     </dl>
                 </li>
-                <li>
-                    <dl class="">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
-                        <dd class="ItemName"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="ItemPrice"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
-                        <dd class="ItemName"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="ItemPrice"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl class="">
-                        <dt><a href="javascript:void(0)">
-                            <img src="../img/03.jpg" /></a></dt>
-                        <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
-                        <dd class="ItemName"><a href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                        <dd class="ItemPrice"><b>￥360.00</b></dd>
-                        <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                    </dl>
-                </li>
+                <#if p_index==3><#break></#if>
+            </#list>
+
             </ul>
         </div>
         <div class="area custom-area">
@@ -592,7 +573,7 @@
                                 <dd class="hot-cakes">（热销${d.num}件）</dd>
                                 <dd class="Item-price"><b>￥${d.salesMoney}</b></dd>
                                 <dd><a class="Add-art" href="javascript:void(0)">
-                                    <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                    <#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                             </dl>
                         </li>
                     </#if>
@@ -667,7 +648,7 @@
                                 <dd class="hot-cakes">（热销${d.num}件）</dd>
                                 <dd class="Item-price"><b>￥${d.salesMoney}</b></dd>
                                 <dd><a class="Add-art" href="javascript:void(0)">
-                                    <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                    <#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                             </dl>
                         </li>
                     </#if>
@@ -742,7 +723,7 @@
                                 <dd class="hot-cakes">（热销${d.num}件）</dd>
                                 <dd class="Item-price"><b>￥${d.salesMoney}</b></dd>
                                 <dd><a class="Add-art" href="javascript:void(0)">
-                                    <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                    <#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                             </dl>
                         </li>
                     </#if>
@@ -818,7 +799,7 @@
                         <dd class="hot-cakes">（热销${d.num}件）</dd>
                         <dd class="Item-price"><b>￥${d.salesMoney}</b></dd>
                         <dd><a class="Add-art" href="javascript:void(0)">
-                            <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            <#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="javascript:void(0)">MORE</a></dd>
                     </dl>
                 </li>
                     </#if>
@@ -848,14 +829,22 @@
                 <img src="../img/house.png" />
                 <b>5F</b><span>综合系列</span>
                 <ul class="FiveNav">
-                    <li class="FH_current">红木家具</li>
-                    <li>古典灯饰</li>
-                    <li>办公系列</li>
+                    <#list goodsSortList5 as p>
+                        <#if p_index == 0>
+                        <li class="FH_current">${p.name?if_exists}</li>
+                        </#if>
+                        <#if p_index != 0>
+                            <li>${p.name?if_exists}</li>
+                        </#if>
+                        <#if p_index==7><#break></#if>
+                    </#list>
+<#--                    <li>办公系列</li>
                     <li>家具灯饰</li>
                     <li>建材软装</li>
                     <li>字画</li>
                     <li>文房四宝</li>
-                    <li>红酒古茶</li>
+                    <li>红酒古茶</li>-->
+
                 </ul>
             </div>
             <div class="FloorBack">
@@ -864,8 +853,82 @@
             </div>
         </div>
 
-
+<#list lists as s>
+    <#if s_index==0>
         <div class="FiveContent">
+            <div class="FloorImg">
+                <h1>综合系列00000</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+               <#list brandList as p>
+                    <li><a href="javascript:void(0);"><img src="${rc.contextPath}${p.logo}"/></a></li>
+                    <#if p_index==3><#break></#if>
+                </#list>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+
+                        <#list s as a>
+                            <#if a_index lt 6>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">${a.name?if_exists}</a></dd>
+                                        <dd class="price"><b class="Item-price">￥${a.salesMoney}</b></dd>
+                                    </dl>
+                                </li>
+                            </#if>
+                        </#list>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+
+                   <#list s as a>
+                        <#if a_index == 6>
+                            <img src="../img/07.png" /><br />
+                        </#if>
+                        <#if a_index == 7>
+                            <img src="../img/07.png" /><br />
+                        </#if>
+                    </#list>
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                    <#list s as a>
+                        <#if a_index gt 7 && a_index lt 11>
+                    <li>
+                        <dl class="Item-introduction">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">${a.name?if_exists}</a></dd>
+                            <dd class="hot-cakes">（热销${a.num}件）</dd>
+                            <dd class="Item-price"><b>￥${a.salesMoney}</b></dd>
+                            <dd><a class="Add-art" href="javascript:void(0)">
+                                <#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                        </dl>
+                    </li>
+                        </#if>
+                    </#list>
+                </ul>
+            </div>
+        </div>
+    </#if>
+    <#if s_index!=0>
+        <div class="FiveContent none">
             <div class="FloorImg">
                 <h1>综合系列</h1>
                 <div class="tag">
@@ -874,121 +937,77 @@
                     <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
                 </div>
                 <img src="../img/08.png" style="margin-top:40px;" />
-
                 <ul>
-                    <li><a href="javascript:void(0);"><img src="../img/08.png"/></a></li>
-                    <li><a href="javascript:void(0);"><img src="../img/08.png"/></a></li>
-                    <li><a href="javascript:void(0);"><img src="../img/08.png" /></a></li>
-                    <li><a href="javascript:void(0);"><img src="../img/08.png"  /></a></li>
+                    <#list brandList as p>
+                        <li><a href="javascript:void(0);"><img src="${rc.contextPath}${p.logo}"/></a></li>
+                        <#if p_index==3><#break></#if>
+                    </#list>
                 </ul>
-
             </div>
+
+
+
             <div class="floor-banner">
                 <div>
                     <ul class="borderHover">
-                        <li>
-                            <dl class="">
-                                <dt><a href="javascript:void(0)">
-                                    <img src="../img/03.jpg" /></a></dt>
-                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                            </dl>
-                        </li>
-                        <li>
-                            <dl class="">
-                                <dt><a href="javascript:void(0)">
-                                    <img src="../img/03.jpg" /></a></dt>
-                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                            </dl>
-                        </li>
-                        <li>
-                            <dl class="">
-                                <dt><a href="javascript:void(0)">
-                                    <img src="../img/03.jpg" /></a></dt>
-                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                            </dl>
-                        </li>
-                        <li>
-                            <dl class="">
-                                <dt><a href="javascript:void(0)">
-                                    <img src="../img/03.jpg" /></a></dt>
-                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                            </dl>
-                        </li>
-                        <li>
-                            <dl class="">
-                                <dt><a href="javascript:void(0)">
-                                    <img src="../img/03.jpg" /></a></dt>
-                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                            </dl>
-                        </li>
-                        <li>
-                            <dl class="">
-                                <dt><a href="javascript:void(0)">
-                                    <img src="../img/03.jpg" /></a></dt>
-                                <dd class=""><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                                <dd class="price"><b class="Item-price">￥360.00</b></dd>
-                            </dl>
-                        </li>
+                        <#list s as a>
+                            <#if a_index lt 6>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">${a.name?if_exists}</a></dd>
+                                        <dd class="price"><b class="Item-price">￥${a.salesMoney}</b></dd>
+                                    </dl>
+                                </li>
+                            </#if>
+                        </#list>
+
                     </ul>
                 </div>
                 <div class="floor-banner-img">
-                    <img src="../img/07.png" /><br />
-                    <img src="../img/08.png" />
+                    <#list s as a>
+                        <#if a_index == 6>
+                            <img src="../img/07.png" /><br />
+                        </#if>
+                        <#if a_index == 7>
+                            <img src="../img/07.png" /><br />
+                        </#if>
+                    </#list>
                 </div>
             </div>
             <div class="Floor-bottom">
                 <br />
                 <ul class="borderHover">
-                    <li>
-                        <dl class="Item-introduction">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="hot-cakes">（热销1285件）</dd>
-                            <dd class="Item-price"><b>￥360.00</b></dd>
-                            <dd><a class="Add-art" href="javascript:void(0)">
-                                <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="Item-introduction">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="hot-cakes">（热销1285件）</dd>
-                            <dd class="Item-price"><b>￥360.00</b></dd>
-                            <dd><a class="Add-art" href="javascript:void(0)">
-                                <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl class="Item-introduction">
-                            <dt><a href="javascript:void(0)">
-                                <img src="../img/03.jpg" /></a></dt>
-                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">Snoopy史努比 420ml不锈钢办公水杯DP-5002</a></dd>
-                            <dd class="hot-cakes">（热销1285件）</dd>
-                            <dd class="Item-price"><b>￥360.00</b></dd>
-                            <dd><a class="Add-art" href="javascript:void(0)">
-                                <img src="../img/icon-cart-add.png" /></a><a class="More" href="javascript:void(0)">MORE</a></dd>
-                        </dl>
-                    </li>
+                    <#list s as a>
+                        <#if a_index gt 7 && a_index lt 11>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">${a.name?if_exists}</a></dd>
+                                    <dd class="hot-cakes">（热销${a.num}件）</dd>
+                                    <dd class="Item-price"><b>￥${a.salesMoney}</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    <#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                        </#if>
+                    </#list>
+
                 </ul>
             </div>
         </div>
+    </#if>
+</#list>
 
-
-        <div class="FiveContent none">2</div>
+<#--        <div class="FiveContent none">2</div>
         <div class="FiveContent none">3</div>
         <div class="FiveContent none">4</div>
         <div class="FiveContent none">5</div>
         <div class="FiveContent none">6</div>
         <div class="FiveContent none">7</div>
-        <div class="FiveContent none">8</div>
+        <div class="FiveContent none">8</div>-->
 
 
 
@@ -998,9 +1017,6 @@
     </div>
     <!--底部includ-->
 <#include 'common/buttom.html' />
-
-
-
 
     <!--菜单栏展示第三级目录-->
     <#list goodsSortList as p>
@@ -1057,7 +1073,7 @@
         var cityId=$(obj).attr("cityid");
         $.ajax({
             type: "post",
-            url: "http://localhost:8081/getCity.htm",
+            url: "${rc.contextPath}/getCity.htm",
             data:{"id":cityId},
             dataType: "json",
             success: function(result) {
