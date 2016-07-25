@@ -13,19 +13,8 @@
 
 package cn.com.dyninfo.o2o.furniture.web.goods.widget;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Component;
-
 import cn.com.dyninfo.o2o.furniture.util.CookTool;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
-
-
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
@@ -34,8 +23,16 @@ import cn.com.dyninfo.o2o.furniture.web.goods.service.PagModInGoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.ProductService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.ShowGoodService;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
+import cn.com.dyninfo.o2o.furniture.web.member.service.CommentService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.FavoritesService;
+import cn.com.dyninfo.o2o.furniture.web.order.service.OrderProductServeice;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,6 +52,10 @@ public class ItemGoodsWidget extends AbstractGoodsWidget{
     private PagModInGoodsService pagModInGoodsService;
 	@Resource
 	private ShowGoodService showGoodService;
+	@Resource
+	private CommentService commentService;
+	@Resource
+	private OrderProductServeice orderProductServeice;
 	@Override
 	public String getWidgetId() {
 		return "item";
@@ -67,6 +68,11 @@ public class ItemGoodsWidget extends AbstractGoodsWidget{
 		
 		good=goodsService.getGoodsPrice(good_id);
 		if(good!=null&&good.getShelves().equals("0")){
+			PageInfo page2=new PageInfo();
+			page2.setPageSize(10);
+			Map map2=orderProductServeice.getListByPageWhere(new StringBuffer("and n.product="+good.getGoods_id()),page2);//
+
+			int num=commentService.getCountByWhere(new StringBuffer("and n.ginfo="+good.getGoods_id() ));
 			Double a=good.getActionMoney();
 			showGoodService.addShowLog(good_id, this.HttpRequest);
 			int favoritesNum=favoritesService.getCountByWhere(new StringBuffer(" and n.good.goods_id="+good.getGoods_id()));
@@ -107,6 +113,8 @@ public class ItemGoodsWidget extends AbstractGoodsWidget{
 			good.setActionMoney(a);
 //			System.out.println(good.getGoodMoney());
 			this.putData("good",good);
+			this.putData("num",num);
+			this.putData("orderList", map2.get("DATA"));
 			this.setTitle(good.getName());
 		}else{
 			

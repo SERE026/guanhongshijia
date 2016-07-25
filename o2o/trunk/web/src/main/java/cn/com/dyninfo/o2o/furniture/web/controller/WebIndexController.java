@@ -1,8 +1,8 @@
 package cn.com.dyninfo.o2o.furniture.web.controller;
 
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
-import cn.com.dyninfo.o2o.furniture.util.CityTool;
 import cn.com.dyninfo.o2o.furniture.util.CookTool;
+import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.web.active.model.Active;
 import cn.com.dyninfo.o2o.furniture.web.active.service.GameActiveService;
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaBase;
@@ -13,7 +13,13 @@ import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.PageModule;
-import cn.com.dyninfo.o2o.furniture.web.goods.service.*;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.PageModuleService;
+import cn.com.dyninfo.o2o.furniture.web.member.service.CommentService;
+import cn.com.dyninfo.o2o.furniture.web.order.model.Order;
+import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
 import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
 import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
@@ -21,6 +27,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
@@ -28,6 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by dyninfo on 2016/7/15.
@@ -40,7 +48,7 @@ public class WebIndexController{
     private GoodsSortService goodsSortService;
 
     @Resource
-    private GoodsTypeService goodsTypeService;
+    private OrderService orderService;
 
     @Resource
     private BrandService brandService;
@@ -58,6 +66,9 @@ public class WebIndexController{
     private AreaService areaService;
     @Resource
     private ShangJiaService shangJiaService;
+
+    @Resource
+    private CommentService commentService;
     /**
      * 首页页面
      * @param request
@@ -65,7 +76,6 @@ public class WebIndexController{
      */
     @RequestMapping(value= "/index" )
     public String index(HttpServletRequest request, ModelMap mav,HttpServletResponse response) {
-
     //获取城市地址
 //        Object obj=request.getSession().getAttribute(Context.SESSION_AEAR);
 //        if(obj==null){
@@ -85,8 +95,6 @@ public class WebIndexController{
 //                }
 //            }
 //        }
-
-
         //所有的分类  一级。二级,三级
         List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
         mav.addAttribute("goodsSortList",dataList);
