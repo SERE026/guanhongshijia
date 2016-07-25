@@ -9,6 +9,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,6 +43,8 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
     private CommonAdapter mlvAdapter;
     private FragmentAdapter mPageAdapter;
     private List<Fragment> pageList = new ArrayList<Fragment>();
+    private int mLvPosition;
+
 
     @Override
     protected void init() {
@@ -52,18 +55,34 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
         View titleView = inflater.inflate(R.layout.layout_title_main_go_back, null);
-        titleView. findViewById(R.id.tv_go_back).setOnClickListener(this);
+        titleView.findViewById(R.id.tv_go_back).setOnClickListener(this);
         tv_time = (TextView) titleView.findViewById(R.id.tv_time);
         return titleView;
     }
 
     @Override
     protected View onCreateSuccessView() {
-        view = inflater.inflate(R.layout.activity_commodity_category, null);
+        view = inflater.inflate(R.layout.activity_commodity_category_two, null);
         lv_item = (ListView) view.findViewById(R.id.lv_item);
         svp_special = (StopViewPage) view.findViewById(R.id.svp_special);
         bindData();
+        setListener();
         return view;
+    }
+
+    private void setListener() {
+        //设置listview点击
+        lv_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mList.get(mLvPosition).setColorSelector(false);
+                mLvPosition=position;
+                mList.get(position).setColorSelector(true);
+                mlvAdapter.notifyDataSetChanged();
+
+                svp_special.setCurrentItem(position);
+            }
+        });
     }
 
     /**
@@ -76,6 +95,7 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
                 Commodity_level_two_fragment fragment = new Commodity_level_two_fragment();
                 Bundle bundle = new Bundle();
                 //给一些参数
+                bundle.putString("ceshi",i+"凳子");
                 fragment.setArguments(bundle);
                 pageList.add(fragment);
             }
@@ -85,19 +105,24 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         svp_special.setAdapter(mPageAdapter);
 
     }
+
     private void bindData() {
         initData();
-        if(mlvAdapter==null){
-            mlvAdapter=  new CommonAdapter<Commodity_level_two>(this,mList,R.layout.item_lv_commodity_two) {
+        if (mlvAdapter == null) {
+            mlvAdapter = new CommonAdapter<Commodity_level_two>(this, mList, R.layout.item_lv_commodity_two) {
                 @Override
                 public void convert(ViewHolder helper, Commodity_level_two item, int position) {
-                        helper.setText(R.id.tv_two_name,"凳子");
-
-
+                    helper.setText(R.id.tv_two_name, "凳子");
+                    boolean colorSelector = item.isColorSelector();
+                    if(colorSelector) {
+                        helper.setBackgroundResource(R.id.tv_two_name, getResources().getColor(R.color.white));
+                    }else {
+                        helper.setBackgroundResource(R.id.tv_two_name,0);
+                    }
                 }
             };
             lv_item.setAdapter(mlvAdapter);
-        }else {
+        } else {
             mlvAdapter.notifyDataSetChanged();
         }
 
@@ -111,22 +136,24 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
     @Override
     protected void load() {
         mList = new ArrayList<>();
-        for (int i = 0; i <8 ; i++) {
+        for (int i = 0; i < 8; i++) {
             mList.add(new Commodity_level_two());
+
         }
+        mList.get(0).setColorSelector(true);
         showPageState(FrameLoadLayout.LoadResult.success);
     }
 
     @Subscribe(threadMode = ThreadMode.MainThread)
-   public void  onMainTimeEvent(TimeEvent time){
-        if(tv_time!=null){
+    public void onMainTimeEvent(TimeEvent time) {
+        if (tv_time != null) {
             tv_time.setText(time.getTime());
         }
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_go_back:
                 finish();
                 break;
@@ -138,6 +165,9 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
+
+
     class FragmentAdapter extends FragmentStatePagerAdapter {
 
         public FragmentAdapter(FragmentManager fm) {
@@ -146,12 +176,13 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
 
         @Override
         public Fragment getItem(int position) {
+
             return pageList.get(position);
         }
 
         @Override
         public int getCount() {
-            return mList.size();
+            return pageList.size();
         }
 
         @Override
@@ -165,6 +196,6 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         @Override
         public int getItemPosition(Object object) {
             return PagerAdapter.POSITION_NONE;
+        }
     }
-}
 }

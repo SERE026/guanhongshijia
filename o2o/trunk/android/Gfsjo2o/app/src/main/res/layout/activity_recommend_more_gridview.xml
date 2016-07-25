@@ -8,22 +8,13 @@
 
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="87dp"
-        android:drawableLeft="@drawable/icon_more"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:drawablePadding="10dp"
-        android:text="@string/main_classification"/>
-
     <GridView
         android:id="@+id/gv_more_recommend"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="45dp"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="5dp"
         android:layout_marginLeft="140dp"
         android:layout_marginRight="140dp"
         android:layout_marginBottom="53dp"

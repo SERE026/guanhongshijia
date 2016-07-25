@@ -39,7 +39,7 @@ public class MainMoreActivity extends BaseNewActivity implements View.OnClickLis
 
     @Override
     protected View onCreateSuccessView() {
-        view = inflater.inflate(R.layout.activity_more_shopping, null);
+        view = inflater.inflate(R.layout.activity_recommend_more_gridview, null);
         initView();
         return view;
     }

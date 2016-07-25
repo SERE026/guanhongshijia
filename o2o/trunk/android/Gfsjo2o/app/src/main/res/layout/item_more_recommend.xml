@@ -5,7 +5,7 @@
 
     <RelativeLayout
         android:id="@+id/rl_recommend_color"
-        android:layout_width="169dp"
+        android:layout_width="match_parent"
         android:layout_height="109dp"
         android:background="@color/color_2b323d"
         android:gravity="center"

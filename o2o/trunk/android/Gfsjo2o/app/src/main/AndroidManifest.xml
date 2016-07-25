@@ -39,8 +39,10 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             />
-
         <activity android:name=".Activity.UserCenterActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Activity.CommoditydetailsActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
 

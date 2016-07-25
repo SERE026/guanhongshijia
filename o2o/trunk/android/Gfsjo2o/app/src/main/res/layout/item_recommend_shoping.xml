@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/iv_shopping_pic"
-        android:layout_width="145.5dp"
+        android:layout_width="match_parent"
         android:layout_height="132.5dp"
         android:src="@drawable/icon_public_image"
         android:scaleType="fitXY"/>

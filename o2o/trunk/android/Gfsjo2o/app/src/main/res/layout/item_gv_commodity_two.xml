@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/iv_shopping_pic"
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+
+     >
+    <ImageView
+        android:id="@+id/iv_commodity_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/icon_public_classification"
+        />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/iv_commodity_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/classification_decorate"
+            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/black"
+            />
+    </RelativeLayout>
+</RelativeLayout>

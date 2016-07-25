@@ -15,8 +15,7 @@ import com.wckj.gfsj.R;
 import java.util.ArrayList;
 
 /**
- * Created by 小爱爱 on 2016/7/15.
- * 推荐
+ * 推荐更多商品
  */
 public class Main_recommend_fragment extends Fragment{
 
