@@ -65,6 +65,7 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()) {
             case R.id.tv_go_back:
                 finish();
@@ -72,13 +73,15 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
             case R.id.btn_my_order:
                 break;
             case R.id.btn_brokerage:
+                intent = new Intent(view.getContext(), MyOrderActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_user_info:
                 break;
             case R.id.btn_my_follow:
                 break;
             case R.id.btn_set_pwd:
-                Intent intent = new Intent(view.getContext(), SetPasswordActivity.class);
+                intent = new Intent(view.getContext(), SetPasswordActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_exit:

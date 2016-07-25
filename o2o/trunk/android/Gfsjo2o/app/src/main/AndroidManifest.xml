@@ -50,6 +50,10 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
 
+        <activity android:name=".Activity.MyOrderActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+
     </application>
 
 

@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.wckj.gfsj.Activity.MainActivity;
 import com.wckj.gfsj.Activity.UserCenterActivity;
 import com.wckj.gfsj.R;
-import com.wckj.gfsj.Utils.OwerToastShow;
 
 /**
  * Created by 小爱爱 on 2016/7/18.
@@ -53,12 +52,12 @@ public class User_fragment extends Fragment implements View.OnClickListener {
             case R.id.btn_login:
                 String userName = mEtUsername.getText().toString().trim();
                 String userPwd  = mEtPassword.getText().toString().trim();
-                if (userName.equals("123") && userPwd.equals("123")) {
+//                if (userName.equals("123") && userPwd.equals("123")) {
                     Intent intent = new Intent(view.getContext(), UserCenterActivity.class);
                     startActivityForResult(intent, INTO_USER_CENTER);
-                } else {
-                    OwerToastShow.show("用户名或密码错误");
-                }
+//                } else {
+//                    OwerToastShow.show("用户名或密码错误");
+//                }
                 break;
         }
     }

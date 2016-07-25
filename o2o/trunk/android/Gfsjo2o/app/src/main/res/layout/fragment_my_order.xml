@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="40dp"
+        android:drawableLeft="@drawable/icon_dollar"
+        android:drawablePadding="2dp"
+        android:text="总资产"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="27dp"
+        android:text="数据截至：2016.7.20"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_total"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="45dp"
+        android:text="0.00元"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tv_recently_brokerage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_money"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="45dp"
+        android:text="最近佣金提成：0元"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_total_brokerage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_money"
+        android:layout_toRightOf="@id/tv_recently_brokerage"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="45dp"
+        android:text="累计已获佣金：0元"
+        android:textSize="12sp"/>
+
+    <Button
+        android:id="@+id/btn_withdraw"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/tv_money"
+        android:layout_toRightOf="@id/tv_total_brokerage"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="77dp"
+        android:background="@color/color_4f2a2a"
+        android:gravity="center"
+        android:text="提现"
+        android:textColor="@color/white"
+        android:textSize="12sp"/>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="44dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_97888a"
+        android:layout_below="@id/tv_recently_brokerage"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="45dp"/>
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="44dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_97888a"
+        android:layout_below="@id/tv_recently_brokerage"
+        android:layout_toRightOf="@id/line1"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"/>
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="44dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_97888a"
+        android:layout_below="@id/tv_recently_brokerage"
+        android:layout_toRightOf="@id/line2"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"/>
+
+    <View
+        android:id="@+id/line4"
+        android:layout_width="44dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_97888a"
+        android:layout_below="@id/tv_recently_brokerage"
+        android:layout_toRightOf="@id/line3"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"/>
+
+    <View
+        android:id="@+id/line5"
+        android:layout_width="44dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_97888a"
+        android:layout_below="@id/tv_recently_brokerage"
+        android:layout_toRightOf="@id/line4"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"/>
+
+    <View
+        android:id="@+id/line6"
+        android:layout_width="44dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_97888a"
+        android:layout_below="@id/tv_recently_brokerage"
+        android:layout_toRightOf="@id/line5"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"/>
+
+    <View
+        android:id="@+id/line7"
+        android:layout_width="44dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_97888a"
+        android:layout_below="@id/tv_recently_brokerage"
+        android:layout_toRightOf="@id/line6"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_brokerage_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="45dp"
+        android:text="佣金获取明细"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_brokerage_detail"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="52dp"
+        android:text="日期"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_order_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_brokerage_detail"
+        android:layout_toRightOf="@id/tv_date"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="34dp"
+        android:text="订单号"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_deal_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_brokerage_detail"
+        android:layout_toRightOf="@id/tv_order_num"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="34dp"
+        android:text="商品成交价格"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_deduct_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_brokerage_detail"
+        android:layout_toRightOf="@id/tv_deal_price"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="34dp"
+        android:text="提成百分比"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_deduct_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_brokerage_detail"
+        android:layout_toRightOf="@id/tv_deduct_percent"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="34dp"
+        android:text="佣金提成金额"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_date1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="45dp"
+        android:text="16.7.20"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_order_num1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_order_num"
+        android:layout_toRightOf="@id/tv_date1"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="25dp"
+        android:text="20160720"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_deal_price1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_deal_price"
+        android:layout_toRightOf="@id/tv_order_num1"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="34dp"
+        android:text="2000000.00"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_deduct_percent1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_deduct_percent"
+        android:layout_toRightOf="@id/tv_deal_price1"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="56dp"
+        android:text="1%100"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_deduct_money1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_deduct_money"
+        android:layout_toRightOf="@id/tv_deduct_percent1"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="65dp"
+        android:text="2000.00"
+        android:textSize="12sp"/>
+
+</RelativeLayout>
