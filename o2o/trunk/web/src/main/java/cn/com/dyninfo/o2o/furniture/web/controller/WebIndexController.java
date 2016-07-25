@@ -9,6 +9,7 @@ import cn.com.dyninfo.o2o.furniture.web.address.model.AreaBase;
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
+import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.PageModule;
@@ -25,6 +26,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,9 +95,6 @@ public class WebIndexController{
         List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
         mav.addAttribute("advwzList",advwzList.get(0));
 
-        //显示抢购商品
-        List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
-        mav.addAttribute("activeList",activeList);
 
         //1F楼商品
         List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
@@ -118,6 +117,11 @@ public class WebIndexController{
         mav.addAttribute("goodsSortList4",goodsSortList4.get(0));
         mav.addAttribute("goodsList4",goodsList4);
 
+        //显示抢购商品
+        List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
+        mav.addAttribute("activeList",goodsList4);
+       // mav.addAttribute("activeList",activeList);
+
         //热卖商品/疯狂抢购/热评商品/新品上架/限时抢购
         List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REMAI_SKU));
         List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.QIANGGOU_SKU));
@@ -130,6 +134,23 @@ public class WebIndexController{
         mav.addAttribute("new", newList.get(0));
         mav.addAttribute("xianShi", xsList.get(0));
 
+        //5L综合系列
+        //获取品牌表数据
+        List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
+        mav.addAttribute("brandList", brandList);
+        //获取一级分类
+        List<GoodsSort> goodsSortList5 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
+        mav.addAttribute("goodsSortList5",goodsSortList5);
+        //根据一级分类ID 获取商品list
+        List<List<Goods>> lists=new ArrayList<List<Goods>>();
+        for (int i = 0; i <8; i++) {
+            int goodsSortId=1000101;
+                    //goodsSortList5.get(i).getGoodsSort_id();
+            List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortId));
+            lists.add(goodsList);
+
+        }
+        mav.addAttribute("lists",lists);
         return "/index";
     }
     /**
