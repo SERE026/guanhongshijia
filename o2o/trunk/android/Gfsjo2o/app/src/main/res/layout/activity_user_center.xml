@@ -98,42 +98,77 @@
             android:layout_below="@id/btn_my_follow"
             android:background="@color/color_e3e6eb"/>
 
-        <Button
-            android:id="@+id/btn_set_pwd"
+        <RelativeLayout
+            android:id="@+id/rl_set_pwd"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@id/btn_my_follow"
-            android:layout_marginTop="17dp"
-            android:background="@drawable/btn_user_center_style"
-            android:drawableRight="@drawable/icon_arrow"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="设置密码"
-            style="@style/item_text_style"/>
+            android:layout_marginTop="17dp">
+
+            <Button
+                android:id="@+id/btn_set_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_user_center_style"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="设置密码"
+                style="@style/item_text_style"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:text="未设置"
+                android:textColor="@color/color_959699"
+                android:textSize="11sp"/>
+        </RelativeLayout>
+
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_below="@id/btn_set_pwd"
+            android:layout_below="@id/rl_set_pwd"
             android:background="@color/color_e3e6eb"/>
 
-        <Button
-            android:id="@+id/btn_exit"
+        <RelativeLayout
+            android:id="@+id/rl_exit"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_below="@id/btn_set_pwd"
-            android:layout_marginTop="17dp"
-            android:background="@drawable/btn_user_center_style"
-            android:drawableRight="@drawable/icon_arrow"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="退出账号"
-            style="@style/item_text_style"/>
+            android:layout_below="@id/rl_set_pwd"
+            android:layout_marginTop="17dp">
+
+            <Button
+                android:id="@+id/btn_exit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_user_center_style"
+                android:drawableRight="@drawable/icon_arrow"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="退出账号"
+                style="@style/item_text_style"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:text="hsaih"
+                android:textColor="@color/color_959699"
+                android:textSize="11sp"/>
+
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_below="@id/btn_exit"
+            android:layout_below="@id/rl_exit"
             android:background="@color/color_e3e6eb"/>
 
     </RelativeLayout>
