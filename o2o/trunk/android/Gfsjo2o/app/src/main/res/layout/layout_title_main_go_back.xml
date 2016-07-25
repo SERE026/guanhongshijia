@@ -102,4 +102,60 @@
         android:textColor="@color/color_767f8e"
         android:textSize="22sp"
         />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_brand"
+        android:layout_marginTop="105dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_more_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="77.5dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_more_right"
+            />
+        <TextView
+            android:id="@+id/tv_brand_3"
+            android:layout_toLeftOf="@id/iv_more_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_767f8e"
+            android:textSize="18sp"
+            android:layout_marginRight="15dp"
+            />
+        <TextView
+            android:id="@+id/tv_brand_2"
+            android:layout_toLeftOf="@id/tv_brand_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_767f8e"
+            android:textSize="18sp"
+            android:layout_marginRight="15dp"
+            />
+        <TextView
+            android:id="@+id/tv_brand_1"
+            android:layout_toLeftOf="@id/tv_brand_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_767f8e"
+            android:textSize="18sp"
+            android:layout_marginRight="15dp"
+            />
+        <ImageView
+            android:id="@+id/iv_more_left"
+            android:layout_toLeftOf="@id/tv_brand_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_more_left"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+
 </RelativeLayout>

@@ -14,7 +14,7 @@ import com.wckj.gfsj.R;
  * @author win 7
  *
  */
-public class RefreshListView extends GridViewWithHeaderAndFooter implements OnScrollListener{
+public class LoadGridView extends GridViewWithHeaderAndFooter implements OnScrollListener{
 
 	private View footerView;
 	private int footerViewHeight;
@@ -26,12 +26,12 @@ public class RefreshListView extends GridViewWithHeaderAndFooter implements OnSc
 
 	private boolean isLoadingMore = false;//当前是否正在处于加载更多
 
-	public RefreshListView(Context context) {
+	public LoadGridView(Context context) {
 		super(context);
 		init();
 	}
 
-	public RefreshListView(Context context, AttributeSet attrs) {
+	public LoadGridView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init();
 	}
