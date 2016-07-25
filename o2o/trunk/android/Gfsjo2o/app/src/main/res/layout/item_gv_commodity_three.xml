@@ -36,7 +36,7 @@
             android:gravity="center"
             android:text="￥7900"
             android:textSize="13sp"
-            android:textColor="color/color_892e1c"
+            android:textColor="@color/color_892e1c"
             android:background="@color/white"/>
     </RelativeLayout>
 
