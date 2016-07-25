@@ -425,3 +425,43 @@ ${widget_area}
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    //切换城市 更改体验馆数据
+    function changeCity(obj){
+        var cityId=$(obj).attr("cityid");
+        $.ajax({
+            type: "post",
+            url: "${rc.contextPath}/getCity.htm",
+            data:{"id":cityId},
+            dataType: "json",
+            success: function(result) {
+                var area=result;
+                if(area!=null){
+                    $("#area").empty();
+                    var _html = ['<b id=>'+area.name+'<label>'+area.num+'</label>家</b>'];
+                    $("#area").append(_html.join(''));
+                }else{
+                    $("#area").empty();
+                }
+            },
+            error: function (a,b,c,d) {
+                alert("数据错误");
+            }
+        });
+    }
+// 搜索按钮
+$(".search").click(function () {
+    var date=$(".Search-Text").val();
+    if(date==''||date==null){
+        alert("请输入搜索的宝贝！");
+    }
+    var html = "<form id=\"searchFrom\" action=\"" + servicePath + "/goodSearch.html\" method=\"post\">";
+    html += "<input type=\"hidden\" name=\"key\" value=\"" + $(".Search-Text").val() + "\">";
+    html += "</form>";
+    if($(".Search-Text").val().length>0){
+        $(window.document.body).append(html);
+        $("#searchFrom").submit();
+    }
+});
+
+</script>
