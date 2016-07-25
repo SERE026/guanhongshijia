@@ -22,7 +22,7 @@
             <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
             <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
             <ul class="head-ul">
-                <li><a href="${rc.contextPath}/login.html">我的信息</a></li>
+                <li><a href="${rc.contextPath}/huiyuan_order.html">我的信息</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
                 <li><a href="javascript:void(0)">关注观红世家</a></li>
                 <li><a href="javascript:void(0)">客服中心</a></li>
@@ -238,7 +238,7 @@
                     <span class="search">
                         <i></i>
                         <label>搜索</label></span>
-                <a class="My-mall font14" href="${rc.contextPath}/login.html">我的商城</a>
+                <a class="My-mall font14" href="${rc.contextPath}/huiyuan_order.html">我的商城</a>
                 <a class="settlement font14" href="${rc.contextPath}/cars.html">购物车结算</a>
             </div>
             <div>
