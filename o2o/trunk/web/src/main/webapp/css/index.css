@@ -105,12 +105,12 @@ ul li {float:left;list-style-type:none;
     }
 .head-logo .Switch-city {border:1px solid #ccc;font-size:12px;padding:1px 4px;margin-left: 0.5em;
 }
-.hide_city_group {position:absolute;top:9px;left:33px;display:none;
+.hide_city_group {position:absolute;top:0px;left:37px;display:none;
 }
 
 .hideMap {
     width: 400px;
-    height: 336px;
+    height: 297px;
     padding: 10px 15px;
     border: solid 1px #ca033c;
     background: #fff;
@@ -147,7 +147,7 @@ ul li {float:left;list-style-type:none;
 }
 .showPanel2 {
     padding-top: 10px;
-    height: 82px;
+    height: 33px;
 }
 .hot_city a {
     display: inline-block;
@@ -155,9 +155,6 @@ ul li {float:left;list-style-type:none;
     line-height: 19px;
     margin-right: 2px;
     color: #444;
-}
-.mt10 {
-    margin-top: -10px;
 }
 #atg_store_logo a {
 	display: inline-block; 
@@ -188,6 +185,7 @@ ul li {float:left;list-style-type:none;
 }
 .icity_names {line-height:20px;
 }
+.icity_names .icity_names_a{color: #666;}
 .search_city_submit {
     border: 1px solid #bbb;
     display: inline-block;
@@ -213,7 +211,7 @@ ul li {float:left;list-style-type:none;
     font-size: 14px;
 }
 .scrollBody{
-    height: 201px;
+    height: 207px;
     overflow: auto;
 }
 .icity_names_wrap{
