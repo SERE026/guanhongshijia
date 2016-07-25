@@ -3,23 +3,13 @@ package cn.com.dyninfo.o2o.communication;
 import cn.com.dyninfo.o2o.communication.common.BaseRequest;
 
 /**
- * 登录请求类
- * request URL: https://serverurl/app/login
+ * 设置锁定密码请求类
+ * request URL: https://serverurl/app/lockPassword
  * request method: post
  */
-public class LoginRequest extends BaseRequest {
-
-    private String userName;
+public class LockPasswordRequest extends BaseRequest {
 
     private String password;
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public String getPassword() {
         return password;

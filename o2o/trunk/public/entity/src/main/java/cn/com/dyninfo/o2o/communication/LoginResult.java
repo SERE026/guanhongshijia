@@ -10,6 +10,8 @@ public class LoginResult extends BaseResult {
     //登录成功后返回
     private String token;
 
+    private String userId;
+
     //用户名
     private String loginName;
 
@@ -38,5 +40,13 @@ public class LoginResult extends BaseResult {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

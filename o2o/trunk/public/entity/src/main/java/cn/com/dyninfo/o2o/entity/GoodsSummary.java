@@ -7,22 +7,13 @@ import cn.com.dyninfo.o2o.entity.common.BaseEntity;
  */
 public class GoodsSummary extends BaseEntity {
 
-    //商品ID
-    private Integer id;
-
     //商品显示图片
     private String mainPicUrl;
 
     //商品名称
     private String title;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private double price;
 
     public String getMainPicUrl() {
         return mainPicUrl;
@@ -38,5 +29,13 @@ public class GoodsSummary extends BaseEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

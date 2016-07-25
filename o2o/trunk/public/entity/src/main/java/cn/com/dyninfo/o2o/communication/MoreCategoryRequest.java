@@ -3,9 +3,9 @@ package cn.com.dyninfo.o2o.communication;
 import cn.com.dyninfo.o2o.communication.common.BaseRequest;
 
 /**
- * 启动请求类
- * request URL: https://serverurl/app/startup
+ * 更多分类列表请求类
+ * request URL: https://serverurl/app/moreCategory
  * request method: post
  */
-public class StartupRequest extends BaseRequest {
+public class MoreCategoryRequest extends BaseRequest {
 }
