@@ -13,23 +13,13 @@
 
 package cn.com.dyninfo.o2o.furniture.web.order.service.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.stereotype.Service;
-
+import cn.com.dyninfo.o2o.furniture.admin.model.Coupon;
+import cn.com.dyninfo.o2o.furniture.admin.service.BaseService;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponMeberRelService;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.TradeUtil;
-
-import cn.com.dyninfo.o2o.furniture.admin.service.BaseService;
+import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.active.dao.GameActiveDAO;
 import cn.com.dyninfo.o2o.furniture.web.active.model.Active;
 import cn.com.dyninfo.o2o.furniture.web.active.model.ActiveMemberInfo;
@@ -44,10 +34,6 @@ import cn.com.dyninfo.o2o.furniture.web.member.dao.HuiyuanMoneyDAO;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AddressMember;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.model.Loginfo;
-import cn.com.dyninfo.o2o.furniture.web.score.dao.JfaddDao;
-import cn.com.dyninfo.o2o.furniture.web.score.dao.JffaDao;
-import cn.com.dyninfo.o2o.furniture.web.score.model.Jfadd;
-import cn.com.dyninfo.o2o.furniture.web.score.model.Jffa;
 import cn.com.dyninfo.o2o.furniture.web.order.dao.CarsDAO;
 import cn.com.dyninfo.o2o.furniture.web.order.dao.OrderDao;
 import cn.com.dyninfo.o2o.furniture.web.order.model.CarsBox;
@@ -55,13 +41,24 @@ import cn.com.dyninfo.o2o.furniture.web.order.model.Order;
 import cn.com.dyninfo.o2o.furniture.web.order.model.OrderProduct;
 import cn.com.dyninfo.o2o.furniture.web.order.model.Trade;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
-import cn.com.dyninfo.o2o.furniture.web.setting.dao.ZffsDao;
-import cn.com.dyninfo.o2o.furniture.web.setting.model.Zffs;
 import cn.com.dyninfo.o2o.furniture.web.publish.dao.MerchantMoneyDAO;
 import cn.com.dyninfo.o2o.furniture.web.publish.dao.ShangJiaDao;
 import cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo;
+import cn.com.dyninfo.o2o.furniture.web.score.dao.JfaddDao;
+import cn.com.dyninfo.o2o.furniture.web.score.dao.JffaDao;
+import cn.com.dyninfo.o2o.furniture.web.score.model.Jfadd;
+import cn.com.dyninfo.o2o.furniture.web.score.model.Jffa;
+import cn.com.dyninfo.o2o.furniture.web.setting.dao.ZffsDao;
+import cn.com.dyninfo.o2o.furniture.web.setting.model.Zffs;
 import cn.com.dyninfo.o2o.furniture.web.wuliu.dao.DlytypeDao;
 import cn.com.dyninfo.o2o.furniture.web.wuliu.model.Dlytype;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 @Service("orderService")
@@ -108,7 +105,13 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 		
 		@Resource
 		private HuiyuanMoneyDAO huiyuanMoneyDAO;
-		
+
+		@Resource
+		private CouponMeberRelService couponMeberRelService;
+
+		@Resource
+		private CouponService couponService;
+
 	    @Override
 	    public void initDao(){
 	    	super.initDao();
@@ -624,11 +627,17 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 				Jfadd g_j=(Jfadd) jfaddDao.getObjById("1");//在归属商店购物时获得积分
 				Jfadd p_j=(Jfadd) jfaddDao.getObjById("2");//在平台购物时获得积分
 				Jffa  j_x=(Jffa) jffaDao.getObjById("1");
-				String point=request.getParameter("p");
+				String point=null;
+						//request.getParameter("p");
 				if(point==null||point.length()==0){
 					point="0";
 				}
 				int curentPoint=Integer.parseInt(point);
+
+				if(dlyType==null){
+					return false;
+				}
+
 				if(dlyType==null){
 					return false;
 				}
@@ -763,7 +772,7 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							if(dlyType.equals("0")){
 								dlyprice=0.0;
 							}
-							
+
 							order.setTradeNo(tradeNo);
 							order.setPlayType(zfInfo);
 							order.setDly(dlyType);
@@ -785,6 +794,67 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							if(accountStr!=null){
 								order.setAccount(0);
 							}
+
+							//优惠卷使用
+							boolean flag=false;
+							String coupons=request.getParameter("coupons");
+							//获取优惠卷ID    1=满立减  2=折扣
+								String[] arr=coupons.split(",");
+								if (arr.length>0){
+									flag=true;
+								}
+
+							Double constraintPrice=0.0;//优惠卷达到该金额才可使用
+							Double maxAmouontPrice=0.0;//最大抵扣金额
+							Double reducePrice=0.0;//满减使用，抵扣金额
+							Double constraintPrice2=0.0;//优惠卷达到该金额才可使用
+							Double maxAmouontPrice2=0.0;//最大抵扣金额
+							Double reducePrice2=0.0;//折扣使用，抵扣金额
+							//计算出 type=1的优惠卷总金额
+							if (arr.length>1 && !ValidationUtil.isEmpty(coupons)){
+								for (int i = 0; i <arr.length; i++) {
+									Coupon coupon1=(Coupon)couponService.getObjById(arr[i]);
+									if(1==coupon1.getSameUse()){
+										if(1==coupon1.getType()){
+											constraintPrice=constraintPrice+coupon1.getConstraintValue();
+											maxAmouontPrice=maxAmouontPrice+coupon1.getMaxAmouont();
+											reducePrice=reducePrice+coupon1.getReduceValue();
+										}
+										if(2==coupon1.getType()){
+											constraintPrice2=constraintPrice2+coupon1.getConstraintValue();
+											maxAmouontPrice2=maxAmouontPrice2+coupon1.getMaxAmouont();
+											reducePrice2=reducePrice2+goodPrice*coupon1.getDiscountValue();//折扣率
+										}
+									}else{
+										return false;
+									}
+								}
+							}else if(arr.length==1&&!ValidationUtil.isEmpty(coupons)){
+								Coupon coupon1=(Coupon)couponService.getObjById(arr[0]);
+								if(1==coupon1.getType()){
+									constraintPrice=constraintPrice+coupon1.getConstraintValue();
+									maxAmouontPrice=maxAmouontPrice+coupon1.getMaxAmouont();
+									reducePrice=reducePrice+coupon1.getReduceValue();
+								}
+								if(2==coupon1.getType()){
+									constraintPrice2=constraintPrice2+coupon1.getConstraintValue();
+									maxAmouontPrice2=maxAmouontPrice2+coupon1.getMaxAmouont();
+									reducePrice2=reducePrice2+goodPrice*coupon1.getDiscountValue();//折扣率
+								}
+							}
+							//扣减优惠金额  满立减
+							if (constraintPrice<=goodPrice && maxAmouontPrice<=goodPrice && flag){
+								goodPrice=goodPrice-reducePrice;
+							}else if (constraintPrice>goodPrice || maxAmouontPrice>goodPrice){
+								return false;
+							}
+							//扣减 折扣 的金额
+							if (constraintPrice2<=goodPrice && maxAmouontPrice2<=goodPrice && flag){
+								goodPrice=goodPrice-reducePrice2;
+							}else if (constraintPrice>goodPrice || maxAmouontPrice>goodPrice){
+								return false;
+							}
+
 							order.setShippingPrice(dlyprice);
 							order.setStatus("0");
 							order.setOriginalPrice(goodPrice+dlyprice+protectPrice);
