@@ -1,7 +1,9 @@
 package com.wckj.gfsj.Activity;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Bean.TimeEvent;
@@ -17,6 +19,7 @@ import de.greenrobot.event.ThreadMode;
  */
 public class CommoditydetailsActivity extends BaseNewActivity implements View.OnClickListener{
     private TextView tv_time;
+    private Button bt_buy;
 
     @Override
     protected void init() {
@@ -37,6 +40,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     @Override
     protected View onCreateSuccessView() {
         View view = inflater.inflate(R.layout.activity_commodity_details, null);
+        bt_buy = (Button) view.findViewById(R.id.bt_buy);
+        bt_buy.setOnClickListener(this);
         return view;
     }
 
@@ -62,6 +67,9 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         switch (v.getId()){
             case R.id.tv_go_back:
                 finish();
+                break;
+            case R.id.bt_buy:
+                startActivity(new Intent(this,ShoppingCartActivity.class));
                 break;
         }
     }
