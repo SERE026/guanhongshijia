@@ -14,6 +14,7 @@
 package cn.com.dyninfo.o2o.furniture.web.order.service.impl;
 
 import cn.com.dyninfo.o2o.furniture.admin.model.Coupon;
+import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
 import cn.com.dyninfo.o2o.furniture.admin.service.BaseService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponMeberRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;

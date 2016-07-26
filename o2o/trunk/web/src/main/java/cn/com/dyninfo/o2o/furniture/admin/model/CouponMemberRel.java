@@ -1,5 +1,6 @@
 package cn.com.dyninfo.o2o.furniture.admin.model;
 
+import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import org.hibernate.annotations.AccessType;
 
 import javax.persistence.*;
@@ -10,16 +11,17 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name="t_coupon_member_rel")
-public class CouponMemberRel implements Serializable {
+public class CouponMemberRel {
     @Id
     @AccessType(value = "property")
     @Column(name="ID")
     private int id;
 
+
     @AccessType(value = "property")
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="MEMBER_ID")
-    private UserInfo user;
+    private HuiyuanInfo huiyuan;
 
     @AccessType(value = "property")
     @ManyToOne(fetch=FetchType.LAZY)
@@ -38,9 +40,14 @@ public class CouponMemberRel implements Serializable {
 
     public void setId(int id) { this.id = id; }
 
-    public UserInfo getUser() { return user; }
 
-    public void setUser(UserInfo user) { this.user = user; }
+    public HuiyuanInfo getHuiyuan() {
+        return huiyuan;
+    }
+
+    public void setHuiyuan(HuiyuanInfo huiyuan) {
+        this.huiyuan = huiyuan;
+    }
 
     public Coupon getCoupon() { return coupon; }
 

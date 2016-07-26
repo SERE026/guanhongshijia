@@ -30,15 +30,18 @@
 
 <div>
 
-    <div class="g2_kuai22">
-        <div class="g2_kuai_daxuan coupon"><input name="coupon" type="checkbox" checked="checked" value="1" /></div>
-        <div class="g2_kuai_zi">使用优惠券</div>
-        <div class="g2_kuai_zi">&nbsp;&nbsp;&nbsp;&nbsp;
-            满一百减20
-        </div>
-    </div>
+    <#list couponMemberRelList as p>
 
     <div class="g2_kuai22">
+        <div class="g2_kuai_daxuan coupon"><input name="coupon" type="checkbox" checked="checked" value=" ${p.coupon.id}" /></div>
+        <div class="g2_kuai_zi">使用优惠券</div>
+        <div class="g2_kuai_zi">&nbsp;&nbsp;&nbsp;&nbsp;
+            ${p.coupon.name}
+        </div>
+    </div>
+    </#list>
+
+  <div class="g2_kuai22">
         <div class="g2_kuai_daxuan coupon"><input name="coupon" type="checkbox" value="2" /></div>
         <div class="g2_kuai_zi">使用优惠券</div>
         <div class="g2_kuai_zi">&nbsp;&nbsp;&nbsp;&nbsp;

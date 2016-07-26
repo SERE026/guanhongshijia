@@ -13,17 +13,11 @@
 
 package cn.com.dyninfo.o2o.furniture.web.order.widget;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
+import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponMeberRelService;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.util.ForwordTool;
 import cn.com.dyninfo.o2o.furniture.util.ResponseUtil;
-
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
@@ -32,11 +26,17 @@ import cn.com.dyninfo.o2o.furniture.web.member.model.AddressMember;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.AddressMemberService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
-import cn.com.dyninfo.o2o.furniture.web.score.model.Jffa;
-import cn.com.dyninfo.o2o.furniture.web.score.service.JffaService;
 import cn.com.dyninfo.o2o.furniture.web.order.model.Order;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
+import cn.com.dyninfo.o2o.furniture.web.score.model.Jffa;
+import cn.com.dyninfo.o2o.furniture.web.score.service.JffaService;
 import cn.com.dyninfo.o2o.furniture.web.setting.service.ZffsService;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @Component("confirmOrder")
 @Scope("prototype")
@@ -58,6 +58,12 @@ public class ConfirmOrderWidget extends  Widget {
 	
 	@Resource
 	private HuiyuanService huiyuanService;
+
+	@Resource
+	private CouponMeberRelService couponMeberRelService;
+
+	@Resource
+	private CouponService couponService;
 	
 	
 	@Override
@@ -83,7 +89,9 @@ public class ConfirmOrderWidget extends  Widget {
 			this.putData("j_x", j_x.getJffa_jfdk());
 			member =(HuiyuanInfo) huiyuanService.getObjById(""+member.getHuiYuan_id());
 			this.putData("h_x", member.getJf());
-			
+			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMeberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+member.getHuiYuan_id()));
+			this.putData("couponMemberRelList",couponMemberRelList);
+
 			
 		}else if(action.equals("phone")){//生成订单确认信息
 			

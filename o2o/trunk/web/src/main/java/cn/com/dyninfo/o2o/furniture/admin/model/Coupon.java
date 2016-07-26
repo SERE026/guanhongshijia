@@ -15,8 +15,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="t_coupon")
-public class Coupon implements Serializable {
-
+public class Coupon {
 
     @Id
     @AccessType(value = "property")
