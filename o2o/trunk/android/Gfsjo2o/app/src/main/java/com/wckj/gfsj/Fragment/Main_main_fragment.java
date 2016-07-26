@@ -1,5 +1,6 @@
 package com.wckj.gfsj.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import com.dalong.francyconverflow.FancyCoverFlow;
+import com.wckj.gfsj.Activity.CommoditydetailsActivity;
 import com.wckj.gfsj.Adapter.MyFancyCoverFlowAdapter;
-import com.wckj.gfsj.Bean.Commodity_level_one;
+import com.wckj.gfsj.Bean.Commodity_level_details;
 import com.wckj.gfsj.R;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 public class Main_main_fragment extends Fragment{
     private FancyCoverFlow mfancyCoverFlow;
     private View view;
-    private ArrayList<Commodity_level_one> mList;
+    private ArrayList<Commodity_level_details> mList;
     private MyFancyCoverFlowAdapter mMyFancyCoverFlowAdapter;
 
     @Override
@@ -33,7 +35,7 @@ public class Main_main_fragment extends Fragment{
     private void  initScroView() {
         mList = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            mList.add( new Commodity_level_one());
+            mList.add( new Commodity_level_details());
         }
         mfancyCoverFlow = (FancyCoverFlow) view.findViewById(R.id.fancyCoverFlow);
         mMyFancyCoverFlowAdapter = new MyFancyCoverFlowAdapter(view.getContext(), mList);
@@ -53,10 +55,8 @@ public class Main_main_fragment extends Fragment{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //              Item homeFancyCoverFlow = (Item) mfancyCoverFlow.getSelectedItem();
-//              if (homeFancyCoverFlow != null) {
-//                  Toast.makeText(MainActivity.this,homeFancyCoverFlow.getName(),Toast.LENGTH_SHORT).show();
-//              }
-
+                Intent intent = new Intent(view.getContext(), CommoditydetailsActivity.class);
+                startActivity(intent);
             }
 
             @Override

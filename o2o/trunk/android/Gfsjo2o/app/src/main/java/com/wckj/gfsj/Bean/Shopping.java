@@ -1,7 +1,7 @@
 package com.wckj.gfsj.Bean;
 
 /**
- * Created by admin on 2016/7/19.
+ *简单商品
  */
 public class Shopping {
     private String shopingUrl;

@@ -1,8 +1,8 @@
 package com.wckj.gfsj.Bean;
 
 /**
- * Created by Administrator on 2016/7/23.
+ * 商品详情
  */
-public class Commodity_level_details {
+public class Commodity_level_details extends  Shopping{
 
 }

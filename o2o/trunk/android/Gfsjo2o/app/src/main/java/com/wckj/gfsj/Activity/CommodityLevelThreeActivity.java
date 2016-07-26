@@ -1,7 +1,9 @@
 package com.wckj.gfsj.Activity;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -57,7 +59,18 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
         view = inflater.inflate(R.layout.activity_commodity_three, null);
         gv_commodity_three = (GridView) view.findViewById(R.id.gv_commodity_three);
         bindData();
+        setListener();
         return view;
+    }
+
+    private void setListener() {
+        gv_commodity_three.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent= new Intent(view.getContext(), CommoditydetailsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void bindData() {

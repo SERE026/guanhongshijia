@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.wckj.gfsj.Activity.CommoditydetailsActivity;
+import com.wckj.gfsj.Activity.CommodityLevelThreeActivity;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.Commodity_level_three;
@@ -52,7 +52,7 @@ public class Commodity_level_two_fragment extends Fragment{
         gv_two_commodity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               Intent intent= new Intent(view.getContext(), CommoditydetailsActivity.class);
+               Intent intent= new Intent(view.getContext(), CommodityLevelThreeActivity.class);
                startActivity(intent);
             }
         });

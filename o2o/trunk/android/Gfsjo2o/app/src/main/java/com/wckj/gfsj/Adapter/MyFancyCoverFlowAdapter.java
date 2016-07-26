@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.dalong.francyconverflow.FancyCoverFlow;
 import com.dalong.francyconverflow.FancyCoverFlowAdapter;
+import com.wckj.gfsj.Bean.Commodity_level_details;
 import com.wckj.gfsj.Bean.Commodity_level_one;
 import com.wckj.gfsj.R;
 
@@ -21,9 +22,9 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
 
     private Context mContext;
 
-    public List<Commodity_level_one> mList;
+    public List<Commodity_level_details> mList;
 
-    public MyFancyCoverFlowAdapter(Context context, List<Commodity_level_one> list) {
+    public MyFancyCoverFlowAdapter(Context context, List<Commodity_level_details> list) {
         mContext = context;
         this.mList = list;
     }
