@@ -53,8 +53,8 @@ $(function(){
 	$(".create").click(function(){
 		new createOrder();
 	})
-	
-	
+
+
 })  
 function addSite(){
 	var site={
@@ -220,7 +220,7 @@ function createOrder(){
 		},
 		getPoint:function(){
 			_order.point=true;
-			if($(".memj").val().length>0){
+/*			if($(".memj").val().length>0){
 				$.ajax({
 					  type: 'POST',
 					  url: servicePath+"/widget.html",
@@ -239,7 +239,7 @@ function createOrder(){
 					  		}
 					  }
 				});
-			}
+			}*/
 			if(_order.point){
 				_order.create();
 			}
@@ -257,9 +257,14 @@ function createOrder(){
 					postData+="&receiveDate="+$("input[name='receiveDate']:checked").val();
 					postData+="&o_i="+Math.random();
 					postData+="&p="+$(".memj").val();
-					
-					
-					
+
+				//获取优惠卷ID字符串
+				var coupons="";
+				$("input[name='coupon']:checked").each(function(){
+					coupons+=$(this).val()+",";
+				})
+				postData+="&coupons="+coupons;
+				
 				$(".shop").each(function(){
 					var shop=$(this).attr("s_id");
 					if($("input[name='dlyType']:checked").val()=="1"){
