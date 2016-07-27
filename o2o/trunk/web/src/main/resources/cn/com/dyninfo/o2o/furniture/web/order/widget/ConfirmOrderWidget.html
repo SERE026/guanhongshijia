@@ -102,7 +102,10 @@
   </tr>
 </table>
 </div>
-<div class="ga_an2"><a href="javascript:;" class="zhu25 create">提交订单</a></div>
+<div class="ga_an2">
+   <!-- <a href="javascript:;" class="zhu25 create">提交订单</a>-->
+    <a href="javascript:;" class="zhu25 aaa">提交订单</a>
+</div>
 <div class="clear">&nbsp;</div>
 <div class="g2_biaobot_zi"></div>
 
@@ -112,15 +115,18 @@
 
 
 
+<script>
+    $(".aaa").click(function(){
+        var money5=0;
+        $(".z_m").each(function(){
+            money5+=parseFloat($(this).html());
+        });
 
+        alert(money5);
+    });
 
-
-
-
-
-
-
-
+    //$(".orderMoney").html("应付总额：¥"+money5.toFixed(2));
+</script>
 
 
 </div>
