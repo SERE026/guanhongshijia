@@ -12,6 +12,7 @@ public class FileUtil {
 
     public static void setPermission(String fileName) {
         log.error("change mod for: " + fileName);
+        log.error("os is: " + System.getProperty("os.name"));
         if (!System.getProperty("os.name").toLowerCase().startsWith("windows")) {
             try {
                 Runtime.getRuntime().exec("chmod 644 " + fileName);
