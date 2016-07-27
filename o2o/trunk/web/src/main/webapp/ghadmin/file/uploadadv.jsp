@@ -54,6 +54,7 @@ FileItem fileItem=null;
 	Iterator iterator = fileItems.iterator();
 	AttachmentInfo attachmentInfo = new AttachmentInfo();
 	//
+		log.error("before while");
 	while(iterator.hasNext()) {
 		FileItem item = (FileItem)iterator.next();
 		if (item.isFormField()) {//字段
@@ -71,6 +72,7 @@ FileItem fileItem=null;
 			attachmentInfo.setFileSize(size);
 		}
 	}
+		log.error("after while");
 	//
 	attachmentInfo.setUploadTime(sdf.format(new Date()));
 	attachmentService.addObj(attachmentInfo);
@@ -78,6 +80,7 @@ FileItem fileItem=null;
 	if(fileItem!=null){
 		fileItem.write(new File(fileName));
 	}
+		log.error("after2");
 	if(fileName.toUpperCase().endsWith("JPG")||fileName.toUpperCase().endsWith("JPEG")){
 		 // 找一个reader   
 	    Iterator readers = ImageIO.getImageReadersByFormatName("JPEG");  
@@ -87,21 +90,25 @@ FileItem fileItem=null;
 	        if (reader.canReadRaster()) {  
 	           break;  
 	    		}  
-	 		}  
+	 		}
+		log.error("after3");
 	  // 设置input.   
 	   ImageInputStream input = ImageIO.createImageInputStream(new File(fileName));
 	    reader.setInput(input);  
 	   // 创建图片.   
-	   BufferedImage image;  
+	   BufferedImage image;
+		log.error("after4");
 	    try {
 	  	  image = reader.read(0); 
 	  	  response.getWriter().write("OK");
 	  	response.getWriter().close();
 	  	  
 	    }catch (Exception ex1) {
+			log.error("exception", ex1);
 	    	response.getWriter().write("NO");
 	    	response.getWriter().close();
 	    }
+		log.error("brefore close");
 	    input.close();
 		log.error("CALL FILEUTIL");
         FileUtil.setPermission(fileName);
