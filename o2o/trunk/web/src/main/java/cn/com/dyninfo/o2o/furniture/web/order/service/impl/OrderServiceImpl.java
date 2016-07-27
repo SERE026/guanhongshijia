@@ -14,9 +14,8 @@
 package cn.com.dyninfo.o2o.furniture.web.order.service.impl;
 
 import cn.com.dyninfo.o2o.furniture.admin.model.Coupon;
-import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
 import cn.com.dyninfo.o2o.furniture.admin.service.BaseService;
-import cn.com.dyninfo.o2o.furniture.admin.service.CouponMeberRelService;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.TradeUtil;
@@ -53,7 +52,6 @@ import cn.com.dyninfo.o2o.furniture.web.setting.dao.ZffsDao;
 import cn.com.dyninfo.o2o.furniture.web.setting.model.Zffs;
 import cn.com.dyninfo.o2o.furniture.web.wuliu.dao.DlytypeDao;
 import cn.com.dyninfo.o2o.furniture.web.wuliu.model.Dlytype;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -108,7 +106,7 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 		private HuiyuanMoneyDAO huiyuanMoneyDAO;
 
 		@Resource
-		private CouponMeberRelService couponMeberRelService;
+		private CouponMemberRelService couponMemberRelService;
 
 		@Resource
 		private CouponService couponService;

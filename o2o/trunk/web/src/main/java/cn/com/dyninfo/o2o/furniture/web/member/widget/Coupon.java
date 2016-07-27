@@ -54,7 +54,7 @@ public class Coupon extends AbstractMemberWidget{
 			String pageSize=(String) pamtr.get("pageSize");
 			page.setPageNo(Integer.parseInt(pageNo));
 			page.setPageSize(Integer.parseInt(pageSize));
-			Map map=couponMemberRelService.getListByPageWhere(new StringBuffer(" and  n.huiyuan="+huiyuan.getHuiYuan_id()), page);
+			Map map=couponMemberRelService.getListByPageWhere(new StringBuffer(" and  n.huiyuan="+huiyuan.getHuiYuan_id()+" order by n.coupon.endTime asc"), page);
 			this.putData("data", map.get("DATA"));
 			this.setPageName("Coupon2.html");
 		}else if(action.equals("getTotale")){

@@ -89,7 +89,7 @@ public class ConfirmOrderWidget extends  Widget {
 			this.putData("j_x", j_x.getJffa_jfdk());
 			member =(HuiyuanInfo) huiyuanService.getObjById(""+member.getHuiYuan_id());
 			this.putData("h_x", member.getJf());
-			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+member.getHuiYuan_id()));
+			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+member.getHuiYuan_id()+" order by n.coupon.endTime asc"));
 			this.putData("couponMemberRelList",couponMemberRelList);
 
 			
