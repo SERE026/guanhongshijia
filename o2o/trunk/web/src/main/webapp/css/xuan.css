@@ -685,7 +685,8 @@ img{border:0px;}
 .huiyuan_dingdan{ width:auto; height:auto;}
 .huiyuan_k{width:962px; height:auto;border:#d5d5d5 solid 1px;margin-left:5px; border-top:none;}
 .huiyuan_k_a{ width:425px; height:auto;float:left;border-right:#eae6e7 solid 1px;}
-.huiyuan_xinxi{ width:425px; height:auto; border-bottom:#e6e6e6 solid 1px;}
+.huiyuan_xinxi{ width:425px; height:auto; border-bottom:#e6e6e6 solid 1px;margin-top: 40px;overflow: hidden;}
+.huiyuan_xinxi:first-child{margin-top: 0;}
 .huiyuan_k_b{ width:75px; height:auto;float:left;}
 
 .huiyuan_k_c{ width:125px; height:90px;float:left; line-height:20px; font-family:Verdana, Arial, Helvetica, sans-serif;color:#81807b; padding-top:9px; text-align:center;}
@@ -698,7 +699,7 @@ img{border:0px;}
 .hui_dingjieshao{ width:220px; height:auto; float:left; line-height:22px;margin:8px 0 0 11px;}
 .hui_dingjieshao_ming{width:220px; height:auto;line-height:20px;}
 .hui_dingjieshao_ming2{width:220px; height:32px;line-height:16px; color:#808080; margin-top:10px}
-.hui_dingjia{ width:50px; height:auto; float:left; line-height:22px;margin:8px 0 0 11px; text-align:center; font-family:Verdana, Arial, Helvetica, sans-serif; color:#40403e}
+.hui_dingjia{ width:50px; height:auto; float:left; line-height:22px;margin:8px 0px 6px 11px; text-align:center; font-family:Verdana, Arial, Helvetica, sans-serif; color:#40403e}
 .huiyuan_caozuo{ width:49px; height:25px; line-height:25px; text-align:center; background-image:url(../img/gr_ding_25.gif); background-repeat:no-repeat; margin:auto}
 .huiyuan_caozuo a{ width:49px; height:25px; display:block}
 .gr_r_tikukuan{width:962px; height:33px;border:#d5d5d5 solid 1px;margin-left:5px; line-height:28px; background-color:#f3f3f3; margin-top:7px}
