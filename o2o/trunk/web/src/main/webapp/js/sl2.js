@@ -75,15 +75,13 @@ $(function() {
 });
 
 function cityList() {
-	$(document).mouseover(function (e) {
-		var _con = $('.Switch-city,.hide_city_group');   // 设置目标区域
-		if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
-			$(".hide_city_group").hide();
-		} else {
-			$(".hide_city_group").show();
-		}
-	});
 
+		$('.Switch-city').mousemove(function(){
+			$('.hide_city_group').show();
+		})
+		$('.Switch-city').mouseout(function(){
+			$('.hide_city_group').hide();
+		})
 	///点击字母跳到
 	$("#JS_header_city_char a").bind("click", function () {
 		var anchorname = $(this).attr("anchorname");

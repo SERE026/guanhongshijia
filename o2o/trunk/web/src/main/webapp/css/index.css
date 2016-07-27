@@ -103,9 +103,9 @@ ul li {float:left;list-style-type:none;
     }
     .hot-search li a {text-decoration:none;color:#aaa;
     }
-.head-logo .Switch-city {border:1px solid #ccc;font-size:12px;padding:1px 4px;margin-left: 0.5em;
+.head-logo .Switch-city {border:1px solid #ccc;font-size:12px;margin-left: 0.5em;width: 50px;height: 18px;line-height: 18px;display: inline-block;text-align: center;
 }
-.hide_city_group {position:absolute;top:0px;left:37px;display:none;
+.hide_city_group {position:absolute;top:1px;left:37px;display:none;text-align: left;
 }
 
 .hideMap {
