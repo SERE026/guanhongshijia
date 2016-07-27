@@ -103,7 +103,9 @@ FileItem fileItem=null;
 	    	response.getWriter().close();
 	    }
 	    input.close();
+		log.error("CALL FILEUTIL");
         FileUtil.setPermission(fileName);
+		log.error("call fileutil end");
     }
 }catch(Exception e){
 	log.error("upload fail", e);
