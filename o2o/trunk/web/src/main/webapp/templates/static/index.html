@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>首页</title>
+  <link href="../css/index.css" rel="stylesheet" />
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+    var servicePath="http://www.guanhongshijia.com";
+    </script>
+    <style>
+        .Add-art{
+            border:none !important;
+        }
+    </style>
+</head>
+<body>
+<div style="background-color: #f0ecec;">
+    <div class="head-top">
+        <div>
+            <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
+            <a class="head-login inline-block" href="http://www.guanhongshijia.com/login.html">请登录</a>
+            <a class="inline-block" href="http://www.guanhongshijia.com/register.html" style="margin-left: 1em;">免费注册</a>
+            <ul class="head-ul">
+                <li><a href="http://www.guanhongshijia.com/huiyuan_order.html">我的信息</a></li>
+                <li><a href="javascript:void(0)">移动客户端</a></li>
+                <li><a href="javascript:void(0)">关注观红世家</a></li>
+                <li><a href="javascript:void(0)">客服中心</a></li>
+                <li><a href="javascript:void(0)">全国热线&nbsp;4006487818</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="head">
+    <div class="head-logo">
+        <div class="logo">
+            <img src="../img/logo.jpg" />
+        </div>
+        <div class="head-city">
+            <div class="city">
+                <label class="color-red city-name">全国站</label><label class="Switch-city">切换城市<!--<i></i>--></label>
+                <div id="JS_header_city_bar_box" class="hide_city_group">
+                    <div class="hideMap">
+                        <div class="showPanel f-cb">
+                            <div class="mycity">
+                                <div style="display: block;">
+                                    当前城市: <strong id="JS_city_current_city">全国</strong>
+                                </div>
+                            </div>
+                            <a class="near" target="_blank" href="http://www.guanhongshijia.com/shopMap.html">附近的体验馆</a>
+                        </div>
+                        <div class="showPanel showPanel2 f-cb">
+                            <div class="hot_city" id="JS_header_city_hot">
+                                <a href="javascript:void(0);" class="site_all Left" cityid="ALL" onclick="changeCity(this)">全国站</a>
+                                <a href="javascript:void(0);" provincecode="110000" class="for_search" cityid="110000" onclick="changeCity(this)">北京市</a>
+                                <a href="javascript:void(0);" provincecode="120000" class="for_search" cityid="120000" onclick="changeCity(this)">天津市</a>
+                                <a href="javascript:void(0);" provincecode="500000" class="for_search" cityid="500000" onclick="changeCity(this)">重庆市</a>
+                                <a href="javascript:void(0);" provincecode="440300" class="for_search" cityid="440300" onclick="changeCity(this)">深圳市</a>
+                            </div>
+    <!--                        <div class="mt10">
+                                <div id="JS_search_city_tip_header" class="search_city_tip">对不起，没搜索到这个城市。</div>
+                                <input id="JS_search_city_input_header" class="search_city_input" placeholder="城市名称"><input type="button" id="JS_search_city_submit_header" class="search_city_submit" value="搜索">
+                            </div>-->
+                            <div class="city_words mt10" id="JS_header_city_char"><a href="javascript:void(0)" anchorname="charA">A</a><a href="javascript:void(0)" anchorname="charB">B</a><a href="javascript:void(0)" anchorname="charC">C</a><a href="javascript:void(0)" anchorname="charD">D</a><a href="javascript:void(0)" anchorname="charE">E</a><a href="javascript:void(0)" anchorname="charF">F</a><a href="javascript:void(0)" anchorname="charG">G</a><a href="javascript:void(0)" anchorname="charH">H</a><a href="javascript:void(0)" anchorname="charI">I</a><a href="javascript:void(0)" anchorname="charJ">J</a><a href="javascript:void(0)" anchorname="charK">K</a><a href="javascript:void(0)" anchorname="charL">L</a><a href="javascript:void(0)" anchorname="charM">M</a><a href="javascript:void(0)" anchorname="charN">N</a><a href="javascript:void(0)" anchorname="charP">P</a><a href="javascript:void(0)" anchorname="charQ">Q</a><a href="javascript:void(0)" anchorname="charR">R</a><a href="javascript:void(0)" anchorname="charS">S</a><a href="javascript:void(0)" anchorname="charT">T</a><a href="javascript:void(0)" anchorname="charW">W</a><a href="javascript:void(0)" anchorname="charX">X</a><a href="javascript:void(0)" anchorname="charY">Y</a><a href="javascript:void(0)" anchorname="charZ">Z</a></div>
+                        </div>
+                        <div class="scrollBody">
+                            <div class="cityMap clearfix">
+                                <div id="JS_header_city_list" class="city_list">
+                                    <div class="icity_names_wrap" id="charB">
+                                        <a class="icity_firstword" href="javascript:void(0);">B</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="110000">北京市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130600">保定市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371600">滨州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511900">巴中市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charC">
+                                        <a class="icity_firstword" href="javascript:void(0);">C</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130900">沧州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430100">长沙市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430700">常德市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="431000">郴州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="500000">重庆市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510100">成都市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charD">
+                                        <a class="icity_firstword" href="javascript:void(0);">D</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370500">东营市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371400">德州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510600">德阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511700">达州市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charG">
+                                        <a class="icity_firstword" href="javascript:void(0);">G</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510800">广元市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charH">
+                                        <a class="icity_firstword" href="javascript:void(0);">H</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130400">邯郸市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="131100">衡水市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430400">衡阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="431200">怀化市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charJ">
+                                        <a class="icity_firstword" href="javascript:void(0);">J</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370100">济南市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370800">济宁市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charL">
+                                        <a class="icity_firstword" href="javascript:void(0);">L</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="131000">廊坊市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371200">莱芜市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371300">临沂市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371500">聊城市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="431300">娄底市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510500">泸州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511100">乐山市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="513400">凉山彝族自治州</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charM">
+                                        <a class="icity_firstword" href="javascript:void(0);">M</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510700">绵阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511400">眉山市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charN">
+                                        <a class="icity_firstword" href="javascript:void(0);">N</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511000">内江市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511300">南充市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charQ">
+                                        <a class="icity_firstword" href="javascript:void(0);">Q</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130300">秦皇岛市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370200">青岛市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charR">
+                                        <a class="icity_firstword" href="javascript:void(0);">R</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371100">日照市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charS">
+                                        <a class="icity_firstword" href="javascript:void(0);">S</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130100">石家庄市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430500">邵阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="440300">深圳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510900">遂宁市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charT">
+                                        <a class="icity_firstword" href="javascript:void(0);">T</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="120000">天津市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130200">唐山市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370900">泰安市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charW">
+                                        <a class="icity_firstword" href="javascript:void(0);">W</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370700">潍坊市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="371000">威海市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charX">
+                                        <a class="icity_firstword" href="javascript:void(0);">X</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130500">邢台市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430300">湘潭市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charY">
+                                        <a class="icity_firstword" href="javascript:void(0);">Y</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="321000">扬州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370600">烟台市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430600">岳阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430900">益阳市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="431100">永州市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511500">宜宾市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="511800">雅安市</a>
+                                        </div>
+                                    </div>
+                                    <div class="icity_names_wrap" id="charZ">
+                                        <a class="icity_firstword" href="javascript:void(0);">Z</a>
+                                        <div class="icity_names">
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="130700">张家口市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370300">淄博市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="370400">枣庄市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430200">株洲市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="430800">张家界市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510300">自贡市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="512000">资阳市</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="scrollBar"><span id="JS_header_city_bar" style="margin-top: 18px;"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <h4>观红赏灯O2O商城</h4>
+            <h4>首家音视频多媒体平台</h4>-->
+
+        </div>
+        <div class="search-criteria">
+            <div>
+                <div class="Search-categories">
+                    <label>商品</label><i></i>
+                    <ul style="display: none;">
+                        <li>店铺</li>
+                    </ul>
+                </div>
+                <input class="Search-Text" type="text" placeholder="输入您想要搜索的关键字" value=""/>
+                    <span class="search">
+                        <i></i>
+                        <label>搜索</label></span>
+                <a class="My-mall font14" href="http://www.guanhongshijia.com/huiyuan_order.html">我的商城</a>
+                <a class="settlement font14" href="http://www.guanhongshijia.com/cars.html">购物车结算</a>
+            </div>
+            <div>
+                <ul class="hot-search font14">
+                    <li>热门搜索：&nbsp;&nbsp;</li>
+                    <li><a href="javascript:void(0)">卧室</a></li>
+                    <li><a href="javascript:void(0)">衣柜</a></li>
+                    <li><a href="javascript:void(0)">衣帽间</a></li>
+                    <li><a href="javascript:void(0)">书柜</a></li>
+                    <li><a href="javascript:void(0)">酒柜</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="nav">
+    <div class="navigation">
+        <div class="nav-ul">
+            <ul>
+                <li><a class="Classification-goods" href="javascript:void(0)">所有商品分类</a>
+                    <ul>
+
+                        <li><a href="javascript:void(0)">
+                            <img src="http://www.guanhongshijia.com" />香水香氛 </a>
+                        </li>
+
+                        <li><a href="javascript:void(0)">
+                            <img src="http://www.guanhongshijia.com" />美容工具 </a>
+                        </li>
+
+                        <li><a href="javascript:void(0)">
+                            <img src="http://www.guanhongshijia.com" />唇部</a>
+                        </li>
+
+                        <li><a href="javascript:void(0)">
+                            <img src="http://www.guanhongshijia.com" /></a>
+                        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0)">云导购</a></li>
+                <li><a href="javascript:void(0)">品牌汇</a></li>
+                <li><a href="javascript:void(0)">全国体验馆</a></li>
+                <li><a href="javascript:void(0)">艺术品</a></li>
+                <li><a href="javascript:void(0)">团购</a></li>
+                <li><a href="javascript:void(0)">招商加盟</a></li>
+                <li><a href="javascript:void(0)">全屋高端定制</a></li>
+            </ul>
+
+   <!--       <div class="three-level">
+                <h4><span>卧室家具</span>&nbsp;>></h4>
+                <span>卧室1279件商品>></span>
+                <ul>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床垫</a></li>
+                    <li><a href="javascript:void(0)">衣柜</a></li>
+                    <li><a href="javascript:void(0)">美规床</a></li>
+                    <li><a href="javascript:void(0)">美国进口床垫</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床垫</a></li>
+                    <li><a href="javascript:void(0)">衣柜</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                </ul>
+                <div>
+                    <img width="370" height="160" src="../img/10.png" />
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>
+<div class="advertising">
+    <div class="focus" id="focus001">
+        <ul>
+
+            <li>
+                <a href="#" target="_blank">
+                <img src="../img/20.png" /><!--adv_flie-->
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank">
+                <img src="../img/20.png" /><!--adv_flie-->
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank">
+                <img src="../img/20.png" /><!--adv_flie-->
+                </a>
+            </li>
+
+ <!--           <li><a href="javascript:void(0)" target="_blank">
+                <img src="../img/20.png" /></a></li>
+            <li><a href="javascript:void(0)" target="_blank">
+                <img src="../img/20.png" /></a></li>-->
+        </ul>
+    </div>
+    <div class="advertising-back">
+        <!--<div class="LiBtn">
+            <div>
+          <ul>
+            <li title="1" tag="../img/20.png"></li>
+            <li title="2" tag="../img/21.png"></li>
+            <li title="3" tag="../img/22.png"></li>
+        </ul>
+            </div>
+        </div>-->
+        <div class="experience">
+            <div>
+
+                <p>高端定制尽在老东方</p>
+                <p>观红世家夜市O2O云平台</p>
+                <img src="" />
+                <p class="thisHome" id="area">
+                    <b>深圳市<label>1</label>家</b>
+                </p>
+                <p class="national">全国19家体验馆</p>
+                <p><a class="findHome" href="http://www.guanhongshijia.com/shopMap.html">查找身边的体验馆</a></p>
+                <p>网站浏览&nbsp;实体店购买一站式服务！</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="browse">
+
+    <div class="hot-small">
+        <ul>
+            <li><a href="javascript:void(0)" data-tag="n1">热卖商品</a> </li>
+            <li><a href="javascript:void(0)" data-tag="n2">疯狂抢购</a> </li>
+            <li><a href="javascript:void(0)" data-tag="n3">热评商品</a> </li>
+            <li><a href="javascript:void(0)" data-tag="n4">新品上架</a> </li>
+            <li><a href="javascript:void(0)" data-tag="n5">限时抢购</a> </li>
+        </ul>
+    </div>
+    <div class="Showcase">
+        <!--展示区-->
+        <ul class="borderHover n1 block_red">
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="http://www.guanhongshijia.com/item-317.html">
+                            <img src="1398415931017.jpg"/></a></dt>
+                        <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-317.html">妇珂熏蒸套（熏蒸仪+熏蒸套）</a></dd>
+                        <dd class="price"><b>￥3980</b><a class="Add-art" href="javascript:void(0)"></a><a class="More" href="http://www.guanhongshijia.com/item-317.html">MORE</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="http://www.guanhongshijia.com/item-54.html">
+                            <img src="1395712670799.jpg"/></a></dt>
+                        <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-54.html">Olay玉兰油多效修护醒肤水150ml</a></dd>
+                        <dd class="price"><b>￥110</b><a class="Add-art" href="javascript:void(0)"></a><a class="More" href="http://www.guanhongshijia.com/item-54.html">MORE</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="http://www.guanhongshijia.com/item-63.html">
+                            <img src="1395889129265.jpg"/></a></dt>
+                        <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-63.html">活泉持久水份露50g</a></dd>
+                        <dd class="price"><b>￥110</b><a class="Add-art" href="javascript:void(0)"></a><a class="More" href="http://www.guanhongshijia.com/item-63.html">MORE</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="http://www.guanhongshijia.com/item-348.html">
+                            <img src="1399614677187.jpg"/></a></dt>
+                        <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-348.html">欣尚舒敏修复冰晶40g 敏感肌肤专用 有效预防敏感 即使缓解过敏症状 修复受损肌肤 补充水分 增强抵抗力</a></dd>
+                        <dd class="price"><b>￥148</b><a class="Add-art" href="javascript:void(0)"></a><a class="More" href="http://www.guanhongshijia.com/item-348.html">MORE</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="http://www.guanhongshijia.com/item-53.html">
+                            <img src="1395712160119.jpg"/></a></dt>
+                        <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-53.html">Olay官方旗舰 玉兰油多效修护凝乳50g</a></dd>
+                        <dd class="price"><b>￥110</b><a class="Add-art" href="javascript:void(0)"></a><a class="More" href="http://www.guanhongshijia.com/item-53.html">MORE</a></dd>
+                    </dl>
+                </li>
+        </ul>
+
+        <ul class="borderHover n2">
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-53.html">
+                        <img src="1395712160119.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-53.html">
+                        Olay官方旗舰 玉兰油多效修护凝乳50g</a></dd>
+                    <dd class="price"><b>￥110</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-53.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-834.html">
+                        <img src="1401935707750.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-834.html">
+                        高丝 雪肌精 化妆水200ML 美白淡斑爽肤水</a></dd>
+                    <dd class="price"><b>￥342</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-834.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-115.html">
+                        <img src="1396494354680.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-115.html">
+                        圣蜜莱雅清痘益肤霜30g祛痘去痘印清洁滋养收缩毛孔专柜护肤正品</a></dd>
+                    <dd class="price"><b>￥81</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-115.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-69.html">
+                        <img src="1396233847446.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-69.html">
+                        花肌悦雪耳胶原保湿水150ml</a></dd>
+                    <dd class="price"><b>￥79</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-69.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-836.html">
+                        <img src="1401936153902.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-836.html">
+                        雪肌精优馥臻白美容液50ML</a></dd>
+                    <dd class="price"><b>￥792</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-836.html">MORE</a></dd>
+                </dl>
+            </li>
+
+        </ul>
+
+        <ul class="borderHover n3">
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-59.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-59.html">
+                        圣蜜莱雅水能弹力洁面晶奶</a></dd>
+                    <dd class="price"><b>￥79</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-59.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-647.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-647.html">
+                        背部刮痧</a></dd>
+                    <dd class="price"><b>￥15</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-647.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-53.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-53.html">
+                        Olay官方旗舰 玉兰油多效修护凝乳50g</a></dd>
+                    <dd class="price"><b>￥110</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-53.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-105.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-105.html">
+                        圣蜜莱雅净白BB再生霜30g</a></dd>
+                    <dd class="price"><b>￥118</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-105.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-54.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-54.html">
+                        Olay玉兰油多效修护醒肤水150ml</a></dd>
+                    <dd class="price"><b>￥110</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-54.html">MORE</a></dd>
+                </dl>
+            </li>
+
+        </ul>
+
+        <ul class="borderHover n4">
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-22.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-22.html">
+                        菲诗小铺(The face shop)清爽抗敏感护肤套装</a></dd>
+                    <dd class="price"><b>￥45</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-22.html">MORE</a></dd>
+                </dl>
+            </li>
+
+        </ul>
+
+        <ul class="borderHover n5">
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-2.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-2.html">
+                        2合一养颜化妆</a></dd>
+                    <dd class="price"><b>￥100</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-2.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-1168.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-1168.html">
+                        男士劲爽控油保湿乳液 补水保湿控油护肤品</a></dd>
+                    <dd class="price"><b>￥52</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-1168.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-70.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-70.html">
+                        玉兰油保湿清新面膜1片</a></dd>
+                    <dd class="price"><b>￥15</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-70.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-3.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-3.html">
+                        梦幻水彩唇膏</a></dd>
+                    <dd class="price"><b>￥700</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-3.html">MORE</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="Item-introduction">
+                    <dt><a href="http://www.guanhongshijia.com/item-71.html">
+                        <img src="../img/03.jpg" /></a></dt>
+                    <dd class="dd-Item-name"><a href="http://www.guanhongshijia.com/item-71.html">
+                        玉兰油花肌悦白玉兰香沁透白精华露30ml</a></dd>
+                    <dd class="price"><b>￥99</b><a class="Add-art" href="javascript:void(0)"></a>
+                        <a class="More" href="http://www.guanhongshijia.com/item-71.html">MORE</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="Time-limit">
+        <p class="Time-limit-nav"><b class="PitchOn" name="Time-limit-area">限时抢购</b><b name="custom-area">家居定制</b></p>
+        <div class="area Time-limit-area">
+            <div class="area-img">
+                <img src="../img/04.jpg" />
+            </div>
+            <ul class="borderHover">
+
+                <li>
+                    <dl class="">
+                        <dt><a href="javascript:void(0)">
+                            <img src="../img/03.jpg" /></a></dt>
+                        <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
+                        <dd class="ItemName"><a href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                        <dd class="ItemPrice"><b>￥99</b></dd>
+                        <dd><a class="Add-art" href="javascript:void(0)">
+                            </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="">
+                        <dt><a href="javascript:void(0)">
+                            <img src="../img/03.jpg" /></a></dt>
+                        <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
+                        <dd class="ItemName"><a href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                        <dd class="ItemPrice"><b>￥90</b></dd>
+                        <dd><a class="Add-art" href="javascript:void(0)">
+                            </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="">
+                        <dt><a href="javascript:void(0)">
+                            <img src="../img/03.jpg" /></a></dt>
+                        <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
+                        <dd class="ItemName"><a href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                        <dd class="ItemPrice"><b>￥319</b></dd>
+                        <dd><a class="Add-art" href="javascript:void(0)">
+                            </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="">
+                        <dt><a href="javascript:void(0)">
+                            <img src="../img/03.jpg" /></a></dt>
+                        <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
+                        <dd class="ItemName"><a href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                        <dd class="ItemPrice"><b>￥119</b></dd>
+                        <dd><a class="Add-art" href="javascript:void(0)">
+                            </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </div>
+        <div class="area custom-area">
+            家具定制
+        </div>
+    </div>
+
+    <br />
+    <div id="FloorOne" class="Floor FloorOne">
+        <div class="FloorHead">
+            <div class="FloorID">
+                <img src="../img/house.png" />
+                <b>1F</b><span>泉润</span>
+            </div>
+            <div class="FloorBack">
+                <span class="backLeft">SANITARY WARE</span>
+                <span class="backRight">查看更多 MORE</span>
+            </div>
+        </div>
+        <div class="FloorImg">
+            <h1>泉润</h1>
+            <div class="tag">
+                <p></p>
+                <div class="font6"><p></p></div>
+            </div>
+            <ul>
+            </ul>
+            <img src="../img/08.png" />
+        </div>
+        <div class="floor-banner">
+            <div>
+                <ul class="borderHover">
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                    <dd class="price"><b class="Item-price">￥99</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                    <dd class="price"><b class="Item-price">￥90</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                    <dd class="price"><b class="Item-price">￥319</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                    <dd class="price"><b class="Item-price">￥119</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                    <dd class="price"><b class="Item-price">￥140</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                    <dd class="price"><b class="Item-price">￥299</b></dd>
+                                </dl>
+                            </li>
+                </ul>
+            </div>
+            <div class="floor-banner-img">
+                        <img src="../img/07.png" /><br />
+                        <img src="../img/07.png" /><br />
+            </div>
+        </div>
+        <div class="Floor-bottom">
+            <br />
+            <ul class="borderHover">
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                <dd class="hot-cakes">（热销0件）</dd>
+                                <dd class="Item-price"><b>￥99</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                <dd class="hot-cakes">（热销0件）</dd>
+                                <dd class="Item-price"><b>￥135</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+            </ul>
+        </div>
+    </div>
+    <div id="FloorTwo" class="Floor FloorTwo">
+        <div class="FloorHead">
+            <div class="FloorID">
+                <img src="../img/house.png" />
+                <b>2F</b><span>泉润</span>
+            </div>
+            <div class="FloorBack">
+                <span class="backLeft">SANITARY WARE</span>
+                <span class="backRight">查看更多 MORE</span>
+            </div>
+        </div>
+        <div class="FloorImg">
+            <h1>泉润</h1>
+            <div class="tag">
+                <p></p>
+                <div class="font6"><p></p></div>
+            </div>
+            <ul>
+            </ul>
+            <img src="../img/08.png" />
+        </div>
+        <div class="floor-banner">
+            <div>
+                <ul class="borderHover">
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                    <dd class="price"><b class="Item-price">￥99</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                    <dd class="price"><b class="Item-price">￥90</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                    <dd class="price"><b class="Item-price">￥319</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                    <dd class="price"><b class="Item-price">￥119</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                    <dd class="price"><b class="Item-price">￥140</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                    <dd class="price"><b class="Item-price">￥299</b></dd>
+                                </dl>
+                            </li>
+                </ul>
+            </div>
+            <div class="floor-banner-img">
+                        <img src="../img/07.png" /><br />
+                        <img src="../img/07.png" /><br />
+            </div>
+        </div>
+        <div class="Floor-bottom">
+            <br />
+            <ul class="borderHover">
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                <dd class="hot-cakes">（热销0件）</dd>
+                                <dd class="Item-price"><b>￥99</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                <dd class="hot-cakes">（热销0件）</dd>
+                                <dd class="Item-price"><b>￥135</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+            </ul>
+        </div>
+    </div>
+    <div id="FloorThree" class="Floor FloorThree">
+        <div class="FloorHead">
+            <div class="FloorID">
+                <img src="../img/house.png" />
+                <b>3F</b><span>泉润</span>
+            </div>
+            <div class="FloorBack">
+                <span class="backLeft">SANITARY WARE</span>
+                <span class="backRight">查看更多 MORE</span>
+            </div>
+        </div>
+        <div class="FloorImg">
+            <h1>泉润</h1>
+            <div class="tag">
+                <p></p>
+                <div class="font6"><p></p></div>
+            </div>
+            <ul>
+            </ul>
+            <img src="../img/08.png" />
+        </div>
+        <div class="floor-banner">
+            <div>
+                <ul class="borderHover">
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                    <dd class="price"><b class="Item-price">￥99</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                    <dd class="price"><b class="Item-price">￥90</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                    <dd class="price"><b class="Item-price">￥319</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                    <dd class="price"><b class="Item-price">￥119</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                    <dd class="price"><b class="Item-price">￥140</b></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                        欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                    <dd class="price"><b class="Item-price">￥299</b></dd>
+                                </dl>
+                            </li>
+                </ul>
+            </div>
+            <div class="floor-banner-img">
+                        <img src="../img/07.png" /><br />
+                        <img src="../img/07.png" /><br />
+            </div>
+        </div>
+        <div class="Floor-bottom">
+            <br />
+            <ul class="borderHover">
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                <dd class="hot-cakes">（热销0件）</dd>
+                                <dd class="Item-price"><b>￥99</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl class="Item-introduction">
+                                <dt><a href="javascript:void(0)">
+                                    <img src="../img/03.jpg" /></a></dt>
+                                <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                                    欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                <dd class="hot-cakes">（热销0件）</dd>
+                                <dd class="Item-price"><b>￥135</b></dd>
+                                <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                            </dl>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="FloorFour" class="Floor FloorFour">
+        <div class="FloorHead">
+            <div class="FloorID">
+                <img src="../img/house.png" />
+                <b>4F</b><span>泉润</span>
+            </div>
+            <div class="FloorBack">
+                <span class="backLeft">SANITARY WARE</span>
+                <span class="backRight">查看更多 MORE</span>
+            </div>
+        </div>
+        <div class="FloorImg">
+            <h1>泉润</h1>
+            <div class="tag">
+                <p></p>
+                <div class="font6"><p></p></div>
+            </div>
+            <ul>
+            </ul>
+                <img src="../img/08.png" />
+        </div>
+        <div class="floor-banner">
+            <div>
+                <ul class="borderHover">
+                        <li>
+                        <dl class="">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                            <dd class="price"><b class="Item-price">￥99</b></dd>
+                        </dl>
+                     </li>
+                        <li>
+                        <dl class="">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                            <dd class="price"><b class="Item-price">￥90</b></dd>
+                        </dl>
+                     </li>
+                        <li>
+                        <dl class="">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                            <dd class="price"><b class="Item-price">￥319</b></dd>
+                        </dl>
+                     </li>
+                        <li>
+                        <dl class="">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                            <dd class="price"><b class="Item-price">￥119</b></dd>
+                        </dl>
+                     </li>
+                        <li>
+                        <dl class="">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                            <dd class="price"><b class="Item-price">￥140</b></dd>
+                        </dl>
+                     </li>
+                        <li>
+                        <dl class="">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class=""><a class="Introduction" href="javascript:void(0)">
+                                欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                            <dd class="price"><b class="Item-price">￥299</b></dd>
+                        </dl>
+                     </li>
+                </ul>
+            </div>
+            <div class="floor-banner-img">
+                        <img src="../img/07.png" /><br />
+                        <img src="../img/07.png" /><br />
+            </div>
+        </div>
+        <div class="Floor-bottom">
+            <br />
+            <ul class="borderHover">
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="javascript:void(0)">
+                            <img src="../img/03.jpg" /></a></dt>
+                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                            欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                        <dd class="hot-cakes">（热销0件）</dd>
+                        <dd class="Item-price"><b>￥99</b></dd>
+                        <dd><a class="Add-art" href="javascript:void(0)">
+                            </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="javascript:void(0)">
+                            <img src="../img/03.jpg" /></a></dt>
+                        <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">
+                            欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                        <dd class="hot-cakes">（热销0件）</dd>
+                        <dd class="Item-price"><b>￥135</b></dd>
+                        <dd><a class="Add-art" href="javascript:void(0)">
+                            </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--第五楼-->
+<!--    <div id="FloorFive" class="Floor FloorFive">
+
+        <div class="FloorHead">
+            <div class="FloorID">
+                <img src="../img/house.png" />
+                <b>5F</b><span>综合系列</span>
+            </div>
+            <div class="FloorBack">
+                <span class="backLeft">SANITARY WARE</span>
+                <span class="backRight">查看更多 MORE</span>
+            </div>
+        </div>-->
+
+    <div id="FloorFive" class="Floor FloorFive">
+        <div class="FloorHead">
+            <div class="FloorID">
+                <img src="../img/house.png" />
+                <b>5F</b><span>综合系列</span>
+                <ul class="FiveNav">
+                        <li class="FH_current">香水香氛 </li>
+                            <li>美容工具 </li>
+                            <li>唇部</li>
+                            <li></li>
+                            <li>热销品牌</li>
+                            <li>护肤用品</li>
+                            <li>女士护肤</li>
+                            <li>热销品牌</li>
+
+                </ul>
+            </div>
+            <div class="FloorBack">
+                <span class="backLeft">SANITARY WARE</span>
+                <span class="backRight">查看更多 MORE</span>
+            </div>
+        </div>
+
+        <div class="FiveContent">
+            <div class="FloorImg">
+                <h1>综合系列00000</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+                    <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599782296.png"/></a></li>
+                    <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599790109.png"/></a></li>
+                    <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599796984.png"/></a></li>
+                    <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1392716354437.jpg"/></a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                        <dd class="price"><b class="Item-price">￥99</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                        <dd class="price"><b class="Item-price">￥90</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                        <dd class="price"><b class="Item-price">￥319</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                        <dd class="price"><b class="Item-price">￥119</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                        <dd class="price"><b class="Item-price">￥140</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                        <dd class="price"><b class="Item-price">￥299</b></dd>
+                                    </dl>
+                                </li>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+
+                            <img src="../img/07.png" /><br />
+                            <img src="../img/07.png" /><br />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                    <li>
+                        <dl class="Item-introduction">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士专属黑管BB霜 极速激活型肤露 保湿遮瑕控油</a></dd>
+                            <dd class="hot-cakes">（热销0件）</dd>
+                            <dd class="Item-price"><b>￥110</b></dd>
+                            <dd><a class="Add-art" href="javascript:void(0)">
+                                </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="Item-introduction">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                            <dd class="hot-cakes">（热销0件）</dd>
+                            <dd class="Item-price"><b>￥99</b></dd>
+                            <dd><a class="Add-art" href="javascript:void(0)">
+                                </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="Item-introduction">
+                            <dt><a href="javascript:void(0)">
+                                <img src="../img/03.jpg" /></a></dt>
+                            <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                            <dd class="hot-cakes">（热销0件）</dd>
+                            <dd class="Item-price"><b>￥135</b></dd>
+                            <dd><a class="Add-art" href="javascript:void(0)">
+                                </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="FiveContent none">
+            <div class="FloorImg">
+                <h1>综合系列</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599782296.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599790109.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599796984.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1392716354437.jpg"/></a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                        <dd class="price"><b class="Item-price">￥99</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                        <dd class="price"><b class="Item-price">￥90</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                        <dd class="price"><b class="Item-price">￥319</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                        <dd class="price"><b class="Item-price">￥119</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                        <dd class="price"><b class="Item-price">￥140</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                        <dd class="price"><b class="Item-price">￥299</b></dd>
+                                    </dl>
+                                </li>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+                            <img src="../img/07.png" /><br />
+                            <img src="../img/07.png" /><br />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士专属黑管BB霜 极速激活型肤露 保湿遮瑕控油</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥110</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥99</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥135</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="FiveContent none">
+            <div class="FloorImg">
+                <h1>综合系列</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599782296.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599790109.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599796984.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1392716354437.jpg"/></a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                        <dd class="price"><b class="Item-price">￥99</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                        <dd class="price"><b class="Item-price">￥90</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                        <dd class="price"><b class="Item-price">￥319</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                        <dd class="price"><b class="Item-price">￥119</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                        <dd class="price"><b class="Item-price">￥140</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                        <dd class="price"><b class="Item-price">￥299</b></dd>
+                                    </dl>
+                                </li>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+                            <img src="../img/07.png" /><br />
+                            <img src="../img/07.png" /><br />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士专属黑管BB霜 极速激活型肤露 保湿遮瑕控油</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥110</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥99</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥135</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="FiveContent none">
+            <div class="FloorImg">
+                <h1>综合系列</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599782296.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599790109.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599796984.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1392716354437.jpg"/></a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                        <dd class="price"><b class="Item-price">￥99</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                        <dd class="price"><b class="Item-price">￥90</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                        <dd class="price"><b class="Item-price">￥319</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                        <dd class="price"><b class="Item-price">￥119</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                        <dd class="price"><b class="Item-price">￥140</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                        <dd class="price"><b class="Item-price">￥299</b></dd>
+                                    </dl>
+                                </li>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+                            <img src="../img/07.png" /><br />
+                            <img src="../img/07.png" /><br />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士专属黑管BB霜 极速激活型肤露 保湿遮瑕控油</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥110</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥99</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥135</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="FiveContent none">
+            <div class="FloorImg">
+                <h1>综合系列</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599782296.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599790109.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599796984.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1392716354437.jpg"/></a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                        <dd class="price"><b class="Item-price">￥99</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                        <dd class="price"><b class="Item-price">￥90</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                        <dd class="price"><b class="Item-price">￥319</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                        <dd class="price"><b class="Item-price">￥119</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                        <dd class="price"><b class="Item-price">￥140</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                        <dd class="price"><b class="Item-price">￥299</b></dd>
+                                    </dl>
+                                </li>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+                            <img src="../img/07.png" /><br />
+                            <img src="../img/07.png" /><br />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士专属黑管BB霜 极速激活型肤露 保湿遮瑕控油</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥110</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥99</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥135</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="FiveContent none">
+            <div class="FloorImg">
+                <h1>综合系列</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599782296.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599790109.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599796984.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1392716354437.jpg"/></a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                        <dd class="price"><b class="Item-price">￥99</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                        <dd class="price"><b class="Item-price">￥90</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                        <dd class="price"><b class="Item-price">￥319</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                        <dd class="price"><b class="Item-price">￥119</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                        <dd class="price"><b class="Item-price">￥140</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                        <dd class="price"><b class="Item-price">￥299</b></dd>
+                                    </dl>
+                                </li>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+                            <img src="../img/07.png" /><br />
+                            <img src="../img/07.png" /><br />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士专属黑管BB霜 极速激活型肤露 保湿遮瑕控油</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥110</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥99</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥135</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="FiveContent none">
+            <div class="FloorImg">
+                <h1>综合系列</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599782296.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599790109.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599796984.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1392716354437.jpg"/></a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                        <dd class="price"><b class="Item-price">￥99</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                        <dd class="price"><b class="Item-price">￥90</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                        <dd class="price"><b class="Item-price">￥319</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                        <dd class="price"><b class="Item-price">￥119</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                        <dd class="price"><b class="Item-price">￥140</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                        <dd class="price"><b class="Item-price">￥299</b></dd>
+                                    </dl>
+                                </li>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+                            <img src="../img/07.png" /><br />
+                            <img src="../img/07.png" /><br />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士专属黑管BB霜 极速激活型肤露 保湿遮瑕控油</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥110</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥99</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥135</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="FiveContent none">
+            <div class="FloorImg">
+                <h1>综合系列</h1>
+                <div class="tag">
+                    <p>CERAMICS</p>
+                    <p>FOR DALY USE</p>
+                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                </div>
+                <img src="../img/08.png" style="margin-top:40px;" />
+                <ul>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599782296.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599790109.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1394599796984.png"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="http://www.guanhongshijia.com1392716354437.jpg"/></a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="floor-banner">
+                <div>
+                    <ul class="borderHover">
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士正品 肌底透白彻夜焕采冻膜 睡眠免洗面膜</a></dd>
+                                        <dd class="price"><b class="Item-price">￥99</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤洗面奶 清润泡沫洁面膏 补水保湿洁面乳</a></dd>
+                                        <dd class="price"><b class="Item-price">￥90</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅葡萄籽抗氧化套装 洗面奶+膜力水爽肤水+特润日霜 女士护肤</a></dd>
+                                        <dd class="price"><b class="Item-price">￥319</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 葡萄籽精华膜力水 柔肤爽肤水补水保湿</a></dd>
+                                        <dd class="price"><b class="Item-price">￥119</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤 清润全日保湿水精华凝露 深层滋润补水</a></dd>
+                                        <dd class="price"><b class="Item-price">￥140</b></dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl class="">
+                                        <dt><a href="javascript:void(0)">
+                                            <img src="../img/03.jpg" /></a></dt>
+                                        <dd class=""><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店女士护肤套装 保湿水精华+柔肤水+洁面膏</a></dd>
+                                        <dd class="price"><b class="Item-price">￥299</b></dd>
+                                    </dl>
+                                </li>
+
+                    </ul>
+                </div>
+                <div class="floor-banner-img">
+                            <img src="../img/07.png" /><br />
+                            <img src="../img/07.png" /><br />
+                </div>
+            </div>
+            <div class="Floor-bottom">
+                <br />
+                <ul class="borderHover">
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士专属黑管BB霜 极速激活型肤露 保湿遮瑕控油</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥110</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店男士护肤 劲能醒肤露 滋润补水保湿8重功效面霜</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥99</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="Item-introduction">
+                                    <dt><a href="javascript:void(0)">
+                                        <img src="../img/03.jpg" /></a></dt>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">欧莱雅官方旗舰店彩妆正品 惊艳睫毛膏 特长美睫膜 纤长浓密</a></dd>
+                                    <dd class="hot-cakes">（热销0件）</dd>
+                                    <dd class="Item-price"><b>￥135</b></dd>
+                                    <dd><a class="Add-art" href="javascript:void(0)">
+                                    </a><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                </dl>
+                            </li>
+
+                </ul>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <!--底部includ-->
+<!--
+  ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~ All rights reserved.
+  ~
+  ~ This file contains valuable properties of  SHENZHEN Eternal Dynasty
+  ~ Technology Co.,Ltd.,  embodying  substantial  creative efforts  and
+  ~ confidential information, ideas and expressions.    No part of this
+  ~ file may be reproduced or distributed in any form or by  any  means,
+  ~ or stored in a data base or a retrieval system,  without  the prior
+  ~ written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
+  ~
+  -->
+<link href="../css/index.css" rel="stylesheet" />
+<div class="footer">
+	<div class="footer-link">
+		<div>
+			<dl>
+				<dt class="line-right">客服热线（8：00-23：00）</dt>
+				<dd class="line-right"><b>400 648 7818</b></dd>
+				<dd class="line-right">观红世家&nbsp;在全国已有实体店19家</dd>
+				<dd class="line-right"><a class="physical-store" href="javascript:void(0);">查看全国实体店</a></dd>
+			</dl>
+			<dl>
+				<dt class="line-right"><b>新手指南</b></dt>
+				<dd class="line-right">注册新用户</dd>
+				<dd class="line-right">会员识别</dd>
+				<dd class="line-right">金币说明</dd>
+				<dd class="line-right">体验馆用户登录</dd>
+				<dd class="line-right">订购家具流程</dd>
+				<dd>体验馆购买指导</dd>
+			</dl>
+			<dl>
+				<dt class="line-right"><b>关于观红世家</b></dt>
+				<dd class="line-right">公司简介</dd>
+				<dd class="line-right">媒体聚焦</dd>
+				<dd class="line-right">体验馆</dd>
+				<dd class="line-right">诚聘英才</dd>
+				<dd class="line-right">联系我们</dd>
+			</dl>
+			<dl>
+				<dt class="line-right"><b>购物保障</b></dt>
+				<dd class="line-right">正品保证</dd>
+				<dd class="line-right">注册协议</dd>
+				<dd class="line-right">隐私保护</dd>
+				<dd class="line-right">免责申明</dd>
+				<dd class="line-right">商品保障</dd>
+				<dd class="line-right">货到付款</dd>
+			</dl>
+			<dl>
+				<dt class="line-right"><b>配送安装</b></dt>
+				<dd class="line-right">物流配送</dd>
+				<dd class="line-right">体验馆配送数码</dd>
+				<dd class="line-right">收货指南</dd>
+				<dd class="line-right">收货说明</dd>
+				<dd class="line-right">包装说明</dd>
+			</dl>
+			<dl>
+				<dt class="line-right"><b>售后服务</b></dt>
+				<dd class="line-right">退款货说明</dd>
+				<dd class="line-right">退款说明</dd>
+				<dd class="line-right">补件条件</dd>
+				<dd class="line-right">维修保养说明</dd>
+			</dl>
+			<dl>
+				<dt class="line-right"><b>观红世家微信公众号</b></dt>
+				<dd class="line-right">
+					<img src="../img/11.png" /></dd>
+			</dl>
+		</div>
+	</div>
+	<div class="footer-link2">
+		<div>
+			<img src="../img/12.png" />
+		</div>
+		<div>
+			<p><b>友情链接：</b><span>&nbsp;&nbsp;人民网红木频道</span></p>
+			<p>© 2005-2016东作云红木家具网上商城 版权所有，并保留所有权利，网站地图 </p>
+			<p>浙ICP备14033098号</p>
+		</div>
+		<!--<div class="city-link">
+            <ul>
+                <li><a href="javascript:void(0);">热门城市：</a></li>
+                <li><a href="javascript:void(0);">北京家具</a></li>
+                <li><a href="javascript:void(0);">上海家具</a></li>
+                <li><a href="javascript:void(0);">重庆家具</a></li>
+                <li><a href="javascript:void(0);">深圳家具</a></li>
+                <li><a href="javascript:void(0);">广州家具</a></li>
+                <li><a href="javascript:void(0);">成都家具</a></li>
+                <li><a href="javascript:void(0);">佛山家具</a></li>
+                <li><a href="javascript:void(0);">长沙家具</a></li>
+                <li><a href="javascript:void(0);">苏州家具</a></li>
+                <li><a href="javascript:void(0);">天津家具</a></li>
+                <li><a href="javascript:void(0);">福州家具</a></li>
+                <li><a href="javascript:void(0);">郑州家具</a></li>
+                <li><a href="javascript:void(0);">昆明家具</a></li>
+                <li><a href="javascript:void(0);">东莞家具</a></li>
+                <li><a href="javascript:void(0);">西安家具</a></li>
+                <li><a href="javascript:void(0);">济南家具</a></li>
+            </ul>
+            <ul>
+                <li><a href="javascript:void(0);">友情链接：</a></li>
+                <li><a href="javascript:void(0);">地产中国网</a></li>
+                <li><a href="javascript:void(0);">深圳兼职网</a></li>
+                <li><a href="javascript:void(0);">深圳别墅装修</a></li>
+                <li><a href="javascript:void(0);">深圳买房</a></li>
+                <li><a href="javascript:void(0);">深圳美食</a></li>
+                <li><a href="javascript:void(0);">深圳淘房屋</a></li>
+                <li><a href="javascript:void(0);">深圳爱早教</a></li>
+                <li><a href="javascript:void(0);">深圳装修</a></li>
+                <li><a href="javascript:void(0);">深圳住宿</a></li>
+                <li><a href="javascript:void(0);">深圳装修建材</a></li>
+                <li><a href="javascript:void(0);">深圳装修效果图</a></li>
+                <li><a href="javascript:void(0);">深圳人才网</a></li>
+                <li><a href="javascript:void(0);">深圳家教网</a></li>
+                <li><a href="javascript:void(0);">搜房深圳二手房</a></li>
+                <li><a href="javascript:void(0);">深圳装修公司</a></li>
+                <li><a href="javascript:void(0);">深圳电子市场网</a></li>
+                <li><i class="link-icon"></i></li>
+            </ul>
+        </div>-->
+		<!--<div class="footer-link3">
+            <ul>
+                <li><a href="javascript:void(0);">关于我们</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">帮助中心</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">商家入驻</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">配送方式</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">支付方式</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">客服中心</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">商家入驻</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">网站地图</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">企业OA</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">企业邮局</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">新浪微博</a></li>
+                <li>-</li>
+                <li><a href="javascript:void(0);">腾讯微博</a></li>
+            </ul>
+            <p>© 2015 www.yatang.cn All rights reserved.</p>
+            <p>版权所有&nbsp;技术支持：-----粤ICP备13072520号</p>
+            <p>ICP经营许可证编号：川-------编号：510110199149-00001</p>
+        </div>-->
+	</div>
+</div>
+
+
+<div class="PlacedTop2">
+	<ul>
+		<li><a href="javascript:void(0);"></a></li>
+		<li><a href="javascript:void(0);"></a></li>
+		<li><a id="scroll" class="PlacedTop-Btn" href="javascript:void(0);">置顶</a></li>
+	</ul>
+</div>
+</body>
+</html>
+    <!--菜单栏展示第三级目录-->
+
+            <div id="pr10004"  >
+                <div class="three-level">
+                    <h4><span>香水香氛 </span>&nbsp;>></h4>
+                    <span>香水香氛 0件商品>></span>
+                    <ul>
+                    </ul>
+                    <div>
+                        <img width="370" height="160" src="../img/10.png" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="pr10005"  >
+                <div class="three-level">
+                    <h4><span>美容工具 </span>&nbsp;>></h4>
+                    <span>美容工具 0件商品>></span>
+                    <ul>
+                    </ul>
+                    <div>
+                        <img width="370" height="160" src="../img/10.png" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="pr10006"  >
+                <div class="three-level">
+                    <h4><span>唇部</span>&nbsp;>></h4>
+                    <span>唇部0件商品>></span>
+                    <ul>
+                    </ul>
+                    <div>
+                        <img width="370" height="160" src="../img/10.png" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="pr10017"  >
+                <div class="three-level">
+                    <h4><span></span>&nbsp;>></h4>
+                    <span>0件商品>></span>
+                    <ul>
+                    </ul>
+                    <div>
+                        <img width="370" height="160" src="../img/10.png" />
+                    </div>
+                </div>
+            </div>
+
+</div>
+<script src="../js/jquery-1.8.2.js"></script>
+<script src="../js/index2.js"></script>
+<script src="../js/sl2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.focus("#focus001");
+    });
+
+    //切换城市 更改体验馆数据
+    function changeCity(obj){
+        var cityId=$(obj).attr("cityid");
+        $.ajax({
+            type: "post",
+            url: "http://www.guanhongshijia.com/getCity.htm",
+            data:{"id":cityId},
+            dataType: "json",
+            success: function(result) {
+                var area=result;
+                if(area!=null){
+                    $("#area").empty();
+                    var _html = ['<b id=>'+area.name+'<label>'+area.num+'</label>家</b>'];
+                    $("#area").append(_html.join(''));
+                }else{
+                    $("#area").empty();
+                }
+            },
+            error: function (a,b,c,d) {
+                alert("数据错误");
+            }
+        });
+    }
+
+
+
+    // 搜索按钮
+    $(".search").click(function () {
+        var date=$(".Search-Text").val();
+        if(date==''||date==null){
+            alert("请输入搜索的宝贝！");
+        }
+        var html = "<form id=\"searchFrom\" action=\"" + servicePath + "/goodSearch.html\" method=\"post\">";
+        html += "<input type=\"hidden\" name=\"key\" value=\"" + $(".Search-Text").val() + "\">";
+        html += "</form>";
+        if($(".Search-Text").val().length>0){
+            $(window.document.body).append(html);
+            $("#searchFrom").submit();
+        }
+    });
+
+</script>
+</body>
+</html>

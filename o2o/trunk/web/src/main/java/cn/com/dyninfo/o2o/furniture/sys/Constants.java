@@ -18,7 +18,11 @@ package cn.com.dyninfo.o2o.furniture.sys;
  */
 public class Constants {
 
-    public static String DOMAIN_NAME = "www.guanhongshijia.com";
+    public static final java.lang.String TEMPLATE_INDEX = "/index.ftl";
+    public static final String STATIC_FILE_INDEX = "/inc/index.html";
+    public static final java.lang.String TEMPLATE_HEADER = "/common/head.html";
+    public static final java.lang.String TEMPLATE_FOOTER = "/common/buttom.html";
+    public static String DOMAIN_NAME = "http://www.guanhongshijia.com";
 
     public static String ADMIN_ADDRESS = "Dress";
 

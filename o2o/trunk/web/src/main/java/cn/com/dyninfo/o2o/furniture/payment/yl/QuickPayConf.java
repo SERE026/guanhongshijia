@@ -49,9 +49,9 @@ public class QuickPayConf {
 	//商户名称
 	public  static String merName="炫品妆成";
 	//前台通知
-	public  static String merFrontEndUrl = "http://" + Constants.DOMAIN_NAME + "/" + Constants.ADMIN_ADDRESS + "/ylreturn.html";
+	public  static String merFrontEndUrl =Constants.DOMAIN_NAME + "/" + Constants.ADMIN_ADDRESS + "/ylreturn.html";
 	//后台通知
-	public  static String merBackEndUrl = "http://" + Constants.DOMAIN_NAME + "/" + Constants.ADMIN_ADDRESS + "/ylnotify.html";
+	public  static String merBackEndUrl =Constants.DOMAIN_NAME + "/" + Constants.ADMIN_ADDRESS + "/ylnotify.html";
 	
 	//加密方式
 	public final static String signType="MD5";

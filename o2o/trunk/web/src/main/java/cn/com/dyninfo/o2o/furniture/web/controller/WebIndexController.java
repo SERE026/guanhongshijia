@@ -2,6 +2,7 @@ package cn.com.dyninfo.o2o.furniture.web.controller;
 
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.CookTool;
+import cn.com.dyninfo.o2o.furniture.util.FreeMarkerUtils;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.web.active.model.Active;
 import cn.com.dyninfo.o2o.furniture.web.active.service.GameActiveService;
@@ -69,6 +70,13 @@ public class WebIndexController{
 
     @Resource
     private CommentService commentService;
+
+    @RequestMapping(value = "/gen")
+    public void gen() {
+        FreeMarkerUtils.genIndex();
+        FreeMarkerUtils.genHeader();
+        FreeMarkerUtils.genFooter();
+    }
     /**
      * 首页页面
      * @param request

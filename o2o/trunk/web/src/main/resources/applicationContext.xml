@@ -106,6 +106,18 @@
 		</property>
 	</bean>
 
+	<bean id="freemarkerUtils" class="cn.com.dyninfo.o2o.furniture.util.FreeMarkerUtils">
+		<property name="goodsService" ref="goodsService"/>
+		<property name="goodsSortService" ref="goodsSortService"/>
+		<property name="brandService" ref="brandService"/>
+		<property name="pageModuleService" ref="pageModuleService"/>
+		<property name="gameActiveService" ref="gameActiveService"/>
+		<property name="advwzService" ref="advwzService"/>
+		<property name="areaService" ref="areaService"/>
+		<property name="shangJiaService" ref="shangJiaService"/>
+		<property name="freemarkerConfig" ref="freemarkerConfig"/>
+	</bean>
+
 	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
 
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
