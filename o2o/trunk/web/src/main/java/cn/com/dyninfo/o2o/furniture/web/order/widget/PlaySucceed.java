@@ -46,7 +46,7 @@ public class PlaySucceed extends Widget {
 				Order order=list.get(0);
 				String phone=order.getMerchants().getContactPhone();
 				try {
-					SendDx.sendSMS(phone,"尊敬的【炫品妆成】"+order.getMerchants().getName()+"商家，您店内的订单" + order.getOrder_id() + "已经支付成功！","");
+					SendDx.sendSMS(phone,"尊敬的【观红世家】"+order.getMerchants().getName()+"商家，您店内的订单" + order.getOrder_id() + "已经支付成功！","");
 				} catch (Exception e) {
 //					System.out.println("短信发送失败！");
 					e.printStackTrace();

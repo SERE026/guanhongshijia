@@ -61,7 +61,7 @@ public class ContextListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
 		try{
-			System.out.println("炫品妆成项目启动！");
+			System.out.println("观红世家项目启动！");
 			InputStream  in=this.getClass().getResourceAsStream("/config.properties");
 			Properties p=new Properties();
 			p.load(in);

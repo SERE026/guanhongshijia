@@ -248,7 +248,7 @@ public class AloginController{
 			System.out.println("验证码是："+regCode);
 			int success = -1;
 			try {
-				success = SendDx.sendSMS(phone,"您正在进行【炫品妆成】手机验证，验证码是" + regCode + "，若非本人操作，请忽略【炫品妆成】","");
+				success = SendDx.sendSMS(phone,"您正在进行【观红世家】手机验证，验证码是" + regCode + "，若非本人操作，请忽略【观红世家】","");
 			} catch (Exception e) {
 				System.out.println("短信发送失败！");
 				e.printStackTrace();

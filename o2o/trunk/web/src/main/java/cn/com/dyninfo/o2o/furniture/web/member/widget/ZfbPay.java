@@ -65,7 +65,7 @@ public class ZfbPay extends Widget {
 		
 		
 		// 交易信息设置（防止中文乱码请在返回页面加<meta http-equiv="content-type" content="text/html; charset=UTF-8">）
-		String subject = "炫品妆成支付";
+		String subject = "观红世家支付";
 		String total_fee = (String)pamtr.get("total_fee");
 		String out_trade_no = TradeUtil.createTradeNumber();
 		

@@ -43,7 +43,7 @@ public class PhoneCodeServiceImpl extends BaseService implements PhoneCodeServic
 		public Object addObj(Object obj) {
 			PhoneCode pc = (PhoneCode)obj;
 			//
-			 sendMessageService.addData("0", "您正在进行炫品妆成手机号验证："+pc.getCode(), pc.getPhone(), "手机号验证", "手机号验证");
+			 sendMessageService.addData("0", "您正在进行观红世家手机号验证："+pc.getCode(), pc.getPhone(), "手机号验证", "手机号验证");
 			//
 			return phonecodedao.addObj(obj);
 		}

@@ -47,7 +47,7 @@ public class QuickPayConf {
 	public  static String merCode="105550149170027";
 	
 	//商户名称
-	public  static String merName="炫品妆成";
+	public  static String merName="观红世家";
 	//前台通知
 	public  static String merFrontEndUrl =Constants.DOMAIN_NAME + "/" + Constants.ADMIN_ADDRESS + "/ylreturn.html";
 	//后台通知

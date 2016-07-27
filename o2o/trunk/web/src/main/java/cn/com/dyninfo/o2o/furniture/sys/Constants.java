@@ -24,7 +24,7 @@ public class Constants {
     public static final java.lang.String TEMPLATE_FOOTER = "/common/buttom.html";
     public static String DOMAIN_NAME = "http://www.guanhongshijia.com";
 
-    public static String ADMIN_ADDRESS = "Dress";
+    public static String ADMIN_ADDRESS = "ghadmin";
 
     public static final int ACTIVE_ID = 9;//首页广告位
     public static final int REMAI_SKU = 27;//热卖商品

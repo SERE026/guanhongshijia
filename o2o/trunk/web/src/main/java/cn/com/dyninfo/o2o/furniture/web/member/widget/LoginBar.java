@@ -344,7 +344,7 @@ public class LoginBar extends Widget{
 		info.setEditstat("0");
 		info.setFindtime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 		findpasswordService.addObj(info);
-		String msg="<div><p>尊敬的炫品妆城用户您好！</p><p>请点击进入这个地址进行密码修改，谢谢！：</p><span>http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/modify_password.html?uuid="+uuid
+		String msg="<div><p>尊敬的观红世家用户您好！</p><p>请点击进入这个地址进行密码修改，谢谢！：</p><span>http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/modify_password.html?uuid="+uuid
 		+"</span><p>如果上面的链接无法点击，您也可以复制链接，粘贴到您浏览器的地址栏内，然后按“回车”打开密码修改页面。</p></div>";
 		sendMessageService.addData("1", msg, email,"","找回密码");
 		this.putData("data",email);
@@ -507,7 +507,7 @@ public class LoginBar extends Widget{
 //			System.out.println("验证码是："+regCode);
 			int success = -1;
 			try {
-				success = SendDx.sendSMS(phone,"您正在进行【炫品妆成】修改密码操作，验证码是" + regCode + "，若非本人操作，请忽略【炫品妆成】","");
+				success = SendDx.sendSMS(phone,"您正在进行【观红世家】修改密码操作，验证码是" + regCode + "，若非本人操作，请忽略【观红世家】","");
 			} catch (Exception e) {
 				System.out.println("短信发送失败！");
 				e.printStackTrace();
@@ -571,7 +571,7 @@ public class LoginBar extends Widget{
 		System.out.println("验证码是："+regCode);
 		int success = -1;
 		try {
-			success = SendDx.sendSMS(phone,"您正在进行【炫品妆成】手机验证，验证码是" + regCode + "，若非本人操作，请忽略【炫品妆成】","");
+			success = SendDx.sendSMS(phone,"您正在进行【观红世家】手机验证，验证码是" + regCode + "，若非本人操作，请忽略【观红世家】","");
 		} catch (Exception e) {
 			System.out.println("短信发送失败！");
 			e.printStackTrace();

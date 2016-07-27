@@ -110,7 +110,7 @@ public class Orderplay extends Widget {
 						 * return_url 同步通知地址
 						 * subject 订单名称 ps：显示的文字
 						 */
-						pamtr.put("subject", "炫品妆成订单支付");//订单名称
+						pamtr.put("subject", "观红世家订单支付");//订单名称
 						pamtr.put("body", ps);//订单名称
 					}
 					

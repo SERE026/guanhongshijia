@@ -355,7 +355,7 @@ function uploadDialog(){
 			var imageBoxHieght=100;
 			var html='<div class="ImageBox" style="left:'+(width-imageBoxWidth)/2+'px;top:'+(height-imageBoxHieght)/2+'px;width:'+imageBoxWidth+'px;height:'+imageBoxHieght+'px;">';
 				html+='<div class="ImageTitle">图片上传</div>';
-				html+='<div class="ImageBody"><div class="addFileBtn">选择图片<input id="fileupload" type="file" name="fileupload"  data-url="'+servicePath+"/Dress/shangpin/goods/upload.jsp"+'"  class="fileInput" /></div><div class="fileName"></div> </div>';
+				html+='<div class="ImageBody"><div class="addFileBtn">选择图片<input id="fileupload" type="file" name="fileupload"  data-url="'+servicePath+"/ghadmin/shangpin/goods/upload.jsp"+'"  class="fileInput" /></div><div class="fileName"></div> </div>';
 				html+='<div class="ImageButton"><ul><li><a href="javascript:;" class="imageBoxUpload">开始上传</a></li><li><a href="javascript:;" class="imageBoxColse">关闭</a></li></ul></div>';
 				html+='</div>';
 			$(document.body).append(html);
@@ -421,7 +421,7 @@ function ajaxFileUpload()
         $.ajaxFileUpload
         (
             {
-                url:servicePath+"/Dress/shangpin/goods/upload.jsp",//用于文件上传的服务器端请求地址
+                url:servicePath+"/ghadmin/shangpin/goods/upload.jsp",//用于文件上传的服务器端请求地址
                 secureuri:false,//一般设置为false
                 fileElementId:'fileupload',//文件上传空间的id属性  <input type="file" id="file" name="file" />
                 dataType: 'text',//返回值类型 一般设置为json

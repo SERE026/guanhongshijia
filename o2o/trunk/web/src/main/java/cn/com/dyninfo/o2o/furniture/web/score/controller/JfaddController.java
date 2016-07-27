@@ -223,7 +223,7 @@ public class JfaddController extends BaseController{
 								"会员："+info.getUserName()+"，账号:"+info.getName()+",编号:"+
 								info.getHuiYuan_id(),"送礼啦");
 					}else{
-						sendMessageService.addData("0", info.getUserName()+" 你好，炫品妆成向你的账号中赠送了"+add_jf+"积分，请尽快登陆使用！", info.getPhone(), 
+						sendMessageService.addData("0", info.getUserName()+" 你好，观红世家向你的账号中赠送了"+add_jf+"积分，请尽快登陆使用！", info.getPhone(),
 								"会员："+info.getUserName()+"，账号:"+info.getName()+",编号:"+
 								info.getHuiYuan_id(),"送礼啦");
 					}
@@ -234,7 +234,7 @@ public class JfaddController extends BaseController{
 								"会员："+info.getUserName()+"，账号:"+info.getName()+",编号:"+
 								info.getHuiYuan_id(),"送礼啦");
 					}else{
-						sendMessageService.addData("1", info.getUserName()+" 你好，炫品妆成向你的账号中赠送了"+add_jf+"积分，请尽快登陆使用！", info.getEmail(), 
+						sendMessageService.addData("1", info.getUserName()+" 你好，观红世家向你的账号中赠送了"+add_jf+"积分，请尽快登陆使用！", info.getEmail(),
 								"会员："+info.getUserName()+"，账号:"+info.getName()+",编号:"+
 								info.getHuiYuan_id(),"送礼啦");
 					}

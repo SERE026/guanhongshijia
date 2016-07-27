@@ -28,14 +28,14 @@
     http://www.springframework.org/schema/security 
     http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-    <http auto-config="true" access-denied-page="/Dress/index.jsp">
+    <http auto-config="true" access-denied-page="/ghadmin/index.jsp">
     	<intercept-url pattern="/html/manage/main/validCode" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
     	<intercept-url pattern="/html/manage/**" access="IS_AUTHENTICATED_FULLY"/>
     	<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <form-login login-page="/Dress/index.jsp" authentication-failure-url="/Dress/index.jsp?login_error=4" 
+        <form-login login-page="/ghadmin/index.jsp" authentication-failure-url="/ghadmin/index.jsp?login_error=4"
         	default-target-url="/html/manage/main/" always-use-default-target="true"/>
         <http-basic/> 
-        <logout logout-success-url="/Dress/index.jsp"/>
+        <logout logout-success-url="/ghadmin/index.jsp"/>
         <remember-me/>
 
     </http>

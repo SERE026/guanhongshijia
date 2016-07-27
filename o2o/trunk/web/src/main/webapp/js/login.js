@@ -79,7 +79,7 @@ function validcodeyz(){
 
 
 function qqLogin(){
-	window.location.href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101058688&redirect_uri=http://www.guanhongshijia.com/Dress/qqreturn.jsp&state=123456"
+	window.location.href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101058688&redirect_uri=http://www.guanhongshijia.com/ghadmin/qqreturn.jsp&state=123456"
 	//window.open("https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=100409917&redirect_uri=http://www.cyclebicycle.net/qqreturn.jsp&state=123456","",'modal=yes,width=620,height=520,resizable=yes,scrollbars=no,location=no,scrollbars=yes,toolbar=no,menubar=no');
 	//window.open("https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=100397054&redirect_uri=&state=123456","",'modal=yes,width=620,height=520,resizable=yes,scrollbars=no,location=no,scrollbars=yes,toolbar=no,menubar=no')
 }
