@@ -822,7 +822,7 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 										if(2==coupon1.getType()){
 											constraintPrice2=constraintPrice2+coupon1.getConstraintValue();
 											maxAmouontPrice2=maxAmouontPrice2+coupon1.getMaxAmouont();
-											reducePrice2=reducePrice2+goodPrice*coupon1.getDiscountValue();//折扣率
+											reducePrice2=reducePrice2+coupon1.getDiscountValue();//折扣率
 										}
 									}else{
 										return false;
@@ -838,7 +838,7 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 								if(2==coupon1.getType()){
 									constraintPrice2=constraintPrice2+coupon1.getConstraintValue();
 									maxAmouontPrice2=maxAmouontPrice2+coupon1.getMaxAmouont();
-									reducePrice2=reducePrice2+goodPrice*coupon1.getDiscountValue();//折扣率
+									reducePrice2=reducePrice2+coupon1.getDiscountValue();//折扣率
 								}
 							}
 							//扣减优惠金额  满立减
@@ -849,7 +849,7 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							}
 							//扣减 折扣 的金额
 							if (constraintPrice2<=goodPrice && maxAmouontPrice2<=goodPrice && flag){
-								goodPrice=goodPrice-reducePrice2;
+								goodPrice=goodPrice-goodPrice*reducePrice2;
 							}else if (constraintPrice>goodPrice || maxAmouontPrice>goodPrice){
 								return false;
 							}
