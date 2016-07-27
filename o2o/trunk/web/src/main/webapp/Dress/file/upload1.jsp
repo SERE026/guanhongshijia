@@ -23,7 +23,7 @@
   --%>
 
 <%
-String url=request.getSession().getServletContext().getRealPath("/upload");//
+String url=SystemConfig.getInfo("upload");//
 InputStream in= request.getInputStream();
 int e=request.getContentLength();
 int s=0;

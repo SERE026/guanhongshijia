@@ -34,7 +34,7 @@
   --%>
 
 <%
-String url=request.getSession().getServletContext().getRealPath("/upload");//
+String url=SystemConfig.getInfo("upload");//
 DiskFileUpload fileUpload = new DiskFileUpload();
 fileUpload.setSizeMax(1024*1024*Integer.parseInt(SystemConfig.getInfo("upload.file.max")));
 String dir = "issue/";

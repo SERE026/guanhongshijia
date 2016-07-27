@@ -24,6 +24,7 @@ import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
 import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
 import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +44,9 @@ import java.util.Map;
  */
 @Controller
 public class WebIndexController{
+
+    private static Logger log = Logger.getLogger(WebIndexController.class);
+
     @Resource
     private GoodsService goodsService;
     @Resource
@@ -73,6 +77,7 @@ public class WebIndexController{
 
     @RequestMapping(value = "/gen")
     public void gen() {
+        log.debug("Generate.....");
         FreeMarkerUtils.genIndex();
         FreeMarkerUtils.genHeader();
         FreeMarkerUtils.genFooter();

@@ -4,6 +4,7 @@ import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.web.active.model.Active;
 import cn.com.dyninfo.o2o.furniture.web.active.service.GameActiveService;
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
+import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
@@ -114,7 +115,8 @@ public class FreeMarkerUtils {
         try {
             Configuration configuration = freemarkerConfig.getConfiguration();
             Template template = configuration.getTemplate(Constants.TEMPLATE_INDEX);
-            File file = new File(SystemConfig.getInfo("static.index.file"));
+            String fileName = SystemConfig.getInfo("static.index.file");
+            File file = new File(fileName);
             Writer out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             Map<String, Object> paramsMap = new HashMap<String, Object>();
             List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
@@ -179,6 +181,7 @@ public class FreeMarkerUtils {
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
             template.process(paramsMap, out);
             IOUtils.closeQuietly(out);
+            FileUtil.setPermission(fileName);
         } catch (Exception e) {
             log.error("Generate Index Error", e);
         }
@@ -188,7 +191,8 @@ public class FreeMarkerUtils {
         try {
             Configuration configuration = freemarkerConfig.getConfiguration();
             Template template = configuration.getTemplate(Constants.TEMPLATE_HEADER);
-            File file = new File(SystemConfig.getInfo("static.header.file"));
+            String fileName = Context.webPath + Context.tempPath + "/static/header.html";
+            File file = new File(fileName);
             Writer out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             Map<String, Object> paramsMap = new HashMap<String, Object>();
             List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
@@ -253,6 +257,7 @@ public class FreeMarkerUtils {
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
             template.process(paramsMap, out);
             IOUtils.closeQuietly(out);
+//            FileUtil.setPermission(fileName);
         } catch (Exception e) {
             log.error("Generate Header Error", e);
         }
@@ -262,7 +267,7 @@ public class FreeMarkerUtils {
         try {
             Configuration configuration = freemarkerConfig.getConfiguration();
             Template template = configuration.getTemplate(Constants.TEMPLATE_FOOTER);
-            File file = new File(SystemConfig.getInfo("static.footer.file"));
+            File file = new File(Context.webPath + Context.tempPath + "/static/footer.html");
             Writer out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             Map<String, Object> paramsMap = new HashMap<String, Object>();
             List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
