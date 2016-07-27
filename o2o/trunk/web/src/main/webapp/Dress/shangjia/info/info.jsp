@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
-<%@ include file="/Dress/include/top.jsp" %>
+<%@ include file="/admin-inc/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -113,12 +113,12 @@
 				<tr>
 					<td class="tab2_tou">
 						<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/img/submit_btn.gif" border="0" />
 						</a>
 					</td>
 					<td class="tab2_tou">
 						<a href="javascript:location.reload();">
-							<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
+							<img src="<%=request.getContextPath()%>/img/biao_03.gif" border="0" />
 						</a>
 					</td>
 				</tr>
@@ -155,8 +155,8 @@
 									</div>
 								</div>
 								<div style="width:200px;height:40px;margin:auto">
-								<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
-						   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
+								<script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+						   		<script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 								<!-- 上传附件按钮 -->
 								<script language="JavaScript" type="text/javascript">
 									var imageCount=0;
@@ -295,8 +295,8 @@
 									</c:if>--> 
 								</div>
 								
-										<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
-								   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
+										<script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+								   		<script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 										<!-- 上传附件按钮 -->
 										<script language="JavaScript" type="text/javascript">
 											function addDzEvent(){
@@ -373,8 +373,8 @@
 									</c:if>
 								</div>
 								
-								<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
-								   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
+								<script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+								   		<script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 										<!-- 上传附件按钮 -->
 										<script language="JavaScript" type="text/javascript">
 											function addNRJ_DzEvent(){

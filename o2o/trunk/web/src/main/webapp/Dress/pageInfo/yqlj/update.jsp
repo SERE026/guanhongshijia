@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/top.jsp" %>
+<%@ include file="/admin-inc/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -32,13 +32,13 @@ $(function(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <tr>
         <td class="tab2_tou"><a href="javascript:submit();">
-        	<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" /></a></td>
+        	<img src="<%=request.getContextPath()%>/img/submit_btn.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 			<a href="javascript:location.reload();">
-			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/img/biao_03.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 					<a href="<%=request.getContextPath()%>/html/manage/yqlj/list">
-			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/img/return_btn.gif" border="0" /></a></td>
 
 <td>&nbsp;</td>
 </tr>
@@ -55,7 +55,7 @@ $(function(){
 <input type="hidden" name="yqlj_id" value="${ info.yqlj_id }"/>
   <table cellspacing="0" cellpadding="0" class="table3_da">
    
-  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
+  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
     <td colspan="4"><strong>修改友情链接</strong></td>
   </tr>
     <tr>
@@ -73,8 +73,8 @@ $(function(){
  <tr>
  <td class="discription" style="width: 150px;">上传图片:</td>
 	<td >
-  	 	<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
-   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
+  	 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+   		<script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 		<!-- 上传附件按钮 -->
 		<script language="JavaScript" type="text/javascript">
 		function removeFiles(fileName){

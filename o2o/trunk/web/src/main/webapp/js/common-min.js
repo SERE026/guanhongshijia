@@ -6823,14 +6823,14 @@ function inputKey(c, b, d, e) {
             })
         }, name: "", keyup: function () {
             $("#boxpro").empty();
-            $("#boxpro").append("<img src='../img/loading.gif' /><br/>数据加载中...");
+            $("#boxpro").append("<img src='../../img/loading.gif' /><br/>数据加载中...");
             $("#boxpro").css("top", a.name.offset().top + 25);
             $("#boxpro").css("left", a.name.offset().left);
             $("#boxpro").css("display", "");
             a.resultAjax(b, "name=" + a.name.val() + "&i=" + Math.random(), "json")
         }, click: function () {
             $("#boxpro").empty();
-            $("#boxpro").append("<img src='../img/loading.gif' /><br/>数据加载中...");
+            $("#boxpro").append("<img src='../../img/loading.gif' /><br/>数据加载中...");
             $("#boxpro").css("top", a.name.offset().top + 25);
             $("#boxpro").css("left", a.name.offset().left);
             $("#boxpro").css("display", "");

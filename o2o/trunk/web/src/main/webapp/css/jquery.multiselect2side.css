@@ -82,7 +82,7 @@
 .ms2side__header input.wait {
 	width: 80px;
 	height: 12px;
-	background: #FFFFFF url(../img/loading.gif) no-repeat center right;
+	background: #FFFFFF url(../../img/loading.gif) no-repeat center right;
 }
 
 .ms2side__header input.small {
@@ -114,7 +114,7 @@
 	text-align: center;
 	text-decoration: none;
 	border: 1px solid gray;
-	background: #FFFFFF url(../img/close.gif) no-repeat center center;
+	background: #FFFFFF url(../../img/close.gif) no-repeat center center;
 	margin: 0 0 0 3px;
 }
 

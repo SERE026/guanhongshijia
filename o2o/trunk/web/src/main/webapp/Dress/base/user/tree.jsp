@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/taglib.jsp"%>
+<%@ include file="/admin-inc/taglib.jsp"%>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -19,9 +19,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/dialogSelection.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jsTree/jquery.jstree.js"></script>
+<link href="<%=request.getContextPath()%>/css/dialogSelection.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jsTree/jquery.jstree.js"></script>
 
 <script language="javascript">
 $(function () {  

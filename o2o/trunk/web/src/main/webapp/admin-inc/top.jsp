@@ -20,12 +20,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title><fmt:message key="sys.name" /></title>
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/kua.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/human2.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/common-min.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/dialog.js"></script>
+<link href="<%=request.getContextPath()%>/css/kua.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/human2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/common-min.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/dialog.js"></script>
 
-<link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jq-dateinput/ui.datepicker.css" title="win2k-cold-1" />
+<link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/js/jq-dateinput/ui.datepicker.css" title="win2k-cold-1" />
 <style type="text/css">
 	.error{color:#ff0000;}
 </style>

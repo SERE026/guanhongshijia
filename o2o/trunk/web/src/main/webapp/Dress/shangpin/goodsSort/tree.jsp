@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/taglib.jsp"%>
+<%@ include file="/admin-inc/taglib.jsp"%>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -20,11 +20,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/tree/zTreeStyle.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery-1.4.2.min.js"></script>
+<link href="<%=request.getContextPath()%>/js/tree/zTreeStyle.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.min.js"></script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/tree/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/tree/jquery.ztree.excheck-3.5.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/tree/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/tree/jquery.ztree.excheck-3.5.min.js"></script>
 <script type="text/javascript">
 <!--
 	function onCheck(e, treeId, treeNode) {

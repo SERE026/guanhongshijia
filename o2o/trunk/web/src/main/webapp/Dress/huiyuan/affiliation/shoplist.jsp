@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/top.jsp" %>
+<%@ include file="/admin-inc/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -14,7 +14,7 @@
   ~
   --%>
 
-<script src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/address.js"></script>
+<script src="<%=request.getContextPath()%>/js/admin-address.js"></script>
 <script type="text/javascript">
 	$(function(){
 		
@@ -105,7 +105,7 @@
 
 					</tr>
 				</table>
-			<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" border="0" /></a>
+			<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/img/222.gif" border="0" /></a>
 		</td>
 	</tr>
 	<tr><td></td></tr>
@@ -152,7 +152,7 @@
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="<%=Constants.PAGE_JSP%>">
+					<jsp:include page="/admin-inc/nofenye.jsp">
 						<jsp:param name="url" value="/html/manage/goods/list" />
 					</jsp:include>
 				</table>

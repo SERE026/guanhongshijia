@@ -19,7 +19,7 @@
 <head>
 <title>404页面</title>
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/login.css" />
+	href="<%=request.getContextPath()%>/css/login.css" />
 <style type="text/css">
 <!--
 .STYLE1 {color: #FFFFFF}
@@ -28,7 +28,7 @@
 </head>
 <body>
 <div style="width:450px; height:200px; margin-top:100px; margin-left:200px">
-<div style="width:256px; height:256px; overflow:hidden; margin:auto"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/quanxian.jpg"/></div>
+<div style="width:256px; height:256px; overflow:hidden; margin:auto"><img src="<%=request.getContextPath()%>/img/quanxian.jpg"/></div>
 <div style="width:auto; height:auto; text-align:center; font-size:18px; font-weight:bold; padding-top:20px; margin-left:130px">
 	很抱歉，您访问的资源未找到&nbsp;&nbsp;<a href="#" onclick="history.back();">返回&lt;&lt;</a>
 </div>

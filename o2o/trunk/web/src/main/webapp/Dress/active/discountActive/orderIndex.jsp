@@ -21,11 +21,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title><fmt:message key="sys.name" /></title>
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/kua.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/human2.css" rel="stylesheet" type="text/css" />
-<script src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/layer/lib.js"></script>
-<script src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery.validate.js"></script>
-<script src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/ajax.js"></script>
+<link href="<%=request.getContextPath()%>/css/kua.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/human2.css" rel="stylesheet" type="text/css" />
+<script src="<%=request.getContextPath()%>/js/layer/lib.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.validate.js"></script>
+<script src="<%=request.getContextPath()%>/js/ajax.js"></script>
 <style type="text/css">
 	.error{color:#ff0000;}
 </style>
@@ -33,7 +33,7 @@
 <body>
 
 <script type="text/JavaScript">
-	var tb_pathToImage = "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/loadingAnimation.gif";
+	var tb_pathToImage = "<%=request.getContextPath()%>/img/loadingAnimation.gif";
 	function submit(){
 		if($("#form1").checkall()){
 	   	 document.form1.submit();
@@ -44,7 +44,7 @@
 	}) ;
 	var servicePath="<%=request.getContextPath()%>";
 </script>
-<script src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/layer/layer.js"></script>
+<script src="<%=request.getContextPath()%>/js/layer/layer.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/active/discountActive/active.js"></script>
 
 <table width="100%" border="1" cellspacing="2" cellpadding="0" class="tab2" height="100%" style="vertical-align:top;">
@@ -60,15 +60,15 @@
    <tr>
    		<td class="tab2_tou">
 			<a href="javascript:submit();" title="<fmt:message key="button.send"/>">
-				<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" />
+				<img src="<%=request.getContextPath()%>/img/submit_btn.gif" border="0" />
 			</a>
 		</td>
 		<td class="tab2_tou" >
 			<a href="javascript:location.reload();">
-			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/img/biao_03.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 			<a href="<%=request.getContextPath()%>/html/manage/discountActive/list">
-			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/img/return_btn.gif" border="0" /></a></td>
 
 <td>&nbsp;</td>
 </tr>
@@ -88,7 +88,7 @@
 
   <table cellspacing="0" cellpadding="0" class="table3_da">
    
-  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
+  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
     <td colspan="4"><strong>编辑活动商品顺序</strong></td>
   </tr>
  <tr>

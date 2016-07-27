@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/top.jsp" %>
+<%@ include file="/admin-inc/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -69,23 +69,23 @@
 					<tr>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/appKey/disAdd">
-								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_07.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/img/biao_07.gif" border="0" />
 							</a>
 						</td>
 						<td class="tab2_tou">
 							<a href="javascript:delall();">
-								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_09.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/img/biao_09.gif" border="0" />
 							</a>
 						</td>
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/appKey/list">
-								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/img/biao_03.gif" border="0" />
 							</a>
 						</td>
 						<td class="chazhaofanshi1">appKey：</td>
 						<td><input  name="appKey" type="text" style="color:#494949" value="${appKey }"/></td>
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" border="0" /></a>
+							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/img/222.gif" border="0" /></a>
 						</td>
 					</tr>
 				</table>
@@ -121,7 +121,7 @@
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="<%=Constants.PAGE_JSP%>">
+					<jsp:include page="/admin-inc/nofenye.jsp">
 						<jsp:param name="url" value="/html/manage/appKey/list" />
 					</jsp:include>
 				</table>

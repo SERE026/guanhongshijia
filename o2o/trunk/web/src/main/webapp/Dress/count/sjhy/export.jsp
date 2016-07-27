@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="application/x-download; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/top.jsp"%>
+<%@ include file="/admin-inc/top.jsp"%>
 <%@page import="java.net.URLEncoder" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.

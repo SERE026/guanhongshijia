@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/top.jsp" %>
+<%@ include file="/admin-inc/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -15,7 +15,7 @@
   --%>
 
 <script type="text/JavaScript">
-	var tb_pathToImage = "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/loadingAnimation.gif";
+	var tb_pathToImage = "<%=request.getContextPath()%>/img/loadingAnimation.gif";
 	function submit(){
 		if($("#form1").checkall()){
 	   	 document.form1.submit();
@@ -51,7 +51,7 @@
 <input type="hidden" name="status" value="0" />
 
   <table cellspacing="0" cellpadding="0" class="table3_da">
-  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
+  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
     <td colspan="4"><strong>商品模块排序</strong></td>
   </tr>
    <tr>

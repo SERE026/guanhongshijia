@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/taglib.jsp" %>
+<%@ include file="/admin-inc/taglib.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -14,7 +14,7 @@
   ~
   --%>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/ajax.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/ajax.js"></script>
 
 <script type="text/javascript">
 	var i=1;
@@ -147,17 +147,17 @@
 					<tr>
 					   <td class="tab2_tou">
 							<a href="javascript:saveGoods();">
-        						<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" /></a>
+        						<img src="<%=request.getContextPath()%>/img/submit_btn.gif" border="0" /></a>
         				</td>
 						<td class="tab2_tou">
 							<a href="javascript:refresh();">
-								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/img/biao_03.gif" border="0" />
 							</a>
 						</td>
 						<td class="chazhaofanshi1">商家：</td>
 						<td><input type="text" value="" style="color:#494949" name="shanJia" id="shanJia"/></td>
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img border="0" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif"></a>
+							<a href="javascript:cz();"><img border="0" src="<%=request.getContextPath()%>/img/222.gif"></a>
 						</td>
 					</tr>
 				</table>
@@ -197,10 +197,10 @@
 					
 				</table>
 				<div class="fenye" style="margin-left: 100px;margin-right: auto;">
-					<div class="fenye_shang" id="Previous"><a href="javascript:goPagePrevious();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/homeaa_19.gif"></a></div>
+					<div class="fenye_shang" id="Previous"><a href="javascript:goPagePrevious();"><img src="<%=request.getContextPath()%>/img/homeaa_19.gif"></a></div>
 					<div class="fenye_shugai"><input type="text" class="fegai_xie pageNo" name=""></div>
 					<div class="fenye_shugai22">/<span class="pageSize"></span>&nbsp;&nbsp;<a class="goClass" href="javascript:goPage();">跳转</a></div>
-					<div class="fenye_xia"><a href="javascript:goPageNext();"><img border="0" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/homeaa_26.gif"></a></div>
+					<div class="fenye_xia"><a href="javascript:goPageNext();"><img border="0" src="<%=request.getContextPath()%>/img/homeaa_26.gif"></a></div>
 			</div>
 			</form>
 		</td>

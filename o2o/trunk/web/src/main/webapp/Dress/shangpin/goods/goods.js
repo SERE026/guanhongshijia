@@ -376,7 +376,7 @@ function DialogEvent(){
 	$(".imageBoxUpload").unbind("click").click(function(){
 		$(".ImageButton").css("display","none");
 		$(".ImageBody .addFileBtn").css("display","none");
-		$(".ImageBody").append("<div style='margin:auto;' class='currentUploadFile'><img src='"+servicePath+"/Dress/shangpin/goods/loading.gif' /><br/>上传中，请稍后...</div>");
+		$(".ImageBody").append("<div style='margin:auto;' class='currentUploadFile'><img src='"+servicePath+"/shangpin/goods/loading.gif' /><br/>上传中，请稍后...</div>");
 		ajaxFileUpload();
 	})
 	$(".imageBoxColse").unbind("click").click(function(){

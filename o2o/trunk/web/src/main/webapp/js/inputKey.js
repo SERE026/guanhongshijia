@@ -35,7 +35,7 @@ function inputKey(name,url,key,val){
 		'name':'',
 		'keyup':function(){
 			$("#boxpro").empty();
-			$("#boxpro").append("<img src='../img/loading.gif' /><br/>数据加载中...");
+			$("#boxpro").append("<img src='../../img/loading.gif' /><br/>数据加载中...");
 			$("#boxpro").css("top",curSel.name.offset().top+25);
 			$("#boxpro").css("left",curSel.name.offset().left);
 			$("#boxpro").css("display","");
@@ -43,7 +43,7 @@ function inputKey(name,url,key,val){
 		},
 		'click':function(){
 			$("#boxpro").empty();
-			$("#boxpro").append("<img src='../img/loading.gif' /><br/>数据加载中...");
+			$("#boxpro").append("<img src='../../img/loading.gif' /><br/>数据加载中...");
 			$("#boxpro").css("top",curSel.name.offset().top+25);
 			$("#boxpro").css("left",curSel.name.offset().left);
 			$("#boxpro").css("display","");

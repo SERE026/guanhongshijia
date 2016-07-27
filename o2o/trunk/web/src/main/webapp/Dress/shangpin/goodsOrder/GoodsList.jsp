@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/top.jsp" %>
+<%@ include file="/admin-inc/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -83,7 +83,7 @@ text-overflow: ellipsis;
 					<tr>
 						<td class="tab2_tou">
 							<a href="javascript:;" class="saveGoos">
-								<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/dfdf.gif" border="0" />
+								<img src="<%=request.getContextPath()%>/img/dfdf.gif" border="0" />
 							</a>
 						</td>
 						<td class="chazhaofanshi1">商品编号：</td>
@@ -93,7 +93,7 @@ text-overflow: ellipsis;
 						<td class="chazhaofanshi1">店铺名称：</td>
 						<td><input  name="shopName" type="text" style="color:#494949" value="${shopName }"/></td>
 						<td class="tab2_tou">
-							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/222.gif" border="0" /></a>
+							<a href="javascript:cz();"><img src="<%=request.getContextPath()%>/img/222.gif" border="0" /></a>
 						</td>
 					</tr>
 				</table>
@@ -155,7 +155,7 @@ text-overflow: ellipsis;
 							</td>
 						</tr>
 					</c:forEach>
-					<jsp:include page="<%=Constants.PAGE_JSP%>">
+					<jsp:include page="/admin-inc/nofenye.jsp">
 						<jsp:param name="url" value="/html/manage/goods/list" />
 					</jsp:include>
 				</table>

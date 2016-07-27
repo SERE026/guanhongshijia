@@ -1,6 +1,6 @@
 <%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/Dress/include/top.jsp" %>
+<%@ include file="/admin-inc/top.jsp" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -32,10 +32,10 @@ $(function(){
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <tr>
         <td class="tab2_tou"><a href="javascript:submit();">
-        	<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" /></a></td>
+        	<img src="<%=request.getContextPath()%>/img/submit_btn.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 			<a href="javascript:location.reload();">
-			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/img/biao_03.gif" border="0" /></a></td>
 
 <td>&nbsp;</td>
 </tr>
@@ -54,8 +54,8 @@ $(function(){
    
  <td class="discription" style="width: 150px;">上传图片:</td>
 	<td >
-  	 	<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/AC_OETags.js"></script>
-   		<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/fileUpload.js"></script>
+  	 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+   		<script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 		<!-- 上传附件按钮 -->
 		<script language="JavaScript" type="text/javascript">
 		function removeFiles(fileName){

@@ -38,31 +38,31 @@ ul{
 }
 </style>
 
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/kua.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/human2.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/common-min.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/dialog.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/DlyTypeInput.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/Eop.Dialog.Remote.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/eop.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jquery.checktree.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/style/SelectTree.js"></script>
-<script type="text/JavaScript" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/style/ckeditor.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/js/jq-dateinput/ui.datepicker.css" title="win2k-cold-1" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/global.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/input.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/grid.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/validate.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/dialog.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/style.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/jquery.treeview.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/kua.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/human2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/common-min.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/dialog.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/DlyTypeInput.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/Eop.Dialog.Remote.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/eop.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/jquery.checktree.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/style/SelectTree.js"></script>
+<script type="text/JavaScript" src="<%=request.getContextPath()%>/js/style/ckeditor.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/js/jq-dateinput/ui.datepicker.css" title="win2k-cold-1" />
+<link href="<%=request.getContextPath()%>/css/global.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/input.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/grid.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/validate.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/dialog.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/jquery.treeview.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
 	.error{color:#ff0000;}
 </style>
 </head>
 <body>
-<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/css/checktree.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath()%>/css/checktree.css" />
 <style> 
 .division {
 	line-height: 150%;
@@ -222,13 +222,13 @@ areagroupid="0";
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
    <tr>
         <td class="tab2_tou"><a href="javascript:submit();">
-        	<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/submit_btn.gif" border="0" /></a></td>
+        	<img src="<%=request.getContextPath()%>/img/submit_btn.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 			<a href="javascript:location.reload();">
-			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_03.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/img/biao_03.gif" border="0" /></a></td>
 		<td class="tab2_tou" >
 					<a href="<%=request.getContextPath()%>/html/manage/dlytype/list">
-			<img src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/return_btn.gif" border="0" /></a></td>
+			<img src="<%=request.getContextPath()%>/img/return_btn.gif" border="0" /></a></td>
 
 <td>&nbsp;</td>
 </tr>
@@ -249,7 +249,7 @@ areagroupid="0";
 <input type="hidden" name="hdfksum" id="hdfksum" value=""/>
   <table cellspacing="0" cellpadding="0" class="table3_da">
    
-  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
+  <tr style="height:25px;background-image:url(<%=request.getContextPath()%>/img/biao_22top.gif); background-repeat:repeat-x;color: #ffffff;">
     <td colspan="4"><strong>新增配送方式</strong></td>
   </tr>
     <tr>
@@ -329,9 +329,9 @@ areagroupid="0";
 				<li style="line-height: 30px;display:none" class="division" id="lieach">
 	 				
 					<div class="deliverycity" >
-	                     <span class="delCfgBtn" style="float: right;"><img border="none" title="删除" alt="删除" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/liu2.jpg" ></span>
+	                     <span class="delCfgBtn" style="float: right;"><img border="none" title="删除" alt="删除" src="<%=request.getContextPath()%>/img/liu2.jpg" ></span>
 	                  	 配送地区 <input type="text"  disabled="true"  readonly="true" name="areaGroupName" style="width: 300px;" dataType="string" required="true"/>
-	                     <input type="hidden"  disabled="true" id="areaGroupId" name="areaGroupId" ><img border="none" class="editAreaImg" title="编辑地区" alt="编辑地区" src="<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/img/liu1.jpg" class="regionSelect"/>
+	                     <input type="hidden"  disabled="true" id="areaGroupId" name="areaGroupId" ><img border="none" class="editAreaImg" title="编辑地区" alt="编辑地区" src="<%=request.getContextPath()%>/img/liu1.jpg" class="regionSelect"/>
 	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	                     <label style="display:none"><input type="hidden" disabled="true" name="has_cod" value="0"/><input type="checkbox" disabled="true" value="1" name="codecheck" id="codecheck" />支持货到付款</label>
 	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

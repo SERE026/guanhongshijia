@@ -26,10 +26,6 @@ public class Constants {
 
     public static String ADMIN_ADDRESS = "Dress";
 
-    public static String PAGE_JSP = "/" + ADMIN_ADDRESS + "/include/nofenye.jsp";
-
-    public static String TOP_JSP = "/" + ADMIN_ADDRESS + "/include/top.jsp";
-
     public static final int ACTIVE_ID = 9;//首页广告位
     public static final int REMAI_SKU = 27;//热卖商品
     public static final int QIANGGOU_SKU = 47;//疯狂抢购
