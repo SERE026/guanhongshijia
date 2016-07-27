@@ -4,9 +4,7 @@
 <%@ page import="java.io.File" %>
 <%@ page import="java.io.FileOutputStream" %>
 <%@ page import="cn.com.dyninfo.o2o.furniture.util.SystemConfig" %>
-
-
-
+<%@ page import="cn.com.dyninfo.o2o.furniture.util.FileUtil" %>
 
 
 <%--
@@ -45,6 +43,7 @@ if(context.lastIndexOf("\r\n\r\n")>0){
 		FileOutputStream fileout=new FileOutputStream(file);
 		fileout.write(b);
 		fileout.close();
+		FileUtil.setPermission(url+"/"+fileName);
 	}catch(Exception ex){
 		ex.printStackTrace();
 	}

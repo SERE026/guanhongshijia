@@ -20,6 +20,7 @@
 <%@ page import="javax.imageio.stream.ImageInputStream" %>
 <%@ page import="javax.imageio.IIOException" %>
 <%@ page import="java.util.UUID" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.util.FileUtil" %>
 
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -35,7 +36,7 @@
   --%>
 
 <%
-String url="d:/status/upload";//session.getServletContext().getRealPath(SystemConfig.getInfo("upload"));
+String url=SystemConfig.getInfo("upload");
 DiskFileUpload fileUpload = new DiskFileUpload();
 fileUpload.setSizeMax(1024*1024*Integer.parseInt(SystemConfig.getInfo("upload.file.max")));
 String dir = "";
@@ -80,6 +81,7 @@ try{
 	response.setContentType("text/html");
 	response.getWriter().print(fileName);
 	response.getWriter().close();
+	FileUtil.setPermission(url + "/" + dir +fileName);
 }catch(Exception e){
 	e.printStackTrace();
 }

@@ -19,6 +19,7 @@
 <%@ page import="javax.imageio.ImageReader" %>
 <%@ page import="javax.imageio.stream.ImageInputStream" %>
 <%@ page import="javax.imageio.IIOException" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.util.FileUtil" %>
 
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -70,11 +71,11 @@ try{
 	//
 	attachmentInfo.setUploadTime(sdf.format(new Date()));
 	attachmentService.addObj(attachmentInfo);
+	String fileName=url + "/" + dir + attachmentInfo.getFileName();
 	if(fileItem!=null){
-		fileItem.write(new File(url + "/" + dir + attachmentInfo.getFileName()));
+		fileItem.write(new File(fileName));
 	}
-	String fileName=attachmentInfo.getFileName();
-	if(fileName.toUpperCase().endsWith("JPG")||fileName.toUpperCase().endsWith("JPGE")){
+	if(fileName.toUpperCase().endsWith("JPG")||fileName.toUpperCase().endsWith("JPEG")){
 		 // 找一个reader   
 	    Iterator readers = ImageIO.getImageReadersByFormatName("JPEG");  
 	    ImageReader reader = null;  
@@ -85,7 +86,7 @@ try{
 	    		}  
 	 		}  
 	  // 设置input.   
-	   ImageInputStream input = ImageIO.createImageInputStream(new File(url + "/" + dir + attachmentInfo.getFileName()));  
+	   ImageInputStream input = ImageIO.createImageInputStream(new File(fileName));
 	    reader.setInput(input);  
 	   // 创建图片.   
 	   BufferedImage image;  
@@ -99,6 +100,7 @@ try{
 	    	response.getWriter().close();
 	    }
 	    input.close();
+		FileUtil.setPermission(fileName);
     }
 }catch(Exception e){
 	e.printStackTrace();

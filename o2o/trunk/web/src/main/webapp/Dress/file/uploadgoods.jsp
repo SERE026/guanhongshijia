@@ -20,6 +20,7 @@
 <%@ page import="javax.imageio.stream.ImageInputStream" %>
 <%@ page import="javax.imageio.IIOException" %>
 <%@ page import="cn.com.dyninfo.o2o.furniture.util.ImageOperate" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.util.FileUtil" %>
 
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -83,7 +84,11 @@ try{
 		}
 	   ImageOperate io=new ImageOperate();
 	   io.alterSize(url + "/" + dir + maxFileName,url + "/" + dir+attachmentInfo.getFileName(),320,320);
+	FileUtil.setPermission(url + "/" + dir+attachmentInfo.getFileName());
 	   io.alterSize(url + "/" + dir+attachmentInfo.getFileName(),url + "/" + dir+"min"+attachmentInfo.getFileName(),320,320);
+	FileUtil.setPermission(url + "/" + dir+"min"+attachmentInfo.getFileName());
+	FileUtil.setPermission(url + "/" + dir + maxFileName);
+	FileUtil.setPermission(url + "/" + dir+attachmentInfo.getFileName());
     
 }catch(Exception e){
 	e.printStackTrace();
