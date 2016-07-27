@@ -100,8 +100,8 @@ try{
 	    	response.getWriter().close();
 	    }
 	    input.close();
-		FileUtil.setPermission(fileName);
     }
+	FileUtil.setPermission(fileName);
 }catch(Exception e){
 	e.printStackTrace();
 }

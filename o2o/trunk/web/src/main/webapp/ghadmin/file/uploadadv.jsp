@@ -111,9 +111,9 @@ FileItem fileItem=null;
 		log.error("brefore close");
 	    input.close();
 		log.error("CALL FILEUTIL");
-        FileUtil.setPermission(fileName);
-		log.error("call fileutil end");
+ 		log.error("call fileutil end");
     }
+		FileUtil.setPermission(fileName);
 }catch(Exception e){
 	log.error("upload fail", e);
 }
