@@ -80,7 +80,7 @@ FileItem fileItem=null;
 	if(fileItem!=null){
 		fileItem.write(new File(fileName));
 	}
-		log.error("after2");
+		log.error("filename: " + fileName);
 	if(fileName.toUpperCase().endsWith("JPG")||fileName.toUpperCase().endsWith("JPEG")){
 		 // 找一个reader   
 	    Iterator readers = ImageIO.getImageReadersByFormatName("JPEG");  
