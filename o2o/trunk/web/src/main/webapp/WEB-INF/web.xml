@@ -63,30 +63,30 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	 <filter>
-    <filter-name>Compress</filter-name>
-    	<filter-class>cn.com.dyninfo.o2o.furniture.web.framework.gzip.GZIPFilter</filter-class>
-	</filter>
-	<filter-mapping>
-	    <filter-name>Compress</filter-name>
-	    <url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-	    <filter-name>Compress</filter-name>
-	    <url-pattern>*.do</url-pattern>
-	</filter-mapping> 
-	<filter-mapping>
-	    <filter-name>Compress</filter-name>
-	    <url-pattern>*.html</url-pattern>
-	</filter-mapping>
-	    <filter-mapping>
-	    <filter-name>Compress</filter-name>
-	    <url-pattern>*.js</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-	    <filter-name>Compress</filter-name>
-	    <url-pattern>*.css</url-pattern>
-	</filter-mapping>
+	 <!--<filter>-->
+    <!--<filter-name>Compress</filter-name>-->
+    	<!--<filter-class>cn.com.dyninfo.o2o.furniture.web.framework.gzip.GZIPFilter</filter-class>-->
+	<!--</filter>-->
+	<!--<filter-mapping>-->
+	    <!--<filter-name>Compress</filter-name>-->
+	    <!--<url-pattern>*.jsp</url-pattern>-->
+	<!--</filter-mapping>-->
+	<!--<filter-mapping>-->
+	    <!--<filter-name>Compress</filter-name>-->
+	    <!--<url-pattern>*.do</url-pattern>-->
+	<!--</filter-mapping> -->
+	<!--<filter-mapping>-->
+	    <!--<filter-name>Compress</filter-name>-->
+	    <!--<url-pattern>*.html</url-pattern>-->
+	<!--</filter-mapping>-->
+	    <!--<filter-mapping>-->
+	    <!--<filter-name>Compress</filter-name>-->
+	    <!--<url-pattern>*.js</url-pattern>-->
+	<!--</filter-mapping>-->
+	<!--<filter-mapping>-->
+	    <!--<filter-name>Compress</filter-name>-->
+	    <!--<url-pattern>*.css</url-pattern>-->
+	<!--</filter-mapping>-->
 	<servlet>
         <servlet-name>html-page</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -122,15 +122,15 @@
 	</filter-mapping>
 	
 	<!-- 条形码 -->
-	<servlet>
-		<servlet-name>barbecue</servlet-name>
-		<servlet-class>net.sourceforge.barbecue.BarcodeServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>barbecue</servlet-name>
-		<url-pattern>/CreateBarCode</url-pattern>
-	</servlet-mapping>
+	<!--<servlet>-->
+		<!--<servlet-name>barbecue</servlet-name>-->
+		<!--<servlet-class>net.sourceforge.barbecue.BarcodeServlet</servlet-class>-->
+		<!--<load-on-startup>1</load-on-startup>-->
+	<!--</servlet>-->
+	<!--<servlet-mapping>-->
+		<!--<servlet-name>barbecue</servlet-name>-->
+		<!--<url-pattern>/CreateBarCode</url-pattern>-->
+	<!--</servlet-mapping>-->
 	
 	<!-- 后台 -->
 	<filter>
