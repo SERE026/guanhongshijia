@@ -11,6 +11,7 @@ public class FileUtil {
     private static Logger log = Logger.getLogger(FileUtil.class);
 
     public static void setPermission(String fileName) {
+        log.debug("change mod for: " + fileName);
         if (!System.getProperty("os.name").toLowerCase().startsWith("windows")) {
             try {
                 Runtime.getRuntime().exec("chmod 644 " + fileName);
