@@ -14,7 +14,7 @@
 package cn.com.dyninfo.o2o.furniture.web.order.widget;
 
 import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
-import cn.com.dyninfo.o2o.furniture.admin.service.CouponMeberRelService;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.util.ForwordTool;
 import cn.com.dyninfo.o2o.furniture.util.ResponseUtil;
@@ -60,7 +60,7 @@ public class ConfirmOrderWidget extends  Widget {
 	private HuiyuanService huiyuanService;
 
 	@Resource
-	private CouponMeberRelService couponMeberRelService;
+	private CouponMemberRelService couponMemberRelService;
 
 	@Resource
 	private CouponService couponService;
@@ -89,7 +89,7 @@ public class ConfirmOrderWidget extends  Widget {
 			this.putData("j_x", j_x.getJffa_jfdk());
 			member =(HuiyuanInfo) huiyuanService.getObjById(""+member.getHuiYuan_id());
 			this.putData("h_x", member.getJf());
-			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMeberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+member.getHuiYuan_id()));
+			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+member.getHuiYuan_id()));
 			this.putData("couponMemberRelList",couponMemberRelList);
 
 			

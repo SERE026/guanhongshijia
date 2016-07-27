@@ -13,8 +13,7 @@
 
 package cn.com.dyninfo.o2o.furniture.web.member.widget;
 
-import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
-import cn.com.dyninfo.o2o.furniture.admin.service.CouponMeberRelService;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
@@ -25,7 +24,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 import java.util.Map;
 
 /*
@@ -41,7 +39,7 @@ public class Coupon extends AbstractMemberWidget{
 	 @Resource
 	 private LoginfoService loginfoService;
 	 @Resource
-	 private CouponMeberRelService couponMeberRelService;
+	 private CouponMemberRelService couponMemberRelService;
 
 	@Override
 	public void execute(Map pamtr) {
@@ -56,14 +54,14 @@ public class Coupon extends AbstractMemberWidget{
 			String pageSize=(String) pamtr.get("pageSize");
 			page.setPageNo(Integer.parseInt(pageNo));
 			page.setPageSize(Integer.parseInt(pageSize));
-			Map map=couponMeberRelService.getListByPageWhere(new StringBuffer(" and  n.huiyuan="+huiyuan.getHuiYuan_id()), page);
+			Map map=couponMemberRelService.getListByPageWhere(new StringBuffer(" and  n.huiyuan="+huiyuan.getHuiYuan_id()), page);
 			this.putData("data", map.get("DATA"));
 			this.setPageName("Coupon2.html");
 		}else if(action.equals("getTotale")){
 			page.setPageNo(1);
 			page.setPageSize(10);
 			StringBuffer where=new StringBuffer(" and  n.huiyuan="+huiyuan.getHuiYuan_id());
-			int count=couponMeberRelService.getCountByWhere(where);
+			int count=couponMemberRelService.getCountByWhere(where);
 			this.putData("json","{\"total\":"+count+"}");
 			this.setPageName("json.html");
 		}
