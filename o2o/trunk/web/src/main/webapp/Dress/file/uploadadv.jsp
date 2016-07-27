@@ -36,7 +36,8 @@
 
 <%
 	Logger log = Logger.getLogger(this.getClass());
-log.debug("Start upload ADV");
+	try{
+log.error("Start upload ADV");
 	String url=SystemConfig.getInfo("upload");//
 DiskFileUpload fileUpload = new DiskFileUpload();
 fileUpload.setSizeMax(1024*1024*Integer.parseInt(SystemConfig.getInfo("upload.file.max")));
@@ -48,7 +49,6 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 WebApplicationContext ac = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 AttachmentService attachmentService = (AttachmentService)ac.getBean("attachmentService");
 FileItem fileItem=null;
-try{
 	List fileItems = fileUpload.parseRequest(request);
 	Iterator iterator = fileItems.iterator();
 	AttachmentInfo attachmentInfo = new AttachmentInfo();
