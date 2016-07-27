@@ -1,6 +1,6 @@
 package cn.com.dyninfo.o2o.furniture.admin.service.impl;
 
-import cn.com.dyninfo.o2o.furniture.admin.dao.CouponMemberRelDAO;
+import cn.com.dyninfo.o2o.furniture.admin.dao.CouponMeberRelDAO;
 import cn.com.dyninfo.o2o.furniture.admin.service.BaseService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponMeberRelService;
 import org.springframework.stereotype.Service;
@@ -13,10 +13,10 @@ import javax.annotation.Resource;
 @Service("couponMeberRelService")
 public class CouponMeberRelServiceImpl extends BaseService implements CouponMeberRelService{
     @Resource
-    private CouponMemberRelDAO couponMemberRelDAO;
+    private CouponMeberRelDAO couponMeberRelDAO;
 
     @Override
     public void initDao(){
-        this.baseDao=couponMemberRelDAO;
+        this.baseDao=couponMeberRelDAO;
     }
 }
