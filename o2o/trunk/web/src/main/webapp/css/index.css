@@ -391,8 +391,10 @@ ul li {float:left;list-style-type:none;
 .Showcase>ul>li {
     width:225px;margin-left:13px;height:315px;
 }
-    .Showcase > ul > li > dl {width:225px;padding:5px;height:315px;
+    .Showcase > ul > li > dl {width:225px;padding:5px;height:315px;overflow: hidden;
     }
+
+.Showcase > ul > li > dl img{width: 213px;height: 225px;border: 1px solid red;}
     .Showcase>ul>li:first-child {margin:0;
     }
 .Add-art {border:1px solid #572a27;color:white;margin-left:13px;width:56px;line-height:16px;text-align:center;display:block;float:left;height:20px;
@@ -462,7 +464,7 @@ ul li {float:left;list-style-type:none;
     }
     .Floor .FloorImg {float:left;width:220px;height:560px;border:1px solid red;padding-left:16px;
     }
-        .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:140px;margin-top:20px;font-weight:bold;font-size:27px;
+        .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:auto;margin-top:20px;font-weight:bold;font-size:27px;display: inline-block;
         }
         .Floor .FloorImg ul {overflow:hidden;margin-top:15px;
         }
@@ -480,7 +482,7 @@ ul li {float:left;list-style-type:none;
 }
 .floor-banner ul li {width:200px;height:269px;padding:5px;border:1px solid #dcd7d7;
 }
-.floor-banner .Introduction,.dd-Item-name .Introduction {font-size:15px;color:#666; 
+.floor-banner .Introduction,.dd-Item-name .Introduction {font-size:12px;color:#666;
 }
 .floor-banner .Item-price {font-size:20px;
 }
@@ -535,7 +537,7 @@ ul li {float:left;list-style-type:none;
         }*/
         .FloorHead ul li {line-height:40px;background-color:#572a27;margin-right:10px;width:100px;text-align:center;color:#eba465;font-size:15px;
         }
-            .FloorHead ul li:last-child {margin-right:88px;
+            .FloorHead ul li:last-child {
             }
     .FloorHead .FloorBack {background-color:#572a27;line-height:14px;width:100%;height:14px;
     }
@@ -546,9 +548,9 @@ ul li {float:left;list-style-type:none;
 .FloorID span {margin-left:10px;font-weight:bold;float:left;display:block;padding-top:15px;
 }
 
-.FloorBack > .backLeft {color:#fad2a7;font-size:7px;display:inline-block;transform:scale(0.7);
+.FloorBack > .backLeft {color:#fad2a7;font-size:7px;display:inline-block;transform:scale(0.7);margin: -2px 0 0 -80px;
 }
-.FloorBack > .backRight {float:right;font-size:7px;color:white;display:inline-block;transform:scale(0.7)
+.FloorBack > .backRight {float:right;font-size:7px;color:white;display:inline-block;transform:scale(0.7);margin-top: -2px;
 }
 .FloorImg .tag {margin-top:28px;
 }
@@ -654,4 +656,4 @@ ul li {float:left;list-style-type:none;
     display: none;
 }
 
-.kuai{margin-top: -30px;}
+.kuai{margin-top: -22px;}
