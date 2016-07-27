@@ -103,32 +103,38 @@
 </table>
 </div>
 <div class="ga_an2">
-   <!-- <a href="javascript:;" class="zhu25 create">提交订单</a>-->
-    <a href="javascript:;" class="zhu25 aaa">提交订单</a>
+   <a href="javascript:;" class="zhu25 create">提交订单</a>
 </div>
 <div class="clear">&nbsp;</div>
 <div class="g2_biaobot_zi"></div>
 
 
-
 </div>
-
-
-
 <script>
-    $(".aaa").click(function(){
-        var money5=0;
+    //优惠券选择判断
+    function checkPrice() {
+        var m=0;
         $(".z_m").each(function(){
-            money5+=parseFloat($(this).html());
+            m+=parseFloat($(this).html());
         });
-
-        alert(money5);
-    });
-
-    //$(".orderMoney").html("应付总额：¥"+money5.toFixed(2));
+        $(".check5").change(function () {
+            var check = $(this)[0].checked;
+            var v = $(this).val();
+            var money = Number($(this).attr("money"));
+            if (check) {
+                if (m < money) {
+                    $(this)[0].checked = false;
+                    alert("亲，未达到可使用金额！");
+                } else {
+                    m -= money;
+                }
+            }
+            else {
+                m += money;
+            }
+        })
+    }
 </script>
-
-
 </div>
 
 <script src="js/confirm_order.js" type="text/javascript" ></script>

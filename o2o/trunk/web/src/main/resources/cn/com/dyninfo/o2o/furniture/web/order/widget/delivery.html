@@ -29,17 +29,10 @@
 </#list>
 
 <div>
-
     <#list couponMemberRelList as p>
-
     <div class="g2_kuai22">
         <div class="g2_kuai_daxuan coupon">
-            <#if p_index == 0 >
-            <input name="coupon" type="checkbox" checked="checked" value=" ${p.coupon.id}" />
-            </#if>
-            <#if p_index gt 0 >
-                <input name="coupon" type="checkbox"  value=" ${p.coupon.id}" />
-            </#if>
+            <input class="check5" name="coupon" type="checkbox"  value=" ${p.coupon.id}"  money="${p.coupon.constraintValue}" onclick="checkPrice()" />
         </div>
         <div class="g2_kuai_zi">使用优惠券</div>
         <div class="g2_kuai_zi">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,6 +42,8 @@
     </#list>
 
 </div>
+
+
 
 <!--<div class="g2_xiaoti">使用优惠券</div>
 <div class="jiadizhi_ka22">

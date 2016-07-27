@@ -12,7 +12,7 @@
  *
  */
 
-$(function(){
+	$(function(){
 	
     $(".chooseAddress").click(function(){
     	showToAdd();
@@ -53,7 +53,6 @@ $(function(){
 	$(".create").click(function(){
 		new createOrder();
 	})
-
 
 })  
 function addSite(){
