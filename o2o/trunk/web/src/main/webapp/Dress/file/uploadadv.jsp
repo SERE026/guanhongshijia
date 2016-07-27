@@ -19,6 +19,7 @@
 <%@ page import="javax.imageio.ImageReader" %>
 <%@ page import="javax.imageio.stream.ImageInputStream" %>
 <%@ page import="javax.imageio.IIOException" %>
+<%@ page import="org.apache.log4j.Logger" %>
 
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
@@ -34,7 +35,9 @@
   --%>
 
 <%
-String url=SystemConfig.getInfo("upload");//
+	Logger log = Logger.getLogger(this.getClass());
+log.debug("Start upload ADV");
+	String url=SystemConfig.getInfo("upload");//
 DiskFileUpload fileUpload = new DiskFileUpload();
 fileUpload.setSizeMax(1024*1024*Integer.parseInt(SystemConfig.getInfo("upload.file.max")));
 String dir = "adv/";
@@ -101,6 +104,6 @@ try{
 	    input.close();
     }
 }catch(Exception e){
-	e.printStackTrace();
+	log.error("upload fail", e);
 }
 %>
