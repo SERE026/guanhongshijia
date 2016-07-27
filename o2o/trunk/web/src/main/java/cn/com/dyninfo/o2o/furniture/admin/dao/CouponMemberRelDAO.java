@@ -7,12 +7,12 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by zengrc on 2016/7/26.
  */
-@Repository("couponMeberRelDAO")
-public class CouponMeberRelDAO extends BaseDAO{
+@Repository("couponMemberRelDAO")
+public class CouponMemberRelDAO extends BaseDAO{
 
     @Autowired
-    public CouponMeberRelDAO(SessionFactory sessionFactory) {
+    public CouponMemberRelDAO(SessionFactory sessionFactory) {
         super(sessionFactory);
-        this.table="CouponMeberRel";
+        this.table="CouponMemberRel";
     }
 }
