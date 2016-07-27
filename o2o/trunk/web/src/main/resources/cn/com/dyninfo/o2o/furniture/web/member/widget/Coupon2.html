@@ -1,0 +1,24 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab08">
+<#list data as coupon>
+<tr>
+    <td style=" width:126px">${coupon.coupon.name}</td>
+
+    <#if coupon.coupon.type == 1 >
+        <td style=" width:100px">满立减</td>
+        <td style=" width:100px">${coupon.coupon.reduceValue}元</td>
+        <#else>
+            <td style=" width:100px">折扣券</td>
+            <td style=" width:100px">${coupon.coupon.discountValue}折</td>
+    </#if>
+    <#if coupon.coupon.sameUse == 1 >
+    <td style=" width:126px">是</td>
+        <#else>
+            <td style=" width:126px">否</td>
+    </#if>
+    <td style=" width:152px">${coupon.coupon.beginTime}</td>
+	<td style="width:152px; padding-left:9px; text-align:center" >${coupon.coupon.endTime}</td>
+  </tr>
+
+  </#list>
+</table>
