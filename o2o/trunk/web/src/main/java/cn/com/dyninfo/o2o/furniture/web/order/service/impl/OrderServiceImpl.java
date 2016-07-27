@@ -14,6 +14,7 @@
 package cn.com.dyninfo.o2o.furniture.web.order.service.impl;
 
 import cn.com.dyninfo.o2o.furniture.admin.model.Coupon;
+import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
 import cn.com.dyninfo.o2o.furniture.admin.service.BaseService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
@@ -56,6 +57,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -794,6 +796,29 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 								order.setAccount(0);
 							}
 
+							//生成订单ID 生成规则  6位日期+3位当天会员订单数+6位会员id
+							String date= new SimpleDateFormat("yyyyMMdd").format(new Date());
+							String date1= new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+							String ordercount=orderDao.getCountByWhere(new StringBuffer( "and n.time like '"+date1+"%' and n.huiyuan.huiYuan_id="+member.getHuiYuan_id()))+"";
+							String huiyuanid=member.getHuiYuan_id()+"";
+							if(ordercount.length()>=3){
+								ordercount=ordercount.substring(0, 3);
+							}else if(ordercount.length()==2){
+								ordercount="0"+ordercount;
+							}else if(ordercount.length()==1){
+								ordercount="00"+ordercount;
+							}
+
+							int huiyuanint=huiyuanid.length();
+							if(huiyuanint>=6){
+								huiyuanid=huiyuanid.substring(0, 6);
+							}else {
+								for(int i=0;i<6-huiyuanint;i++){
+									huiyuanid="0"+huiyuanid;
+								}
+							}
+							String order_id =date+ordercount +huiyuanid;
+							order.setOrder_id(order_id);
 							//优惠卷使用
 							boolean flag=false;
 							String coupons=request.getParameter("coupons");
@@ -809,36 +834,45 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							Double constraintPrice2=0.0;//优惠卷达到该金额才可使用
 							Double maxAmouontPrice2=0.0;//最大抵扣金额
 							Double reducePrice2=0.0;//折扣使用，抵扣金额
-							//计算出 type=1的优惠卷总金额
-							if (arr.length>1 && !ValidationUtil.isEmpty(coupons)){
+							DateFormat formart=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+							String dates1=formart.format(new Date());
+							//	1.是否达到使用金额
+							//	2.优惠券是否过期
+							//	3.优惠券是否已经使用
+							//	4.优惠券剩余数量是否大于使用数量
+							if (arr.length>0 && !ValidationUtil.isEmpty(coupons)){
 								for (int i = 0; i <arr.length; i++) {
-									Coupon coupon1=(Coupon)couponService.getObjById(arr[i]);
-									if(1==coupon1.getSameUse()){
-										if(1==coupon1.getType()){
-											constraintPrice=constraintPrice+coupon1.getConstraintValue();
-											maxAmouontPrice=maxAmouontPrice+coupon1.getMaxAmouont();
-											reducePrice=reducePrice+coupon1.getReduceValue();
+									List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.coupon.id="+ arr[i]));
+									CouponMemberRel coupon1 =couponMemberRelList.get(0);
+									String dates2=formart.format(coupon1.getCoupon().getEndTime());
+									if (arr.length>1){
+										if (1==coupon1.getCoupon().getSameUse()){
+										}else {
+											return false;
 										}
-										if(2==coupon1.getType()){
-											constraintPrice2=constraintPrice2+coupon1.getConstraintValue();
-											maxAmouontPrice2=maxAmouontPrice2+coupon1.getMaxAmouont();
-											reducePrice2=reducePrice2+coupon1.getDiscountValue();//折扣率
+									}
+									//计算出 type=1的优惠卷总金额
+									if(coupon1.getCount()>0 && dates1.compareTo(dates2)<0){
+										if(1==coupon1.getCoupon().getType()){
+											constraintPrice+=coupon1.getCoupon().getConstraintValue();
+											maxAmouontPrice+=coupon1.getCoupon().getMaxAmouont();
+											reducePrice+=coupon1.getCoupon().getReduceValue();
 										}
+										if(2==coupon1.getCoupon().getType() ){
+											constraintPrice2+=coupon1.getCoupon().getConstraintValue();
+											maxAmouontPrice2+=coupon1.getCoupon().getMaxAmouont();
+											reducePrice2+=coupon1.getCoupon().getDiscountValue();//折扣率
+										}
+										CouponMemberRel couponMemberRel1=new CouponMemberRel();
+										couponMemberRel1.setId(coupon1.getId());
+										couponMemberRel1.setCount(coupon1.getCount()-1);
+										couponMemberRel1.setUsedCount(coupon1.getUsedCount()+1);
+										couponMemberRelService.updateObj(couponMemberRel1);
+
+										//order_id
 									}else{
 										return false;
 									}
-								}
-							}else if(arr.length==1&&!ValidationUtil.isEmpty(coupons)){
-								Coupon coupon1=(Coupon)couponService.getObjById(arr[0]);
-								if(1==coupon1.getType()){
-									constraintPrice=constraintPrice+coupon1.getConstraintValue();
-									maxAmouontPrice=maxAmouontPrice+coupon1.getMaxAmouont();
-									reducePrice=reducePrice+coupon1.getReduceValue();
-								}
-								if(2==coupon1.getType()){
-									constraintPrice2=constraintPrice2+coupon1.getConstraintValue();
-									maxAmouontPrice2=maxAmouontPrice2+coupon1.getMaxAmouont();
-									reducePrice2=reducePrice2+coupon1.getDiscountValue();//折扣率
 								}
 							}
 							//扣减优惠金额  满立减
@@ -915,30 +949,8 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							int p_j_add=(int)Math.round(order.getOrderPrice()*p_j.getJfadd_zjjf());//平台购物获得积分
 							order.setPoint(g_j_add+p_j_add);
 							
-							//生成订单ID 生成规则  6位日期+3位当天会员订单数+6位会员id
-							String date= new SimpleDateFormat("yyyyMMdd").format(new Date());
-							String date1= new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-							String ordercount=orderDao.getCountByWhere(new StringBuffer( "and n.time like '"+date1+"%' and n.huiyuan.huiYuan_id="+member.getHuiYuan_id()))+"";
-							String huiyuanid=member.getHuiYuan_id()+"";
-							if(ordercount.length()>=3){
-								ordercount=ordercount.substring(0, 3);
-							}else if(ordercount.length()==2){
-								ordercount="0"+ordercount;
-							}else if(ordercount.length()==1){
-								ordercount="00"+ordercount;
-							}
-							
-							int huiyuanint=huiyuanid.length();
-							if(huiyuanint>=6){
-								huiyuanid=huiyuanid.substring(0, 6);
-							}else {
-								for(int i=0;i<6-huiyuanint;i++){
-									huiyuanid="0"+huiyuanid;
-								}
-							}
-							String order_id =date+ordercount +huiyuanid;
-							order.setOrder_id(order_id);
-							
+
+
 							this.addObj(order);
 							pointPrice=0d;
 						}

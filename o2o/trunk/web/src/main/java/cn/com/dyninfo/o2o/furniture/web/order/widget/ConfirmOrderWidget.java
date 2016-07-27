@@ -35,6 +35,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -89,8 +90,17 @@ public class ConfirmOrderWidget extends  Widget {
 			this.putData("j_x", j_x.getJffa_jfdk());
 			member =(HuiyuanInfo) huiyuanService.getObjById(""+member.getHuiYuan_id());
 			this.putData("h_x", member.getJf());
+			List<CouponMemberRel> couponMemberRelLists=new ArrayList<CouponMemberRel>();
+
 			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+member.getHuiYuan_id()+" order by n.coupon.endTime asc"));
-			this.putData("couponMemberRelList",couponMemberRelList);
+			for (int i=0;i<couponMemberRelList.size();i++){
+				int count=couponMemberRelList.get(i).getCount();
+;				for (int j=0;j<count;j++){
+					couponMemberRelLists.add(couponMemberRelList.get(i));
+				}
+			}
+
+			this.putData("couponMemberRelList",couponMemberRelLists);
 
 			
 		}else if(action.equals("phone")){//生成订单确认信息
