@@ -19,6 +19,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import java.io.*;
@@ -31,6 +32,8 @@ import java.util.Map;
  * Created by Administrator on 2016/7/26.
  */
 public class FreeMarkerUtils {
+
+    private static Logger log = Logger.getLogger(FreeMarkerUtils.class);
 
     private static GoodsService goodsService;
     private static GoodsSortService goodsSortService;
@@ -176,14 +179,8 @@ public class FreeMarkerUtils {
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
             template.process(paramsMap, out);
             IOUtils.closeQuietly(out);
-        } catch (TemplateException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("Generate Index Error", e);
         }
     }
 
@@ -256,14 +253,8 @@ public class FreeMarkerUtils {
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
             template.process(paramsMap, out);
             IOUtils.closeQuietly(out);
-        } catch (TemplateException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("Generate Header Error", e);
         }
     }
 
@@ -336,14 +327,8 @@ public class FreeMarkerUtils {
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
             template.process(paramsMap, out);
             IOUtils.closeQuietly(out);
-        } catch (TemplateException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("Generate Footer Error", e);
         }
     }
 
