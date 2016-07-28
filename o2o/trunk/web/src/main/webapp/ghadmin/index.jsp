@@ -146,7 +146,7 @@ function resett(){
 
 <div class="clear"></div>
 <div class="zhong_an">
-<div class="zhong_an3"><a href="<%=request.getContextPath()%>/" target="_blank"><img src="<%=request.getContextPath() %>/img/logo_a.gif" /></a></div>
+<%--<div class="zhong_an3"><a href="<%=request.getContextPath()%>/" target="_blank"><img src="<%=request.getContextPath() %>/img/logo_a.gif" /></a></div>--%>
 <div class="zhong_an1"><a href="javascript:;" onclick="document.form1.reset();"><img src="<%=request.getContextPath() %>/img/xin_21.gif" border="0" /></a></div>
 <div class="zhong_an2"><a href="javascript:;" onclick="go();"><img src="<%=request.getContextPath() %>/img/xin_23.gif" border="0" /></a></div>
 </div>
