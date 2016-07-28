@@ -534,10 +534,10 @@
             <div class="floor-banner-img">
                 <#list goodsList1 as d>
                     <#if d_index == 7>
-                        <img src="../img/07.png" /><br />
+                       <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                     </#if>
                     <#if d_index == 8>
-                        <img src="../img/07.png" /><br />
+                    <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                     </#if>
                 </#list>
             </div>
@@ -609,10 +609,10 @@
             <div class="floor-banner-img">
                 <#list goodsList2 as d>
                     <#if d_index == 7>
-                        <img src="../img/07.png" /><br />
+                        <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                     </#if>
                     <#if d_index == 8>
-                        <img src="../img/07.png" /><br />
+                        <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                     </#if>
                 </#list>
             </div>
@@ -684,10 +684,10 @@
             <div class="floor-banner-img">
                 <#list goodsList3 as d>
                     <#if d_index == 7>
-                        <img src="../img/07.png" /><br />
+                        <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                     </#if>
                     <#if d_index == 8>
-                        <img src="../img/07.png" /><br />
+                        <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                     </#if>
                 </#list>
             </div>
@@ -760,10 +760,10 @@
             <div class="floor-banner-img">
                 <#list goodsList4 as d>
                     <#if d_index == 7>
-                        <img src="../img/07.png" /><br />
+                        <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                     </#if>
                     <#if d_index == 8>
-                        <img src="../img/07.png" /><br />
+                        <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                     </#if>
                 </#list>
             </div>
@@ -880,10 +880,10 @@
 
                    <#list s as a>
                         <#if a_index == 6>
-                            <img src="../img/07.png" /><br />
+                            <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                         </#if>
                         <#if a_index == 7>
-                            <img src="../img/07.png" /><br />
+                            <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                         </#if>
                     </#list>
                 </div>
@@ -951,10 +951,10 @@
                 <div class="floor-banner-img">
                     <#list s as a>
                         <#if a_index == 6>
-                            <img src="../img/07.png" /><br />
+                            <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                         </#if>
                         <#if a_index == 7>
-                            <img src="../img/07.png" /><br />
+                            <a href="javascript:void(0)"> <img src="../img/07.png" /></a><br />
                         </#if>
                     </#list>
                 </div>

@@ -1,6 +1,6 @@
-﻿* {margin:0;padding:0;font:12px/150% Arial, Verdana, "\5b8b\4f53";
+﻿* {margin:0;padding:0;
 }
-html{-webkit-text-size-adjust:none;}
+html{-webkit-text-size-adjust:none;font:12px/150% Arial, Verdana, "\5b8b\4f53";}
 .font14 {font-size:14px;
 }
 .color-red {color:red;
@@ -391,7 +391,7 @@ ul li {float:left;list-style-type:none;
 .Showcase>ul>li {
     width:225px;margin-left:13px;height:315px;
 }
-    .Showcase > ul > li > dl {width:225px;padding:5px;height:315px;overflow: hidden;
+    .Showcase > ul > li > dl {padding:5px;height:315px;overflow: hidden;
     }
 
 .Showcase > ul > li > dl img{width: 213px;height: 225px;border: 1px solid red;}
@@ -401,9 +401,9 @@ ul li {float:left;list-style-type:none;
 }
     .Add-art img {margin-top:2px;
     }
-.Showcase .Item-introduction dd:last-child {margin-top:24px;overflow:hidden;
+.Showcase .Item-introduction dd:last-child {margin-top:14px;overflow:hidden;
 }
-.Showcase .Item-introduction .dd-Item-name {margin:4px 0;font-size:14px;
+.Showcase .Item-introduction .dd-Item-name {margin:4px 0;font-size:14px;height: 35px;overflow: hidden;
 }
     .Showcase .Item-introduction .dd-Item-name a {color:black;
     }
@@ -486,7 +486,7 @@ ul li {float:left;list-style-type:none;
 }
 .floor-banner .Item-price {font-size:20px;
 }
-    .floor-banner .price {text-align:right;
+    .floor-banner .price {text-align:right;margin: 9px 6px 0 0;
     }
 .price b {color:red;
 }
@@ -537,6 +537,7 @@ ul li {float:left;list-style-type:none;
         }*/
         .FloorHead ul li {line-height:40px;background-color:#572a27;margin-right:10px;width:100px;text-align:center;color:#eba465;font-size:15px;
         }
+.FloorHead ul li:hover{cursor:pointer;}
             .FloorHead ul li:last-child {
             }
     .FloorHead .FloorBack {background-color:#572a27;line-height:14px;width:100%;height:14px;
@@ -548,9 +549,9 @@ ul li {float:left;list-style-type:none;
 .FloorID span {margin-left:10px;font-weight:bold;float:left;display:block;padding-top:15px;
 }
 
-.FloorBack > .backLeft {color:#fad2a7;font-size:7px;display:inline-block;transform:scale(0.7);margin: -2px 0 0 -80px;
+.FloorBack > .backLeft {color:#fad2a7;font-size:7px;display:inline-block;transform:scale(0.7);margin: -2px 0 0 -5px;
 }
-.FloorBack > .backRight {float:right;font-size:7px;color:white;display:inline-block;transform:scale(0.7);margin-top: -2px;
+.FloorBack > .backRight {float:right;font-size:7px;color:white;display:inline-block;transform:scale(0.7);
 }
 .FloorImg .tag {margin-top:28px;
 }
@@ -582,10 +583,12 @@ ul li {float:left;list-style-type:none;
         }
         .footer-link dl dt, .footer-link dl dd {padding:0 25px 0 20px;font-size:12px;
         }
-        .footer-link dl dt {font:400 16px/24px "microsoft yahei"line-height;line-height:36px;
+        .footer-link dl dt {line-height:36px;color: #60575e;font-size: 14px;
         }
         .footer-link dl dd {line-height:24px;color:#666;
         }
+.footer-link dl dd a{color: #666;}
+.footer-link dl:last-child{width: 215px;text-align: center;}
         .footer-link dl:first-child dt,.footer-link dl:first-child dd {padding-left:30px;
         }
         .footer-link dl:first-child dt {font-size:12px;
@@ -610,7 +613,7 @@ ul li {float:left;list-style-type:none;
                 }
         .footer-link2 .city-link ul li a {font-size:10px;color:#ccc;
         }*/
-    .footer-link2>div {margin:0 auto;width:1055px;font-size:12px;
+    .footer-link2>div {margin:0 auto;width:1055px;font-size:12px;color: #666;
     }
         .footer-link2 > div img {border-bottom:1px solid #ccc;
         }
@@ -618,6 +621,7 @@ ul li {float:left;list-style-type:none;
         }
         .footer-link2 > div > p:nth-child(2),.footer-link2 > div > p:last-child {text-align:center;line-height:20px;
         }
+        .footer-link2 a{color: #666;}
 .link-icon {width:12px;height:12px;border:1px solid #fff;display:block;margin:8px 0 0 8px;
 }
 
