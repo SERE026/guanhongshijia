@@ -112,7 +112,7 @@
 </div>
 <script>
     //优惠券选择判断
-    function checkPrice() {
+/*    function checkPrice() {
         var m=0;
         $(".z_m").each(function(){
             m+=parseFloat($(this).html());
@@ -133,7 +133,81 @@
                 m += money;
             }
         })
+    }*/
+
+    function checkPrice() {
+        var m=0;
+        $(".z_m").each(function(){
+            m+=parseFloat($(this).html());
+        });
+       // alert(m);
+      //  var m = 300;
+        $(".check5").change(function () {
+            var str;
+            var a = $(this).attr('sameUse');
+            var check = $(this)[0].checked;
+            var v = $(this).val();
+            var money = Number($(this).attr("money"));
+
+            $("input[name='coupon']:checkbox").each(function () {
+                if ($(this).attr("checked")&&$(this).attr('sameUse')=="0") {
+                    str = parseInt($(this).attr('money'));
+                }
+            })
+            if (!str) { str = 0; }
+            if (a == "0") {
+              //  m = 300;
+                $(".z_m").each(function(){
+                    m+=parseFloat($(this).html());
+                });
+                if (check) {
+                    if (m >= money) {
+                        var index = $(this).index('.check5');
+                        for (var i = 0; i < $('.check5').length ; i++) {
+                            if (index != i) {
+                                $('.check5')[i].checked = false;
+                            }
+                        }
+                        m -= money;
+                    } else {
+                        $(this)[0].checked = false;
+                        alert("亲，未达到可使用金额！");
+                    }
+                } else {
+                    $(".z_m").each(function(){
+                        m+=parseFloat($(this).html());
+                    });
+                  //  m = 300;
+                }
+              //  console.log(m)
+            }
+            else {
+                if (check) {
+                    m = m + str;
+                    if (m < money) {
+                        $(this)[0].checked = false;
+                        alert("亲，未达到可使用金额！");
+                    } else {
+                        for (var i = 0; i < $('.check5').length ; i++) {
+                            if ($('.check5').eq(i).attr("sameUse") == "0") {
+                                $('.check5')[i].checked = false;
+                            }
+                        }
+
+                        m = m - money;
+                    }
+                } else {
+                    m += money;
+                }
+            }
+           // console.log(m);
+        })
     }
+
+
+
+
+
 </script>
 </div>
 

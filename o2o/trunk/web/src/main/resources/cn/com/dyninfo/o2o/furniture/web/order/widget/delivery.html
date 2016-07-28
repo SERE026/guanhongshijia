@@ -22,7 +22,7 @@
 </div>
 <#list zflist as zf>
 <div class="g2_kuai22">
-<div class="g2_kuai_daxuan"><input name="playType" type="radio" value="${zf.zffs_id}"    <#if zf_index == 0>checked </#if> /></div>
+<div class="g2_kuai_daxuan"><input name="playType" type="radio" value="${zf.zffs_id}"  <#if zf_index == 0>checked </#if> /></div>
 <div class="g2_kuai_zi">${zf.name}</div>
 <div class="g2_kuai_zi">&nbsp;&nbsp;&nbsp;&nbsp;<span class="STYLE17">${zf.ps}</span></div>
 </div>
@@ -32,11 +32,17 @@
     <#list couponMemberRelList as p>
     <div class="g2_kuai22">
         <div class="g2_kuai_daxuan coupon">
-            <input class="check5" name="coupon" type="checkbox"  value=" ${p.coupon.id}"  money="${p.coupon.constraintValue}" onclick="checkPrice()" />
+            <input class="check5" name="coupon" type="checkbox"  value=" ${p.coupon.id}"  sameUse="${p.coupon.sameUse}" money="${p.coupon.constraintValue}" onclick="checkPrice()" />
         </div>
         <div class="g2_kuai_zi">使用优惠券</div>
         <div class="g2_kuai_zi">&nbsp;&nbsp;&nbsp;&nbsp;
             ${p.coupon.name}
+            <#if p.coupon.sameUse == 1>
+                (可与其他券一起使用)
+            </#if>
+            <#if p.coupon.sameUse == 0>
+                (不可与其他券一起使用)
+            </#if>
         </div>
     </div>
     </#list>
