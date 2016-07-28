@@ -54,9 +54,10 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
 
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
-        View titleView = inflater.inflate(R.layout.layout_title_main_go_back, null);
-        titleView.findViewById(R.id.tv_go_back).setOnClickListener(this);
-        tv_time = (TextView) titleView.findViewById(R.id.tv_time);
+        View titleView = inflater.inflate(R.layout.layout_public_title_main, null);
+//        titleView.findViewById(R.id.tv_go_back).setOnClickListener(this);
+//        tv_time = (TextView) titleView.findViewById(R.id.tv_time);
+
         return titleView;
     }
 

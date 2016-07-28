@@ -1,5 +1,6 @@
 package com.wckj.gfsj.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,13 +14,13 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Bean.TimeEvent;
-import com.wckj.gfsj.Utils.TimeUtils;
 import com.wckj.gfsj.Fragment.Collect_fragment;
 import com.wckj.gfsj.Fragment.Main_fragment;
 import com.wckj.gfsj.Fragment.Search_fragment;
 import com.wckj.gfsj.Fragment.Shopping_cart_fragment;
 import com.wckj.gfsj.Fragment.User_fragment;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.TimeUtils;
 
 import de.greenrobot.event.EventBus;
 
@@ -165,17 +166,36 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+
+        getExtraAndSetIndex();
+    }
+    public void getExtraAndSetIndex() {
+        Intent intent=getIntent();
+        if(intent!=null){
+            int index = intent.getIntExtra("position", 0);
+
+            setTabSelection(index);
+        }
+    }
+
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             if (position != 0) {
                 setTabSelection(0);
+                return  false ;
             } else {
                 return super.onKeyDown(keyCode, event);
             }
         }
         return super.onKeyDown(keyCode, event);
     }
+
 
 }

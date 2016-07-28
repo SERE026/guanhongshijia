@@ -2,7 +2,6 @@ package com.wckj.gfsj.CustomUi;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -23,10 +22,12 @@ public class TitleRelativeLayout extends RelativeLayout implements View.OnClickL
 
     public TitleRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
     public TitleRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView();
     }
 
     private void initView() {
@@ -40,37 +41,32 @@ public class TitleRelativeLayout extends RelativeLayout implements View.OnClickL
         tv_shopping_cart.setOnClickListener(this);
         tv_collect.setOnClickListener(this);
         rl_search.setOnClickListener(this);
-        addView(view,LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        addView(view,LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent;
-        Bundle bundle;
         switch (v.getId()){
             case R.id.tv_mine_center:
                  intent = new Intent(getContext(), MainActivity.class);
-                 bundle = new Bundle();
-                bundle.putInt("position",1);
-                getContext().startActivity(intent,bundle);
+                intent.getIntExtra("position",1);
+                getContext().startActivity(intent);
                 break;
             case R.id.tv_shopping_cart:
                  intent = new Intent(getContext(), MainActivity.class);
-                 bundle = new Bundle();
-                bundle.putInt("position",2);
-                getContext().startActivity(intent,bundle);
+                intent.getIntExtra("position",2);
+                getContext().startActivity(intent);
                 break;
             case R.id.tv_collect:
                 intent = new Intent(getContext(), MainActivity.class);
-                bundle = new Bundle();
-                bundle.putInt("position",3);
-                getContext().startActivity(intent,bundle);
+                intent.putExtra("position",3);
+                getContext().startActivity(intent);
                 break;
             case R.id.rl_search:
                 intent = new Intent(getContext(), MainActivity.class);
-                bundle = new Bundle();
-                bundle.putInt("position",4);
-                getContext().startActivity(intent,bundle);
+                intent.putExtra("position",4);
+                getContext().startActivity(intent);
                 break;
         }
 
