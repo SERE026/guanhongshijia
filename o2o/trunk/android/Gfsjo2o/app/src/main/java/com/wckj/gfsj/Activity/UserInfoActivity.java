@@ -10,7 +10,7 @@ import com.wckj.gfsj.R;
 /**
  * Created by rayco on 2016/7/25.
  */
-public class MyOrderActivity extends BaseNewActivity implements View.OnClickListener {
+public class UserInfoActivity extends BaseNewActivity implements View.OnClickListener {
 
     private TextView tv_go_back;
     private View view;
@@ -29,7 +29,7 @@ public class MyOrderActivity extends BaseNewActivity implements View.OnClickList
 
     @Override
     protected View onCreateSuccessView() {
-        view = inflater.inflate(R.layout.activity_my_order, null);
+        view = inflater.inflate(R.layout.activity_user_info, null);
         initView();
         return view;
     }

@@ -53,6 +53,15 @@
         <activity android:name=".Activity.MyOrderActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
+
+        <activity android:name=".Activity.MyBrokerageActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name=".Activity.UserInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+
         <activity android:name=".Activity.ShoppingCartActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>

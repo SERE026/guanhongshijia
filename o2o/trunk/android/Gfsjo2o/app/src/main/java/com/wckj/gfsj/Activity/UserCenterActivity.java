@@ -71,12 +71,16 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
                 finish();
                 break;
             case R.id.btn_my_order:
-                break;
-            case R.id.btn_brokerage:
                 intent = new Intent(view.getContext(), MyOrderActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btn_brokerage:
+                intent = new Intent(view.getContext(), MyBrokerageActivity.class);
+                startActivity(intent);
+                break;
             case R.id.btn_user_info:
+                intent = new Intent(view.getContext(), UserInfoActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_my_follow:
                 break;

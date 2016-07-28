@@ -12,12 +12,12 @@ import com.wckj.gfsj.R;
 /**
  * Created by rayco on 16/7/25.
  */
-public class MyOrderFragment extends Fragment implements View.OnClickListener {
+public class MyBrokerageFragment extends Fragment implements View.OnClickListener {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_my_order, null);
+        View view = inflater.inflate(R.layout.fragment_my_brokerage, null);
 
         return view;
     }
