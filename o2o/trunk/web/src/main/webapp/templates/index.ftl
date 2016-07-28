@@ -6,7 +6,7 @@
   <link href="../css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.8.2.js"></script>
     <script type="text/javascript">
-    var servicePath="${contextPath}";
+    var servicePath="${contextPath?default(rc.contextPath)}";
     </script>
     <style>
         .Add-art{
@@ -19,10 +19,10 @@
     <div class="head-top">
         <div>
             <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
-            <a class="head-login inline-block" href="${contextPath}/login.html">请登录</a>
-            <a class="inline-block" href="${contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
+            <a class="head-login inline-block" href="${contextPath?default(rc.contextPath)}/login.html">请登录</a>
+            <a class="inline-block" href="${contextPath?default(rc.contextPath)}/register.html" style="margin-left: 1em;">免费注册</a>
             <ul class="head-ul">
-                <li><a href="${contextPath}/huiyuan_order.html">我的信息</a></li>
+                <li><a href="${contextPath?default(rc.contextPath)}/huiyuan_order.html">我的信息</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
                 <li><a href="javascript:void(0)">关注观红世家</a></li>
                 <li><a href="javascript:void(0)">客服中心</a></li>
@@ -48,7 +48,7 @@
                                     当前城市: <strong id="JS_city_current_city">全国</strong>
                                 </div>
                             </div>
-                            <a class="near" target="_blank" href="${contextPath}/shopMap.html">附近的体验馆</a>
+                            <a class="near" target="_blank" href="${contextPath?default(rc.contextPath)}/shopMap.html">附近的体验馆</a>
                         </div>
                         <div class="showPanel showPanel2 f-cb">
                             <div class="hot_city" id="JS_header_city_hot">
@@ -240,8 +240,8 @@
                     <span class="search">
                         <i></i>
                         <label>搜索</label></span>
-                <a class="My-mall font14" href="${contextPath}/huiyuan_order.html">我的商城</a>
-                <a class="settlement font14" href="${contextPath}/cars.html">购物车结算</a>
+                <a class="My-mall font14" href="${contextPath?default(rc.contextPath)}/huiyuan_order.html">我的商城</a>
+                <a class="settlement font14" href="${contextPath?default(rc.contextPath)}/cars.html">购物车结算</a>
             </div>
             <div>
                 <ul class="hot-search font14">
@@ -267,7 +267,7 @@
                        <#list goodsSortList as p>
                            <#if p_index lt 4>
                         <li><a href="javascript:void(0)">
-                            <img src="${contextPath}${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
+                            <img src="${contextPath?default(rc.contextPath)}${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
                         </li>
                            <#if p.extendshow==1>
                                <li>
@@ -358,7 +358,7 @@
                     <b>深圳市<label>1</label>家</b>
                 </p>
                 <p class="national">全国19家体验馆</p>
-                <p><a class="findHome" href="${contextPath}/shopMap.html">查找身边的体验馆</a></p>
+                <p><a class="findHome" href="${contextPath?default(rc.contextPath)}/shopMap.html">查找身边的体验馆</a></p>
                 <p>网站浏览&nbsp;实体店购买一站式服务！</p>
             </div>
         </div>
@@ -381,10 +381,10 @@
             <#list reMai.goodsList as p>
                 <li>
                     <dl class="Item-introduction">
-                        <dt><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                        <dt><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                             <img src="${p.goods.defaultImage}"/></a></dt>
-                        <dd class="dd-Item-name"><a href="${contextPath}/item-${p.goods.goods_id}.html">${p.goods.name}</a></dd>
-                        <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="${contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                        <dd class="dd-Item-name"><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">${p.goods.name}</a></dd>
+                        <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">MORE</a></dd>
                     </dl>
                 </li>
                 <#if p_index==4><#break></#if>
@@ -395,12 +395,12 @@
             <#list qiangGou.goodsList as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                    <dt><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                         <img src="${p.goods.defaultImage}" /></a></dt>
-                    <dd class="dd-Item-name"><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                    <dd class="dd-Item-name"><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
                     <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
-                        <a class="More" href="${contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                        <a class="More" href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
                 <#if p_index==4><#break></#if>
@@ -412,12 +412,12 @@
             <#list rePin.goodsList as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                    <dt><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                    <dd class="dd-Item-name"><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
                     <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
-                        <a class="More" href="${contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                        <a class="More" href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
                 <#if p_index==4><#break></#if>
@@ -429,12 +429,12 @@
             <#list new.goodsList as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                    <dt><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                    <dd class="dd-Item-name"><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
                     <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
-                        <a class="More" href="${contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                        <a class="More" href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
                 <#if p_index==4><#break></#if>
@@ -446,12 +446,12 @@
             <#list xianShi.goodsList as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                    <dt><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                         <img src="../img/03.jpg" /></a></dt>
-                    <dd class="dd-Item-name"><a href="${contextPath}/item-${p.goods.goods_id}.html">
+                    <dd class="dd-Item-name"><a href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
                     <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
-                        <a class="More" href="${contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                        <a class="More" href="${contextPath?default(rc.contextPath)}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
                 <#if p_index==4><#break></#if>
@@ -849,7 +849,7 @@
                 <img src="../img/08.png" style="margin-top:40px;" />
                 <ul>
                <#list brandList as p>
-                    <li><a href="javascript:void(0);"><img src="${contextPath}${p.logo}"/></a></li>
+                    <li><a href="javascript:void(0);"><img src="${contextPath?default(rc.contextPath)}${p.logo}"/></a></li>
                     <#if p_index==3><#break></#if>
                 </#list>
                 </ul>
@@ -922,7 +922,7 @@
                 <img src="../img/08.png" style="margin-top:40px;" />
                 <ul>
                     <#list brandList as p>
-                        <li><a href="javascript:void(0);"><img src="${contextPath}${p.logo}"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="${contextPath?default(rc.contextPath)}${p.logo}"/></a></li>
                         <#if p_index==3><#break></#if>
                     </#list>
                 </ul>
@@ -1056,7 +1056,7 @@
         var cityId=$(obj).attr("cityid");
         $.ajax({
             type: "post",
-            url: "${contextPath}/getCity.htm",
+            url: "${contextPath?default(rc.contextPath)}/getCity.htm",
             data:{"id":cityId},
             dataType: "json",
             success: function(result) {
