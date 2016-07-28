@@ -106,7 +106,7 @@ img{border:0px;}
 .zhece_dakuai{ width:994px; height:393px; border:#dddddd solid 1px; margin-top:10px}   
 .zhece_dakuai_datu{width:430px; height:356px; float:left; margin:18px 0 0 15px; overflow:hidden;}   
 .zhece_dakuai_xiaodui{width:465px; height:356px; float:right; margin:18px 15px 0 0}  
-.zhuce_k{ width:465px; height:auto; margin-top:22px}  
+.zhuce_k{ width:465px; height:auto; margin-top:22px;overflow: hidden;}
 .zhuce_k_zi{ width:70px; height:25px; line-height:25px; text-align:right; margin-right:5px;float:left; margin-top:3px}   
 .zhuce_k_bao{ width:auto; height:auto;float:left} 
 .zhuce_k_bao_shuom{ width:auto;height:24px; line-height:24px;float:left; color:#ff0000; margin-top:3px; margin-left:5px; overflow:hidden}         
