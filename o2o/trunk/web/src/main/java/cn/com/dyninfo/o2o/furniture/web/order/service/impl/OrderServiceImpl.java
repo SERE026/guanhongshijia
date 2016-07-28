@@ -15,8 +15,10 @@ package cn.com.dyninfo.o2o.furniture.web.order.service.impl;
 
 import cn.com.dyninfo.o2o.furniture.admin.model.Coupon;
 import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
+import cn.com.dyninfo.o2o.furniture.admin.model.CouponOrderRel;
 import cn.com.dyninfo.o2o.furniture.admin.service.BaseService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponOrderRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.TradeUtil;
@@ -57,7 +59,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -109,6 +110,9 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 
 		@Resource
 		private CouponMemberRelService couponMemberRelService;
+
+		@Resource
+		private CouponOrderRelService couponOrderRelService;
 
 		@Resource
 		private CouponService couponService;
@@ -828,18 +832,16 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							Double maxAmouontPrice=0.0;//最大抵扣金额
 							Double reducePrice=0.0;//满减使用，抵扣金额
 							Double reducePrice2=0.0;//折扣使用，抵扣金额
-//							DateFormat formart=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//							String dates1=formart.format(new Date());
 							//	1.是否达到使用金额
 							//	2.优惠券是否过期
 							//	3.优惠券是否已经使用
 							//	4.优惠券剩余数量是否大于使用数量
+							List<CouponOrderRel> couponOrderRelList=new ArrayList<CouponOrderRel>();
 							if (arr.length>0 && !ValidationUtil.isEmpty(coupons)){
 								flag=true;
-								for (int i = 0; i <arr.length; i++) {
-									List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and n.coupon.endTime > now() and  n.coupon.id="+ arr[i]));
+								for (int i = 0; i <arr.length; i++) { //
+									List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and n.coupon.endTime > now() and  n.huiyuan="+ member.getHuiYuan_id()+" and  n.coupon.id="+ arr[i]));
 									CouponMemberRel coupon1 =couponMemberRelList.get(0);
-									//String dates2=formart.format(coupon1.getCoupon().getEndTime());
 									if (arr.length>1){
 										if (1==coupon1.getCoupon().getSameUse()){
 										}else {
@@ -856,18 +858,23 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 										if(2==coupon1.getCoupon().getType() ){
 											reducePrice2+=coupon1.getCoupon().getDiscountValue();//折扣率
 										}
-										CouponMemberRel couponMemberRel1=new CouponMemberRel();
-										couponMemberRel1.setId(coupon1.getId());
-										couponMemberRel1.setCount(coupon1.getCount()-1);
-										couponMemberRel1.setUsedCount(coupon1.getUsedCount()+1);
-										couponMemberRelService.updateObj(couponMemberRel1);
-
-										//order_id
+										//修改优惠券用户关联表
+										coupon1.setCount(coupon1.getCount()-1);
+										coupon1.setUsedCount(coupon1.getUsedCount()+1);
+										couponMemberRelService.updateObj(coupon1);
+										//新增订单优惠券使用记录
+										CouponOrderRel couponOrderRel=	new CouponOrderRel();
+										couponOrderRel.setCoupon(coupon1.getCoupon());
+										couponOrderRel.setOrder(order);
+										couponOrderRel.setCount(1);
+										couponOrderRelList.add(couponOrderRel);
 									}else{
 										return false;
 									}
 								}
 							}
+							//添加订单 优惠券关联表
+							order.setCouponOrderRel(couponOrderRelList);
 							//扣减优惠金额  满立减
 							if (constraintPrice<=goodPrice && maxAmouontPrice<=goodPrice && flag){
 								goodPrice=goodPrice-reducePrice;   //先使用满立减

@@ -29,6 +29,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import cn.com.dyninfo.o2o.furniture.admin.model.CouponOrderRel;
 import org.hibernate.annotations.AccessType;
 
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
@@ -297,6 +298,11 @@ public class Order implements Serializable{
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="SENDORDER_ID")
 	private Sendorder sendorder;  //发货单
+
+
+	@AccessType(value = "property")
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="order")
+	private List<CouponOrderRel> couponOrderRel;
 
 	/**
 	 * @return the order_id
@@ -1025,7 +1031,11 @@ public class Order implements Serializable{
 		this.huistat = huistat;
 	}
 
-	
+	public List<CouponOrderRel> getCouponOrderRel() {
+		return couponOrderRel;
+	}
 
-	
+	public void setCouponOrderRel(List<CouponOrderRel> couponOrderRel) {
+		this.couponOrderRel = couponOrderRel;
+	}
 }

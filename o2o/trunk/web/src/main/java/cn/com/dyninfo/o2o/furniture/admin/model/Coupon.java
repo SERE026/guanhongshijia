@@ -2,10 +2,7 @@ package cn.com.dyninfo.o2o.furniture.admin.model;
 
 import org.hibernate.annotations.AccessType;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,6 +17,7 @@ public class Coupon {
     @Id
     @AccessType(value = "property")
     @Column(name="ID")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     @AccessType(value = "property")
