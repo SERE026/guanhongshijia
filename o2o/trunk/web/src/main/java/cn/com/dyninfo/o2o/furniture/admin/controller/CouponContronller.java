@@ -85,12 +85,48 @@ public class CouponContronller {
      */
     @RequestMapping(value = "/{id}/disUpdate")
     public ModelAndView disUpdate(@PathVariable String id, HttpServletRequest request) {
-        ModelAndView view = new ModelAndView();
+        ModelAndView mav = new ModelAndView();
         Coupon coupon = (Coupon) couponService.getObjById(id);
-        view.addObject("info", coupon);
-        view.setViewName("/coupon/disUpdate");
-        return view;
+        mav.addObject("info", coupon);
+        mav.setViewName("/coupon/disUpdate");
+        return mav;
     }
 
+    /**
+     * 编辑保存操作
+     */
+    @RequestMapping(method=RequestMethod.PUT)
+    public ModelAndView update(Coupon coupon,HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        couponService.updateObj(coupon);
+        mav.setViewName("redirect:/html/manage/coupon/list");
+        return  mav;
+    }
 
+    /**
+     * 删除
+     */
+    @RequestMapping(value = "/{id}/del")
+    public ModelAndView del(@PathVariable String id, HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        couponService.delObjById(id);
+        mav.setViewName("redirect:/html/manage/coupon/list");
+        return  mav;
+    }
+
+    /**
+     * 删除全部
+     */
+    @RequestMapping("/delall")
+    public ModelAndView delAll(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        if(request.getParameterValues("list")!=null){
+            String []list=request.getParameterValues("list");
+            for(String couponId:list){
+                couponService.delObjById(couponId);
+            }
+        }
+        mav.setViewName("redirect:/html/manage/coupon/list");
+        return  mav;
+    }
 }

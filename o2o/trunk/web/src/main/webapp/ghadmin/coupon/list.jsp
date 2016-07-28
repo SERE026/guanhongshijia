@@ -93,7 +93,7 @@
 	<tr><td></td></tr>
 	<tr>
 		<td>
-			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/coupon/all/del">
+			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/coupon/delall">
 				<input type="hidden" name="_method" value="delete" />
 				<table cellspacing="0" cellpadding="0" class="table4_da">
 					<thead>
@@ -113,10 +113,12 @@
 						<td>操作</td>
 					</tr>
 					</thead>
+
 					<c:forEach var='Info' items='${coupomList}' varStatus='index'>
 						<tr>
 							<td>
-								<input id="list" name="list" type="checkbox" value="${Info.id}" />
+								<input id="
+								" name="list" type="checkbox" value="${Info.id}" />
 							</td>
 
 							<td>

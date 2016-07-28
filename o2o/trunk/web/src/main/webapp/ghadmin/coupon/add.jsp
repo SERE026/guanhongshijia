@@ -66,15 +66,15 @@
                     </tr>
                     </thead>
                     <tr>
-                        <td style="width: 20%;" class="discription">1：</td>
+                        <td style="width: 20%;" class="discription">优惠卷名：</td>
                         <td><input type="text" value="" id="name" name="name"/></td>
                     </tr>
                     <tr>
-                        <td class="discription">2：</td>
+                        <td class="discription">开始时间：</td>
                         <td><input type="text" name="BEGIN_TIME" id="BEGIN_TIME"/></td>
                     </tr>
                     <tr>
-                        <td class="discription">3：</td>
+                        <td class="discription">结束时间：</td>
                         <td><input type="text" name="END_TIME" id="END_TIME"/></td>
                     </tr>
                    <%-- <tr>
@@ -87,27 +87,27 @@
                         </td>
                     </tr>--%>
                     <tr>
-                        <td class="discription">4：</td>
+                        <td class="discription">类型：</td>
                         <td><input type="text" name="type" id="type"/></td>
                     </tr>
                     <tr>
-                        <td class="discription">5：</td>
+                        <td class="discription">抵扣金额：</td>
                         <td><input type="text" name="reduceValue" id="reduceValue"/></td>
                     </tr>
                     <tr>
-                        <td class="discription">6：</td>
+                        <td class="discription">折扣率：</td>
                         <td><input type="text" name="discountValue" id="discountValue"/></td>
                     </tr>
                     <tr>
-                        <td class="discription">7：</td>
+                        <td class="discription">最大抵扣金额：</td>
                         <td><input type="text" name="maxAmouont" id="maxAmouont"/></td>
                     </tr>
                     <tr>
-                        <td class="discription">8：</td>
+                        <td class="discription">满多少可用：</td>
                         <td><input type="text" name="constraintValue" id="constraintValue"/></td>
                     </tr>
                     <tr>
-                        <td class="discription">9：</td>
+                        <td class="discription">是否可以和其他优惠券同时使用：</td>
                         <td><input type="text" name="sameUse" id="sameUse"/></td>
                     </tr>
                 </table>
