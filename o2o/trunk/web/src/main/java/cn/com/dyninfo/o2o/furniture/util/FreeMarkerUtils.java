@@ -21,6 +21,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import java.io.*;
@@ -178,7 +179,9 @@ public class FreeMarkerUtils {
 
             }
             paramsMap.put("lists",lists);
-            paramsMap.put("contextPath", Constants.DOMAIN_NAME);
+            Map<String, String> rcMap = new HashMap<String, String>();
+            rcMap.put("contextPath", Constants.DOMAIN_NAME);
+            paramsMap.put("rc", rcMap);
             template.process(paramsMap, out);
             IOUtils.closeQuietly(out);
             FileUtil.setPermission(fileName);
