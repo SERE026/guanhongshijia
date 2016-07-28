@@ -113,18 +113,18 @@ $(function(){
 						  "width", "100",
 						  "height", "25",
 						  "style","margin-top:6px",
-						  "id", "fileUpload",
+						  "id", "fileUpload1",
 						  "quality", "high",
 						  "bgcolor", "#ffffff",
-						  "name", "fileUpload",
+						  "name", "fileUpload1",
 						  "wmode","transparent",
 						  "allowScriptAccess","sameDomain",
 						  "type", "application/x-shockwave-flash",
 						  "pluginspage", "http://www.adobe.com/go/getflashplayer",
-						  "flashVars","flexID=a&uploadURL=<%=request.getContextPath()%>/upload/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
+						  "flashVars","flexID=b&uploadURL=<%=request.getContextPath()%>/upload/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
 				  );
 
-				  function a_completeUpload(fileName, realName){
+				  function b_completeUpload(fileName, realName){
 					  if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
 							  ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
 						  var str="";
