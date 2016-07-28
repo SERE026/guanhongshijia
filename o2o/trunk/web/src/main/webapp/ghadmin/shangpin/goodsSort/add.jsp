@@ -82,6 +82,73 @@ $(function(){
   	  	<input type="hidden" name="parentGoodsSort_id"  value="${parent.goodsSort_id }" id="ids" class="parent" />
   	  </td>
   </tr>
+	  <tr>
+		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>扩展名称:</td>
+		  <td ><input name="extendname" id="extendname"  value="${info.extendname }"/></td>
+	  </tr>
+	  <tr>
+		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>英文名称:</td>
+		  <td ><input name="engname" id="engname"  value="${info.engname }"/></td>
+	  </tr>
+	  <tr>
+		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>英文备注:</td>
+		  <td ><input name="engdesc" id="engdesc"  value="${info.engdesc }"/></td>
+	  </tr>
+	  <%--<tr>
+		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>大图（此处应是图片名称或者路径）:</td>
+		  <td ><input name="engname" id="largeimg"  value="${info.largeimg }"/></td>
+	  </tr>--%>
+	  <tr>
+		  <td class="discription" >大图:</td>
+		  <td >
+			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
+			  <!-- 上传附件按钮 -->
+			  <script language="JavaScript" type="text/javascript">
+				  function removeFiles(fileName){
+					  document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
+				  }
+				  AC_FL_RunContent(
+						  "src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
+						  "width", "100",
+						  "height", "25",
+						  "style","margin-top:6px",
+						  "id", "fileUpload",
+						  "quality", "high",
+						  "bgcolor", "#ffffff",
+						  "name", "fileUpload",
+						  "wmode","transparent",
+						  "allowScriptAccess","sameDomain",
+						  "type", "application/x-shockwave-flash",
+						  "pluginspage", "http://www.adobe.com/go/getflashplayer",
+						  "flashVars","flexID=a&uploadURL=<%=request.getContextPath()%>/upload/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
+				  );
+
+				  function a_completeUpload(fileName, realName){
+					  if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
+							  ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
+						  var str="";
+						  str += "<div id='"+fileName+"' style='display: inline;'>";
+						  str += "<input type='hidden' name='largeimg' value='"+fileName+"'/>";
+						  str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
+						  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
+						  str += "删除";
+						  str += "</a>&nbsp;&nbsp;</div>";
+						  document.getElementById("imgUrl1").innerHTML=str;
+					  }else{
+						  alert("请上传图片。");
+					  }
+				  }
+			  </script>
+			  <div  id="imgUrl1">
+
+			  </div>
+		  </td>
+	  </tr>
+	  <tr>
+		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>是否直接显示子类:</td>
+		  <td ><input name="extendshow" id="extendshow"  value="${info.extendshow }"/></td>
+	  </tr>
   <c:if test="${empty merchants}">
 	  <tr>
 	     <td class="discription" ><span style="color:#ff0000">*</span>类型:</td>
