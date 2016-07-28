@@ -92,7 +92,7 @@ public class ConfirmOrderWidget extends  Widget {
 			this.putData("h_x", member.getJf());
 			List<CouponMemberRel> couponMemberRelLists=new ArrayList<CouponMemberRel>();
 
-			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+member.getHuiYuan_id()+" order by n.coupon.endTime asc"));
+			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and n.coupon.endTime > now() and  n.huiyuan="+member.getHuiYuan_id()+" order by n.coupon.endTime asc"));
 			for (int i=0;i<couponMemberRelList.size();i++){
 				int count=couponMemberRelList.get(i).getCount();
 ;				for (int j=0;j<count;j++){

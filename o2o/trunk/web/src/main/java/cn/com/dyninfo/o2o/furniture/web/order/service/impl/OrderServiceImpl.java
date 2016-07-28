@@ -823,44 +823,37 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							boolean flag=false;
 							String coupons=request.getParameter("coupons");
 							//获取优惠卷ID    1=满立减  2=折扣
-								String[] arr=coupons.split(",");
-								if (arr.length>0){
-									flag=true;
-								}
-
+							String[] arr=coupons.split(",");
 							Double constraintPrice=0.0;//优惠卷达到该金额才可使用
 							Double maxAmouontPrice=0.0;//最大抵扣金额
 							Double reducePrice=0.0;//满减使用，抵扣金额
-							Double constraintPrice2=0.0;//优惠卷达到该金额才可使用
-							Double maxAmouontPrice2=0.0;//最大抵扣金额
 							Double reducePrice2=0.0;//折扣使用，抵扣金额
-							DateFormat formart=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-							String dates1=formart.format(new Date());
+//							DateFormat formart=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//							String dates1=formart.format(new Date());
 							//	1.是否达到使用金额
 							//	2.优惠券是否过期
 							//	3.优惠券是否已经使用
 							//	4.优惠券剩余数量是否大于使用数量
 							if (arr.length>0 && !ValidationUtil.isEmpty(coupons)){
+								flag=true;
 								for (int i = 0; i <arr.length; i++) {
-									List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.coupon.id="+ arr[i]));
+									List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and n.coupon.endTime > now() and  n.coupon.id="+ arr[i]));
 									CouponMemberRel coupon1 =couponMemberRelList.get(0);
-									String dates2=formart.format(coupon1.getCoupon().getEndTime());
+									//String dates2=formart.format(coupon1.getCoupon().getEndTime());
 									if (arr.length>1){
 										if (1==coupon1.getCoupon().getSameUse()){
 										}else {
 											return false;
 										}
 									}
-									//计算出 type=1的优惠卷总金额
-									if(coupon1.getCount()>0 && dates1.compareTo(dates2)<0){
+									//计算出 优惠卷各金额
+									if(coupon1.getCount()>0){  // && dates1.compareTo(dates2)<0
+										constraintPrice+=coupon1.getCoupon().getConstraintValue();
+										maxAmouontPrice+=coupon1.getCoupon().getMaxAmouont();
 										if(1==coupon1.getCoupon().getType()){
-											constraintPrice+=coupon1.getCoupon().getConstraintValue();
-											maxAmouontPrice+=coupon1.getCoupon().getMaxAmouont();
-											reducePrice+=coupon1.getCoupon().getReduceValue();
+											reducePrice+=coupon1.getCoupon().getReduceValue();//优惠金额
 										}
 										if(2==coupon1.getCoupon().getType() ){
-											constraintPrice2+=coupon1.getCoupon().getConstraintValue();
-											maxAmouontPrice2+=coupon1.getCoupon().getMaxAmouont();
 											reducePrice2+=coupon1.getCoupon().getDiscountValue();//折扣率
 										}
 										CouponMemberRel couponMemberRel1=new CouponMemberRel();
@@ -877,17 +870,11 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							}
 							//扣减优惠金额  满立减
 							if (constraintPrice<=goodPrice && maxAmouontPrice<=goodPrice && flag){
-								goodPrice=goodPrice-reducePrice;
+								goodPrice=goodPrice-reducePrice;   //先使用满立减
+								goodPrice=goodPrice-goodPrice*reducePrice2; //再使用折扣券
 							}else if (constraintPrice>goodPrice || maxAmouontPrice>goodPrice){
 								return false;
 							}
-							//扣减 折扣 的金额
-							if (constraintPrice2<=goodPrice && maxAmouontPrice2<=goodPrice && flag){
-								goodPrice=goodPrice-goodPrice*reducePrice2;
-							}else if (constraintPrice>goodPrice || maxAmouontPrice>goodPrice){
-								return false;
-							}
-
 							order.setShippingPrice(dlyprice);
 							order.setStatus("0");
 							order.setOriginalPrice(goodPrice+dlyprice+protectPrice);
