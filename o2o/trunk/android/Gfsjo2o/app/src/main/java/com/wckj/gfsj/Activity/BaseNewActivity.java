@@ -22,6 +22,7 @@ public abstract  class BaseNewActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_new);
+        findViewById(R.id.rl_base_flag).setBackgroundResource(R.drawable.icon_bg);
         loadPage = new FrameLoadLayout(this) {
             @Override
             public View createSuccessView() {
@@ -136,6 +137,7 @@ public abstract  class BaseNewActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        handler.removeCallbacksAndMessages(null);
         handler = null;
     }
 

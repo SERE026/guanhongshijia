@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -28,15 +29,18 @@ import de.greenrobot.event.EventBus;
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
 
-    private Fragment main_fragment,searchFragment,user_fragment,shopping_cart_fragment,collect_fragment;
+    private Fragment main_fragment, searchFragment, user_fragment, shopping_cart_fragment, collect_fragment;
     private FragmentManager fragmentManager;
     private TextView tv_time;
-    private Handler handler=new Handler(){
+    private int position;
+
+
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             EventBus.getDefault().post(new TimeEvent(TimeUtils.showTime(TimeUtils.getSystemTime())));
             tv_time.setText(TimeUtils.showTime(TimeUtils.getSystemTime()));
-            handler.sendEmptyMessageDelayed(0,1000);
+            handler.sendEmptyMessageDelayed(0, 3000);
         }
     };
 
@@ -65,6 +69,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     public void setTabSelection(int index) {
+        this.position = index;
         // 开启一个Fragment事务
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         // 设置切换动画
@@ -92,12 +97,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 transaction.commit();
                 break;
             case 2:// 购物车
-                 if (shopping_cart_fragment == null) {
-                 shopping_cart_fragment = new Shopping_cart_fragment();
-                 transaction.add(R.id.fl_context, shopping_cart_fragment);
-                 } else {
-                 transaction.show(shopping_cart_fragment);
-                 }
+                if (shopping_cart_fragment == null) {
+                    shopping_cart_fragment = new Shopping_cart_fragment();
+                    transaction.add(R.id.fl_context, shopping_cart_fragment);
+                } else {
+                    transaction.show(shopping_cart_fragment);
+                }
                 transaction.commit();
                 break;
             case 3:// 收藏
@@ -122,6 +127,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
         }
     }
+
     // 隐藏所以Fragment
     private void hideFragments(FragmentTransaction transaction) {
         if (main_fragment != null) {
@@ -143,7 +149,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.rl_search:
                 setTabSelection(4);
                 break;
@@ -159,5 +165,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            if (position != 0) {
+                setTabSelection(0);
+            } else {
+                return super.onKeyDown(keyCode, event);
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

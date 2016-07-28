@@ -19,7 +19,7 @@ import de.greenrobot.event.EventBus;
  * 购物车页面
  */
 public class ShoppingCartActivity extends BaseNewActivity implements View.OnClickListener {
-    private TextView tv_time;
+    private TextView tv_time,tv_content_desc;
     private View view;
     private ListView lv_shopping;
     private CommonAdapter mlvAdapter;
@@ -28,6 +28,9 @@ public class ShoppingCartActivity extends BaseNewActivity implements View.OnClic
     @Override
     protected void init() {
         EventBus.getDefault().register(this);
+        loadPage.iv_networktext.setImageResource(R.drawable.icon_big_cart);
+        loadPage.textView1.setText("你还没有相关订单");
+        loadPage.textView1.setText("快去商品购物页选择其他商品吧！！！");
     }
 
     @Override
@@ -35,6 +38,8 @@ public class ShoppingCartActivity extends BaseNewActivity implements View.OnClic
         View titleView = inflater.inflate(R.layout.layout_title_main_go_back, null);
         titleView. findViewById(R.id.tv_go_back).setOnClickListener(this);
         tv_time = (TextView) titleView.findViewById(R.id.tv_time);
+         titleView.findViewById(R.id.tv_content_desc).setVisibility(View.GONE);
+        titleView.findViewById(R.id.tv_shopping_desc).setVisibility(View.VISIBLE);
         return titleView;
     }
 

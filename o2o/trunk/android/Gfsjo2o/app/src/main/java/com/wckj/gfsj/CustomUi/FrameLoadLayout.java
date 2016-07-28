@@ -78,7 +78,6 @@ public abstract class FrameLoadLayout extends FrameLayout {
         if (mLoadView != null) {
             mLoadView.setVisibility(state == STATE_UNKOWN
                     || state == STATE_LOAD ? View.VISIBLE : View.INVISIBLE);
-
         }
 
         if (mEmptyView != null) {
@@ -135,9 +134,6 @@ public abstract class FrameLoadLayout extends FrameLayout {
         this.state = state;
     }
 
-    public int getState() {
-        return state;
-    }
 
     /**
      * 当View创建得时候需要它重新绑定数据，或者额外操作得时候调用这个方法
@@ -188,19 +184,23 @@ public abstract class FrameLoadLayout extends FrameLayout {
         return notNetWork;
     }
 
-    public ImageView tv_networktext;
-    public TextView tv_msgtext1;
-    public TextView tv_msgtext2;
 
     /**
      * 正在没有数据得界面
      */
-
+    public  ImageView iv_networktext;//图片
+    public TextView textView1,textView2;
     private View createEmptyView() {
         View notNetWork = LayoutInflater.from(getContext()).inflate(
                 R.layout.mr_networkerror, null);
         RelativeLayout btn = (RelativeLayout) notNetWork
                 .findViewById(R.id.btn_network);
+        iv_networktext = (ImageView) notNetWork
+                .findViewById(R.id.iv_networktext);
+        textView1 = (TextView) notNetWork
+                .findViewById(R.id.textView1);
+        textView2 = (TextView) notNetWork
+                .findViewById(R.id.textView2);
         btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {

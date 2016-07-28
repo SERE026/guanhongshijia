@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import com.dalong.francyconverflow.FancyCoverFlow;
 import com.dalong.francyconverflow.FancyCoverFlowAdapter;
 import com.wckj.gfsj.Bean.Commodity_level_details;
-import com.wckj.gfsj.Bean.Commodity_level_one;
 import com.wckj.gfsj.R;
 
 import java.util.List;
@@ -42,7 +41,7 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final Commodity_level_one item = (Commodity_level_one) getItem(position);
+        final Commodity_level_details item = (Commodity_level_details) getItem(position);
         holder.iv_scro_main.setImageResource(R.drawable.icon_public_image);
 
         return convertView;

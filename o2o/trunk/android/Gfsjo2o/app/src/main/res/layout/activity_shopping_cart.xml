@@ -2,12 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:id="@+id/tv_shopping_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/icon_small_cart"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="77.5dp"
+        android:text="@string/main_shopping_cart"
+        android:textColor="@color/color_767f8e"
+        android:textSize="22sp"
+        />
     <RelativeLayout
         android:background="@drawable/shape_shopping_cart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="74dp"
         android:layout_marginLeft="103dp"
         android:layout_marginRight="79dp">
@@ -36,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
                 <CheckBox
+                    android:button="@null"
                     android:layout_marginLeft="7dp"
                     android:layout_centerVertical="true"
                     android:id="@+id/cb_big_all"

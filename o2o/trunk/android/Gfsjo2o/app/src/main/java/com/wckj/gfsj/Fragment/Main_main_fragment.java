@@ -51,17 +51,13 @@ public class Main_main_fragment extends Fragment{
       int num = Integer.MAX_VALUE / 2 % mList.size();
       int selectPosition = Integer.MAX_VALUE / 2 - num;
       mfancyCoverFlow.setSelection(1);
-        mfancyCoverFlow.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mfancyCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//              Item homeFancyCoverFlow = (Item) mfancyCoverFlow.getSelectedItem();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(view.getContext(), CommoditydetailsActivity.class);
                 startActivity(intent);
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
         });
+
     }
     }

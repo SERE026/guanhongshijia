@@ -42,7 +42,7 @@ public abstract class BaseNewFragment extends Fragment{
 
                 @Override
                 public void loadMainRun() {
-                    BaseNewFragment.this.loadMainRun();
+                    BaseNewFragment.this.load();
                 }
 
             };
@@ -59,7 +59,7 @@ public abstract class BaseNewFragment extends Fragment{
             };
         }
         View view = inflater.inflate(R.layout.activity_base_new, null);
-        setUseSocketAndInit();
+        init();
         FrameLayout fl_base_title = (FrameLayout)view. findViewById(R.id.fl_base_title);
         FrameLayout fl_base_content = (FrameLayout) view.findViewById(R.id.fl_base_content);
         View mTitleView = onCreateTitleView(inflater);
@@ -81,7 +81,7 @@ public abstract class BaseNewFragment extends Fragment{
      * 默认true，长连接短连接都调用
      * 同时做一些最开始的初始化
      */
-    protected abstract void setUseSocketAndInit();
+    protected abstract void init();
     /**
      * 创建标题的View，需要什么标题在父类里面onCreateNativeTitleView（）方法里面加，能后返回加的type就行
      * @return 默认返回没有标题
@@ -103,7 +103,7 @@ public abstract class BaseNewFragment extends Fragment{
     /**
      * 长连接的情况下在主线程中加载
      */
-    protected void loadMainRun() {
+    protected void load() {
 
     }
     /**
@@ -115,13 +115,6 @@ public abstract class BaseNewFragment extends Fragment{
     }
 
 
-    /**
-     * 加载网络
-     * @return
-     */
-    protected void loadVisitor() {
-        showPageState(FrameLoadLayout.LoadResult.success);
-    }
 
     /**校验数据 */
     public FrameLoadLayout.LoadResult checkData(List datas) {
