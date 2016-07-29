@@ -2,8 +2,6 @@ package cn.com.dyninfo.o2o.entity;
 
 import cn.com.dyninfo.o2o.entity.common.BaseEntity;
 
-import java.util.Date;
-
 /**
  * Created by Administrator on 2016/7/29.
  */

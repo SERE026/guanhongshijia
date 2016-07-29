@@ -3,7 +3,6 @@ package cn.com.dyninfo.o2o.communication;
 import cn.com.dyninfo.o2o.communication.common.PageResult;
 import cn.com.dyninfo.o2o.entity.AgencyFeeItem;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,7 +17,7 @@ public class QueryAgencyFeeResult extends PageResult {
     //累计佣金
     private double totalMoney;
     //数据截至时间
-    private Date dataDate;
+    private String dataDate;
     //佣金明细
     private List<AgencyFeeItem> agencyFeeItemList;
 
@@ -46,11 +45,11 @@ public class QueryAgencyFeeResult extends PageResult {
         this.totalMoney = totalMoney;
     }
 
-    public Date getDataDate() {
+    public String getDataDate() {
         return dataDate;
     }
 
-    public void setDataDate(Date dataDate) {
+    public void setDataDate(String dataDate) {
         this.dataDate = dataDate;
     }
 

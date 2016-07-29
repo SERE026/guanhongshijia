@@ -8,8 +8,94 @@ import java.util.List;
  * Created by Administrator on 2016/7/25.
  */
 public class GoodsDetail extends BaseEntity {
-
+    //商品名称
+    private String name;
+    //参数列表
     private List<GoodsSpec> specList;
+    //商品说明，显示在商品名称下方
+    private String shortDesc;
+    //商品价格
+    private double price;
+    //商品类别
+    private Category category;
+    //品牌
+    private Brand brand;
+    //销量
+    private int saleCount;
+    //图片列表
+    private List<String> imageList;
+    //商品详情，html格式
+    private String goodsDesc;
 
-    //TODO 待完善
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<GoodsSpec> getSpecList() {
+        return specList;
+    }
+
+    public void setSpecList(List<GoodsSpec> specList) {
+        this.specList = specList;
+    }
+
+    public String getShortDesc() {
+        return shortDesc;
+    }
+
+    public void setShortDesc(String shortDesc) {
+        this.shortDesc = shortDesc;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public int getSaleCount() {
+        return saleCount;
+    }
+
+    public void setSaleCount(int saleCount) {
+        this.saleCount = saleCount;
+    }
+
+    public List<String> getImageList() {
+        return imageList;
+    }
+
+    public void setImageList(List<String> imageList) {
+        this.imageList = imageList;
+    }
+
+    public String getGoodsDesc() {
+        return goodsDesc;
+    }
+
+    public void setGoodsDesc(String goodsDesc) {
+        this.goodsDesc = goodsDesc;
+    }
 }
