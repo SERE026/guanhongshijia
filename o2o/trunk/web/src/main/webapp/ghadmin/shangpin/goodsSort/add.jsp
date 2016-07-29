@@ -146,8 +146,13 @@ $(function(){
 		  </td>
 	  </tr>
 	  <tr>
-		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>是否直接显示子类:</td>
-		  <td ><input name="extendshow" id="extendshow"  value="${info.extendshow }"/></td>
+		  <td class="discription">是否直接显示子类：</td>
+		  <td>
+			  <select name="extendshow" style="width: 154px;">
+				  <option value="0" selected="selected">否</option>
+				  <option value="1">是</option>
+			  </select>
+		  </td>
 	  </tr>
   <c:if test="${empty merchants}">
 	  <tr>

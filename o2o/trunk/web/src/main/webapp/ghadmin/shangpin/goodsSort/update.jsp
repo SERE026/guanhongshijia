@@ -101,7 +101,7 @@ $(function(){
 		  <td ><input name="engname" id="largeimg"  value="${info.largeimg }"/></td>
 	  </tr>--%>
 	  <tr>
-		  <td class="discription" >分类图片:</td>
+		  <td class="discription" >大图:</td>
 		  <td >
 			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
 			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
@@ -115,36 +115,36 @@ $(function(){
 						  "width", "100",
 						  "height", "25",
 						  "style","margin-top:6px",
-						  "id", "fileUpload",
+						  "id", "fileUpload1",
 						  "quality", "high",
 						  "bgcolor", "#ffffff",
-						  "name", "fileUpload",
+						  "name", "fileUpload1",
 						  "wmode","transparent",
 						  "allowScriptAccess","sameDomain",
 						  "type", "application/x-shockwave-flash",
 						  "pluginspage", "http://www.adobe.com/go/getflashplayer",
-						  "flashVars","flexID=a&uploadURL=<%=request.getContextPath()%>/upload/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
+						  "flashVars","flexID=b&uploadURL=<%=request.getContextPath()%>/upload/upload.jsp&label=图 片 上 传&succeed=a_completeUpload"
 				  );
 
-				  function a_completeUpload(fileName, realName){
+				  function b_completeUpload(fileName, realName){
 					  if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
 							  ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
 						  var str="";
 						  str += "<div id='"+fileName+"' style='display: inline;'>";
-						  str += "<input type='hidden' name='imagesrc' value='"+fileName+"'/>";
+						  str += "<input type='hidden' name='largeimg' value='"+fileName+"'/>";
 						  str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
 						  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 						  str += "删除";
 						  str += "</a>&nbsp;&nbsp;</div>";
-						  document.getElementById("largeImgUrl").innerHTML=str;
+						  document.getElementById("imgUrl1").innerHTML=str;
 					  }else{
 						  alert("请上传图片。");
 					  }
 				  }
 			  </script>
-			  <div  id="largeImgUrl">
-				  <div id='${info.imagesrc }' style='display: inline;'>
-					  <input type='hidden' name='imagesrc' value='${info.largeimg }'/>
+			  <div  id="imgUrl1">
+				  <div id='${info.largeimg }' style='display: inline;'>
+					  <input type='hidden' name='largeimg' value='${info.largeimg }'/>
 					  <img src="<%=request.getContextPath()%>/upload/${info.largeimg }" height=120 width=240 />
 					  <a href='#' onclick='removeFiles("${info.largeimg }")'>
 						  删除
@@ -152,18 +152,24 @@ $(function(){
 			  </div>
 		  </td>
 	  </tr>
-	  <tr>
+	  <%--<tr>
 		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>是否直接显示子类:</td>
 		  <td ><input name="extendshow" id="extendshow"  value="${info.extendshow }"/></td>
-	  </tr>
+	  </tr>--%>
 	  <tr>
-	  <td class="discription">是否直接显示子类：</td>
-	  <td>
-		  <select name="extendshow" style="width: 154px;">
-			  <option value="0" selected="selected">否</option>
-			  <option value="1">是</option>
-		  </select>
-	  </td>
+		  <td class="discription">是否直接显示子类：</td>
+		  <td>
+			  <select name="extendshow" style="width: 154px;">
+				  <c:if test="${info.extendshow==0}">
+					  <option value="0" selected="selected">否</option>
+					  <option value="1">是</option>
+				  </c:if>
+				  <c:if test="${info.extendshow==1}">
+					  <option value="0" >否</option>
+					  <option value="1" selected="selected">是</option>
+				  </c:if>
+			  </select>
+		  </td>
 	  </tr>
 
   </tr>

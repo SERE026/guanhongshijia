@@ -26,11 +26,11 @@ public class Coupon {
 
     @AccessType(value = "property")
     @Column(name="BEGIN_TIME ")
-    private Date beginTime;
+    private String beginTime;
 
     @AccessType(value = "property")
     @Column(name = "END_TIME")
-    private Date endTime;
+    private String endTime;
 
     @AccessType(value = "property")
     @Column(name = "TYPE")
@@ -64,13 +64,13 @@ public class Coupon {
 
     public void setName(String name) { this.name = name; }
 
-    public Date getBeginTime() { return beginTime; }
+    public String getBeginTime() { return beginTime; }
 
-    public void setBeginTime(Date beginTime) { this.beginTime = beginTime; }
+    public void setBeginTime(String beginTime) { this.beginTime = beginTime; }
 
-    public Date getEndTime() { return endTime; }
+    public String getEndTime() { return endTime; }
 
-    public void setEndTime(Date endTime) { this.endTime = endTime; }
+    public void setEndTime(String endTime) { this.endTime = endTime; }
 
     public byte getType() { return type; }
 
