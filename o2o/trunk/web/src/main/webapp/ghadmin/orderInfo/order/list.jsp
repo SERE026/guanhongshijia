@@ -56,6 +56,8 @@ function cz(){
 						  <option value="4" <c:if test="${state=='4' }">	selected </c:if>>申请退款</option>
 						  <option value="5" <c:if test="${state=='5' }">	selected </c:if>>申请退货 </option>
 						   <option value="6"  <c:if test="${state=='6' }">	selected </c:if>>交易失败</option>
+							<option value="7"  <c:if test="${state=='7' }">	selected </c:if>>已付定金</option>
+							<option value="8"  <c:if test="${state=='8' }">	selected </c:if>>代理商确认付款</option>
 						</select>
 						</td>
 						<td class="chazhaofanshi1"> 配送方式：</td>
@@ -176,6 +178,8 @@ function cz(){
 								<c:if test="${Info.state=='4'}">申请退款</c:if>
 								<c:if test="${Info.state=='5'}">申请退货 </c:if>
 								<c:if test="${Info.state=='6'}">交易失败 </c:if>
+								<c:if test="${Info.state=='7'}">已付定金 </c:if>
+								<c:if test="${Info.state=='8'}">代理商确认付款 </c:if>
 							</td>
 							<td>
 								<a href="<%=request.getContextPath()%>/html/manage/order/${Info.order_id}/show" class="zhu2">
@@ -184,6 +188,15 @@ function cz(){
 								<a href="<%=request.getContextPath()%>/html/manage/order/${Info.order_id}/goupdate" class="zhu2">
 									编辑</a>&nbsp;
 									</c:if>
+
+								<c:if test="${Info.state=='7'}">
+									<a href="<%=request.getContextPath()%>/html/manage/order/${Info.order_id}/goupdatepay" class="zhu2">
+										确认付款</a>&nbsp;
+								</c:if>
+								<c:if test="${Info.state=='8'}">
+									<a href="<%=request.getContextPath()%>/html/manage/order/${Info.order_id}/godel" class="zhu2">
+										确认已收款</a>&nbsp;
+								</c:if>
 									<a href="<%=request.getContextPath()%>/html/manage/order/${Info.order_id}/godel" class="zhu2">
 									删除
 									</a>

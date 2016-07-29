@@ -333,6 +333,7 @@ function shop(obj){
 						money+=parseFloat($(this).html());
 					});
 					$(".orderMoney").html("应付总额：¥"+money.toFixed(2));
+					$("#zongjia").val(money.toFixed(2));
 				}
 			});
 			_shop.shop=obj;
@@ -400,6 +401,7 @@ function shop(obj){
 				  		});
 				  		
 				  		$(".orderMoney").html("应付总额：¥"+orderMoney.toFixed(2));
+					  $("#zongjia").val(orderMoney.toFixed(2));
 				  	layer.close(window.loadi);
 				  		$("[zzhao]").remove();
 				  }
@@ -464,6 +466,8 @@ function shop(obj){
 				});
 				
 				$(".orderMoney").html("应付总额：¥"+money.toFixed(2));
+				$("#zongjia").val(money.toFixed(2));
+
 			}
 			
 		},
