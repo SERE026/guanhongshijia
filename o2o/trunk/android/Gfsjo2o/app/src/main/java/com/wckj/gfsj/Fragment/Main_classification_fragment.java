@@ -24,25 +24,31 @@ public class Main_classification_fragment extends Fragment implements View.OnCli
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.fragment_main_classification, null);
-//        TextView tv_msg = (TextView) view.findViewById(R.id.tv_msg);
-//        tv_msg.setText("cccc");
-         view.findViewById(R.id.btn_chinese_furniture).setOnClickListener(this);
+         view.findViewById(R.id.btn_more).setOnClickListener(this);
         view.findViewById(R.id.btn_old_tea).setOnClickListener(this);
+        view.findViewById(R.id.btn_chinese_furniture).setOnClickListener(this);
+
 
         return view;
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()){
-            case R.id.btn_chinese_furniture:
-                Intent intent = new Intent(view.getContext(), MainMoreActivity.class);
+            case R.id.btn_more:
+                 intent = new Intent(view.getContext(), MainMoreActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_old_tea:
-                Intent intent2 = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
-                startActivity(intent2);
+                intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                startActivity(intent);
                 break;
+            case R.id.btn_chinese_furniture:
+                intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }
