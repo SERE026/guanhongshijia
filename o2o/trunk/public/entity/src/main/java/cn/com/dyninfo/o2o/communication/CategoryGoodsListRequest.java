@@ -1,17 +1,18 @@
 package cn.com.dyninfo.o2o.communication;
 
 import cn.com.dyninfo.o2o.communication.common.BaseRequest;
+import cn.com.dyninfo.o2o.communication.common.PageRequest;
 import cn.com.dyninfo.o2o.entity.Brand;
 import cn.com.dyninfo.o2o.entity.GoodsSummary;
 
 import java.util.List;
 
 /**
- * 商品列表请求类
+ * 根据商品分类查询商品列表请求类
  * request URL: https://serverurl/app/goodsList
  * request method: post
  */
-public class GoodsListRequest extends BaseRequest {
+public class CategoryGoodsListRequest extends PageRequest {
 
     private int categoryId;
 

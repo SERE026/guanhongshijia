@@ -7,7 +7,7 @@ import cn.com.dyninfo.o2o.communication.common.BaseRequest;
  * request URL: https://serverurl/app/lockPassword
  * request method: post
  */
-public class LockPasswordRequest extends BaseRequest {
+public class SetLockPasswordRequest extends BaseRequest {
 
     private String password;
 

@@ -9,11 +9,14 @@ import java.util.List;
  */
 public class Category extends BaseEntity {
 
+    //分类图片，主分类页面直接显示
     private String imageUrl;
-
+    //分类名称，二级分类页面显示在左边的文字
     private String title;
-
+    //子类别，二级分类页面使用，显示在右侧的图片列表
     private List<Category> childrenList;
+    //排序
+    private int sortOrder;
 
     public String getImageUrl() {
         return imageUrl;

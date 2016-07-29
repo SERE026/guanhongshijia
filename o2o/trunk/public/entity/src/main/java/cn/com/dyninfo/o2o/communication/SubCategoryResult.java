@@ -1,6 +1,7 @@
 package cn.com.dyninfo.o2o.communication;
 
 import cn.com.dyninfo.o2o.communication.common.BaseResult;
+import cn.com.dyninfo.o2o.communication.common.PageResult;
 import cn.com.dyninfo.o2o.entity.Category;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/7/25.
  */
-public class SubCategoryResult extends BaseResult {
+public class SubCategoryResult extends PageResult {
 
     private List<Category> categoryList;
 

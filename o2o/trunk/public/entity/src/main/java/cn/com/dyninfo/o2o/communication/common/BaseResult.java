@@ -13,8 +13,6 @@ public class BaseResult implements Serializable {
     //返回的错误信息
     private String message;
 
-    private int totalPage;
-
     public int getResultCode() {
         return resultCode;
     }
@@ -29,13 +27,5 @@ public class BaseResult implements Serializable {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public int getTotalPage() {
-        return totalPage;
-    }
-
-    public void setTotalPage(int totalPage) {
-        this.totalPage = totalPage;
     }
 }

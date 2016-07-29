@@ -9,16 +9,16 @@ import cn.com.dyninfo.o2o.communication.common.BaseRequest;
  */
 public class LoginRequest extends BaseRequest {
 
-    private String userName;
+    private String loginName;
 
     private String password;
 
-    public String getUserName() {
-        return userName;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
     public String getPassword() {

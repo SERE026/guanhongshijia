@@ -9,10 +9,9 @@ public class GoodsSummary extends BaseEntity {
 
     //商品显示图片
     private String mainPicUrl;
-
     //商品名称
     private String title;
-
+    //商品价格
     private double price;
 
     public String getMainPicUrl() {
