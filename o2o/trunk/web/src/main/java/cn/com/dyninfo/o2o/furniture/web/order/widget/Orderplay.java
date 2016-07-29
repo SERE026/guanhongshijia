@@ -129,8 +129,15 @@ public class Orderplay extends Widget {
 						List orderlist=orderService.getListByWhere(new StringBuffer(" and n.tradeNo='"+trade.getTrade_id()+"'"));
 						if(orderlist!=null&&orderlist.size()>0){
 							Order order=(Order) orderlist.get(0);
-							order.setState("1");
-							order.setIsPay("1");
+							//支付总额小于20000（系统定义）的金额
+							//状态为7-已付定金。
+							if (order.getDepositAmount()==Constants.DEPOSIT_AMOUNT){
+								order.setState("7");
+								order.setIsPay("0");
+							}else {
+								order.setState("1");
+								order.setIsPay("1");
+							}
 							orderService.updateObj(order);
 						}
 						ResponseUtil.printl(this.HttpResponse, "<script>window.location.href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+trade.getTrade_id()+".html?result=succeed\";</script>");

@@ -268,9 +268,6 @@ public class ShangJiaController {
 			userInfo.setPasswd(passwd);
 			UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
 			userInfo.setDaili(daili);
-			AgentGrade agentGrade = new AgentGrade();
-			agentGrade.setId(agentGradeId);
-			userInfo.setAgentGrade(agentGrade);
 			userInfo = (UserInfo)userService.addObj(userInfo);
 			
 			
@@ -288,8 +285,11 @@ public class ShangJiaController {
 			shangjiaInfo.setQq(qq);
 			shangjiaInfo.setDaili(daili);
 			shangjiaInfo.setMoney(0.0);
+			AgentGrade agentGrade = new AgentGrade();
+			agentGrade.setId(agentGradeId);
+			shangjiaInfo.setAgentGrade(agentGrade);
 			shangJiaService.addObj(shangjiaInfo);
-			
+			//TODO 创建huiyuan_info
 			
 			return new ModelAndView("redirect:/html/manage/shangJiaInfo/list","C_STATUS",1);
 		}catch(Exception e){
@@ -344,9 +344,6 @@ public class ShangJiaController {
 			user.setPasswd(MD5Encoder.encodePassword(passwd,
 					user.getLogin_id()));
 			user.setUser_name(contactName);
-			AgentGrade agentGrade = new AgentGrade();
-			agentGrade.setId(agentGradeId);
-			user.setAgentGrade(agentGrade);
 			userService.updateObj(user);
 			MerchantType  type=(MerchantType) merchantTypeService.getObjById(request.getParameter("type_id"));
 			ShangJiaInfo shangjiaInfo = (ShangJiaInfo) shangJiaService.getObjById(user.getShanfJiaInfo().getShangjia_id()+"");
@@ -356,8 +353,11 @@ public class ShangJiaController {
 			shangjiaInfo.setSort(sort);
 			shangjiaInfo.setContactName(contactName);
 			shangjiaInfo.setContactPhone(contactPhone);
+			AgentGrade agentGrade = new AgentGrade();
+			agentGrade.setId(agentGradeId);
+			shangjiaInfo.setAgentGrade(agentGrade);
 			shangJiaService.updateObj(shangjiaInfo);
-			
+			//TODO 更新会员info
 			
 			return new ModelAndView("redirect:/html/manage/shangJiaInfo/list","C_STATUS",1);
 		}catch(Exception e){

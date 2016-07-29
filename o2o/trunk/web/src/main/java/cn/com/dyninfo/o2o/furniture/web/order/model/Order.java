@@ -61,7 +61,7 @@ public class Order implements Serializable{
 	
 	@AccessType("property")
 	@Column(name="STATE")
-	private String state="0";//0.等待付款 1.已付款 2.已发货3.确认完成4.申请退款5.申请退货6.交易失败
+	private String state="0";//0.等待付款 1.已付款 2.已发货3.确认完成4.申请退款5.申请退货6.交易失败 7.已付定金 8.代理商确认付款
 	/**
 	 * 0等待付款 可以删除订单
 	 * 1已付款  可以申请退款 15天后自动退回账户  
@@ -164,6 +164,26 @@ public class Order implements Serializable{
 	@AccessType("property")
 	@Column(name="ACCOUNT")
 	private int account=1;//是否优先使用账户支付 0 是 1否
+
+
+
+	@AccessType("property")
+	@Column(name="AGENCY_FEE")
+	private Double agencyFee=0d; //佣金金额
+
+	@AccessType("property")
+	@Column(name = "AGENCY_PAY")
+	private Byte agencyPay;//是否已确认佣金-0：否；1-是
+
+	@AccessType("property")
+	@Column(name="DEPOSIT_AMOUNT")
+	private Double depositAmount=0d; //存入金额
+
+
+	@AccessType("property")
+	@Column(name = "PAY_DESC")
+	private String payDesc;//支付备注，代理商填写，用于线下支付填写付款人、付款帐号等
+
 	/**
 	 * 如果优先使用账户支付，先检查账户金额，如果账户金额不足，再使用在线支付方式
 	 */
@@ -246,8 +266,7 @@ public class Order implements Serializable{
 	  @AccessType(value="property")
 	  @Column(name="RECEIVE_CODE")
 	  private String code;
-	  
-	  
+
 	  
 	  @AccessType(value="property")
 	  @Column(name="RECEIVE_EMAIL")
@@ -276,9 +295,7 @@ public class Order implements Serializable{
 	@JoinColumn(name="MARCHANTS_ID")
 	private ShangJiaInfo merchants;//如果对象是商家 此字段应有值
 	
-	
-	
-	
+
 	@AccessType(value = "property")
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="PAYMENT_ID")
@@ -304,6 +321,28 @@ public class Order implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="order")
 	private List<CouponOrderRel> couponOrderRel;
 
+	public Double getAgencyFee() {
+		return agencyFee;
+	}
+
+	public void setAgencyFee(Double agencyFee) {
+		this.agencyFee = agencyFee;
+	}
+
+	public String getPayDesc() {
+		return payDesc;
+	}
+
+	public void setPayDesc(String payDesc) {
+		this.payDesc = payDesc;
+	}
+	public Double getDepositAmount() {
+		return depositAmount;
+	}
+
+	public void setDepositAmount(Double depositAmount) {
+		this.depositAmount = depositAmount;
+	}
 	/**
 	 * @return the order_id
 	 */
@@ -1037,5 +1076,13 @@ public class Order implements Serializable{
 
 	public void setCouponOrderRel(List<CouponOrderRel> couponOrderRel) {
 		this.couponOrderRel = couponOrderRel;
+	}
+
+	public Byte getAgencyPay() {
+		return agencyPay;
+	}
+
+	public void setAgencyPay(Byte agencyPay) {
+		this.agencyPay = agencyPay;
 	}
 }

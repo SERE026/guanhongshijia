@@ -19,6 +19,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -192,18 +193,23 @@ public class OrderController extends BaseController {
 	public ModelAndView endit(HttpServletRequest request, Order info) {
 		ModelAndView mav = new ModelAndView();
 		Order order = (Order) orderService.getObjById(info.getOrder_id());
-		order.setState(info.getState());
-		order.setReceiveName(info.getReceiveName());
-		order.setReceivePhone(info.getReceivePhone());
-		order.setReceiveTel(info.getReceiveTel());
-		order.setCode(info.getCode());
-		order.setProvince(info.getProvince());
-		order.setCity(info.getCity());
-		order.setCounty(info.getCounty());
-		order.setAddress(info.getAddress());
-		if(info.getDiscountPrice()!=null){
-		order.setDiscountPrice(info.getDiscountPrice());
-		order.setOrderPrice(order.getGoodsPrice()+order.getShippingPrice()+order.getProtectPrice()-info.getDiscountPrice());
+		if (order.getDepositAmount()== Constants.DEPOSIT_AMOUNT||"7".equals(order.getState())){
+			order.setState("8");
+			order.setPayDesc(info.getPayDesc());
+		}else {
+			order.setState(info.getState());
+			order.setReceiveName(info.getReceiveName());
+			order.setReceivePhone(info.getReceivePhone());
+			order.setReceiveTel(info.getReceiveTel());
+			order.setCode(info.getCode());
+			order.setProvince(info.getProvince());
+			order.setCity(info.getCity());
+			order.setCounty(info.getCounty());
+			order.setAddress(info.getAddress());
+			if (info.getDiscountPrice() != null) {
+				order.setDiscountPrice(info.getDiscountPrice());
+				order.setOrderPrice(order.getGoodsPrice() + order.getShippingPrice() + order.getProtectPrice() - info.getDiscountPrice());
+			}
 		}
 		try {
 			orderService.updateObj(order);
@@ -228,7 +234,12 @@ public class OrderController extends BaseController {
 	String id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		Order order = (Order) orderService.getObjById(id);
-		order.setStatus("1");
+		if ("8".equals(order.getState())){
+			order.setState("1");
+			order.setIsPay("1");
+		}else {
+			order.setStatus("1");
+		}
 		orderService.updateObj(order);
 		mav.setViewName("redirect:/html/manage/order/list");
 		return mav;
@@ -252,4 +263,26 @@ public class OrderController extends BaseController {
 		mav.setViewName("/orderInfo/order/update");
 		return mav;
 	}
+
+	/**
+	 * 确认付款
+	 *pay_desc
+	 * 支付备注，代理商填写，用于线下支付填写付款人、付款帐号等
+	 *
+	 * @param id
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}/goupdatepay")
+	public ModelAndView goupdatepay(@PathVariable
+										 String id, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		Order order = (Order) orderService.getObjById(id);
+		mav.addObject("info",order);
+/*		mav.addObject("province", areaService.getListByWhere(new StringBuffer(
+				" and n.parent is null")));*/
+		mav.setViewName("/orderInfo/order/updatePay");
+		return mav;
+	}
+
 }

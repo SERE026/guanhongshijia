@@ -27,6 +27,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import cn.com.dyninfo.o2o.furniture.admin.model.AgentGrade;
 import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -176,7 +177,13 @@ public class ShangJiaInfo implements Serializable{
 	@AccessType(value = "property")
 	@Column(name = "MONEY")
 	private Double money;
-	
+
+
+	@AccessType(value="property")
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="AGENT_GRADE_ID")
+	private AgentGrade agentGrade;//代理商级别
+
 	/**
 	 * @return the money
 	 */
@@ -531,5 +538,11 @@ public class ShangJiaInfo implements Serializable{
 		this.qq = qq;
 	}
 
-	
+	public AgentGrade getAgentGrade() {
+		return agentGrade;
+	}
+
+	public void setAgentGrade(AgentGrade agentGrade) {
+		this.agentGrade = agentGrade;
+	}
 }

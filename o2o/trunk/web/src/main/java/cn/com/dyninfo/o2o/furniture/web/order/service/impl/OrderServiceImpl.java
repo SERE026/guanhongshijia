@@ -13,13 +13,13 @@
 
 package cn.com.dyninfo.o2o.furniture.web.order.service.impl;
 
-import cn.com.dyninfo.o2o.furniture.admin.model.Coupon;
 import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
 import cn.com.dyninfo.o2o.furniture.admin.model.CouponOrderRel;
 import cn.com.dyninfo.o2o.furniture.admin.service.BaseService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponOrderRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.TradeUtil;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
@@ -841,35 +841,36 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 								flag=true;
 								for (int i = 0; i <arr.length; i++) { //
 									List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and n.coupon.endTime > now() and  n.huiyuan="+ member.getHuiYuan_id()+" and  n.coupon.id="+ arr[i]));
-									CouponMemberRel coupon1 =couponMemberRelList.get(0);
-									if (arr.length>1){
-										if (1==coupon1.getCoupon().getSameUse()){
-										}else {
+									if(couponMemberRelList!=null&&couponMemberRelList.size()>0){
+										CouponMemberRel coupon1 =couponMemberRelList.get(0);
+										if (arr.length>1){
+											if (1==coupon1.getCoupon().getSameUse()){
+											}else {
+												return false;
+											}
+										}
+										//计算出 优惠卷各金额
+										if(coupon1.getCount()>0){  // && dates1.compareTo(dates2)<0
+											constraintPrice+=coupon1.getCoupon().getConstraintValue();
+											maxAmouontPrice+=coupon1.getCoupon().getMaxAmouont();
+											if(1==coupon1.getCoupon().getType()){
+												reducePrice+=coupon1.getCoupon().getReduceValue();//优惠金额
+											}else if(2==coupon1.getCoupon().getType() ){
+												reducePrice2+=coupon1.getCoupon().getDiscountValue();//折扣率
+											}
+											//修改优惠券用户关联表
+											coupon1.setCount(coupon1.getCount()-1);
+											coupon1.setUsedCount(coupon1.getUsedCount()+1);
+											couponMemberRelService.updateObj(coupon1);
+											//新增订单优惠券使用记录
+											CouponOrderRel couponOrderRel=	new CouponOrderRel();
+											couponOrderRel.setCoupon(coupon1.getCoupon());
+											couponOrderRel.setOrder(order);
+											couponOrderRel.setCount(1);
+											couponOrderRelList.add(couponOrderRel);
+										}else{
 											return false;
 										}
-									}
-									//计算出 优惠卷各金额
-									if(coupon1.getCount()>0){  // && dates1.compareTo(dates2)<0
-										constraintPrice+=coupon1.getCoupon().getConstraintValue();
-										maxAmouontPrice+=coupon1.getCoupon().getMaxAmouont();
-										if(1==coupon1.getCoupon().getType()){
-											reducePrice+=coupon1.getCoupon().getReduceValue();//优惠金额
-										}
-										if(2==coupon1.getCoupon().getType() ){
-											reducePrice2+=coupon1.getCoupon().getDiscountValue();//折扣率
-										}
-										//修改优惠券用户关联表
-										coupon1.setCount(coupon1.getCount()-1);
-										coupon1.setUsedCount(coupon1.getUsedCount()+1);
-										couponMemberRelService.updateObj(coupon1);
-										//新增订单优惠券使用记录
-										CouponOrderRel couponOrderRel=	new CouponOrderRel();
-										couponOrderRel.setCoupon(coupon1.getCoupon());
-										couponOrderRel.setOrder(order);
-										couponOrderRel.setCount(1);
-										couponOrderRelList.add(couponOrderRel);
-									}else{
-										return false;
 									}
 								}
 							}
@@ -942,8 +943,13 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							}
 							int p_j_add=(int)Math.round(order.getOrderPrice()*p_j.getJfadd_zjjf());//平台购物获得积分
 							order.setPoint(g_j_add+p_j_add);
-							
 
+							//如果订单支付金额大于系统
+							//用户通过在线支付，可以支付总额小于20000（系统定义）的金额，该金额保存在t_order. DEPOSIT_AMOUNT
+							if (order.getOrderPrice()>Constants.DEPOSIT_AMOUNT){
+								order.setOrderPrice(Constants.DEPOSIT_AMOUNT);
+								order.setDepositAmount(Constants.DEPOSIT_AMOUNT);
+							}
 
 							this.addObj(order);
 							pointPrice=0d;
@@ -1006,15 +1012,24 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 			String time=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 			int t=(int)(new Date().getTime()/1000);
 			for(Order info:list){
+
 				if(info.getIsPay().equals("0")&&info.getStatus().equals("0")){
-					info.setState("1");
+					//支付总额大于20000（系统定义）的金额
+					//状态为7-已付定金。
+					if (info.getDepositAmount()==Constants.DEPOSIT_AMOUNT){
+						info.setState("7");
+						info.setIsPay("0");
+					}else {
+						info.setState("1");
+						info.setIsPay("1");
+					}
 					for(OrderProduct op : info.getOrderProductList()){
 						Goods good = op.getProduct().getGood();
 						good = (Goods)goodsDAO.getObjById(good.getGoods_id()+"");
 						good.setNum(good.getNum()+op.getNum());
 						goodsDAO.updateObj(good);
 					}
-					info.setIsPay("1");
+
 					info.setPaytime(time);
 					info.setIpaytime(t);
 					HuiyuanInfo h=info.getHuiyuan();
@@ -1035,6 +1050,8 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 					orderDao.updateGoodsnum(info);
 					
 				}
+
+
 			}
 		}
 
