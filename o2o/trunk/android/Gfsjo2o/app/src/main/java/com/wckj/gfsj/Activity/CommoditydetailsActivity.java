@@ -5,42 +5,35 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.wckj.gfsj.Adapter.CommoditydetailsAdapter;
 import com.wckj.gfsj.Bean.Commodity_level_details;
-import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
+import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.R;
 
 import java.util.ArrayList;
-
-import de.greenrobot.event.EventBus;
-import de.greenrobot.event.Subscribe;
-import de.greenrobot.event.ThreadMode;
 
 /**
  * 商品详情信息展示付款
  */
 public class CommoditydetailsActivity extends BaseNewActivity implements View.OnClickListener{
-    private TextView tv_time;
     private Button bt_buy;
     private ViewPager vp_commodity_pic;
     private ArrayList<Commodity_level_details> mList=new ArrayList<>();
+    private TitleRelativeLayout title_rl;
 
     @Override
     protected void init() {
-        EventBus.getDefault().register(this);
-
     }
 
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
-        View titleView = inflater.inflate(R.layout.layout_title_main_go_back, null);
-        titleView. findViewById(R.id.tv_go_back).setOnClickListener(this);
-        titleView . findViewById(R.id.tv_content_desc).setVisibility(View.GONE);
+        View titleView = inflater.inflate(R.layout.layout_public_title_main, null);
+        title_rl = (TitleRelativeLayout) titleView.findViewById(R.id.title_rl);
+        title_rl.childView. findViewById(R.id.tv_go_back).setOnClickListener(this);
+        title_rl.childView . findViewById(R.id.tv_content_desc).setVisibility(View.GONE);
 
-        tv_time = (TextView) titleView.findViewById(R.id.tv_time);
         return titleView;
     }
 
@@ -71,12 +64,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         showPageState(FrameLoadLayout.LoadResult.success);
     }
 
-    @Subscribe(threadMode = ThreadMode.MainThread)
-   public void  onMainTimeEvent(TimeEvent time){
-        if(tv_time!=null){
-            tv_time.setText(time.getTime());
-        }
-    }
+
 
     @Override
     public void onClick(View v) {
@@ -93,6 +81,6 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+        title_rl. clearRegister();
     }
 }

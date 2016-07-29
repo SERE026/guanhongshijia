@@ -20,6 +20,7 @@ import com.wckj.gfsj.Fragment.Search_fragment;
 import com.wckj.gfsj.Fragment.Shopping_cart_fragment;
 import com.wckj.gfsj.Fragment.User_fragment;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.OwerToastShow;
 import com.wckj.gfsj.Utils.TimeUtils;
 
 import de.greenrobot.event.EventBus;
@@ -183,7 +184,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
 
-
+    private long mkeyTime = 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
@@ -191,11 +192,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setTabSelection(0);
                 return  false ;
             } else {
+                if (mkeyTime == 0 || (System.currentTimeMillis() - mkeyTime) > 2000) {
+                   OwerToastShow.show(this, "再按一次退出程序");
+                   mkeyTime = System.currentTimeMillis();
+                    return  false ;
+                }
                 return super.onKeyDown(keyCode, event);
             }
         }
+
         return super.onKeyDown(keyCode, event);
     }
-
-
 }

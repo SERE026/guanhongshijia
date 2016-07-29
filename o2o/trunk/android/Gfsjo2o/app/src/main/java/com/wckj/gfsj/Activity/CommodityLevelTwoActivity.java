@@ -11,23 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.Commodity_level_two;
-import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.StopViewPage;
+import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.Fragment.Commodity_level_two_fragment;
 import com.wckj.gfsj.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import de.greenrobot.event.EventBus;
-import de.greenrobot.event.Subscribe;
-import de.greenrobot.event.ThreadMode;
 
 /**
  * 二级商品类型分类
@@ -35,7 +30,6 @@ import de.greenrobot.event.ThreadMode;
  */
 public class CommodityLevelTwoActivity extends BaseNewActivity implements View.OnClickListener {
 
-    private TextView tv_time;
     private View view;
     private ListView lv_item;
     private StopViewPage svp_special;
@@ -44,19 +38,19 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
     private FragmentAdapter mPageAdapter;
     private List<Fragment> pageList = new ArrayList<Fragment>();
     private int mLvPosition;
+    private View titleView;
+    private TitleRelativeLayout title_rl;
 
 
     @Override
     protected void init() {
-        EventBus.getDefault().register(this);
-
     }
 
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
-        View titleView = inflater.inflate(R.layout.layout_public_title_main, null);
-//        titleView.findViewById(R.id.tv_go_back).setOnClickListener(this);
-//        tv_time = (TextView) titleView.findViewById(R.id.tv_time);
+        View titleView =  inflater.inflate(R.layout.layout_public_title_main, null);
+        title_rl = (TitleRelativeLayout) titleView.findViewById(R.id.title_rl);
+        title_rl.childView.findViewById(R.id.tv_go_back).setOnClickListener(this);
 
         return titleView;
     }
@@ -145,12 +139,7 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         showPageState(FrameLoadLayout.LoadResult.success);
     }
 
-    @Subscribe(threadMode = ThreadMode.MainThread)
-    public void onMainTimeEvent(TimeEvent time) {
-        if (tv_time != null) {
-            tv_time.setText(time.getTime());
-        }
-    }
+
 
     @Override
     public void onClick(View v) {
@@ -164,7 +153,7 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+        title_rl. clearRegister();
     }
 
 

@@ -11,15 +11,11 @@ import android.widget.TextView;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.Commodity_level_three;
-import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
+import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.R;
 
 import java.util.ArrayList;
-
-import de.greenrobot.event.EventBus;
-import de.greenrobot.event.Subscribe;
-import de.greenrobot.event.ThreadMode;
 
 /**
  * 商品三级列表
@@ -32,24 +28,24 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
     private CommonAdapter mlvAdapter;
     private TextView tv_brand_1,tv_brand_2,tv_brand_3;
     private ImageView iv_more_left;
+    private TitleRelativeLayout title_rl;
 
     @Override
     protected void init() {
-        EventBus.getDefault().register(this);
     }
 
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
-        View titleView = inflater.inflate(R.layout.layout_title_main_go_back, null);
-        titleView. findViewById(R.id.rl_brand).setVisibility(View.VISIBLE);
-        titleView. findViewById(R.id.tv_go_back).setOnClickListener(this);
-        tv_time = (TextView) titleView.findViewById(R.id.tv_time);
-        titleView.findViewById(R.id.iv_more_right).setOnClickListener(this);
-        iv_more_left = (ImageView) titleView.findViewById(R.id.iv_more_left);
+        View titleView = inflater.inflate(R.layout.layout_public_title_main, null);
+        title_rl = (TitleRelativeLayout) titleView.findViewById(R.id.title_rl);
+        title_rl.childView. findViewById(R.id.rl_brand).setVisibility(View.VISIBLE);
+        title_rl.childView. findViewById(R.id.tv_go_back).setOnClickListener(this);
+        title_rl.childView.findViewById(R.id.iv_more_right).setOnClickListener(this);
+        iv_more_left = (ImageView) title_rl.childView.findViewById(R.id.iv_more_left);
         iv_more_left.setOnClickListener(this);
-        tv_brand_3 = (TextView) titleView.findViewById(R.id.tv_brand_3);
-        tv_brand_2 = (TextView) titleView.findViewById(R.id.tv_brand_2);
-        tv_brand_1 = (TextView) titleView.findViewById(R.id.tv_brand_1);
+        tv_brand_3 = (TextView) title_rl.childView.findViewById(R.id.tv_brand_3);
+        tv_brand_2 = (TextView) title_rl.childView.findViewById(R.id.tv_brand_2);
+        tv_brand_1 = (TextView) title_rl.childView.findViewById(R.id.tv_brand_1);
 
         return titleView;
     }
@@ -142,15 +138,10 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
         tv_brand_1.setTextColor(getResources().getColor(R.id.tv_main_recommend==id?R.color.color_fffffe:R.color.color_767f8e));
     }
 
-    @Subscribe(threadMode = ThreadMode.MainThread)
-    public void  onMainTimeEvent(TimeEvent time){
-        if(tv_time!=null){
-            tv_time.setText(time.getTime());
-        }
-    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+        title_rl.clearRegister();
     }
 }
