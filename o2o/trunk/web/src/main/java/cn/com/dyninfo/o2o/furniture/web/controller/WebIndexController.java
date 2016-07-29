@@ -174,22 +174,6 @@ public class WebIndexController{
         mav.addAttribute("lists",lists);
         return "/index";
     }
-    /**
-     * 首页页面
-     * @param request
-     * @return
-     */
-   // @RequestMapping(value= "/details" )
-    public String details(HttpServletRequest request, ModelMap mav,String id) {
-        //获取商品详情
-        if (id == null) {
-            id = "1";
-        }
-//        Goods goodss = (Goods)goodsService.getListByWhere(new StringBuffer(" and n.GOODS_ID='1'"));
-        Goods goods = (Goods)goodsService.getObjById(id);
-        mav.addAttribute("goods", goods);
-        return "/details";
-    }
     //切换城市，获取城市ID与相关数据
     @RequestMapping(value= "/getCity" )
     @ResponseBody
