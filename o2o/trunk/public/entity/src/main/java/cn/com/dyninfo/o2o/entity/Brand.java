@@ -6,7 +6,7 @@ import cn.com.dyninfo.o2o.entity.common.BaseEntity;
  * Created by Administrator on 2016/7/25.
  */
 public class Brand extends BaseEntity {
-
+    //商标名称
     private String title;
 
     public String getTitle() {
