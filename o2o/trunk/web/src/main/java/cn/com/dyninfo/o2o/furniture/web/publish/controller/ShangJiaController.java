@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.com.dyninfo.o2o.furniture.admin.model.AgentGrade;
 import cn.com.dyninfo.o2o.furniture.admin.service.AgentGradeService;
+import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
+import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,6 +66,10 @@ public class ShangJiaController {
 
 	@Resource
 	private AgentGradeService agentGradeService;
+
+	@Resource
+	private HuiyuanService huiyuanService;
+
 	
 	/**
 	 * 列表
@@ -290,7 +296,14 @@ public class ShangJiaController {
 			shangjiaInfo.setAgentGrade(agentGrade);
 			shangJiaService.addObj(shangjiaInfo);
 			//TODO 创建huiyuan_info
-			
+			HuiyuanInfo huiyuanInfo=new HuiyuanInfo();
+			huiyuanInfo.setQq(qq);
+			huiyuanInfo.setName(login_id);
+			huiyuanInfo.setNickname(contactName);
+			huiyuanInfo.setPhone(contactPhone);
+			huiyuanInfo.setShangJiaInfo(shangjiaInfo);
+			huiyuanInfo.setPassword(passwd);
+			huiyuanService.addObj(huiyuanInfo);
 			return new ModelAndView("redirect:/html/manage/shangJiaInfo/list","C_STATUS",1);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -358,6 +371,16 @@ public class ShangJiaController {
 			shangjiaInfo.setAgentGrade(agentGrade);
 			shangJiaService.updateObj(shangjiaInfo);
 			//TODO 更新会员info
+			List<HuiyuanInfo> huiyuanInfoList= (List<HuiyuanInfo>)huiyuanService.getListByWhere(new StringBuffer("and n.shangJiaInfo.shangjia_id="+user.getShanfJiaInfo().getShangjia_id()));
+			HuiyuanInfo huiyuanInfo=huiyuanInfoList.get(0);
+			huiyuanInfo.setQq(qq);
+			huiyuanInfo.setName(user.getLogin_id());
+			huiyuanInfo.setNickname(contactName);
+			huiyuanInfo.setPhone(contactPhone);
+			huiyuanInfo.setShangJiaInfo(shangjiaInfo);
+			huiyuanInfo.setPassword(user.getPassword());
+			huiyuanService.updateObj(huiyuanInfo);
+
 			
 			return new ModelAndView("redirect:/html/manage/shangJiaInfo/list","C_STATUS",1);
 		}catch(Exception e){
