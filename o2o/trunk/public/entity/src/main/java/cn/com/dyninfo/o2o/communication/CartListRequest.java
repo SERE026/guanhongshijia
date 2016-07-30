@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.communication.common.PageRequest;
 
 /**
  * 购物车列表请求类
- * request URL: https://serverurl/app/cartList
+ * request URL: https://serverurl/app/cart/list
  * request method: post
  */
 public class CartListRequest extends PageRequest {

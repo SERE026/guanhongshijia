@@ -4,7 +4,7 @@ import cn.com.dyninfo.o2o.communication.common.BaseRequest;
 
 /**
  * 登录请求类
- * request URL: https://serverurl/app/login
+ * request URL: https://serverurl/app/user/login
  * request method: post
  */
 public class LoginRequest extends BaseRequest {

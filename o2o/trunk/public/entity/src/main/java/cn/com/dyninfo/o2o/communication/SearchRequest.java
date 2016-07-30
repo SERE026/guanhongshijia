@@ -4,7 +4,7 @@ import cn.com.dyninfo.o2o.communication.common.PageRequest;
 
 /**
  * 搜索请求类
- * request URL: https://serverurl/app/moreCategory
+ * request URL: https://serverurl/app/goods/search
  * request method: post
  */
 public class SearchRequest extends PageRequest {

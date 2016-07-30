@@ -4,7 +4,7 @@ import cn.com.dyninfo.o2o.communication.common.PageRequest;
 
 /**
  * 订单查询请求类
- * request URL: https://serverurl/app/queryOrder
+ * request URL: https://serverurl/app/order/list
  * request method: post
  */
 public class QueryOrderRequest extends PageRequest {

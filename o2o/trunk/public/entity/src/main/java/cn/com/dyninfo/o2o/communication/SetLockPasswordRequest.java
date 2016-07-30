@@ -4,7 +4,7 @@ import cn.com.dyninfo.o2o.communication.common.BaseRequest;
 
 /**
  * 设置锁定密码请求类
- * request URL: https://serverurl/app/lockPassword
+ * request URL: https://serverurl/app/user/lockPassword
  * request method: post
  */
 public class SetLockPasswordRequest extends BaseRequest {

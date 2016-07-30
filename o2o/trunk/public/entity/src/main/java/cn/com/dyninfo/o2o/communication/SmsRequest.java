@@ -4,7 +4,7 @@ import cn.com.dyninfo.o2o.communication.common.BaseRequest;
 
 /**
  * 发送短信请求类
- * request URL: https://serverurl/app/sms
+ * request URL: https://serverurl/app/sys/sms
  * request method: post
  */
 public class SmsRequest extends BaseRequest {

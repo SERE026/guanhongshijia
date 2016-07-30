@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.entity.GoodsDetail;
 
 /**
  * 商品详情请求类
- * request URL: https://serverurl/app/goodsDetail
+ * request URL: https://serverurl/app/goods/detail
  * request method: post
  */
 public class GoodsDetailRequest extends BaseRequest {

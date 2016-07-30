@@ -4,7 +4,7 @@ import cn.com.dyninfo.o2o.communication.common.BaseRequest;
 
 /**
  * 添加到收藏夹请求类
- * request URL: https://serverurl/app/addFavorites
+ * request URL: https://serverurl/app/favorites/add
  * request method: post
  */
 public class AddFavoritesRequest extends BaseRequest {

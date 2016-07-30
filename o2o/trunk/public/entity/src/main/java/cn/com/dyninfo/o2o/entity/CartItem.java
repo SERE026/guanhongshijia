@@ -6,24 +6,12 @@ import cn.com.dyninfo.o2o.entity.common.BaseEntity;
  * Created by Administrator on 2016/7/25.
  */
 public class CartItem extends BaseEntity {
-
-    private String id;
-
-    private int count;
-
-    private GoodsSpecValue specValue;
-
+    //商品信息
     private GoodsDetail goodsDetail;
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(String id) {
-        this.id = id;
-    }
+    //数量
+    private int count;
+    //商品参数值，内部已关联了对应的商品参数
+    private GoodsSpecValue specValue;
 
     public int getCount() {
         return count;

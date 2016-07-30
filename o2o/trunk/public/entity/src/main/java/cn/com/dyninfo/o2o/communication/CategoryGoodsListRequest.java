@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 根据商品分类查询商品列表请求类
- * request URL: https://serverurl/app/goodsList
+ * request URL: https://serverurl/app/goods/listByCategory
  * request method: post
  */
 public class CategoryGoodsListRequest extends PageRequest {

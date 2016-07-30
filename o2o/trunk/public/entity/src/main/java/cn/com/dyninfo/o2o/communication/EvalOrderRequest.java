@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.communication.common.PageRequest;
 
 /**
  * 评价订单请求类
- * request URL: https://serverurl/app/addFavorites
+ * request URL: https://serverurl/app/order/eval
  * request method: post
  */
 public class EvalOrderRequest extends PageRequest {

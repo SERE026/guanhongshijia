@@ -5,7 +5,7 @@ import cn.com.dyninfo.o2o.communication.common.PageRequest;
 
 /**
  * 二级类别列表请求类
- * request URL: https://serverurl/app/subCategory
+ * request URL: https://serverurl/app/category/sub
  * request method: post
  */
 public class SubCategoryRequest extends PageRequest {

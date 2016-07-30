@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 添加到购物车请求类
- * request URL: https://serverurl/app/addCart
+ * request URL: https://serverurl/app/cart/add
  * request method: post
  */
 public class AddCartRequest extends BaseRequest {

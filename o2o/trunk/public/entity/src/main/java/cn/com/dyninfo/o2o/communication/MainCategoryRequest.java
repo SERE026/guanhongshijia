@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 主分类请求类
- * request URL: https://serverurl/app/mainCategory
+ * request URL: https://serverurl/app/category/main
  * request method: post
  */
 public class MainCategoryRequest extends PageRequest {

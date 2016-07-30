@@ -4,8 +4,8 @@ import cn.com.dyninfo.o2o.communication.common.BaseRequest;
 
 /**
  * 找回锁定/登录密码请求类
- * request URL: https://serverurl/app/findLockPassword
- * request URL: https://serverurl/app/findLoginPassword
+ * request URL: https://serverurl/app/user/findLockPassword
+ * request URL: https://serverurl/app/user/findLoginPassword
  * request method: post
  */
 public class FindPasswordRequest extends BaseRequest {

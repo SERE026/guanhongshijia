@@ -4,7 +4,7 @@ import cn.com.dyninfo.o2o.communication.common.PageRequest;
 
 /**
  * 优惠券查询请求类
- * request URL: https://serverurl/app/queryAgencyFee
+ * request URL: https://serverurl/app/user/coupon
  * request method: post
  */
 public class QueryCouponRequest extends PageRequest {

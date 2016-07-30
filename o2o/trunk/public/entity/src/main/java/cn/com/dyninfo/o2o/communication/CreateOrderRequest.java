@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 创建订单请求类，在购物车点击去结算时使用
- * request URL: https://serverurl/app/addFavorites
+ * request URL: https://serverurl/app/order/create
  * request method: post
  */
 public class CreateOrderRequest extends BaseRequest {
