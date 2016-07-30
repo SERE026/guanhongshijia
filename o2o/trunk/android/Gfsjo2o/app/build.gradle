@@ -20,11 +20,13 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.dalong.coverflow:coverflow:1.0.0'
     compile files('libs/universal-image-loader-1.9.5.jar')
     compile files('libs/eventbus-3.0.0-beta1.jar')
+    compile files('libs/o2o-entity-1.0.0.jar')
     compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.alibaba:fastjson:1.1.15'
 }
