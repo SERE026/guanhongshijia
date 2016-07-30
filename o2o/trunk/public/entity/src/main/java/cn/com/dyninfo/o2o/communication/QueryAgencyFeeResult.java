@@ -60,4 +60,15 @@ public class QueryAgencyFeeResult extends PageResult {
     public void setAgencyFeeItemList(List<AgencyFeeItem> agencyFeeItemList) {
         this.agencyFeeItemList = agencyFeeItemList;
     }
+
+    @Override
+    public String toString() {
+        return "QueryAgencyFeeResult{" +
+                "currentMoney=" + currentMoney +
+                ", recentMoney=" + recentMoney +
+                ", totalMoney=" + totalMoney +
+                ", dataDate='" + dataDate + '\'' +
+                ", agencyFeeItemList=" + agencyFeeItemList +
+                '}';
+    }
 }

@@ -41,4 +41,13 @@ public class AddCartRequest extends BaseRequest {
     public void setGoodsSpecValueList(List<GoodsSpecValue> goodsSpecValueList) {
         this.goodsSpecValueList = goodsSpecValueList;
     }
+
+    @Override
+    public String toString() {
+        return "AddCartRequest{" +
+                "goodsId='" + goodsId + '\'' +
+                ", count=" + count +
+                ", goodsSpecValueList=" + goodsSpecValueList +
+                '}';
+    }
 }

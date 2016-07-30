@@ -36,4 +36,13 @@ public class CartItem extends BaseEntity {
     public void setGoodsDetail(GoodsDetail goodsDetail) {
         this.goodsDetail = goodsDetail;
     }
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "goodsDetail=" + goodsDetail +
+                ", count=" + count +
+                ", specValue=" + specValue +
+                '}';
+    }
 }

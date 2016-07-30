@@ -21,4 +21,11 @@ public class CreateOrderRequest extends BaseRequest {
     public void setCartItemList(List<CartItem> cartItemList) {
         this.cartItemList = cartItemList;
     }
+
+    @Override
+    public String toString() {
+        return "CreateOrderRequest{" +
+                "cartItemList=" + cartItemList +
+                '}';
+    }
 }

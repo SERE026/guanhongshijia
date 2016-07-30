@@ -19,4 +19,11 @@ public class SearchResult extends PageResult {
     public void setGoodsSummaryList(List<GoodsSummary> goodsSummaryList) {
         this.goodsSummaryList = goodsSummaryList;
     }
+
+    @Override
+    public String toString() {
+        return "SearchResult{" +
+                "goodsSummaryList=" + goodsSummaryList +
+                '}';
+    }
 }

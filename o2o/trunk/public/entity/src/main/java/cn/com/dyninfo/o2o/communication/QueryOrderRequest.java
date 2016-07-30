@@ -19,4 +19,11 @@ public class QueryOrderRequest extends PageRequest {
     public void setOrderStatus(int orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+    @Override
+    public String toString() {
+        return "QueryOrderRequest{" +
+                "orderStatus=" + orderStatus +
+                '}';
+    }
 }

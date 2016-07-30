@@ -57,4 +57,15 @@ public class AgencyFeeItem extends BaseEntity {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "AgencyFeeItem{" +
+                "date='" + date + '\'' +
+                ", orderNo='" + orderNo + '\'' +
+                ", price=" + price +
+                ", percent='" + percent + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
 }

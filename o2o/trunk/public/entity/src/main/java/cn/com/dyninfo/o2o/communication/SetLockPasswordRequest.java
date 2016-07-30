@@ -18,4 +18,11 @@ public class SetLockPasswordRequest extends BaseRequest {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "SetLockPasswordRequest{" +
+                "password='" + password + '\'' +
+                '}';
+    }
 }

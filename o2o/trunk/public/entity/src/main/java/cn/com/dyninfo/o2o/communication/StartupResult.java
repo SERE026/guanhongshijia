@@ -42,4 +42,13 @@ public class StartupResult extends BaseResult {
     public void setMainPic(String mainPic) {
         this.mainPic = mainPic;
     }
+
+    @Override
+    public String toString() {
+        return "StartupResult{" +
+                "token='" + token + '\'' +
+                ", mainPic='" + mainPic + '\'' +
+                ", goodsList=" + goodsList +
+                '}';
+    }
 }

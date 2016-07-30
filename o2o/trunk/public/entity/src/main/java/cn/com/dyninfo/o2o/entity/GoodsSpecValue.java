@@ -46,4 +46,14 @@ public class GoodsSpecValue extends BaseEntity {
     public void setSpec(GoodsSpec spec) {
         this.spec = spec;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsSpecValue{" +
+                "spec=" + spec +
+                ", value='" + value + '\'' +
+                ", price=" + price +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
+    }
 }

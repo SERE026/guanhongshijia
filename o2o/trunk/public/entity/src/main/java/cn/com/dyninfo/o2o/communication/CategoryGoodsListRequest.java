@@ -23,4 +23,11 @@ public class CategoryGoodsListRequest extends PageRequest {
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
+
+    @Override
+    public String toString() {
+        return "CategoryGoodsListRequest{" +
+                "categoryId=" + categoryId +
+                '}';
+    }
 }

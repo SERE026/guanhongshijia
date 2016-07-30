@@ -16,4 +16,11 @@ public class GoodsDetailResult {
     public void setDetail(GoodsDetail detail) {
         this.detail = detail;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsDetailResult{" +
+                "detail=" + detail +
+                '}';
+    }
 }

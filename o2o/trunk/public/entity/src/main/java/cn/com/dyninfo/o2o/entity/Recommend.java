@@ -28,4 +28,12 @@ public class Recommend extends BaseEntity {
     public void setGoodsSummaryList(List<GoodsSummary> goodsSummaryList) {
         this.goodsSummaryList = goodsSummaryList;
     }
+
+    @Override
+    public String toString() {
+        return "Recommend{" +
+                "imageUrl='" + imageUrl + '\'' +
+                ", goodsSummaryList=" + goodsSummaryList +
+                '}';
+    }
 }

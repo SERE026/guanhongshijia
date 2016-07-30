@@ -29,4 +29,12 @@ public class QueryCouponRequest extends PageRequest {
     public void setType(int type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "QueryCouponRequest{" +
+                "status=" + status +
+                ", type=" + type +
+                '}';
+    }
 }

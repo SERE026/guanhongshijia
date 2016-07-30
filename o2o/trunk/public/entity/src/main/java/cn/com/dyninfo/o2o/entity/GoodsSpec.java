@@ -28,4 +28,12 @@ public class GoodsSpec extends BaseEntity {
     public void setSpecValueList(List<GoodsSpecValue> specValueList) {
         this.specValueList = specValueList;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsSpec{" +
+                "name='" + name + '\'' +
+                ", specValueList=" + specValueList +
+                '}';
+    }
 }

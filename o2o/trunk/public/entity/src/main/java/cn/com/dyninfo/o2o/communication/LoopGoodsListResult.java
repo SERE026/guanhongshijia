@@ -19,4 +19,11 @@ public class LoopGoodsListResult extends BaseResult {
     public void setGoodsDetailList(List<GoodsDetail> goodsDetailList) {
         this.goodsDetailList = goodsDetailList;
     }
+
+    @Override
+    public String toString() {
+        return "LoopGoodsListResult{" +
+                "goodsDetailList=" + goodsDetailList +
+                '}';
+    }
 }

@@ -18,4 +18,11 @@ public class Cart extends BaseEntity {
     public void setItemList(List<CartItem> itemList) {
         this.itemList = itemList;
     }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "itemList=" + itemList +
+                '}';
+    }
 }

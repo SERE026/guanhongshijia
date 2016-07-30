@@ -20,4 +20,11 @@ public class MainCategoryResult extends PageResult {
     public void setCategoryList(List<Category> categoryList) {
         this.categoryList = categoryList;
     }
+
+    @Override
+    public String toString() {
+        return "MainCategoryResult{" +
+                "categoryList=" + categoryList +
+                '}';
+    }
 }

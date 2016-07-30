@@ -19,4 +19,11 @@ public class EvalOrderResult extends BaseResult {
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
     }
+
+    @Override
+    public String toString() {
+        return "EvalOrderResult{" +
+                "orderList=" + orderList +
+                '}';
+    }
 }

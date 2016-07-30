@@ -60,4 +60,15 @@ public class EvalOrderRequest extends PageRequest {
     public void setOrderStatus(int orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+    @Override
+    public String toString() {
+        return "EvalOrderRequest{" +
+                "orderId='" + orderId + '\'' +
+                ", sameStar=" + sameStar +
+                ", speedStar=" + speedStar +
+                ", attitudeStar=" + attitudeStar +
+                ", orderStatus=" + orderStatus +
+                '}';
+    }
 }

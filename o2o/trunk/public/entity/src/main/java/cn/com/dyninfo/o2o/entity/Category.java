@@ -41,4 +41,22 @@ public class Category extends BaseEntity {
     public void setChildrenList(List<Category> childrenList) {
         this.childrenList = childrenList;
     }
+
+    public int getSortOrder() {
+        return sortOrder;
+    }
+
+    public void setSortOrder(int sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "imageUrl='" + imageUrl + '\'' +
+                ", title='" + title + '\'' +
+                ", childrenList=" + childrenList +
+                ", sortOrder=" + sortOrder +
+                '}';
+    }
 }

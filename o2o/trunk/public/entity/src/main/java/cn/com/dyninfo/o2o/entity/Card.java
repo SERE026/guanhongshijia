@@ -46,4 +46,14 @@ public class Card extends BaseEntity {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "cardNo='" + cardNo + '\'' +
+                ", bankName='" + bankName + '\'' +
+                ", status='" + status + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

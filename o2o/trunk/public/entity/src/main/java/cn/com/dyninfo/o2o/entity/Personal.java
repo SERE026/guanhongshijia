@@ -77,4 +77,17 @@ public class Personal extends BaseEntity {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "Personal{" +
+                "nickName='" + nickName + '\'' +
+                ", realName='" + realName + '\'' +
+                ", mobileNo='" + mobileNo + '\'' +
+                ", email='" + email + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", phoneNo='" + phoneNo + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

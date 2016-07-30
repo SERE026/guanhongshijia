@@ -24,4 +24,12 @@ public class PageResult extends BaseResult {
     public void setTotalPage(int totalPage) {
         this.totalPage = totalPage;
     }
+
+    @Override
+    public String toString() {
+        return "PageResult{" +
+                "pageNo=" + pageNo +
+                ", totalPage=" + totalPage +
+                '}';
+    }
 }

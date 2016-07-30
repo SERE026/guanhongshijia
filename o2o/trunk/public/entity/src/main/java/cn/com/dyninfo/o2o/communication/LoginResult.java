@@ -49,4 +49,14 @@ public class LoginResult extends BaseResult {
     public void setUserId(String userId) {
         this.userId = userId;
     }
+
+    @Override
+    public String toString() {
+        return "LoginResult{" +
+                "token='" + token + '\'' +
+                ", userId='" + userId + '\'' +
+                ", loginName='" + loginName + '\'' +
+                ", realName='" + realName + '\'' +
+                '}';
+    }
 }

@@ -19,4 +19,11 @@ public class GoodsDetailRequest extends BaseRequest {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsDetailRequest{" +
+                "id='" + id + '\'' +
+                '}';
+    }
 }

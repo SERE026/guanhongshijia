@@ -27,4 +27,12 @@ public class BaseRequest implements Serializable {
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
     }
+
+    @Override
+    public String toString() {
+        return "BaseRequest{" +
+                "token='" + token + '\'' +
+                ", deviceId='" + deviceId + '\'' +
+                '}';
+    }
 }

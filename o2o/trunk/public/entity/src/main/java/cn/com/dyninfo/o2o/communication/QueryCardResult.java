@@ -19,4 +19,11 @@ public class QueryCardResult extends PageResult {
     public void setCardList(List<Card> cardList) {
         this.cardList = cardList;
     }
+
+    @Override
+    public String toString() {
+        return "QueryCardResult{" +
+                "cardList=" + cardList +
+                '}';
+    }
 }

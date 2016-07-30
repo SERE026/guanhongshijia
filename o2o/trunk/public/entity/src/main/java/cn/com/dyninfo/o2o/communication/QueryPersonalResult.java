@@ -17,4 +17,11 @@ public class QueryPersonalResult extends BaseResult {
     public void setPersonal(Personal personal) {
         this.personal = personal;
     }
+
+    @Override
+    public String toString() {
+        return "QueryPersonalResult{" +
+                "personal=" + personal +
+                '}';
+    }
 }

@@ -42,4 +42,13 @@ public class CreateOrderResult extends BaseResult {
     public void setPayPrice(double payPrice) {
         this.payPrice = payPrice;
     }
+
+    @Override
+    public String toString() {
+        return "CreateOrderResult{" +
+                "couponList=" + couponList +
+                ", totalPrice=" + totalPrice +
+                ", payPrice=" + payPrice +
+                '}';
+    }
 }

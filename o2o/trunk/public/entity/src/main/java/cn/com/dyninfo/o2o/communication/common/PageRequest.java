@@ -24,4 +24,12 @@ public class PageRequest extends BaseRequest {
     public void setPageNo(int pageNo) {
         this.pageNo = pageNo;
     }
+
+    @Override
+    public String toString() {
+        return "PageRequest{" +
+                "pageSize=" + pageSize +
+                ", pageNo=" + pageNo +
+                '}';
+    }
 }

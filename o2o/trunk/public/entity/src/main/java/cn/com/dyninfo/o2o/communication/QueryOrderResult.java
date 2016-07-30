@@ -19,4 +19,11 @@ public class QueryOrderResult extends PageResult {
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
     }
+
+    @Override
+    public String toString() {
+        return "QueryOrderResult{" +
+                "orderList=" + orderList +
+                '}';
+    }
 }

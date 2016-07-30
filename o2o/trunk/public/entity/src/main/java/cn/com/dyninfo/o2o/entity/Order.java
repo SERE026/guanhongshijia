@@ -69,4 +69,16 @@ public class Order extends BaseEntity {
     public void setCartItemList(List<CartItem> cartItemList) {
         this.cartItemList = cartItemList;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "date='" + date + '\'' +
+                ", state=" + state +
+                ", receiveName='" + receiveName + '\'' +
+                ", orderPrice=" + orderPrice +
+                ", payType=" + payType +
+                ", cartItemList=" + cartItemList +
+                '}';
+    }
 }

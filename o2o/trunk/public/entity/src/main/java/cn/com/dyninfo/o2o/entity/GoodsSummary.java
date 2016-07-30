@@ -37,4 +37,13 @@ public class GoodsSummary extends BaseEntity {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsSummary{" +
+                "mainPicUrl='" + mainPicUrl + '\'' +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

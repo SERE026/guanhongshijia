@@ -43,4 +43,13 @@ public class RecommendGoodsResult extends PageResult {
     public void setPromotionList(List<Recommend> promotionList) {
         this.promotionList = promotionList;
     }
+
+    @Override
+    public String toString() {
+        return "RecommendGoodsResult{" +
+                "newList=" + newList +
+                ", groupList=" + groupList +
+                ", promotionList=" + promotionList +
+                '}';
+    }
 }

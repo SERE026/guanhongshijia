@@ -18,4 +18,11 @@ public class CartListResult extends PageResult {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
+
+    @Override
+    public String toString() {
+        return "CartListResult{" +
+                "cart=" + cart +
+                '}';
+    }
 }

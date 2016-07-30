@@ -30,4 +30,12 @@ public class SmsRequest extends BaseRequest {
     public void setType(int type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "SmsRequest{" +
+                "mobileNo='" + mobileNo + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

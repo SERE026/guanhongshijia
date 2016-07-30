@@ -98,4 +98,19 @@ public class GoodsDetail extends BaseEntity {
     public void setGoodsDesc(String goodsDesc) {
         this.goodsDesc = goodsDesc;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsDetail{" +
+                "name='" + name + '\'' +
+                ", specList=" + specList +
+                ", shortDesc='" + shortDesc + '\'' +
+                ", price=" + price +
+                ", category=" + category +
+                ", brand=" + brand +
+                ", saleCount=" + saleCount +
+                ", imageList=" + imageList +
+                ", goodsDesc='" + goodsDesc + '\'' +
+                '}';
+    }
 }

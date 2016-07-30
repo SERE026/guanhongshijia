@@ -97,4 +97,19 @@ public class Coupon extends BaseEntity {
     public void setSameUse(byte sameUse) {
         this.sameUse = sameUse;
     }
+
+    @Override
+    public String toString() {
+        return "Coupon{" +
+                "name='" + name + '\'' +
+                ", beginTime='" + beginTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", type=" + type +
+                ", reduceValue=" + reduceValue +
+                ", discountValue=" + discountValue +
+                ", maxAmount=" + maxAmount +
+                ", constraintValue=" + constraintValue +
+                ", sameUse=" + sameUse +
+                '}';
+    }
 }

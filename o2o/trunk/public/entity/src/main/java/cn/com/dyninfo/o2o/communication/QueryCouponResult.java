@@ -19,4 +19,11 @@ public class QueryCouponResult extends PageResult {
     public void setCouponList(List<Coupon> couponList) {
         this.couponList = couponList;
     }
+
+    @Override
+    public String toString() {
+        return "QueryCouponResult{" +
+                "couponList=" + couponList +
+                '}';
+    }
 }

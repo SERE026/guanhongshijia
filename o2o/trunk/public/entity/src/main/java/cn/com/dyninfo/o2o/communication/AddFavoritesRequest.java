@@ -18,4 +18,11 @@ public class AddFavoritesRequest extends BaseRequest {
     public void setGoodsId(String goodsId) {
         this.goodsId = goodsId;
     }
+
+    @Override
+    public String toString() {
+        return "AddFavoritesRequest{" +
+                "goodsId='" + goodsId + '\'' +
+                '}';
+    }
 }

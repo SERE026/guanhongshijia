@@ -39,4 +39,13 @@ public class FindPasswordRequest extends BaseRequest {
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
     }
+
+    @Override
+    public String toString() {
+        return "FindPasswordRequest{" +
+                "mobileNo='" + mobileNo + '\'' +
+                ", validateCode='" + validateCode + '\'' +
+                ", newPassword='" + newPassword + '\'' +
+                '}';
+    }
 }
