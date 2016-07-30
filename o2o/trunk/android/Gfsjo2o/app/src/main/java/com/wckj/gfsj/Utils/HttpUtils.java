@@ -72,16 +72,23 @@ public class HttpUtils {
        });
     }
 
+    /**
+     * 测试方法
+     * @param args
+     */
     public static void main(String[] args) {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setLoginName("userName1");
         loginRequest.setPassword("password1");
         loginRequest.setDeviceId("deviceId1");
+        //模拟登录-同步请求
         try {
-            HttpUtils.syncPost(loginRequest, LOGIN_URL, LoginResult.class);
+            LoginResult result = HttpUtils.syncPost(loginRequest, LOGIN_URL, LoginResult.class);
+            System.out.println(result.getResultCode());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //模拟登录-异步请求
         HttpUtils.asyncPost(loginRequest, LOGIN_URL, new AsyncHandler() {
             @Override
             public void handle(String responseBody) {
@@ -91,6 +98,9 @@ public class HttpUtils {
         });
     }
 
+    /**
+     * 实际使用需要定义为一个公共接口
+     */
     interface AsyncHandler {
         void handle(String responseBody);
     }
