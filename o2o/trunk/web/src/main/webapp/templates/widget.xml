@@ -256,6 +256,28 @@
 		</widget>
 	</page>
 
+	<page id="/huiyuan_agency.html">
+		<widget id="huiyuan_menu">
+			<widgetType>huiyuanBar</widgetType>
+			<id>1</id>
+		</widget>
+
+		<widget id="huiyuan_adv_bt4">
+			<widgetType>huiyuanAdv</widgetType>
+		</widget>
+		<widget id="huiyuan_agency_show">
+			<widgetType>agency</widgetType>
+		</widget>
+		<widget id="order_adv_pic1">
+			<widgetType>adv</widgetType>
+			<id>25</id>
+		</widget>
+		<widget id="order_adv_pic2">
+			<widgetType>adv</widgetType>
+			<id>26</id>
+		</widget>
+	</page>
+
 	<page id="/huiyuan_showorder_detail.html">
 
 		<widget id="huiyuan_adv_bt4">

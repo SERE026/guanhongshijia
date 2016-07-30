@@ -167,22 +167,6 @@ public class Order implements Serializable{
 
 
 
-	@AccessType("property")
-	@Column(name="AGENCY_FEE")
-	private Double agencyFee=0d; //佣金金额
-
-	@AccessType("property")
-	@Column(name = "AGENCY_PAY")
-	private Byte agencyPay;//是否已确认佣金-0：否；1-是
-
-	@AccessType("property")
-	@Column(name="DEPOSIT_AMOUNT")
-	private Double depositAmount=0d; //存入金额
-
-
-	@AccessType("property")
-	@Column(name = "PAY_DESC")
-	private String payDesc;//支付备注，代理商填写，用于线下支付填写付款人、付款帐号等
 
 	/**
 	 * 如果优先使用账户支付，先检查账户金额，如果账户金额不足，再使用在线支付方式
@@ -321,28 +305,27 @@ public class Order implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="order")
 	private List<CouponOrderRel> couponOrderRel;
 
-	public Double getAgencyFee() {
-		return agencyFee;
-	}
+	@AccessType("property")
+	@Column(name="AGENCY_FEE")
+	private Double agencyFee=0d; //佣金金额
 
-	public void setAgencyFee(Double agencyFee) {
-		this.agencyFee = agencyFee;
-	}
+	@AccessType("property")
+	@Column(name = "AGENCY_PAY")
+	private String agencyPay="0";//是否已确认佣金-0：否；1-是
 
-	public String getPayDesc() {
-		return payDesc;
-	}
+	@AccessType("property")
+	@Column(name="DEPOSIT_AMOUNT")
+	private Double depositAmount=0d; //存入金额
 
-	public void setPayDesc(String payDesc) {
-		this.payDesc = payDesc;
-	}
-	public Double getDepositAmount() {
-		return depositAmount;
-	}
+	@AccessType("property")
+	@Column(name="AGENCY_PERCENT")
+	private int agencyPercent; //佣金比率
 
-	public void setDepositAmount(Double depositAmount) {
-		this.depositAmount = depositAmount;
-	}
+	@AccessType("property")
+	@Column(name = "PAY_DESC")
+	private String payDesc;//支付备注，代理商填写，用于线下支付填写付款人、付款帐号等
+
+
 	/**
 	 * @return the order_id
 	 */
@@ -1078,11 +1061,43 @@ public class Order implements Serializable{
 		this.couponOrderRel = couponOrderRel;
 	}
 
-	public Byte getAgencyPay() {
+	public Double getAgencyFee() {
+		return agencyFee;
+	}
+
+	public void setAgencyFee(Double agencyFee) {
+		this.agencyFee = agencyFee;
+	}
+
+	public String getAgencyPay() {
 		return agencyPay;
 	}
 
-	public void setAgencyPay(Byte agencyPay) {
+	public void setAgencyPay(String agencyPay) {
 		this.agencyPay = agencyPay;
+	}
+
+	public Double getDepositAmount() {
+		return depositAmount;
+	}
+
+	public void setDepositAmount(Double depositAmount) {
+		this.depositAmount = depositAmount;
+	}
+
+	public int getAgencyPercent() {
+		return agencyPercent;
+	}
+
+	public void setAgencyPercent(int agencyPercent) {
+		this.agencyPercent = agencyPercent;
+	}
+
+	public String getPayDesc() {
+		return payDesc;
+	}
+
+	public void setPayDesc(String payDesc) {
+		this.payDesc = payDesc;
 	}
 }

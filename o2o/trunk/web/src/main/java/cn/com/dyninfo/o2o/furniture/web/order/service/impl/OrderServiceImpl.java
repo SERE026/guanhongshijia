@@ -883,6 +883,13 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							}else if (constraintPrice>goodPrice || maxAmouontPrice>goodPrice){
 								return false;
 							}
+							//计算佣金
+							if (!ValidationUtil.isEmpty(member.getShangJiaInfo().getShangjia_id())){
+								int rate=member.getShangJiaInfo().getAgentGrade().getRate();//佣金比率
+								order.setAgencyPay("0");//否
+								order.setAgencyFee((rate/100)*goodPrice);//佣金金额
+								order.setAgencyPercent(rate);
+							}
 							order.setShippingPrice(dlyprice);
 							order.setStatus("0");
 							order.setOriginalPrice(goodPrice+dlyprice+protectPrice);

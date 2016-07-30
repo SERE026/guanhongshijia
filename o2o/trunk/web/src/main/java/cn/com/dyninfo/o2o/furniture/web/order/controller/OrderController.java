@@ -193,7 +193,7 @@ public class OrderController extends BaseController {
 	public ModelAndView endit(HttpServletRequest request, Order info) {
 		ModelAndView mav = new ModelAndView();
 		Order order = (Order) orderService.getObjById(info.getOrder_id());
-		if (order.getDepositAmount()== Constants.DEPOSIT_AMOUNT||"7".equals(order.getState())){
+		if (order.getDepositAmount()>0&&"7".equals(order.getState())){
 			order.setState("8");
 			order.setPayDesc(info.getPayDesc());
 		}else {
@@ -234,7 +234,7 @@ public class OrderController extends BaseController {
 	String id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		Order order = (Order) orderService.getObjById(id);
-		if ("8".equals(order.getState())){
+		if (order.getDepositAmount()>0&&"8".equals(order.getState())){
 			order.setState("1");
 			order.setIsPay("1");
 		}else {
