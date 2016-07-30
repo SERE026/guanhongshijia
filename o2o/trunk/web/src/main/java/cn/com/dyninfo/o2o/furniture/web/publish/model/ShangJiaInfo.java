@@ -184,6 +184,14 @@ public class ShangJiaInfo implements Serializable{
 	@JoinColumn(name="AGENT_GRADE_ID")
 	private AgentGrade agentGrade;//代理商级别
 
+	@AccessType(value = "property")
+	@Column(name = "BANK_NAME")
+	private  String bankName;     //开户行
+
+	@AccessType(value = "property")
+	@Column(name = "BANK_CARD_ACCOUNT")
+	private  String bankCardAccount;   //账号
+
 	/**
 	 * @return the money
 	 */
@@ -387,8 +395,15 @@ public class ShangJiaInfo implements Serializable{
 		this.appKey = appKey;
 	}
 
+	public String getBankName() { return bankName; }
 
-//	public Nrj getNrj() {
+	public void setBankName(String bankName) { this.bankName = bankName; }
+
+	public String getBankCardAccount() { return bankCardAccount; }
+
+	public void setBankCardAccount(String bankCardAccount) { this.bankCardAccount = bankCardAccount; }
+
+	//	public Nrj getNrj() {
 //		return nrj;
 //	}
 //

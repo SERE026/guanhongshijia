@@ -3,8 +3,6 @@ package cn.com.dyninfo.o2o.furniture.admin.model;
 import org.hibernate.annotations.AccessType;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by zengrc on 2016/7/26.

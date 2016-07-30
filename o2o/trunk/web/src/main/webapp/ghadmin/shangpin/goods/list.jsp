@@ -131,6 +131,7 @@
 							<td width="340">
 								商品名称
 							</td>
+							<td>商品描述</td>
 							<td width="70">
 								商品编号
 							</td>
@@ -176,6 +177,7 @@
 							<td>
 								${Info.name}
 							</td>
+							 <td>${Info.shortDesc}</td>
 								 <td>
 								${Info.code}
 							</td>

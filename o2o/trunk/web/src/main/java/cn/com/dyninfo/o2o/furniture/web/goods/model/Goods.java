@@ -55,8 +55,11 @@ public class Goods {
 	@AccessType(value = "property")
 	@Column(name="NAME")
 	private String name;//商品名称
-	
+
 	@AccessType(value = "property")
+	@Column(name="SHORT_DESC")
+	private String shortDesc;   //商品描述
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="MARCHANTS_ID")
 	private ShangJiaInfo merchants;//如果对象是商家 此字段应有值
@@ -427,9 +430,9 @@ public class Goods {
 		this.name = name;
 	}
 
-	
+	public String getShortDesc() { return shortDesc; }
 
-
+	public void setShortDesc(String shortDesc) { this.shortDesc = shortDesc; }
 
 	public int getIndexs() {
 		return indexs;

@@ -264,6 +264,19 @@ public class OrderController extends BaseController {
 		return mav;
 	}
 
+
+	/**
+	 * 佣金发放
+     */
+	@RequestMapping(value = "/{id}/agencyPay")
+	public ModelAndView agencyPay(@PathVariable  String id, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/html/manage/coupon/list");
+		return mav;
+	}
+
+
+
 	/**
 	 * 确认付款
 	 *pay_desc

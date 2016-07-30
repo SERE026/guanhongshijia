@@ -280,6 +280,14 @@ $(function(){
 						</tr>
 						<tr>
 							<td class="discription" style="width: 150px;">
+								<span style="color: red;">*</span>商品说明：
+							</td>
+							<td >
+								<input type="text" name="name" dataType="noNull" value="${info.shortDesc }"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="discription" style="width: 150px;">
 								商品标签：
 							</td>
 							<td >

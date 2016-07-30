@@ -140,6 +140,8 @@
 							<td>联系电话</td>
 							<td>所在省</td>
 							<td>所在市</td>
+							<td>开户银行</td>
+							<td>银行账号</td>
 							<td>操作</td>
 					</tr>
 					</thead>
@@ -153,6 +155,8 @@
 								<td class="td_a">${Info.shanfJiaInfo.contactPhone}</td>
 								<td class="td_a">${Info.shanfJiaInfo.province.name}</td>
 								<td class="td_a">${Info.shanfJiaInfo.city.name}</td>
+							    <td class="td_a">${Info.shanfJiaInfo.bankName}</td>
+							    <td class="td_a">${Info.shanfJiaInfo.bankCardAccount}</td>
 								<td>
 								<a href="<%=request.getContextPath()%>/html/manage/shangJiaInfo/${Info.login_id}/show" class="zhu2">
 									<fmt:message key="button.show" /></a>&nbsp;

@@ -155,6 +155,20 @@ $(function(){
 								</select>
 							</td>
 						</tr>
+					<tr>
+						<td class="discription" >
+							<span style="color: red;">*</span>开户银行：
+						</td>
+						<td>
+							<input type="text" id="bankName" name="bankName" value="${info.shanfJiaInfo.bankName }" class="noNull" msg="开户银行不能为空!"/>
+						</td>
+						<td class="discription" >
+							<span style="color: red;">*</span>银行账号：
+						</td>
+						<td>
+							<input type="text" id="bankCardAccount" name="bankCardAccount" value="${info.shanfJiaInfo.bankCardAccount }" dataType="mobile"   class="noNull" msg="银行账号不能为空!"/>
+						</td>
+					</tr>
 			</table>
 		</td>
 	</tr>

@@ -199,7 +199,12 @@ function cz(){
 								</c:if>
 									<a href="<%=request.getContextPath()%>/html/manage/order/${Info.order_id}/godel" class="zhu2">
 									删除
+									</a>&nbsp;
+								<c:if test="${Info.agencyPay=='0'}">
+									<a href="<%=request.getContextPath()%>/html/manage/order/${Info.order_id}/agencyPay" class="zhu2">
+										发放佣金
 									</a>
+								</c:if>
 							</td>
 						</tr>
 					</c:forEach>
