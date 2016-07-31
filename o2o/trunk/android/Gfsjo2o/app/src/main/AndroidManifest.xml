@@ -66,6 +66,18 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
 
+        <activity android:name=".Activity.OrderPayActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name=".Activity.OrderEvaluateActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name=".Activity.CouponActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+
     </application>
 
 

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_my_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginLeft="125dp"
+        android:drawableLeft="@drawable/icon_coupon"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:text="优惠券"
+        android:textSize="23sp"
+        android:textColor="@color/color_ebebeb"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="117.5dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="25dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:background="@color/color_e5e3e2">
+
+            <TextView
+                android:id="@+id/tv_not_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerVertical="true"
+                android:drawableRight="@drawable/icon_order_pay_down"
+                android:drawablePadding="5dp"
+                android:text="未使用（1）"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_not_use"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_centerVertical="true"
+                android:drawableRight="@drawable/icon_order_pay_down"
+                android:drawablePadding="5dp"
+                android:text="类型"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_coupon_rule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="48dp"
+                android:layout_centerVertical="true"
+                android:text="优惠券规则说明"
+                android:textSize="11sp"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_coupon_rule2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="62dp"
+            android:layout_marginBottom="37dp"
+            android:drawableTop="@drawable/icon_coupon_rule"
+            android:drawablePadding="5dp"
+            android:gravity="center_horizontal"
+            android:text="优惠券规则使用说明"
+            android:textSize="9sp"/>
+
+        <TextView
+            android:id="@+id/tv_coupon_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/tv_coupon_rule2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="37dp"
+            android:drawableTop="@drawable/icon_coupon_change"
+            android:drawablePadding="5dp"
+            android:gravity="center_horizontal"
+            android:text="优惠券兑换"
+            android:textSize="9sp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

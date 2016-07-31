@@ -83,6 +83,10 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
                 startActivity(intent);
                 break;
             case R.id.btn_my_follow:
+                intent = new Intent(view.getContext(), OrderPayActivity.class);
+//                intent = new Intent(view.getContext(), OrderEvaluateActivity.class);
+//                intent = new Intent(view.getContext(), CouponActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_set_pwd:
                 intent = new Intent(view.getContext(), SetPasswordActivity.class);

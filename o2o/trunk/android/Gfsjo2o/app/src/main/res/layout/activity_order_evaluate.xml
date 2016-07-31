@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="117.5dp"
+        android:layout_marginRight="87dp"
+        android:layout_marginBottom="50dp">
+
+        <TextView
+            android:id="@+id/tv_order_evaluate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:layout_marginLeft="40dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="评价订单"
+            android:textColor="@color/color_202020"
+            android:textSize="16sp"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_order_evaluate"
+            android:layout_marginTop="10dp"
+            android:background="@color/color_e5e3e2">
+
+            <TextView
+                android:id="@+id/tv_order_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginBottom="10dp"
+                android:text="订单号：145451231"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_order_number"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginBottom="10dp"
+                android:text="2016-06-15 14:25:00"
+                android:textSize="12sp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_commodity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_middle"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="52dp"
+            android:src="@drawable/icon_order_commodity"/>
+
+        <TextView
+            android:id="@+id/tv_commodity_description"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_middle"
+            android:layout_toRightOf="@id/iv_commodity"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical|left"
+            android:text="【明青花梨】实木小方凳 非洲花梨木简介质朴时光的味道 小四方矮凳 儿童凳 原木色"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/tv_conform_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_middle"
+            android:layout_toRightOf="@id/tv_commodity_description"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="40dp"
+            android:gravity="center_vertical|left"
+            android:text="商品符合度："
+            android:textSize="11sp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_stars_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_middle"
+            android:layout_toRightOf="@id/tv_conform_degree"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="5dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_ship_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_middle"
+            android:layout_toRightOf="@id/ll_stars_one"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="25dp"
+            android:gravity="center_vertical|left"
+            android:text="物流发货速度："
+            android:textSize="11sp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_stars_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_middle"
+            android:layout_toRightOf="@id/tv_ship_degree"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="5dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_serve_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_conform_degree"
+            android:layout_toRightOf="@id/tv_commodity_description"
+            android:layout_marginTop="22dp"
+            android:layout_marginLeft="40dp"
+            android:gravity="center_vertical|left"
+            android:text="配送员服务态度："
+            android:textSize="11sp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_stars_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_stars_one"
+            android:layout_toRightOf="@id/tv_serve_degree"
+            android:layout_marginTop="22dp"
+            android:layout_marginLeft="5dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_order_star"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
