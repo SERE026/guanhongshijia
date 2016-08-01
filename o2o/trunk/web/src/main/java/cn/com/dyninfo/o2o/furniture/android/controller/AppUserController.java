@@ -4,9 +4,13 @@ import cn.com.dyninfo.o2o.communication.LoginRequest;
 import cn.com.dyninfo.o2o.communication.LoginResult;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.util.MD5Encoder;
+import cn.com.dyninfo.o2o.furniture.util.StringUtil;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
+import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
+import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,12 +32,20 @@ public class AppUserController extends BaseAppController {
     @Resource
     private HuiyuanService huiyuanService;
 
+    @Resource
+    private AppLoginStatusService appLoginStatusService;
+
 
     @ResponseBody
     @RequestMapping("/login")
     public LoginResult login(@RequestBody LoginRequest loginRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(loginRequest);
         LoginResult result = new LoginResult();
+        if (StringUtils.isBlank(loginRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
 
        String password= MD5Encoder.encodePassword(loginRequest.getPassword(), Context.PASSWORDY);
 
@@ -47,14 +59,21 @@ public class AppUserController extends BaseAppController {
                 result.setLoginName(info.getName());
                 result.setRealName(info.getNickname());
                 result.setUserId(String.valueOf(info.getHuiYuan_id())); //会员实体是 int
-                result.setToken(UUID.randomUUID().toString());
+                String token = UUID.randomUUID().toString();
+                result.setToken(token);
+                AppLoginStatus appLoginStatus = new AppLoginStatus();
+                appLoginStatus.setToken(token);
+                appLoginStatus.setDeviceId(loginRequest.getDeviceId());
+                appLoginStatus.setHuiyuan(info);
+                appLoginStatusService.addObj(appLoginStatus);
+                request.getSession().setAttribute(Context.SESSION_MEMBER, info);
             }else {
                 result.setResultCode(NO_LOGIN);
-                result.setMessage("密码不正确");
+                result.setMessage("用户名或密码错误");
             }
         }else{
             result.setResultCode(NO_LOGIN);
-            result.setMessage("账号不存在");
+            result.setMessage("用户名或密码错误");
         }
 
         log.debug(result);

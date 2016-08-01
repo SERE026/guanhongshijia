@@ -11,7 +11,9 @@ import cn.com.dyninfo.o2o.furniture.util.MD5Encoder;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
+import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
+import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +40,9 @@ public class AppSysController extends BaseAppController {
     @Resource
     private GoodsService goodsService;
 
+    @Resource
+    private AppLoginStatusService appLoginStatusService;
+
     @ResponseBody
     @RequestMapping("/startup")
     public StartupResult startup(@RequestBody StartupRequest startupRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -45,7 +50,12 @@ public class AppSysController extends BaseAppController {
         StartupResult result = new StartupResult();
 
         List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
-
+        List<AppLoginStatus> appLoginStatusList = (List<AppLoginStatus>) appLoginStatusService.getListByWhere(new StringBuffer(" and n.deviceId=" + startupRequest.getDeviceId() + " and n.token=" + startupRequest.getToken()));
+        if (appLoginStatusList != null && appLoginStatusList.size() > 0) {
+            AppLoginStatus appLoginStatus = appLoginStatusList.get(0);
+            result.setToken(appLoginStatus.getToken());
+            request.getSession().setAttribute(Context.SESSION_MEMBER, appLoginStatus.getHuiyuan());
+        }
 
         List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
         if(list.size()>0) {
