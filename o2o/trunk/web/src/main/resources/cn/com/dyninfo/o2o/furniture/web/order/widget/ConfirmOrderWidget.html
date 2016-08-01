@@ -139,9 +139,9 @@
                     }
                 }
                 if ($(this).attr("couponType") == 1) {
-                    totalReduceValue = $(this).attr("reduceValue");
+                    totalReduceValue = parseInt($(this).attr("reduceValue"));
                 } else {
-                    totalDiscountValue = $(this).attr("discountValue");
+                    totalDiscountValue = (1 - $(this).attr("discountValue"));
                 }
             }
 
@@ -152,11 +152,11 @@
             for (var i = 0; i < $('.test').length; i++) {
                 if ($('.test')[i].checked && $('.test').eq(i).attr("sameUse") == "1") {
                     if ($('.test').eq(i).attr("couponType") == "1") {
-                        totalReduceConstraintValue += $('.test').eq(i).attr("constraintValue");
-                        totalReduceValue +=  $('.test').eq(i).attr("reduceValue");
+                        totalReduceConstraintValue += parseInt($('.test').eq(i).attr("constraintValue"));
+                        totalReduceValue +=  parseInt($('.test').eq(i).attr("reduceValue"));
                     } else {
-                        totalDiscountContraintValue += $('.test').eq(i).attr("constraintValue");
-                        totalDiscountValue *= $('.test').eq(i).attr("discountValue");
+                        totalDiscountContraintValue += parseInt($('.test').eq(i).attr("constraintValue"));
+                        totalDiscountValue *= Number((1 - $('.test').eq(i).attr("discountValue")));
                     }
                 }
             }
@@ -172,8 +172,13 @@
         }
         if (canUse) {
             //计算所有的折扣
+            totalReduceValue += parseInt(zongjia * (1 - totalDiscountValue));
+            $('.jie').text(totalReduceValue);
+            $(".mmm").text(Number(zongjia - totalReduceValue));
         } else {
             //提示不满足使用条件
+            $('.test')[index].checked = false;
+            alert("该优惠券暂时无法使用");
         }
 
     });
