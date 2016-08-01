@@ -382,7 +382,7 @@
                 <li>
                     <dl class="Item-introduction">
                         <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                            <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}"/></a></dt>
+                            <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
                         <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">${p.goods.name}</a></dd>
                         <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                     </dl>
@@ -546,7 +546,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList1 as d>
-                    <#if d_index gt 8 && d_index lt 12 >
+                    <#if d_index gt 7 && d_index lt 12 >
                         <li>
                             <dl class="Item-introduction">
                                 <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -621,7 +621,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList2 as d>
-                    <#if d_index gt 8 && d_index lt 12 >
+                    <#if d_index gt 7 && d_index lt 12 >
                         <li>
                             <dl class="Item-introduction">
                                 <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -696,7 +696,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList3 as d>
-                    <#if d_index gt 8 && d_index lt 12 >
+                    <#if d_index gt 7 && d_index lt 12 >
                         <li>
                             <dl class="Item-introduction">
                                 <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -772,7 +772,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList4 as d>
-                    <#if d_index gt 8 && d_index lt 12 >
+                    <#if d_index gt 7 && d_index lt 12 >
                 <li>
                     <dl class="Item-introduction">
                         <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -814,7 +814,7 @@
                 <ul class="FiveNav">
                     <#list goodsSortList5 as p>
                         <#if p_index == 0>
-                        <li class="FH_current">${p.name?if_exists}</li>
+                        <li class="FH_current red">${p.name?if_exists}</li>
                         </#if>
                         <#if p_index != 0>
                             <li>${p.name?if_exists}</li>
