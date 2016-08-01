@@ -129,6 +129,7 @@
 		<property name="advwzService" ref="advwzService"/>
 		<property name="areaService" ref="areaService"/>
 		<property name="shangJiaService" ref="shangJiaService"/>
+		<property name="articlesService" ref="articlesService"/>
 		<property name="freemarkerConfig" ref="freemarkerConfig"/>
 	</bean>
 

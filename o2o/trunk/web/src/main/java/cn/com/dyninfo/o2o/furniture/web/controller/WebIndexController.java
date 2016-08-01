@@ -22,7 +22,9 @@ import cn.com.dyninfo.o2o.furniture.web.member.service.CommentService;
 import cn.com.dyninfo.o2o.furniture.web.order.model.Order;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
+import cn.com.dyninfo.o2o.furniture.web.page.model.Articles;
 import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
+import cn.com.dyninfo.o2o.furniture.web.page.service.ArticlesService;
 import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -74,6 +76,9 @@ public class WebIndexController{
 
     @Resource
     private CommentService commentService;
+
+    @Resource
+    private ArticlesService articlesService;
 
     @RequestMapping(value = "/gen")
     public void gen() {
@@ -172,6 +177,8 @@ public class WebIndexController{
 
         }
         mav.addAttribute("lists",lists);
+        Articles articles = (Articles) articlesService.getObjById("28");
+        mav.addAttribute("article28", articles);
         return "/index";
     }
     //切换城市，获取城市ID与相关数据

@@ -14,7 +14,9 @@ import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.PageModuleService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
+import cn.com.dyninfo.o2o.furniture.web.page.model.Articles;
 import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
+import cn.com.dyninfo.o2o.furniture.web.page.service.ArticlesService;
 import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -45,6 +47,8 @@ public class FreeMarkerUtils {
     private static AdvwzService advwzService;
     private static AreaService areaService;
     private static ShangJiaService shangJiaService;
+    private static ArticlesService articlesService;
+
 
     private static FreeMarkerConfigurer freemarkerConfig;
 
@@ -179,6 +183,8 @@ public class FreeMarkerUtils {
 
             }
             paramsMap.put("lists",lists);
+            Articles articles = (Articles) articlesService.getObjById("28");
+            paramsMap.put("article28", articles);
             Map<String, String> rcMap = new HashMap<String, String>();
             rcMap.put("contextPath", Constants.DOMAIN_NAME);
             paramsMap.put("rc", rcMap);
@@ -346,5 +352,13 @@ public class FreeMarkerUtils {
 
     public FreeMarkerConfigurer getFreemarkerConfig() {
         return freemarkerConfig;
+    }
+
+    public ArticlesService getArticlesService() {
+        return articlesService;
+    }
+
+    public void setArticlesService(ArticlesService articlesService) {
+        FreeMarkerUtils.articlesService = articlesService;
     }
 }

@@ -291,8 +291,8 @@
                 <li><a href="javascript:void(0)">全国体验馆</a></li>
                 <li><a href="javascript:void(0)">艺术品</a></li>
                 <li><a href="javascript:void(0)">团购</a></li>
-                <li><a href="javascript:void(0)">招商加盟</a></li>
-                <li><a href="javascript:void(0)">全屋高端定制</a></li>
+                <li><a href="${rc.contextPath}/apply.html">招商加盟</a></li>
+                <li><a href="${rc.contextPath}/help-27.html">全屋高端定制</a></li>
             </ul>
 
    <!--       <div class="three-level">
@@ -484,7 +484,7 @@
             </ul>
         </div>
         <div class="area custom-area">
-            家具定制
+            ${article28.artices_content}
         </div>
     </div>
 
@@ -534,10 +534,10 @@
             <div class="floor-banner-img">
                 <#list goodsList1 as d>
                     <#if d_index == 7>
-                       <a href="${rc.contextPath}/upload/goods/${d.defaultImage}"> <img src="${rc.contextPath}/item-${d.goods_id}.html" /></a><br />
+                       <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
                     </#if>
                     <#if d_index == 8>
-                    <a href="${rc.contextPath}/upload/goods/${d.defaultImage}"> <img src="${rc.contextPath}/item-${d.goods_id}.html" /></a><br />
+                    <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
                     </#if>
                 </#list>
             </div>
