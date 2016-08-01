@@ -671,7 +671,7 @@
                             <li>
                                 <dl class="">
                                     <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
-                                        <img src="src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
+                                        <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
                                     <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                         ${d.name?if_exists}</a></dd>
                                     <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
