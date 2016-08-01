@@ -32,8 +32,7 @@
     <#list couponMemberRelList as p>
     <div class="g2_kuai22">
         <div class="g2_kuai_daxuan coupon">
-                <input class="test" name="test" type="checkbox"  value=" ${p.coupon.id}" ddd="${p.coupon.discountValue}"  ccc="${p.coupon.reduceValue}" aaa="${p.coupon.sameUse}" money="${p.coupon.constraintValue}" onclick="checkPrice()" />
-
+                <input class="test" name="test" type="checkbox"  value=" ${p.coupon.id}" couponType = ${p.coupon.type} discountValue="${p.coupon.discountValue}"  reduceValue="${p.coupon.reduceValue}" sameUse="${p.coupon.sameUse}" constraintValue="${p.coupon.constraintValue}" maxAmouont="${p.coupon.maxAmouont}" onclick="checkPrice()" />
         </div>
         <div class="g2_kuai_zi">使用优惠券</div>
         <div class="g2_kuai_zi">&nbsp;&nbsp;&nbsp;&nbsp;

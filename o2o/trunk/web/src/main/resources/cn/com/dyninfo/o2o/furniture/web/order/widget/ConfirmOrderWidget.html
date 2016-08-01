@@ -119,99 +119,157 @@
 <div class="g2_biaobot_zi"></div>
 </div>
 <script>
-    function checkPrice()  {
+    $(".test").change(function () {
+        var sameUse = $(this).attr('sameUse');
         var zongjia = parseInt($("#zongjia").val());
-        var m = parseInt($("#zongjia").val());
-        var jie = $('.jie'); var s = $('.mmm'); var ddd = 1;
-        var referenceM = zongjia;
-        $(".test").change(function () {
-            var str = ''; var c = 0; var d = 1;
-            var a = $(this).attr('aaa');
-            var ccc = parseInt($(this).attr('ccc'));
-            var check = $(this)[0].checked;
-            var v = $(this).val();
-            var money = Number($(this).attr("money"));
-            var cStr = 0; var dStr = 0;
-            $("input[name='test']:checkbox").each(function () {
-                if ($(this).attr("checked") && $(this).attr('aaa') == "1") {
-                    cStr += $(this).attr('ccc') + '-';
-                    dStr += $(this).attr('ddd') + '-';
+        var canUse = false;
+        var index = $(this).index('.test');
+        var totalReduceValue = 0; //所有满减的金额
+        var totalDiscountValue = 1; //所有的折扣率，相乘的关系
+        if (sameUse == 0) {
+            //如果不可同时使用，先不考虑其他已选的优惠券
+            var constraintValue = Number($(this).attr("constraintValue"));
+            //判断是否满足条件
+            if (zongjia > constraintValue) {
+                //计算折扣金额，取消其他选中
+                canUse = true;
+                for (var i = 0; i < $('.test').length ; i++) {
+                    if (index != i) {
+                        $('.test')[i].checked = false;
+                    }
                 }
-            })
+                if ($(this).attr("couponType") == 1) {
+                    totalReduceValue = $(this).attr("reduceValue");
+                } else {
+                    totalDiscountValue = $(this).attr("discountValue");
+                }
+            }
+
+        } else {
+            //获取所有sameUse==1，并且已选中的，判断是否满足使用条件
+            var totalReduceConstraintValue = 0; //所有选中满减优惠券的约束金额，必须小于总价
+            var totalDiscountContraintValue = 0; //所有折扣优惠券的约束金额，必须小于总价 - totalConstraintValue
             for (var i = 0; i < $('.test').length; i++) {
-                if (cStr && cStr.split('-')[i]) {
-                    c = c + Number(cStr.split('-')[i]);
-                }
-                if (dStr && dStr.split('-')[i]) {
-                    d = d * Number(dStr.split('-')[i]);
-                }
-            }
-            if (a == "0") {
-                m = zongjia; referenceM = zongjia;
-                if (check) {
-                    if (referenceM >= money) {
-                        ddd = parseFloat($(this).attr('ddd'));
-                        var index = $(this).index('.test');
-                        for (var i = 0; i < $('.test').length ; i++) {
-                            if (index != i) {
-                                $('.test')[i].checked = false;
-                            }
-                        }
-                        referenceM = zongjia - money;
-                        m = zongjia - (m * ddd - ccc);
-                        jie.text(zongjia - m);
-                        s.text(m)
+                if ($('.test')[i].checked && $('.test').eq(i).attr("sameUse") == "1") {
+                    if ($('.test').eq(i).attr("couponType") == "1") {
+                        totalReduceConstraintValue += $('.test').eq(i).attr("constraintValue");
+                        totalReduceValue +=  $('.test').eq(i).attr("reduceValue");
                     } else {
-                        $(this)[0].checked = false;
+                        totalDiscountContraintValue += $('.test').eq(i).attr("constraintValue");
+                        totalDiscountValue *= $('.test').eq(i).attr("discountValue");
                     }
-
-
-                } else {
-                    referenceM = zongjia;
-                    m = zongjia;
-                    jie.text(0);
-                    s.text(zongjia)
                 }
-                m = zongjia;
-                referenceM = zongjia;
             }
-            else {
-                //  console.log(m)
-                //ddd = parseFloat($(this).attr('ddd'));
-                if (check) {
-                    //if (ddd != 1 && m != zongjia) {
-                    //    m = m / ddd;
-                    //}
-                    //ddd = 1;
-
-                    //$("input[name='test']:checkbox").each(function () {
-                    //    if ($(this).attr("checked") && $(this).attr('aaa') == "0") {
-                    //        m = zongjia;
-                    //    }
-                    //})
-                    if (referenceM < money) {
-                        $(this)[0].checked = false;
-                    } else {
-                        for (var i = 0; i < $('.test').length ; i++) {
-                            if ($('.test').eq(i).attr("aaa") == "0") {
-                                $('.test')[i].checked = false;
-                            }
-                        }
-                        referenceM -= money;
-                        m = (zongjia - c) * d;
-                        jie.text(zongjia - m);
-                        s.text(m);
+            if (zongjia > totalReduceConstraintValue && (zongjia - totalReduceConstraintValue) > totalDiscountContraintValue) {
+                canUse = true;
+                //清除所有sameUse=1的选中状态
+                for (var i = 0; i < $('.test').length; i++) {
+                    if ($('.test')[i].checked && $('.test').eq(i).attr("sameUse") == "0") {
+                        $('.test')[i].checked = false;
                     }
-                } else {
-                    referenceM += money;
-                    m = (zongjia - c) * d;
-                    jie.text(zongjia - m);
-                    s.text(m);
                 }
-
             }
-        })
-    }
+        }
+        if (canUse) {
+            //计算所有的折扣
+        } else {
+            //提示不满足使用条件
+        }
+
+    });
+//    function checkPrice()  {
+//        //1. 满足使用条件
+//        //1.1 sameUse == 0，清除其他选择
+//        //1.2 sameUse == 1，清除sameUse == 0 的选择
+//        //2. 计算所有已选择的优惠金额
+//        //2.1 计算满减
+//        //2.2 计算折扣
+//        //总价
+//        var zongjia = parseInt($("#zongjia").val());
+//        var m = parseInt($("#zongjia").val());
+//        //优惠金额
+//        var saveAmount = $('.jie');
+//        //实际支付金额
+//        var actualPayAmount = $('.mmm');
+//        var discountValue = 1;
+//        var referenceM = zongjia;
+//        $(".test").change(function () {
+//            var str = ''; var c = 0; var d = 1;
+//            var sameUse = $(this).attr('sameUse');
+//            var reduceValue = parseInt($(this).attr('reduceValue'));
+//            var check = $(this)[0].checked;
+//            var couponId = $(this).val();
+//            var constraintValue = Number($(this).attr("constraintValue"));
+//            var cStr = 0;
+//            var dStr = 0;
+//            $("input[name='test']:checkbox").each(function () {
+//                if ($(this).attr("checked") && $(this).attr('sameUse') == "1") {
+//                    cStr += $(this).attr('reduceValue') + '-';
+//                    dStr += $(this).attr('discountValue') + '-';
+//                }
+//            })
+//            for (var i = 0; i < $('.test').length; i++) {
+//                if (cStr && cStr.split('-')[i]) {
+//                    c = c + Number(cStr.split('-')[i]);
+//                }
+//                if (dStr && dStr.split('-')[i]) {
+//                    d = d * Number(dStr.split('-')[i]);
+//                }
+//            }
+//            if (sameUse == "0") {
+//                m = zongjia; referenceM = zongjia;
+//                if (check) {
+//                    if (referenceM >= constraintValue) {
+//                        discountValue = parseFloat($(this).attr('discountValue'));
+//                        var index = $(this).index('.test');
+//                        for (var i = 0; i < $('.test').length ; i++) {
+//                            if (index != i) {
+//                                $('.test')[i].checked = false;
+//                            }
+//                        }
+//                        referenceM = zongjia - constraintValue;
+//                        m = zongjia - (m * discountValue - reduceValue);
+//                        saveAmount.text(zongjia - m);
+//                        actualPayAmount.text(m)
+//                    } else {
+//                        $(this)[0].checked = false;
+//                    }
+//
+//
+//                } else {
+//                    referenceM = zongjia;
+//                    m = zongjia;
+//                    saveAmount.text(0);
+//                    actualPayAmount.text(zongjia)
+//                }
+//                m = zongjia;
+//                referenceM = zongjia;
+//            }
+//            else {
+//                if (check) {
+//                    if (referenceM < constraintValue) {
+//                        $(this)[0].checked = false;
+//                    } else {
+//                        for (var i = 0; i < $('.test').length ; i++) {
+//                            if ($('.test').eq(i).attr("sameUse") == "0") {
+//                                $('.test')[i].checked = false;
+//                            }
+//                        }
+//                        referenceM -= constraintValue;
+//                        m = (zongjia - c) * d;
+//                        saveAmount.text(zongjia - m);
+//                        actualPayAmount.text(m);
+//                    }
+//                } else {
+//                    referenceM += constraintValue;
+//                    m = (zongjia - c) * d;
+//                    saveAmount.text(zongjia - m);
+//                    actualPayAmount.text(m);
+//                }
+//
+//            }
+//        })
+//    }
 
 
 
