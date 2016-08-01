@@ -162,7 +162,7 @@
             }
             if (zongjia > totalReduceConstraintValue && (zongjia - totalReduceConstraintValue) > totalDiscountContraintValue) {
                 canUse = true;
-                //清除所有sameUse=1的选中状态
+                //清除所有sameUse=0的选中状态
                 for (var i = 0; i < $('.test').length; i++) {
                     if ($('.test')[i].checked && $('.test').eq(i).attr("sameUse") == "0") {
                         $('.test')[i].checked = false;
