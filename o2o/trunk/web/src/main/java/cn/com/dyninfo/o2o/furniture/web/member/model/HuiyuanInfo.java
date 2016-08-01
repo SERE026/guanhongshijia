@@ -180,7 +180,11 @@ public class HuiyuanInfo implements Serializable{
 	 @AccessType(value = "property")
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "info")
 	private List<CommentInfo> comment;// 发布的晒单
-	
+
+	@AccessType(value = "property")
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "huiyuan")
+	private List<AppLoginStatus> appLoginStatusList;// 已登录的设备列表
+
 	public List<CommentInfo> getComment() {
 		return comment;
 	}
@@ -455,9 +459,11 @@ public class HuiyuanInfo implements Serializable{
 		this.money = money;
 	}
 
+	public List<AppLoginStatus> getAppLoginStatusList() {
+		return appLoginStatusList;
+	}
 
-
-
-	
-
+	public void setAppLoginStatusList(List<AppLoginStatus> appLoginStatusList) {
+		this.appLoginStatusList = appLoginStatusList;
+	}
 }

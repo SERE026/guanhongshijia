@@ -41,4 +41,6 @@ public class Constants {
     public static final int TWO_SKU = 1000101;//2F楼商品
     public static final int THREE_SKU = 1000101;//3F楼商品
     public static final int FOUR_SKU = 1000101;//4F楼商品
+
+    public static final int SYS_ARTICLES_ID = 26;
 }
