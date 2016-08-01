@@ -362,6 +362,7 @@ ul li {float:left;list-style-type:none;
 }
     .borderHover li:hover {border:2px solid #640202!important;
     }
+    .borderHover img{border: 1px solid red;}
 .hot-small {overflow:hidden;margin-top:14px;
 }
     .hot-small ul {overflow:hidden;
@@ -643,8 +644,9 @@ ul li {float:left;list-style-type:none;
 }
     .PlacedTop2 ul {display:none
     }
-    .PlacedTop2 ul li {width:43px;line-height:43px;border:1px solid red;float:none;text-align:center;height:43px;
+    .PlacedTop2 ul li {width:36px;line-height:36px;border:1px solid red;float:none;text-align:center;height:36px;
     }
+    .PlacedTop2 li a{display:inline-block;width:36px;line-height:36px;height:36px;}
 
 .FiveContent {height:770px;
 }

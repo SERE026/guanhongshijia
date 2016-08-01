@@ -368,7 +368,7 @@
 
     <div class="hot-small">
         <ul>
-            <li><a href="javascript:void(0)" data-tag="n1">热卖商品</a> </li>
+            <li><a href="javascript:void(0)" data-tag="n1" class="red">热卖商品</a> </li>
             <li><a href="javascript:void(0)" data-tag="n2">疯狂抢购</a> </li>
             <li><a href="javascript:void(0)" data-tag="n3">热评商品</a> </li>
             <li><a href="javascript:void(0)" data-tag="n4">新品上架</a> </li>
