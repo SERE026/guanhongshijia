@@ -1,8 +1,5 @@
 package com.wckj.gfsj.Application;
 
-import java.io.File;
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -11,7 +8,6 @@ import android.content.res.Resources;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.DisplayMetrics;
-import android.util.SparseArray;
 import android.view.WindowManager;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
@@ -23,10 +19,16 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.wckj.gfsj.Utils.OwerToastShow;
+import com.zhy.http.okhttp.OkHttpUtils;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 
 public class AppApplication extends Application {
     public ArrayList<Activity> activities = new ArrayList<Activity>();
-
 
     public static int mainTid;
     public static Handler handler;
@@ -36,30 +38,32 @@ public class AppApplication extends Application {
     // 屏幕的高度
     public int screenHight;
 
-    /**
-     * 数据传递容器 使用过后请remove(key);
-     */
-    public SparseArray<Object> dataPassMap = new SparseArray<Object>();
-
     @Override
     public void onCreate() {
-        // 防止被系统字体改变默认得字体大小
-        Resources resource = getResources();
-        Configuration c = resource.getConfiguration();
-        c.fontScale = 1.0f;
-        resource.updateConfiguration(c, resource.getDisplayMetrics());
-
         getLoginAction();// 获取初始登陆信息
-
         if (!Environment.MEDIA_MOUNTED.equals(Environment
                 .getExternalStorageState())) {
             OwerToastShow.show(this, "SD卡加载异常！");
         }
         initWidthAndHeight();
         initUi();
-        super.onCreate();
         initImageLoader(getApplicationContext());
+        initHttp();
+        super.onCreate();
     }
+
+    private void initHttp() {
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new LoggerInterceptor("TAG"))
+                .connectTimeout(10000L, TimeUnit.MILLISECONDS)
+                .readTimeout(10000L, TimeUnit.MILLISECONDS)
+                //其他配置
+                .build();
+
+        OkHttpUtils.initClient(okHttpClient);
+    }
+
+
     public  void initImageLoader(Context context) {
         File cacheDir = StorageUtils.getOwnCacheDirectory(context,
                 "/com.wckj.gfsj/images/");
@@ -111,15 +115,19 @@ public class AppApplication extends Application {
         wm.getDefaultDisplay().getMetrics(outMetrics);
         screenWidth = outMetrics.widthPixels;
         screenHight = outMetrics.heightPixels;
+
+        // 防止被系统字体改变默认得字体大小
+        Resources resource = getResources();
+        Configuration c = resource.getConfiguration();
+        c.fontScale = 1.0f;
+        resource.updateConfiguration(c, resource.getDisplayMetrics());
     }
-
-
-
 
     /**
      * 全局handler
      */
     private void initUi() {
+
         mainTid = android.os.Process.myTid();
         handler = new Handler();
         context = getApplicationContext();

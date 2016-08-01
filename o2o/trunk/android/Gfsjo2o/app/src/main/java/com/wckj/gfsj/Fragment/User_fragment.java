@@ -32,8 +32,6 @@ public class User_fragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, null);
-//        TextView tv_msg = (TextView) view.findViewById(R.id.tv_msg);
-//        tv_msg.setText("用户中心");
 
         mRlLogin = (RelativeLayout) view.findViewById(R.id.rl_login);
         mTvLoginTitle = (TextView) view.findViewById(R.id.tv_login_title);
