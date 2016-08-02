@@ -36,7 +36,7 @@
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
-            android:id="@+id/btn_classical_furniture"
+            android:id="@+id/rf_classical_furniture"
             android:layout_width="344dp"
             android:layout_height="200dp"
             android:layout_toRightOf="@id/rf_chinese_furniture"
@@ -65,7 +65,7 @@
             android:id="@+id/rf_four_treasures"
             android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:layout_below="@id/btn_classical_furniture"
+            android:layout_below="@id/rf_classical_furniture"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="6.5dp"
             android:layout_marginBottom="110dp"
@@ -94,7 +94,7 @@
             android:layout_width="157.5dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/rf_four_treasures"
-            android:layout_below="@id/btn_classical_furniture"
+            android:layout_below="@id/rf_classical_furniture"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="6.5dp"
             android:layout_marginBottom="110dp"
@@ -118,10 +118,10 @@
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
-            android:id="@+id/btn_old_tea"
+            android:id="@+id/rf_old_tea"
             android:layout_width="230dp"
             android:layout_height="200dp"
-            android:layout_toRightOf="@id/btn_classical_furniture"
+            android:layout_toRightOf="@id/rf_classical_furniture"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="90dp"
             android:background="@color/color_97ac56"
@@ -144,10 +144,10 @@
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
-            android:id="@+id/btn_red_wine"
+            android:id="@+id/rf_red_wine"
             android:layout_width="230dp"
             android:layout_height="200dp"
-            android:layout_toRightOf="@id/btn_old_tea"
+            android:layout_toRightOf="@id/rf_old_tea"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="90dp"
             android:background="@color/color_bf9e97"
@@ -170,10 +170,10 @@
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
-            android:id="@+id/btn_soft_daquan"
+            android:id="@+id/rf_soft_daquan"
             android:layout_width="170dp"
             android:layout_height="90dp"
-            android:layout_below="@id/btn_old_tea"
+            android:layout_below="@id/rf_old_tea"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="6.5dp"
             android:layout_toRightOf="@id/rf_strokes"
@@ -201,7 +201,7 @@
             android:layout_width="170dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/rf_strokes"
-            android:layout_below="@id/btn_soft_daquan"
+            android:layout_below="@id/rf_soft_daquan"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="6.5dp"
             android:layout_marginBottom="110dp"
@@ -225,13 +225,13 @@
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
-            android:id="@+id/btn_classical_decorative_materials"
+            android:id="@+id/rf_classical_decorative_materials"
             android:layout_width="170dp"
             android:layout_height="90dp"
-            android:layout_below="@id/btn_old_tea"
+            android:layout_below="@id/rf_old_tea"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="6.5dp"
-            android:layout_toRightOf="@id/btn_soft_daquan"
+            android:layout_toRightOf="@id/rf_soft_daquan"
             android:background="@color/color_93928e"
             android:clickable="true"
             android:focusableInTouchMode="true"
@@ -256,7 +256,7 @@
             android:layout_width="170dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/rf_decorative_daquan"
-            android:layout_below="@id/btn_classical_decorative_materials"
+            android:layout_below="@id/rf_classical_decorative_materials"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="6.5dp"
             android:layout_marginBottom="110dp"
@@ -280,13 +280,13 @@
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
-            android:id="@+id/btn_news"
+            android:id="@+id/rf_news"
             android:layout_width="113.5dp"
             android:layout_height="90dp"
-            android:layout_below="@id/btn_red_wine"
+            android:layout_below="@id/rf_red_wine"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="6.5dp"
-            android:layout_toRightOf="@id/btn_classical_decorative_materials"
+            android:layout_toRightOf="@id/rf_classical_decorative_materials"
             android:background="@color/color_e86e48"
             android:clickable="true"
             android:focusableInTouchMode="true"
@@ -307,11 +307,11 @@
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
-            android:id="@+id/btn_more"
+            android:id="@+id/rf_more"
             android:layout_width="113.5dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/rf_classical_lighting"
-            android:layout_below="@id/btn_news"
+            android:layout_below="@id/rf_news"
             android:layout_marginLeft="6.5dp"
             android:layout_marginTop="6.5dp"
             android:layout_marginBottom="110dp"

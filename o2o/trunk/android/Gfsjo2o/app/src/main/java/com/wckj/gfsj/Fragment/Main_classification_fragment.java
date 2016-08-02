@@ -55,8 +55,8 @@ public class Main_classification_fragment extends Fragment implements View.OnCli
             }
         });
 
-        view.findViewById(R.id.btn_more).setOnClickListener(this);
-        view.findViewById(R.id.btn_old_tea).setOnClickListener(this);
+        view.findViewById(R.id.rf_more).setOnClickListener(this);
+        view.findViewById(R.id.rf_old_tea).setOnClickListener(this);
         view.findViewById(R.id.rf_chinese_furniture).setOnClickListener(this);
 
         for (int i = 0; i < rlFrame.getChildCount(); i++) {
@@ -78,11 +78,11 @@ public class Main_classification_fragment extends Fragment implements View.OnCli
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()){
-            case R.id.btn_more:
+            case R.id.rf_more:
                  intent = new Intent(view.getContext(), MainMoreActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_old_tea:
+            case R.id.rf_old_tea:
                 intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
                 startActivity(intent);
                 break;
