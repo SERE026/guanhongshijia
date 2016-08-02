@@ -1,203 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/rl_login"
+    <com.open.androidtvwidget.view.RelativeMainLayout
+        android:id="@+id/rl_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="76dp"
-        android:layout_marginLeft="108.5dp"
-        android:layout_marginRight="108.5dp"
-        android:layout_marginBottom="90.5dp">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_chinese_furniture"
-            android:layout_width="169dp"
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/rf_chinese_furniture"
+            android:layout_width="230dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="108.5dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="110dp"
             android:background="@color/color_d77f18"
-            android:gravity="center"
-            android:text="新中式家具"
-            android:textColor="@color/color_362006"
-            android:textSize="20sp"/>
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="true"
+            app:isShape="true" >
 
-        <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="新中式家具"
+                android:textColor="@color/color_362006"
+                android:textSize="20sp"/>
+
+        </com.open.androidtvwidget.view.ReflectItemView>
+
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/btn_classical_furniture"
+            android:layout_width="344dp"
+            android:layout_height="200dp"
+            android:layout_toRightOf="@id/rf_chinese_furniture"
+            android:layout_marginTop="90dp"
             android:layout_marginLeft="6.5dp"
-            android:layout_toRightOf="@id/btn_chinese_furniture"
-            android:layout_width="match_parent"
+            android:background="@color/color_6d4a3e"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="false"
+            app:isShape="true" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="古典家具"
+                android:textColor="@color/color_d0cecf"
+                android:textSize="20sp"/>
+
+        </com.open.androidtvwidget.view.ReflectItemView>
+
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/rf_four_treasures"
+            android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="2">
-            <RelativeLayout
-                android:id="@+id/rl_flag"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-                <Button
-                    android:id="@+id/btn_classical_furniture"
-                    android:layout_width="228dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/color_6d4a3e"
-                    android:layout_marginLeft="6.5dp"
-                    android:gravity="center"
-                    android:text="古典家具"
-                    android:textColor="@color/color_d0cecf"
-                    android:textSize="20sp"/>
-                <Button
-                    android:id="@+id/btn_old_tea"
-                    android:layout_width="164dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/color_97ac56"
-                    android:layout_toRightOf="@id/btn_classical_furniture"
-                    android:layout_marginLeft="6.5dp"
-                    android:gravity="center"
-                    android:text="珍品古茶"
-                    android:textColor="@color/color_36383e"
-                    android:textSize="20sp"/>
-                <Button
-                    android:id="@+id/btn_red_wine"
-                    android:layout_width="163dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/color_bf9e97"
-                    android:layout_toRightOf="@id/btn_old_tea"
-                    android:layout_marginLeft="6.5dp"
-                    android:gravity="center"
-                    android:text="珍品红酒"
-                    android:textColor="@color/color_65595e"
-                    android:textSize="20sp"/>
-            </RelativeLayout>
+            android:layout_below="@id/btn_classical_furniture"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="6.5dp"
+            android:layout_marginBottom="110dp"
+            android:layout_toRightOf="@id/rf_chinese_furniture"
+            android:background="@color/color_575654"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="true"
+            app:isShape="true" >
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                >
-                <Button
-                    android:id="@+id/btn_four_treasures"
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/color_575654"
-                    android:layout_marginLeft="6.5dp"
-                    android:layout_marginTop="6.5dp"
-                    android:gravity="center"
-                    android:text="文房四宝"
-                    android:textColor="@color/color_2f303c"
-                    android:textSize="20sp"/>
-                <Button
-                    android:id="@+id/btn_strokes"
-                    android:layout_width="101dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/color_b1a18e"
-                    android:layout_toRightOf="@id/btn_four_treasures"
-                    android:layout_marginLeft="6.5dp"
-                    android:layout_marginTop="6.5dp"
-                    android:gravity="center"
-                    android:text="字画"
-                    android:textColor="@color/color_2f303c"
-                    android:textSize="20sp"/>
-                <LinearLayout
-                    android:layout_toRightOf="@id/btn_strokes"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-                    <RelativeLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp">
-                        <Button
-                            android:id="@+id/btn_soft_daquan"
-                            android:layout_width="120dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/color_2c3c5c"
-                            android:layout_marginLeft="6.5dp"
-                            android:layout_marginTop="6.5dp"
-                            android:gravity="center"
-                            android:text="软装大全"
-                            android:textColor="@color/color_ecf0f1"
-                            android:textSize="20sp"/>
-                        <Button
-                            android:id="@+id/btn_classical_decorative_materials"
-                            android:layout_width="120dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/color_93928e"
-                            android:layout_toRightOf="@id/btn_soft_daquan"
-                            android:layout_marginLeft="6.5dp"
-                            android:layout_marginTop="6.5dp"
-                            android:gravity="center"
-                            android:text="古典装饰材料"
-                            android:textColor="@color/color_2f303c"
-                            android:textSize="20sp"/>
-                        <Button
-                            android:id="@+id/btn_news"
-                            android:layout_width="80dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/color_e86e48"
-                            android:layout_toRightOf="@id/btn_classical_decorative_materials"
-                            android:layout_marginLeft="6.5dp"
-                            android:layout_marginTop="6.5dp"
-                            android:gravity="center"
-                            android:text="新闻"
-                            android:textColor="@color/color_2d1710"
-                            android:textSize="20sp"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp">
-                        <Button
-                            android:id="@+id/btn_decorative_daquan"
-                            android:layout_width="120dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/color_505e7b"
-                            android:layout_marginLeft="6.5dp"
-                            android:layout_marginTop="6.5dp"
-                            android:gravity="center"
-                            android:text="装饰大全"
-                            android:textColor="@color/color_f9f9fa"
-                            android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="文房四宝"
+                android:textColor="@color/color_2f303c"
+                android:textSize="20sp"/>
 
+        </com.open.androidtvwidget.view.ReflectItemView>
 
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/rf_strokes"
+            android:layout_width="157.5dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/rf_four_treasures"
+            android:layout_below="@id/btn_classical_furniture"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="6.5dp"
+            android:layout_marginBottom="110dp"
+            android:background="@color/color_b1a18e"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="true"
+            app:isShape="true" >
 
-                        <Button
-                            android:id="@+id/btn_classical_lighting"
-                            android:layout_width="120dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/color_faac03"
-                            android:layout_toRightOf="@id/btn_decorative_daquan"
-                            android:layout_marginLeft="6.5dp"
-                            android:layout_marginTop="6.5dp"
-                            android:gravity="center"
-                            android:text="古典灯饰"
-                            android:textColor="@color/color_3d3c3c"
-                            android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="字画"
+                android:textColor="@color/color_2f303c"
+                android:textSize="20sp"/>
 
+        </com.open.androidtvwidget.view.ReflectItemView>
 
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/btn_old_tea"
+            android:layout_width="230dp"
+            android:layout_height="200dp"
+            android:layout_toRightOf="@id/btn_classical_furniture"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="90dp"
+            android:background="@color/color_97ac56"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="false"
+            app:isShape="true" >
 
-                        <Button
-                            android:id="@+id/btn_more"
-                            android:layout_width="80dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/color_a29381"
-                            android:layout_toRightOf="@id/btn_classical_lighting"
-                            android:layout_marginLeft="6.5dp"
-                            android:layout_marginTop="6.5dp"
-                            android:gravity="center"
-                            android:text="更多"
-                            android:textColor="@color/color_2d1710"
-                            android:textSize="20sp"/>
-                    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="珍品古茶"
+                android:textColor="@color/color_36383e"
+                android:textSize="20sp"/>
 
-                </LinearLayout>
+        </com.open.androidtvwidget.view.ReflectItemView>
 
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/btn_red_wine"
+            android:layout_width="230dp"
+            android:layout_height="200dp"
+            android:layout_toRightOf="@id/btn_old_tea"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="90dp"
+            android:background="@color/color_bf9e97"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="false"
+            app:isShape="true" >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="珍品红酒"
+                android:textColor="@color/color_65595e"
+                android:textSize="20sp"/>
 
-            </RelativeLayout>
-        </LinearLayout>
+        </com.open.androidtvwidget.view.ReflectItemView>
 
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/btn_soft_daquan"
+            android:layout_width="170dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/btn_old_tea"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="6.5dp"
+            android:layout_toRightOf="@id/rf_strokes"
+            android:background="@color/color_2c3c5c"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="false"
+            app:isShape="true" >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="软装大全"
+                android:textColor="@color/color_ecf0f1"
+                android:textSize="20sp"/>
 
-    </RelativeLayout>
+        </com.open.androidtvwidget.view.ReflectItemView>
+
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/rf_decorative_daquan"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/rf_strokes"
+            android:layout_below="@id/btn_soft_daquan"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="6.5dp"
+            android:layout_marginBottom="110dp"
+            android:background="@color/color_505e7b"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="true"
+            app:isShape="true" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="装饰大全"
+                android:textColor="@color/color_f9f9fa"
+                android:textSize="20sp"/>
+
+        </com.open.androidtvwidget.view.ReflectItemView>
+
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/btn_classical_decorative_materials"
+            android:layout_width="170dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/btn_old_tea"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="6.5dp"
+            android:layout_toRightOf="@id/btn_soft_daquan"
+            android:background="@color/color_93928e"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="false"
+            app:isShape="true" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="古典装饰材料"
+                android:textColor="@color/color_2f303c"
+                android:textSize="20sp"/>
+
+        </com.open.androidtvwidget.view.ReflectItemView>
+
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/rf_classical_lighting"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/rf_decorative_daquan"
+            android:layout_below="@id/btn_classical_decorative_materials"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="6.5dp"
+            android:layout_marginBottom="110dp"
+            android:background="@color/color_faac03"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="true"
+            app:isShape="true" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="古典灯饰"
+                android:textColor="@color/color_3d3c3c"
+                android:textSize="20sp"/>
+
+        </com.open.androidtvwidget.view.ReflectItemView>
+
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/btn_news"
+            android:layout_width="113.5dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/btn_red_wine"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="6.5dp"
+            android:layout_toRightOf="@id/btn_classical_decorative_materials"
+            android:background="@color/color_e86e48"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="false"
+            app:isShape="true" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="新闻"
+                android:textColor="@color/color_2d1710"
+                android:textSize="20sp"/>
+
+        </com.open.androidtvwidget.view.ReflectItemView>
+
+        <com.open.androidtvwidget.view.ReflectItemView
+            android:id="@+id/btn_more"
+            android:layout_width="113.5dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/rf_classical_lighting"
+            android:layout_below="@id/btn_news"
+            android:layout_marginLeft="6.5dp"
+            android:layout_marginTop="6.5dp"
+            android:layout_marginBottom="110dp"
+            android:background="@color/color_a29381"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            app:radius="0dp"
+            app:isReflect="true"
+            app:isShape="true" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="更多"
+                android:textColor="@color/color_2d1710"
+                android:textSize="20sp"/>
+
+        </com.open.androidtvwidget.view.ReflectItemView>
+
+    </com.open.androidtvwidget.view.RelativeMainLayout>
+
+    <com.open.androidtvwidget.view.MainUpView
+        android:id="@+id/main_up_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:upImageRes="@drawable/white_light" />
 
 </RelativeLayout>
