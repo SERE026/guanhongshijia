@@ -11,72 +11,83 @@
         android:layout_marginRight="135dp"
         android:layout_marginBottom="74dp">
 
-        <RelativeLayout
-            android:id="@+id/rl_user_head"
-            android:layout_width="123dp"
-            android:layout_height="107dp"
-            android:background="@color/color_97888a">
+        <LinearLayout
+            android:id="@+id/ll_left"
+            android:orientation="vertical"
+            android:layout_width="150dp"
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/iv_order_avatar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/icon_brokerage_avtar"/>
+            <RelativeLayout
+                android:id="@+id/rl_user_head"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/color_97888a">
+
+                <ImageView
+                    android:id="@+id/iv_order_avatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_brokerage_avtar"/>
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_order_avatar"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="ahsih"
+                    android:textSize="12sp"
+                    android:textColor="@color/color_e3e6eb"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_user_name"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="VIP会员"
+                    android:textSize="12sp"
+                    android:textColor="@color/color_e3e6eb"/>
+
+            </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/iv_order_avatar"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:text="ahsih"
-                android:textSize="12sp"
+                android:id="@+id/tv_my_brokerage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/color_97888a"
+                android:layout_below="@id/rl_user_head"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:text="我的佣金"
+                android:textSize="15sp"
                 android:textColor="@color/color_e3e6eb"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_user_name"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:text="VIP会员"
-                android:textSize="12sp"
+                android:id="@+id/tv_bank_card"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/color_97888a"
+                android:layout_below="@id/tv_my_brokerage"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:text="银行卡管理"
+                android:textSize="15sp"
                 android:textColor="@color/color_e3e6eb"/>
 
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/tv_my_brokerage"
-            android:layout_width="123dp"
-            android:layout_height="107dp"
-            android:background="@color/color_97888a"
-            android:layout_below="@id/rl_user_head"
-            android:layout_marginTop="1dp"
-            android:gravity="center"
-            android:text="我的佣金"
-            android:textSize="15sp"
-            android:textColor="@color/color_e3e6eb"/>
-
-        <TextView
-            android:id="@+id/tv_bank_card"
-            android:layout_width="123dp"
-            android:layout_height="107dp"
-            android:background="@color/color_97888a"
-            android:layout_below="@id/tv_my_brokerage"
-            android:layout_marginTop="1dp"
-            android:gravity="center"
-            android:text="银行卡管理"
-            android:textSize="15sp"
-            android:textColor="@color/color_e3e6eb"/>
+        </LinearLayout>
 
         <FrameLayout
             android:id="@+id/fl_context"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@id/rl_user_head"
+            android:layout_toRightOf="@id/ll_left"
             android:layout_marginLeft="1dp">
 
         </FrameLayout>

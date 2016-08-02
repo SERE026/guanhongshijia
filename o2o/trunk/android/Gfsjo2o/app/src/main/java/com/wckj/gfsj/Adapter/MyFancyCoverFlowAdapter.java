@@ -42,7 +42,7 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         final Commodity_level_details item = (Commodity_level_details) getItem(position);
-        holder.iv_scro_main.setImageResource(R.drawable.icon_public_image);
+        holder.iv_scro_main.setImageResource(R.drawable.icon_cover_image);
 
         return convertView;
     }

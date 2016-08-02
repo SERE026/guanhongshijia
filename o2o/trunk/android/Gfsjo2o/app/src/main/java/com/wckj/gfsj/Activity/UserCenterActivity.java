@@ -16,7 +16,7 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
 
     private TextView tv_go_back;
     private View view;
-    private Button mBtnMyOrder, mBtnMyBrokerage, mBtnUserInfo, mBtnMyFollow, mBtnSetPwd, mBtnExit;
+    private Button mBtnMyOrder, mBtnMyBrokerage, mBtnUserInfo, mBtnMyCoupon, mBtnSetPwd, mBtnExit;
 
     @Override
     protected void init() {
@@ -51,14 +51,14 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
         mBtnMyOrder = (Button) view.findViewById(R.id.btn_my_order);
         mBtnMyBrokerage = (Button) view.findViewById(R.id.btn_brokerage);
         mBtnUserInfo = (Button) view.findViewById(R.id.btn_user_info);
-        mBtnMyFollow = (Button) view.findViewById(R.id.btn_my_follow);
+        mBtnMyCoupon = (Button) view.findViewById(R.id.btn_my_coupon);
         mBtnSetPwd = (Button) view.findViewById(R.id.btn_set_pwd);
         mBtnExit = (Button) view.findViewById(R.id.btn_exit);
 
         mBtnMyOrder.setOnClickListener(this);
         mBtnMyBrokerage.setOnClickListener(this);
         mBtnUserInfo.setOnClickListener(this);
-        mBtnMyFollow.setOnClickListener(this);
+        mBtnMyCoupon.setOnClickListener(this);
         mBtnSetPwd.setOnClickListener(this);
         mBtnExit.setOnClickListener(this);
     }
@@ -82,10 +82,10 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
                 intent = new Intent(view.getContext(), UserInfoActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_my_follow:
-                intent = new Intent(view.getContext(), OrderPayActivity.class);
+            case R.id.btn_my_coupon:
+//                intent = new Intent(view.getContext(), OrderPayActivity.class);
 //                intent = new Intent(view.getContext(), OrderEvaluateActivity.class);
-//                intent = new Intent(view.getContext(), CouponActivity.class);
+                intent = new Intent(view.getContext(), CouponActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_set_pwd:

@@ -39,7 +39,7 @@ public class Main_classification_fragment extends Fragment implements View.OnCli
         mMainUpView.setEffectBridge(new EffectNoDrawBridge());
         mOpenEffectBridge = (EffectNoDrawBridge) mMainUpView.getEffectBridge();
         mOpenEffectBridge.setTranDurAnimTime(200);
-        mMainUpView.setUpRectResource(R.drawable.white_light);// 设置移动边框的图片.
+//        mMainUpView.setUpRectResource(R.drawable.white_light);// 设置移动边框的图片.
 //        mMainUpView.setShadowResource(R.drawable.item_shadow); // 设置移动边框的阴影.
         mMainUpView.setDrawUpRectPadding(new Rect(13, 13, 12, 12));
 

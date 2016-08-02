@@ -7,8 +7,9 @@
         android:id="@+id/rl_left"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="235dp">
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="235dp"
+        android:layout_marginBottom="110dp">
 
         <TextView
             android:id="@+id/tv_user_name"
@@ -27,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@id/tv_user_name"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/btn_user_center_style"
             android:drawableRight="@drawable/icon_arrow"
             android:gravity="center_vertical"
@@ -46,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@id/btn_my_order"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/btn_user_center_style"
             android:drawableRight="@drawable/icon_arrow"
             android:gravity="center_vertical"
@@ -65,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@id/btn_brokerage"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/btn_user_center_style"
             android:drawableRight="@drawable/icon_arrow"
             android:gravity="center_vertical"
@@ -80,30 +81,30 @@
             android:background="@color/color_e3e6eb"/>
 
         <Button
-            android:id="@+id/btn_my_follow"
+            android:id="@+id/btn_my_coupon"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@id/btn_user_info"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/btn_user_center_style"
             android:drawableRight="@drawable/icon_arrow"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
-            android:text="我的关注"
+            android:text="我的优惠券"
             style="@style/item_text_style"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_below="@id/btn_my_follow"
+            android:layout_below="@id/btn_my_coupon"
             android:background="@color/color_e3e6eb"/>
 
         <RelativeLayout
             android:id="@+id/rl_set_pwd"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_below="@id/btn_my_follow"
-            android:layout_marginTop="17dp">
+            android:layout_below="@id/btn_my_coupon"
+            android:layout_marginTop="25dp">
 
             <Button
                 android:id="@+id/btn_set_pwd"
@@ -139,7 +140,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@id/rl_set_pwd"
-            android:layout_marginTop="17dp">
+            android:layout_marginTop="25dp">
 
             <Button
                 android:id="@+id/btn_exit"
