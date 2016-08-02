@@ -19,7 +19,12 @@
     <div class="head-top">
         <div>
             <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
+        <#if HUIYUANIFNO?exists>
+            ${HUIYUANIFNO.userName}
+        <#else >
             <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
+        </#if>
+
             <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
             <ul class="head-ul">
                 <li><a href="${rc.contextPath}/huiyuan_order.html">我的信息</a></li>

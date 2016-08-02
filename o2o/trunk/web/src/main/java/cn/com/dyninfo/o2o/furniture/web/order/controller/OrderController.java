@@ -271,7 +271,10 @@ public class OrderController extends BaseController {
 	@RequestMapping(value = "/{id}/agencyPay")
 	public ModelAndView agencyPay(@PathVariable  String id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/html/manage/coupon/list");
+		Order order = (Order) orderService.getObjById(id);
+		order.setAgencyPay("1");
+		orderService.updateObj(order);
+		mav.setViewName("redirect:/html/manage/order/list");
 		return mav;
 	}
 
