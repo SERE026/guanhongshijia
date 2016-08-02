@@ -292,7 +292,7 @@
                     </ul>
                 </li>
                 <li><a href="javascript:void(0)">云导购</a></li>
-                <li><a href="javascript:void(0)">品牌汇</a></li>
+                <li><a href="${rc.contextPath}/brand.html">品牌汇</a></li>
                 <li><a href="javascript:void(0)">全国体验馆</a></li>
                 <li><a href="javascript:void(0)">艺术品</a></li>
                 <li><a href="javascript:void(0)">团购</a></li>

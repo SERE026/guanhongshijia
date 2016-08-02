@@ -78,8 +78,8 @@ public class ContextListener implements ServletContextListener {
 			 Context.freeMakercfg.setNumberFormat("#.##");
 			 Context.freeMakercfg.setClassicCompatible(true);
 			 Context.freeMakercfg.setTemplateExceptionHandler(new MyTemplateExceptionHandler());
-			Context.freeMakercfg.setLocalizedLookup(false);
-			ApplicationContext ac2 = WebApplicationContextUtils.getWebApplicationContext(arg0.getServletContext());
+			 Context.freeMakercfg.setLocalizedLookup(false);
+			 ApplicationContext ac2 = WebApplicationContextUtils.getWebApplicationContext(arg0.getServletContext());
 			
 			ZffsDao z=(ZffsDao) ac2.getBean("zffsDao");
 			List<Zffs> zfb=(List<Zffs>) z.getListByWhere(new StringBuffer(" and n.type='0' and n.status='0' "));//支付宝
