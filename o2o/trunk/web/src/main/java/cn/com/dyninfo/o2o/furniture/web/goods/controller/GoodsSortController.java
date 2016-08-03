@@ -22,6 +22,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.util.PinYinUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -207,6 +208,7 @@ public class GoodsSortController extends BaseController{
 	    	    	}
 	    	    	if(info.getParent()!=null)
 	    	    		mav.addObject("parent", info.getParent().getGoodsSort_id());
+					info.setPinyinName(PinYinUtils.getFirstSpell(info.getName()));
 	    	    	goodsSortService.addObj(info);
 					mav.addObject("C_STATUS",1);
 	    		} catch (Exception e) {
@@ -244,6 +246,7 @@ public class GoodsSortController extends BaseController{
 	    	    	}
 				  if(info.getParent()!=null)
 					mav.addObject("parent", info.getParent().getGoodsSort_id());
+				  info.setPinyinName(PinYinUtils.getFirstSpell(info.getName()));
 				  goodsSortService.updateObj(info);
 				mav.addObject("C_STATUS",1);
 				} catch (Exception e) {

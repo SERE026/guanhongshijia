@@ -123,6 +123,17 @@ public class GoodsSort {
 	@Column(name="APP_IMG")
 	private String appImg;
 
+	@AccessType(value = "property")
+	@Column(name="PINYIN_NAME")
+	private String pinyinName;
+
+	public String getPinyinName() {
+		return pinyinName;
+	}
+
+	public void setPinyinName(String pinyinName) {
+		this.pinyinName = pinyinName;
+	}
 
 	@AccessType(value = "property")
 	@Column(name="ADV_PIC")

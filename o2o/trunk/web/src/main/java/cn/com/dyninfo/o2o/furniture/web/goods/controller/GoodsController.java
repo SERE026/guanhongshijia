@@ -28,6 +28,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.util.PinYinUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -353,6 +354,8 @@ public class GoodsController {
 			if(info.getShelves().equals("0")){
 				info.setSj_time(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 			}
+			info.setPinyinName(PinYinUtils.getFirstSpell(info.getName()));
+			info.setPinyinShort(PinYinUtils.getFirstSpell(info.getShortDesc()));
 			goodsService.addObj(info);
 //			System.out.println("添加成功！");
 			return new ModelAndView("redirect:/html/manage/goods/list","C_STATUS",1);
@@ -389,6 +392,8 @@ public class GoodsController {
 			if(info.getShelves().equals("0")){
 				info.setSj_time(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 			}
+			info.setPinyinName(PinYinUtils.getFirstSpell(info.getName()));
+			info.setPinyinShort(PinYinUtils.getFirstSpell(info.getShortDesc()));
 			goodsService.updateObj(info);
 			return new ModelAndView("redirect:/html/manage/goods/list?pageNo=" + pageNo,"C_STATUS",1);
 		}catch(Exception e){

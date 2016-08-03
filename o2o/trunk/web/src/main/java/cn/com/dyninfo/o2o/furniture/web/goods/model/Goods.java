@@ -67,7 +67,7 @@ public class Goods {
 	@AccessType(value = "property")
 	@OneToOne(fetch=FetchType.LAZY,mappedBy="goods")
 	private GoodsDelivery delivery;//配送方式
-	
+
 	@AccessType(value = "property")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="PRODUCT_ID")
@@ -76,6 +76,14 @@ public class Goods {
 	@AccessType(value = "property")
 	@Column(name="CODE")
 	private String code;//商品编号
+
+	@AccessType(value = "property")
+	@Column(name="PINYIN_NAME")
+	private String pinyinName;   //名称的拼音首字母
+
+	@AccessType(value = "property")
+	@Column(name="PINYIN_SHORT_DESC")
+	private String pinyinShort;//商品说明的拼音首字母
 	
 	@AccessType(value = "property")
 	@Column(name="SHELVES")
@@ -452,6 +460,22 @@ public class Goods {
 
 	public void setGoodsSort(GoodsSort goodsSort) {
 		this.goodsSort = goodsSort;
+	}
+
+	public String getPinyinName() {
+		return pinyinName;
+	}
+
+	public void setPinyinName(String pinyinName) {
+		this.pinyinName = pinyinName;
+	}
+
+	public String getPinyinShort() {
+		return pinyinShort;
+	}
+
+	public void setPinyinShort(String pinyinShort) {
+		this.pinyinShort = pinyinShort;
 	}
 
 	public GoodsType getGoodsType() {
