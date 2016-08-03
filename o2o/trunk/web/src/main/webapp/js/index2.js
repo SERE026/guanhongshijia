@@ -120,7 +120,7 @@ function cityList() {
 function FloorFive() {
     $(".FiveNav li").click(function () {
         var num = $(this).index();
-        $(this).addClass("red").siblings().removeClass("red");
+        $(this).addClass("fiveNav").siblings().removeClass("fiveNav");
         $(".FiveContent:eq(" + num + ")").removeClass("none").siblings(".FiveContent").addClass("none");
     })
 }

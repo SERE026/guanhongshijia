@@ -21,6 +21,7 @@ ul li {float:left;list-style-type:none;
 }
 .head-login {margin-left:34px;
 }
+.current_position{display: inline-block;padding: 2px 6px;background-color: red;color: white;}
 .head-ul {
     overflow:hidden;display:block;float:right;height:30px;width:530px;
 }
@@ -358,11 +359,11 @@ ul li {float:left;list-style-type:none;
 /*内容部分*/
 .browse {width:64%;margin:0px auto;width:1200px;
 }
-.borderHover li {border:2px solid white!important;
+.borderHover li {border:1px solid #ab9493;
 }
-    .borderHover li:hover {border:2px solid #640202!important;
+    .borderHover li dl:hover {border:1px solid #572a27;
     }
-    .borderHover img{border: 1px solid red;}
+    .borderHover img{border: 1px solid white;}
 .hot-small {overflow:hidden;margin-top:14px;
 }
     .hot-small ul {overflow:hidden;
@@ -390,19 +391,20 @@ ul li {float:left;list-style-type:none;
     .Showcase ul {overflow:hidden;margin-top:30px;height:332px;display:none;
     }
 .Showcase>ul>li {
-    width:225px;margin-left:13px;height:315px;
+    width:227px;margin-left:13px;height:315px;
 }
-    .Showcase > ul > li > dl {padding:5px;height:315px;overflow: hidden;
+.Showcase>ul>li:hover{border: 1px solid #572a27;}
+    .Showcase > ul > li > dl {padding:5px;height:303px;overflow: hidden;border: 1px solid white;
     }
 
-.Showcase > ul > li > dl img{width: 213px;height: 225px;border: 1px solid red;}
+.Showcase > ul > li > dl img{width: 214px;height: 225px;border: 1px solid white;}
     .Showcase>ul>li:first-child {margin:0;
     }
 .Add-art {border:1px solid #572a27;color:white;margin-left:13px;width:56px;line-height:16px;text-align:center;display:block;float:left;height:20px;
 }
     .Add-art img {margin-top:2px;
     }
-.Showcase .Item-introduction dd:last-child {margin-top:14px;overflow:hidden;
+.Showcase .Item-introduction dd:last-child {margin-top:10px;overflow:hidden;
 }
 .Showcase .Item-introduction .dd-Item-name {margin:4px 0;font-size:14px;height: 35px;overflow: hidden;
 }
@@ -435,8 +437,10 @@ ul li {float:left;list-style-type:none;
     .area ul li {
         width:460px;height:205px;margin-left:8px;border:1px solid #808080;overflow:hidden;
     }
+.area ul li:hover{border: 1px solid #572a27;}
         .area ul li:nth-child(3), .area ul li:nth-child(4) {margin-top:5px;
         }
+.area ul li dl{height: 203px; border: 1px solid white;}
         .area ul li dd {padding-left:230px;
         }
         .area ul li dt {float:left;
@@ -475,14 +479,18 @@ ul li {float:left;list-style-type:none;
                 .Floor .FloorImg ul li a {border:1px solid #dcd7d7;width:60px;line-height:24px;text-align:center;display:block;font-size:14px;color:black;
                 }
     .Floor .FloorImg img {
-        width:200px;height:200px;margin-top:60px;
+        width:192px;height:200px;margin-top:60px;
     }
 .floor-banner {overflow:hidden;
 }
 .floor-banner ul {width:644px;overflow:hidden;margin-left:5px;float:left;
 }
-.floor-banner ul li {width:200px;height:269px;padding:5px;border:1px solid #dcd7d7;
+.floor-banner ul li {width:208px;height:280px;border:1px solid #ab9493;margin-left: 5px;
 }
+.floor-banner ul li:hover{border:1px solid #572a27}
+.floor-banner ul li:first-child,.floor-banner ul li:nth-child(4){margin-left: 0;}
+.floor-banner ul li:nth-child(4),.floor-banner ul li:nth-child(5),.floor-banner ul li:nth-child(6){margin-top: 5px;}
+.floor-banner ul li dl{padding: 5px;border: 1px solid white;height: 268px; }
 .floor-banner .Introduction,.dd-Item-name .Introduction {font-size:12px;color:#666;height: 36px;overflow: hidden;display: inline-block;
 }
 .floor-banner .Item-price {font-size:20px;
@@ -495,7 +503,7 @@ ul li {float:left;list-style-type:none;
 }
 .ItemPrice b {color:red;font-size:23px;
 }
-    .floor-banner ul li img {width:200px;height:200px;
+    .floor-banner ul li img {width:193px;height:179px;
     }
 .floor-banner > div {overflow:hidden;float:left;
 }
@@ -505,9 +513,10 @@ ul li {float:left;list-style-type:none;
 .Floor-bottom ul {overflow:hidden;margin-top:-12px;
 }
 .Floor-bottom ul li {width:393px;height:190px;margin-left:4px;overflow:hidden;  }
+.Floor-bottom ul li:hover{border: 1px solid #572a27;}
 .Floor-bottom ul li:first-child {margin-left:0;  }
-.Floor-bottom ul li dl {background-color:#eae9e9;overflow:hidden;  }
-        .Floor-bottom ul li dl dt img {height:187px;width: 197px;
+.Floor-bottom ul li dl {background-color:#eae9e9;overflow:hidden; border: 1px solid white;height: 188px; }
+        .Floor-bottom ul li dl dt img {height:185px;width: 197px;
         }
         .Floor-bottom ul li dl dt {float:left;
         }
@@ -524,18 +533,19 @@ ul li {float:left;list-style-type:none;
 }
     .FloorFive .FloorHead {height:75px;
     }
+.FloorFive .fiveNav{background-color: #a16746;color: white;}
     .FloorHead > div:first-child {height:40px;margin-top:40px;
     }
     .FloorHead ul {float:right;/*margin-top:12px;*/
     }
         /*.FloorHead ul .FH_current {border-top:2PX solid #572a27;border-top-left-radius:4PX;border-top-right-radius:4PX;  border-left:2PX solid #572a27;border-right:2PX solid #572a27;background-color:white;
         }*/
-        .FloorHead ul li {line-height:40px;background-color:#572a27;margin-right:10px;width:100px;text-align:center;color:#eba465;font-size:15px;
+        .FloorHead ul li {line-height:40px;background-color:#572a27;margin-right:10px;width:100px;text-align:center;color:#eba465;font-size:15px;font-family: "Microsoft YaHei";font-weight: 400;
         }
 .FloorHead ul li:hover{cursor:pointer;}
             .FloorHead ul li:last-child {
             }
-    .FloorHead .FloorBack {background-color:#572a27;line-height:14px;width:100%;height:14px;
+    .FloorHead .FloorBack {background-color:#572a27;line-height:25px;width:100%;height:25px;
     }
     .FloorID b {font-size:26px;color:#572a27;margin-left:10px;float:left;display:block;padding-top:5px;
     }
@@ -544,10 +554,11 @@ ul li {float:left;list-style-type:none;
 .FloorID span {margin-left:10px;font-weight:bold;float:left;display:block;padding-top:15px;
 }
 
-.FloorBack > .backLeft {color:#fad2a7;font-size:7px;display:inline-block;transform:scale(0.7);margin: -2px 0 0 -5px;
+.FloorBack > .backLeft {color:white;font-size:12px;display:inline-block;margin: 0 0 0 9px;
 }
-.FloorBack > .backRight {float:right;font-size:7px;color:white;display:inline-block;transform:scale(0.7);
+.FloorBack > .backRight {float:right;font-size:12px;display:inline-block;margin: 0 9px 0 0;
 }
+.FloorBack > .backRight a{color: white;}
 .FloorImg .tag {margin-top:28px;
 }
     .FloorImg .tag .font6 {transform:scale(0.7);display:inline-block;font-size:6px;width:220px;margin-left:-32px;

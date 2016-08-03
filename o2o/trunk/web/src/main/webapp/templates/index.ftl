@@ -18,6 +18,7 @@
 <div style="background-color: #f0ecec;">
     <div class="head-top">
         <div>
+            <i></i><span class="current_position">深圳</span>&nbsp;&nbsp;&nbsp;
             <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
         <#if HUIYUANIFNO?exists>
             ${HUIYUANIFNO.userName}
@@ -502,7 +503,7 @@
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight">查看更多 MORE</span>
+                <span class="backRight"><a href="#">查看更多 MORE</a></span>
             </div>
         </div>
         <div class="FloorImg">
@@ -577,7 +578,7 @@
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight">查看更多 MORE</span>
+                <span class="backRight"><a href="#">查看更多 MORE</a></span>
             </div>
         </div>
         <div class="FloorImg">
@@ -652,7 +653,7 @@
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight">查看更多 MORE</span>
+                <span class="backRight"><a href="#">查看更多 MORE</a></span>
             </div>
         </div>
         <div class="FloorImg">
@@ -728,7 +729,7 @@
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight">查看更多 MORE</span>
+                <span class="backRight"><a href="#">查看更多 MORE</a></span>
             </div>
         </div>
         <div class="FloorImg">
@@ -819,7 +820,7 @@
                 <ul class="FiveNav">
                     <#list goodsSortList5 as p>
                         <#if p_index == 0>
-                        <li class="FH_current red">${p.name?if_exists}</li>
+                        <li class="FH_current fiveNav">${p.name?if_exists}</li>
                         </#if>
                         <#if p_index != 0>
                             <li>${p.name?if_exists}</li>
@@ -835,9 +836,9 @@
 
                 </ul>
             </div>
-            <div class="FloorBack">
-                <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight">查看更多 MORE</span>
+            <div class="FloorBack" style="height: 4px;background-color: #a16746;">
+                <#--<span class="backLeft">SANITARY WARE</span>
+                <span class="backRight"><a href="#">查看更多 MORE</a></span>-->
             </div>
         </div>
 
