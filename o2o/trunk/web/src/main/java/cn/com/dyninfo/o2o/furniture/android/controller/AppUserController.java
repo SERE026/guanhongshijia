@@ -10,6 +10,7 @@ import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.util.MD5Encoder;
+import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
@@ -27,9 +28,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Administrator on 2016/7/29.
@@ -53,10 +53,13 @@ public class AppUserController extends BaseAppController {
     @Resource
     private CouponService couponService;
 
-
-
-
-
+    /**
+     * d登录请求
+     * @param loginRequest
+     * @param request
+     * @param response
+     * @return
+     */
     @ResponseBody
     @RequestMapping("/login")
     public LoginResult login(@RequestBody LoginRequest loginRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -72,7 +75,7 @@ public class AppUserController extends BaseAppController {
 
         List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
                 new StringBuffer(" and n.name='"+loginRequest.getLoginName() + "'"));
-        if(list != null && list.size()>0){
+        if(!ValidationUtil.isEmpty(list)){
             HuiyuanInfo info= list.get(0);
             if(password.equals(info.getPassword())){
                 result.setResultCode(SUCCESS);
@@ -119,7 +122,7 @@ public class AppUserController extends BaseAppController {
 
         List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
                 new StringBuffer("n.phone="+findPasswordRequest.getMobileNo()));
-        if(list.size()>0){
+        if(!ValidationUtil.isEmpty(list)){
             HuiyuanInfo info= list.get(0);
             if(validateCode.equals("")){  //判断校验码 是否正确
                 info.setPassword(newPassword);
@@ -145,6 +148,7 @@ public class AppUserController extends BaseAppController {
      * @return
      */
     @ResponseBody
+
     @RequestMapping("/findLoginPassword")
     public  FindPasswordResult findLoginPassword(@RequestBody  FindPasswordRequest   findPasswordRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(findPasswordRequest);
@@ -154,7 +158,7 @@ public class AppUserController extends BaseAppController {
         String validateCode=findPasswordRequest.getValidateCode();//校验码
         List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
                 new StringBuffer("n.phone="+findPasswordRequest.getMobileNo()));
-        if(list.size()>0){
+        if(!ValidationUtil.isEmpty(list)){
             HuiyuanInfo info= list.get(0);
             if(validateCode.equals("")){  //判断校验码 是否正确
                 info.setPassword(newPassword);
@@ -185,18 +189,24 @@ public class AppUserController extends BaseAppController {
     public QueryAgencyFeeResult queryAgencyFee(@RequestBody  QueryAgencyFeeRequest   queryAgencyFeeRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(queryAgencyFeeRequest);
         QueryAgencyFeeResult result = new  QueryAgencyFeeResult();
+        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+                new StringBuffer(" and n.name='lxfeng'"));
+        HuiyuanInfo info= list2.get(0);
         //获取用户信息
-        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
-
+       // HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
+       PageInfo page=new PageInfo();
+        page.setPageNo(1);
+        page.setPageSize(10);
         List<AgencyFeeItem> lists=new ArrayList<AgencyFeeItem>();
-        Double recentMoney=0.00;
-        Double totalMoney=0.00;
-        List<Order> list =(List<Order>)orderService.getListByWhere(new StringBuffer(""));//+时间限制
-        if(list.size()>0){
+        Double totalMoney=0.00;//+"and n.agencyPay='1' order by n.time asc"
+      // List<Order> list =(List<Order>)orderService.getListByWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id="+info.getHuiYuan_id()+"order by n.time asc"));
+        Map map=orderService.getListByPageWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id="+info.getHuiYuan_id()+"order by n.time desc"), page);
+        List<Order> list =(List<Order>)map.get("DATA");
+        if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 AgencyFeeItem agency = new AgencyFeeItem();
                 agency.setId(String.valueOf(list.get(i).getOrder_id()));
-                agency.setDate(String.valueOf(list.get(i).getCreatTime()));//订单完成日期
+                agency.setDate(String.valueOf(list.get(i).getTime()));//订单完成日期
                 agency.setOrderNo(list.get(i).getOrder_id());//订单号
                 agency.setPrice(list.get(i).getOrderPrice()); //商品总价（去除优惠券抵扣价格）
                 agency.setPercent(String.valueOf(list.get(i).getAgencyPercent()));//佣金比率
@@ -206,9 +216,9 @@ public class AppUserController extends BaseAppController {
             }
             result.setResultCode(SUCCESS);
             result.setCurrentMoney(info.getMoney()); //总资产
-            result.setRecentMoney(0); //最近佣金
+            result.setRecentMoney(list.get(0).getAgencyFee()); //最近佣金
             result.setTotalMoney(totalMoney); //累计佣金
-            result.setDataDate("");//数据截至时间
+            result.setDataDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));//数据截至时间
             result.setAgencyFeeItemList(lists);//佣金明细
             result.setMessage("OK");
         }else {
@@ -231,20 +241,20 @@ public class AppUserController extends BaseAppController {
     public  QueryCardResult bankCard(@RequestBody  QueryCardRequest   queryCardRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(queryCardRequest);
         QueryCardResult result = new  QueryCardResult();
-
+        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+                new StringBuffer(" and n.name='lxfeng'"));
+        HuiyuanInfo info= list2.get(0);
+        //获取用户信息
+        // HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
         List<Card>  lists=new ArrayList<Card>();
-        List<Card> list =(List<Card>)couponService.getListByWhere(new StringBuffer(""));
-        if(list.size()>0){
-            for (int i = 0; i < list.size(); i++) {
+        if(!ValidationUtil.isEmpty(info)){
                 Card card = new Card();
-                Card c=list.get(i);
-                card.setId(String.valueOf(c.getId()));
-//                card.setCardNo(c.getName());
-//                card.setBankName(c.getBeginTime());
+                card.setId(String.valueOf(info.getShangJiaInfo().getShangjia_id()));
+                card.setCardNo(info.getShangJiaInfo().getBankCardAccount());
+                card.setBankName(info.getShangJiaInfo().getBankName());
 //                card.setStatus(c.getEndTime());
-                card.setType(c.getType());
+//                card.setType(c.getType());
                 lists.add(card);
-            }
             result.setCardList(lists);
             result.setResultCode(SUCCESS);
             result.setMessage("OK");
@@ -268,9 +278,12 @@ public class AppUserController extends BaseAppController {
     public  QueryCouponResult coupon(@RequestBody  QueryCouponRequest   queryCouponRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(queryCouponRequest);
         QueryCouponResult result = new  QueryCouponResult();
+        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+                new StringBuffer(" and n.name='lxfeng'"));
+        HuiyuanInfo info= list2.get(0);
         //获取用户信息
-        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
-        if(!ValidationUtil.isEmpty(info)){
+       // HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if(ValidationUtil.isEmpty(info)){
             result.setResultCode(NO_LOGIN);
             result.setMessage("未登录");
             return result;
@@ -279,28 +292,27 @@ public class AppUserController extends BaseAppController {
         // List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon> list =(List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon>)couponService.getListByWhere(new StringBuffer(" and n."));
         List list= couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+info.getHuiYuan_id()+" order by n.coupon.endTime asc"));
 
-        if(list.size()>0) {
+        if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 CouponMemberRel c=(CouponMemberRel)list.get(i);
-
                 Coupon coupon = new Coupon();
-                coupon.setId(String.valueOf(c.getId()));
-//                coupon.setName(c.getName());
-//                coupon.setBeginTime(c.getBeginTime());
-//                coupon.setEndTime(c.getEndTime());
-//                coupon.setType(c.getType());
-//                coupon.setReduceValue(c.getReduceValue());
-//                coupon.setDiscountValue(c.getDiscountValue());
-//                coupon.setMaxAmount(c.getMaxAmouont());
-//                coupon.setConstraintValue(c.getConstraintValue());
-//                coupon.setSameUse(c.getSameUse());
+                coupon.setId(String.valueOf(c.getCoupon().getId()));
+                coupon.setName(c.getCoupon().getName());
+                coupon.setBeginTime(c.getCoupon().getBeginTime());
+                coupon.setEndTime(c.getCoupon().getEndTime());
+                coupon.setType(c.getCoupon().getType());
+                coupon.setReduceValue(c.getCoupon().getReduceValue());
+                coupon.setDiscountValue(c.getCoupon().getDiscountValue());
+                coupon.setMaxAmount(c.getCoupon().getMaxAmouont());
+                coupon.setConstraintValue(c.getCoupon().getConstraintValue());
+                coupon.setSameUse(c.getCoupon().getSameUse());
                 lists.add(coupon);
             }
             result.setResultCode(SUCCESS);
             result.setMessage("OK");
             result.setCouponList(lists);
-            result.setPageNo(1);
-            result.setTotalPage(2);
+//            result.setPageNo(1);
+//            result.setTotalPage(2);
         }else{
             result.setResultCode(NO_LOGIN);
             result.setMessage("优惠券查询失败");
