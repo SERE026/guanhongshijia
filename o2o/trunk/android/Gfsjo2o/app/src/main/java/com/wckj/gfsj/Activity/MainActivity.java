@@ -19,7 +19,9 @@ import com.wckj.gfsj.Fragment.Main_fragment;
 import com.wckj.gfsj.Fragment.Search_fragment;
 import com.wckj.gfsj.Fragment.Shopping_cart_fragment;
 import com.wckj.gfsj.Fragment.User_fragment;
+import com.wckj.gfsj.Model.BaseRequestUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.LogTools;
 import com.wckj.gfsj.Utils.OwerToastShow;
 import com.wckj.gfsj.Utils.TimeUtils;
 
@@ -162,6 +164,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setTabSelection(2);
                 break;
             case R.id.tv_mine_center:
+                LogTools.println(null,"======================");
+                BaseRequestUtils.getInstance().login("a","a");
                 setTabSelection(1);
                 break;
         }
