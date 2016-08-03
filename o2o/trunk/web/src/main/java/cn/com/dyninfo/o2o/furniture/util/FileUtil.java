@@ -26,6 +26,21 @@ public class FileUtil {
         }
     }
 
+    public static void setPermissionForDir(String dirName) {
+        log.error("change mod for: " + dirName);
+        log.error("os is: " + System.getProperty("os.name"));
+        if (!System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+            try {
+//                File file = new File(fileName);
+//                String strParentDirectory = file.getParent();
+//                Runtime.getRuntime().exec("chmod 755 " + strParentDirectory);
+                Runtime.getRuntime().exec("chmod 755 " + dirName);
+            } catch (IOException e) {
+                log.error("set permission failed", e);
+            }
+        }
+    }
+
     public static void setPermissionWithDir(String fileName) {
         log.error("change mod for: " + fileName);
         log.error("os is: " + System.getProperty("os.name"));
@@ -34,8 +49,8 @@ public class FileUtil {
                 File file = new File(fileName);
                 String strParentDirectory = file.getParent();
                 log.error("Parent is: " + strParentDirectory);
-                Runtime.getRuntime().exec("chmod 755 " + strParentDirectory);
                 Runtime.getRuntime().exec("chmod 644 " + fileName);
+                Runtime.getRuntime().exec("chmod 755 " + strParentDirectory);
             } catch (IOException e) {
                 log.error("set permission failed", e);
             }
