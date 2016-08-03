@@ -127,26 +127,36 @@ public class FreeMarkerUtils {
             List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
             paramsMap.put("goodsSortList",dataList);
             List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
-            paramsMap.put("advwzList",advwzList.get(0));
+            if (advwzList != null && advwzList.size() > 0) {
+                paramsMap.put("advwzList",advwzList.get(0));
+            }
             //1F楼商品
             List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
             List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.ONE_SKU));
-            paramsMap.put("goodsSortList1",goodsSortList1.get(0));
+            if (goodsSortList1 != null && goodsSortList1.size() > 0) {
+                paramsMap.put("goodsSortList1",goodsSortList1.get(0));
+            }
             paramsMap.put("goodsList1",goodsList1);
             //2F楼商品
             List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.TWO_SKU));
             List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.TWO_SKU));
-            paramsMap.put("goodsSortList2",goodsSortList2.get(0));
+            if (goodsSortList2 != null && goodsSortList2.size() > 0) {
+                paramsMap.put("goodsSortList2",goodsSortList2.get(0));
+            }
             paramsMap.put("goodsList2",goodsList2);
             //3F楼商品
             List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.THREE_SKU));
             List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.THREE_SKU));
-            paramsMap.put("goodsSortList3",goodsSortList3.get(0));
+            if (goodsSortList3 != null && goodsSortList3.size() > 0) {
+                paramsMap.put("goodsSortList3",goodsSortList3.get(0));
+            }
             paramsMap.put("goodsList3",goodsList3);
             //4F楼商品
             List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.FOUR_SKU));
             List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU));
-            paramsMap.put("goodsSortList4",goodsSortList4.get(0));
+            if (goodsSortList4 != null && goodsSortList4.size() > 0) {
+                paramsMap.put("goodsSortList4",goodsSortList4.get(0));
+            }
             paramsMap.put("goodsList4",goodsList4);
 
             //显示抢购商品
@@ -160,11 +170,21 @@ public class FreeMarkerUtils {
             List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REPIN_SKU));
             List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.NEW_SKU));
             List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.XIANSHI_SKU));
-            paramsMap.put("reMai", reMaiList.get(0));
-            paramsMap.put("qiangGou", qiangGouList.get(0));
-            paramsMap.put("rePin", rePinList.get(0));
-            paramsMap.put("new", newList.get(0));
-            paramsMap.put("xianShi", xsList.get(0));
+            if (reMaiList != null && reMaiList.size() > 0) {
+                paramsMap.put("reMai", reMaiList.get(0));
+            }
+            if (qiangGouList != null && qiangGouList.size() > 0) {
+                paramsMap.put("qiangGou", qiangGouList.get(0));
+            }
+            if (rePinList != null && rePinList.size() > 0) {
+                paramsMap.put("rePin", rePinList.get(0));
+            }
+            if (newList != null && newList.size() > 0) {
+                paramsMap.put("new", newList.get(0));
+            }
+            if (xsList != null && xsList.size() > 0) {
+                paramsMap.put("xianShi", xsList.get(0));
+            }
 
             //5L综合系列
             //获取品牌表数据
