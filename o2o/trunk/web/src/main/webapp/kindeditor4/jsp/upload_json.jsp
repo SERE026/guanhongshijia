@@ -5,6 +5,7 @@
 <%@ page import="org.apache.commons.fileupload.disk.*" %>
 <%@ page import="org.apache.commons.fileupload.servlet.*" %>
 <%@ page import="org.json.simple.*" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.util.FileUtil" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -29,10 +30,10 @@
  */
 
 //文件保存目录路径
-String savePath="/data/projects/upload/image/";
+String savePath="/data/projects/upload/";
 
 //文件保存目录URL
-String saveUrl=request.getContextPath()+"/upload/image/";
+String saveUrl=request.getContextPath()+"/upload/";
 
 //定义允许上传的文件扩展名
 HashMap<String, String> extMap = new HashMap<String, String>();
@@ -113,6 +114,7 @@ while (itr.hasNext()) {
 		String newFileName = df.format(new Date()) + "_" + new Random().nextInt(1000) + "." + fileExt;
 		try{
 			File uploadedFile = new File(savePath, newFileName);
+			FileUtil.setPermission(savePath + newFileName);
 			item.write(uploadedFile);
 		}catch(Exception e){
 			out.println(getError("上传文件失败。"));
