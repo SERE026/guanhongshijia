@@ -6,11 +6,9 @@ import cn.com.dyninfo.o2o.communication.FavoritesListRequest;
 import cn.com.dyninfo.o2o.communication.FavoritesListResult;
 import cn.com.dyninfo.o2o.entity.GoodsSummary;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
-import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
-import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
@@ -44,9 +42,6 @@ public class AppFavoritesController extends BaseAppController {
     @Resource
     private FavoritesService favoritesService;
 
-    @Resource
-    private BrandService brandService;
-
     /**
      * 收藏夹商品列表请求类
      * @param favoritesListRequest
@@ -60,19 +55,33 @@ public class AppFavoritesController extends BaseAppController {
         log.debug(favoritesListRequest);
         FavoritesListResult result = new FavoritesListResult();
 
+//        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+//                new StringBuffer(" and n.name='lxfeng'"));
+//        HuiyuanInfo info= list2.get(0);
+        //获取用户信息
+         HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
+
         List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
-        List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
-        if(list.size()>0) {
+
+        List<Favorites>  list=(List<Favorites>)favoritesService.getListByWhere(new StringBuffer(" and n.member.huiYuan_id="+info.getHuiYuan_id()));
+
+        if(!ValidationUtil.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
+                Goods good=list.get(i).getGood();
                 GoodsSummary goodsSummary = new GoodsSummary();
-                goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
-                goodsSummary.setTitle(list.get(i).getName());
-                goodsSummary.setMainPicUrl(list.get(i).getImg());
-                goodsSummary.setPrice(list.get(i).getSalesMoney());
+                goodsSummary.setId(String.valueOf(good.getGoods_id()));
+                goodsSummary.setTitle(good.getName());
+                goodsSummary.setMainPicUrl(good.getDefaultImage());
+                goodsSummary.setPrice(good.getSalesMoney());
                 lists.add(goodsSummary);
             }
+            result.setGoodsSummaryList(lists);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("收藏夹商品列表请求失败");
         }
-        result.setGoodsSummaryList(lists);
         log.debug(result);
         return result;
     }
@@ -89,18 +98,17 @@ public class AppFavoritesController extends BaseAppController {
     public AddFavoritesResult add(@RequestBody AddFavoritesRequest  addFavoritesRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(addFavoritesRequest);
         AddFavoritesResult result = new AddFavoritesResult();
+//        List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+//                new StringBuffer(" and n.name='lxfeng'"));
+//        HuiyuanInfo info= list.get(0);
         //获取用户信息
-        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
-        if(!ValidationUtil.isEmpty(info)){
+        HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)) {
             result.setResultCode(NO_LOGIN);
             result.setMessage("未登录");
             return result;
-        }
-        String goodId=addFavoritesRequest.getGoodsId();//商品ID
-        if(info==null){
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("添加收藏夹失败");
-        }else {
+        } else {
+            String goodId = addFavoritesRequest.getGoodsId();//商品ID
             int coutn = favoritesService.getCountByWhere(new StringBuffer(" and n.type=0 and n.member.huiYuan_id=" + info.getHuiYuan_id() + " and n.good.goods_id=" + goodId));
             if (coutn == 0) {
                 Favorites f = new Favorites();
@@ -113,8 +121,8 @@ public class AppFavoritesController extends BaseAppController {
             }
             result.setResultCode(SUCCESS);
             result.setMessage("OK");
+            log.debug(result);
+            return result;
         }
-        log.debug(result);
-        return result;
     }
 }
