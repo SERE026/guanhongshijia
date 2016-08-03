@@ -119,6 +119,10 @@ public class GoodsSort {
 	@Column(name="LARGE_IMG")
 	private String largeimg;
 
+	@AccessType(value = "property")
+	@Column(name="APP_IMG")
+	private String appImg;
+
 
 	@AccessType(value = "property")
 	@Column(name="ADV_PIC")
@@ -318,8 +322,13 @@ public class GoodsSort {
 
 	public void setReveal(String reveal) {
 		this.reveal = reveal;
-	} 
-	
-	
+	}
 
+	public String getAppImg() {
+		return appImg;
+	}
+
+	public void setAppImg(String appImg) {
+		this.appImg = appImg;
+	}
 }
