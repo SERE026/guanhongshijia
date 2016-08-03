@@ -114,7 +114,8 @@ while (itr.hasNext()) {
 		String newFileName = df.format(new Date()) + "_" + new Random().nextInt(1000) + "." + fileExt;
 		try{
 			File uploadedFile = new File(savePath, newFileName);
-			FileUtil.setPermission(savePath + newFileName);
+//			FileUtil.setPermission(savePath);
+			FileUtil.setPermissionWithDir(savePath + newFileName);
 			item.write(uploadedFile);
 		}catch(Exception e){
 			out.println(getError("上传文件失败。"));
