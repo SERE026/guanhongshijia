@@ -331,15 +331,15 @@ public class GoodsController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, HttpServletResponse response,Goods info) {
 		try{
-			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
-			
-			if(merchants!=null){
-				info.setMerchants(merchants);
-			}else{
-				String shangjiaid=request.getParameter("shangjia_sel");
-				merchants=(ShangJiaInfo) shangJiaService.getObjById(shangjiaid);
-				info.setMerchants(merchants);
-			}
+//			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+//
+//			if(merchants!=null){
+//				info.setMerchants(merchants);
+//			}else{
+//				String shangjiaid=request.getParameter("shangjia_sel");
+//				merchants=(ShangJiaInfo) shangJiaService.getObjById(shangjiaid);
+//				info.setMerchants(merchants);
+//			}
 			// 设置商品标签
 			String biaoqianList = request.getParameter("biaoqianList");
 //			System.out.println("设置商品标签：" + biaoqianList);
