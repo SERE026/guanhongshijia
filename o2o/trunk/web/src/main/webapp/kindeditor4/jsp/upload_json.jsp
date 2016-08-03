@@ -29,10 +29,10 @@
  */
 
 //文件保存目录路径
-String savePath="d:/status/upload/bbs/";
+String savePath="/data/projects/upload/image/";
 
 //文件保存目录URL
-String saveUrl=request.getContextPath()+"/upload/bbs/";
+String saveUrl=request.getContextPath()+"/upload/image/";
 
 //定义允许上传的文件扩展名
 HashMap<String, String> extMap = new HashMap<String, String>();
