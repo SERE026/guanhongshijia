@@ -1,9 +1,6 @@
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
-import cn.com.dyninfo.o2o.communication.LoginRequest;
-import cn.com.dyninfo.o2o.communication.LoginResult;
-import cn.com.dyninfo.o2o.communication.StartupRequest;
-import cn.com.dyninfo.o2o.communication.StartupResult;
+import cn.com.dyninfo.o2o.communication.*;
 import cn.com.dyninfo.o2o.entity.GoodsSummary;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
@@ -58,7 +55,7 @@ public class AppSysController extends BaseAppController {
         }
 
         List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
-        if(list.size()>0) {
+        if(list!=null&&list.size()>0) {
             for (int i = 0; i < list.size(); i++) {
                 GoodsSummary goodsSummary = new GoodsSummary();
                 goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
@@ -76,6 +73,29 @@ public class AppSysController extends BaseAppController {
             result.setMessage("启动失败");
         }
 
+        log.debug(result);
+        return result;
+    }
+    /**
+     * 发送短信请求
+     * @param smsRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/sms")
+    public SmsResult sms(@RequestBody SmsRequest smsRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(smsRequest);
+        SmsResult result = new  SmsResult();
+        String mobileNo=smsRequest.getMobileNo();//接收短信的手机号码
+        int type=smsRequest.getType();//请求类型，1-找回登录密码；2-找回锁定密码
+
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+
+        result.setResultCode(NO_LOGIN);
+        result.setMessage("短信发送失败");
         log.debug(result);
         return result;
     }

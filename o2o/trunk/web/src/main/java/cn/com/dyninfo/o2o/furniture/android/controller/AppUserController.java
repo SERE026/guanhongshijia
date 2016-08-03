@@ -1,15 +1,23 @@
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
-import cn.com.dyninfo.o2o.communication.LoginRequest;
-import cn.com.dyninfo.o2o.communication.LoginResult;
+import cn.com.dyninfo.o2o.communication.*;
+import cn.com.dyninfo.o2o.entity.AgencyFeeItem;
+import cn.com.dyninfo.o2o.entity.Card;
+import cn.com.dyninfo.o2o.entity.Coupon;
+import cn.com.dyninfo.o2o.entity.Personal;
+import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
+import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.util.MD5Encoder;
-import cn.com.dyninfo.o2o.furniture.util.StringUtil;
+import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
+import cn.com.dyninfo.o2o.furniture.web.order.model.Order;
+import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -34,6 +43,18 @@ public class AppUserController extends BaseAppController {
 
     @Resource
     private AppLoginStatusService appLoginStatusService;
+
+    @Resource
+    private CouponMemberRelService couponMemberRelService;
+
+    @Resource
+    private OrderService orderService;
+
+    @Resource
+    private CouponService couponService;
+
+
+
 
 
     @ResponseBody
@@ -76,6 +97,278 @@ public class AppUserController extends BaseAppController {
             result.setMessage("用户名或密码错误");
         }
 
+        log.debug(result);
+        return result;
+    }
+
+    /**
+     * 找回锁定密码
+     * @param findPasswordRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/findLockPassword")
+    public FindPasswordResult findLockPassword(@RequestBody FindPasswordRequest findPasswordRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(findPasswordRequest);
+        FindPasswordResult result = new  FindPasswordResult();
+
+        String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
+        String validateCode=findPasswordRequest.getValidateCode();//校验码
+
+        List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+                new StringBuffer("n.phone="+findPasswordRequest.getMobileNo()));
+        if(list.size()>0){
+            HuiyuanInfo info= list.get(0);
+            if(validateCode.equals("")){  //判断校验码 是否正确
+                info.setPassword(newPassword);
+                huiyuanService.updateObj(info);
+                result.setResultCode(SUCCESS);
+                result.setMessage("OK");
+            }else {
+                result.setResultCode(NO_LOGIN);
+                result.setMessage("校验码不正确");
+            }
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("账号不存,无效的手机号码");
+        }
+        log.debug(result);
+        return result;
+    }
+    /**
+     * 找回登陆密码
+     * @param findPasswordRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/findLoginPassword")
+    public  FindPasswordResult findLoginPassword(@RequestBody  FindPasswordRequest   findPasswordRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(findPasswordRequest);
+        FindPasswordResult result = new  FindPasswordResult();
+
+        String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
+        String validateCode=findPasswordRequest.getValidateCode();//校验码
+        List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+                new StringBuffer("n.phone="+findPasswordRequest.getMobileNo()));
+        if(list.size()>0){
+            HuiyuanInfo info= list.get(0);
+            if(validateCode.equals("")){  //判断校验码 是否正确
+                info.setPassword(newPassword);
+                huiyuanService.updateObj(info);
+                result.setResultCode(SUCCESS);
+                result.setMessage("OK");
+            }else {
+                result.setResultCode(NO_LOGIN);
+                result.setMessage("校验码不正确");
+            }
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("账号不存,无效的手机号码");
+        }
+        log.debug(result);
+        return result;
+    }
+
+    /**
+     * 佣金查询
+     * @param queryAgencyFeeRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/queryAgencyFee")
+    public QueryAgencyFeeResult queryAgencyFee(@RequestBody  QueryAgencyFeeRequest   queryAgencyFeeRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(queryAgencyFeeRequest);
+        QueryAgencyFeeResult result = new  QueryAgencyFeeResult();
+        //获取用户信息
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+
+        List<AgencyFeeItem> lists=new ArrayList<AgencyFeeItem>();
+        Double recentMoney=0.00;
+        Double totalMoney=0.00;
+        List<Order> list =(List<Order>)orderService.getListByWhere(new StringBuffer(""));//+时间限制
+        if(list.size()>0){
+            for (int i = 0; i < list.size(); i++) {
+                AgencyFeeItem agency = new AgencyFeeItem();
+                agency.setId(String.valueOf(list.get(i).getOrder_id()));
+                agency.setDate(String.valueOf(list.get(i).getCreatTime()));//订单完成日期
+                agency.setOrderNo(list.get(i).getOrder_id());//订单号
+                agency.setPrice(list.get(i).getOrderPrice()); //商品总价（去除优惠券抵扣价格）
+                agency.setPercent(String.valueOf(list.get(i).getAgencyPercent()));//佣金比率
+                agency.setAmount(list.get(i).getAgencyFee()); //佣金金额
+                totalMoney+=list.get(i).getAgencyFee();
+                lists.add(agency);
+            }
+            result.setResultCode(SUCCESS);
+            result.setCurrentMoney(info.getMoney()); //总资产
+            result.setRecentMoney(0); //最近佣金
+            result.setTotalMoney(totalMoney); //累计佣金
+            result.setDataDate("");//数据截至时间
+            result.setAgencyFeeItemList(lists);//佣金明细
+            result.setMessage("OK");
+        }else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("佣金查询失败");
+        }
+        log.debug(result);
+        return result;
+    }
+
+    /**
+     * 银行卡查询
+     * @param queryCardRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/bankCard")
+    public  QueryCardResult bankCard(@RequestBody  QueryCardRequest   queryCardRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(queryCardRequest);
+        QueryCardResult result = new  QueryCardResult();
+
+        List<Card>  lists=new ArrayList<Card>();
+        List<Card> list =(List<Card>)couponService.getListByWhere(new StringBuffer(""));
+        if(list.size()>0){
+            for (int i = 0; i < list.size(); i++) {
+                Card card = new Card();
+                Card c=list.get(i);
+                card.setId(String.valueOf(c.getId()));
+//                card.setCardNo(c.getName());
+//                card.setBankName(c.getBeginTime());
+//                card.setStatus(c.getEndTime());
+                card.setType(c.getType());
+                lists.add(card);
+            }
+            result.setCardList(lists);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("银行卡查询失败");
+        }
+        log.debug(result);
+        return result;
+    }
+
+    /**
+     * 优惠券查询
+     * @param queryCouponRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/coupon")
+    public  QueryCouponResult coupon(@RequestBody  QueryCouponRequest   queryCouponRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(queryCouponRequest);
+        QueryCouponResult result = new  QueryCouponResult();
+        //获取用户信息
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if(!ValidationUtil.isEmpty(info)){
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("未登录");
+            return result;
+        }
+        List<Coupon>  lists=new ArrayList<Coupon>();
+        // List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon> list =(List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon>)couponService.getListByWhere(new StringBuffer(" and n."));
+        List list= couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+info.getHuiYuan_id()+" order by n.coupon.endTime asc"));
+
+        if(list.size()>0) {
+            for (int i = 0; i < list.size(); i++) {
+                CouponMemberRel c=(CouponMemberRel)list.get(i);
+
+                Coupon coupon = new Coupon();
+                coupon.setId(String.valueOf(c.getId()));
+//                coupon.setName(c.getName());
+//                coupon.setBeginTime(c.getBeginTime());
+//                coupon.setEndTime(c.getEndTime());
+//                coupon.setType(c.getType());
+//                coupon.setReduceValue(c.getReduceValue());
+//                coupon.setDiscountValue(c.getDiscountValue());
+//                coupon.setMaxAmount(c.getMaxAmouont());
+//                coupon.setConstraintValue(c.getConstraintValue());
+//                coupon.setSameUse(c.getSameUse());
+                lists.add(coupon);
+            }
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+            result.setCouponList(lists);
+            result.setPageNo(1);
+            result.setTotalPage(2);
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("优惠券查询失败");
+        }
+        log.debug(result);
+        return result;
+    }
+
+    /**
+     * 个人信息查询
+     * @param queryPersonalRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/personal")
+    public  QueryPersonalResult personal(@RequestBody  QueryPersonalRequest   queryPersonalRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(queryPersonalRequest);
+        QueryPersonalResult result = new  QueryPersonalResult();
+        //获取用户信息
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if(!ValidationUtil.isEmpty(info)){
+            Personal personal=new Personal();
+            personal.setNickName(info.getUserName());//昵称
+            personal.setRealName(info.getNickname());//真实姓名
+            personal.setId(String.valueOf(info.getHuiYuan_id())); //会员实体是 int
+            personal.setMobileNo(info.getPhone());
+            personal.setEmail(info.getEmail());
+            personal.setBirthday(info.getBirthday());
+            personal.setPhoneNo(info.getTel());
+            personal.setAddress(info.getAddress());
+
+            result.setPersonal(personal);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("个人信息查询失败");
+        }
+        log.debug(result);
+        return result;
+    }
+
+    /**
+     * 设置锁定密码请求
+     * @param setLockPasswordRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/lockPassword")
+    public SetLockPasswordResult lockPassword(@RequestBody SetLockPasswordRequest setLockPasswordRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(setLockPasswordRequest);
+        SetLockPasswordResult result = new  SetLockPasswordResult();
+        String password= MD5Encoder.encodePassword(setLockPasswordRequest.getPassword(), Context.PASSWORDY);
+        //获取用户信息
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if(!ValidationUtil.isEmpty(info)){
+            info.setPassword(password);
+            huiyuanService.updateObj(info);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("设置锁定密码失败");
+        }
         log.debug(result);
         return result;
     }
