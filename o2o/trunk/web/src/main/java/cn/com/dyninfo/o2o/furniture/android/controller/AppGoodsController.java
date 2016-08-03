@@ -151,7 +151,7 @@ public class AppGoodsController extends BaseAppController {
 
         List<Goods> list=( List<Goods> )goodsService.getListByWhere(new StringBuffer(""));
         for (int i = 0; i < list.size(); i++) {
-            Goods goods=(Goods)list.get(i);
+            Goods goods=list.get(i);
             GoodsDetail detail= new GoodsDetail();
             detail.setName(goods.getName());
             detail.setId(String.valueOf(goods.getGoods_id()));

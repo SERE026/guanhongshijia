@@ -10,6 +10,7 @@ import cn.com.dyninfo.o2o.entity.GoodsDetail;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
+import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.order.model.CarsBox;
 import cn.com.dyninfo.o2o.furniture.web.order.service.CarsService;
@@ -51,13 +52,10 @@ public class AppCartController extends BaseAppController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("/cart/add")
+    @RequestMapping("/add")
     public AddCartResult add(@RequestBody AddCartRequest  addCartRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(addCartRequest);
         AddCartResult result = new AddCartResult();
-
-
-
 
 
         result.setResultCode(SUCCESS);
@@ -77,20 +75,24 @@ public class AppCartController extends BaseAppController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("/cart/list")
+    @RequestMapping("/list")
     public CartListResult list(@RequestBody CartListRequest  cartListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(cartListRequest);
         CartListResult result = new CartListResult();
+        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+                new StringBuffer(" and n.name='lxfeng'"));
+        HuiyuanInfo info= list2.get(0);
+        //获取用户信息
+        // HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
         Cart cart=new Cart();
         List<CartItem> itemList=new ArrayList<CartItem>();
 
-        List<CarsBox> list =(List<CarsBox>)carsService.getListByWhere(new StringBuffer(""));
-        if(list.size()>0){
+        List<CarsBox> list =(List<CarsBox>)carsService.getListByWhere(new StringBuffer(" n.member="+info.getHuiYuan_id()));
+        if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 CartItem cartItem = new CartItem();
-                cartItem.setId(String.valueOf(list.get(i)));
+                cartItem.setId(list.get(i).getCars_box_id());
                 cartItem.setCount(list.get(i).getNum()); //数量
-
                 GoodsDetail goodsDetail = new GoodsDetail();
                 goodsDetail.setName(list.get(i).getGoods().getName());//商品名称
                 //goodsDetail.setSpecList(); //参数列表
@@ -108,11 +110,8 @@ public class AppCartController extends BaseAppController {
                 }
                 goodsDetail.setImageList(imageList); //图片列表
                 goodsDetail.setGoodsDesc(list.get(i).getGoods().getDescription()); //商品详情，html格式
-
-
               //  cartItem.setSpecValue();//商品参数值，内部已关联了对应的商品参数
                 cartItem.setGoodsDetail(goodsDetail);  //商品信息
-
                 itemList.add(cartItem);
             }
             cart.setItemList(itemList);
