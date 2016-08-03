@@ -522,26 +522,26 @@ public class GoodsController {
 		StringBuffer where = new StringBuffer();
 		where.append(" and n.status='0'");
 		list = (List<PageModule>)pageModuleService.getListByWhere(where);
-		// 只保留部分标签
-		for (int i=0; i<list.size(); i++) {
-			if (list.get(i).getPageModule_id() == 28) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 44) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 45) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 46) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 47) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 48) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 49) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 50) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 51) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 52) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 53) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 40) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 56) list2.add(list.get(i));
-			if (list.get(i).getPageModule_id() == 57) list2.add(list.get(i));
-			 
-		}
+//		// 只保留部分标签
+//		for (int i=0; i<list.size(); i++) {
+//			if (list.get(i).getPageModule_id() == 28) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 44) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 45) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 46) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 47) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 48) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 49) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 50) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 51) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 52) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 53) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 40) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 56) list2.add(list.get(i));
+//			if (list.get(i).getPageModule_id() == 57) list2.add(list.get(i));
+//
+//		}
 		
-		return list2;
+		return list;
 	}
 	
 	
