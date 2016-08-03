@@ -78,8 +78,8 @@ public class HttpUtils {
      */
     public static void main(String[] args) {
         LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setLoginName("userName1");
-        loginRequest.setPassword("password1");
+        loginRequest.setLoginName("lxfeng");
+        loginRequest.setPassword("123123");
         loginRequest.setDeviceId("deviceId1");
         //模拟登录-同步请求
         try {
