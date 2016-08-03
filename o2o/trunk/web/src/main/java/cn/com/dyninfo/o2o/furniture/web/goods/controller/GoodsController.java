@@ -28,6 +28,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +61,8 @@ import cn.com.dyninfo.o2o.furniture.web.wuliu.service.DlytypeService;
 @Controller
 @RequestMapping("/manage/goods")
 public class GoodsController {
+
+	private Logger log = Logger.getLogger(GoodsController.class);
 
 	@Resource
 	private DlytypeService dlytypeService;
@@ -284,6 +287,7 @@ public class GoodsController {
 		}
 		
 		// 放入所有标签
+		log.error("Get Label...");
 		List<PageModule> biaoqianList = getAllBiaoqians();
 		mav.addObject("biaoqianList", biaoqianList);
 		
@@ -522,6 +526,7 @@ public class GoodsController {
 		StringBuffer where = new StringBuffer();
 		where.append(" and n.status='0'");
 		list = (List<PageModule>)pageModuleService.getListByWhere(where);
+		log.error("List size: " + list.size());
 //		// 只保留部分标签
 //		for (int i=0; i<list.size(); i++) {
 //			if (list.get(i).getPageModule_id() == 28) list2.add(list.get(i));
