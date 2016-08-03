@@ -10,11 +10,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.RelativeLayout;
 
 import com.open.androidtvwidget.bridge.EffectNoDrawBridge;
 import com.open.androidtvwidget.bridge.OpenEffectBridge;
 import com.open.androidtvwidget.view.MainUpView;
-import com.open.androidtvwidget.view.RelativeMainLayout;
 import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
 import com.wckj.gfsj.Activity.MainMoreActivity;
 import com.wckj.gfsj.R;
@@ -43,7 +43,7 @@ public class Main_classification_fragment extends Fragment implements View.OnCli
 //        mMainUpView.setShadowResource(R.drawable.item_shadow); // 设置移动边框的阴影.
         mMainUpView.setDrawUpRectPadding(new Rect(13, 13, 12, 12));
 
-        RelativeMainLayout rlFrame = (RelativeMainLayout) view.findViewById(R.id.rl_frame);
+        RelativeLayout rlFrame = (RelativeLayout) view.findViewById(R.id.rl_frame);
         rlFrame.getViewTreeObserver().addOnGlobalFocusChangeListener(new ViewTreeObserver.OnGlobalFocusChangeListener() {
             @Override
             public void onGlobalFocusChanged(final View oldFocus, final View newFocus) {
