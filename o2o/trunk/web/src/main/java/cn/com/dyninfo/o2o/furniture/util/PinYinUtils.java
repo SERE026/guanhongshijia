@@ -64,7 +64,7 @@ public class PinYinUtils {
                 pybf.append(arr[i]);
             }
         }
-        return pybf.toString().replaceAll("\\W", "").trim();
+        return pybf.toString().replaceAll("\\W", "").trim().toUpperCase();
     }
     /**
      * 获取汉字串拼音，英文字符不变
