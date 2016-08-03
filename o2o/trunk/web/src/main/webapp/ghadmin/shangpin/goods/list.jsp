@@ -88,7 +88,7 @@
 							</td>
 						</c:if>
 						<!-- 如果是代理商登录，显示添加操作 -->
-						<%--<c:if test="${role==2}">--%>
+						<c:if test="${role==2}">
 							<td class="tab2_tou">
 								<a href="<%=request.getContextPath()%>/html/manage/goods/disAdd">
 									<img src="<%=request.getContextPath()%>/img/biao_07.gif" border="0" />
@@ -99,7 +99,7 @@
 									<img src="<%=request.getContextPath()%>/img/biao_09.gif" border="0" />
 								</a>
 							</td>
-						<%--</c:if>--%>
+						</c:if>
 						
 						<td class="tab2_tou">
 							<a href="<%=request.getContextPath()%>/html/manage/goods/list">

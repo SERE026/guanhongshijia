@@ -125,6 +125,9 @@ public class Page implements IPage{
 		try{
 			Context.freeMakercfg.setServletContextForTemplateLoading(Context.context, Context.tempPath);
 			Template t=Context.freeMakercfg.getTemplate(pageName);
+			if (request.getSession().getAttribute(Context.SESSION_MEMBER) != null) {
+				data.put(Context.SESSION_MEMBER, request.getSession().getAttribute(Context.SESSION_MEMBER));
+			}
 			t.process(data, response.getWriter());
 		}catch(Exception e){
 			ErrorMsg.sendMsg(e, request);

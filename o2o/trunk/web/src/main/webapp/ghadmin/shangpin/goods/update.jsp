@@ -283,7 +283,7 @@ $(function(){
 								<span style="color: red;">*</span>商品说明：
 							</td>
 							<td >
-								<input type="text" name="name" dataType="noNull" value="${info.shortDesc }"/>
+								<input type="text" name="shortDesc" dataType="noNull" value="${info.shortDesc }"/>
 							</td>
 						</tr>
 						<tr>

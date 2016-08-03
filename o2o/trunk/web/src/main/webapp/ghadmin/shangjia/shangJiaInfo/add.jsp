@@ -171,7 +171,7 @@ $(function(){
 								</select>
 							</td>
 						</tr>
-						<%--<tr>
+						<tr>
 							<td class="discription" style="width: 150px;">
 								<span style="color: red;">*</span>开户银行：
 							</td>
@@ -185,7 +185,7 @@ $(function(){
 							<td>
 								&nbsp;<input type="text" id="bankCardAccount" name="bankCardAccount" dataType="int"  class="noNull" msg="银行账号不能为空!"/>
 							</td>
-						</tr>--%>
+						</tr>
 			</table>
 		</td>
 	</tr>

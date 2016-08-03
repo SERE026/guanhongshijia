@@ -86,10 +86,7 @@ public abstract class Widget implements IWidget {
 		HttpResponse=response;
 		result=new HashMap<String,Object>();
 		result.putAll(Context.freeMakerData);
-		if (request.getSession().getAttribute(Context.SESSION_MEMBER) != null) {
-			result.put(Context.SESSION_MEMBER, request.getSession().getAttribute(Context.SESSION_MEMBER));
-		}
-		
+
 		
 		if(pamtr.get("custom_page")!=null)
 			pageName=(String) pamtr.get("custom_page");
