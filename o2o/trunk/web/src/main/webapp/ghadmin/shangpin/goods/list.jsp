@@ -230,12 +230,12 @@
 										<fmt:message key="button.show" /></a>&nbsp;
 								
 								<!-- 代理商编辑、删除 -->
-								<c:if test="${role==2}">
+								<%--<c:if test="${role==2}">--%>
 									<a href="<%=request.getContextPath()%>/html/manage/goods/${Info.goods_id}/${Info.merchants.shangjia_id}/disUpdate?pageNo=${PAGE_INFO.pageNo }" class="zhu2">
 										<fmt:message key="button.update" /></a>&nbsp;
 									<a href="javascript:delUrl('<%=request.getContextPath()%>/html/manage/goods/${Info.goods_id}/del')" class="zhu2">
 										<fmt:message key="button.del" /></a>
-								</c:if>
+								<%--</c:if>--%>
 								<!-- 商家查看、编辑删除 -->
 								<c:if test="${not empty merchants}">
 									<a href="<%=request.getContextPath()%>/html/manage/goods/${Info.goods_id}/${Info.merchants.shangjia_id}/disUpdate?pageNo=${PAGE_INFO.pageNo }" class="zhu2">
