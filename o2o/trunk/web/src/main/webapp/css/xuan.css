@@ -398,7 +398,7 @@ img{border:0px;}
 
 .xsp_dianming{ width:220px; height:20px;margin-left:55px; margin-top:3px;text-align:right;line-height:20px; font-size:12px; color:#575757; font-family:"微软雅黑"}
 
-.fenye{ width:961px; height:auto; float:left; margin-top:20px; margin-left:8px}
+.fenye{ width:961px; height:auto; float:right; margin-top:20px; margin-left:8px}
 .fenye3{ width:961px; height:auto; float:right; margin-top:20px;}
 .fenye2{ width:770px; height:auto; float:left; margin-top:20px; margin-left:96px;}
 *html .fenye2{ width:770px; height:auto; float:left; margin-top:20px; margin-left:55px;}
@@ -411,7 +411,8 @@ img{border:0px;}
 
 .fenye_shanxia{ width:72px; height:30px; border:#dfdfdf solid 1px; text-align:center; line-height:30px; margin-right:20px; float:left; overflow:hidden}
 .fenye_shanxia a{ width:72px; height:30px; display:block;line-height: 30px;}
-.fenye_shu{ width:30px; height:30px; border:#dfdfdf solid 1px; text-align:center; line-height:30px;float:left; background-color:#f0125b; overflow:hidden; margin-left:10px; color:#ffffff; font-size:14px}
+.fenye_shu{ width:30px; height:30px; border:#dfdfdf solid 1px; text-align:center; line-height:30px;float:left; background-color:#572a27; overflow:hidden; margin-left:10px; color:#ffffff; font-size:14px}
+.fenye_shu{ width:30px; height:30px; border:#dfdfdf solid 1px; text-align:center; line-height:30px;float:left; background-color:#572a27; overflow:hidden; margin-left:10px; color:#ffffff; font-size:14px}
 .fenye_shu a{ width:30px; height:30px; display:block}
 .fenye_diandian{ width:30px; height:30px; text-align:center; line-height:30px;float:left;overflow:hidden; margin-left:10px;font-size:14px; background-color:#ffffff; color:#999999; margin-right:20px}
 .fenye_yeshu{ width:55px; height:30px; text-align:center; line-height:30px;float:left;overflow:hidden; margin-left:10px;font-size:12px; background-color:#ffffff; color:#7a7a7a;}
@@ -419,7 +420,7 @@ img{border:0px;}
 .fenye_tiaok{ width:55px; height:30px; float:left;border:#dfdfdf solid 1px; line-height: 30px;}
 .fenye_tiaok_shu{ width:53px; height:30px; border:#ffffff solid 0px; line-height:30px; text-align:center;color:#7a7a7a;}
 .fenye_go{ width:40px; height:30px; overflow:hidden; float:left}
-.fenye_go img{width: 40px;height: 30px;line-height: 30px;}
+.fenye_go a{width: 40px;height: 30px;line-height: 30px;text-align: center;display: inline-block;color:white;font-weight: 600;}
 
 /*商品详细图*/
 .spdetail{ width:1200px; height:auto; width:auto}
@@ -743,7 +744,7 @@ img{border:0px;}
 .gr_st_zong_k_caozuo{width:32px; height:16px;overflow:hidden; float:left;background-image:url(../img/scxan1_03.gif); background-repeat:no-repeat}
 .gr_st_zong_k_caozuo a{width:32px; height:16px; display:block}
 
-.xiazhan{width:969px; height:auto; margin-top:50px}
+.xiazhan{width:969px; height:auto; margin-top:50px;float: right;}
 .xiazhan_titi{width:952px; height:35px; line-height:35px; border-bottom:#dfdfdf solid 1px; margin-left:9px; color:#f0125b; font-size:14px; font-weight:bold; padding-left:9px}
 .xiazhan_kuai{width:952px;height:auto; margin-left:9px;}
 .xiazhan_kuai_jianleft{width:30px;height:236px; float:left}    
@@ -1360,8 +1361,8 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
   
 .chonzhi_zi{width:auto; height:34px;margin-left:9px; line-height:34px; color:#333333; font-weight:bold; float:left} 
 .chonzhi_shu{ width:150px; height:20px; border:#CCCCCC solid 1px; float:left; margin:7px 0 0 0; overflow:hidden}
-.chonzhi_an{ width:64px; height:22px; overflow:hidden;margin:5px 0 0 41px;}
-  
+.chonzhi_an{  overflow:hidden;margin:10px 0 0 43px;}
+  .chonzhi_an a{color: white;padding: 3px 10px;display: inline-block;}
 .huihuan{ width:1200px; height:auto; margin:auto}
 .huihuan_top{ width:1200px; height:auto; margin-top:25px} 
 .hftaitou_01{ width:1200px; height:35px; background-image:url(../img/xintaitou_05.gif); background-repeat:repeat-x;overflow:hidden}  
@@ -1706,7 +1707,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 
 
 
-.STYLE11_2{color: #f0125b; font-size:30px; font-family:"微软雅黑"; font-weight:bold}
+.STYLE11_2{color: #572a27; font-size:30px; font-family:"微软雅黑"; font-weight:bold}
 .STYLE11_3{color: #8c8c8c; font-size:14px; font-family:"微软雅黑" ;font-weight:normal; text-decoration:line-through}
 .STYLE11_4{color: #f0125b; font-size:20px; font-family:"微软雅黑";}
 .STYLE11_5{color: #8c8c8c; font-size:14px; font-family:"微软雅黑" ;font-weight:normal;}
@@ -1818,7 +1819,7 @@ a.zhu18:hover{line-height:20px; font-size:12px; color:#f0125b;font-family:"微�
 
 a.zhu19:link{color:#999999;border:#ffffff solid 1px; background-color:#ffffff; font-size:14px}
 a.zhu19:visited{color:#999999;border:#ffffff solid 1px;background-color:#ffffff;font-size:14px}
-a.zhu19:hover{color:#ffffff;border:#f0125b solid 1px;background-color:#f0125b;font-size:14px}
+a.zhu19:hover{color:#ffffff;border:#572a27 solid 1px;background-color:#572a27;font-size:14px}
 
 
 a.zhu20:link{background-image:url(../img/spdet_xb.gif); background-repeat:no-repeat;}

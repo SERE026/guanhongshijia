@@ -18,7 +18,7 @@
 <div style="background-color: #f0ecec;">
     <div class="head-top">
         <div>
-            <i></i><span class="current_position">深圳</span>&nbsp;&nbsp;&nbsp;
+            <i></i><span class="current_position" style="margin-right: 10px;">深圳</span>
             <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
         <#if HUIYUANIFNO?exists>
             ${HUIYUANIFNO.userName}
@@ -301,7 +301,7 @@
                 <li><a href="${rc.contextPath}/help-27.html">全屋高端定制</a></li>
             </ul>
 
-   <!--       <div class="three-level">
+         <div class="three-level">
                 <h4><span>卧室家具</span>&nbsp;>></h4>
                 <span>卧室1279件商品>></span>
                 <ul>
@@ -321,7 +321,7 @@
                 <div>
                     <img width="370" height="160" src="../img/10.png" />
                 </div>
-            </div>-->
+            </div>
         </div>
     </div>
 </div>

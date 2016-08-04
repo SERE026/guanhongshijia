@@ -176,10 +176,10 @@ label.atg_store_pickerLabel{
 .yt_product_tab li{float: left;margin-left: -1px;height: 48px;line-height: 48px;display: block;cursor: pointer;}
 .yt_product_tab a{text-decoration: none;border-right: 1px dotted #d2d2d2;color: #333;padding: 0 20px;line-height: 48px;}
 .yt_product_tab a em{color: #35a;margin: 0 3px;}
-.yt_product_tab .ya_tab_item_selected{position: relative;border-top: 2px solid #b00000;height: 47px;margin: -1px 0 0 -1px;z-index: 1;padding: 0;}
-.yt_product_tab .ya_tab_item_selected:after{content: ' ';display: block;border-width: 5px;border-style: solid;border-color: #b00000 transparent transparent;
+.yt_product_tab .ya_tab_item_selected{position: relative;border-top: 2px solid #572a27;height: 47px;margin: -1px 0 0 -1px;z-index: 1;padding: 0;}
+.yt_product_tab .ya_tab_item_selected:after{content: ' ';display: block;border-width: 5px;border-style: solid;border-color: #572a27 transparent transparent;
     width: 0;height: 0;font-family: arial;position: absolute;top: -1px;left: 50%;margin-left: -5px;}
-.yt_product_tab .ya_tab_item_selected a{font-weight: 700;display: block;height: 100%;line-height: 46px;color: #b10000;border-left: 1px solid #cfbfb1;border-right: 1px solid #cfbfb1;}
+.yt_product_tab .ya_tab_item_selected a{font-weight: 700;display: block;height: 100%;line-height: 46px;color: #572a27;border-left: 1px solid #cfbfb1;border-right: 1px solid #cfbfb1;}
 .yt_product_wrap .tab_content_item {
 	border:1px solid #dfdfdf;
 	border-top:none;

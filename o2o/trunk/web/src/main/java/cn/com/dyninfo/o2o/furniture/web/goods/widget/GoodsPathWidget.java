@@ -45,7 +45,7 @@ public class GoodsPathWidget extends AbstractGoodsWidget {
 	@Override
 	public void display(Map pamtr) {
 		Goods goods=(Goods) pamtr.get("good");
-		String path=" > <span class=\"STYLE10\">"+goods.getName()+"</span>";
+		String path=" > <span class=\"mainColor STYLE10\">"+goods.getName()+"</span>";
 		path = "" + getPath(goods.getGoodsSort())+path;
 		this.putData("path", path);
 	}

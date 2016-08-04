@@ -35,7 +35,7 @@ ${widget_goods_image}
 <div class="spdetail_right_jia">
 
 <span class="STYLE11_5">雅堂价：</span>
-<span class="STYLE11_4">¥</span>
+<span class="STYLE11_4 mainColor">¥</span>
 <span class="STYLE11_2 salesMoney">${good.goodMoney}</span>
 &nbsp;&nbsp;<span class="STYLE11_3">成交记录${good.num}件</span>
 </div>
@@ -64,9 +64,9 @@ ${widget_goods_attr}
 
 <div class="clear">&nbsp;</div>
 <div class="spgr">
-<div class="spgr_an01 addBuy" dataValue="${good.goods_id}"><a href="#">直接购买</a></div>
-<div class="spgr_an01 addCars" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#">加入购物车</a></div>
-	<div class="spgr_an01 addYun" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#">音视频云导购</a></div>
+<div class="spgr_an01 addBuy mainBack" dataValue="${good.goods_id}"><a href="#">直接购买</a></div>
+<div class="spgr_an01 addCars mainBack" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#">加入购物车</a></div>
+	<div class="spgr_an01 addYun mainBack" dataValue="${good.goods_id}" style="margin-left:5px"><a href="#">音视频云导购</a></div>
 
 	<#--<div class="spgr_an02" g="${good.goods_id}">
 <a href="javascript:;" class="zhu21 addFav">收藏（${favoritesNum}）</a></div>
@@ -215,11 +215,11 @@ ${widget_share}
 					<a href="javascript:void(0)">商品详情</a>
 				</li>
 				<li class="yt_product_tabObj">
-					<a href="javascript:void(0)">累计评价<em style="color: red; font-size: 14px; font-weight: bold;" id="cumulativeEvaluation">${num}</em></a>
+					<a href="javascript:void(0)">累计评价<em style="color: #572a27; font-size: 14px; font-weight: bold;" id="cumulativeEvaluation">${num}</em></a>
 				</li>
 				<li class="yt_product_tabObj">
 					<!-- style="display:none;" -->
-					<a href="javascript:void(0)">成交记录<label id="product_transaction_count_two" style="color: red; font-size: 14px; font-weight: bold;">${good.num}</label>
+					<a href="javascript:void(0)">成交记录<em id="product_transaction_count_two" style="color: #572a27; font-size: 14px; font-weight: bold;">${good.num}</em>
 					</a>
 				</li>
 				<li class="yt_product_tabObj">

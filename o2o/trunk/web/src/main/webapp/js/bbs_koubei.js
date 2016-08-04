@@ -100,7 +100,7 @@ page=function(obj,box,widget){
 			_html+='<div class="fenye_qu">去第</div>';
 			_html+='<div class="fenye_tiaok gotoUrl"><input name="" type="text" class="fenye_tiaok_shu"/></div>';
 			_html+='<div class="fenye_qu">页</div>';
-			_html+='<div class="fenye_go gotoUrlBtn"><a href="javascript:;"><img src="img/sp_list_31.gif" border="0" /></a></div>';
+			_html+='<div class="fenye_go gotoUrlBtn"><a CLASS="mainBack" href="javascript:;">GO</a></div>';
 			_page.currentObj.html(_html);
 			_page.event();
 		},
