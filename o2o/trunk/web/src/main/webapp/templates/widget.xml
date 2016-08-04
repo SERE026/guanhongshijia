@@ -463,8 +463,8 @@
 		</widget>
 	</page>
 	<page id="/GoodBoard.html">
-		<widget id="good_sort">
-			<widgetType>good_sort</widgetType>
+		<widget id="good_board">
+			<widgetType>good_board</widgetType>
 		</widget>
 		<widget id="list_sort_z">
 			<widgetType>list_sort</widgetType>
