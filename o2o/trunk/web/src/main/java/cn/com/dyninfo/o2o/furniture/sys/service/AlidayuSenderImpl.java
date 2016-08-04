@@ -19,6 +19,7 @@ import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
 import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
 import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
+import org.apache.commons.collections.bag.SynchronizedSortedBag;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,7 +79,8 @@ public class AlidayuSenderImpl implements SmsSender,InitializingBean {
             }
             logger.debug("Alidayu return message:" + rsp.getBody());
             if (rsp.getResult() != null) {
-                return "0".equals(rsp.getResult().getErrCode());
+				System.out.println("getResult：" + rsp.getResult().getErrCode());
+				return "0".equals(rsp.getResult().getErrCode());
             }
 		}
 		return false;

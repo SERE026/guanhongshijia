@@ -24,6 +24,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
+import cn.com.dyninfo.o2o.furniture.sys.service.SmsSender;
 import org.springframework.stereotype.Component;
 
 import cn.com.dyninfo.o2o.furniture.util.ForwordTool;
@@ -68,6 +69,10 @@ public class LoginBar extends Widget{
 	private SendMessageService sendMessageService;
 	@Resource
 	private SMSLogService smsLogService;
+
+	@Resource
+	private SmsSender smsSender;
+
 
 	@Override
 	public void display(Map pamtr) {
@@ -571,7 +576,15 @@ public class LoginBar extends Widget{
 		System.out.println("验证码是："+regCode);
 		int success = -1;
 		try {
-			success = SendDx.sendSMS(phone,"您正在进行【观红世家】手机验证，验证码是" + regCode + "，若非本人操作，请忽略【观红世家】","");
+			String[] par = {phone, regCode};
+			boolean flag=smsSender.sendSmsWithTemplate(phone, "VCODE",par);
+			if (flag){
+				success=0;
+			}
+			System.out.println("flag是："+flag);
+			//request.getSession().setAttribute("VCODE", "123456");
+
+			//success = SendDx.sendSMS(phone,"您正在进行【观红世家】手机验证，验证码是" + regCode + "，若非本人操作，请忽略【观红世家】","");
 		} catch (Exception e) {
 			System.out.println("短信发送失败！");
 			e.printStackTrace();
