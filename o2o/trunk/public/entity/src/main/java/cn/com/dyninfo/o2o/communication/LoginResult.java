@@ -17,6 +17,16 @@ public class LoginResult extends BaseResult {
 
     //真实姓名
     private String realName;
+    //设备识别码
+    private String deviceId;
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
 
     public String getToken() {
         return token;
