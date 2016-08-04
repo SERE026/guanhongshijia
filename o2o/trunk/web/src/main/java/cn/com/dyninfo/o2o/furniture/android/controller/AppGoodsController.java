@@ -2,6 +2,7 @@ package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
 import cn.com.dyninfo.o2o.entity.*;
+import cn.com.dyninfo.o2o.entity.Order;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
@@ -13,6 +14,7 @@ import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
+import cn.com.dyninfo.o2o.furniture.web.order.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/7/29.
@@ -140,14 +143,13 @@ public class AppGoodsController extends BaseAppController {
     public LoopGoodsListResult loop(@RequestBody LoopGoodsListRequest loopGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(loopGoodsListRequest);
         LoopGoodsListResult result = new LoopGoodsListResult();
-//        PageInfo page=new PageInfo();
-//        page.setPageNo(1);
-//        page.setPageSize(10);
-
+        PageInfo page=new PageInfo();
+        page.setPageNo(1);
+        page.setPageSize(10);
         List<String> imageList=new ArrayList<String>();
         List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
-
-        List<Goods> list=( List<Goods> )goodsService.getListByWhere(new StringBuffer(""));
+        Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
+        List<Goods> list =(List<Goods>)map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < 11; i++) {
                 Goods goods=list.get(i);
