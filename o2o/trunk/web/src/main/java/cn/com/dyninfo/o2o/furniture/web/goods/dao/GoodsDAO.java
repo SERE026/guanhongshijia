@@ -59,7 +59,12 @@ public class GoodsDAO extends BaseDAO{
 		this.table="Goods";
 	}
      public Object getObjById(String goods_id, String merchant_id) {
-    	 List list = this.getListByWhere(new StringBuffer().append(" and n.goods_id=" + goods_id+"  and n.merchants.shangjia_id="+merchant_id ));
+		 List list;
+		 if (merchant_id == null) {
+			 list = this.getListByWhere(new StringBuffer().append(" and n.goods_id=" + goods_id));
+		 } else {
+			 list = this.getListByWhere(new StringBuffer().append(" and n.goods_id=" + goods_id+"  and n.merchants.shangjia_id="+merchant_id ));
+		 }
   		if (list.size() > 0)
   			return list.get(0);
   		else
