@@ -80,6 +80,7 @@ public class AppUserController extends BaseAppController {
             if(password.equals(info.getPassword())){
                 result.setResultCode(SUCCESS);
                 result.setMessage("OK");
+                result.setDeviceId(loginRequest.getDeviceId());
                 result.setLoginName(info.getName());
                 result.setRealName(info.getNickname());
                 result.setUserId(String.valueOf(info.getHuiYuan_id())); //会员实体是 int

@@ -25,6 +25,7 @@ import cn.com.dyninfo.o2o.furniture.admin.service.IBaseService;
 import cn.com.dyninfo.o2o.furniture.web.order.model.Trade;
 
 public interface OrderService extends IBaseService{
+	public List getOrderConfirm(String memberId);
 	public List getOrderConfirm(String memberId,String carId[]);
 	public Map getDistribution(String area_id,String s_ds[]);
 	public List getOrderConfirm(HttpServletRequest request); 

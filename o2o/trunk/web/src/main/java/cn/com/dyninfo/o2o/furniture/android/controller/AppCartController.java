@@ -87,7 +87,7 @@ public class AppCartController extends BaseAppController {
         Cart cart=new Cart();
         List<CartItem> itemList=new ArrayList<CartItem>();
 
-        List<CarsBox> list =(List<CarsBox>)carsService.getListByWhere(new StringBuffer(" n.member="+info.getHuiYuan_id()));
+        List<CarsBox> list =(List<CarsBox>)orderService.getOrderConfirm(String.valueOf(info.getHuiYuan_id()));
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 CartItem cartItem = new CartItem();

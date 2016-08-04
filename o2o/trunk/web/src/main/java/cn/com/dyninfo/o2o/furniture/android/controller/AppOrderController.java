@@ -1,14 +1,13 @@
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
-import cn.com.dyninfo.o2o.communication.CreateOrderRequest;
-import cn.com.dyninfo.o2o.communication.CreateOrderResult;
-import cn.com.dyninfo.o2o.communication.EvalOrderRequest;
-import cn.com.dyninfo.o2o.communication.EvalOrderResult;
+import cn.com.dyninfo.o2o.communication.*;
 import cn.com.dyninfo.o2o.entity.CartItem;
 import cn.com.dyninfo.o2o.entity.Coupon;
 import cn.com.dyninfo.o2o.entity.Order;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
+import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
+import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
 import org.springframework.stereotype.Controller;
@@ -127,6 +126,42 @@ public class AppOrderController extends BaseAppController {
         }else{
             result.setResultCode(NO_LOGIN);
             result.setMessage("评价订单请求失败");
+        }
+        log.debug(result);
+        return result;
+    }
+
+    /**
+     * 订单查询请求
+     * @param queryOrderRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/list")
+    public QueryOrderResult list(@RequestBody  QueryOrderRequest   queryOrderRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(queryOrderRequest);
+        QueryOrderResult result = new  QueryOrderResult();
+        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+                new StringBuffer(" and n.name='lxfeng'"));
+        HuiyuanInfo info= list2.get(0);
+        //获取用户信息
+        // HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
+
+        List<Order>  lists=new ArrayList<Order>();
+        List<cn.com.dyninfo.o2o.furniture.web.order.model.Order> list =(List<cn.com.dyninfo.o2o.furniture.web.order.model.Order>)
+                orderService.getListByWhere(new StringBuffer(" and  n.huiyuan="+info.getHuiYuan_id()));
+        if(!ValidationUtil.isEmpty(list)){
+            for (int i = 0; i < list.size(); i++) {
+
+            }
+            result.setOrderList(lists);//
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("订单查询请求失败");
         }
         log.debug(result);
         return result;

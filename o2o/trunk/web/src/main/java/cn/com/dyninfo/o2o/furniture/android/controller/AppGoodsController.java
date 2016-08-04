@@ -4,6 +4,7 @@ import cn.com.dyninfo.o2o.communication.*;
 import cn.com.dyninfo.o2o.entity.*;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
+import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
@@ -77,14 +78,11 @@ public class AppGoodsController extends BaseAppController {
                 brand.setTitle(brandList.get(i).getName());
                 brandLists.add(brand);
             }
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
-            result.setPageNo(1);
-            result.setTotalPage(2);
-        }else{
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("根据商品分类查询商品列表数据失败");
         }
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+        result.setPageNo(1);
+        result.setTotalPage(2);
         log.debug(result);
         return result;
     }
@@ -107,7 +105,7 @@ public class AppGoodsController extends BaseAppController {
         List<String> imageList=new ArrayList<String>();
         GoodsDetail detail=new GoodsDetail();
         List list=goodsService.getListByWhere(new StringBuffer(" and n.goods_id="+goodsDetailRequest.getId()));
-            if(list.size()>0){
+        if(!ValidationUtil.isEmpty(list)){
                Goods goods=(Goods)list.get(0);
                 detail.setName(goods.getName());
                 detail.setId(String.valueOf(goods.getGoods_id()));
@@ -124,7 +122,6 @@ public class AppGoodsController extends BaseAppController {
                 detail.setImageList(imageList);
             }
             result.setDetail(detail);
-
         log.debug(result);
         return result;
     }
@@ -143,14 +140,15 @@ public class AppGoodsController extends BaseAppController {
     public LoopGoodsListResult loop(@RequestBody LoopGoodsListRequest loopGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(loopGoodsListRequest);
         LoopGoodsListResult result = new LoopGoodsListResult();
-        // List<GoodsSpec> specList=new ArrayList<GoodsSpec>();
-        // Category category=new Category();
-        // cn.com.dyninfo.o2o.entity.Brand brand=new cn.com.dyninfo.o2o.entity.Brand();
+//        PageInfo page=new PageInfo();
+//        page.setPageNo(1);
+//        page.setPageSize(10);
+
         List<String> imageList=new ArrayList<String>();
         List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
 
         List<Goods> list=( List<Goods> )goodsService.getListByWhere(new StringBuffer(""));
-        if(list.size()>0){
+        if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < 11; i++) {
                 Goods goods=list.get(i);
                 GoodsDetail detail= new GoodsDetail();
@@ -169,10 +167,10 @@ public class AppGoodsController extends BaseAppController {
                 detail.setImageList(imageList);
                 detailList.add(detail);
             }
-            result.setGoodsDetailList(detailList);
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
         }
+        result.setGoodsDetailList(detailList);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
         log.debug(result);
         return result;
     }
@@ -203,7 +201,7 @@ public class AppGoodsController extends BaseAppController {
         Recommend recommend=new Recommend();
         List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
         List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
-        if(list.size()>0) {
+        if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 GoodsSummary goodsSummary = new GoodsSummary();
                 goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
@@ -221,6 +219,8 @@ public class AppGoodsController extends BaseAppController {
         result.setNewList(newList);
         result.setGroupList(groupList);
         result.setPromotionList(promotionList);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
         log.debug(result);
         return result;
     }
@@ -240,7 +240,7 @@ public class AppGoodsController extends BaseAppController {
 
         List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
         List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
-        if(list.size()>0) {
+        if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 GoodsSummary goodsSummary = new GoodsSummary();
                 goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
@@ -251,6 +251,8 @@ public class AppGoodsController extends BaseAppController {
             }
         }
         result.setGoodsSummaryList(lists);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
         log.debug(result);
         return result;
     }

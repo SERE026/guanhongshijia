@@ -239,9 +239,13 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 			}
 			return list;
 		}
-		
-		
-		
+		@Override
+		public List getOrderConfirm(String memberId) {
+			List<CarsBox> list=(List<CarsBox>) carsDAO.getListByWhere(
+					new StringBuffer(" and n.member.id="+memberId));
+			return list;
+		}
+
 		@Override
 		public List getOrderConfirm(String memberId,String carId[]) {
 			StringBuffer ids=new StringBuffer();
