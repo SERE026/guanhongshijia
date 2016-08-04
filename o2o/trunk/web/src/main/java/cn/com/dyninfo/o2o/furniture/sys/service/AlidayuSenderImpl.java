@@ -57,7 +57,7 @@ public class AlidayuSenderImpl implements SmsSender,InitializingBean {
 		AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
 		if(StringUtils.equals("VCODE", smsType)){
 			templateId= SystemConfig.getInfo("alidayu.sms.template.code");
-			req.setSmsParamString("{\"code\":\"" + params[0] + "\"}");
+			req.setSmsParamString("{\"name\":\"" + params[0] + "\", \"number\":\"" + params[1] + "\"}");
 		}else if(StringUtils.equals("PWD", smsType)){
 			templateId= SystemConfig.getInfo("alidayu.sms.template.pwd");
 			req.setSmsParamString("{\"name\":\"" + params[0] + "\", \"carrier\":\"" + params[1] + "\",\"battery\":\"" + params[2] + "\"}");
