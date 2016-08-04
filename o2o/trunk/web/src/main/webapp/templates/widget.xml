@@ -462,9 +462,11 @@
 			<id>15</id>
 		</widget>
 	</page>
-	<page id="/GoodBoard.html">
-		<widget id="good_board">
-			<widgetType>good_board</widgetType>
+
+
+	<page id="/GoodGroup.html">
+		<widget id="good_group">
+			<widgetType>good_group</widgetType>
 		</widget>
 		<widget id="list_sort_z">
 			<widgetType>list_sort</widgetType>
@@ -473,6 +475,9 @@
 		<widget id="list_sort_y">
 			<widgetType>list_sort</widgetType>
 			<modulId>34</modulId>
+		</widget>
+		<widget id="good_board">
+			<widgetType>good_board</widgetType>
 		</widget>
 		<widget id="list_path">
 			<widgetType>list_path</widgetType>
@@ -488,6 +493,36 @@
 			<id>15</id>
 		</widget>
 	</page>
+	<page id="/GoodBoard.html">
+		<widget id="good_board">
+			<widgetType>good_board</widgetType>
+		</widget>
+		<widget id="list_sort_z">
+			<widgetType>list_sort</widgetType>
+			<modulId>33</modulId>
+		</widget>
+		<widget id="list_sort_y">
+			<widgetType>list_sort</widgetType>
+			<modulId>34</modulId>
+		</widget>
+		<widget id="good_board">
+			<widgetType>good_board</widgetType>
+		</widget>
+		<widget id="list_path">
+			<widgetType>list_path</widgetType>
+		</widget>
+		<widget id="good_spec">
+			<widgetType>good_spec</widgetType>
+		</widget>
+		<widget id="goodAreaWidget">
+			<widgetType>goodAreaWidget</widgetType>
+		</widget>
+		<widget id="list_adv">
+			<widgetType>adv</widgetType>
+			<id>15</id>
+		</widget>
+	</page>
+
 	<page id="/shop.html">
 		<widget id="shopWidte">
 			<widgetType>shopWidte</widgetType>

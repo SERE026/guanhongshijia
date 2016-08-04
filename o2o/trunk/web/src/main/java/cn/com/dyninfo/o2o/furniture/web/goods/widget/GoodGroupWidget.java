@@ -27,8 +27,8 @@ import java.util.Map;
  * @author Administrator
  *
  */
-@Component("good_board")
-public class GoodBoardWidget extends Widget {
+@Component("good_group")
+public class GoodGroupWidget extends Widget {
 
 
 	@Resource
@@ -36,7 +36,7 @@ public class GoodBoardWidget extends Widget {
 
 	@Override
 	public void display(Map pamtr) {
-		List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id=1"));
+		List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id=2"));
 		PageModule goodsList=reMaiList.get(0);
 			this.putData("data", goodsList);
 		}
