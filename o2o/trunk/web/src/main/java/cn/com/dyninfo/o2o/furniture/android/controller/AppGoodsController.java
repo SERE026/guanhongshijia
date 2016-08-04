@@ -82,6 +82,8 @@ public class AppGoodsController extends BaseAppController {
                 brandLists.add(brand);
             }
         }
+        result.setBrandList(brandLists);
+        result.setGoodsSummaryList(goodsLists);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         result.setPageNo(1);

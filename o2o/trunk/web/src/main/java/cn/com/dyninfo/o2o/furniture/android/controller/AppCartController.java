@@ -86,10 +86,11 @@ public class AppCartController extends BaseAppController {
         // HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
         Cart cart=new Cart();
         List<CartItem> itemList=new ArrayList<CartItem>();
-
-        List<CarsBox> list =(List<CarsBox>)orderService.getOrderConfirm(String.valueOf(info.getHuiYuan_id()));
+        List<CarsBox> list=(List<CarsBox>)carsService.getListByWhere(new StringBuffer(" and n.member.huiYuan_id="+info.getHuiYuan_id()));
+      //  List<CarsBox> list =(List<CarsBox>)orderService.getOrderConfirm(String.valueOf(info.getHuiYuan_id()));
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
+              //  CarsBox carinfo = (CarsBox) list.get(i);
                 CartItem cartItem = new CartItem();
                 cartItem.setId(list.get(i).getCars_box_id());
                 cartItem.setCount(list.get(i).getNum()); //数量
