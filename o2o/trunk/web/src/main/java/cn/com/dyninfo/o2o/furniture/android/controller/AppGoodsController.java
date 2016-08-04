@@ -150,27 +150,29 @@ public class AppGoodsController extends BaseAppController {
         List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
 
         List<Goods> list=( List<Goods> )goodsService.getListByWhere(new StringBuffer(""));
-        for (int i = 0; i < list.size(); i++) {
-            Goods goods=list.get(i);
-            GoodsDetail detail= new GoodsDetail();
-            detail.setName(goods.getName());
-            detail.setId(String.valueOf(goods.getGoods_id()));
-            detail.setShortDesc(goods.getShortDesc());
-            detail.setSaleCount(goods.getNum());
-            detail.setPrice(goods.getSalesMoney());
-            detail.setGoodsDesc(goods.getGoodsDescription());
-            String[] arr=goods.getImages().split(";");
-            if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
-                for (int j = 0; j <arr.length; j++) {
-                    imageList.add(arr[j]);
+        if(list.size()>0){
+            for (int i = 0; i < 11; i++) {
+                Goods goods=list.get(i);
+                GoodsDetail detail= new GoodsDetail();
+                detail.setName(goods.getName());
+                detail.setId(String.valueOf(goods.getGoods_id()));
+                detail.setShortDesc(goods.getShortDesc());
+                detail.setSaleCount(goods.getNum());
+                detail.setPrice(goods.getSalesMoney());
+                detail.setGoodsDesc(goods.getGoodsDescription());
+                String[] arr=goods.getImages().split(";");
+                if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
+                    for (int j = 0; j <arr.length; j++) {
+                        imageList.add(arr[j]);
+                    }
                 }
+                detail.setImageList(imageList);
+                detailList.add(detail);
             }
-            detail.setImageList(imageList);
-            detailList.add(detail);
+            result.setGoodsDetailList(detailList);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
         }
-
-        result.setGoodsDetailList(detailList);
-
         log.debug(result);
         return result;
     }
