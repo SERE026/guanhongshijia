@@ -10,9 +10,9 @@ import android.util.Log;
 public class LogTools {
 	public static void println(String hint, String msg) {
 		if (hint == null) {
-			Log.d("yishuo", msg+"");
+			Log.e("yishuo", msg+"");
 		} else {
-			Log.d(hint, msg+"");
+			Log.e(hint, msg+"");
 		}
 	}
 }

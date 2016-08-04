@@ -7,9 +7,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Environment;
 import android.os.Handler;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
 
+import com.alibaba.fastjson.JSON;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
@@ -18,6 +17,9 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+import com.wckj.gfsj.Bean.LoginResult;
+import com.wckj.gfsj.Db.JsonDao;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.Utils.OwerToastShow;
 import com.zhy.http.okhttp.OkHttpUtils;
 
@@ -33,14 +35,11 @@ public class AppApplication extends Application {
     public static int mainTid;
     public static Handler handler;
     public static Context context;// 全局context
-    // 屏幕的宽度
-    public static int screenWidth;
-    // 屏幕的高度
-    public int screenHight;
+    public static  LoginResult loginResult;
+
 
     @Override
     public void onCreate() {
-        getLoginAction();// 获取初始登陆信息
         if (!Environment.MEDIA_MOUNTED.equals(Environment
                 .getExternalStorageState())) {
             OwerToastShow.show(this, "SD卡加载异常！");
@@ -49,6 +48,7 @@ public class AppApplication extends Application {
         initUi();
         initImageLoader(getApplicationContext());
         initHttp();
+        getLoginAction();// 获取初始登陆信息
         super.onCreate();
     }
 
@@ -94,14 +94,20 @@ public class AppApplication extends Application {
                 // .displayer(new RoundedBitmapDisplayer(20)) // 设置成圆角图片
                 .build();
         // 全局初始化此配置
-
-
         ImageLoader.getInstance().init(config);
     }
     /**
      * 获取用户的登录情况
      */
     private void getLoginAction() {
+        JsonDao jsonDao = new JsonDao();
+        String jsonByUrl = jsonDao.getJsonByUrl(GlobalUtils.LOGIN_URL);
+        if(jsonByUrl!=null){
+            loginResult = JSON.parseObject(jsonByUrl, LoginResult.class);
+        }else {
+//            loginResult = new LoginResult();
+//            loginResult.setDeviceId(UuidUtils.getUuid());
+        }
 
     }
 
@@ -110,11 +116,11 @@ public class AppApplication extends Application {
      * 获取屏幕长度高度
      */
     private void initWidthAndHeight() {
-        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        wm.getDefaultDisplay().getMetrics(outMetrics);
-        screenWidth = outMetrics.widthPixels;
-        screenHight = outMetrics.heightPixels;
+//        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+//        DisplayMetrics outMetrics = new DisplayMetrics();
+//        wm.getDefaultDisplay().getMetrics(outMetrics);
+//        screenWidth = outMetrics.widthPixels;
+//        screenHight = outMetrics.heightPixels;
 
         // 防止被系统字体改变默认得字体大小
         Resources resource = getResources();

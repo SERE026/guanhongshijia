@@ -1,17 +1,18 @@
 package com.wckj.gfsj.Db;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.wckj.gfsj.Application.AppApplication;
 
 public class JsonDao {
 	private DBHelper dbhelper;
 	private SQLiteDatabase db;
 	private String tableName = "commonjson";
 
-	public JsonDao(Context context) {
-		dbhelper = new DBHelper(context);
+	public JsonDao() {
+		dbhelper = new DBHelper(AppApplication.context);
 		db = dbhelper.getReadableDatabase();
 	}
 

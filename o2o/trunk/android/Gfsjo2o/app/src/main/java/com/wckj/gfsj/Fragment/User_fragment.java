@@ -12,9 +12,21 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.MainActivity;
 import com.wckj.gfsj.Activity.UserCenterActivity;
+import com.wckj.gfsj.Application.AppApplication;
+import com.wckj.gfsj.Bean.LoginRequest;
+import com.wckj.gfsj.Bean.LoginResult;
+import com.wckj.gfsj.Db.JsonDao;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.TimeUtils;
+import com.wckj.gfsj.Utils.UuidUtils;
+
+import okhttp3.Call;
 
 /**
  * Created by 小爱爱 on 2016/7/18.
@@ -28,11 +40,12 @@ public class User_fragment extends Fragment implements View.OnClickListener {
     private TextView mTvLoginTitle;
     private EditText mEtUsername, mEtPassword;
     private Button mBtnFindPassword, mBtnLogin;
+    private JsonDao jsonDao;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, null);
-
+         jsonDao =  new JsonDao();
         mRlLogin = (RelativeLayout) view.findViewById(R.id.rl_login);
         mTvLoginTitle = (TextView) view.findViewById(R.id.tv_login_title);
         mEtUsername = (EditText) view.findViewById(R.id.et_username);
@@ -50,6 +63,7 @@ public class User_fragment extends Fragment implements View.OnClickListener {
             case R.id.btn_login:
                 String userName = mEtUsername.getText().toString().trim();
                 String userPwd  = mEtPassword.getText().toString().trim();
+                login();
 //                if (userName.equals("123") && userPwd.equals("123")) {
                     Intent intent = new Intent(view.getContext(), UserCenterActivity.class);
                     startActivityForResult(intent, INTO_USER_CENTER);
@@ -58,6 +72,26 @@ public class User_fragment extends Fragment implements View.OnClickListener {
 //                }
                 break;
         }
+    }
+
+    private void login() {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setLoginName("lxfeng");
+        loginRequest.setPassword("123123");
+        loginRequest.setDeviceId(UuidUtils.getUuid());
+        HttpUtils.getInstance().asyncPost(loginRequest, GlobalUtils.LOGIN_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+            }
+            @Override
+            public void onSuccess(String responsed) {
+                jsonDao.insertJson(GlobalUtils.LOGIN_URL,responsed, TimeUtils.getSystemTime());
+                AppApplication.loginResult = JSON.parseObject(responsed, LoginResult.class);
+
+            }
+
+        } );
+
     }
 
     @Override

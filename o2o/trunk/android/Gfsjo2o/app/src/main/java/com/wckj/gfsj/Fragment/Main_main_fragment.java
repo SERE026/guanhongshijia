@@ -9,13 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import com.alibaba.fastjson.JSON;
 import com.dalong.francyconverflow.FancyCoverFlow;
 import com.wckj.gfsj.Activity.CommoditydetailsActivity;
 import com.wckj.gfsj.Adapter.MyFancyCoverFlowAdapter;
 import com.wckj.gfsj.Bean.Commodity_level_details;
+import com.wckj.gfsj.Bean.LoopGoodsListRequest;
+import com.wckj.gfsj.Bean.LoopGoodsListResult;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogTools;
 
 import java.util.ArrayList;
+
+import okhttp3.Call;
 
 /**
  * Created by 小爱爱 on 2016/7/18.
@@ -37,6 +46,7 @@ public class Main_main_fragment extends Fragment{
         for (int i = 0; i < 6; i++) {
             mList.add( new Commodity_level_details());
         }
+        getLoop();
         mfancyCoverFlow = (FancyCoverFlow) view.findViewById(R.id.fancyCoverFlow);
         mMyFancyCoverFlowAdapter = new MyFancyCoverFlowAdapter(view.getContext(), mList);
         mfancyCoverFlow.setAdapter(mMyFancyCoverFlowAdapter);
@@ -60,4 +70,20 @@ public class Main_main_fragment extends Fragment{
         });
 
     }
+
+    private void getLoop() {
+        LoopGoodsListRequest request = new LoopGoodsListRequest();
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.LOGIN_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+            }
+            @Override
+            public void onSuccess(String responsed) {
+                LogTools.println(null,responsed);
+             JSON.parseObject(responsed, LoopGoodsListResult.class);
+
+            }
+
+        } );
     }
+}
