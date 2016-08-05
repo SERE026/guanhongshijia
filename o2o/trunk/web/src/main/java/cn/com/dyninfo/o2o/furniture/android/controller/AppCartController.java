@@ -1,4 +1,4 @@
-/*
+
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.AddCartRequest;
@@ -27,10 +27,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-*/
+
 /**
  * Created by Administrator on 2016/7/29.
- *//*
+ */
 
 @Controller
 @RequestMapping("/cart")
@@ -47,14 +47,14 @@ public class AppCartController extends BaseAppController {
 
     @Resource
     private CarsService carsService;
-    */
+
 /**
      * 将商品添加到购物车
      * @param addCartRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/add")
@@ -72,14 +72,14 @@ public class AppCartController extends BaseAppController {
         return result;
     }
 
-    */
+
 /**
      * 获取购物车列表
      * @param cartListRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/list")
@@ -134,4 +134,4 @@ public class AppCartController extends BaseAppController {
         return result;
     }
 }
-*/
+
