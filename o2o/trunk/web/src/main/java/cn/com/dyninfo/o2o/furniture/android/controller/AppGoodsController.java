@@ -155,7 +155,7 @@ public class AppGoodsController extends BaseAppController {
        //  List<Goods> list =(List<Goods>)map.get("DATA");
             if(!ValidationUtil.isEmpty(list)){
                 for (int i = 0; i < list.size(); i++) {
-                    Goods goods=list.get(i);
+                    Goods goods=list.get(0);
                     GoodsDetail detail= new GoodsDetail();
                     detail.setName(goods.getName());
                     detail.setId(String.valueOf(goods.getGoods_id()));
@@ -173,7 +173,7 @@ public class AppGoodsController extends BaseAppController {
                     detailList.add(detail);
                 }
             }
-        result.setGoodsDetailList(detailList);
+      //  result.setGoodsDetailList(detailList);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         log.debug(result);
