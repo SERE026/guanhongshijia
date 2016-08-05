@@ -160,11 +160,12 @@ public class AppGoodsController extends BaseAppController {
         List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
 //        List<Goods> list =(List<Goods>)goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU),page);
         Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
-         List<Goods> list =(List<Goods>)map.get("DATA");
-            if(!ValidationUtil.isEmpty(list)){
+        if(!ValidationUtil.isEmpty(map)) {
+            List<Goods> list = (List<Goods>) map.get("DATA");
+            if (!ValidationUtil.isEmpty(list)) {
                 for (int i = 0; i < list.size(); i++) {
-                    Goods goods=list.get(i);
-                    GoodsDetail detail= new GoodsDetail();
+                    Goods goods = list.get(i);
+                    GoodsDetail detail = new GoodsDetail();
                     detail.setName(goods.getName());
                     detail.setId(String.valueOf(goods.getGoods_id()));
                     detail.setShortDesc(goods.getShortDesc());
@@ -173,12 +174,13 @@ public class AppGoodsController extends BaseAppController {
                     detail.setGoodsDesc(goods.getGoodsDescription());
 //                    String[] arr=goods.getImages().split(";");
 //                    if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
-                            imageList.add(goods.getDefaultImage());
+                    imageList.add(goods.getDefaultImage());
 //                    }
                     detail.setImageList(imageList);
                     detailList.add(detail);
                 }
             }
+        }
         result.setGoodsDetailList(detailList);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
