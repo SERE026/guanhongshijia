@@ -1,3 +1,4 @@
+/*
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
@@ -22,9 +23,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * Created by Administrator on 2016/7/29.
- */
+ *//*
+
 @Controller
 @RequestMapping("/category")
 public class AppCategoryController extends BaseAppController {
@@ -38,13 +41,15 @@ public class AppCategoryController extends BaseAppController {
     @Resource
     private GoodsSortService goodsSortService;
 
-    /**
+    */
+/**
      * 获取主分类
      * @param mainCategoryRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/main")
     public MainCategoryResult main(@RequestBody MainCategoryRequest mainCategoryRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -79,13 +84,15 @@ public class AppCategoryController extends BaseAppController {
         return result;
     }
 
-    /**
+    */
+/**
      * 获取二级类别
      * @param subCategoryRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/sub")
     public SubCategoryResult sub(@RequestBody SubCategoryRequest subCategoryRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -121,13 +128,15 @@ public class AppCategoryController extends BaseAppController {
     }
 
 
-    /**
+    */
+/**
      * 获取更多分类
      * @param moreCategoryRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/more")
     public MoreCategoryResult more(@RequestBody MoreCategoryRequest moreCategoryRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -160,3 +169,4 @@ public class AppCategoryController extends BaseAppController {
     }
 
 }
+*/

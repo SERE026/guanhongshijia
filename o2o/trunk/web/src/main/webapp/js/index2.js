@@ -12,11 +12,11 @@
     FloorFive();// 5楼
 })
 function head() {
-    $(".Search-categories").mouseover(function () { $(".Search-categories>ul").show(); })
-    $(".Search-categories").mouseout(function () { $(".Search-categories>ul").hide(); })
+    $(".Search-categories").mouseover(function () { $(".Search-categories>ul").show(); $(this).find("i").addClass("icon-top").removeClass('icon-bottom'); })
+    $(".Search-categories").mouseout(function () { $(".Search-categories>ul").hide();$(this).find("i").addClass("icon-bottom").removeClass('icon-top'); })
     $(".Search-categories ul li").click(function () {
         var name = $(this).text();
-        $(".Search-categories>label").text(name); $(".Search-categories>ul").hide();
+        $(".Search-categories>label>span").text(name); $(".Search-categories>ul").hide();
     })
 }
 

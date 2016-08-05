@@ -1,3 +1,4 @@
+/*
 package cn.com.dyninfo.o2o.furniture.util;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
@@ -7,16 +8,20 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
+*/
 /**
  * Created by Administrator on 2016/8/3.
- */
+ *//*
+
 public class PinYinUtils {
-    /**
+    */
+/**
      * 将字符串中的中文转化为拼音,其他字符不变
      *
      * @param inputString
      * @return
-     */
+     *//*
+
     public static String getPingYin(String inputString) {
         HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
         format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
@@ -39,11 +44,13 @@ public class PinYinUtils {
         }
         return output;
     }
-    /**
+    */
+/**
      * 获取汉字串拼音首字母，英文字符不变
      * @param chinese 汉字串
      * @return 汉语拼音首字母
-     */
+     *//*
+
     public static String getFirstSpell(String chinese) {
         StringBuffer pybf = new StringBuffer();
         char[] arr = chinese.toCharArray();
@@ -66,11 +73,13 @@ public class PinYinUtils {
         }
         return pybf.toString().replaceAll("\\W", "").trim().toUpperCase();
     }
-    /**
+    */
+/**
      * 获取汉字串拼音，英文字符不变
      * @param chinese 汉字串
      * @return 汉语拼音
-     */
+     *//*
+
     public static String getFullSpell(String chinese) {
         StringBuffer pybf = new StringBuffer();
         char[] arr = chinese.toCharArray();
@@ -91,3 +100,4 @@ public class PinYinUtils {
         return pybf.toString();
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
@@ -25,9 +26,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * Created by Administrator on 2016/7/29.
- */
+ *//*
+
 @Controller
 @RequestMapping("/goods")
 public class AppGoodsController extends BaseAppController {
@@ -44,13 +47,15 @@ public class AppGoodsController extends BaseAppController {
     @Resource
     private BrandService brandService;
 
-    /**
+    */
+/**
      * 根据商品分类查询商品列表
      * @param categoryGoodsListRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/listByCategory")
     public CategoryGoodsListResult listByCategory(@RequestBody CategoryGoodsListRequest categoryGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -90,13 +95,15 @@ public class AppGoodsController extends BaseAppController {
         return result;
     }
 
-    /**
+    */
+/**
      * 获取商品详情
      * @param goodsDetailRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/detail")
     public GoodsDetailResult detail(@RequestBody GoodsDetailRequest goodsDetailRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -131,13 +138,15 @@ public class AppGoodsController extends BaseAppController {
 
 
 
-    /**
+    */
+/**
      * 获取轮播商品
      * @param loopGoodsListRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/loop")
     public LoopGoodsListResult loop(@RequestBody LoopGoodsListRequest loopGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -177,13 +186,15 @@ public class AppGoodsController extends BaseAppController {
     }
 
 
-    /**
+    */
+/**
      * 获取推荐页面 商品列表
      * @param recommendGoodsRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/recommend")
     public RecommendGoodsResult recommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -226,13 +237,15 @@ public class AppGoodsController extends BaseAppController {
         return result;
     }
 
-    /**
+    */
+/**
      * 搜索请求类
      * @param searchRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/search")
     public SearchResult search(@RequestBody SearchRequest  searchRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -258,3 +271,4 @@ public class AppGoodsController extends BaseAppController {
         return result;
     }
 }
+*/

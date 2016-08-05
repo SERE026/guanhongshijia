@@ -1,3 +1,4 @@
+/*
 package cn.com.dyninfo.o2o.furniture.util;
 
 import cn.com.dyninfo.o2o.communication.LoginRequest;
@@ -8,9 +9,11 @@ import okhttp3.*;
 
 import java.io.IOException;
 
+*/
 /**
  * Created by Administrator on 2016/7/29.
- */
+ *//*
+
 public class HttpUtils {
 
     public static final MediaType JSON_TYPE = MediaType.parse("application/json; charset=utf-8");
@@ -69,7 +72,8 @@ public class HttpUtils {
 
     private static OkHttpClient client = new OkHttpClient();
 
-    /**
+    */
+/**
      * 同步POST请求
      * @param appRequest
      * @param url
@@ -77,7 +81,8 @@ public class HttpUtils {
      * @param <T>
      * @return
      * @throws IOException
-     */
+     *//*
+
     public static <T> T syncPost(BaseRequest appRequest, String url, Class<T> clazz) throws IOException {
         String jsonStr = JSON.toJSONString(appRequest);
         RequestBody body = RequestBody.create(JSON_TYPE, jsonStr);
@@ -93,11 +98,13 @@ public class HttpUtils {
         }
     }
 
-    /**
+    */
+/**
      * 异步POST请求，实际使用需要根据情况传入Handler用于回调
      * @param appRequest
      * @param url
-     */
+     *//*
+
     public static void asyncPost(BaseRequest appRequest, String url, final AsyncHandler handler) {
         String jsonStr = JSON.toJSONString(appRequest);
         RequestBody body = RequestBody.create(JSON_TYPE, jsonStr);
@@ -120,10 +127,12 @@ public class HttpUtils {
        });
     }
 
-    /**
+    */
+/**
      * 测试方法
      * @param args
-     */
+     *//*
+
     public static void main(String[] args) {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setLoginName("lxfeng");
@@ -146,10 +155,13 @@ public class HttpUtils {
 //        });
     }
 
-    /**
+    */
+/**
      * 实际使用需要定义为一个公共接口
-     */
+     *//*
+
     interface AsyncHandler {
         void handle(String responseBody);
     }
 }
+*/

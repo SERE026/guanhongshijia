@@ -1,3 +1,4 @@
+/*
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.AddFavoritesRequest;
@@ -26,9 +27,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+*/
 /**
  * Created by Administrator on 2016/7/29.
- */
+ *//*
+
 @Controller
 @RequestMapping("/favorites")
 public class AppFavoritesController extends BaseAppController {
@@ -42,13 +45,15 @@ public class AppFavoritesController extends BaseAppController {
     @Resource
     private FavoritesService favoritesService;
 
-    /**
+    */
+/**
      * 收藏夹商品列表请求类
      * @param favoritesListRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/list")
     public FavoritesListResult favoriteslist(@RequestBody FavoritesListRequest  favoritesListRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -86,13 +91,15 @@ public class AppFavoritesController extends BaseAppController {
         return result;
     }
 
-    /**
+    */
+/**
      * 添加到收藏夹请求类
      * @param addFavoritesRequest
      * @param request
      * @param response
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/add")
     public AddFavoritesResult add(@RequestBody AddFavoritesRequest  addFavoritesRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -126,3 +133,4 @@ public class AppFavoritesController extends BaseAppController {
         }
     }
 }
+*/
