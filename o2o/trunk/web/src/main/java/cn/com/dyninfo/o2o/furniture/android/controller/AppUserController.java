@@ -1,4 +1,4 @@
-/*
+
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
@@ -32,10 +32,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-*/
+
 /**
  * Created by Administrator on 2016/7/29.
- *//*
+ */
 
 @Controller
 @RequestMapping("/user")
@@ -56,14 +56,14 @@ public class AppUserController extends BaseAppController {
     @Resource
     private CouponService couponService;
 
-    */
+
 /**
      * d登录请求
      * @param loginRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/login")
@@ -110,14 +110,14 @@ public class AppUserController extends BaseAppController {
         return result;
     }
 
-    */
+
 /**
      * 找回锁定密码
      * @param findPasswordRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/findLockPassword")
@@ -148,14 +148,14 @@ public class AppUserController extends BaseAppController {
         log.debug(result);
         return result;
     }
-    */
+
 /**
      * 找回登陆密码
      * @param findPasswordRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
 
@@ -187,14 +187,14 @@ public class AppUserController extends BaseAppController {
         return result;
     }
 
-    */
+
 /**
      * 佣金查询
      * @param queryAgencyFeeRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/queryAgencyFee")
@@ -241,14 +241,14 @@ public class AppUserController extends BaseAppController {
         return result;
     }
 
-    */
+
 /**
      * 银行卡查询
      * @param queryCardRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/bankCard")
@@ -280,14 +280,14 @@ public class AppUserController extends BaseAppController {
         return result;
     }
 
-    */
+
 /**
      * 优惠券查询
      * @param queryCouponRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/coupon")
@@ -337,14 +337,14 @@ public class AppUserController extends BaseAppController {
         return result;
     }
 
-    */
+
 /**
      * 个人信息查询
      * @param queryPersonalRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/personal")
@@ -375,14 +375,14 @@ public class AppUserController extends BaseAppController {
         return result;
     }
 
-    */
+
 /**
      * 设置锁定密码请求
      * @param setLockPasswordRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/lockPassword")
@@ -405,4 +405,4 @@ public class AppUserController extends BaseAppController {
         return result;
     }
 }
-*/
+

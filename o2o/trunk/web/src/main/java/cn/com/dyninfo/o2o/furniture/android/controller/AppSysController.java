@@ -1,4 +1,4 @@
-/*
+
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
@@ -25,10 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-*/
+
 /**
  * Created by Administrator on 2016/7/29.
- *//*
+ */
 
 @Controller
 @RequestMapping("/sys")
@@ -79,14 +79,14 @@ public class AppSysController extends BaseAppController {
         log.debug(result);
         return result;
     }
-    */
+
 /**
      * 发送短信请求
      * @param smsRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/sms")
@@ -105,4 +105,4 @@ public class AppSysController extends BaseAppController {
         return result;
     }
 }
-*/
+

@@ -1,4 +1,4 @@
-/*
+
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
@@ -22,10 +22,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-*/
+
 /**
  * Created by Administrator on 2016/7/29.
- *//*
+ */
 
 @Controller
 @RequestMapping("/order")
@@ -40,14 +40,14 @@ public class AppOrderController extends BaseAppController {
     @Resource
     private OrderService orderService;
 
-    */
+
 /**
      * 创建订单请求类，在购物车点击去结算时使用
      * @param createOrderRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/create")
@@ -89,14 +89,14 @@ public class AppOrderController extends BaseAppController {
     }
 
 
-    */
+
 /**
      * 评价订单请求
      * @param evalOrderRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/eval")
@@ -138,14 +138,14 @@ public class AppOrderController extends BaseAppController {
         return result;
     }
 
-    */
+
 /**
      * 订单查询请求
      * @param queryOrderRequest
      * @param request
      * @param response
      * @return
-     *//*
+     */
 
     @ResponseBody
     @RequestMapping("/list")
@@ -176,4 +176,4 @@ public class AppOrderController extends BaseAppController {
         return result;
     }
 }
-*/
+
