@@ -153,7 +153,7 @@ public class AppGoodsController extends BaseAppController {
         Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
         List<Goods> list =(List<Goods>)map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
-            for (int i = 0; i < 11; i++) {
+            for (int i = 0; i < list.size(); i++) {
                 Goods goods=list.get(i);
                 GoodsDetail detail= new GoodsDetail();
                 detail.setName(goods.getName());
