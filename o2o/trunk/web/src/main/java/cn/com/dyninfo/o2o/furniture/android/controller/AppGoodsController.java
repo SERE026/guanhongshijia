@@ -173,7 +173,7 @@ public class AppGoodsController extends BaseAppController {
                     detailList.add(detail);
                 }
             }
-      //  result.setGoodsDetailList(detailList);
+        result.setGoodsDetailList(detailList);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         log.debug(result);
