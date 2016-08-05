@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 */
 /**
@@ -157,9 +158,9 @@ public class AppGoodsController extends BaseAppController {
         page.setPageSize(10);
         List<String> imageList=new ArrayList<String>();
         List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
-        List<Goods> list =(List<Goods>)goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU),page);
-//        Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
-       //  List<Goods> list =(List<Goods>)map.get("DATA");
+//        List<Goods> list =(List<Goods>)goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU),page);
+        Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
+         List<Goods> list =(List<Goods>)map.get("DATA");
             if(!ValidationUtil.isEmpty(list)){
                 for (int i = 0; i < list.size(); i++) {
                     Goods goods=list.get(i);
