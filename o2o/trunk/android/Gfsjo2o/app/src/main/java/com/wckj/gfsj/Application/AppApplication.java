@@ -21,6 +21,7 @@ import com.wckj.gfsj.Bean.LoginResult;
 import com.wckj.gfsj.Db.JsonDao;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.Utils.OwerToastShow;
+import com.wckj.gfsj.Utils.UuidUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.io.File;
@@ -105,8 +106,8 @@ public class AppApplication extends Application {
         if(jsonByUrl!=null){
             loginResult = JSON.parseObject(jsonByUrl, LoginResult.class);
         }else {
-//            loginResult = new LoginResult();
-//            loginResult.setDeviceId(UuidUtils.getUuid());
+            loginResult = new LoginResult();
+            loginResult.setDeviceId(UuidUtils.getUuid());
         }
 
     }

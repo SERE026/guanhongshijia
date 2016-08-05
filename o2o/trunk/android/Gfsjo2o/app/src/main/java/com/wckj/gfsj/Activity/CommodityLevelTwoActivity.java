@@ -12,17 +12,25 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.Commodity_level_two;
+import com.wckj.gfsj.Bean.SubCategoryRequest;
+import com.wckj.gfsj.Bean.SubCategoryResult;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.StopViewPage;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.Fragment.Commodity_level_two_fragment;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 /**
  * 二级商品类型分类
@@ -40,10 +48,14 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
     private int mLvPosition;
     private View titleView;
     private TitleRelativeLayout title_rl;
-
+    private int id;
 
     @Override
     protected void init() {
+         id = getIntent().getIntExtra("id", 0);
+        if(id==0){
+            finish();
+        }
     }
 
     @Override
@@ -65,6 +77,23 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         return view;
     }
 
+    @Override
+    protected void refreshOrLoadView() {
+
+    }
+
+    @Override
+    protected void load() {
+        getCategorySub();
+        mList = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            mList.add(new Commodity_level_two());
+
+        }
+        mList.get(0).setColorSelector(true);
+        showPageState(FrameLoadLayout.LoadResult.success);
+    }
+
     private void setListener() {
         //设置listview点击
         lv_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -80,29 +109,10 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         });
     }
 
-    /**
-     * 初始化不能滑动viewpage
-     */
-    private void initData() {
-        if (mPageAdapter == null && pageList.isEmpty()) {
-            for (int i = 0; i < mList.size(); i++) {
-                // 添加子页
-                Commodity_level_two_fragment fragment = new Commodity_level_two_fragment();
-                Bundle bundle = new Bundle();
-                //给一些参数
-                bundle.putString("ceshi",i+"凳子");
-                fragment.setArguments(bundle);
-                pageList.add(fragment);
-            }
-            mPageAdapter = new FragmentAdapter(getSupportFragmentManager());
-        }
 
-        svp_special.setAdapter(mPageAdapter);
-
-    }
 
     private void bindData() {
-        initData();
+        initViewPage();
         if (mlvAdapter == null) {
             mlvAdapter = new CommonAdapter<Commodity_level_two>(this, mList, R.layout.item_lv_commodity_two) {
                 @Override
@@ -123,22 +133,41 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
 
     }
 
-    @Override
-    protected void refreshOrLoadView() {
-
-    }
-
-    @Override
-    protected void load() {
-        mList = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            mList.add(new Commodity_level_two());
-
+    /**
+     * 初始化不能滑动viewpage
+     */
+    private void initViewPage() {
+        if (mPageAdapter == null && pageList.isEmpty()) {
+            for (int i = 0; i < mList.size(); i++) {
+                // 添加子页
+                Commodity_level_two_fragment fragment = new Commodity_level_two_fragment();
+                Bundle bundle = new Bundle();
+                //给一些参数
+                bundle.putString("ceshi",i+"凳子");
+                fragment.setArguments(bundle);
+                pageList.add(fragment);
+            }
+            mPageAdapter = new FragmentAdapter(getSupportFragmentManager());
         }
-        mList.get(0).setColorSelector(true);
-        showPageState(FrameLoadLayout.LoadResult.success);
+
+        svp_special.setAdapter(mPageAdapter);
+
     }
 
+    public void getCategorySub() {
+        SubCategoryRequest request = new SubCategoryRequest();
+        request.setId(id);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.CATEGORY_SUB_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+            }
+
+            @Override
+            public void onSuccess(String responsed) {
+                SubCategoryResult json = JSON.parseObject(responsed, SubCategoryResult.class);
+            }
+        });
+    }
 
 
     @Override

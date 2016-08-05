@@ -5,18 +5,25 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
+import com.wckj.gfsj.Bean.CartListRequest;
+import com.wckj.gfsj.Bean.CartListResult;
 import com.wckj.gfsj.Bean.Commodity_level_details;
 import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
 
 import java.util.ArrayList;
 
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
+import okhttp3.Call;
 
 /**
  * Created by 小爱爱 on 2016/7/18.
@@ -38,10 +45,6 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
 
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
-//        View titleView = inflater.inflate(R.layout.layout_title_main_go_back, null);
-//        titleView.findViewById(R.id.tv_go_back).setOnClickListener(this);
-//        tv_time = (TextView) titleView.findViewById(R.id.tv_time);
-//        titleView.findViewById(R.id.tv_content_desc).setVisibility(View.GONE);
         return null;
     }
 
@@ -75,6 +78,22 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
         }
 
         showPageState(FrameLoadLayout.LoadResult.empty);
+    }
+
+    //获取购物车列表
+   private void getCartList(){
+       CartListRequest request = new CartListRequest();
+       HttpUtils.getInstance().asyncPost(request, GlobalUtils.CART_LIST_URL, new ICallBack() {
+           @Override
+           public void onError(Call call, Exception e) {
+           }
+
+           @Override
+           public void onSuccess(String responsed) {
+               CartListResult json = JSON.parseObject(responsed, CartListResult.class);
+           }
+       });
+
     }
 
     @Override

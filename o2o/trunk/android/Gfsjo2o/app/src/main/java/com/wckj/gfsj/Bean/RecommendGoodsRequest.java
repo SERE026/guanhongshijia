@@ -9,4 +9,5 @@ import com.wckj.gfsj.Bean.Base.PageRequest;
  * request method: post
  */
 public class RecommendGoodsRequest extends PageRequest {
+
 }

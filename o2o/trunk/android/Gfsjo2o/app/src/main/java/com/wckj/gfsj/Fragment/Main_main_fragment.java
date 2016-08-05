@@ -20,7 +20,6 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
-import com.wckj.gfsj.Utils.LogTools;
 
 import java.util.ArrayList;
 
@@ -73,13 +72,12 @@ public class Main_main_fragment extends Fragment{
 
     private void getLoop() {
         LoopGoodsListRequest request = new LoopGoodsListRequest();
-        HttpUtils.getInstance().asyncPost(request, GlobalUtils.LOGIN_URL, new ICallBack() {
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LOOP_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
             }
             @Override
             public void onSuccess(String responsed) {
-                LogTools.println(null,responsed);
              JSON.parseObject(responsed, LoopGoodsListResult.class);
 
             }

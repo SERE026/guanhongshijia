@@ -8,30 +8,42 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
+import com.wckj.gfsj.Bean.CategoryGoodsListRequest;
+import com.wckj.gfsj.Bean.CategoryGoodsListResult;
 import com.wckj.gfsj.Bean.Commodity_level_three;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
 
 import java.util.ArrayList;
+
+import okhttp3.Call;
 
 /**
  * 商品三级列表
  */
 public class CommodityLevelThreeActivity extends BaseNewActivity implements View.OnClickListener {
-    private TextView tv_time;
     private View view;
     private ArrayList<Commodity_level_three> mList;
     private GridView gv_commodity_three;
     private CommonAdapter mlvAdapter;
-    private TextView tv_brand_1,tv_brand_2,tv_brand_3;
+    private TextView tv_brand_1,tv_brand_2,tv_brand_3,tv_time;
     private ImageView iv_more_left;
     private TitleRelativeLayout title_rl;
+    private int categoryId;
 
     @Override
     protected void init() {
+         categoryId = getIntent().getIntExtra("categoryId", -1);
+//        if(categoryId==-1){
+//            finish();
+//        }
     }
 
     @Override
@@ -97,9 +109,28 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
             mList.add(new Commodity_level_three());
         }
         tv_brand_1.setText("啊啊啊");
-        tv_brand_1.setText("帮不帮");
-        tv_brand_1.setText("错错错");
+        tv_brand_2.setText("帮不帮");
+        tv_brand_3.setText("错错错");
+//        getCategroyByList();
         showPageState(FrameLoadLayout.LoadResult.success);
+    }
+
+    /**
+     * 根据商品分类查询商品列表命令
+     */
+    private void getCategroyByList() {
+        CategoryGoodsListRequest request = new CategoryGoodsListRequest();
+        request.setCategoryId(categoryId);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_CATEGORY_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+            }
+
+            @Override
+            public void onSuccess(String responsed) {
+                CategoryGoodsListResult json = JSON.parseObject(responsed, CategoryGoodsListResult.class);
+            }
+        });
     }
 
     @Override
