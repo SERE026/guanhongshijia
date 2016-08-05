@@ -11,7 +11,7 @@ public class GoodsDetail extends BaseEntity {
     //商品名称
     private String name;
     //参数列表
- //   private List<GoodsSpec> specList;
+    private List<GoodsSpec> specList;
     //商品说明，显示在商品名称下方
     private String shortDesc;
     //商品价格
@@ -19,7 +19,7 @@ public class GoodsDetail extends BaseEntity {
     //商品类别
 //    private Category category;
     //品牌
-  //  private Brand brand;
+    private Brand brand;
     //销量
     private int saleCount;
     //图片列表
@@ -35,13 +35,13 @@ public class GoodsDetail extends BaseEntity {
         this.name = name;
     }
 
-//    public List<GoodsSpec> getSpecList() {
-//        return specList;
-//    }
-//
-//    public void setSpecList(List<GoodsSpec> specList) {
-//        this.specList = specList;
-//    }
+    public List<GoodsSpec> getSpecList() {
+        return specList;
+    }
+
+    public void setSpecList(List<GoodsSpec> specList) {
+        this.specList = specList;
+    }
 
     public String getShortDesc() {
         return shortDesc;
@@ -67,13 +67,13 @@ public class GoodsDetail extends BaseEntity {
 //        this.category = category;
 //    }
 
-//    public Brand getBrand() {
-//        return brand;
-//    }
-//
-//    public void setBrand(Brand brand) {
-//        this.brand = brand;
-//    }
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
 
     public int getSaleCount() {
         return saleCount;
@@ -103,11 +103,11 @@ public class GoodsDetail extends BaseEntity {
     public String toString() {
         return "GoodsDetail{" +
                 "name='" + name + '\'' +
-               // ", specList=" + specList +
+                ", specList=" + specList +
                 ", shortDesc='" + shortDesc + '\'' +
                 ", price=" + price +
 //                ", category=" + category +
-             //   ", brand=" + brand +
+                ", brand=" + brand +
                 ", saleCount=" + saleCount +
                 ", imageList=" + imageList +
                 ", goodsDesc='" + goodsDesc + '\'' +
