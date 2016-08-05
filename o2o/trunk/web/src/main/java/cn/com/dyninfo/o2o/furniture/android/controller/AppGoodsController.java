@@ -1,20 +1,19 @@
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
-import cn.com.dyninfo.o2o.entity.*;
-import cn.com.dyninfo.o2o.entity.Order;
+import cn.com.dyninfo.o2o.entity.GoodsDetail;
+import cn.com.dyninfo.o2o.entity.GoodsSummary;
+import cn.com.dyninfo.o2o.entity.Recommend;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
-import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
-import cn.com.dyninfo.o2o.furniture.web.order.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2016/7/29.
@@ -145,17 +143,17 @@ public class AppGoodsController extends BaseAppController {
     public LoopGoodsListResult loop(@RequestBody LoopGoodsListRequest loopGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(loopGoodsListRequest);
         LoopGoodsListResult result = new LoopGoodsListResult();
-//        PageInfo page=new PageInfo();
-//        page.setPageNo(1);
-//        page.setPageSize(10);
+        PageInfo page=new PageInfo();
+        page.setPageNo(1);
+        page.setPageSize(10);
         List<String> imageList=new ArrayList<String>();
         List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
-        List<Goods> list =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU));
+        List<Goods> list =(List<Goods>)goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU),page);
 //        Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
        //  List<Goods> list =(List<Goods>)map.get("DATA");
             if(!ValidationUtil.isEmpty(list)){
                 for (int i = 0; i < list.size(); i++) {
-                    Goods goods=list.get(0);
+                    Goods goods=list.get(i);
                     GoodsDetail detail= new GoodsDetail();
                     detail.setName(goods.getName());
                     detail.setId(String.valueOf(goods.getGoods_id()));
@@ -163,12 +161,10 @@ public class AppGoodsController extends BaseAppController {
                     detail.setSaleCount(goods.getNum());
                     detail.setPrice(goods.getSalesMoney());
                     detail.setGoodsDesc(goods.getGoodsDescription());
-                    String[] arr=goods.getImages().split(";");
-                    if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
-                        for (int j = 0; j <arr.length; j++) {
-                            imageList.add(arr[j]);
-                        }
-                    }
+//                    String[] arr=goods.getImages().split(";");
+//                    if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
+                            imageList.add(goods.getDefaultImage());
+//                    }
                     detail.setImageList(imageList);
                     detailList.add(detail);
                 }
