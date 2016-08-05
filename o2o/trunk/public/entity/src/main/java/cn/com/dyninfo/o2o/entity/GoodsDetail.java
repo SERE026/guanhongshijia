@@ -17,7 +17,7 @@ public class GoodsDetail extends BaseEntity {
     //商品价格
     private double price;
     //商品类别
-    private Category category;
+//    private Category category;
     //品牌
     private Brand brand;
     //销量
@@ -59,13 +59,13 @@ public class GoodsDetail extends BaseEntity {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
 
     public Brand getBrand() {
         return brand;
