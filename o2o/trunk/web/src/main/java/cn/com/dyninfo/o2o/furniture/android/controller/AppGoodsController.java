@@ -145,14 +145,14 @@ public class AppGoodsController extends BaseAppController {
     public LoopGoodsListResult loop(@RequestBody LoopGoodsListRequest loopGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(loopGoodsListRequest);
         LoopGoodsListResult result = new LoopGoodsListResult();
-        PageInfo page=new PageInfo();
-        page.setPageNo(1);
-        page.setPageSize(10);
+//        PageInfo page=new PageInfo();
+//        page.setPageNo(1);
+//        page.setPageSize(10);
         List<String> imageList=new ArrayList<String>();
         List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
-        Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
-        if (!ValidationUtil.isEmpty(map.get("DATA"))){
-         List<Goods> list =(List<Goods>)map.get("DATA");
+        List<Goods> list =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU));
+//        Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
+       //  List<Goods> list =(List<Goods>)map.get("DATA");
             if(!ValidationUtil.isEmpty(list)){
                 for (int i = 0; i < list.size(); i++) {
                     Goods goods=list.get(i);
@@ -173,7 +173,6 @@ public class AppGoodsController extends BaseAppController {
                     detailList.add(detail);
                 }
             }
-        }
         result.setGoodsDetailList(detailList);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
