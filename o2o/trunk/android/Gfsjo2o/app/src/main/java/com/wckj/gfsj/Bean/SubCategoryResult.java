@@ -2,7 +2,7 @@ package com.wckj.gfsj.Bean;
 
 
 import com.wckj.gfsj.Bean.Base.PageResult;
-import com.wckj.gfsj.Bean.entity.Category;
+import com.wckj.gfsj.Bean.entity.CategoryTwo;
 
 import java.util.List;
 
@@ -11,13 +11,13 @@ import java.util.List;
  */
 public class SubCategoryResult extends PageResult {
 
-    private List<Category> categoryList;
+    private List<CategoryTwo> categoryList;
 
-    public List<Category> getCategoryList() {
+    public List<CategoryTwo> getCategoryList() {
         return categoryList;
     }
 
-    public void setCategoryList(List<Category> categoryList) {
+    public void setCategoryList(List<CategoryTwo> categoryList) {
         this.categoryList = categoryList;
     }
 

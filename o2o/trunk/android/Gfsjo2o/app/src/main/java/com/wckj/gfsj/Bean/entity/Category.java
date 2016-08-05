@@ -1,7 +1,6 @@
 package com.wckj.gfsj.Bean.entity;
 
-
-import com.wckj.gfsj.Bean.entity.common.BaseEntity;
+import cn.com.dyninfo.o2o.entity.common.BaseEntity;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class Category extends BaseEntity {
     //分类名称，二级分类页面显示在左边的文字
     private String title;
     //子类别，二级分类页面使用，显示在右侧的图片列表
-    private List<Category> childrenList;
+    private List<CategoryTwo> childrenList;
     //排序
     private int sortOrder;
 
@@ -35,11 +34,11 @@ public class Category extends BaseEntity {
         this.title = title;
     }
 
-    public List<Category> getChildrenList() {
+    public List<CategoryTwo> getChildrenList() {
         return childrenList;
     }
 
-    public void setChildrenList(List<Category> childrenList) {
+    public void setChildrenList(List<CategoryTwo> childrenList) {
         this.childrenList = childrenList;
     }
 

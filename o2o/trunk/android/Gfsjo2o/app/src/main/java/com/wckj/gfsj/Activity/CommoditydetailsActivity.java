@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -34,6 +35,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     private ArrayList<Commodity_level_details> mList=new ArrayList<>();
     private TitleRelativeLayout title_rl;
     private TextView tv_add_cart;
+    private ImageView iv_collect;
+
     private int goodsId;
 
     @Override
@@ -59,6 +62,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         View view = inflater.inflate(R.layout.activity_commodity_details, null);
         bt_buy = (Button) view.findViewById(R.id.bt_buy);
         tv_add_cart = (TextView) view.findViewById(R.id.tv_add_cart);
+        iv_collect = (ImageView) view.findViewById(R.id.iv_collect);
 
         bt_buy.setOnClickListener(this);
         tv_add_cart.setOnClickListener(this);
@@ -117,7 +121,15 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
             case R.id.tv_add_cart://加入购物车
                 addCart();
                 break;
+            case R.id.iv_collect://收藏夹
+//                addCollect()
+                break;
         }
+    }
+    /**
+     * 加入收藏夹
+     */
+    private void addCollect() {
     }
 
     /**
