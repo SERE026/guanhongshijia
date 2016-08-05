@@ -106,7 +106,7 @@ public class GoodsDetail extends BaseEntity {
                 ", specList=" + specList +
                 ", shortDesc='" + shortDesc + '\'' +
                 ", price=" + price +
-                ", category=" + category +
+//                ", category=" + category +
                 ", brand=" + brand +
                 ", saleCount=" + saleCount +
                 ", imageList=" + imageList +
