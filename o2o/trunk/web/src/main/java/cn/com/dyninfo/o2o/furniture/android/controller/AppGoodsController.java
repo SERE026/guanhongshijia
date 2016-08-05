@@ -145,35 +145,36 @@ public class AppGoodsController extends BaseAppController {
     public LoopGoodsListResult loop(@RequestBody LoopGoodsListRequest loopGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(loopGoodsListRequest);
         LoopGoodsListResult result = new LoopGoodsListResult();
-//        PageInfo page=new PageInfo();
-//        page.setPageNo(1);
-//        page.setPageSize(10);
-//        List<String> imageList=new ArrayList<String>();
-//        List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
-//        Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
-//
-//        List<Goods> list =(List<Goods>)map.get("DATA");
-//        if(!ValidationUtil.isEmpty(list)){
-//            for (int i = 0; i < list.size(); i++) {
-//                Goods goods=list.get(i);
-//                GoodsDetail detail= new GoodsDetail();
-//                detail.setName(goods.getName());
-//                detail.setId(String.valueOf(goods.getGoods_id()));
-//                detail.setShortDesc(goods.getShortDesc());
-//                detail.setSaleCount(goods.getNum());
-//                detail.setPrice(goods.getSalesMoney());
-//                detail.setGoodsDesc(goods.getGoodsDescription());
-//                String[] arr=goods.getImages().split(";");
-//                if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
-//                    for (int j = 0; j <arr.length; j++) {
-//                        imageList.add(arr[j]);
-//                    }
-//                }
-//                detail.setImageList(imageList);
-//                detailList.add(detail);
-//            }
-//        }
-//        result.setGoodsDetailList(detailList);
+        PageInfo page=new PageInfo();
+        page.setPageNo(1);
+        page.setPageSize(10);
+        List<String> imageList=new ArrayList<String>();
+        List<GoodsDetail> detailList=new ArrayList<GoodsDetail> ();
+        Map map=goodsService.getListByPageWhere(new StringBuffer(""),page);
+        if (!ValidationUtil.isEmpty(map.get("DATA"))){
+         List<Goods> list =(List<Goods>)map.get("DATA");
+            if(!ValidationUtil.isEmpty(list)){
+                for (int i = 0; i < list.size(); i++) {
+                    Goods goods=list.get(i);
+                    GoodsDetail detail= new GoodsDetail();
+                    detail.setName(goods.getName());
+                    detail.setId(String.valueOf(goods.getGoods_id()));
+                    detail.setShortDesc(goods.getShortDesc());
+                    detail.setSaleCount(goods.getNum());
+                    detail.setPrice(goods.getSalesMoney());
+                    detail.setGoodsDesc(goods.getGoodsDescription());
+                    String[] arr=goods.getImages().split(";");
+                    if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
+                        for (int j = 0; j <arr.length; j++) {
+                            imageList.add(arr[j]);
+                        }
+                    }
+                    detail.setImageList(imageList);
+                    detailList.add(detail);
+                }
+            }
+        }
+        result.setGoodsDetailList(detailList);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         log.debug(result);
