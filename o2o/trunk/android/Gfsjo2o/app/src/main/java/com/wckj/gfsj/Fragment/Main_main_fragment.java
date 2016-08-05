@@ -45,7 +45,7 @@ public class Main_main_fragment extends Fragment{
         for (int i = 0; i < 6; i++) {
             mList.add( new Commodity_level_details());
         }
-        getLoop();
+//        getLoop();
         mfancyCoverFlow = (FancyCoverFlow) view.findViewById(R.id.fancyCoverFlow);
         mMyFancyCoverFlowAdapter = new MyFancyCoverFlowAdapter(view.getContext(), mList);
         mfancyCoverFlow.setAdapter(mMyFancyCoverFlowAdapter);

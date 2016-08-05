@@ -68,7 +68,9 @@ public class HttpUtils {
      */
     public  void asyncPost(BaseRequest appRequest, String url, final ICallBack callBack) {
         if(AppApplication.loginResult!=null){
-            appRequest.setToken(AppApplication.loginResult.getToken());
+            if(AppApplication.loginResult.getToken()!=null){
+                appRequest.setToken(AppApplication.loginResult.getToken());
+            }
             appRequest.setDeviceId(AppApplication.loginResult.getDeviceId());
         }
 

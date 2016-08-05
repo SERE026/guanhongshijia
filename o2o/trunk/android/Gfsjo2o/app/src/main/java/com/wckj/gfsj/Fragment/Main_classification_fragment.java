@@ -91,7 +91,7 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
 
     @Override
     protected void load() {
-        getCategoryMain();
+//        getCategoryMain();
         showPageState(FrameLoadLayout.LoadResult.success);
     }
 

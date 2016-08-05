@@ -1,6 +1,7 @@
 package com.wckj.gfsj.Bean.entity;
 
-import cn.com.dyninfo.o2o.entity.common.BaseEntity;
+
+import com.wckj.gfsj.Bean.entity.common.BaseEntity;
 
 import java.util.List;
 
