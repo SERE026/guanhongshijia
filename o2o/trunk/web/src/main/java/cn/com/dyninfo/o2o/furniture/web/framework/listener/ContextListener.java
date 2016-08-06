@@ -85,9 +85,9 @@ public class ContextListener implements ServletContextListener {
 			List<Zffs> zfb=(List<Zffs>) z.getListByWhere(new StringBuffer(" and n.type='0' and n.status='0' "));//支付宝
 			List<Zffs> wlzf=(List<Zffs>) z.getListByWhere(new StringBuffer(" and n.type='1' and n.status='0' "));//网银
 			if(zfb.size()>0){
-				AlipayConfig.zfbNo=zfb.get(0).getZfb_zhanghao();
-				AlipayConfig.partner=zfb.get(0).getZfb_id();
-				AlipayConfig.key=zfb.get(0).getZfb_code();
+//				AlipayConfig.zfbNo=zfb.get(0).getZfb_zhanghao();
+//				AlipayConfig.partner=zfb.get(0).getZfb_id();
+//				AlipayConfig.key=zfb.get(0).getZfb_code();
 			}
 			if(wlzf.size()>0){
 				QuickPayConf.merCode=wlzf.get(0).getZfb_code();//商城代码

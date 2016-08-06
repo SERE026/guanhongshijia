@@ -53,10 +53,13 @@ public class ZfbWidget extends Widget {
 		
 		// 配置基础交易数据
 		Zffs zf = (Zffs)pamtr.get("zf");
-		AlipayConfig.key=zf.getZfb_code();
+//		AlipayConfig.key=
+				//zf.getZfb_code();
 		String tradeno=(String) pamtr.get("tradeno");
-		AlipayConfig.partner=zf.getZfb_id();
-		AlipayConfig.zfbNo=zf.getZfb_zhanghao();
+//		AlipayConfig.partner=
+				//zf.getZfb_id();
+//		AlipayConfig.zfbNo=
+				//zf.getZfb_zhanghao();
 		String exter_invoke_ip = CityTool.getClientIp(this.HttpRequest); // 客户端的IP地址
 		String total_fee = (String)pamtr.get("total_fee");
 		
@@ -68,18 +71,18 @@ public class ZfbWidget extends Widget {
 		// 把请求参数打包成数组
 		Map<String, String> sParaTemp = new HashMap<String, String>();
 		sParaTemp.put("service", "create_direct_pay_by_user"); // 这个参数是指通过用户创建直接交易
-		sParaTemp.put("partner", AlipayConfig.partner); // 合作者（商家）的身份ID，以2088开头由16位纯数字组成的字符串
+		sParaTemp.put("partner","2088421503901771"); // 合作者（商家）的身份ID，以2088开头由16位纯数字组成的字符串
 		sParaTemp.put("_input_charset", AlipayConfig.input_charset); // 表单提交时编码类型
 		sParaTemp.put("payment_type", "1"); // 支付类型（1：代表？？）
 		sParaTemp.put("notify_url", "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/notify_url.html"); // 需http://格式的完整路径，不能加?id=123这类自定义参数。服务器异步通知页面路径（这是为了防止用户在充值后立即关闭页面，这样的说法是否正确？？？）
 		sParaTemp.put("return_url", "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/return_url.html"); // 需http://格式的完整路径，不能加?id=123这类自定义参数。服务器同步通知页面路径（支付宝付款成功/失败时，会传入一系列参数到这个页面）
-		sParaTemp.put("seller_email", AlipayConfig.zfbNo); // 商家（卖家）支付宝账号（这个账号必须是申请过即时到账交易的）
+		sParaTemp.put("seller_email", "guanhongshijia@126.com"); // 商家（卖家）支付宝账号（这个账号必须是申请过即时到账交易的）
 		sParaTemp.put("body", body); // 交易内容描述
 		sParaTemp.put("out_trade_no", tradeno);
 		sParaTemp.put("subject", subject); // 主题，显示在支付宝充值界面
 		
 		
-		sParaTemp.put("total_fee", total_fee); // 交易金额
+		sParaTemp.put("total_fee", "0.01"); // 交易金额
 		
 		sParaTemp.put("show_url", "http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS ); // 商品展示地址，具体指的是？？？？
 		sParaTemp.put("anti_phishing_key", ""); // 防钓鱼时间戳

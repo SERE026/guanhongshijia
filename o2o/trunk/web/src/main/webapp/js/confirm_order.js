@@ -61,8 +61,9 @@ function addSite(){
 		add:function(){
 			if(site.validation()){
 				var receiveName=$(".receiveName").val();
+
 				var provinceId=$(".province").val();
-				var cityId=$(".city").val();
+				var cityId=$("#cityId").val();
 				var countyId=$(".county").val();
 				var address=$(".address").val();
 				var code=$(".code").val();
@@ -88,7 +89,7 @@ function addSite(){
 				}
 				
 				site.submit(receiveName,provinceId,cityId,countyId,address,code,receivePhone,receiveTel,email,Isdefault,receiveDate);
-			}
+			 }
 		}
 		,
 		submit:function(receiveName,provinceId,cityId,countyId,address,code,receivePhone,receiveTel,email,Isdefault,receiveDate){
@@ -139,7 +140,7 @@ function addSite(){
 				$(".province").css("border","#ff6600 solid 1px");
 				isresult=false;
 			}
-			if($(".city").val().length==0){
+			if($("#cityId").val().length==0){
 				$(".city").css("border","#ff6600 solid 1px");
 				isresult=false;
 			}
