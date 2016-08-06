@@ -57,12 +57,12 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
         mBtnModify = (Button) view.findViewById(R.id.btn_modify);
         mBtnModify.setOnClickListener(this);
 
-        mBtnFind = (Button) view.findViewById(R.id.btn_find);
-        mBtnFind.setOnClickListener(this);
+//        mBtnFind = (Button) view.findViewById(R.id.btn_find);
+//        mBtnFind.setOnClickListener(this);
 
         mRlSetPwd = (RelativeLayout) view.findViewById(R.id.rl_set_pwd);
         mRlModifyPwd = (RelativeLayout) view.findViewById(R.id.rl_modify_pwd);
-        mRlFindPwd = (RelativeLayout) view.findViewById(R.id.rl_find_pwd);
+//        mRlFindPwd = (RelativeLayout) view.findViewById(R.id.rl_find_pwd);
     }
 
     @Override
@@ -74,18 +74,18 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
             case R.id.btn_set:
                 mRlSetPwd.setVisibility(View.VISIBLE);
                 mRlModifyPwd.setVisibility(View.GONE);
-                mRlFindPwd.setVisibility(View.GONE);
+//                mRlFindPwd.setVisibility(View.GONE);
                 break;
             case R.id.btn_modify:
                 mRlSetPwd.setVisibility(View.GONE);
                 mRlModifyPwd.setVisibility(View.VISIBLE);
-                mRlFindPwd.setVisibility(View.GONE);
+//                mRlFindPwd.setVisibility(View.GONE);
                 break;
-            case R.id.btn_find:
-                mRlSetPwd.setVisibility(View.GONE);
-                mRlModifyPwd.setVisibility(View.GONE);
-                mRlFindPwd.setVisibility(View.VISIBLE);
-                break;
+//            case R.id.btn_find:
+//                mRlSetPwd.setVisibility(View.GONE);
+//                mRlModifyPwd.setVisibility(View.GONE);
+//                mRlFindPwd.setVisibility(View.VISIBLE);
+//                break;
         }
     }
 }

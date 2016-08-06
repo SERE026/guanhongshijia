@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
@@ -17,6 +18,7 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
     private TextView tv_go_back;
     private View view;
     private Button mBtnMyOrder, mBtnMyBrokerage, mBtnUserInfo, mBtnMyCoupon, mBtnSetPwd, mBtnExit;
+    private EditText mEtBrokeragePwd;
 
     @Override
     protected void init() {
@@ -55,6 +57,8 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
         mBtnSetPwd = (Button) view.findViewById(R.id.btn_set_pwd);
         mBtnExit = (Button) view.findViewById(R.id.btn_exit);
 
+        mEtBrokeragePwd = (EditText) view.findViewById(R.id.et_brokerage_pwd);
+
         mBtnMyOrder.setOnClickListener(this);
         mBtnMyBrokerage.setOnClickListener(this);
         mBtnUserInfo.setOnClickListener(this);
@@ -71,24 +75,29 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
                 finish();
                 break;
             case R.id.btn_my_order:
+                mEtBrokeragePwd.setVisibility(View.GONE);
                 intent = new Intent(view.getContext(), MyOrderActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_brokerage:
-                intent = new Intent(view.getContext(), MyBrokerageActivity.class);
-                startActivity(intent);
+                mEtBrokeragePwd.setVisibility(View.VISIBLE);
+//                intent = new Intent(view.getContext(), MyBrokerageActivity.class);
+//                startActivity(intent);
                 break;
             case R.id.btn_user_info:
+                mEtBrokeragePwd.setVisibility(View.GONE);
                 intent = new Intent(view.getContext(), UserInfoActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_my_coupon:
+                mEtBrokeragePwd.setVisibility(View.GONE);
 //                intent = new Intent(view.getContext(), OrderPayActivity.class);
 //                intent = new Intent(view.getContext(), OrderEvaluateActivity.class);
                 intent = new Intent(view.getContext(), CouponActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_set_pwd:
+                mEtBrokeragePwd.setVisibility(View.GONE);
                 intent = new Intent(view.getContext(), SetPasswordActivity.class);
                 startActivity(intent);
                 break;
