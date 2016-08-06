@@ -1,84 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
 
-    <RelativeLayout
+    <android.support.percent.PercentRelativeLayout
         android:id="@+id/rl_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_202834"
-        android:layout_marginTop="79.5dp"
-        android:layout_marginLeft="314dp"
-        android:layout_marginRight="314dp"
-        android:layout_marginBottom="30dp">
+        android:background="@color/color_473e45"
+        app:layout_marginTopPercent="23%"
+        app:layout_marginLeftPercent="32%"
+        app:layout_marginRightPercent="32%"
+        app:layout_marginBottomPercent="23%">
 
         <TextView
             android:id="@+id/tv_login_title"
             android:layout_width="match_parent"
-            android:layout_height="65.5dp"
-            android:background="@color/color_2b323d"
+            app:layout_heightPercent="22%"
             android:gravity="center"
             android:text="账户"
-            android:textColor="@color/color_767f8e"
+            android:textColor="@color/color_bcbcbc"
             android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/et_username"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            app:layout_heightPercent="15%"
             android:layout_below="@id/tv_login_title"
-            android:layout_marginTop="61dp"
-            android:layout_marginLeft="55.5dp"
-            android:layout_marginRight="55.5dp"
-            android:background="@drawable/icon_bg_edittext"
+            app:layout_marginTopPercent="5%"
+            app:layout_marginLeftPercent="16%"
+            app:layout_marginRightPercent="16%"
+            android:background="@drawable/icon_user_center_item_bg"
             android:maxLength="25"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:singleLine="true"
-            android:hint="用户名"
+            android:drawableLeft="@drawable/icon_login_avtar"
+            android:drawablePadding="15dp"
+            android:hint="请输入账号"
             android:gravity="center_vertical"
             android:textColor="@color/white"
-            android:textColorHint="@color/color_1b232f"
-            android:textSize="16sp" >
-
-            <requestFocus />
-        </EditText>
+            android:textColorHint="@color/color_959699"
+            android:textSize="15sp"/>
 
         <EditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            app:layout_heightPercent="15%"
             android:layout_below="@id/et_username"
-            android:layout_marginTop="6dp"
-            android:layout_marginLeft="55.5dp"
-            android:layout_marginRight="55.5dp"
-            android:background="@drawable/icon_bg_edittext"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="16%"
+            app:layout_marginRightPercent="16%"
+            android:background="@drawable/icon_user_center_item_bg"
             android:maxLength="25"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:singleLine="true"
-            android:hint="密码"
+            android:drawableLeft="@drawable/icon_login_pwd"
+            android:drawablePadding="15dp"
+            android:hint="请输入密码"
             android:gravity="center_vertical"
             android:textColor="@color/white"
-            android:textColorHint="@color/color_1b232f"
-            android:textSize="16sp" >
-
-            <requestFocus />
-        </EditText>
+            android:textColorHint="@color/color_959699"
+            android:textSize="15sp"/>
 
         <Button
             android:id="@+id/btn_find_password"
-            android:layout_width="50dp"
-            android:layout_height="15dp"
+            android:layout_width="wrap_content"
+            app:layout_heightPercent="10%"
             android:layout_below="@id/et_password"
-            android:layout_marginTop="25dp"
+            app:layout_marginTopPercent="3%"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="60dp"
-            android:background="#00000000"
+            app:layout_marginRightPercent="16%"
+            android:background="@color/color_transparent"
+            android:gravity="right"
             android:text="找回密码"
             android:textColor="@color/color_a4a5a5"
             android:textSize="12sp"/>
@@ -86,16 +85,16 @@
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            app:layout_heightPercent="15%"
             android:layout_below="@id/btn_find_password"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="55.5dp"
-            android:layout_marginRight="55.5dp"
-            android:background="@drawable/icon_bg_login_btn"
+            app:layout_marginTopPercent="5%"
+            app:layout_marginLeftPercent="30%"
+            app:layout_marginRightPercent="30%"
+            android:background="@drawable/icon_button_bg"
             android:gravity="center"
             android:text="登陆"
             android:textColor="@color/white"
             android:textSize="20sp"/>
 
-    </RelativeLayout>
-</RelativeLayout>
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>

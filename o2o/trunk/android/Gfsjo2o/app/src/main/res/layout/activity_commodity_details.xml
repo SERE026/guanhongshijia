@@ -121,7 +121,7 @@
                 android:id="@+id/iv_collect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_collect_normal"/>
+                android:src="@drawable/icon_collect"/>
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/iv_collect"

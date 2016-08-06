@@ -29,12 +29,13 @@
             android:layout_height="35dp"
             android:layout_below="@id/tv_user_name"
             android:layout_marginTop="32dp"
-            android:background="@drawable/btn_user_center_style"
+            android:background="@drawable/user_center_item_bg_style"
             android:drawableRight="@drawable/icon_arrow"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="我的订单"
-            style="@style/item_text_style"/>
+            android:textColor="@color/color_e3e6eb"
+            android:textSize="16sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -48,12 +49,13 @@
             android:layout_height="35dp"
             android:layout_below="@id/btn_my_order"
             android:layout_marginTop="25dp"
-            android:background="@drawable/btn_user_center_style"
+            android:background="@drawable/user_center_item_bg_style"
             android:drawableRight="@drawable/icon_arrow"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="我的佣金"
-            style="@style/item_text_style"/>
+            android:textColor="@color/color_e3e6eb"
+            android:textSize="16sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -67,12 +69,13 @@
             android:layout_height="35dp"
             android:layout_below="@id/btn_brokerage"
             android:layout_marginTop="25dp"
-            android:background="@drawable/btn_user_center_style"
+            android:background="@drawable/user_center_item_bg_style"
             android:drawableRight="@drawable/icon_arrow"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="个人信息"
-            style="@style/item_text_style"/>
+            android:textColor="@color/color_e3e6eb"
+            android:textSize="16sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -86,12 +89,13 @@
             android:layout_height="35dp"
             android:layout_below="@id/btn_user_info"
             android:layout_marginTop="25dp"
-            android:background="@drawable/btn_user_center_style"
+            android:background="@drawable/user_center_item_bg_style"
             android:drawableRight="@drawable/icon_arrow"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="我的优惠券"
-            style="@style/item_text_style"/>
+            android:textColor="@color/color_e3e6eb"
+            android:textSize="16sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -110,12 +114,13 @@
                 android:id="@+id/btn_set_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/btn_user_center_style"
+                android:background="@drawable/user_center_item_bg_style"
                 android:drawableRight="@drawable/icon_arrow"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="设置密码"
-                style="@style/item_text_style"/>
+                android:textColor="@color/color_e3e6eb"
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -146,12 +151,13 @@
                 android:id="@+id/btn_exit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/btn_user_center_style"
+                android:background="@drawable/user_center_item_bg_style"
                 android:drawableRight="@drawable/icon_arrow"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="退出账号"
-                style="@style/item_text_style"/>
+                android:textColor="@color/color_e3e6eb"
+                android:textSize="16sp"/>
 
 
             <TextView
