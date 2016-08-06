@@ -9,7 +9,6 @@ import android.widget.GridView;
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
 import com.wckj.gfsj.Adapter.RecommendAdapter;
-import com.wckj.gfsj.Bean.Commodity_level_one;
 import com.wckj.gfsj.Bean.RecommendGoodsRequest;
 import com.wckj.gfsj.Bean.RecommendGoodsResult;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
@@ -17,8 +16,6 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
-
-import java.util.ArrayList;
 
 import okhttp3.Call;
 
@@ -29,8 +26,8 @@ public class Main_recommend_fragment extends BaseNewFragment{
 
     private View view;
     private GridView gv_recommend;
-    private ArrayList<Commodity_level_one> mShopping;
     private RecommendAdapter mRecommendAdapter;
+    private RecommendGoodsResult json;
 
 
     @Override
@@ -53,7 +50,7 @@ public class Main_recommend_fragment extends BaseNewFragment{
 
     @Override
     protected void load() {
-        showPageState(FrameLoadLayout.LoadResult.success);
+        getGoodsRecommend();
     }
 
     @Override
@@ -73,11 +70,8 @@ public class Main_recommend_fragment extends BaseNewFragment{
 
     private void initView() {
         gv_recommend = (GridView) view.findViewById(R.id.gv_recommend);
-         mShopping = new ArrayList<>();
-        for (int i = 0; i <16 ; i++) {
-            mShopping.add(new Commodity_level_one());
-        }
-        mRecommendAdapter = new RecommendAdapter(view.getContext(), mShopping);
+
+        mRecommendAdapter = new RecommendAdapter(view.getContext(), json.getNewList());
         gv_recommend.setAdapter(mRecommendAdapter);
     }
     //推荐
@@ -86,11 +80,13 @@ public class Main_recommend_fragment extends BaseNewFragment{
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_RECOMMEND_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
+                showPageState(FrameLoadLayout.LoadResult.error);
             }
 
             @Override
             public void onSuccess(String responsed) {
-                RecommendGoodsResult json = JSON.parseObject(responsed, RecommendGoodsResult.class);
+                 json =  JSON.parseObject(responsed, RecommendGoodsResult.class);
+                showPageState(FrameLoadLayout.LoadResult.success);
             }
         });
 

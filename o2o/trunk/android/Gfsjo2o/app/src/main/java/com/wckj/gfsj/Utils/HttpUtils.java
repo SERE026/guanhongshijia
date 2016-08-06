@@ -5,11 +5,11 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.Base.BaseRequest;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.io.IOException;
 
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -66,7 +66,7 @@ public class HttpUtils {
      * @param appRequest
      * @param url
      */
-    public  void asyncPost(BaseRequest appRequest, String url, final ICallBack callBack) {
+    public  void asyncPost(BaseRequest appRequest, final String url, final ICallBack callBack) {
         if(AppApplication.loginResult!=null){
             if(AppApplication.loginResult.getToken()!=null){
                 appRequest.setToken(AppApplication.loginResult.getToken());
@@ -75,26 +75,30 @@ public class HttpUtils {
         }
 
         String jsonStr = JSON.toJSONString(appRequest, SerializerFeature.WriteMapNullValue);
-        RequestBody body = RequestBody.create(JSON_TYPE, jsonStr);
-        Request request = new Request.Builder()
+        LogTools.println(null,"请求参数=="+jsonStr);
+        OkHttpUtils
+                .postString()
                 .url(url)
-                .post(body)
-                .build();
+                .content(jsonStr)
+                .mediaType(JSON_TYPE)
+                .build()
+                .execute(new com.zhy.http.okhttp.callback.Callback() {
+                    @Override
+                    public Object parseNetworkResponse(Response response, int id) throws Exception {
+                        return response.body().string();
+                    }
 
-        client.newCall(request).enqueue(new Callback()
-        {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                callBack.onError(call,e);
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-              String str=  response.body().string();
-                LogTools.println(null,"===="+str);
-                callBack.onSuccess(str);
-            }
-       });
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        callBack.onError(call,e);
+                    }
+                    @Override
+                    public void onResponse(Object response, int id) {
+                        LogTools.println(null,"url===="+url);
+                        LogTools.println(null,"response===="+response);
+                        callBack.onSuccess((String) response);
+    }
+});
     }
 
 }

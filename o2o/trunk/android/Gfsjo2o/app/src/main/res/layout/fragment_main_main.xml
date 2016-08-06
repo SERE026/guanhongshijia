@@ -6,6 +6,7 @@
     <com.dalong.francyconverflow.FancyCoverFlow
         android:id="@+id/fancyCoverFlow"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="match_parent"
         android:layout_marginBottom="55dp"
         android:layout_marginTop="46dp"

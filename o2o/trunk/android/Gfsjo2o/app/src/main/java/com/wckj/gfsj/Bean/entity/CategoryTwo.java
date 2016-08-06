@@ -18,6 +18,16 @@ public class CategoryTwo extends BaseEntity {
     //排序
     private int sortOrder;
 
+    private boolean colorSelector;//默认false
+
+    public boolean isColorSelector() {
+        return colorSelector;
+    }
+
+    public void setColorSelector(boolean colorSelector) {
+        this.colorSelector = colorSelector;
+    }
+
     public String getImageUrl() {
         return imageUrl;
     }

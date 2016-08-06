@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 import com.dalong.francyconverflow.FancyCoverFlow;
 import com.dalong.francyconverflow.FancyCoverFlowAdapter;
-import com.wckj.gfsj.Bean.Commodity_level_details;
+import com.wckj.gfsj.Bean.entity.GoodsDetail;
 import com.wckj.gfsj.R;
 
 import java.util.List;
@@ -21,11 +21,11 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
 
     private Context mContext;
 
-    public List<Commodity_level_details> mList;
+    private List<GoodsDetail> goodsDetailList;
 
-    public MyFancyCoverFlowAdapter(Context context, List<Commodity_level_details> list) {
+    public MyFancyCoverFlowAdapter(Context context, List<GoodsDetail> list) {
         mContext = context;
-        this.mList = list;
+        this.goodsDetailList = list;
     }
     @Override
     public View getCoverFlowItem(int position, View convertView, ViewGroup parent) {
@@ -41,7 +41,7 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final Commodity_level_details item = (Commodity_level_details) getItem(position);
+        final GoodsDetail item = (GoodsDetail) getItem(position);
         holder.iv_scro_main.setImageResource(R.drawable.icon_cover_image);
 
         return convertView;
@@ -49,12 +49,12 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
 
     @Override
     public int getCount() {
-        return mList.size();
+        return goodsDetailList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mList.get(position);
+        return goodsDetailList.get(position);
     }
 
     @Override

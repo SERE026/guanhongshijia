@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.wckj.gfsj.Bean.Commodity_level_one;
+import com.wckj.gfsj.Bean.entity.Recommend;
 import com.wckj.gfsj.R;
 
 import java.util.List;
@@ -18,20 +18,21 @@ import java.util.List;
  */
 public class RecommendAdapter extends BaseAdapter{
     private Context mcon;
-    private List<Commodity_level_one> mList;
-    public RecommendAdapter(Context mcon, List<Commodity_level_one> mList) {
+    //新品推荐列表
+    private List<Recommend> newList;
+    public RecommendAdapter(Context mcon, List<Recommend> mList) {
         this.mcon=mcon;
-        this.mList=mList;
+        this.newList=mList;
     }
 
     @Override
     public int getCount() {
-        return mList.size();
+        return newList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mList.get(position);
+        return newList.get(position);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class RecommendAdapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final Commodity_level_one item = (Commodity_level_one) getItem(position);
+        final Recommend item = (Recommend) getItem(position);
         holder.iv_shopping_pic.setImageResource(R.drawable.icon_public_image);
         holder.tv_name.setText("直降200快");
         holder.tv_title_desc.setText("厂家直销快来购买");

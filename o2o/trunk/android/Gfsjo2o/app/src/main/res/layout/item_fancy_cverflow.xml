@@ -6,25 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.open.androidtvwidget.view.ReflectItemView
-        android:id="@+id/rf_scro_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:clickable="true"
-        android:focusableInTouchMode="true"
-        android:focusable="true"
-        app:radius="0dp"
-        app:isReflect="true"
-        app:isShape="true" >
+    <!--<com.open.androidtvwidget.view.reflectitemview-->
+        <!--android:id="@+id/rf_scro_main"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+      <!---->
+        <!--android:clickable="true"-->
+        <!--android:focusableintouchmode="true"-->
+        <!--android:focusable="true"-->
+        <!--app:radius="0dp"-->
+        <!--app:isreflect="true"-->
+        <!--app:isshape="true" >-->
 
         <ImageView
+            android:layout_gravity="center"
             android:id="@+id/iv_scro_main"
             android:layout_width="374dp"
             android:layout_height="296dp"
             android:scaleType="centerCrop"
             android:src="@drawable/icon_cover_image"/>
 
-    </com.open.androidtvwidget.view.ReflectItemView>
+    <!--</com.open.androidtvwidget.view.ReflectItemView>-->
 
 </com.open.androidtvwidget.view.LinearMainLayout>

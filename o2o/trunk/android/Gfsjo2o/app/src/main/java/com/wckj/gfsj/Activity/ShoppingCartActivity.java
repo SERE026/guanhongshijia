@@ -38,7 +38,7 @@ public class ShoppingCartActivity extends BaseNewActivity implements View.OnClic
         title_rl = (TitleRelativeLayout) titleView.findViewById(R.id.title_rl);
         title_rl.childView. findViewById(R.id.tv_go_back).setOnClickListener(this);
         title_rl.childView.findViewById(R.id.tv_content_desc).setVisibility(View.GONE);
-        title_rl.childView.findViewById(R.id.tv_shopping_desc).setVisibility(View.VISIBLE);
+        title_rl.childView.findViewById(R.id.tv_shopping_desc).setVisibility(View.GONE);
         return titleView;
     }
 
@@ -79,6 +79,11 @@ public class ShoppingCartActivity extends BaseNewActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_go_back:
+                finish();
+                break;
+        }
 
     }
 
