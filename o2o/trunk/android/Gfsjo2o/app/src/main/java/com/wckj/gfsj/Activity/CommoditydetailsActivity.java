@@ -34,15 +34,16 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     private ViewPager vp_commodity_pic;
     private ArrayList<Commodity_level_details> mList=new ArrayList<>();
     private TitleRelativeLayout title_rl;
-    private TextView tv_add_cart;
+    private TextView tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type,tv_color,tv_specification;
     private ImageView iv_collect;
+    private GoodsDetailResult result;
 
-    private int goodsId;
+    private String goodsId;
 
     @Override
     protected void init() {
-         goodsId =  getIntent().getIntExtra("goodsId", -1);
-        if( goodsId==-1){
+        goodsId =  getIntent().getStringExtra("goodsId");
+        if( goodsId==null){
             finish();
         }
     }
@@ -63,6 +64,14 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         bt_buy = (Button) view.findViewById(R.id.bt_buy);
         tv_add_cart = (TextView) view.findViewById(R.id.tv_add_cart);
         iv_collect = (ImageView) view.findViewById(R.id.iv_collect);
+        tv_title_name = (TextView) view.findViewById(R.id.tv_title_name);
+        tv_title_desc = (TextView) view.findViewById(R.id.tv_title_desc);
+        tv_prices = (TextView) view.findViewById(R.id.tv_prices);
+        tv_type = (TextView) view.findViewById(R.id.tv_type);
+        tv_color = (TextView) view.findViewById(R.id.tv_color);
+        tv_specification = (TextView) view.findViewById(R.id.tv_specification);
+
+        initSuccessView();
 
         bt_buy.setOnClickListener(this);
         tv_add_cart.setOnClickListener(this);
@@ -71,6 +80,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         bindViewPage();//绑定viewpage
         return view;
     }
+
 
     private void bindViewPage() {
         for (int i = 0; i <5 ; i++) {
@@ -86,8 +96,18 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
 
     @Override
     protected void load() {
-//        getGoodsDetail();
-        showPageState(FrameLoadLayout.LoadResult.success);
+        getGoodsDetail();
+
+    }
+
+    //成功之后初始化界面数据
+    private void initSuccessView() {
+        tv_title_name.setText(result.getDetail().getName());
+        tv_title_desc.setText(result.getDetail().getShortDesc());
+        tv_prices.setText("￥ "+result.getDetail().getPrice());
+//        tv_type.setText(result.getDetail().get);
+//        tv_color.setText();
+//        tv_specification
     }
 
     /**
@@ -99,11 +119,13 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_DETAIL_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
+                showPageState(FrameLoadLayout.LoadResult.error);
             }
 
             @Override
             public void onSuccess(String responsed) {
-                GoodsDetailResult json = JSON.parseObject(responsed, GoodsDetailResult.class);
+                 result =  JSON.parseObject(responsed, GoodsDetailResult.class);
+                showPageState(FrameLoadLayout.LoadResult.success);
             }
         });
     }

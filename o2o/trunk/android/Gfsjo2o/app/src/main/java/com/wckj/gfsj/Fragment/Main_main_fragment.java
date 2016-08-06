@@ -11,6 +11,7 @@ import com.wckj.gfsj.Activity.CommoditydetailsActivity;
 import com.wckj.gfsj.Adapter.MyFancyCoverFlowAdapter;
 import com.wckj.gfsj.Bean.LoopGoodsListRequest;
 import com.wckj.gfsj.Bean.LoopGoodsListResult;
+import com.wckj.gfsj.Bean.entity.GoodsDetail;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
@@ -76,6 +77,8 @@ public class Main_main_fragment extends BaseNewFragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(view.getContext(), CommoditydetailsActivity.class);
+                GoodsDetail itemAtPosition = (GoodsDetail) parent.getItemAtPosition(position);
+                intent.putExtra("goodsId",itemAtPosition.getId());
                 startActivity(intent);
             }
         });
