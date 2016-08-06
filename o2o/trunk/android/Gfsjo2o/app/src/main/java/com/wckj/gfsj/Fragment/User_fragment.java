@@ -24,7 +24,6 @@ import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.TimeUtils;
-import com.wckj.gfsj.Utils.UuidUtils;
 
 import okhttp3.Call;
 
@@ -45,7 +44,7 @@ public class User_fragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, null);
-         jsonDao =  new JsonDao();
+        jsonDao =  new JsonDao();
         mRlLogin = (RelativeLayout) view.findViewById(R.id.rl_login);
         mTvLoginTitle = (TextView) view.findViewById(R.id.tv_login_title);
         mEtUsername = (EditText) view.findViewById(R.id.et_username);
@@ -78,20 +77,17 @@ public class User_fragment extends Fragment implements View.OnClickListener {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setLoginName("lxfeng");
         loginRequest.setPassword("123123");
-        loginRequest.setDeviceId(UuidUtils.getUuid());
         HttpUtils.getInstance().asyncPost(loginRequest, GlobalUtils.LOGIN_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
             }
+
             @Override
-            public void onSuccess(String responsed) {
-                jsonDao.insertJson(GlobalUtils.LOGIN_URL,responsed, TimeUtils.getSystemTime());
-                AppApplication.loginResult = JSON.parseObject(responsed, LoginResult.class);
-
+            public void onSuccess(String response) {
+                jsonDao.insertJson(GlobalUtils.LOGIN_URL, response, TimeUtils.getSystemTime());
+                AppApplication.loginResult = JSON.parseObject(response, LoginResult.class);
             }
-
-        } );
-
+        });
     }
 
     @Override

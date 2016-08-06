@@ -127,8 +127,8 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
             }
 
             @Override
-            public void onSuccess(String responsed) {
-                CategoryGoodsListResult json = JSON.parseObject(responsed, CategoryGoodsListResult.class);
+            public void onSuccess(String response) {
+                CategoryGoodsListResult json = JSON.parseObject(response, CategoryGoodsListResult.class);
             }
         });
     }

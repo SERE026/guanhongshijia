@@ -104,8 +104,8 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
             public void onError(Call call, Exception e) {
             }
             @Override
-            public void onSuccess(String responsed) {
-                JSON.parseObject(responsed, FavoritesListResult.class);
+            public void onSuccess(String response) {
+                JSON.parseObject(response, FavoritesListResult.class);
 
             }
 

@@ -105,8 +105,8 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
             public void onError(Call call, Exception e) {
             }
             @Override
-            public void onSuccess(String responsed) {
-                JSON.parseObject(responsed, MainCategoryResult.class);
+            public void onSuccess(String response) {
+                JSON.parseObject(response, MainCategoryResult.class);
 
             }
 

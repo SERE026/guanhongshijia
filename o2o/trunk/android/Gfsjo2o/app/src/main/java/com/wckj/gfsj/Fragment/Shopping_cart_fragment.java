@@ -11,7 +11,10 @@ import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.CartListRequest;
 import com.wckj.gfsj.Bean.CartListResult;
 import com.wckj.gfsj.Bean.Commodity_level_details;
+import com.wckj.gfsj.Bean.CreateOrderRequest;
+import com.wckj.gfsj.Bean.CreateOrderResult;
 import com.wckj.gfsj.Bean.TimeEvent;
+import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
@@ -19,6 +22,7 @@ import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
@@ -81,7 +85,7 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
     }
 
     //获取购物车列表
-   private void getCartList(){
+    private void getCartList(){
        CartListRequest request = new CartListRequest();
        HttpUtils.getInstance().asyncPost(request, GlobalUtils.CART_LIST_URL, new ICallBack() {
            @Override
@@ -89,11 +93,29 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
            }
 
            @Override
-           public void onSuccess(String responsed) {
-               CartListResult json = JSON.parseObject(responsed, CartListResult.class);
+           public void onSuccess(String response) {
+               CartListResult json = JSON.parseObject(response, CartListResult.class);
            }
        });
+    }
 
+    /**
+     * 创建订单
+     * @param cartItemList 购物车商品列表
+     */
+    private void createOrder(List<CartItem> cartItemList) {
+        CreateOrderRequest request = new CreateOrderRequest();
+        request.setCartItemList(cartItemList);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_CREATE_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                CreateOrderResult json = JSON.parseObject(response, CreateOrderResult.class);
+            }
+        });
     }
 
     @Override

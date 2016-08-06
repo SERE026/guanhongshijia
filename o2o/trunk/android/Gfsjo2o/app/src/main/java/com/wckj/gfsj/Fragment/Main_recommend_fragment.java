@@ -84,8 +84,8 @@ public class Main_recommend_fragment extends BaseNewFragment{
             }
 
             @Override
-            public void onSuccess(String responsed) {
-                 json =  JSON.parseObject(responsed, RecommendGoodsResult.class);
+            public void onSuccess(String response) {
+                 json =  JSON.parseObject(response, RecommendGoodsResult.class);
                 showPageState(FrameLoadLayout.LoadResult.success);
             }
         });

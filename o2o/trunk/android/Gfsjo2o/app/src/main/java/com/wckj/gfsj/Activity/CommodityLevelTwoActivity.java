@@ -160,8 +160,8 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
             }
 
             @Override
-            public void onSuccess(String responsed) {
-                 json =  JSON.parseObject(responsed, SubCategoryResult.class);
+            public void onSuccess(String response) {
+                 json =  JSON.parseObject(response, SubCategoryResult.class);
                 showPageState(FrameLoadLayout.LoadResult.success);
             }
         });

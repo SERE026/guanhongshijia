@@ -94,8 +94,8 @@ public class Main_main_fragment extends BaseNewFragment{
                 showPageState(FrameLoadLayout.LoadResult.error);
             }
             @Override
-            public void onSuccess(String responsed) {
-                 loopGoodsListResult =  JSON.parseObject(responsed, LoopGoodsListResult.class);
+            public void onSuccess(String response) {
+                 loopGoodsListResult =  JSON.parseObject(response, LoopGoodsListResult.class);
 
                 showPageState(FrameLoadLayout.LoadResult.success);
             }

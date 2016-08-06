@@ -75,8 +75,8 @@ public class MainMoreActivity extends BaseNewActivity implements View.OnClickLis
             }
 
             @Override
-            public void onSuccess(String responsed) {
-                MoreCategoryResult json = JSON.parseObject(responsed, MoreCategoryResult.class);
+            public void onSuccess(String response) {
+                MoreCategoryResult json = JSON.parseObject(response, MoreCategoryResult.class);
             }
         });
 

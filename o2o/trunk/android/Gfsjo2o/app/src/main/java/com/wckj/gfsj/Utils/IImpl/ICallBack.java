@@ -5,5 +5,5 @@ import okhttp3.Call;
 public interface ICallBack{
     void onError(Call call, Exception e);
 
-    void onSuccess(String responsed);
+    void onSuccess(String response);
 }
