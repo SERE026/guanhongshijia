@@ -1006,7 +1006,7 @@
 <#include 'common/buttom.html' />
 
     <!--菜单栏展示第三级目录-->
-    <#list goodsSortList as p>
+<#--    <#list goodsSortList as p>
         <#if p_index lt 4>
         <#if p.extendshow==1>
             <#list p.children as c>
@@ -1044,7 +1044,7 @@
             </div>
         </#if>
         </#if>
-    </#list>
+    </#list>-->
 
 </div>
 <script src="../js/jquery-1.8.2.js"></script>
