@@ -36,16 +36,16 @@
             app:layout_marginRightPercent="16%"
             android:background="@drawable/icon_user_center_item_bg"
             android:maxLength="25"
-            android:paddingLeft="15dp"
+            android:paddingLeft="13dp"
             android:paddingRight="15dp"
             android:singleLine="true"
             android:drawableLeft="@drawable/icon_login_avtar"
-            android:drawablePadding="15dp"
+            android:drawablePadding="17dp"
             android:hint="请输入账号"
             android:gravity="center_vertical"
             android:textColor="@color/white"
             android:textColorHint="@color/color_959699"
-            android:textSize="15sp"/>
+            android:textSize="17sp"/>
 
         <EditText
             android:id="@+id/et_password"
@@ -61,11 +61,25 @@
             android:paddingRight="15dp"
             android:singleLine="true"
             android:drawableLeft="@drawable/icon_login_pwd"
-            android:drawablePadding="15dp"
+            android:drawablePadding="20dp"
             android:hint="请输入密码"
             android:gravity="center_vertical"
             android:textColor="@color/white"
             android:textColorHint="@color/color_959699"
+            android:textSize="17sp"/>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            app:layout_heightPercent="10%"
+            android:layout_below="@id/et_password"
+            app:layout_marginTopPercent="3%"
+            android:layout_alignParentLeft="true"
+            app:layout_marginLeftPercent="16%"
+            android:background="@drawable/user_center_item_bg_style"
+            android:gravity="center_vertical|left"
+            android:text="立即注册"
+            android:textColor="@color/color_a4a5a5"
             android:textSize="15sp"/>
 
         <Button
@@ -76,11 +90,11 @@
             app:layout_marginTopPercent="3%"
             android:layout_alignParentRight="true"
             app:layout_marginRightPercent="16%"
-            android:background="@color/color_transparent"
-            android:gravity="right"
+            android:background="@drawable/user_center_item_bg_style"
+            android:gravity="center_vertical|right"
             android:text="找回密码"
             android:textColor="@color/color_a4a5a5"
-            android:textSize="12sp"/>
+            android:textSize="15sp"/>
 
         <Button
             android:id="@+id/btn_login"
@@ -90,7 +104,7 @@
             app:layout_marginTopPercent="5%"
             app:layout_marginLeftPercent="30%"
             app:layout_marginRightPercent="30%"
-            android:background="@drawable/icon_button_bg"
+            android:background="@drawable/login_btn_style"
             android:gravity="center"
             android:text="登陆"
             android:textColor="@color/white"
