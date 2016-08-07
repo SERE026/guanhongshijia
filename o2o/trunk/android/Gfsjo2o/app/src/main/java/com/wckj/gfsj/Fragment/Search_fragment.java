@@ -14,6 +14,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
 
 import okhttp3.Call;
 
@@ -26,22 +27,28 @@ public class Search_fragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, null);
 
-        search("红木");
+//        search("红木");
 
         return view;
     }
 
+    /**
+     * 搜索
+     * @param keyword 关键字
+     */
     private void search(String keyword) {
         SearchRequest request = new SearchRequest();
         request.setKeyword(keyword);
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_SEARCH_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
             }
 
             @Override
             public void onSuccess(String response) {
                 SearchResult json = JSON.parseObject(response, SearchResult.class);
+                LogUtil.i(response + "");
             }
         });
     }

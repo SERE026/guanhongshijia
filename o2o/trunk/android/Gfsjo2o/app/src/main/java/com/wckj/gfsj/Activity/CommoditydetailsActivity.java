@@ -123,8 +123,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
             }
 
             @Override
-            public void onSuccess(String responsed) {
-                 result =  JSON.parseObject(responsed, GoodsDetailResult.class);
+            public void onSuccess(String response) {
+                 result =  JSON.parseObject(response, GoodsDetailResult.class);
                 showPageState(FrameLoadLayout.LoadResult.success);
             }
         });
@@ -167,8 +167,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
             }
 
             @Override
-            public void onSuccess(String responsed) {
-                AddCartResult json = JSON.parseObject(responsed, AddCartResult.class);
+            public void onSuccess(String response) {
+                AddCartResult json = JSON.parseObject(response, AddCartResult.class);
             }
         });
     }

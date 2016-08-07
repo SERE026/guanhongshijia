@@ -20,6 +20,7 @@ import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.wckj.gfsj.Bean.LoginResult;
 import com.wckj.gfsj.Db.JsonDao;
 import com.wckj.gfsj.GlobalUtils;
+import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
 import com.wckj.gfsj.Utils.UuidUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -45,6 +46,8 @@ public class AppApplication extends Application {
                 .getExternalStorageState())) {
             OwerToastShow.show(this, "SD卡加载异常！");
         }
+        LogUtil.initLog(true);// 打开Log输出
+
         initWidthAndHeight();
         initUi();
         initImageLoader(getApplicationContext());

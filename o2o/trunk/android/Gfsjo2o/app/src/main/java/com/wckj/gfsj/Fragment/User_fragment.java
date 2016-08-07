@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Activity.FindPasswordActivity;
 import com.wckj.gfsj.Activity.MainActivity;
 import com.wckj.gfsj.Activity.UserCenterActivity;
 import com.wckj.gfsj.Application.AppApplication;
@@ -23,6 +24,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.TimeUtils;
 
 import okhttp3.Call;
@@ -50,6 +52,7 @@ public class User_fragment extends Fragment implements View.OnClickListener {
         mEtUsername = (EditText) view.findViewById(R.id.et_username);
         mEtPassword = (EditText) view.findViewById(R.id.et_password);
         mBtnFindPassword = (Button) view.findViewById(R.id.btn_find_password);
+        mBtnFindPassword.setOnClickListener(this);
         mBtnLogin = (Button) view.findViewById(R.id.btn_login);
         mBtnLogin.setOnClickListener(this);
 
@@ -58,36 +61,24 @@ public class User_fragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        Intent intent;
         switch (view.getId()) {
             case R.id.btn_login:
                 String userName = mEtUsername.getText().toString().trim();
                 String userPwd  = mEtPassword.getText().toString().trim();
-                login();
+                login("lxfeng", "123123");
 //                if (userName.equals("123") && userPwd.equals("123")) {
-                    Intent intent = new Intent(view.getContext(), UserCenterActivity.class);
+                intent = new Intent(view.getContext(), UserCenterActivity.class);
                     startActivityForResult(intent, INTO_USER_CENTER);
 //                } else {
 //                    OwerToastShow.show("用户名或密码错误");
 //                }
                 break;
+            case R.id.btn_find_password:
+                intent = new Intent(view.getContext(), FindPasswordActivity.class);
+                startActivity(intent);
+                break;
         }
-    }
-
-    private void login() {
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setLoginName("lxfeng");
-        loginRequest.setPassword("123123");
-        HttpUtils.getInstance().asyncPost(loginRequest, GlobalUtils.LOGIN_URL, new ICallBack() {
-            @Override
-            public void onError(Call call, Exception e) {
-            }
-
-            @Override
-            public void onSuccess(String response) {
-                jsonDao.insertJson(GlobalUtils.LOGIN_URL, response, TimeUtils.getSystemTime());
-                AppApplication.loginResult = JSON.parseObject(response, LoginResult.class);
-            }
-        });
     }
 
     @Override
@@ -99,5 +90,28 @@ public class User_fragment extends Fragment implements View.OnClickListener {
         }
 
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * 登陆
+     * @param loginName 用户名
+     * @param password  密码
+     */
+    private void login(String loginName, String password) {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setLoginName(loginName);
+        loginRequest.setPassword(password);
+        HttpUtils.getInstance().asyncPost(loginRequest, GlobalUtils.LOGIN_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                jsonDao.insertJson(GlobalUtils.LOGIN_URL, response, TimeUtils.getSystemTime());
+                AppApplication.loginResult = JSON.parseObject(response, LoginResult.class);
+            }
+        });
     }
 }

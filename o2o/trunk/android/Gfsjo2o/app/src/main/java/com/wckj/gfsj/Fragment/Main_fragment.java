@@ -10,11 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Bean.StartupRequest;
+import com.wckj.gfsj.Bean.StartupResult;
 import com.wckj.gfsj.CustomUi.StopViewPage;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 /**
  * Created by 小爱爱 on 2016/7/15.
@@ -46,6 +55,7 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
 
         svp_context.setAdapter(adapter);
 
+        startUp();
     }
 
     private void initView() {
@@ -117,5 +127,24 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
         public int getItemPosition(Object object) {
             return PagerAdapter.POSITION_NONE;
         }
+    }
+
+    /**
+     * 启动请求
+     */
+    private void startUp() {
+        StartupRequest request = new StartupRequest();
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.STARTUP_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                StartupResult json = JSON.parseObject(response, StartupResult.class);
+                LogUtil.i(response + "");
+            }
+        });
     }
 }

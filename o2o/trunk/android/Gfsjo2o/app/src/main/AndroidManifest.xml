@@ -80,6 +80,10 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
 
+        <activity android:name=".Activity.FindPasswordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+
     </application>
 
 

@@ -67,7 +67,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initData() {
-        setTabSelection(1);
+        setTabSelection(0);
     }
 
     public void setTabSelection(int index) {

@@ -78,7 +78,7 @@ public class HttpUtils {
         }
 
         String jsonStr = JSON.toJSONString(appRequest, SerializerFeature.WriteMapNullValue);
-        LogTools.println(null, "请求参数==" + jsonStr);
+        LogUtil.d("请求参数==" + jsonStr);
         OkHttpUtils
                 .postString()
                 .url(url)
@@ -98,8 +98,8 @@ public class HttpUtils {
 
                     @Override
                     public void onResponse(Object response, int id) {
-                        LogTools.println(null, "url====" + url);
-                        LogTools.println(null, "response====" + response);
+                        LogUtil.d("url====" + url);
+                        LogUtil.d("response====" + response);
                         callBack.onSuccess((String) response);
                     }
                 });

@@ -10,6 +10,8 @@ import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.CommoditydetailsActivity;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
+import com.wckj.gfsj.Bean.AddFavoritesRequest;
+import com.wckj.gfsj.Bean.AddFavoritesResult;
 import com.wckj.gfsj.Bean.Commodity_level_three;
 import com.wckj.gfsj.Bean.FavoritesListRequest;
 import com.wckj.gfsj.Bean.FavoritesListResult;
@@ -18,6 +20,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
 
 import java.util.ArrayList;
 
@@ -91,6 +94,7 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
             mList.add(new Commodity_level_three());
         }
 //        getFavoritesList();
+//        addFavorites(1254 + "");
         showPageState(FrameLoadLayout.LoadResult.success);
     }
 
@@ -110,6 +114,27 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
             }
 
         } );
+    }
+
+    /**
+     * 添加到收藏夹
+     * @param goodsId 商品ID
+     */
+    private void addFavorites(String goodsId) {
+        AddFavoritesRequest request = new AddFavoritesRequest();
+        request.setGoodsId(goodsId);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.FAVORITES_ADD_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                AddFavoritesResult json = JSON.parseObject(response, AddFavoritesResult.class);
+                LogUtil.i(response + "");
+            }
+        });
     }
 
     @Override

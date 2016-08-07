@@ -20,6 +20,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,8 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
         loadPage.iv_networktext.setImageResource(R.drawable.icon_big_cart);
         loadPage.textView1.setText("你还没有相关订单");
         loadPage.textView2.setText("快去商品购物页选择其他商品吧！！！");
+//        List<CartItem> list = new ArrayList<CartItem>();
+//        createOrder(list);
     }
 
     @Override
@@ -109,11 +112,13 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_CREATE_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
             }
 
             @Override
             public void onSuccess(String response) {
                 CreateOrderResult json = JSON.parseObject(response, CreateOrderResult.class);
+                LogUtil.i(response + "");
             }
         });
     }
