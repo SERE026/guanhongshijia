@@ -821,7 +821,7 @@
             <div class="FloorID">
                 <i class="floorIcon"></i>
                 <b>5F</b><span>综合系列</span>
-                <ul class="FiveNav" style="width: 886px;">
+                <ul class="FiveNav" style="width: 948px;">
                     <#list goodsSortList5 as p>
                         <#if p_index == 0>
                         <li class="FH_current fiveNav">${p.name?if_exists}</li>
