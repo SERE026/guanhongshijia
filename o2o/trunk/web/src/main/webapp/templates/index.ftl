@@ -35,9 +35,10 @@
             ${HUIYUANIFNO.userName}<a href="javascript:exitdl();" >【退出】</a>
             <#else >
                 <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
+                <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
             </#if>
 
-                <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
+
                 <#--<label class="head-welcome inline-block">欢迎光临观红世家，</label>
                 <a href="#">aaa</a><a class="exit" href="#">[退出]</a>-->
             </div>
