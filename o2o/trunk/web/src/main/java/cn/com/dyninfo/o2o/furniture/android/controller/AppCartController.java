@@ -11,6 +11,8 @@ import cn.com.dyninfo.o2o.entity.GoodsDetail;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
+import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.order.model.CarsBox;
@@ -43,6 +45,9 @@ public class AppCartController extends BaseAppController {
     private CouponService couponService;
 
     @Resource
+    private GoodsService goodsService;
+
+    @Resource
     private OrderService orderService;
 
     @Resource
@@ -61,13 +66,23 @@ public class AppCartController extends BaseAppController {
     public AddCartResult add(@RequestBody AddCartRequest  addCartRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(addCartRequest);
         AddCartResult result = new AddCartResult();
-
-
-        result.setResultCode(SUCCESS);
-        result.setMessage("OK");
-
-        result.setResultCode(NO_LOGIN);
-        result.setMessage("商品添加到购物车失败");
+        String id = addCartRequest.getGoodsId();
+        int count = addCartRequest.getCount();
+        Goods goods= (Goods) goodsService.getObjById(id);
+        CarsBox carsBox=new CarsBox();
+        HuiyuanInfo huiyuanInfo=(HuiyuanInfo) huiyuanService.getObjById("35");
+        if(!ValidationUtil.isEmpty(huiyuanInfo)){
+            carsBox.setMember(huiyuanInfo);
+            carsBox.setGoods(goods);
+            carsBox.setNum(count);
+            carsBox.setPrice(goods.getGoodMoney());
+            carsService.addObj(carsBox);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("商品添加到购物车失败");
+        }
         log.debug(result);
         return result;
     }
