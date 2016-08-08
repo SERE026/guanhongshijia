@@ -36,7 +36,7 @@ function Timelimit() {
 
     //热卖商品
     $(".hot-small ul li a").mouseover(function () {
-        $(this).addClass("red").parent().siblings().children().removeClass("red")
+        $(this).addClass("hotBack").parent().siblings().children().removeClass("hotBack")
         var tag = $(this).attr("data-tag");
         $(".Showcase ." + tag).addClass("block_red").siblings().removeClass("block_red");
     })
