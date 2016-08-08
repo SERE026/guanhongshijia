@@ -129,7 +129,7 @@ ${widget_area}
             <div class="PersonalInformation" style="float: left;">
                 <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
                 <#if HUIYUANIFNO?exists>
-                    ${HUIYUANIFNO.userName}
+                    ${HUIYUANIFNO.userName}<a href="javascript:exitdl();" >【退出】</a>
                     <#else >
                         <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
                 </#if>
@@ -437,6 +437,17 @@ ${widget_area}
     </div>
 </div>
 <script type="text/javascript">
+    function exitdl(){
+        $.ajax({
+            type: 'POST',
+            url: servicePath+"/widget.html",
+            data: "widget=loginBar&exitdl=1",
+            dataType: "html",
+            success: function(data){
+                window.location.href="index.htm";
+            }
+        });
+    }
     //切换城市 更改体验馆数据
     function changeCity(obj){
         var cityId=$(obj).attr("cityid");
