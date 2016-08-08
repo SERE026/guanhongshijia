@@ -134,25 +134,25 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 					String carstrs[]=carInfo.split(":");
 					CarsBox car=(CarsBox) carsDAO.getObjById(carstrs[0]);
 					car.setNum(Integer.parseInt(carstrs[4]));
-					
+
 					carsDAO.updateObj(car);
-					
+
 					String actInfo=car.getActInfo();
 //					System.out.print(actInfo);
 					Goods good=car.getGoods();
 					if(shopMap.get(good.getMerchants().getShangjia_id())!=null){
-						
+
 						List list=(List) shopMap.get(good.getMerchants().getShangjia_id());
 						if(actInfo.length()>1){
 							String act[]=actInfo.split("\\|");
 							Active a=(Active) gameActiveDAO.getObjById(act[0]);
 							if(a.getStatus()==0&&a.getBtimel()<t&&a.getEtimel()>t){
-								
+
 								good.setAct(a);
 								good.setActionId(""+a.getActive_id());
 								good.setActionMoney(Double.parseDouble(act[1]));
-								
-								
+
+
 								good.setSpec(goodsDAO.getGoodsSpec(good.getGoods_id(), carstrs[2]));
 							}else{
 								goodsDAO.getGoodsPrice(good);
@@ -195,7 +195,7 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 								//carsDAO.updateObj(car);
 							}else{
 								goodsDAO.getGoodsPrice(good);
-								
+
 							}
 						}else{
 							goodsDAO.getGoodsPrice(good);
@@ -223,9 +223,9 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 						list.add(goodMap);
 						shopMap.put(good.getMerchants().getShangjia_id(), list);
 					}
-					
+
 				}
-				
+
 			}
 			List list=new ArrayList();
 			Iterator it=shopMap.keySet().iterator();
@@ -891,7 +891,9 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							if (!ValidationUtil.isEmpty(member.getShangJiaInfo().getShangjia_id())){
 								int rate=member.getShangJiaInfo().getAgentGrade().getRate();//佣金比率
 								order.setAgencyPay("0");//否
-								order.setAgencyFee((rate/100)*goodPrice);//佣金金额
+								Double agencyFee=0.0;
+								agencyFee=rate*goodPrice/100;
+								order.setAgencyFee(agencyFee);//佣金金额
 								order.setAgencyPercent(rate);
 							}
 							order.setShippingPrice(dlyprice);
@@ -948,12 +950,12 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 							order.setGoodsPrice(goodPrice-actPrice);
 							order.setDlyType((Dlytype)dlytypeDao.getObjById(dly_id));
 							total+=order.getOrderPrice();
-							int g_j_add=0;//会员归属商家获得积分
-							if(member.getShangJiaInfo()!=null&&order.getMerchants().getShangjia_id()==member.getShangJiaInfo().getShangjia_id()){
-								g_j_add=(int)Math.round(order.getOrderPrice()*g_j.getJfadd_zjjf());
-							}
-							int p_j_add=(int)Math.round(order.getOrderPrice()*p_j.getJfadd_zjjf());//平台购物获得积分
-							order.setPoint(g_j_add+p_j_add);
+//							int g_j_add=0;//会员归属商家获得积分
+//							if(member.getShangJiaInfo()!=null&&order.getMerchants().getShangjia_id()==member.getShangJiaInfo().getShangjia_id()){
+//								g_j_add=(int)Math.round(order.getOrderPrice()*g_j.getJfadd_zjjf());
+//							}
+//							int p_j_add=(int)Math.round(order.getOrderPrice()*p_j.getJfadd_zjjf());//平台购物获得积分
+//							order.setPoint(g_j_add+p_j_add);
 
 							//如果订单支付金额大于系统
 							//用户通过在线支付，可以支付总额小于20000（系统定义）的金额，该金额保存在t_order. DEPOSIT_AMOUNT

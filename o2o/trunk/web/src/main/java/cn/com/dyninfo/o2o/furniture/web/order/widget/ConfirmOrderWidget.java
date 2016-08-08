@@ -18,6 +18,7 @@ import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.util.ForwordTool;
 import cn.com.dyninfo.o2o.furniture.util.ResponseUtil;
+import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
@@ -79,26 +80,28 @@ public class ConfirmOrderWidget extends  Widget {
 		}
 		
 		if(action==null){//生成订单确认信息
-			
 			List list=orderService.getOrderConfirm(this.HttpRequest);
 			this.putData("data", list);
 			List addrList=addressMemberService.getListByWhere(new StringBuffer(" and n.member.huiYuan_id="+member.getHuiYuan_id()));
 			this.putData("addressList", addrList);
 			List zflist=zffsService.getListByWhere(new StringBuffer(" and n.status=0"));
 			this.putData("zflist", zflist);
-			Jffa j_x=(Jffa) jffaService.getObjById("1");
-			this.putData("j_x", j_x.getJffa_jfdk());
+//			Jffa j_x=(Jffa) jffaService.getObjById("1");
+//			this.putData("j_x", j_x.getJffa_jfdk());
 			member =(HuiyuanInfo) huiyuanService.getObjById(""+member.getHuiYuan_id());
 			this.putData("h_x", member.getJf());
 			List<CouponMemberRel> couponMemberRelLists=new ArrayList<CouponMemberRel>();
 
 			List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and n.coupon.endTime > now() and  n.huiyuan="+member.getHuiYuan_id()+" order by n.coupon.endTime asc"));
-			for (int i=0;i<couponMemberRelList.size();i++){
-				int count=couponMemberRelList.get(i).getCount();
-;				for (int j=0;j<count;j++){
-					couponMemberRelLists.add(couponMemberRelList.get(i));
+			if (!ValidationUtil.isEmpty(couponMemberRelList)){
+				for (int i=0;i<couponMemberRelList.size();i++){
+					int count=couponMemberRelList.get(i).getCount();
+					;				for (int j=0;j<count;j++){
+						couponMemberRelLists.add(couponMemberRelList.get(i));
+					}
 				}
 			}
+
 
 			this.putData("couponMemberRelList",couponMemberRelLists);
 
