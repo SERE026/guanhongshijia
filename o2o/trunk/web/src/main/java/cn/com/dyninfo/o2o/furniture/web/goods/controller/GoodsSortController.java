@@ -23,6 +23,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PinYinUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -88,7 +89,7 @@ public class GoodsSortController extends BaseController{
 		}
 		String flag=request.getParameter("flag");
 		if("xy".equals(flag)){
-			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 			if(merchants!=null){
 				where.append(" and n.flag='1'  and n.merchants.shangjia_id='"+merchants.getShangjia_id()+"' ");
 			}else{
@@ -133,7 +134,7 @@ public class GoodsSortController extends BaseController{
 				page.setPageNo(1);
 			}
 			buff=new StringBuffer();
-			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 			if(merchants!=null){
 				buff.append(" and n.flag='1'  and n.merchants.shangjia_id="+merchants.getShangjia_id());
 			}else{
@@ -203,7 +204,7 @@ public class GoodsSortController extends BaseController{
 	      public ModelAndView add(HttpServletRequest request,GoodsSort info){
 	    	    ModelAndView mav=new ModelAndView();
 	    	    try {
-	    	    	ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+	    	    	ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 	    			if(merchants!=null){
 	    				info.setMerchants(merchants);
 	    				info.setFlag("1");
@@ -243,7 +244,7 @@ public class GoodsSortController extends BaseController{
 		  public ModelAndView endit(HttpServletRequest request,GoodsSort info){
 			  ModelAndView mav=new ModelAndView();
 			  try {
-				  ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+				  ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 	    		  if(merchants!=null){
 	    				info.setMerchants(merchants);
 	    				info.setFlag("1");
@@ -326,7 +327,7 @@ public class GoodsSortController extends BaseController{
 			public void jsonselection(HttpServletRequest request,HttpServletResponse response) {
 				String goodsSort_id=request.getParameter("goodsSort_id");
 				StringBuffer buff=new StringBuffer((goodsSort_id.length()>0?" and n.parent.goodsSort_id='"+goodsSort_id+"'":"and n.parent.goodsSort_id is null ")+" and n.status='0' ");
-				ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+				ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 				if(merchants!=null)
 					buff.append(" and n.flag='1' and n.merchants.shangjia_id="+merchants.getShangjia_id());
 				else{

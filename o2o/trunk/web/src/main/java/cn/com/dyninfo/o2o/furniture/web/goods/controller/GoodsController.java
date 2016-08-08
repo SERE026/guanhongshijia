@@ -29,6 +29,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PinYinUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -118,7 +119,7 @@ public class GoodsController {
 		if (shanJia != null && !"".equals(shanJia)) {
 			where.append(" and n.merchants.name like '%").append(shanJia).append("%'");
 		}
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 		}
@@ -168,7 +169,7 @@ public class GoodsController {
 		} else
 			page.setPageNo(1);
 		where.append("and n.state='0'");
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 		}
@@ -253,7 +254,7 @@ public class GoodsController {
 	public ModelAndView disAdd(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		mav.addObject("goodsSort", goodsSortService.getListByWhere(new StringBuffer("and n.status='0' and n.flag='0' and n.parent.goodsSort_id is null ")));
 		if (merchants != null) {
 			mav.addObject("customSort", goodsSortService.getListByWhere(new StringBuffer("and n.status='0' and n.flag='1' and n.parent.goodsSort_id is null ").append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'")));
@@ -345,7 +346,7 @@ public class GoodsController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, HttpServletResponse response,Goods info) {
 		try{
-//			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+//			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 //
 //			if(merchants!=null){
 //				info.setMerchants(merchants);
@@ -421,7 +422,7 @@ public class GoodsController {
 	@RequestMapping(value = "/delall", method = RequestMethod.DELETE)
 	public ModelAndView del(String ognzId, HttpServletRequest request, HttpServletResponse response) {
 		try{
-			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 			if (request.getParameterValues("list") != null) {
 				String[] list = request.getParameterValues("list");
 				for (String userid : list) {
@@ -445,7 +446,7 @@ public class GoodsController {
 	@RequestMapping(value = "/{id}/del", method = RequestMethod.GET)
 	public ModelAndView del(@PathVariable String id,  HttpServletRequest request) {
 		try{
-			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 			Goods info = (Goods) goodsService.getObjById(id,""+merchants.getShangjia_id());
 			info.setState("1");
 			info.setShelves("1");
@@ -536,7 +537,7 @@ public class GoodsController {
 	@RequestMapping(value="/delivery/list")
 	public void goodDeliveryList(HttpServletRequest request,HttpServletResponse response){
 		try{
-			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 			List list=dlytypeService.getListByWhere(new StringBuffer(" and n.stats='0' "));
 			String json=ResponseUtil.getJson(list).toString();
 			ResponseUtil.printl(response, json, "json");

@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -78,7 +79,7 @@ public class BrandController extends BaseController{
 				page.setPageNo(1);
 			}
 			buff=new StringBuffer();
-			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 			if(merchants!=null){
 				buff.append(" and n.merchants.shangjia_id="+merchants.getShangjia_id());
 			}else{
@@ -130,7 +131,7 @@ public class BrandController extends BaseController{
 	      public ModelAndView add(HttpServletRequest request,Brand info){
 	    	    ModelAndView mav=new ModelAndView();
 	    	    try {
-	    	    	ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+	    	    	ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 	    			if(merchants!=null){
 	    				info.setMerchants(merchants);
 	    				info.setFlag("1");
@@ -157,7 +158,7 @@ public class BrandController extends BaseController{
 		  public ModelAndView endit(HttpServletRequest request,Brand info){
 			  ModelAndView mav=new ModelAndView();
 			  try {
-				  ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+				  ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 				  if(merchants!=null){
     				info.setMerchants(merchants);
     				info.setFlag("1");

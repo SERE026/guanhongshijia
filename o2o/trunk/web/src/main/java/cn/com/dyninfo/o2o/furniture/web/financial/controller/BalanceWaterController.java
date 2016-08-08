@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -49,7 +50,7 @@ public class BalanceWaterController {
 		ModelAndView mav=new ModelAndView();
 		PageInfo page = new PageInfo();
 		StringBuffer where= new StringBuffer();
-		ShangJiaInfo info=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo info=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(info!=null){
 			info=(ShangJiaInfo) shangJiaService.getObjById(""+info.getShangjia_id());
 			mav.addObject("m", info);

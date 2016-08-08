@@ -21,6 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,7 +73,7 @@ public class PaymentController extends BaseController{
 	    	 if(ddh!=""&&ddh!=null){
 	    	   	 where.append("and n.order_id like'%").append(ddh).append("%'");
 	    	 }
-    		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+    		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
     		if(merchants!=null){
     			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
     		}

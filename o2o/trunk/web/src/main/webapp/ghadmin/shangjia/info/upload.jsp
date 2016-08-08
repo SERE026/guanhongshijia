@@ -21,6 +21,7 @@
 <%@ page import="javax.imageio.IIOException" %>
 <%@ page import="java.util.UUID" %>
 <%@ page import="cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo" %>
+<%@ page import="cn.com.dyninfo.o2o.furniture.sys.Constants" %>
 <%--
   ~ Copyright (c) 2009-2016 SHENZHEN Eternal Dynasty Technology Co.,Ltd.
   ~ All rights reserved.
@@ -36,7 +37,7 @@
 
 <%
 
-ShangJiaInfo info=(ShangJiaInfo)request.getSession().getAttribute("merchants");
+ShangJiaInfo info=(ShangJiaInfo)request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 String json="";
 String url="d:/status/";
 DiskFileUpload fileUpload = new DiskFileUpload();

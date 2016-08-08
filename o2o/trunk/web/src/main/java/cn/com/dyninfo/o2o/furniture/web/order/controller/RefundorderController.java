@@ -107,7 +107,7 @@ public class RefundorderController extends BaseController{
 
 
 		// 取当前登录的商家
-		//ShangJiaInfo shangjia=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		//ShangJiaInfo shangjia=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 
 		// 在退款单中取出所有当前商家的退款单数据
 

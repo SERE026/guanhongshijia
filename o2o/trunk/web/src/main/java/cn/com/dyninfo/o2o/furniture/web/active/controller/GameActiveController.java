@@ -23,6 +23,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -74,7 +75,7 @@ public class GameActiveController extends BaseController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, Active obj) {
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
 			obj.setMerchants(merchants);
 			obj.setRole("MERCHANTS");
@@ -116,7 +117,7 @@ public class GameActiveController extends BaseController {
 
 	@RequestMapping(method=RequestMethod.PUT)
 	public ModelAndView endit(HttpServletRequest request, Active obj,GameParam gameParam) {
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
 			obj.setMerchants(merchants);
 			obj.setRole("MERCHANTS");
@@ -165,9 +166,9 @@ public class GameActiveController extends BaseController {
 	@RequestMapping("/list")
 	public ModelAndView list(HttpServletRequest request) {
 		StringBuffer where=new StringBuffer(" and n.status=0 and n.flag=1");
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
-			where.append(" and ( n.role='ADMIN' or n.merchants.shangjia_id="+merchants.getShangjia_id()+") ");
+			where.append(" and ( n.role='ADMIN' or n.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ") ");
 		}else{
 			where.append(" and n.role='ADMIN' ");
 		}
@@ -233,8 +234,8 @@ public class GameActiveController extends BaseController {
 	public ModelAndView Goodslist(HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		StringBuffer where =new StringBuffer(" and n.shelves=0  and n.state=0 ");
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
-		where.append(" and n.merchants.shangjia_id="+merchants.getShangjia_id());
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
+		where.append(" and (n.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ")");
 		PageInfo page=new PageInfo();
 		page.setPageNo(1);
 		page.setPageSize(25);
@@ -256,8 +257,8 @@ public class GameActiveController extends BaseController {
 		 ModelAndView mav=new ModelAndView();
 		 mav.addObject("info",discountActiveService.getObjById(id));
 		 StringBuffer where=new StringBuffer();
-		 ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
-		 where.append(" and g.merchants.shangjia_id="+merchants.getShangjia_id()+" and n.active_id="+id);
+		 ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
+		 where.append(" and (g.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ") and n.active_id="+id);
 		 List list=discountActiveService.getGoodListByWhere(where);
 		 mav.addObject("DATA", list);
 		 mav.setViewName("/"+business+"/"+table+"/discount");

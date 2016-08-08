@@ -19,6 +19,7 @@ import java.lang.reflect.Method;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Component;
 
 
@@ -36,7 +37,7 @@ public class GoodsPlugin extends AbstractGoodsPlugin {
 	
 	
 	public void addGoosBefor(Goods goods){
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
 			goods.setMerchants(merchants);
 		}
@@ -105,7 +106,7 @@ public class GoodsPlugin extends AbstractGoodsPlugin {
 	}
 	
 	public void editGoodsAfter(Goods goods){
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
 			goods.setMerchants(merchants);
 		}

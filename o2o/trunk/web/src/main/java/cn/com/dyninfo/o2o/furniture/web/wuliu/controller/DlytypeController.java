@@ -22,6 +22,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -85,7 +86,7 @@ public class DlytypeController extends BaseController{
 	    	 if(sfqy!=""&&sfqy!=null){
 	    		 where.append("and n.stats=' ").append(sfqy).append("'");
 	    	 }
-	    	 ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+	    	 ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 	 		if(merchants!=null){
 	 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 	 		}
@@ -120,7 +121,7 @@ public class DlytypeController extends BaseController{
 	      public ModelAndView add(HttpServletRequest request,Dlytype info){
 	    	    ModelAndView mav=new ModelAndView();
 	    	    List<Psarea> psarealist=new ArrayList();
-	    	    ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+	    	    ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		 		if(merchants!=null){
 		 			info.setMerchants(merchants);
 		 		}
@@ -181,7 +182,7 @@ public class DlytypeController extends BaseController{
 		  @RequestMapping(method=RequestMethod.PUT)
 		  public ModelAndView endit(HttpServletRequest request,Dlytype info){
 			  ModelAndView mav=new ModelAndView();
-			  ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+			  ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		 		if(merchants!=null){
 		 			info.setMerchants(merchants);
 		 		}

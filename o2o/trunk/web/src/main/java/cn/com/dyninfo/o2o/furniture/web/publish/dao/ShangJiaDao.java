@@ -99,7 +99,7 @@ public class ShangJiaDao extends BaseDAO{
 		 		selectSql+=" from T_GOODS g  ";
 		 		selectSql+=" left join T_ACTIVE_GOODS ag on ag.GOODS_ID=g.GOODS_ID   ";
 		 		selectSql+=" left join t_active a on  (a.ACTIVE_ID=ag.ACT_ID and a.btimel<"+t+" and a.etimel>"+t+" and a.FLAG=0 and a.STATUS=0)   ";
-		 		selectSql+=" where 1=1  and g.STATE='0'  and g.SHELVES=0   and g.MARCHANTS_ID="+shopId;
+		 		selectSql+=" where 1=1  and g.STATE='0'  and g.SHELVES=0   and (g.MARCHANTS_ID="+shopId + " or g.MARCHANTS_ID=1)";
 		 		
 
 		 		selectSql+=sql;
@@ -158,7 +158,7 @@ public class ShangJiaDao extends BaseDAO{
 		 		selectSql+=" left join T_ACTIVE_GOODS ag on ag.GOODS_ID=g.GOODS_ID   ";
 		 		selectSql+=" left join t_active a on  (a.ACTIVE_ID=ag.ACT_ID and a.btimel<"+t+" and a.etimel>"+t+")   ";
 		 		selectSql+=" left join T_GoodsSort gs on gs.GOODSSORT_ID=g.CUSTOM_SORT_ID   ";
-		 		selectSql+=" where 1=1   and g.STATE='0' and g.SHELVES=0   and g.MARCHANTS_ID="+shopId;
+		 		selectSql+=" where 1=1   and g.STATE='0' and g.SHELVES=0   and (g.MARCHANTS_ID="+shopId + " or g.MARCHANTS_ID=1)";
 		 		selectSql+=sql;
 	 			Session session=this.getSession();
 	 			Connection con=session.connection();
@@ -211,7 +211,7 @@ public class ShangJiaDao extends BaseDAO{
 		 		selectSql+=" left join T_ACTIVE_GOODS ag on a.ACTIVE_ID=ag.ACT_ID   ";
 		 		selectSql+=" left join T_GOODS  g on  ag.GOODS_ID=g.GOODS_ID   ";
 		 		selectSql+=" left join T_GoodsSort gs on gs.GOODSSORT_ID=g.CUSTOM_SORT_ID   ";
-		 		selectSql+=" where 1=1   and g.STATE='0'  and g.SHELVES=0   and g.MARCHANTS_ID="+shopId+" and a.btimel<"+t+" and a.etimel>"+t+"";
+		 		selectSql+=" where 1=1   and g.STATE='0'  and g.SHELVES=0   and (g.MARCHANTS_ID="+shopId+" or g.MARCHANTS_ID=1) and a.btimel<"+t+" and a.etimel>"+t+"";
 		 		selectSql+=sql;
 	 			Session session=this.getSession();
 	 			Connection con=session.connection();

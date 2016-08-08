@@ -108,8 +108,8 @@ public class MainController {
 			}
 			LoginUser.addUser(user.getLogin_id());
 			user=(UserInfo)userService.getObjById(user.getLogin_id());
-			if(user.getIs_user().equals("1")){
-				request.getSession().setAttribute("merchants", user.getShanfJiaInfo());
+			if(user.getIs_user().equals("1") || "0".equals(user.getIs_user())){
+				request.getSession().setAttribute(Constants.SESSION_MERCHANTS, user.getShanfJiaInfo());
 			}else if(user.getIs_user().equals("2")){
 				request.getSession().setAttribute("daili", user);
 			}
@@ -140,7 +140,7 @@ public class MainController {
 	@RequestMapping(value="/right")
 	public ModelAndView right(HttpServletRequest request,HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
-		ShangJiaInfo  merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo  merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
 		
 		/**
@@ -247,7 +247,7 @@ public class MainController {
 		
 		String sql="select count(*) from T_ORDER n left join T_SHANGJIA_INFO s on  n.MARCHANTS_ID=s.SHANGJIA_ID  where 1=1  and n.STATE=3  ";
 		String sql2="select sum(ORDER_PRICE) from T_ORDER n left join T_SHANGJIA_INFO s on  n.MARCHANTS_ID=s.SHANGJIA_ID  where 1=1  and n.STATE=3  ";
-		ShangJiaInfo  merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo  merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
 			sql +=" and MARCHANTS_ID="+merchants.getShangjia_id();
 			sql2+=" and MARCHANTS_ID="+merchants.getShangjia_id();

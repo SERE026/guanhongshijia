@@ -21,6 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -59,7 +60,7 @@ public class StoreInfoController {
 		}else{
 			mav.addObject("stats", "1");
 		}
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 //		System.out.println("店招图片：" + merchants.getDzImage());
 //		System.out.println("店招外链：" + merchants.getDzUrl());
 		if(merchants.getDzImage()!=null){
@@ -126,7 +127,7 @@ public class StoreInfoController {
 	 */
 	@RequestMapping(value = "/file")
 	public ModelAndView file(HttpServletRequest request, HttpServletResponse response) {
-		ShangJiaInfo info=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo info=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		List list=new ArrayList();
 		if(info!=null){
 			 String filePath=request.getRealPath("/")+"/merchants/"+info.getShangjia_id();
@@ -151,7 +152,7 @@ public class StoreInfoController {
 	 */
 	@RequestMapping(value = "/colseFile")
 	public void colseFile(HttpServletRequest request, HttpServletResponse response) {
-		ShangJiaInfo info=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo info=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		String fileName=request.getParameter("fileName");
 		String filePath=request.getRealPath("/")+"/merchants/"+info.getShangjia_id()+"/"+fileName;
 		File f=new File(filePath);

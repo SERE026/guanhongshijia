@@ -29,6 +29,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
+import cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo;
+import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,6 +64,9 @@ public class UserController {
 
 	@Resource
 	private RoleService roleService;
+
+	@Resource
+	private ShangJiaService shangJiaService;
 	 
 	/**
 	 * 框架页面
@@ -235,6 +241,9 @@ public class UserController {
 			roles.add(roleInfo);
 			userInfo.setOgnzs(ognzs);
 			userInfo.setRoles(roles);
+			if (userInfo.getIs_user().equals("0")) {
+				userInfo.setShanfJiaInfo((ShangJiaInfo) shangJiaService.getObjById(String.valueOf(Constants.DEFAULT_SHANGJIA_ID)));
+			}
 			userInfo = (UserInfo)userService.addObj(userInfo);
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+request.getParameter("ognz"),"C_STATUS",1);
 		}catch(Exception e){

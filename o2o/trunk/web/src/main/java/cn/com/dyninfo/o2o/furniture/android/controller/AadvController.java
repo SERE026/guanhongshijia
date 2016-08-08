@@ -217,7 +217,7 @@ public class AadvController extends BaseController{
 					where.append(" and n.biaoqian like '%,android_adv_"+aadv_id+",%'");
 				}
 				
-				//ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+				//ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 				if(code!=null&&!code.equals("")){
 					where.append(" and n.code="+code);
 				}

@@ -43,4 +43,8 @@ public class Constants {
     public static final int FOUR_SKU = 1000101;//4F楼商品
 
     public static final int SYS_ARTICLES_ID = 26;
+
+    public static final int DEFAULT_SHANGJIA_ID = 1;
+
+    public static final String SESSION_MERCHANTS = "merchants";
 }

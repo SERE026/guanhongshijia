@@ -21,6 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,7 +49,7 @@ public class WithdrawalController extends BaseController {
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, Withdrawal obj) {
 		ModelAndView mav=new ModelAndView();
-		ShangJiaInfo  shangjia=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo  shangjia=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(shangjia==null){
 			mav.setViewName("redirect:/html/manage/withdrawal/list");
 			return mav;
@@ -72,7 +73,7 @@ public class WithdrawalController extends BaseController {
 	@RequestMapping(value="/ch/list")
 	public void chList(HttpServletRequest request,HttpServletResponse response) {
 		StringBuffer where=new StringBuffer();
-		ShangJiaInfo  shangjia=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo  shangjia=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		shangjia=(ShangJiaInfo) shangJiaService.getObjById(""+shangjia.getShangjia_id());
 		where.append(" and n.merchants.shangjia_id="+shangjia.getShangjia_id());
 		where.append(" and n.state=0 ");
@@ -95,7 +96,7 @@ public class WithdrawalController extends BaseController {
 	public ModelAndView disAdd(HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("/"+business+"/"+table+"/add");
-		ShangJiaInfo  shangjia=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo  shangjia=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(shangjia!=null){
 			shangjia=(ShangJiaInfo) shangJiaService.getObjById(""+shangjia.getShangjia_id());
 			mav.addObject("info", shangjia);
@@ -120,7 +121,7 @@ public class WithdrawalController extends BaseController {
 	@RequestMapping("/list")
 	public ModelAndView list(HttpServletRequest request) {
 		StringBuffer where=new StringBuffer();
-		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute("merchants");
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		if(merchants!=null){
 			where.append(" and n.merchants.shangjia_id="+merchants.getShangjia_id());
 		}
