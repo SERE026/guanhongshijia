@@ -25,6 +25,7 @@ import javax.servlet.http.HttpSession;
 
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.sys.service.SmsSender;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import cn.com.dyninfo.o2o.furniture.util.ForwordTool;
@@ -54,6 +55,8 @@ import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
  */
 @Component("loginBar")
 public class LoginBar extends Widget{
+
+	private static Logger log = Logger.getLogger(LoginBar.class);
 
 	@Resource
 	private HuiyuanService huiyuanService;
@@ -514,7 +517,7 @@ public class LoginBar extends Widget{
 			try {
 				success = SendDx.sendSMS(phone,"您正在进行【观红世家】修改密码操作，验证码是" + regCode + "，若非本人操作，请忽略【观红世家】","");
 			} catch (Exception e) {
-				System.out.println("短信发送失败！");
+				log.error("短信发送失败！", e);
 				e.printStackTrace();
 			}
 		
@@ -559,21 +562,21 @@ public class LoginBar extends Widget{
 		long l = new Date().getTime() - 3*60*1000;//当前时间-3分钟
 		String time3Ago = sdf.format(new Date(l));
 		String timeNow = sdf.format(new Date());
-		System.out.println("3分钟前的时间是：" + time3Ago);  
+		log.warn("3分钟前的时间是：" + time3Ago);
 		where.append(" and n.phone='" + phone + "'");
 		where.append(" and n.time>='" + time3Ago + "' and n.time<='" + timeNow + "'");
-		System.out.println("查询语句：" + where);
+		log.warn("查询语句：" + where);
 		List logList = smsLogService.getListByWhere(where);
 		if (logList.size() > 0) {
-			System.out.println(phone + "该号码3分钟内已经发送过验证码！");
+			log.warn(phone + "该号码3分钟内已经发送过验证码！");
 			return false;
 		} else {
-			System.out.println(phone + "可以发送验证码！");
+			log.warn(phone + "可以发送验证码！");
 		}
 
 		// 生成验证码并发送短信
 		String regCode = String.valueOf(new Random().nextInt(999999));
-		System.out.println("验证码是："+regCode);
+		log.warn("验证码是："+regCode);
 		int success = -1;
 		try {
 			String[] par = {phone, regCode};
@@ -581,15 +584,14 @@ public class LoginBar extends Widget{
 			if (flag){
 				success=0;
 			}
-			System.out.println("flag是："+flag);
+			log.warn("flag是："+flag);
 			//request.getSession().setAttribute("VCODE", "123456");
 
 			//success = SendDx.sendSMS(phone,"您正在进行【观红世家】手机验证，验证码是" + regCode + "，若非本人操作，请忽略【观红世家】","");
 		} catch (Exception e) {
-			System.out.println("短信发送失败！");
-			e.printStackTrace();
+			log.error("短信发送失败！", e);
 		}
-
+		log.warn("success is: " + success);
 		// 判断是否发送成功，并写入日志记录
 		if (success == 0 || success == 1) {
 			session.setAttribute("regCode", regCode);
