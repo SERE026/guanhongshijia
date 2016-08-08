@@ -6,6 +6,17 @@
   <link href="../css/index.css" rel="stylesheet" />
     <script src="/js/jquery-1.8.2.js"></script>
     <script type="text/javascript">
+        function exitdl(){
+            $.ajax({
+                type: 'POST',
+                url: servicePath+"/widget.html",
+                data: "widget=loginBar&exitdl=1",
+                dataType: "html",
+                success: function(data){
+                    window.location.href="index.htm";
+                }
+            });
+        }
     var servicePath="${rc.contextPath}";
     </script>
     <style>
@@ -21,7 +32,7 @@
             <div class="PersonalInformation" style="float: left;">
                 <label class="head-welcome inline-block">欢迎光临观红世家</label>
             <#if HUIYUANIFNO?exists>
-            ${HUIYUANIFNO.userName}
+            ${HUIYUANIFNO.userName}<a href="javascript:exitdl();" >【退出】</a>
             <#else >
                 <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
             </#if>

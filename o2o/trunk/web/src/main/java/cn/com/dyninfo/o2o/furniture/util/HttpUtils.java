@@ -1,18 +1,16 @@
-/*
 package cn.com.dyninfo.o2o.furniture.util;
 
-import cn.com.dyninfo.o2o.communication.LoginRequest;
-import cn.com.dyninfo.o2o.communication.LoginResult;
+import cn.com.dyninfo.o2o.communication.*;
 import cn.com.dyninfo.o2o.communication.common.BaseRequest;
 import com.alibaba.fastjson.JSON;
 import okhttp3.*;
 
 import java.io.IOException;
 
-*/
+
 /**
  * Created by Administrator on 2016/7/29.
- *//*
+ */
 
 public class HttpUtils {
 
@@ -41,8 +39,12 @@ public class HttpUtils {
     public static final String GOODS_DETAIL_URL = SERVER_URL + "/goods/detail";
     //获取轮播商品命令
     public static final String GOODS_LOOP_URL = SERVER_URL + "/goods/loop";
-    //获取推荐页面命令
-    public static final String GOODS_RECOMMEND_URL = SERVER_URL + "/goods/recommend";
+    //获取新品推荐列表
+    public static final String GOODS_NEWRECOMMEND_URL = SERVER_URL + "/goods/newRecommend";
+    //获取团购商品列表
+    public static final String GOODS_GROUPRECOMMEND_URL = SERVER_URL + "/goods/groupRecommend";
+    //获取促销列表
+    public static final String GOODS_PROMOTIONRECOMMEND_URL = SERVER_URL + "/goods/promotionRecommend";
     //搜索命令
     public static final String GOODS_SEARCH_URL = SERVER_URL + "/goods/search";
     //创建订单命令
@@ -72,7 +74,7 @@ public class HttpUtils {
 
     private static OkHttpClient client = new OkHttpClient();
 
-    */
+
 /**
      * 同步POST请求
      * @param appRequest
@@ -81,7 +83,7 @@ public class HttpUtils {
      * @param <T>
      * @return
      * @throws IOException
-     *//*
+     */
 
     public static <T> T syncPost(BaseRequest appRequest, String url, Class<T> clazz) throws IOException {
         String jsonStr = JSON.toJSONString(appRequest);
@@ -98,12 +100,12 @@ public class HttpUtils {
         }
     }
 
-    */
+
 /**
      * 异步POST请求，实际使用需要根据情况传入Handler用于回调
      * @param appRequest
      * @param url
-     *//*
+     */
 
     public static void asyncPost(BaseRequest appRequest, String url, final AsyncHandler handler) {
         String jsonStr = JSON.toJSONString(appRequest);
@@ -127,20 +129,20 @@ public class HttpUtils {
        });
     }
 
-    */
+
 /**
      * 测试方法
      * @param args
-     *//*
+     */
 
     public static void main(String[] args) {
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setLoginName("lxfeng");
-        loginRequest.setPassword("123123");
+        QueryCardRequest loginRequest = new QueryCardRequest();
+        //loginRequest.setLoginName("lxfeng");
+       // loginRequest.setPassword("123123");
         loginRequest.setDeviceId("deviceId1");
         //模拟登录-同步请求
         try {
-            LoginResult result = HttpUtils.syncPost(loginRequest, LOGIN_URL, LoginResult.class);
+            QueryCardResult result = HttpUtils.syncPost(loginRequest, BANK_CARD_QUERY_URL, QueryCardResult.class);
             System.out.println(result.getResultCode());
         } catch (IOException e) {
             e.printStackTrace();
@@ -155,13 +157,12 @@ public class HttpUtils {
 //        });
     }
 
-    */
+
 /**
      * 实际使用需要定义为一个公共接口
-     *//*
+     */
 
     interface AsyncHandler {
         void handle(String responseBody);
     }
 }
-*/
