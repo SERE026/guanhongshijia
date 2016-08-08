@@ -123,20 +123,21 @@ ${widget_area}
 
 
 
-<div style="background-color: #f0ecec;">
+<div style="background-color: #f2f2f2;">
     <div class="head-top">
         <div>
-            <i></i><span class="current_position" style="margin-right: 10px;">深圳</span>
-            <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
-         <!--   <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>-->
-            <#if HUIYUANIFNO?exists>
-                ${HUIYUANIFNO.userName}
-                <#else >
-                    <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
-            </#if>
-            <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
+            <div class="PersonalInformation" style="float: left;">
+                <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
+                <#if HUIYUANIFNO?exists>
+                    ${HUIYUANIFNO.userName}
+                    <#else >
+                        <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
+                </#if>
+                <label class="head-welcome inline-block">欢迎光临观红世家</label>
+                <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
+            </div>
             <ul class="head-ul">
-                <li><a href="${rc.contextPath}/huiyuan_order.html">我的信息</a></li>
+                <li><a href="${rc.contextPath}/huiyuan_order.html">我的订单</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
                 <li><a href="javascript:void(0)">关注观红世家</a></li>
                 <li><a href="javascript:void(0)">客服中心</a></li>
@@ -367,8 +368,9 @@ ${widget_area}
         <div class="search-criteria">
             <div>
                 <div class="Search-categories">
-                    <label>商品</label><i></i>
+                    <label><span>商品</span><i class="icon-bottom"></i></label>
                     <ul style="display: none;">
+                        <li>商品</li>
                         <li>店铺</li>
                     </ul>
                 </div>
@@ -376,12 +378,12 @@ ${widget_area}
                     <span class="search">
                         <i></i>
                         <label>搜索</label></span>
-                <a class="My-mall font14" href="${rc.contextPath}/huiyuan_order.html">我的商城</a>
-                <a class="settlement font14" href="${rc.contextPath}/cars.html">购物车结算</a>
+                <a class="My-mall font14" href="${rc.contextPath}/huiyuan_order.html"><i class="icon-my"></i><span>我的商城</span><i class="icon-bottom"></i> </a>
+                <a class="settlement font14" href="${rc.contextPath}/cars.html"><i class="icon-cart"></i><span>购物车结算</span><i class="icon-bottom"></i></a>
             </div>
             <div>
                 <ul class="hot-search font14">
-                    <li>热门搜索：&nbsp;&nbsp;</li>
+                    <li>热门搜索：</li>
                     <li><a href="javascript:void(0)">卧室</a></li>
                     <li><a href="javascript:void(0)">衣柜</a></li>
                     <li><a href="javascript:void(0)">衣帽间</a></li>
@@ -472,5 +474,10 @@ $(".search").click(function () {
         $("#searchFrom").submit();
     }
 });
-
+    $(".Search-categories").mouseover(function () { $(".Search-categories>ul").show(); $(this).find("i").addClass("icon-top").removeClass('icon-bottom'); })
+    $(".Search-categories").mouseout(function () { $(".Search-categories>ul").hide();$(this).find("i").addClass("icon-bottom").removeClass('icon-top'); })
+    $(".Search-categories ul li").click(function () {
+        var name = $(this).text();
+        $(".Search-categories>label>span").text(name); $(".Search-categories>ul").hide();
+    })
 </script>
