@@ -15,19 +15,24 @@
     </style>
 </head>
 <body>
-<div style="background-color: #f0ecec;">
+<div style="background-color: #f2f2f2;">
     <div class="head-top">
         <div>
-            <!--<a class="positioning" href="javascript:void(0);"></a>--><label class="head-welcome inline-block">欢迎光临观红世家</label>
-        <#if HUIYUANIFNO?exists>
+            <div class="PersonalInformation" style="float: left;">
+                <label class="head-welcome inline-block">欢迎光临观红世家</label>
+            <#if HUIYUANIFNO?exists>
             ${HUIYUANIFNO.userName}
-        <#else >
-            <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
-        </#if>
+            <#else >
+                <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
+            </#if>
 
-            <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
+                <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;">免费注册</a>
+                <#--<label class="head-welcome inline-block">欢迎光临观红世家，</label>
+                <a href="#">aaa</a><a class="exit" href="#">[退出]</a>-->
+            </div>
+
             <ul class="head-ul">
-                <li><a href="${rc.contextPath}/huiyuan_order.html">我的信息</a></li>
+                <li><a href="${rc.contextPath}/huiyuan_order.html">我的订单</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
                 <li><a href="javascript:void(0)">关注观红世家</a></li>
                 <li><a href="javascript:void(0)">客服中心</a></li>
@@ -44,7 +49,7 @@
         </div>
         <div class="head-city">
             <div class="city">
-                <label class="mainColor city-name">全国站</label><label class="Switch-city">切换城市<!--<i></i>-->
+                <label class="mainColor city-name">全国站</label><label class="Switch-city">切换城市<i></i>
                 <div id="JS_header_city_bar_box" class="hide_city_group">
                     <div class="hideMap">
                         <div class="showPanel f-cb">
@@ -238,6 +243,7 @@
                 <div class="Search-categories">
                     <label><span>商品</span><i class="icon-bottom"></i></label>
                     <ul style="display: none;">
+                        <li>商品</li>
                         <li>店铺</li>
                     </ul>
                 </div>
@@ -249,8 +255,8 @@
                 <a class="settlement font14" href="${rc.contextPath}/cars.html"><i class="icon-cart"></i><span>购物车结算</span><i class="icon-bottom"></i></a>
             </div>
             <div>
-                <ul class="hot-search font14">
-                    <li>热门搜索：&nbsp;&nbsp;</li>
+                <ul class="hot-search">
+                    <li>热门搜索：</li>
                     <li><a href="javascript:void(0)">卧室</a></li>
                     <li><a href="javascript:void(0)">衣柜</a></li>
                     <li><a href="javascript:void(0)">衣帽间</a></li>
@@ -360,11 +366,11 @@
                 <p>观红世家夜市O2O云平台</p>
                 <img src="" />
                 <p class="thisHome" id="area">
-                    <b>深圳市<label class="color-red">1</label>家</b>
+                    <b>深圳市<label class="mainColor">1</label>家</b>
                 </p>
                 <p class="national">全国19家体验馆</p>
                 <p><a class="findHome" href="${rc.contextPath}/shopMap.html">查找身边的体验馆</a></p>
-                <p>网站浏览&nbsp;实体店购买一站式服务！</p>
+                <p style="margin-top: 12px;color: #c86c18">网站浏览&nbsp;实体店购买一站式服务！</p>
             </div>
         </div>
     </div>
@@ -373,7 +379,7 @@
 
     <div class="hot-small">
         <ul>
-            <li><a href="javascript:void(0)" data-tag="n1" class="red">热卖商品</a> </li>
+            <li><a href="javascript:void(0)" data-tag="n1" class="hotBack">热卖商品</a> </li>
             <li><a href="javascript:void(0)" data-tag="n2">疯狂抢购</a> </li>
             <li><a href="javascript:void(0)" data-tag="n3">热评商品</a> </li>
             <li><a href="javascript:void(0)" data-tag="n4">新品上架</a> </li>
@@ -389,7 +395,7 @@
                         <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                             <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
                         <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">${p.goods.name}</a></dd>
-                        <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                        <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                     </dl>
                 </li>
                 <#if p_index==4><#break></#if>
@@ -404,7 +410,7 @@
                         <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
                     <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
-                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
+                    <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
                         <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
@@ -421,7 +427,7 @@
                         <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
                     <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
-                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
+                    <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
                         <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
@@ -438,7 +444,7 @@
                         <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
                     <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
-                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
+                    <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
                         <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
@@ -455,7 +461,7 @@
                         <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
                     <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
                         ${p.goods.name}</a></dd>
-                    <dd class="price"><b>￥${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
+                    <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
                         <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
@@ -478,7 +484,7 @@
                             <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
                         <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
                         <dd class="ItemName"><a href="${rc.contextPath}/item-${p.goods_id}.html">${p.name?if_exists}</a></dd>
-                        <dd class="ItemPrice"><b>￥${p.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
+                        <dd class="ItemPrice"><b><span>￥</span>${p.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
                         <#--<dd><a class="Add-art" href="${rc.contextPath}/item-${p.goods_id}.html">
                             &lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a></dd>-->
                     </dl>
@@ -528,7 +534,7 @@
                                         <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
                                     <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                         ${d.name?if_exists}</a></dd>
-                                    <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
+                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b></dd>
                                 </dl>
                             </li>
                         </#if>
@@ -558,7 +564,7 @@
                                 <dd class="dd-Item-name"><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                     ${d.name?if_exists}</a></dd>
                                 <dd class="hot-cakes">（热销${d.num}件）</dd>
-                                <dd class="Item-price"><b>￥${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
+                                <dd class="Item-price"><b><span>￥</span>${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
                                 <#--<dd><a class="Add-art" href="${rc.contextPath}/item-${d.goods_id}.html">
                                     &lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a></dd>-->
                             </dl>
@@ -603,7 +609,7 @@
                                         <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
                                     <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                         ${d.name?if_exists}</a></dd>
-                                    <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
+                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b></dd>
                                 </dl>
                             </li>
                         </#if>
@@ -633,7 +639,7 @@
                                 <dd class="dd-Item-name"><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                     ${d.name?if_exists}</a></dd>
                                 <dd class="hot-cakes">（热销${d.num}件）</dd>
-                                <dd class="Item-price"><b>￥${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
+                                <dd class="Item-price"><b><span>￥</span>${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
                                 <#--<dd><a class="Add-art" href="${rc.contextPath}/item-${d.goods_id}.html">
                                     &lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a></dd>-->
                             </dl>
@@ -678,7 +684,7 @@
                                         <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
                                     <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                         ${d.name?if_exists}</a></dd>
-                                    <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
+                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b></dd>
                                 </dl>
                             </li>
                         </#if>
@@ -708,7 +714,7 @@
                                 <dd class="dd-Item-name"><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                     ${d.name?if_exists}</a></dd>
                                 <dd class="hot-cakes">（热销${d.num}件）</dd>
-                                <dd class="Item-price"><b>￥${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
+                                <dd class="Item-price"><b><span>￥</span>${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
                                 <#--<dd><a class="Add-art" href="${rc.contextPath}/item-${d.goods_id}.html">
                                     &lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a></dd>-->
                             </dl>
@@ -754,7 +760,7 @@
                                 <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
                             <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                 ${d.name?if_exists}</a></dd>
-                            <dd class="price"><b class="Item-price">￥${d.salesMoney}</b></dd>
+                            <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b></dd>
                         </dl>
                      </li>
                         </#if>
@@ -784,7 +790,7 @@
                         <dd class="dd-Item-name"><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                             ${d.name?if_exists}</a></dd>
                         <dd class="hot-cakes">（热销${d.num}件）</dd>
-                        <dd class="Item-price"><b>￥${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
+                        <dd class="Item-price"><b><span>￥</span>${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
                         <#--<dd><a class="Add-art" href="${rc.contextPath}/item-${d.goods_id}.html">
                             &lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a></dd>-->
                     </dl>
@@ -815,7 +821,7 @@
             <div class="FloorID">
                 <i class="floorIcon"></i>
                 <b>5F</b><span>综合系列</span>
-                <ul class="FiveNav">
+                <ul class="FiveNav" style="width: 886px;">
                     <#list goodsSortList5 as p>
                         <#if p_index == 0>
                         <li class="FH_current fiveNav">${p.name?if_exists}</li>
@@ -834,7 +840,7 @@
 
                 </ul>
             </div>
-            <div class="FloorBack" style="height: 4px;background-color: #a16746;">
+            <div class="FloorBack" style="height: 4px;background-color: #c86c18;">
                 <#--<span class="backLeft">SANITARY WARE</span>
                 <span class="backRight"><a href="#">查看更多 MORE</a></span>-->
             </div>
