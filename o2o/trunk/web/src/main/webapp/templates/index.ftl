@@ -850,7 +850,7 @@
     <#if s_index==0>
         <div class="FiveContent">
             <div class="FloorImg">
-                <h1>综合系列00000</h1>
+                <h1>综合系列</h1>
                 <div class="tag">
                     <p>CERAMICS</p>
                     <p>FOR DALY USE</p>
