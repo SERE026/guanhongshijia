@@ -142,7 +142,7 @@ public class OrderController extends BaseController {
 			where.append(" and n.time>='"+year+"-"+month+"-"+"01"+" 24:00:00'");
 		}
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null){
+		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 		}
 		

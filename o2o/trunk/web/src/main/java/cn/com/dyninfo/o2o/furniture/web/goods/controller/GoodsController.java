@@ -120,7 +120,7 @@ public class GoodsController {
 			where.append(" and n.merchants.name like '%").append(shanJia).append("%'");
 		}
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null){
+		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 		}
 		UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
@@ -170,7 +170,7 @@ public class GoodsController {
 			page.setPageNo(1);
 		where.append("and n.state='0'");
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null){
+		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 		}
 		String code=request.getParameter("code");
@@ -256,7 +256,7 @@ public class GoodsController {
 		
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		mav.addObject("goodsSort", goodsSortService.getListByWhere(new StringBuffer("and n.status='0' and n.flag='0' and n.parent.goodsSort_id is null ")));
-		if (merchants != null) {
+		if (merchants != null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID) {
 			mav.addObject("customSort", goodsSortService.getListByWhere(new StringBuffer("and n.status='0' and n.flag='1' and n.parent.goodsSort_id is null ").append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'")));
 		}
 		mav.addObject("goodsType", goodsTypeService.getListByWhere(new StringBuffer("and n.status='0'")));
@@ -346,15 +346,15 @@ public class GoodsController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, HttpServletResponse response,Goods info) {
 		try{
-//			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-//
-//			if(merchants!=null){
-//				info.setMerchants(merchants);
-//			}else{
-//				String shangjiaid=request.getParameter("shangjia_sel");
-//				merchants=(ShangJiaInfo) shangJiaService.getObjById(shangjiaid);
-//				info.setMerchants(merchants);
-//			}
+			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
+
+			if(merchants!=null){
+				info.setMerchants(merchants);
+			}else{
+				String shangjiaid=request.getParameter("shangjia_sel");
+				merchants=(ShangJiaInfo) shangJiaService.getObjById(shangjiaid);
+				info.setMerchants(merchants);
+			}
 			// 设置商品标签
 			String biaoqianList = request.getParameter("biaoqianList");
 //			System.out.println("设置商品标签：" + biaoqianList);

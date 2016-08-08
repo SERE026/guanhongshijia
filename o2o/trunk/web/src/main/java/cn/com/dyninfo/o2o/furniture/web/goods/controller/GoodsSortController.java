@@ -90,7 +90,7 @@ public class GoodsSortController extends BaseController{
 		String flag=request.getParameter("flag");
 		if("xy".equals(flag)){
 			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-			if(merchants!=null){
+			if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 				where.append(" and n.flag='1'  and n.merchants.shangjia_id='"+merchants.getShangjia_id()+"' ");
 			}else{
 				where.append(" and n.flag='0' ");
@@ -135,7 +135,7 @@ public class GoodsSortController extends BaseController{
 			}
 			buff=new StringBuffer();
 			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-			if(merchants!=null){
+			if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 				buff.append(" and n.flag='1'  and n.merchants.shangjia_id="+merchants.getShangjia_id());
 			}else{
 				buff.append(" and n.flag='0' ");
@@ -205,7 +205,7 @@ public class GoodsSortController extends BaseController{
 	    	    ModelAndView mav=new ModelAndView();
 	    	    try {
 	    	    	ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-	    			if(merchants!=null){
+	    			if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 	    				info.setMerchants(merchants);
 	    				info.setFlag("1");
 	    			}else{
@@ -245,7 +245,7 @@ public class GoodsSortController extends BaseController{
 			  ModelAndView mav=new ModelAndView();
 			  try {
 				  ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-	    		  if(merchants!=null){
+	    		  if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 	    				info.setMerchants(merchants);
 	    				info.setFlag("1");
 	    		  }else{
@@ -328,7 +328,7 @@ public class GoodsSortController extends BaseController{
 				String goodsSort_id=request.getParameter("goodsSort_id");
 				StringBuffer buff=new StringBuffer((goodsSort_id.length()>0?" and n.parent.goodsSort_id='"+goodsSort_id+"'":"and n.parent.goodsSort_id is null ")+" and n.status='0' ");
 				ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-				if(merchants!=null)
+				if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID)
 					buff.append(" and n.flag='1' and n.merchants.shangjia_id="+merchants.getShangjia_id());
 				else{
 					buff.append(" and n.flag='0' ");

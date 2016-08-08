@@ -76,7 +76,7 @@ public class GameActiveController extends BaseController {
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, Active obj) {
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null){
+		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			obj.setMerchants(merchants);
 			obj.setRole("MERCHANTS");
 		}else{
@@ -118,7 +118,7 @@ public class GameActiveController extends BaseController {
 	@RequestMapping(method=RequestMethod.PUT)
 	public ModelAndView endit(HttpServletRequest request, Active obj,GameParam gameParam) {
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null){
+		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			obj.setMerchants(merchants);
 			obj.setRole("MERCHANTS");
 		}else{
@@ -167,7 +167,7 @@ public class GameActiveController extends BaseController {
 	public ModelAndView list(HttpServletRequest request) {
 		StringBuffer where=new StringBuffer(" and n.status=0 and n.flag=1");
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null){
+		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			where.append(" and ( n.role='ADMIN' or n.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ") ");
 		}else{
 			where.append(" and n.role='ADMIN' ");

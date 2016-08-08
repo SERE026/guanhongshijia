@@ -80,7 +80,7 @@ public class BrandController extends BaseController{
 			}
 			buff=new StringBuffer();
 			ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-			if(merchants!=null){
+			if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 				buff.append(" and n.merchants.shangjia_id="+merchants.getShangjia_id());
 			}else{
 				buff.append(" and n.flag='0'");
@@ -132,7 +132,7 @@ public class BrandController extends BaseController{
 	    	    ModelAndView mav=new ModelAndView();
 	    	    try {
 	    	    	ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-	    			if(merchants!=null){
+	    			if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 	    				info.setMerchants(merchants);
 	    				info.setFlag("1");
 	    			}else{
@@ -159,7 +159,7 @@ public class BrandController extends BaseController{
 			  ModelAndView mav=new ModelAndView();
 			  try {
 				  ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-				  if(merchants!=null){
+				  if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
     				info.setMerchants(merchants);
     				info.setFlag("1");
 	    		}else{

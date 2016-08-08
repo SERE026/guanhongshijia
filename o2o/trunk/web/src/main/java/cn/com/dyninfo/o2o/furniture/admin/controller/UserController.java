@@ -241,9 +241,9 @@ public class UserController {
 			roles.add(roleInfo);
 			userInfo.setOgnzs(ognzs);
 			userInfo.setRoles(roles);
-			if (userInfo.getIs_user().equals("0")) {
-				userInfo.setShanfJiaInfo((ShangJiaInfo) shangJiaService.getObjById(String.valueOf(Constants.DEFAULT_SHANGJIA_ID)));
-			}
+//			if (userInfo.getIs_user().equals("0")) {
+//				userInfo.setShanfJiaInfo((ShangJiaInfo) shangJiaService.getObjById(String.valueOf(Constants.DEFAULT_SHANGJIA_ID)));
+//			}
 			userInfo = (UserInfo)userService.addObj(userInfo);
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+request.getParameter("ognz"),"C_STATUS",1);
 		}catch(Exception e){

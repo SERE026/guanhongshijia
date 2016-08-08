@@ -87,7 +87,7 @@ public class DlytypeController extends BaseController{
 	    		 where.append("and n.stats=' ").append(sfqy).append("'");
 	    	 }
 	    	 ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-	 		if(merchants!=null){
+	 		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 	 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 	 		}
 	    	 where.append("and n.stat='0'");

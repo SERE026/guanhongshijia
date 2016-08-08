@@ -108,10 +108,12 @@ public class MainController {
 			}
 			LoginUser.addUser(user.getLogin_id());
 			user=(UserInfo)userService.getObjById(user.getLogin_id());
-			if(user.getIs_user().equals("1") || "0".equals(user.getIs_user())){
+			if(user.getIs_user().equals("1")){
 				request.getSession().setAttribute(Constants.SESSION_MERCHANTS, user.getShanfJiaInfo());
 			}else if(user.getIs_user().equals("2")){
 				request.getSession().setAttribute("daili", user);
+			} else if ("0".equals(user.getIs_user())) {
+				request.getSession().setAttribute(Constants.SESSION_MERCHANTS, shangjiaService.getObjById(String.valueOf(Constants.DEFAULT_SHANGJIA_ID)));
 			}
 			request.getSession().setAttribute("UserInfo", user);
 			return new ModelAndView("/main/main");
@@ -164,7 +166,7 @@ public class MainController {
 		 */
 		String sql5="select count(*) from T_HUIYUAN_INFO n left join  T_SHANGJIA_INFO s on n.shang_id=s.SHANGJIA_ID where 1=1 ";
 		
-		if(merchants!=null){
+		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			sql+= " and MARCHANTS_ID='"+merchants.getShangjia_id()+"' ";
 			sql2+=" and MARCHANTS_ID='"+merchants.getShangjia_id()+"' ";
 			sql3+=" and MARCHANTS_ID='"+merchants.getShangjia_id()+"' ";
@@ -248,7 +250,7 @@ public class MainController {
 		String sql="select count(*) from T_ORDER n left join T_SHANGJIA_INFO s on  n.MARCHANTS_ID=s.SHANGJIA_ID  where 1=1  and n.STATE=3  ";
 		String sql2="select sum(ORDER_PRICE) from T_ORDER n left join T_SHANGJIA_INFO s on  n.MARCHANTS_ID=s.SHANGJIA_ID  where 1=1  and n.STATE=3  ";
 		ShangJiaInfo  merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null){
+		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			sql +=" and MARCHANTS_ID="+merchants.getShangjia_id();
 			sql2+=" and MARCHANTS_ID="+merchants.getShangjia_id();
 		}

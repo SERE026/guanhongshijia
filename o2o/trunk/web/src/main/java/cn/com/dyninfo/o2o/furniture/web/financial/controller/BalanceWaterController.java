@@ -51,7 +51,7 @@ public class BalanceWaterController {
 		PageInfo page = new PageInfo();
 		StringBuffer where= new StringBuffer();
 		ShangJiaInfo info=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(info!=null){
+		if(info!=null && info.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
 			info=(ShangJiaInfo) shangJiaService.getObjById(""+info.getShangjia_id());
 			mav.addObject("m", info);
 			where.append(" and n.merchant.shangjia_id="+info.getShangjia_id());
