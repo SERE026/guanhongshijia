@@ -11,31 +11,32 @@ a {text-decoration:none;
 }
 ul li {float:left;list-style-type:none;
 }
-.head {width:64%;margin:0px auto;height:200px;width:1200px;padding-top:25px;
+.head {width:64%;margin:0px auto;width:1200px;height: 126px;
 }
 .head-top {width:1200px;height:30px;margin:0px auto;font-size: 12px;
 }
 .head-top > div {width:98%;margin:0 auto;
 }
-.head-top a, .head-top label {color:#a5a2a2;
+.head-top a, .head-top label {color:#666;font-family: "Microsoft YaHei";font-size: 1.1em;
 }
-.head-welcome {font-weight:bold;
+.head-top a:hover, .head-top label:hover{color: #572a27;}
+.head-welcome {font-size: 1.1em;
 }
-.head-login {margin-left:34px;
+.head-login {margin-left:15px;
 }
+.PersonalInformation{float: left;height: 30px;line-height: 30px;}
+.exit{margin-left: 8px;}
 .current_position{display: inline-block;padding: 2px 6px;background-color: red;color: white;}
 .head-ul {
-    overflow:hidden;display:block;float:right;height:30px;width:530px;
+    overflow:hidden;display:block;float:right;height:30px;width:510px;
 }
-.head-ul li {line-height:30px;margin-left:1.5em;
-}
-.head-ul li:nth-child(2) {width:22%;
+.head-ul li {line-height:30px;margin-left:24px;
 }
 .icon-top{background-image: url(../img/icon-top.png);width: 12px;height: 12px;display: inline-block;margin-left: 8px;}
 .icon-bottom{background-image: url(../img/icon-bottom.png);width: 12px;height: 12px;display: inline-block;margin-left: 8px;}
 .inline-block {line-height:30px;
 }
-.head-logo {width:98%;margin:60px auto 0;/*overflow:hidden;*/
+.head-logo {width:98%;margin:25px auto 25px;
 }
 .logo {float:left;width: 120px;margin: 0;
 }
@@ -87,7 +88,7 @@ ul li {float:left;list-style-type:none;
     }
     .Search-categories option {height:40px;
     }
-    .Search-categories ul {overflow:hidden;position:absolute;top:177px;width:80px;background-color:#f8f8f8;z-index:5;border:1px solid #ccc;border-top:none;
+    .Search-categories ul {overflow:hidden;position:absolute;top:117px;width:80px;background-color:#f8f8f8;z-index:5;border:1px solid #ccc;border-top:none;
     }
         .Search-categories ul li {height:40px;width:82px;text-align:center;line-height:40px;
         }
@@ -105,17 +106,20 @@ ul li {float:left;list-style-type:none;
 .settlement .icon-cart{background-image: url("../img/fonticon.png");background-position: -579px 0px;background-repeat: no-repeat;width: 16px;height: 16px;display: inline-block;position: absolute; top:10px;left: 5px;}
 .settlement {margin-left:6px;width: 114px;
 }
-.hot-search {line-height:44px;overflow:hidden;
+.city-name{font-size: 17px;font-family: "Microsoft YaHei";}
+.hot-search {line-height:44px;overflow:hidden;margin-top: 4px;
 }
-.hot-search li {color:#aaa;margin-left:4px;line-height:30px;
+.hot-search li {color:#666;margin-left:4px;line-height:30px;font: 12px/1.5 tahoma,arial,"����";
 }
     .hot-search li:first-child {margin-left:0;
     }
-    .hot-search li a {text-decoration:none;color:#aaa;
+    .hot-search li a {text-decoration:none;color:#666;
     }
-.head-logo .Switch-city {border:1px solid #ccc;font-size:12px;margin-left: 0.5em;width: 50px;height: 18px;line-height: 18px;display: inline-block;text-align: center;
+.head-logo .Switch-city {border:1px solid #ccc;font-size:12px;margin-left: 0.5em;width: 56px;height: 18px;line-height: 18px;display: inline-block;text-align: center;
 }
-.hide_city_group {position:absolute;top:1px;left:37px;display:none;text-align: left;
+.head-logo .Switch-city:hover{cursor: pointer}
+.head-logo .Switch-city i{position: absolute;top: 15px;right: 0;background-image: url("../img/fonticon.png");background-repeat: no-repeat;background-position:-388px -143px;width: 6px;height: 6px;display: inline-block;}
+.hide_city_group {position:absolute;top:1px;left:52px;display:none;text-align: left;
 }
 
 .hideMap {
@@ -318,12 +322,13 @@ ul li {float:left;list-style-type:none;
     }
     .experience p:first-child {margin-top:28px;
     }
-    .experience p {color:#f1cb9b;text-align:center;font-size:12px;
+    .experience p {color:#c86c18;text-align:center;font-size:12px;
     }
     .experience img {width:190px;height:190px;margin-top:12px;
     }
     .experience .thisHome {text-align:center;font-size:24px;color:#626261;margin-top:18px;
     }
+    .thisHome b{font-weight: 400;}
     .experience .national {font-weight:bold;color:#4d4d4d;font-size:15px;margin-top:20px;
     }
     .findHome {border:1px solid #ccc;border-radius:6px;display:block;width:140px;text-align:center;line-height:30px;background-color:#572a27;color:white;margin:34px auto 0;
@@ -386,9 +391,9 @@ ul li {float:left;list-style-type:none;
     padding:8px 80px;
     background-color:#572a27;
     /*margin-left:15px;*/
-    color:#cbb2b2;
+    color:white;
     font-size:16px;
-}
+    font-family: "Microsoft YaHei";}
         .hot-small ul li a {text-justify:auto;
         }
     .hot-small ul li:first-child a {margin-left:0;
@@ -417,12 +422,13 @@ ul li {float:left;list-style-type:none;
 }
 .Showcase .Item-introduction .dd-Item-name {margin:4px 0;font-size:14px;height: 35px;overflow: hidden;
 }
-    .Showcase .Item-introduction .dd-Item-name a {color:#999;font-size: 12px;
+    .Showcase .Item-introduction .dd-Item-name a {color:#666;font-size: 12px;
     }
 .More {background-color:#572a27;font-size:12px;color:white;width:56px;line-height:22px;text-align:center;display:block;float:right;margin-right: 10px;
 }
-.Showcase .Item-introduction dd b {font-size:20px;float:left;
+.Showcase .Item-introduction dd b {float:left;font-size: 18px;font-weight: 400;
 }
+.Showcase .Item-introduction dd b span{font-size: 14px;}
 .block_red {display:block!important;
 }
 .red {background-color:#bd2904!important;
@@ -433,7 +439,7 @@ ul li {float:left;list-style-type:none;
 }
     .Time-limit > .Time-limit-nav {overflow:hidden;height:40px;
     }
-    .Time-limit>.Time-limit-nav b{width:50%;display:block;float:left;text-align:center;line-height:40px;background-color:#ececec;color:#6b4441;font-size:20px;border-radius:1px;
+    .Time-limit>.Time-limit-nav b{width:50%;display:block;float:left;text-align:center;line-height:40px;background-color:#ececec;color:#6b4441;font-size:20px;border-radius:1px;font-family: "Microsoft YaHei";font-weight: 400;
     }
 .Time-limit>.Time-limit-nav .PitchOn {font-size:18px;background-color:white;color:#555;
 }
@@ -456,11 +462,12 @@ ul li {float:left;list-style-type:none;
         }
             .area ul li dt img {width: 200px;height: 200px;
             }
-.area .ItemTitle {font-size:22px;padding:20px 0 5px 230px;
+.area .ItemTitle {font-size:20px;padding:20px 0 5px 230px;font-family: "Microsoft YaHei";color: #333;
 }
+.ItemTitle b{font-weight: 400;}
 .area .ItemPrice {margin-top:34px;font-size:24px;
 }
-.area .ItemName a {color:#999;height: 36px;overflow: hidden;display: inline-block;font-size: 12px;
+.area .ItemName a {color:#666;height: 36px;overflow: hidden;display: inline-block;font-size: 12px;
 }
 .custom-area {display:none;
 }
@@ -482,9 +489,9 @@ ul li {float:left;list-style-type:none;
 }
     .Floor > p {line-height:95px;
     }
-    .Floor .FloorImg {float:left;width:220px;height:563px;border:1px solid red;padding-left:16px;
+    .Floor .FloorImg {float:left;width:220px;height:563px;border:2px solid #572a27;padding-left:16px;
     }
-        .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:auto;margin-top:20px;font-weight:bold;font-size:27px;display: inline-block;
+        .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:auto;margin-top:20px;font-weight:400!important;font-size:27px;display: inline-block;font-family: "Microsoft YaHei";
         }
         .Floor .FloorImg ul {overflow:hidden;margin-top:15px;
         }
@@ -506,25 +513,28 @@ ul li {float:left;list-style-type:none;
 .floor-banner ul li:first-child,.floor-banner ul li:nth-child(4){margin-left: 0;}
 .floor-banner ul li:nth-child(4),.floor-banner ul li:nth-child(5),.floor-banner ul li:nth-child(6){margin-top: 5px;}
 .floor-banner ul li dl{padding: 5px;border: 1px solid white;height: 266px; }
-.floor-banner .Introduction,.dd-Item-name .Introduction {font-size:12px;color:#999;height: 36px;overflow: hidden;display: inline-block;
+.floor-banner .Introduction,.dd-Item-name .Introduction {font-size:12px;color:#666;height: 36px;overflow: hidden;display: inline-block;
 }
-.floor-banner .Item-price {font-size:20px;
+.floor-banner .Item-price {font-size:18px;font-weight: 400;
 }
+.floor-banner .Item-price span{font-size: 14px;}
     .floor-banner .price {text-align:right;margin: 9px 6px 0 0;
     }
 .price b {color:red;
 }
-.Item-price b {color:red;font-size:18px;
+.Item-price b {color:red;font-size:18px;font-weight: 400;
 }
-.ItemPrice b {color:red;font-size:23px;
+.Item-price b span{font-size: 14px;}
+.ItemPrice b {color:red;font-size:18px;font-weight: 400;
 }
+.ItemPrice b span{font-size: 14px;}
     .floor-banner ul li img {width:193px;height:193px;
     }
 .floor-banner > div {overflow:hidden;float:left;
 }
 .floor-banner-img {float:left;
 }
-    .floor-banner-img img {width:313px;height:280px;  }
+    .floor-banner-img img {width:311px;height:280px;  }
 .Floor-bottom ul {overflow:hidden;margin-top:-17px;
 }
 .Floor-bottom ul li {width:395px;height:190px;margin-left:4px;overflow:hidden;  }
@@ -546,25 +556,25 @@ ul li {float:left;list-style-type:none;
 
 .FloorHead {margin-bottom: 20px;
 }
-.FloorFive .fiveNav{background-color: #a16746;color: white;}
+.FloorFive .fiveNav{background-color: #c86c18;color: white;}
     .FloorHead > div:first-child {height:45px;margin-top:40px;
     }
     .FloorHead ul {float:right;margin-top:5px;
     }
         /*.FloorHead ul .FH_current {border-top:2PX solid #572a27;border-top-left-radius:4PX;border-top-right-radius:4PX;  border-left:2PX solid #572a27;border-right:2PX solid #572a27;background-color:white;
         }*/
-        .FloorHead ul li {line-height:40px;background-color:#572a27;margin-right:10px;width:100px;text-align:center;color:#eba465;font-size:15px;font-family: "Microsoft YaHei";font-weight: 400;
+        .FloorHead ul li {line-height:40px;background-color:#572a27;margin-right:18px;width:100px;text-align:center;color:white;font-size:15px;font-family: "Microsoft YaHei";font-weight: 400;
         }
 .FloorHead ul li:hover{cursor:pointer;}
             .FloorHead ul li:last-child {
             }
-    .FloorHead .FloorBack {background-color:#572a27;line-height:25px;width:100%;height:25px;
+    .FloorHead .FloorBack {background-color:#572a27;line-height:22px;width:100%;height:22px;
     }
     .FloorID b {font-size:30px;color:#572a27;margin-left:10px;float:left;display:block;padding-top:5px;font-weight: 100;margin-top: 7px;
     }
 .FloorID img {margin:14px 0 0 10px;float:left;
 }
-.FloorID span {margin-left:6px;font-weight:bold;float:left;display:block;padding-top:15px;font-size: 19px;
+.FloorID span {margin-left:6px;float:left;display:block;padding-top:15px;font-size: 20px;font-family: "Microsoft YaHei";font-weight: 400;color: #333;
 }
 
 .FloorBack > .backLeft {color:white;font-size:12px;display:inline-block;margin: 0 0 0 9px;
@@ -656,6 +666,8 @@ ul li {float:left;list-style-type:none;
 
 .line-right .physical-store {padding:6px 10px;background-color:#dcd7d7;border-radius:6px;color:black;
 }
+.entityShop{border: 1px solid #666;border-radius: 4px;padding: 4px 16px 4px 30px;position: relative;}
+.entityShop i{background-image: url("../img/fonticon.png");background-repeat: no-repeat;background-position:-364px -141px;width: 16px;height: 16px;display: inline-block;position: absolute;top: 2px;left: 15px; }
 
 /*置顶按钮*/
 .PlacedTop2 {position:fixed;right:20px;bottom:80px;
@@ -681,3 +693,5 @@ ul li {float:left;list-style-type:none;
 }
 
 .kuai{margin-top: -22px;}
+
+.hotBack{background-color: #c86c18!important;}
