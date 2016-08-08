@@ -9,7 +9,7 @@
  * or stored in a data base or a retrieval system,  without  the prior
  * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
  *
- *//*
+ */
 
 
 package cn.com.dyninfo.o2o.furniture.web.goods.controller;
@@ -39,12 +39,12 @@ import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsTypeService;
 import cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo;
 
-*/
+
 /**
  * 商品分类
  * @author Administrator
  *
- *//*
+ */
 
 @Controller
 @RequestMapping("/manage/goodsSort")
@@ -68,13 +68,13 @@ public class GoodsSortController extends BaseController{
     	 mav.setViewName("/shangpin/goodsSort/mainFrams");
     	 return mav;
      }
-     */
+
 /**
 	 * 树列表
 	 * 
 	 * @param request
 	 * @return
-	 *//*
+	 */
 
 	@RequestMapping("/tree")
 	public void Treelist(HttpServletRequest request,HttpServletResponse response) {
@@ -108,13 +108,13 @@ public class GoodsSortController extends BaseController{
 		json+="]";
 		ResponseUtil.printl(response,json, "json");
 	}
-	      */
+
 /**
 			 * 列表
 			 * 
 			 * @param request
 			 * @return
-			 *//*
+			 */
 
 		@RequestMapping("/list")
 		public ModelAndView list(HttpServletRequest request) {
@@ -163,13 +163,13 @@ public class GoodsSortController extends BaseController{
 			return mav;
 		}
 		
-		*/
+
 /**
 		 * 修改
 		 * @param id
 		 * @param request
 		 * @return
-		 *//*
+		 */
 
 		 @Override
 		@RequestMapping(value="/{id}/disUpdate")
@@ -190,14 +190,14 @@ public class GoodsSortController extends BaseController{
 			return mav;
 		}
 	      
-	      */
+
 /**
 			 * 添加
 			 * 
 			 * @param request
 			 * @param info
 			 * @return
-			 *//*
+			 */
 
 	      @RequestMapping(method=RequestMethod.POST)
 	      public ModelAndView add(HttpServletRequest request,GoodsSort info){
@@ -231,13 +231,13 @@ public class GoodsSortController extends BaseController{
 	    		return mav;
 	      }
 	      
-	      */
+
 /**
 		   * 更改
 		   * @param request
 		   * @param info
 		   * @return
-		   *//*
+		   */
 
 		  @RequestMapping(method=RequestMethod.PUT)
 		  public ModelAndView endit(HttpServletRequest request,GoodsSort info){
@@ -270,14 +270,14 @@ public class GoodsSortController extends BaseController{
 				return mav;
 		  }
 		  
-		  */
+
 /**
 		   * 删除
 		   * @param id
 		   * @param request
 		   * @param response
 		   * @return
-		   *//*
+		   */
 
 		  @RequestMapping(value="/{id}/del",method=RequestMethod.GET)
 		  public ModelAndView del(@PathVariable String id,HttpServletRequest request,HttpServletResponse response){
@@ -369,12 +369,12 @@ public class GoodsSortController extends BaseController{
 					}
 				}
 			}
-		  */
+
 /**
 			 * 弹出选择框
 			 * @param request
 			 * @return
-			 *//*
+			 */
 
 			@RequestMapping("/selection")
 			public ModelAndView selection(HttpServletRequest request) {
@@ -394,4 +394,3 @@ public class GoodsSortController extends BaseController{
 				return mav;
 			}
 }
-*/

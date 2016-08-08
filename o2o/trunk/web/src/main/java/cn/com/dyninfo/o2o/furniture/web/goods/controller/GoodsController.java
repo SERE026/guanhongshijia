@@ -9,7 +9,7 @@
  * or stored in a data base or a retrieval system,  without  the prior
  * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
  *
- *//*
+ */
 
 
 package cn.com.dyninfo.o2o.furniture.web.goods.controller;
@@ -55,12 +55,12 @@ import cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo;
 import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
 import cn.com.dyninfo.o2o.furniture.web.wuliu.service.DlytypeService;
 
-*/
+
 /**
  * 品牌
  * @author Administrator
  *
- *//*
+ */
 
 @Controller
 @RequestMapping("/manage/goods")
@@ -244,10 +244,10 @@ public class GoodsController {
 	} 
 
 
-	*/
+
 /**
 	 * 添加
-	 *//*
+	 */
 
 	@RequestMapping(value = "/disAdd")
 	public ModelAndView disAdd(HttpServletRequest request, HttpServletResponse response) {
@@ -302,10 +302,10 @@ public class GoodsController {
 		return mav;
 	}
 
-	*/
+
 /**
 	 * 编辑
-	 *//*
+	 */
 
 	@RequestMapping(value = "/{id}/{shangjia_id}/disUpdate")
 	public ModelAndView disUpdate(@PathVariable String id, @PathVariable String shangjia_id, HttpServletRequest request, HttpServletResponse response) {
@@ -337,10 +337,10 @@ public class GoodsController {
 		return code;
 	}
 
-	*/
+
 /**
 	 * 添加保存
-	 *//*
+	 */
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, HttpServletResponse response,Goods info) {
@@ -377,10 +377,10 @@ public class GoodsController {
 	}
 
 
-	*/
+
 /**
 	 * 更新保存 
-	 *//*
+	 */
 
 	@RequestMapping(method = RequestMethod.PUT)
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response,Goods info) {
@@ -413,10 +413,10 @@ public class GoodsController {
 		}
 	}
 
-	*/
+
 /**
 	 * 删除
-	 *//*
+	 */
 
 	@RequestMapping(value = "/delall", method = RequestMethod.DELETE)
 	public ModelAndView del(String ognzId, HttpServletRequest request, HttpServletResponse response) {
@@ -437,10 +437,10 @@ public class GoodsController {
 		}
 	}
 
-	*/
+
 /**
 	 * 禁用
-	 *//*
+	 */
 
 	@RequestMapping(value = "/{id}/del", method = RequestMethod.GET)
 	public ModelAndView del(@PathVariable String id,  HttpServletRequest request) {
@@ -457,10 +457,10 @@ public class GoodsController {
 		}
 	}
 
-	*/
+
 /**
 	 * 查询
-	 *//*
+	 */
 
 	@RequestMapping(value = "/{id}/c")
 	public void chaxun(@PathVariable
@@ -477,13 +477,13 @@ public class GoodsController {
 			e.printStackTrace();
 		}
 	}
-	*/
+
 /**
 	 * 查看
 	 * @param id
 	 * @param request
 	 * @return
-	 *//*
+	 */
 
 	@RequestMapping(value="/{id}/show")
 	public ModelAndView show(@PathVariable String id,HttpServletRequest request){
@@ -492,13 +492,13 @@ public class GoodsController {
 		mav.setViewName("/shangpin/goods/show");
 		return mav;
 	}
-	*/
+
 /**
 	 * 根据商品分类 获得商品类型 并且获得商品类型属性
 	 * @param id
 	 * @param request
 	 * @return
-	 *//*
+	 */
 
 	@RequestMapping(value="/goodType/list")
 	public void goodTypeList(String id,HttpServletRequest request,HttpServletResponse response){
@@ -514,13 +514,13 @@ public class GoodsController {
 		}
 
 	}
-	*/
+
 /**
 	 * 根据商品类型 获得商品类型属性
 	 * @param id
 	 * @param request
 	 * @return
-	 *//*
+	 */
 
 	@RequestMapping(value="/goodSpec/list")
 	public void goodSpecList(String id,HttpServletRequest request,HttpServletResponse response){
@@ -545,10 +545,10 @@ public class GoodsController {
 		}
 	}
 
-	*/
+
 /**
 	 * 获取所有标签的方法，便于其它方法调用直接获取
-	 *//*
+	 */
 
 	public List<PageModule> getAllBiaoqians() {
 		List<PageModule> list = new ArrayList<PageModule>();
@@ -583,4 +583,4 @@ public class GoodsController {
 	
 	
 }
-*/
+
