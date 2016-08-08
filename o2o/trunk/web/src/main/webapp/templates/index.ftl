@@ -851,12 +851,17 @@
                     <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
                 </div>
                 <img src="../img/08.png" style="margin-top:40px;" />
-<#--                <ul>
-               <#list brandList as p>
-                    <li><a href="javascript:void(0);"><img src="${rc.contextPath}${p.logo}"/></a></li>
-                    <#if p_index==3><#break></#if>
-                </#list>
-                </ul>-->
+               <ul>
+                <#if brandList??>
+
+                    <#else>
+                    <#list brandList as p>
+                        <li><a href="javascript:void(0);"><img src="${rc.contextPath}${p.logo}"/></a></li>
+                        <#if p_index==3><#break></#if>
+                    </#list>
+                </#if>
+
+                </ul>
             </div>
 
 
@@ -924,12 +929,15 @@
                     <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
                 </div>
                 <img src="../img/08.png" style="margin-top:40px;" />
-<#--                <ul>
+               <ul>
+                   <#if brandList??>
+                   <#else>
                     <#list brandList as p>
                         <li><a href="javascript:void(0);"><img src="${rc.contextPath}${p.logo}"/></a></li>
                         <#if p_index==3><#break></#if>
                     </#list>
-                </ul>-->
+                   </#if>
+                </ul>
             </div>
 
 
