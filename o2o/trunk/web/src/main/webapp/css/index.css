@@ -280,8 +280,9 @@ ul li {float:left;list-style-type:none;
 .prompt {position:relative;
 }
 .three-level {
-    position:absolute;top:52px;left:235px;width:366px;background-color:white;padding:0 1.5em;z-index:3;display:none;
+    position:absolute;top:52px;left:587px;width:366px;background-color:white;padding:0 1.5em;z-index:4;display:none;
 }
+.pronoLevel3{position:absolute;top:52px;left:587px;width:366px;background-color:white;padding:0 1.5em;z-index:4;display:none;}
 .three-level h4 {line-height:36px;margin-top:15px;font-weight:bold!important;color:#bf084a;font-size:14px;
 }
     .three-level > span {float:right;line-height:36px;margin-top:-36px;color:#514f4f;font-size:12px;

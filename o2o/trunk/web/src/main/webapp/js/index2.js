@@ -65,19 +65,31 @@ window.onscroll = function () {
 }
 
 function prompt() {
-    var top,text;
+    var top,text,id='';
     $(".prompt").hover(function () {
         top = $(this).position().top;
         text = $(this).find("a").text();
+        id=$(this).attr('id').substring(3);
     })
     $(document).mouseover(function (e) {
-        var _con = $('.prompt,.three-level');   // 设置目标区域
+        var _con = $('.prompt,.three-level,.furniture ul');   // 设置目标区域
         if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
             $(".three-level").hide();
         } else {
-            $(".three-level").css("top", top + 52);
-            $(".three-level").show();
+            $(".three-level").css("top", top + 232);
+            $("#pr"+id).show();
             $(".three-level h4 span").text(text);
+        }
+    });
+
+    $(document).mouseover(function (e) {
+        var _con = $('.noLevel3,.pronoLevel3');   // 设置目标区域
+        if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+            $(".pronoLevel3").hide();
+        } else {
+            $(".pronoLevel3").css("top", top + 232);
+            $(".pronoLevel3").show();
+            $(".pronoLevel3 h4 span").text(text);
         }
     });
 }

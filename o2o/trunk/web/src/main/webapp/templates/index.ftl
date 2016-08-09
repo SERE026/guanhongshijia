@@ -289,7 +289,7 @@
 
                        <#list goodsSortList as p>
                            <#if p_index lt 4>
-                        <li><a href="javascript:void(0)">
+                        <li class="noLevel3 prompt"><a href="javascript:void(0)">
                             <img src="${rc.contextPath}${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
                         </li>
                            <#if p.extendshow==1>
@@ -317,28 +317,6 @@
                 <li><a href="${rc.contextPath}/apply.html">招商加盟</a></li>
                 <li><a href="${rc.contextPath}/help-27.html">全屋高端定制</a></li>
             </ul>
-
-         <div class="three-level">
-                <h4><span>卧室家具</span>&nbsp;>></h4>
-                <span>卧室1279件商品>></span>
-                <ul>
-                    <li><a href="javascript:void(0)">床</a></li>
-                    <li><a href="javascript:void(0)">床垫</a></li>
-                    <li><a href="javascript:void(0)">衣柜</a></li>
-                    <li><a href="javascript:void(0)">美规床</a></li>
-                    <li><a href="javascript:void(0)">美国进口床垫</a></li>
-                    <li><a href="javascript:void(0)">床</a></li>
-                    <li><a href="javascript:void(0)">床</a></li>
-                    <li><a href="javascript:void(0)">床</a></li>
-                    <li><a href="javascript:void(0)">床</a></li>
-                    <li><a href="javascript:void(0)">床垫</a></li>
-                    <li><a href="javascript:void(0)">衣柜</a></li>
-                    <li><a href="javascript:void(0)">床</a></li>
-                </ul>
-                <div>
-                    <img width="370" height="160" src="../img/10.png" />
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -1032,12 +1010,11 @@
 <#include 'common/buttom.html' />
 
     <!--菜单栏展示第三级目录-->
-<#--    <#list goodsSortList as p>
+  <#list goodsSortList as p>
         <#if p_index lt 4>
         <#if p.extendshow==1>
             <#list p.children as c>
-                    <div id="pr${c.goodsSort_id}">
-                        <div class="three-level">
+                        <div  id="pr${c.goodsSort_id}" class="three-level">
                             <h4><span>${c.name?if_exists}</span>&nbsp;>></h4>
                             <span>${c.name?if_exists}${c.goodscount}件商品>></span>
                             <ul>
@@ -1049,13 +1026,11 @@
                                 <img width="370" height="160" src="../img/10.png" />
                             </div>
                         </div>
-                    </div>
             </#list>
         </#if>
 
         <#if p.extendshow==0>
-            <div id="pr${p.goodsSort_id}"  >
-                <div class="three-level">
+                <div id="pr${p.goodsSort_id}"  class="three-level">
                     <h4><span>${p.name?if_exists}</span>&nbsp;>></h4>
                     <span>${p.name?if_exists}${p.goodscount}件商品>></span>
                     <ul>
@@ -1067,11 +1042,30 @@
                         <img width="370" height="160" src="../img/10.png" />
                     </div>
                 </div>
+        </#if>
+        </#if>
+    </#list>
+         <div class="pronoLevel3 three-level">
+                <h4><span>卧室家具</span>&nbsp;>></h4>
+                <span>卧室1279件商品>></span>
+                <ul>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床垫</a></li>
+                    <li><a href="javascript:void(0)">衣柜</a></li>
+                    <li><a href="javascript:void(0)">美规床</a></li>
+                    <li><a href="javascript:void(0)">美国进口床垫</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                    <li><a href="javascript:void(0)">床垫</a></li>
+                    <li><a href="javascript:void(0)">衣柜</a></li>
+                    <li><a href="javascript:void(0)">床</a></li>
+                </ul>
+                <div>
+                    <img width="370" height="160" src="../img/10.png" />
+                </div>
             </div>
-        </#if>
-        </#if>
-    </#list>-->
-
 </div>
 <script src="../js/jquery-1.8.2.js"></script>
 <script src="../js/index2.js"></script>
