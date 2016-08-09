@@ -49,22 +49,22 @@ public class ShangJiaDao extends BaseDAO{
 
 	@Override
 	public Object addObj(Object obj) {
-		if(obj instanceof ShangJiaInfo){
-			ShangJiaInfo ino=(ShangJiaInfo) obj;
-			Query query =this.getSession().createQuery("from ShangJiaInfo as n order by n.affiliation desc ");
-			query.setMaxResults(1);
-			List<ShangJiaInfo> list=query.list();
-			String inviteCode="0e0efe";
-			if(list.size()>0){
-				inviteCode=""+list.get(0).getAffiliation();
-			}
-			int hexv=Integer.parseInt(inviteCode, 16)+5;
-			inviteCode=Integer.toHexString(hexv);
-			ino.setAffiliation(inviteCode.toUpperCase());
-			return super.addObj(ino);
-		}else{
+//		if(obj instanceof ShangJiaInfo){
+//			ShangJiaInfo ino=(ShangJiaInfo) obj;
+//			Query query =this.getSession().createQuery("from ShangJiaInfo as n order by n.affiliation desc ");
+//			query.setMaxResults(1);
+//			List<ShangJiaInfo> list=query.list();
+//			String inviteCode="0e0efe";
+//			if(list.size()>0){
+//				inviteCode=""+list.get(0).getAffiliation();
+//			}
+//			int hexv=Integer.parseInt(inviteCode, 16)+5;
+//			inviteCode=Integer.toHexString(hexv);
+//			ino.setAffiliation(inviteCode.toUpperCase());
+//			return super.addObj(ino);
+//		}else{
 			return super.addObj(obj);
-		}
+//		}
 
 
 	}

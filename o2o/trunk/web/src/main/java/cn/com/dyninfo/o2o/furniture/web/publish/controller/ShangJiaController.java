@@ -262,6 +262,8 @@ public class ShangJiaController {
 			String shangjiaName = request.getParameter("shangjiaName");
 			String contactPhone = request.getParameter("contactPhone");
 			String contactName = request.getParameter("contactName");
+			String bankName = request.getParameter("bankName");
+			String bankCardAccount = request.getParameter("bankCardAccount");
 			List<RoleInfo> roles = new ArrayList<RoleInfo>();
 			RoleInfo roleInfo = (RoleInfo)roleService.getObjById("2");
 			roles.add(roleInfo);
@@ -275,9 +277,9 @@ public class ShangJiaController {
 			UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
 			userInfo.setDaili(daili);
 			userInfo = (UserInfo)userService.addObj(userInfo);
-			
-			
-			
+
+
+
 			ShangJiaInfo shangjiaInfo = new ShangJiaInfo();
 			MerchantType  type=(MerchantType) merchantTypeService.getObjById(request.getParameter("type_id"));
 			String affiliation = getAffiliation();//归属吗
@@ -294,6 +296,8 @@ public class ShangJiaController {
 			AgentGrade agentGrade = new AgentGrade();
 			agentGrade.setId(agentGradeId);
 			shangjiaInfo.setAgentGrade(agentGrade);
+			shangjiaInfo.setBankName(bankName);
+			shangjiaInfo.setBankCardAccount(bankCardAccount);
 			shangJiaService.addObj(shangjiaInfo);
 			//TODO 创建huiyuan_info
 			HuiyuanInfo huiyuanInfo=new HuiyuanInfo();
@@ -343,6 +347,8 @@ public class ShangJiaController {
 			String shangjiaName = request.getParameter("shangjiaName");
 			String contactPhone = request.getParameter("contactPhone");
 			String contactName = request.getParameter("contactName");
+			String bankName = request.getParameter("bankName");
+			String bankCardAccount = request.getParameter("bankCardAccount");
 			
 			List<RoleInfo> roles = new ArrayList<RoleInfo>();
 			RoleInfo roleInfo = (RoleInfo)roleService.getObjById("2");
@@ -369,6 +375,8 @@ public class ShangJiaController {
 			AgentGrade agentGrade = new AgentGrade();
 			agentGrade.setId(agentGradeId);
 			shangjiaInfo.setAgentGrade(agentGrade);
+			shangjiaInfo.setBankName(bankName);
+			shangjiaInfo.setBankCardAccount(bankCardAccount);
 			shangJiaService.updateObj(shangjiaInfo);
 			//TODO 更新会员info
 			List<HuiyuanInfo> huiyuanInfoList= (List<HuiyuanInfo>)huiyuanService.getListByWhere(new StringBuffer("and n.shangJiaInfo.shangjia_id="+user.getShanfJiaInfo().getShangjia_id()));
