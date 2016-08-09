@@ -946,11 +946,11 @@
                             <#if a_index lt 6>
                                 <li>
                                     <dl class="">
-                                        <dt><a href="javascript:void(0)">
+                                        <dt><a href="${rc.contextPath}/item-${a.goods_id}.html">
                                             <#--<img src="../img/03.jpg" />-->
                                                 <img src="${rc.contextPath}/upload/goods/${a.defaultImage}" />
                                         </a></dt>
-                                        <dd class=""><a class="Introduction" href="javascript:void(0)">${a.name?if_exists}</a></dd>
+                                        <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${a.goods_id}.html">${a.name?if_exists}</a></dd>
                                         <dd class="price"><b class="Item-price">￥${a.salesMoney}</b></dd>
                                     </dl>
                                 </li>
@@ -962,13 +962,13 @@
                 <div class="floor-banner-img">
                     <#list s as a>
                         <#if a_index == 6>
-                            <a href="javascript:void(0)">
+                             <a href="${rc.contextPath}/item-${a.goods_id}.html">
                            <#--     <img src="../img/07.png" />-->
                                 <img src="${rc.contextPath}/upload/goods/${a.defaultImage}" />
                             </a><br />
                         </#if>
                         <#if a_index == 7>
-                            <a href="javascript:void(0)">
+                            <a href="${rc.contextPath}/item-${a.goods_id}.html">
                            <#--     <img src="../img/07.png" />-->
                                 <img src="${rc.contextPath}/upload/goods/${a.defaultImage}" />
                             </a><br />
@@ -983,15 +983,15 @@
                         <#if a_index gt 7 && a_index lt 11>
                             <li>
                                 <dl class="Item-introduction">
-                                    <dt><a href="javascript:void(0)">
+                                    <dt> <a href="${rc.contextPath}/item-${a.goods_id}.html">
                                       <#--  <img src="../img/03.jpg" />-->
                                         <img src="${rc.contextPath}/upload/goods/${a.defaultImage}" />
 
                                     </a>
                                     </dt>
-                                    <dd class="dd-Item-name"><a class="Introduction" href="javascript:void(0)">${a.name?if_exists}</a></dd>
+                                    <dd class="dd-Item-name"><a class="Introduction" href="${rc.contextPath}/item-${a.goods_id}.html">${a.name?if_exists}</a></dd>
                                     <dd class="hot-cakes">（热销${a.num}件）</dd>
-                                    <dd class="Item-price"><b>￥${a.salesMoney}</b><a class="More" href="javascript:void(0)">MORE</a></dd>
+                                    <dd class="Item-price"><b>￥${a.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${a.goods_id}.html">MORE</a></dd>
                                     <#--<dd><a class="Add-art" href="javascript:void(0)">
                                     &lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a></dd>-->
                                 </dl>
