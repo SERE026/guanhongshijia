@@ -159,46 +159,50 @@ public class FreeMarkerUtils {
             }
             paramsMap.put("goodsList4",goodsList4);
 
-            //显示抢购商品
-            List<Active> activeList =(List<Active>) gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
-            paramsMap.put("activeList",goodsList4);
-            // mav.addAttribute("activeList",activeList);
+
 
             //热卖商品/疯狂抢购/热评商品/新品上架/限时抢购
-            List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REMAI_SKU));
-            List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.QIANGGOU_SKU));
-            List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REPIN_SKU));
-            List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.NEW_SKU));
-            List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.XIANSHI_SKU));
+            List<Goods> reMaiList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REMAI_SKU+"')>0"));
+            List<Goods> qiangGouList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.QIANGGOU_SKU+"')>0"));
+            List<Goods> rePinList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REPIN_SKU+"')>0"));
+            List<Goods> newList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.NEW_SKU+"')>0"));
+            List<Goods> xsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.XIANSHI_SKU+"')>0"));
             if (reMaiList != null && reMaiList.size() > 0) {
-                paramsMap.put("reMai", reMaiList.get(0));
+                paramsMap.put("reMai", reMaiList);
             }
             if (qiangGouList != null && qiangGouList.size() > 0) {
-                paramsMap.put("qiangGou", qiangGouList.get(0));
+                paramsMap.put("qiangGou", qiangGouList);
             }
             if (rePinList != null && rePinList.size() > 0) {
-                paramsMap.put("rePin", rePinList.get(0));
+                paramsMap.put("rePin",  rePinList);
             }
             if (newList != null && newList.size() > 0) {
-                paramsMap.put("new", newList.get(0));
+                paramsMap.put("new", newList);
             }
             if (xsList != null && xsList.size() > 0) {
-                paramsMap.put("xianShi", xsList.get(0));
+                paramsMap.put("xianShi",  xsList);
             }
+            //显示抢购商品
+            List<Active> activeList =(List<Active>) gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
 
+            if (xsList != null && xsList.size() > 0) {
+                paramsMap.put("activeList",xsList);
+            }
             //5L综合系列
             //获取品牌表数据
             List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
-            paramsMap.put("brandList", brandList);
+            if (brandList != null && brandList.size() > 0) {
+                paramsMap.put("brandList", brandList);
+            }
             //获取一级分类
             List<GoodsSort> goodsSortList5 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
             paramsMap.put("goodsSortList5",goodsSortList5);
             //根据一级分类ID 获取商品list
             List<List<Goods>> lists=new ArrayList<List<Goods>>();
             for (int i = 0; i <8; i++) {
-                int goodsSortId=1000101;
-                //goodsSortList5.get(i).getGoodsSort_id();
-                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortId));
+                int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
+                List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
+                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
                 lists.add(goodsList);
 
             }
@@ -249,23 +253,23 @@ public class FreeMarkerUtils {
             paramsMap.put("goodsSortList4",goodsSortList4.get(0));
             paramsMap.put("goodsList4",goodsList4);
 
-            //显示抢购商品
-            List<Active> activeList =(List<Active>) gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
-            paramsMap.put("activeList",goodsList4);
-            // mav.addAttribute("activeList",activeList);
+
 
             //热卖商品/疯狂抢购/热评商品/新品上架/限时抢购
-            List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REMAI_SKU));
-            List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.QIANGGOU_SKU));
-            List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REPIN_SKU));
-            List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.NEW_SKU));
-            List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.XIANSHI_SKU));
-            paramsMap.put("reMai", reMaiList.get(0));
-            paramsMap.put("qiangGou", qiangGouList.get(0));
-            paramsMap.put("rePin", rePinList.get(0));
-            paramsMap.put("new", newList.get(0));
-            paramsMap.put("xianShi", xsList.get(0));
-
+            List<Goods> reMaiList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REMAI_SKU+"')>0"));
+            List<Goods> qiangGouList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.QIANGGOU_SKU+"')>0"));
+            List<Goods> rePinList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REPIN_SKU+"')>0"));
+            List<Goods> newList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.NEW_SKU+"')>0"));
+            List<Goods> xsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.XIANSHI_SKU+"')>0"));
+            paramsMap.put("reMai", reMaiList);
+            paramsMap.put("qiangGou", qiangGouList);
+            paramsMap.put("rePin", rePinList);
+            paramsMap.put("new", newList);
+            paramsMap.put("xianShi", xsList);
+            //显示抢购商品
+            List<Active> activeList =(List<Active>) gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
+            paramsMap.put("activeList",xsList);
+            // mav.addAttribute("activeList",activeList);
             //5L综合系列
             //获取品牌表数据
             List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
@@ -276,11 +280,10 @@ public class FreeMarkerUtils {
             //根据一级分类ID 获取商品list
             List<List<Goods>> lists=new ArrayList<List<Goods>>();
             for (int i = 0; i <8; i++) {
-                int goodsSortId=1000101;
-                //goodsSortList5.get(i).getGoodsSort_id();
-                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortId));
+                int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
+                List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
+                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
                 lists.add(goodsList);
-
             }
             paramsMap.put("lists",lists);
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
@@ -324,22 +327,23 @@ public class FreeMarkerUtils {
             paramsMap.put("goodsSortList4",goodsSortList4.get(0));
             paramsMap.put("goodsList4",goodsList4);
 
-            //显示抢购商品
-            List<Active> activeList =(List<Active>) gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
-            paramsMap.put("activeList",goodsList4);
-            // mav.addAttribute("activeList",activeList);
-
+            //
             //热卖商品/疯狂抢购/热评商品/新品上架/限时抢购
-            List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REMAI_SKU));
-            List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.QIANGGOU_SKU));
-            List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REPIN_SKU));
-            List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.NEW_SKU));
-            List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.XIANSHI_SKU));
-            paramsMap.put("reMai", reMaiList.get(0));
-            paramsMap.put("qiangGou", qiangGouList.get(0));
-            paramsMap.put("rePin", rePinList.get(0));
-            paramsMap.put("new", newList.get(0));
-            paramsMap.put("xianShi", xsList.get(0));
+            List<Goods> reMaiList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REMAI_SKU+"')>0"));
+            List<Goods> qiangGouList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.QIANGGOU_SKU+"')>0"));
+            List<Goods> rePinList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REPIN_SKU+"')>0"));
+            List<Goods> newList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.NEW_SKU+"')>0"));
+            List<Goods> xsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.XIANSHI_SKU+"')>0"));
+
+            paramsMap.put("reMai", reMaiList);
+            paramsMap.put("qiangGou", qiangGouList);
+            paramsMap.put("rePin", rePinList);
+            paramsMap.put("new", newList);
+            paramsMap.put("xianShi", xsList);
+            //显示抢购商品
+            List<Active> activeList =(List<Active>)gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
+            paramsMap.put("activeList",xsList);
+            // mav.addAttribute("activeList",activeList);
 
             //5L综合系列
             //获取品牌表数据
@@ -351,9 +355,9 @@ public class FreeMarkerUtils {
             //根据一级分类ID 获取商品list
             List<List<Goods>> lists=new ArrayList<List<Goods>>();
             for (int i = 0; i <8; i++) {
-                int goodsSortId=1000101;
-                //goodsSortList5.get(i).getGoodsSort_id();
-                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortId));
+                int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
+                List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
+                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
                 lists.add(goodsList);
 
             }

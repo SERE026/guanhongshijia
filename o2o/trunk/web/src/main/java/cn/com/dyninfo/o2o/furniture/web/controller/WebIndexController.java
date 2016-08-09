@@ -89,25 +89,6 @@ public class WebIndexController{
      */
     @RequestMapping(value= "/index" )
     public String index(HttpServletRequest request, ModelMap mav,HttpServletResponse response) {
-    //获取城市地址
-//        Object obj=request.getSession().getAttribute(Context.SESSION_AEAR);
-//        if(obj==null){
-//            String city= CookTool.getCookIEValue("city", request);
-//            if(city==null||!city.equals("ALL")){
-//                if(city==null||city.equals("")){
-//                    String cityName= CityTool.getClientCityId(request);
-//                   // AreaService areaService= SpringContext.getBean("areaService");
-//                    List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"' and n.isDefault=1 "));
-//                    if(list.size()>0){
-//                        request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
-//                    }
-//                }else{
-//               //     AreaService areaService=SpringContext.getBean("areaService");
-//                    obj=areaService.getObjById(city);
-//                    request.getSession().setAttribute(Context.SESSION_AEAR, obj);
-//                }
-//            }
-//        }
         //所有的分类  一级。二级,三级
         List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
         mav.addAttribute("goodsSortList",dataList);
@@ -115,7 +96,6 @@ public class WebIndexController{
         //首页广告图
         List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
         mav.addAttribute("advwzList",advwzList.get(0));
-
 
         //1F楼商品
         List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
@@ -171,15 +151,9 @@ public class WebIndexController{
         //根据一级分类ID 获取商品list
         List<List<Goods>> lists=new ArrayList<List<Goods>>();
         for (int i = 0; i <8; i++) {
-
-//            int goodsSortId=1000101;
-//            List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortId));
-
-
             int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
             List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
             List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
-
             lists.add(goodsList);
         }
         mav.addAttribute("lists",lists);
