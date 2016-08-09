@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/7/25.
  */
-public class RecommendGoodsPromotionResult extends PageResult {
+public class RecommendPromotionGoodsResult extends PageResult {
 
     //促销列表
     private List<Recommend> promotionList;
