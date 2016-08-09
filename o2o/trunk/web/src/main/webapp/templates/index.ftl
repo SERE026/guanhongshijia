@@ -288,7 +288,7 @@
                     <ul>
 
                        <#list goodsSortList as p>
-                           <#if p_index lt 4>
+                           <#if p_index lt 10>
                         <li class="noLevel3 prompt"><a href="javascript:void(0)">
                             <img src="${rc.contextPath}${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
                         </li>
@@ -298,7 +298,7 @@
                                        <ul>
                                            <#list p.children as c>
                                                    <li class="prompt" id="pro${c.goodsSort_id}"><a href="javascript:void(0)">${c.name?if_exists}</a></li>
-                                               <#if p_index==5><#break></#if>
+                                              <#-- <#if p_index==5><#break></#if>-->
                                            </#list>
                                        </ul>
                                    </div>
@@ -380,29 +380,29 @@
     <div class="Showcase">
         <!--展示区-->
         <ul class="borderHover n1 block_red">
-            <#list reMai.goodsList as p>
+            <#list reMai as p>
                 <li>
                     <dl class="Item-introduction">
-                        <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                            <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
-                        <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">${p.goods.name}</a></dd>
-                        <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                        <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                            <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
+                        <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods_id}.html">${p.name}</a></dd>
+                        <dd class="price"><b><span>￥</span>${p.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a><a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
                     </dl>
                 </li>
-                <#if p_index==4><#break></#if>
+               <#if p_index==4><#break></#if>
             </#list>
         </ul>
 
-        <ul class="borderHover n2">
-            <#list qiangGou.goodsList as p>
+      <ul class="borderHover n2">
+            <#list qiangGou as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                        <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
-                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                        ${p.goods.name}</a></dd>
-                    <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
-                        <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                    <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
+                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        ${p.name}</a></dd>
+                    <dd class="price"><b><span>￥</span>${p.salesMoney}</b><a class="Add-art" href="javascript:void(0)">&lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a>
+                        <a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
                 <#if p_index==4><#break></#if>
@@ -411,15 +411,15 @@
         </ul>
 
         <ul class="borderHover n3">
-            <#list rePin.goodsList as p>
+            <#list rePin as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                        <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
-                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                        ${p.goods.name}</a></dd>
-                    <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
-                        <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                    <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
+                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        ${p.name}</a></dd>
+                    <dd class="price"><b><span>￥</span>${p.salesMoney}</b><a class="Add-art" href="javascript:void(0)">&lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a>
+                        <a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
                 <#if p_index==4><#break></#if>
@@ -428,15 +428,15 @@
         </ul>
 
         <ul class="borderHover n4">
-            <#list new.goodsList as p>
+            <#list new as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                        <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
-                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                        ${p.goods.name}</a></dd>
-                    <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
-                        <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                    <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
+                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        ${p.name}</a></dd>
+                    <dd class="price"><b><span>￥</span>${p.salesMoney}</b><a class="Add-art" href="javascript:void(0)">&lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a>
+                        <a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
                 <#if p_index==4><#break></#if>
@@ -445,15 +445,15 @@
         </ul>
 
         <ul class="borderHover n5">
-            <#list xianShi.goodsList as p>
+            <#list xianShi as p>
             <li>
                 <dl class="Item-introduction">
-                    <dt><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                        <img src="${rc.contextPath}/upload/goods/${p.goods.defaultImage}" /></a></dt>
-                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods.goods_id}.html">
-                        ${p.goods.name}</a></dd>
-                    <dd class="price"><b><span>￥</span>${p.goods.salesMoney}</b><a class="Add-art" href="javascript:void(0)"><#--<img src="../img/icon-cart-add.png" />--></a>
-                        <a class="More" href="${rc.contextPath}/item-${p.goods.goods_id}.html">MORE</a></dd>
+                    <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
+                    <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        ${p.name}</a></dd>
+                    <dd class="price"><b><span>￥</span>${p.salesMoney}</b><a class="Add-art" href="javascript:void(0)">&lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a>
+                        <a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
                 </dl>
             </li>
                 <#if p_index==4><#break></#if>
@@ -473,7 +473,7 @@
                     <dl class="">
                         <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
                             <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
-                        <dd class="ItemTitle"><b>老东方罗汉沙发</b></dd>
+                        <dd class="ItemTitle"><b></b></dd>
                         <dd class="ItemName"><a href="${rc.contextPath}/item-${p.goods_id}.html">${p.name?if_exists}</a></dd>
                         <dd class="ItemPrice"><b><span>￥</span>${p.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
                         <#--<dd><a class="Add-art" href="${rc.contextPath}/item-${p.goods_id}.html">
