@@ -96,10 +96,64 @@ $(function(){
 		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>英文备注:</td>
 		  <td ><input name="engdesc" id="engdesc"  value="${info.engdesc }"/></td>
 	  </tr>
-	 <%-- <tr>
-		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>大图（此处应是图片名称或者路径）:</td>
-		  <td ><input name="engname" id="largeimg"  value="${info.largeimg }"/></td>
-	  </tr>--%>
+	  <tr>
+		  <td class="discription" style="width: 150px;"><span style="color:#ff0000">*</span>广告图片链接:</td>
+		  <td ><input name="advlink" id="advlink" value="${info.advlink }"/></td>
+	  </tr>
+	  <tr>
+		  <td class="discription" >广告图片:</td>
+		  <td >
+			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
+			  <!-- 上传附件按钮 -->
+			  <script language="JavaScript" type="text/javascript">
+				  function removeFiles(fileName){
+					  document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
+				  }
+				  AC_FL_RunContent(
+						  "src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
+						  "width", "100",
+						  "height", "25",
+						  "style","margin-top:6px",
+						  "id", "fileUpload2",
+						  "quality", "high",
+						  "bgcolor", "#ffffff",
+						  "name", "fileUpload2",
+						  "wmode","transparent",
+						  "allowScriptAccess","sameDomain",
+						  "type", "application/x-shockwave-flash",
+						  "pluginspage", "http://www.adobe.com/go/getflashplayer",
+						  "flashVars","flexID=g&uploadURL=<%=request.getContextPath()%>/upload/upload.jsp&label=图 片 上 传&succeed=g_completeUpload"
+				  );
+
+				  function g_completeUpload(fileName, realName){
+					  if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
+							  ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
+						  var str="";
+						  str += "<div id='"+fileName+"' style='display: inline;'>";
+						  str += "<input type='hidden' name='advpic' value='"+fileName+"'/>";
+						  str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
+						  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
+						  str += "删除";
+						  str += "</a>&nbsp;&nbsp;</div>";
+						  document.getElementById("imgUrl3").innerHTML=str;
+					  }else{
+						  alert("请上传图片。");
+					  }
+				  }
+			  </script>
+			  <div  id="imgUrl3">
+				  <div id='${info.advpic }' style='display: inline;'>
+					  <input type='hidden' name='advpic' value='${info.advpic }'/>
+					  <img src="<%=request.getContextPath()%>/upload/${info.advpic }" height=120 width=240 />
+					  <a href='#' onclick='removeFiles("${info.advpic }")'>
+						  删除
+					  </a>&nbsp;&nbsp;</div>
+			  </div>
+		  </td>
+	  </tr>
+
+
 	  <tr>
 		  <td class="discription" >大图:</td>
 		  <td >
