@@ -191,7 +191,7 @@ public class AppGoodsController extends BaseAppController {
 
 
 /**
-     * 获取推荐页面 商品列表
+     * 获取新品推荐列表
      * @param recommendGoodsRequest
      * @param request
      * @param response
@@ -199,19 +199,12 @@ public class AppGoodsController extends BaseAppController {
      */
 
     @ResponseBody
-    @RequestMapping("/recommend")
-    public RecommendGoodsResult recommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/newRecommend")
+    public RecommendNewGoodsResult newRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(recommendGoodsRequest);
-        RecommendGoodsResult result = new RecommendGoodsResult();
+        RecommendNewGoodsResult result = new RecommendNewGoodsResult();
         //新品推荐列表
         List<Recommend> newList=new ArrayList<Recommend>();
-
-        //团购列表
-        List<Recommend> groupList=new ArrayList<Recommend>();
-
-        //促销列表
-        List<Recommend> promotionList=new ArrayList<Recommend>();
-
 
         Recommend recommend=new Recommend();
         List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
@@ -228,18 +221,91 @@ public class AppGoodsController extends BaseAppController {
             recommend.setGoodsSummaryList(lists);
             recommend.setImageUrl("");
             newList.add(recommend);
-            groupList.add(recommend);
-            promotionList.add(recommend);
         }
         result.setNewList(newList);
-        result.setGroupList(groupList);
-        result.setPromotionList(promotionList);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         log.debug(result);
         return result;
     }
 
+
+    /**
+     * 获取团购列表
+     * @param recommendGoodsRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/groupRecommend")
+    public RecommendGoodsGroupResult groupRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(recommendGoodsRequest);
+        RecommendGoodsGroupResult result = new RecommendGoodsGroupResult();
+        //促销列表
+        List<Recommend> promotionList=new ArrayList<Recommend>();
+
+        Recommend recommend=new Recommend();
+        List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
+        List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
+        if(!ValidationUtil.isEmpty(list)){
+            for (int i = 0; i < list.size(); i++) {
+                GoodsSummary goodsSummary = new GoodsSummary();
+                goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
+                goodsSummary.setTitle(list.get(i).getName());
+                goodsSummary.setMainPicUrl(list.get(i).getImg());
+                goodsSummary.setPrice(list.get(i).getSalesMoney());
+                lists.add(goodsSummary);
+            }
+            recommend.setGoodsSummaryList(lists);
+            recommend.setImageUrl("");
+            promotionList.add(recommend);
+        }
+        result.setGroupList(promotionList);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+        log.debug(result);
+        return result;
+    }
+
+
+    /**
+     * 获取团购列表
+     * @param recommendGoodsRequest
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/promotionRecommend")
+    public RecommendGoodsPromotionResult promotionRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(recommendGoodsRequest);
+        RecommendGoodsPromotionResult result = new RecommendGoodsPromotionResult();
+        //团购列表
+        List<Recommend> groupList=new ArrayList<Recommend>();
+
+        Recommend recommend=new Recommend();
+        List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
+        List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
+        if(!ValidationUtil.isEmpty(list)){
+            for (int i = 0; i < list.size(); i++) {
+                GoodsSummary goodsSummary = new GoodsSummary();
+                goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
+                goodsSummary.setTitle(list.get(i).getName());
+                goodsSummary.setMainPicUrl(list.get(i).getImg());
+                goodsSummary.setPrice(list.get(i).getSalesMoney());
+                lists.add(goodsSummary);
+            }
+            recommend.setGoodsSummaryList(lists);
+            recommend.setImageUrl("");
+            groupList.add(recommend);
+        }
+        result.setPromotionList(groupList);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+        log.debug(result);
+        return result;
+    }
 
 /**
      * 搜索请求类
