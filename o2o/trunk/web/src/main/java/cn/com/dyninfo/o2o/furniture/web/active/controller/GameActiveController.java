@@ -59,24 +59,24 @@ public class GameActiveController extends BaseController {
 
 	@Resource
 	private GameService gameService;
-	
+
 	@Resource
 	private ActivePlugin activePlugin;
-	
+
 	@Resource
 	private GameParamService gameParamService;
-	
+
 	@Resource
 	private GoodsService goodsService;
-	
+
 	@Resource
 	private ActiveGoodsService activeGoodsService;
-	
-	
+
+
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, Active obj) {
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(merchants!=null){
 			obj.setMerchants(merchants);
 			obj.setRole("MERCHANTS");
 		}else{
@@ -93,8 +93,8 @@ public class GameActiveController extends BaseController {
 			}
 		}
 		obj.setBtimel(Context.parseTime(date));
-		
-		
+
+
 		date=obj.getEdate();
 		time=obj.getEtime();
 		if(time!=null&&time.length()>0){
@@ -105,7 +105,7 @@ public class GameActiveController extends BaseController {
 				date+=" 00:00:00";
 			}
 		}
-		
+
 		obj.setEtimel(Context.parseTime(date));
 		obj.setFlag(1);
 		String imagesrc=request.getParameter("imagesrc");
@@ -118,7 +118,7 @@ public class GameActiveController extends BaseController {
 	@RequestMapping(method=RequestMethod.PUT)
 	public ModelAndView endit(HttpServletRequest request, Active obj,GameParam gameParam) {
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(merchants!=null){
 			obj.setMerchants(merchants);
 			obj.setRole("MERCHANTS");
 		}else{
@@ -135,8 +135,8 @@ public class GameActiveController extends BaseController {
 			}
 		}
 		obj.setBtimel(Context.parseTime(date));
-		
-		
+
+
 		date=obj.getEdate();
 		time=obj.getEtime();
 		if(time!=null&&time.length()>0){
@@ -167,39 +167,39 @@ public class GameActiveController extends BaseController {
 	public ModelAndView list(HttpServletRequest request) {
 		StringBuffer where=new StringBuffer(" and n.status=0 and n.flag=1");
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
-			where.append(" and ( n.role='ADMIN' or n.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ") ");
+		if(merchants!=null){
+			where.append(" and ( n.role='ADMIN' or n.merchants.shangjia_id="+merchants.getShangjia_id()+") ");
 		}else{
 			where.append(" and n.role='ADMIN' ");
 		}
 		return super.list(request, where);
 	}
-	
+
 	@RequestMapping("/list/{id}/orderIndex")
 	public ModelAndView orderIndex(@PathVariable String id,HttpServletRequest request){
-		 ModelAndView mav=new ModelAndView();
-		 mav.addObject("info",discountActiveService.getObjById(id));
-		 mav.setViewName("/active/gameActive/orderIndex");
-		 return mav;
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("info",discountActiveService.getObjById(id));
+		mav.setViewName("/active/gameActive/orderIndex");
+		return mav;
 	}
 	@RequestMapping(value="/list/{id}/orderIndex",method=RequestMethod.PUT)
 	public ModelAndView orderIndexPut(@PathVariable String id,HttpServletRequest request){
-		 ModelAndView mav=new ModelAndView();
-		 Active act=(Active) discountActiveService.getObjById(id);
-		 String goods_ids[]=request.getParameterValues("goods_id");
-		 String orderIndexs[]=request.getParameterValues("orderIndex");
-		 String activegoods_id[]=request.getParameterValues("activegoods_id");
-		 if(goods_ids!=null){
-			 for(int i=0;i<goods_ids.length;i++){
-				 ActiveGoods ag=(ActiveGoods) activeGoodsService.getObjById(activegoods_id[i]);
-				 ag.setAct(act);
-				 ag.setIdnex(Integer.parseInt(orderIndexs[i]));
-				 ag.setGoods((Goods)goodsService.getObjById(goods_ids[i]));
-				 activeGoodsService.updateObj(ag);
-			 }
-		 }
-		 mav.setViewName("redirect:/html/manage/gameActive/list");
-		 return mav;
+		ModelAndView mav=new ModelAndView();
+		Active act=(Active) discountActiveService.getObjById(id);
+		String goods_ids[]=request.getParameterValues("goods_id");
+		String orderIndexs[]=request.getParameterValues("orderIndex");
+		String activegoods_id[]=request.getParameterValues("activegoods_id");
+		if(goods_ids!=null){
+			for(int i=0;i<goods_ids.length;i++){
+				ActiveGoods ag=(ActiveGoods) activeGoodsService.getObjById(activegoods_id[i]);
+				ag.setAct(act);
+				ag.setIdnex(Integer.parseInt(orderIndexs[i]));
+				ag.setGoods((Goods)goodsService.getObjById(goods_ids[i]));
+				activeGoodsService.updateObj(ag);
+			}
+		}
+		mav.setViewName("redirect:/html/manage/gameActive/list");
+		return mav;
 	}
 	/**
 	 * 添加
@@ -213,7 +213,7 @@ public class GameActiveController extends BaseController {
 		mav.setViewName("/"+business+"/"+table+"/add");
 		return mav;
 	}
-	
+
 	/**
 	 * 修改
 	 * @param id
@@ -235,7 +235,7 @@ public class GameActiveController extends BaseController {
 		ModelAndView mav=new ModelAndView();
 		StringBuffer where =new StringBuffer(" and n.shelves=0  and n.state=0 ");
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		where.append(" and (n.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ")");
+		where.append(" and n.merchants.shangjia_id="+merchants.getShangjia_id());
 		PageInfo page=new PageInfo();
 		page.setPageNo(1);
 		page.setPageSize(25);
@@ -254,15 +254,15 @@ public class GameActiveController extends BaseController {
 	}
 	@RequestMapping("/list/{id}/Goods")
 	public ModelAndView count(@PathVariable String id,HttpServletRequest request){
-		 ModelAndView mav=new ModelAndView();
-		 mav.addObject("info",discountActiveService.getObjById(id));
-		 StringBuffer where=new StringBuffer();
-		 ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		 where.append(" and (g.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ") and n.active_id="+id);
-		 List list=discountActiveService.getGoodListByWhere(where);
-		 mav.addObject("DATA", list);
-		 mav.setViewName("/"+business+"/"+table+"/discount");
-		 return mav;
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("info",discountActiveService.getObjById(id));
+		StringBuffer where=new StringBuffer();
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
+		where.append(" and g.merchants.shangjia_id="+merchants.getShangjia_id()+" and n.active_id="+id);
+		List list=discountActiveService.getGoodListByWhere(where);
+		mav.addObject("DATA", list);
+		mav.setViewName("/"+business+"/"+table+"/discount");
+		return mav;
 	}
 	@RequestMapping(value="/del/Goods",method=RequestMethod.DELETE)
 	public void delGoods(HttpServletRequest request,HttpServletResponse response){
@@ -274,25 +274,25 @@ public class GameActiveController extends BaseController {
 		discountActiveService.updateObj(active);
 		ResponseUtil.printl(response, "{\"status\":0}", "json");
 	}
-	
+
 	@RequestMapping("/add/{id}/Goods")
 	public ModelAndView disCount(@PathVariable String id,HttpServletRequest request){
-		 ModelAndView mav=new ModelAndView();
-		 Active active=(Active) discountActiveService.getObjById(id);
-		 String[] goods_id=request.getParameterValues("goods_id");
-		 int count=0;
-		 List list=new ArrayList();
-		 for(int i=0;i<goods_id.length;i++){
-			 Map map=new HashMap();
-			 map.put("goodID", goods_id[i]);
-			 map.put("actID", id);
-             list.add(map);
-             count++;
-		 }
-		 active.setCount(active.getCount()+count);
-		 discountActiveService.updateObj(active);
-		 discountActiveService.addLink(list);
-		 mav.setViewName("redirect:/html/manage/"+table+"/list");
-		 return mav;
+		ModelAndView mav=new ModelAndView();
+		Active active=(Active) discountActiveService.getObjById(id);
+		String[] goods_id=request.getParameterValues("goods_id");
+		int count=0;
+		List list=new ArrayList();
+		for(int i=0;i<goods_id.length;i++){
+			Map map=new HashMap();
+			map.put("goodID", goods_id[i]);
+			map.put("actID", id);
+			list.add(map);
+			count++;
+		}
+		active.setCount(active.getCount()+count);
+		discountActiveService.updateObj(active);
+		discountActiveService.addLink(list);
+		mav.setViewName("redirect:/html/manage/"+table+"/list");
+		return mav;
 	}
 }

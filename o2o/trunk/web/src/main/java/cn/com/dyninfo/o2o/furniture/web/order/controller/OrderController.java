@@ -36,9 +36,9 @@ import cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo;
 
 /**
  * 订单管理
- * 
+ *
  * @author lxf
- * 
+ *
  */
 @Controller
 @RequestMapping("/manage/order")
@@ -60,7 +60,7 @@ public class OrderController extends BaseController {
 
 	/**
 	 * 列表
-	 * 
+	 *
 	 * @param request
 	 * @return
 	 */
@@ -78,7 +78,7 @@ public class OrderController extends BaseController {
 		String city = request.getParameter("city");// 市
 		String dianjia = request.getParameter("dianjia");// 店家名称
 		UserInfo info=(UserInfo) request.getSession().getAttribute("UserInfo");
-		
+
 		// 保存全部订单中的不重复省份、城市和商家，以便组成下拉框选项
 		List orderAll = orderService.getListByWhere(new StringBuffer().append("and n.status='0'"));
 		List<String> provinceList = new ArrayList<String>();
@@ -108,7 +108,7 @@ public class OrderController extends BaseController {
 				}
 			}
 		}
-		
+
 		// 查询省
 		if (province != "" && province != null) {
 			where.append(" and n.province.name like '%" + province + "%'");
@@ -142,10 +142,10 @@ public class OrderController extends BaseController {
 			where.append(" and n.time>='"+year+"-"+month+"-"+"01"+" 24:00:00'");
 		}
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(merchants!=null){
 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 		}
-		
+
 		if(year!=null&&!"".equals(year)){
 			where.append(" and n.time <'"+year+"-0"+(Integer.parseInt(month)+1)+"-"+"01"+" 24:00:00'");
 		}
@@ -169,7 +169,7 @@ public class OrderController extends BaseController {
 
 	/**
 	 * 添加
-	 * 
+	 *
 	 * @param request
 	 * @param info
 	 * @return
@@ -184,7 +184,7 @@ public class OrderController extends BaseController {
 
 	/**
 	 * 更改
-	 * 
+	 *
 	 * @param request
 	 * @param info
 	 * @return
@@ -224,14 +224,14 @@ public class OrderController extends BaseController {
 
 	/**
 	 * 假删除
-	 * 
+	 *
 	 * @param id
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}/godel")
 	public ModelAndView godel(@PathVariable
-	String id, HttpServletRequest request) {
+									  String id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		Order order = (Order) orderService.getObjById(id);
 		if (order.getDepositAmount()>0&&"8".equals(order.getState())){
@@ -247,14 +247,14 @@ public class OrderController extends BaseController {
 
 	/**
 	 * 修改跳转
-	 * 
+	 *
 	 * @param id
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}/goupdate")
 	public ModelAndView goupdate(@PathVariable
-	String id, HttpServletRequest request) {
+										 String id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		Order order = (Order) orderService.getObjById(id);
 		mav.addObject("info",order);
@@ -267,7 +267,7 @@ public class OrderController extends BaseController {
 
 	/**
 	 * 佣金发放
-     */
+	 */
 	@RequestMapping(value = "/{id}/agencyPay")
 	public ModelAndView agencyPay(@PathVariable  String id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -291,7 +291,7 @@ public class OrderController extends BaseController {
 	 */
 	@RequestMapping(value = "/{id}/goupdatepay")
 	public ModelAndView goupdatepay(@PathVariable
-										 String id, HttpServletRequest request) {
+											String id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		Order order = (Order) orderService.getObjById(id);
 		mav.addObject("info",order);

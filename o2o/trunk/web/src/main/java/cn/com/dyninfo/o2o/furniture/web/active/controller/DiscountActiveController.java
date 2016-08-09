@@ -55,19 +55,19 @@ public class DiscountActiveController extends BaseController {
 
 	@Resource
 	private DiscountActiveService discountActiveService;
-	
+
 	@Resource
 	private GoodsService goodsService;
-	
+
 	@Resource
 	private FavoritesService favoritesService;
-	
+
 	@Resource
 	private ActiveGoodsService activeGoodsService;
-	
+
 	@Resource
 	private MessageSendService messageSendService;
-	
+
 	/**
 	 * 添加折扣活动
 	 * @param request
@@ -77,9 +77,9 @@ public class DiscountActiveController extends BaseController {
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request, Active obj) {
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(merchants!=null){
 			obj.setMerchants(merchants);
-			obj.setRole("MERCHANTS");
+			obj.setRole(Constants.SESSION_MERCHANTS);
 		}else{
 			obj.setRole("ADMIN");
 		}
@@ -94,8 +94,8 @@ public class DiscountActiveController extends BaseController {
 			}
 		}
 		obj.setBtimel(Context.parseTime(date));
-		
-		
+
+
 		date=obj.getEdate();
 		time=obj.getEtime();
 		if(time!=null&&time.length()>0){
@@ -112,7 +112,7 @@ public class DiscountActiveController extends BaseController {
 		obj.setFlag(0);
 		return super.add(request, obj);
 	}
-	
+
 	/**
 	 * 修改折扣活动
 	 * @param request
@@ -123,9 +123,9 @@ public class DiscountActiveController extends BaseController {
 	public ModelAndView endit(HttpServletRequest request, Active obj) {
 		Active act=(Active) discountActiveService.getObjById(obj.getActive_id()+"");
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(merchants!=null){
 			act.setMerchants(merchants);
-			act.setRole("MERCHANTS");
+			act.setRole(Constants.SESSION_MERCHANTS);
 		}else{
 			act.setRole("ADMIN");
 		}
@@ -142,7 +142,7 @@ public class DiscountActiveController extends BaseController {
 			}
 		}
 		act.setBtimel(Context.parseTime(date));
-		
+
 		date=obj.getEdate();
 		act.setEdate(date);
 		time=obj.getEtime();
@@ -179,22 +179,22 @@ public class DiscountActiveController extends BaseController {
 	public ModelAndView list(HttpServletRequest request) {
 		StringBuffer where =new StringBuffer(" and n.status=0 and n.flag=0");
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
-			where.append(" and ( n.role='ADMIN' or n.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ") ");
+		if(merchants!=null){
+			where.append(" and ( n.role='ADMIN' or n.merchants.shangjia_id="+merchants.getShangjia_id()+") ");
 		}else{
 			where.append(" and n.role='ADMIN' ");
 		}
-		
+
 		return super.list(request, where);
 	}
-	
-	
+
+
 	@RequestMapping("/goods/list")
 	public ModelAndView Goodslist(HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView();
 		StringBuffer where =new StringBuffer(" and n.shelves=0  and n.state=0 ");
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		where.append(" and (n.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ")");
+		where.append(" and n.merchants.shangjia_id="+merchants.getShangjia_id());
 		PageInfo page=new PageInfo();
 		page.setPageNo(1);
 		page.setPageSize(25);
@@ -207,44 +207,44 @@ public class DiscountActiveController extends BaseController {
 			page.setPageSize(Integer.parseInt(pageSize));
 		}
 		mav.addObject("active_id", request.getParameter("active_id"));
-		
+
 		Map map=goodsService.getListByPageWhere(where, page);
 		mav.addAllObjects(map);
 		mav.setViewName("/active/discountActive/goodList");
 		return mav;
 	}
-	
-	
-	
+
+
+
 	@RequestMapping("/list/{id}/orderIndex")
 	public ModelAndView orderIndex(@PathVariable String id,HttpServletRequest request){
-		 ModelAndView mav=new ModelAndView();
-		 mav.addObject("info",discountActiveService.getObjById(id));
-		 mav.setViewName("/active/discountActive/orderIndex");
-		 return mav;
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("info",discountActiveService.getObjById(id));
+		mav.setViewName("/active/discountActive/orderIndex");
+		return mav;
 	}
-	
-	
+
+
 	@RequestMapping(value="/list/{id}/orderIndex",method=RequestMethod.PUT)
 	public ModelAndView orderIndexPut(@PathVariable String id,HttpServletRequest request){
-		 ModelAndView mav=new ModelAndView();
-		 Active act=(Active) discountActiveService.getObjById(id);
-		 String goods_ids[]=request.getParameterValues("goods_id");
-		 String orderIndexs[]=request.getParameterValues("orderIndex");
-		 if(goods_ids!=null){
-			 for(ActiveGoods ag : act.getDeatList()){
-				 for(int i=0;i<goods_ids.length;i++){
-					 if(ag.getGoods().getGoods_id() == Integer.parseInt(goods_ids[i])){
-						 ag.setIdnex(Integer.parseInt(orderIndexs[i]));
-						 activeGoodsService.updateObj(ag);
-					 }
-				 }
-			 }
-		 }
-		 mav.setViewName("redirect:/html/manage/discountActive/list");
-		 return mav;
+		ModelAndView mav=new ModelAndView();
+		Active act=(Active) discountActiveService.getObjById(id);
+		String goods_ids[]=request.getParameterValues("goods_id");
+		String orderIndexs[]=request.getParameterValues("orderIndex");
+		if(goods_ids!=null){
+			for(ActiveGoods ag : act.getDeatList()){
+				for(int i=0;i<goods_ids.length;i++){
+					if(ag.getGoods().getGoods_id() == Integer.parseInt(goods_ids[i])){
+						ag.setIdnex(Integer.parseInt(orderIndexs[i]));
+						activeGoodsService.updateObj(ag);
+					}
+				}
+			}
+		}
+		mav.setViewName("redirect:/html/manage/discountActive/list");
+		return mav;
 	}
-	
+
 	/**
 	 * 添加活动商品列表
 	 * @param id
@@ -253,18 +253,18 @@ public class DiscountActiveController extends BaseController {
 	 */
 	@RequestMapping("/list/{id}/Goods")
 	public ModelAndView count(@PathVariable String id,HttpServletRequest request){
-		 ModelAndView mav=new ModelAndView();
-		 Active act=(Active) discountActiveService.getObjById(id);
-		 mav.addObject("info",act);
-		 StringBuffer where=new StringBuffer();
-		 ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		 where.append(" and (g.merchants.shangjia_id="+merchants.getShangjia_id()+" or g.merchants.shangjia_id=" + Constants.DEFAULT_SHANGJIA_ID + ") and n.active_id="+id);
-		 List list=discountActiveService.getGoodListByWhere(where);
-		 mav.addObject("DATA", list);
-		 mav.setViewName("/"+business+"/"+table+"/discount");
-		 return mav;
+		ModelAndView mav=new ModelAndView();
+		Active act=(Active) discountActiveService.getObjById(id);
+		mav.addObject("info",act);
+		StringBuffer where=new StringBuffer();
+		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
+		where.append(" and g.merchants.shangjia_id="+merchants.getShangjia_id()+" and n.active_id="+id);
+		List list=discountActiveService.getGoodListByWhere(where);
+		mav.addObject("DATA", list);
+		mav.setViewName("/"+business+"/"+table+"/discount");
+		return mav;
 	}
-	
+
 	/**
 	 * 删除商品
 	 * @param request
@@ -285,7 +285,7 @@ public class DiscountActiveController extends BaseController {
 		}
 		ResponseUtil.printl(response, "{\"status\":0}", "json");
 	}
-	
+
 	/**
 	 * 添加商品
 	 * @param id
@@ -294,15 +294,15 @@ public class DiscountActiveController extends BaseController {
 	 */
 	@RequestMapping("/add/{id}/Goods")
 	public ModelAndView disCount(@PathVariable String id,HttpServletRequest request){
-		 ModelAndView mav=new ModelAndView();
-		 Active act=(Active) discountActiveService.getObjById(id);
-		 if(act.getDeatList() != null){
-			 for(ActiveGoods ag : act.getDeatList()){
-				 activeGoodsService.delObj(ag);
-			 }
-		 }
-		 discountActiveService.updateActive(request, id);
-		 mav.setViewName("redirect:/html/manage/"+table+"/list");
-		 return mav;
+		ModelAndView mav=new ModelAndView();
+		Active act=(Active) discountActiveService.getObjById(id);
+		if(act.getDeatList() != null){
+			for(ActiveGoods ag : act.getDeatList()){
+				activeGoodsService.delObj(ag);
+			}
+		}
+		discountActiveService.updateActive(request, id);
+		mav.setViewName("redirect:/html/manage/"+table+"/list");
+		return mav;
 	}
 }

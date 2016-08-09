@@ -36,10 +36,10 @@ public class BalanceWaterController {
 
 	@Resource
 	private MerchantMoneyService merchantMoneyService;
-	
+
 	@Resource
 	private ShangJiaService shangJiaService;
-	
+
 	/**
 	 * 列表
 	 * @param request
@@ -51,7 +51,7 @@ public class BalanceWaterController {
 		PageInfo page = new PageInfo();
 		StringBuffer where= new StringBuffer();
 		ShangJiaInfo info=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(info!=null && info.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(info!=null){
 			info=(ShangJiaInfo) shangJiaService.getObjById(""+info.getShangjia_id());
 			mav.addObject("m", info);
 			where.append(" and n.merchant.shangjia_id="+info.getShangjia_id());
@@ -61,7 +61,7 @@ public class BalanceWaterController {
 		}else{
 			page.setPageSize(25);
 		}
-		
+
 		if(request.getParameter("pageNo")!=null&&request.getParameter("pageNo").length()>0){
 			Pattern pattern =Pattern.compile("^[0-9]+$");
 			Matcher m = pattern.matcher(request.getParameter("pageNo"));
@@ -70,7 +70,7 @@ public class BalanceWaterController {
 			}
 		}else
 			page.setPageNo(1);
-		
+
 		mav.addObject("C_STATUS", request.getParameter("C_STATUS"));
 		where.append(" order by n.time desc ");
 		mav.addAllObjects(merchantMoneyService.getListByPageWhere(where, page));

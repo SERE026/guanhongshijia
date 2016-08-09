@@ -14,7 +14,7 @@
 /**
  * @author jettang
  * May 24, 2010
- * 
+ *
  */
 package cn.com.dyninfo.o2o.furniture.admin.controller;
 
@@ -29,9 +29,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.com.dyninfo.o2o.furniture.sys.Constants;
-import cn.com.dyninfo.o2o.furniture.web.publish.model.ShangJiaInfo;
-import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,9 +62,6 @@ public class UserController {
 	@Resource
 	private RoleService roleService;
 
-	@Resource
-	private ShangJiaService shangJiaService;
-	 
 	/**
 	 * 框架页面
 	 * @param request
@@ -79,7 +73,7 @@ public class UserController {
 		mav.setViewName("/base/user/frame");
 		return mav;
 	}
-	
+
 	/**
 	 * 树形页面
 	 * @param request
@@ -104,14 +98,14 @@ public class UserController {
 		mav.setViewName("/base/user/tree");
 		return mav;
 	}
-	
+
 	/**
 	 * 列表
 	 */
 	@RequestMapping(value = "/list")
 	public ModelAndView list(HttpServletRequest request,
-			HttpServletResponse response) {
-		
+							 HttpServletResponse response) {
+
 		ModelAndView mav = new ModelAndView();
 		PageInfo page = new PageInfo();
 		page.setPageSize(25);
@@ -129,7 +123,7 @@ public class UserController {
 		if(ognzId!=null&&ognzId.length()==0){
 			ognzId=null;
 		}
-		
+
 		//
 		StringBuffer where = new StringBuffer();
 		String username = request.getParameter("username");
@@ -159,7 +153,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/disAdd")
 	public ModelAndView disAdd(HttpServletRequest request,
-			HttpServletResponse response, UserInfo userInfo) {
+							   HttpServletResponse response, UserInfo userInfo) {
 		ModelAndView mav = new ModelAndView();
 		//
 		String ognzId = request.getParameter("ognzId");
@@ -176,7 +170,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/{id}/show")
 	public ModelAndView show(@PathVariable
-	String id, HttpServletRequest request, HttpServletResponse response) {
+									 String id, HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		//
 		String ognzId = request.getParameter("ognzId");
@@ -192,8 +186,8 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/{id}/c")
 	public void chaxun(@PathVariable
-	String id, HttpServletRequest request, HttpServletResponse response) {
-		
+							   String id, HttpServletRequest request, HttpServletResponse response) {
+
 		response.setCharacterEncoding("utf-8");
 		UserInfo userInfo = (UserInfo)userService.getObjById(id);
 		try {
@@ -212,8 +206,8 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/{id}/disUpdate")
 	public ModelAndView disUpdate(@PathVariable
-	String id, HttpServletRequest request, HttpServletResponse response) {
-		
+										  String id, HttpServletRequest request, HttpServletResponse response) {
+
 		ModelAndView mav = new ModelAndView();
 		UserInfo userInfo = (UserInfo)userService.getObjById(id);
 		mav.setViewName("/base/user/disUpdate");
@@ -229,7 +223,7 @@ public class UserController {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView add(HttpServletRequest request,
-			HttpServletResponse response, UserInfo userInfo) {
+							HttpServletResponse response, UserInfo userInfo) {
 		try{
 			List<OgnzInfo> ognzs = new ArrayList<OgnzInfo>();
 			List<RoleInfo> roles = new ArrayList<RoleInfo>();
@@ -241,16 +235,13 @@ public class UserController {
 			roles.add(roleInfo);
 			userInfo.setOgnzs(ognzs);
 			userInfo.setRoles(roles);
-//			if (userInfo.getIs_user().equals("0")) {
-//				userInfo.setShanfJiaInfo((ShangJiaInfo) shangJiaService.getObjById(String.valueOf(Constants.DEFAULT_SHANGJIA_ID)));
-//			}
 			userInfo = (UserInfo)userService.addObj(userInfo);
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+request.getParameter("ognz"),"C_STATUS",1);
 		}catch(Exception e){
 			e.printStackTrace();
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+request.getParameter("ognz"),"C_STATUS",0);
 		}
-		
+
 	}
 
 	/**
@@ -258,7 +249,7 @@ public class UserController {
 	 */
 	@RequestMapping(method = RequestMethod.PUT)
 	public ModelAndView update(UserInfo userInfo, HttpServletRequest request,
-			HttpServletResponse response) {
+							   HttpServletResponse response) {
 		try{
 			String id = request.getParameter("id");
 			List<OgnzInfo> ognzs = new ArrayList<OgnzInfo>();
@@ -285,9 +276,9 @@ public class UserController {
 			user.setPs(userInfo.getPs());
 			user.setUser_name(userInfo.getUser_name());
 			if(userInfo.getPasswd()!=null&&userInfo.getPasswd().length()>0)
-			user.setPasswd(MD5Encoder.encodePassword(userInfo.getPasswd(),
-					user.getLogin_id()));
-			
+				user.setPasswd(MD5Encoder.encodePassword(userInfo.getPasswd(),
+						user.getLogin_id()));
+
 			userService.updateObj(user);
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+request.getParameter("ognz"),"C_STATUS",1);
 		}catch(Exception e){
@@ -314,13 +305,13 @@ public class UserController {
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+ognzId,"C_STATUS",0);
 		}
 	}
-	
+
 	/**
 	 * 禁用
 	 */
 	@RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
 	public ModelAndView del(@PathVariable
-	String id, String ognzId, HttpServletRequest request, HttpServletResponse response) {
+									String id, String ognzId, HttpServletRequest request, HttpServletResponse response) {
 		try{
 			userService.delObjStatusById(id);
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+ognzId,"C_STATUS",1);
@@ -329,7 +320,7 @@ public class UserController {
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+ognzId,"C_STATUS",0);
 		}
 	}
-	
+
 	/**
 	 * 弹出选择框
 	 * @param request
@@ -372,7 +363,7 @@ public class UserController {
 		mav.setViewName("/base/user/dialogSelection");
 		return mav;
 	}
-	
+
 	/**
 	 * 返回格式
 	 * @param request
@@ -438,7 +429,7 @@ public class UserController {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 弹出选择框
 	 * @param request
@@ -456,33 +447,33 @@ public class UserController {
 		List list=userService.getListByWhere(new StringBuffer(" and userInfo.is_user = '0'  and userInfo.isUsed='1' and userInfo.user_name like '%"+name+"%' and userInfo.login_id!='admin' "+w));
 		ResponseUtil.printl(response, ResponseUtil.getJson(list).toString(), "json");
 	}
-	
+
 	/**
 	 * 启用
 	 */
 	@RequestMapping(value = "/start/{id}", method = RequestMethod.GET)
 	public ModelAndView start(@PathVariable String id, String ognzId, HttpServletRequest request, HttpServletResponse response) {
 		try{
-			 UserInfo info=(UserInfo) userService.getObjById(id);
-			 info.setIsUsed("1");
-			 userService.updateObj(info);
+			UserInfo info=(UserInfo) userService.getObjById(id);
+			info.setIsUsed("1");
+			userService.updateObj(info);
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+ognzId);
 		}catch(Exception e){
 			e.printStackTrace();
 			return new ModelAndView("redirect:/html/manage/user/list?ognzId="+ognzId);
 		}
 	}
-	
+
 	/**
 	 * 查询
 	 */
 	@RequestMapping(value = "/{id}/address")
 	public void address(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
-		
+
 		response.setCharacterEncoding("utf-8");
 		StringBuffer where=new StringBuffer();
 		where.append(" and n.areaid like '%").append(id).append("%'");
-       List<UserInfo> list=(List<UserInfo>) userService.getListByWhere(where);
+		List<UserInfo> list=(List<UserInfo>) userService.getListByWhere(where);
 		try {
 			if (list.size()==0) {
 				response.getWriter().print("1");//该地区没有代理商

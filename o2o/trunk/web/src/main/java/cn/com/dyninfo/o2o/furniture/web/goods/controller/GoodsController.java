@@ -85,10 +85,10 @@ public class GoodsController {
 
 	@Resource
 	private ShangJiaService shangJiaService;
-	
+
 	@Resource
 	private PageModuleService pageModuleService;
-	
+
 
 	@RequestMapping("/select/list")
 	public ModelAndView selected(HttpServletRequest request,HttpServletResponse response) {
@@ -99,7 +99,7 @@ public class GoodsController {
 
 	@RequestMapping("/goodsJsonPage/list")
 	public ModelAndView goodsJsonPage(HttpServletRequest request,
-			HttpServletResponse response) {
+									  HttpServletResponse response) {
 		String shanJia = request.getParameter("shanJia");
 
 
@@ -120,7 +120,7 @@ public class GoodsController {
 			where.append(" and n.merchants.name like '%").append(shanJia).append("%'");
 		}
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(merchants!=null){
 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 		}
 		UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
@@ -170,7 +170,7 @@ public class GoodsController {
 			page.setPageNo(1);
 		where.append("and n.state='0'");
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(merchants!=null){
 			where.append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'");
 		}
 		String code=request.getParameter("code");
@@ -194,20 +194,20 @@ public class GoodsController {
 			ids+=")";
 			where.append(" and n.merchants.city.id in "+ids);
 		}
-		
+
 		where.append(" order by indexs,code");
 		HashMap<String, ?> data = goodsService.getListByPageWhere(where, page);
 		// 保存商品标签名字，便于页面加载
 		List<Goods> goodsList = (List<Goods>)data.get("DATA");
-		List<String> bqNameList = new ArrayList<String>(); 
-		
+		List<String> bqNameList = new ArrayList<String>();
+
 		for (int i=0; i<goodsList.size(); i++) {
 			Goods g = goodsList.get(i);
 			String bqTemp = g.getBiaoqian();
 			// 做防空指针处理
 			if (bqTemp != null && !"".equals(bqTemp.trim())) {
 				//System.out.println("标签不为空===================");
-				
+
 				String[] bq = bqTemp.split(",");
 				String bqName = "";
 				for (int j=0; j<bq.length; j++) {
@@ -215,7 +215,7 @@ public class GoodsController {
 					if (bq[j].trim().length() > 0) {
 						pm = (PageModule)pageModuleService.getObjById(bq[j]);
 						if (pm != null) {
-							bqName += "√ " + pm.getName() + "  ";	
+							bqName += "√ " + pm.getName() + "  ";
 						}
 					}
 				}
@@ -228,7 +228,7 @@ public class GoodsController {
 				//System.out.println("添加空标签：" + "______");
 			}
 		}
-		
+
 		mav.addObject("bqNameList", bqNameList);
 		mav.addAllObjects(data);
 		mav.addObject("PAGE_INFO", page);
@@ -242,21 +242,21 @@ public class GoodsController {
 			mav.addObject("role", user.getIs_user());// 保存用户角色
 		}
 		return mav;
-	} 
+	}
 
 
 
-/**
+	/**
 	 * 添加
 	 */
 
 	@RequestMapping(value = "/disAdd")
 	public ModelAndView disAdd(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		
+
 		ShangJiaInfo merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		mav.addObject("goodsSort", goodsSortService.getListByWhere(new StringBuffer("and n.status='0' and n.flag='0' and n.parent.goodsSort_id is null ")));
-		if (merchants != null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID) {
+		if (merchants != null) {
 			mav.addObject("customSort", goodsSortService.getListByWhere(new StringBuffer("and n.status='0' and n.flag='1' and n.parent.goodsSort_id is null ").append(" and n.merchants.shangjia_id = '").append(merchants.getShangjia_id()).append("'")));
 		}
 		mav.addObject("goodsType", goodsTypeService.getListByWhere(new StringBuffer("and n.status='0'")));
@@ -276,7 +276,7 @@ public class GoodsController {
 				if(i==0){
 					where1.append(" and n.daili.areaid like '%"+area[i]+"%'");
 				}else{
-					where1.append(" or n.daili.areaid like '%"+area[i]+"%'");	
+					where1.append(" or n.daili.areaid like '%"+area[i]+"%'");
 				}
 			}
 			List<ShangJiaInfo> list=(List<ShangJiaInfo>) shangJiaService.getListByWhere(where1);
@@ -292,19 +292,19 @@ public class GoodsController {
 			UserInfo user = (UserInfo) request.getSession().getAttribute("UserInfo");
 			mav.addObject("role", user.getIs_user());// 保存用户角色
 		}
-		
+
 		// 放入所有标签
 		log.error("Get Label...");
 		List<PageModule> biaoqianList = getAllBiaoqians();
 		mav.addObject("biaoqianList", biaoqianList);
-		
+
 		// 返回视图
 		mav.setViewName("/shangpin/goods/add");
 		return mav;
 	}
 
 
-/**
+	/**
 	 * 编辑
 	 */
 
@@ -327,7 +327,7 @@ public class GoodsController {
 		mav.addObject("biaoqianList", getAllBiaoqians());
 		return mav;
 	}
-	
+
 	public String getCode(){
 		String code = "";
 		code = StringUtil.getRandomString(10);//归属吗
@@ -339,7 +339,7 @@ public class GoodsController {
 	}
 
 
-/**
+	/**
 	 * 添加保存
 	 */
 
@@ -359,7 +359,7 @@ public class GoodsController {
 			String biaoqianList = request.getParameter("biaoqianList");
 //			System.out.println("设置商品标签：" + biaoqianList);
 			info.setBiaoqian(biaoqianList);
-			
+
 			info.setName(info.getName().replace("\"", ""));
 			if(info.getShelves().equals("0")){
 				info.setSj_time(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
@@ -379,13 +379,13 @@ public class GoodsController {
 
 
 
-/**
+	/**
 	 * 更新保存 
 	 */
 
 	@RequestMapping(method = RequestMethod.PUT)
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response,Goods info) {
-		
+
 //		System.out.println("商家ID：" + request.getParameter("shangjia_id"));
 		String shangjia_id = request.getParameter("shangjia_id");
 		String pageNo = request.getParameter("pageNo");
@@ -394,11 +394,11 @@ public class GoodsController {
 
 		// 设置商品标签
 		String biaoqianList = request.getParameter("biaoqianList");
-		
-		
-		
+
+
+
 		info.setBiaoqian(biaoqianList);
-		
+
 		try{
 			info.setName(info.getName().replace("\"", ""));
 			if(info.getShelves().equals("0")){
@@ -415,7 +415,7 @@ public class GoodsController {
 	}
 
 
-/**
+	/**
 	 * 删除
 	 */
 
@@ -439,7 +439,7 @@ public class GoodsController {
 	}
 
 
-/**
+	/**
 	 * 禁用
 	 */
 
@@ -459,13 +459,13 @@ public class GoodsController {
 	}
 
 
-/**
+	/**
 	 * 查询
 	 */
 
 	@RequestMapping(value = "/{id}/c")
 	public void chaxun(@PathVariable
-			String id, HttpServletRequest request, HttpServletResponse response) {
+							   String id, HttpServletRequest request, HttpServletResponse response) {
 		response.setCharacterEncoding("utf-8");
 		List<Goods> infoList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.code = '"+id+"' "));
 		try {
@@ -479,7 +479,7 @@ public class GoodsController {
 		}
 	}
 
-/**
+	/**
 	 * 查看
 	 * @param id
 	 * @param request
@@ -494,7 +494,7 @@ public class GoodsController {
 		return mav;
 	}
 
-/**
+	/**
 	 * 根据商品分类 获得商品类型 并且获得商品类型属性
 	 * @param id
 	 * @param request
@@ -507,7 +507,7 @@ public class GoodsController {
 			GoodsSort sort=(GoodsSort) goodsSortService.getObjById(id);
 //			buff.append(" and n.merchants.shangjia_id="+shangjia_id);
 //			brandService.getListByWhere(buff);
-			
+
 			String json="{\"typeId\":\""+sort.getType().getGoodsType_id()+"\",\"linkBrank\":\""+sort.getType().getLinkBrank()+"\",\"spces\":"+ResponseUtil.getJson(sort.getType().getSpecList()).toString()+",\"brandList\":"+ResponseUtil.getJson(sort.getType().getBrandList()).toString()+"}";
 			ResponseUtil.printl(response, json, "json");
 		}catch(Exception e){
@@ -516,7 +516,7 @@ public class GoodsController {
 
 	}
 
-/**
+	/**
 	 * 根据商品类型 获得商品类型属性
 	 * @param id
 	 * @param request
@@ -547,7 +547,7 @@ public class GoodsController {
 	}
 
 
-/**
+	/**
 	 * 获取所有标签的方法，便于其它方法调用直接获取
 	 */
 
@@ -576,12 +576,12 @@ public class GoodsController {
 //			if (list.get(i).getPageModule_id() == 57) list2.add(list.get(i));
 //
 //		}
-		
+
 		return list;
 	}
-	
-	
-	
-	
+
+
+
+
 }
 

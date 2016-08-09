@@ -14,7 +14,7 @@
 /**
  * @author jettang
  * May 31, 2010
- * 
+ *
  */
 package cn.com.dyninfo.o2o.furniture.admin.controller;
 
@@ -65,28 +65,28 @@ import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
 @Controller
 @RequestMapping("/manage/main")
 public class MainController {
-	
+
 	@Resource
 	private MainService mainService;
-	
+
 	@Resource
 	private UserService userService;
-	
+
 	@Resource
 	private ResService resService;
-	
+
 	@Resource
 	private LogService logService;
-	
+
 	@Resource
 	private OrderService orderService;
-	
+
 	@Resource
 	private ShangJiaService shangjiaService;
-	
 
-	
-	
+
+
+
 	/**
 	 * 登录后的主页
 	 * @param request
@@ -109,11 +109,9 @@ public class MainController {
 			LoginUser.addUser(user.getLogin_id());
 			user=(UserInfo)userService.getObjById(user.getLogin_id());
 			if(user.getIs_user().equals("1")){
-				request.getSession().setAttribute(Constants.SESSION_MERCHANTS, user.getShanfJiaInfo());
+				request.getSession().setAttribute("merchants", user.getShanfJiaInfo());
 			}else if(user.getIs_user().equals("2")){
 				request.getSession().setAttribute("daili", user);
-			} else if ("0".equals(user.getIs_user())) {
-				request.getSession().setAttribute(Constants.SESSION_MERCHANTS, shangjiaService.getObjById(String.valueOf(Constants.DEFAULT_SHANGJIA_ID)));
 			}
 			request.getSession().setAttribute("UserInfo", user);
 			return new ModelAndView("/main/main");
@@ -126,12 +124,12 @@ public class MainController {
 	 * @param request
 	 * @return
 	 */
-	public String getRemortIP(HttpServletRequest request) {  
-	    if (request.getHeader("x-forwarded-for") == null) {  
-	        return request.getRemoteAddr();  
-	    }  
-	    return request.getHeader("x-forwarded-for");  
-	}  
+	public String getRemortIP(HttpServletRequest request) {
+		if (request.getHeader("x-forwarded-for") == null) {
+			return request.getRemoteAddr();
+		}
+		return request.getHeader("x-forwarded-for");
+	}
 
 	/**
 	 * 右下首页
@@ -144,7 +142,7 @@ public class MainController {
 		ModelAndView mav=new ModelAndView();
 		ShangJiaInfo  merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 		UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
-		
+
 		/**
 		 * 未付款订单数量
 		 */
@@ -165,16 +163,16 @@ public class MainController {
 		 * 归属会员数量
 		 */
 		String sql5="select count(*) from T_HUIYUAN_INFO n left join  T_SHANGJIA_INFO s on n.shang_id=s.SHANGJIA_ID where 1=1 ";
-		
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+
+		if(merchants!=null){
 			sql+= " and MARCHANTS_ID='"+merchants.getShangjia_id()+"' ";
 			sql2+=" and MARCHANTS_ID='"+merchants.getShangjia_id()+"' ";
 			sql3+=" and MARCHANTS_ID='"+merchants.getShangjia_id()+"' ";
 			sql4+=" and MARCHANTS_ID='"+merchants.getShangjia_id()+"' ";
 			sql5+=" and shang_id='"+merchants.getShangjia_id()+"' ";
-			
+
 		}
-		
+
 		if(daili!=null){
 			String area[]=daili.getAreaid().split(",");
 			String ids="(";
@@ -190,7 +188,7 @@ public class MainController {
 			sql3+=" and s.CITY_ID in "+ids+"";
 			sql4+=" and s.CITY_ID in "+ids+"";
 			sql5+=" and s.CITY_ID in "+ids+"";
-			
+
 		}
 //		System.out.println(sql);
 		mav.addObject("num1", mainService.getNum(sql));
@@ -198,8 +196,8 @@ public class MainController {
 		mav.addObject("num3", mainService.getNum(sql3));
 		mav.addObject("num4", mainService.getNum(sql4));
 		mav.addObject("num5", mainService.getNum(sql5));
-		
-		
+
+
 		StringBuffer where=new StringBuffer();
 		PageInfo page=new PageInfo();
 		page.setPageNo(1);
@@ -228,8 +226,8 @@ public class MainController {
 	@RequestMapping(value="/order")
 	public void order(HttpServletRequest request,HttpServletResponse response){
 		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/xml"); 
-		Calendar time=Calendar.getInstance(); 
+		response.setContentType("text/xml");
+		Calendar time=Calendar.getInstance();
 		StringBuffer str = new StringBuffer("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
 		str.append(" <chart bgColor=\"FFE4C4\" outCnvBaseFontColor=\"666666\" caption=\"近10天订单成交量统计图\"  ");
 		str.append("    xAxisName=\"时间\" yAxisName=\"数量\" showLabels=\"1\" showValues=\"0\"   ");
@@ -240,21 +238,21 @@ public class MainController {
 		str.append("    ZXWallDepth=\"5\" XYWallDepth=\"5\" canvasBgColor=\"BDB76B\" startAngX=\"0\"   ");
 		str.append("    startAngY=\"0\" endAngX=\"5\" endAngY=\"-25\" divLineEffect=\"bevel\" baseFontSize=\"12\">  ");
 		str.append(" <categories> ");
-		
+
 		StringBuffer numStr=new StringBuffer();
 		numStr.append("<dataset seriesName=\"数量\" color=\"C8A1D1\" plotBorderColor=\"C8A1D1\" renderAs=\"line\"> ");
 		StringBuffer moneyStr=new StringBuffer();
 		moneyStr.append("<dataset seriesName=\"金额\" color=\"B1D1DC\" plotBorderColor=\"B1D1DC\" renderAs=\"line\"> ");
-		
-		
+
+
 		String sql="select count(*) from T_ORDER n left join T_SHANGJIA_INFO s on  n.MARCHANTS_ID=s.SHANGJIA_ID  where 1=1  and n.STATE=3  ";
 		String sql2="select sum(ORDER_PRICE) from T_ORDER n left join T_SHANGJIA_INFO s on  n.MARCHANTS_ID=s.SHANGJIA_ID  where 1=1  and n.STATE=3  ";
 		ShangJiaInfo  merchants=(ShangJiaInfo) request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
-		if(merchants!=null && merchants.getShangjia_id() != Constants.DEFAULT_SHANGJIA_ID){
+		if(merchants!=null){
 			sql +=" and MARCHANTS_ID="+merchants.getShangjia_id();
 			sql2+=" and MARCHANTS_ID="+merchants.getShangjia_id();
 		}
-		
+
 		UserInfo daili=(UserInfo) request.getSession().getAttribute("daili");
 		if(daili!=null){
 			String area[]=daili.getAreaid().split(",");
@@ -268,9 +266,9 @@ public class MainController {
 			ids+=")";
 			sql+=" and s.CITY_ID in "+ids+"";
 			sql2+=" and s.CITY_ID in "+ids+"";
-			
+
 		}
-		
+
 		for(int i=0;i<10;i++){
 			time.add(Calendar.DATE, -1);
 			String t=new SimpleDateFormat("yyyy-MM-dd").format(time.getTime());
@@ -286,12 +284,12 @@ public class MainController {
 		str.append(numStr).append(moneyStr);
 		str.append("</chart> ");
 		ResponseUtil.printl(response, str.toString(), "txt");
-		
+
 	}
 	@RequestMapping(value="/{id}/c")
 	public void chaxun(@PathVariable String id,HttpServletRequest request,HttpServletResponse response){
 		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/xml"); 
+		response.setContentType("text/xml");
 		ResInfo resInfo=(ResInfo)resService.getObjById(id);
 		List<ResInfo> resset=resInfo.getChildren();
 		resset.size();
@@ -309,7 +307,7 @@ public class MainController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * 验证码
 	 * @param request
@@ -320,49 +318,49 @@ public class MainController {
 	public void validCode(HttpServletRequest request,HttpServletResponse response,String num){
 		try{
 			int iWidth = 70, iHeight = 22;
-		    BufferedImage image = new BufferedImage(iWidth, iHeight,BufferedImage.TYPE_INT_RGB);
-		    //获取图形上下文
-		    Graphics g = image.getGraphics();
-		    //设定背景色
-		    g.setColor(Color.white);
-		    g.fillRect(0, 0, iWidth, iHeight);
-		    //画边框
-		    g.setColor(Color.BLUE);
-		    g.drawRect(0, 0, iWidth - 1, iHeight - 1);
-		    //取随机产生的认证码(4位数字)
-		    //Math.random()方法来产生一个随机数，这个产生的随机数是0-1之间的一个double，我们可以把他乘以一定的数，比如说乘以100，他就是个100以内的随机
-		    Random random = new Random();
-		    String randChar = "yp9s1k5vb4NB6KH7GFDA8Ef";
-		    String temp="" ;
-		    String randtemp;
-		    Color colors[]={Color.BLUE,Color.red,Color.GREEN,Color.ORANGE,Color.BLACK,Color.gray,Color.PINK,Color.GRAY};
-		    for(int i=0;i<4;i++)
-		    {
-		        //将认证码显示到图象中
-		    	
-		    	randtemp=randChar.charAt(random.nextInt(23))+"";
-		        g.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		    	g.setColor(colors[random.nextInt(8)]);
-		    	g.drawString(randtemp, 5+i*13, 15);
-		    	temp=temp+randtemp;
-		    }
-		    //将认证码存入SESSION
-		    HttpSession session=request.getSession();
-		    session.setAttribute("J_CODE", temp);
-		    //随机产生88个干扰点,使图象中的认证码不易被其它程序探测到
-		    for (int iIndex = 0; iIndex < 88; iIndex++) {
-		    	if(iIndex%3==0) g.setColor(Color.RED);
-		    	else if(iIndex%3==1) g.setColor(Color.ORANGE);
-		    	else g.setColor(Color.GREEN);
-		        int x = random.nextInt(iWidth);
-		        int y = random.nextInt(iHeight);
-		        g.drawLine(x, y, x, y);
-		    }
-		    //图象生效
-		    g.dispose();
-		    //输出图象到页面
-		    ImageIO.write(image, "JPEG", response.getOutputStream());
-		    response.flushBuffer();
+			BufferedImage image = new BufferedImage(iWidth, iHeight,BufferedImage.TYPE_INT_RGB);
+			//获取图形上下文
+			Graphics g = image.getGraphics();
+			//设定背景色
+			g.setColor(Color.white);
+			g.fillRect(0, 0, iWidth, iHeight);
+			//画边框
+			g.setColor(Color.BLUE);
+			g.drawRect(0, 0, iWidth - 1, iHeight - 1);
+			//取随机产生的认证码(4位数字)
+			//Math.random()方法来产生一个随机数，这个产生的随机数是0-1之间的一个double，我们可以把他乘以一定的数，比如说乘以100，他就是个100以内的随机
+			Random random = new Random();
+			String randChar = "yp9s1k5vb4NB6KH7GFDA8Ef";
+			String temp="" ;
+			String randtemp;
+			Color colors[]={Color.BLUE,Color.red,Color.GREEN,Color.ORANGE,Color.BLACK,Color.gray,Color.PINK,Color.GRAY};
+			for(int i=0;i<4;i++)
+			{
+				//将认证码显示到图象中
+
+				randtemp=randChar.charAt(random.nextInt(23))+"";
+				g.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+				g.setColor(colors[random.nextInt(8)]);
+				g.drawString(randtemp, 5+i*13, 15);
+				temp=temp+randtemp;
+			}
+			//将认证码存入SESSION
+			HttpSession session=request.getSession();
+			session.setAttribute("J_CODE", temp);
+			//随机产生88个干扰点,使图象中的认证码不易被其它程序探测到
+			for (int iIndex = 0; iIndex < 88; iIndex++) {
+				if(iIndex%3==0) g.setColor(Color.RED);
+				else if(iIndex%3==1) g.setColor(Color.ORANGE);
+				else g.setColor(Color.GREEN);
+				int x = random.nextInt(iWidth);
+				int y = random.nextInt(iHeight);
+				g.drawLine(x, y, x, y);
+			}
+			//图象生效
+			g.dispose();
+			//输出图象到页面
+			ImageIO.write(image, "JPEG", response.getOutputStream());
+			response.flushBuffer();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -376,7 +374,7 @@ public class MainController {
 	@RequestMapping("/testAlive")
 	public ModelAndView testAlive(HttpServletRequest request,HttpServletResponse response){
 		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html"); 
+		response.setContentType("text/html");
 		try {
 			PrintWriter out=response.getWriter();
 			out.print(1);
@@ -387,7 +385,7 @@ public class MainController {
 		}
 		return null;
 	}
-	
+
 	@RequestMapping("/menu/{id}")
 	public ModelAndView menu(@PathVariable String id, HttpServletRequest request,HttpServletResponse response){
 		ModelAndView mav= new ModelAndView();
@@ -395,19 +393,19 @@ public class MainController {
 		mav.addObject("menu", resService.getObjById(id));
 		return mav;
 	}
-	
+
 	@RequestMapping("/update")
 	public void update( HttpServletRequest request,HttpServletResponse response){
 		UserInfo user=(UserInfo) request.getSession().getAttribute("UserInfo");
 		LoginUser.updateUser(user.getLogin_id());
 	}
-	
+
 	@RequestMapping("/exit")
 	public ModelAndView exit(HttpServletRequest request,HttpServletResponse response){
 		request.getSession().removeAttribute("SPRING_SECURITY_CONTEXT");
 		try{
-		UserInfo user=(UserInfo) request.getSession().getAttribute("UserInfo");
-		LoginUser.exitUser(user.getLogin_id());
+			UserInfo user=(UserInfo) request.getSession().getAttribute("UserInfo");
+			LoginUser.exitUser(user.getLogin_id());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -420,6 +418,6 @@ public class MainController {
 		}
 		return null;
 	}
-	
-	
+
+
 }
