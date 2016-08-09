@@ -12,7 +12,6 @@ import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
-import cn.com.dyninfo.o2o.furniture.web.goods.model.PageModule;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
@@ -143,18 +142,23 @@ public class WebIndexController{
         List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
         mav.addAttribute("activeList",goodsList4);
        // mav.addAttribute("activeList",activeList);
-
+       //
         //热卖商品/疯狂抢购/热评商品/新品上架/限时抢购
-        List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REMAI_SKU));
-        List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.QIANGGOU_SKU));
-        List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REPIN_SKU));
-        List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.NEW_SKU));
-        List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.XIANSHI_SKU));
-        mav.addAttribute("reMai", reMaiList.get(0));
-        mav.addAttribute("qiangGou", qiangGouList.get(0));
-        mav.addAttribute("rePin", rePinList.get(0));
-        mav.addAttribute("new", newList.get(0));
-        mav.addAttribute("xianShi", xsList.get(0));
+        List<Goods> reMaiList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REMAI_SKU+"')>0"));
+        List<Goods> qiangGouList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.QIANGGOU_SKU+"')>0"));
+        List<Goods> rePinList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REPIN_SKU+"')>0"));
+        List<Goods> newList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.NEW_SKU+"')>0"));
+        List<Goods> xsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.XIANSHI_SKU+"')>0"));
+//        List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REMAI_SKU));
+//        List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.QIANGGOU_SKU));
+//        List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REPIN_SKU));
+//        List<PageModule> newList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.NEW_SKU));
+//        List<PageModule> xsList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.XIANSHI_SKU));
+        mav.addAttribute("reMai", reMaiList);
+        mav.addAttribute("qiangGou", qiangGouList);
+        mav.addAttribute("rePin", rePinList);
+        mav.addAttribute("new", newList);
+        mav.addAttribute("xianShi", xsList);
 
         //5L综合系列
         //获取品牌表数据
