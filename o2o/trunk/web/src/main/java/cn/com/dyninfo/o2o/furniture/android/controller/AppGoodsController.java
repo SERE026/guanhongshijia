@@ -239,9 +239,9 @@ public class AppGoodsController extends BaseAppController {
      */
     @ResponseBody
     @RequestMapping("/groupRecommend")
-    public RecommendGoodsGroupResult groupRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
+    public RecommendGroupGoodsResult groupRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(recommendGoodsRequest);
-        RecommendGoodsGroupResult result = new RecommendGoodsGroupResult();
+        RecommendGroupGoodsResult result = new RecommendGroupGoodsResult();
         //促销列表
         List<Recommend> promotionList=new ArrayList<Recommend>();
 
@@ -278,9 +278,9 @@ public class AppGoodsController extends BaseAppController {
      */
     @ResponseBody
     @RequestMapping("/promotionRecommend")
-    public RecommendGoodsPromotionResult promotionRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
+    public RecommendPromotionGoodsResult promotionRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(recommendGoodsRequest);
-        RecommendGoodsPromotionResult result = new RecommendGoodsPromotionResult();
+        RecommendPromotionGoodsResult result = new RecommendPromotionGoodsResult();
         //团购列表
         List<Recommend> groupList=new ArrayList<Recommend>();
 
