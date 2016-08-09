@@ -32,6 +32,7 @@ ul li {float:left;list-style-type:none;
 }
 .head-ul li {line-height:30px;margin-left:24px;
 }
+.head-ul li:hover{color: #a30f05;text-decoration: #a30f05; }
 .icon-top{background-image: url(../img/icon-top.png);width: 12px;height: 12px;display: inline-block;margin-left: 8px;}
 .icon-bottom{background-image: url(../img/icon-bottom.png);width: 12px;height: 12px;display: inline-block;margin-left: 8px;}
 .inline-block {line-height:30px;
