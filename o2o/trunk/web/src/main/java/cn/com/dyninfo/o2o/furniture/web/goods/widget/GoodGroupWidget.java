@@ -13,9 +13,10 @@
 
 package cn.com.dyninfo.o2o.furniture.web.goods.widget;
 
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.web.framework.facade.Widget;
-import cn.com.dyninfo.o2o.furniture.web.goods.model.PageModule;
-import cn.com.dyninfo.o2o.furniture.web.goods.service.PageModuleService;
+import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -32,12 +33,14 @@ public class GoodGroupWidget extends Widget {
 
 
 	@Resource
-	private PageModuleService pageModuleService;
+	private GoodsService goodsService;
 
 	@Override
 	public void display(Map pamtr) {
-		List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id=2"));
-		PageModule goodsList=reMaiList.get(0);
+//		List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id=2"));
+//
+//		PageModule goodsList=reMaiList.get(0);
+		List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+ Constants.GROUP_SKU+"')>0"));
 			this.putData("data", goodsList);
 		}
 	}
