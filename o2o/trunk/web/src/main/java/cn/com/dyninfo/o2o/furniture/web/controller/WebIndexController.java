@@ -175,11 +175,13 @@ public class WebIndexController{
 //            List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortId));
 
 
+/*
             int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
             List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
             List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
+*/
 
-            lists.add(goodsList);
+//            lists.add(goodsList);
         }
         mav.addAttribute("lists",lists);
         Articles articles = (Articles) articlesService.getObjById("28");
