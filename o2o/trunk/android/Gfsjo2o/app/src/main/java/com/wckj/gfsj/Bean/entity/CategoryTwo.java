@@ -1,5 +1,6 @@
 package com.wckj.gfsj.Bean.entity;
 
+
 import com.wckj.gfsj.Bean.entity.common.BaseEntity;
 
 import java.util.List;
@@ -17,7 +18,6 @@ public class CategoryTwo extends BaseEntity {
     private List<CategoryThree> childrenList;
     //排序
     private int sortOrder;
-
     private boolean colorSelector;//默认false
 
     public boolean isColorSelector() {

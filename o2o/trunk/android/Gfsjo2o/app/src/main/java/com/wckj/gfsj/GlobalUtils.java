@@ -32,7 +32,11 @@ public class GlobalUtils {
     //获取轮播商品命令
     public static final String GOODS_LOOP_URL = SERVER_URL + "/goods/loop";
     //获取推荐页面命令
-    public static final String GOODS_RECOMMEND_URL = SERVER_URL + "/goods/recommend";
+    public static final String GROUP_RECOMMEND_URL = SERVER_URL + "/groupRecommend";
+    //获取推荐页面命令
+    public static final String PROMOTION_RECOMMEND_URL = SERVER_URL + "/promotionRecommend";
+    //获取推荐页面命令
+    public static final String NEW_RECOMMEND_URL = SERVER_URL + "/newRecommend";
     //搜索命令
     public static final String GOODS_SEARCH_URL = SERVER_URL + "/goods/search";
     //创建订单命令

@@ -49,7 +49,7 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
             // 添加子页
             pageList.add(new Main_main_fragment());
             pageList.add(new Main_classification_fragment());
-            pageList.add(new Main_recommend_fragment());
+            pageList.add(new Main_recommend_new_fragment());
             adapter = new FragmentAdapter(getChildFragmentManager());
         }
 

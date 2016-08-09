@@ -1,96 +1,115 @@
 package com.wckj.gfsj.Fragment;
 
-import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
-import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
-import com.wckj.gfsj.Adapter.RecommendAdapter;
-import com.wckj.gfsj.Bean.RecommendGoodsRequest;
-import com.wckj.gfsj.Bean.RecommendGoodsResult;
-import com.wckj.gfsj.CustomUi.FrameLoadLayout;
-import com.wckj.gfsj.GlobalUtils;
+import com.wckj.gfsj.CustomUi.StopViewPage;
 import com.wckj.gfsj.R;
-import com.wckj.gfsj.Utils.HttpUtils;
-import com.wckj.gfsj.Utils.IImpl.ICallBack;
 
-import okhttp3.Call;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 推荐更多商品
+ * 推荐
  */
-public class Main_recommend_fragment extends BaseNewFragment{
-
+public class Main_recommend_fragment extends Fragment implements View.OnClickListener {
+    private TextView tv_new,tv_group,tv_promotion;
     private View view;
-    private GridView gv_recommend;
-    private RecommendAdapter mRecommendAdapter;
-    private RecommendGoodsResult json;
-
-
-    @Override
-    protected void init() {
-
-    }
+    private StopViewPage svp_context;
+    private List<Fragment> pageList = new ArrayList<Fragment>();
+    private FragmentAdapter adapter;
 
     @Override
-    protected View onCreateTitleView(LayoutInflater inflater) {
-        return null;
-    }
-
-    @Override
-    protected View onCreateSuccessView() {
-        view = inflater.inflate(R.layout.fragment_main_recommend, null);
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_recommend, null);
         initView();
-        setListener();
+        initData();
         return view;
-    }
-
-    @Override
-    protected void load() {
-        getGoodsRecommend();
-    }
-
-    @Override
-    protected void refreshOrLoadView() {
 
     }
 
-    private void setListener() {
-        gv_recommend.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              Intent intent  =new Intent(view.getContext(), CommodityLevelTwoActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+
 
     private void initView() {
-        gv_recommend = (GridView) view.findViewById(R.id.gv_recommend);
-
-        mRecommendAdapter = new RecommendAdapter(view.getContext(), json.getNewList());
-        gv_recommend.setAdapter(mRecommendAdapter);
+        svp_context =  (StopViewPage) view.findViewById(R.id.svp_context);
+        tv_new = (TextView) view.findViewById(R.id.tv_new);
+        tv_group = (TextView) view.findViewById(R.id.tv_group);
+        tv_promotion = (TextView)view. findViewById(R.id.tv_promotion);
+        tv_new.setOnClickListener(this);
+        tv_group.setOnClickListener(this);
+        tv_promotion.setOnClickListener(this);
     }
-    //推荐
-    private void getGoodsRecommend(){
-        RecommendGoodsRequest request = new RecommendGoodsRequest();
-        HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_RECOMMEND_URL, new ICallBack() {
-            @Override
-            public void onError(Call call, Exception e) {
-                showPageState(FrameLoadLayout.LoadResult.error);
+
+    private void initData() {
+        Bundle bundle = new Bundle();
+        if (adapter == null && pageList.isEmpty()) {
+            for (int i = 0; i <3 ; i++) {
+                // 添加子页
+                Main_recommend_new_fragment fragment = new Main_recommend_new_fragment();
+                bundle.putInt("RecommendId",i);
+                fragment.setArguments(bundle);
+                pageList.add(fragment);
             }
+            adapter = new FragmentAdapter(getChildFragmentManager());
+        }
 
-            @Override
-            public void onSuccess(String response) {
-                 json =  JSON.parseObject(response, RecommendGoodsResult.class);
-                showPageState(FrameLoadLayout.LoadResult.success);
-            }
-        });
+        svp_context.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_new://主页
+                svp_context.setCurrentItem(0);
+                break;
+            case R.id.tv_group://分类
+                svp_context.setCurrentItem(1);
+                break;
+            case R.id.tv_promotion://推荐
+                svp_context.setCurrentItem(2);
+                break;
+
+        }
+    }
 
 
+
+    class FragmentAdapter extends FragmentStatePagerAdapter {
+
+        public FragmentAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return pageList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return pageList.size();
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            // 得到缓存的fragment
+            Fragment fragment = (Fragment) super.instantiateItem(container,
+                    position);
+            return fragment;
+        }
+
+        @Override
+        public int getItemPosition(Object object) {
+            return PagerAdapter.POSITION_NONE;
+        }
     }
 
 }
