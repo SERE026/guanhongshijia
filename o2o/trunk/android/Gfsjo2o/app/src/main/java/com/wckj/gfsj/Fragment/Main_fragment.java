@@ -143,7 +143,7 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
             @Override
             public void onSuccess(String response) {
                 StartupResult json = JSON.parseObject(response, StartupResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

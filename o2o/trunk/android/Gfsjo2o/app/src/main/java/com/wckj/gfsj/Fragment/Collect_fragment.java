@@ -132,7 +132,7 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
             @Override
             public void onSuccess(String response) {
                 AddFavoritesResult json = JSON.parseObject(response, AddFavoritesResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

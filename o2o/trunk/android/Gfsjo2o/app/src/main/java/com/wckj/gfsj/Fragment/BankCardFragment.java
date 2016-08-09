@@ -49,7 +49,7 @@ public class BankCardFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onSuccess(String response) {
                 QueryCardResult json = JSON.parseObject(response, QueryCardResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

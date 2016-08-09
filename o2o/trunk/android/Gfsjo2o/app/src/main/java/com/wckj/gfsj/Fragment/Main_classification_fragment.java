@@ -21,6 +21,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
 
 import okhttp3.Call;
 
@@ -91,7 +92,7 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
 
     @Override
     protected void load() {
-//        getCategoryMain();
+        getCategoryMain();
         showPageState(FrameLoadLayout.LoadResult.success);
     }
 
@@ -103,13 +104,13 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.CATEGORY_MAIN_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
             }
             @Override
             public void onSuccess(String response) {
-                JSON.parseObject(response, MainCategoryResult.class);
-
+                MainCategoryResult json = JSON.parseObject(response, MainCategoryResult.class);
+                LogUtil.i(response);
             }
-
         } );
     }
 

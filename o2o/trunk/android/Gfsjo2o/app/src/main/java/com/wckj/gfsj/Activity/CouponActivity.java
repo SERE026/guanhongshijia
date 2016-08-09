@@ -85,7 +85,7 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
             @Override
             public void onSuccess(String response) {
                 QueryCouponResult json = JSON.parseObject(response, QueryCouponResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

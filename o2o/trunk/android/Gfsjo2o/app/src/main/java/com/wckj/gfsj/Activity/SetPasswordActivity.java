@@ -123,7 +123,7 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
             @Override
             public void onSuccess(String response) {
                 SetLockPasswordResult json = JSON.parseObject(response, SetLockPasswordResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

@@ -48,7 +48,7 @@ public class Search_fragment extends Fragment{
             @Override
             public void onSuccess(String response) {
                 SearchResult json = JSON.parseObject(response, SearchResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

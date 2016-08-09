@@ -50,7 +50,7 @@ public class MyBrokerageFragment extends Fragment implements View.OnClickListene
             @Override
             public void onSuccess(String response) {
                 QueryAgencyFeeResult json = JSON.parseObject(response, QueryAgencyFeeResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

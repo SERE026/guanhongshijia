@@ -92,7 +92,7 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
                     @Override
                     public void onSuccess(String response) {
                         FindPasswordResult json = JSON.parseObject(response, FindPasswordResult.class);
-                        LogUtil.i(response + "");
+                        LogUtil.i(response);
                     }
                 });
                 break;
@@ -106,7 +106,7 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
                     @Override
                     public void onSuccess(String response) {
                         FindPasswordResult json = JSON.parseObject(response, FindPasswordResult.class);
-                        LogUtil.i(response + "");
+                        LogUtil.i(response);
                     }
                 });
                 break;
@@ -131,7 +131,7 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
             @Override
             public void onSuccess(String response) {
                 SmsResult json = JSON.parseObject(response, SmsResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.FindPasswordActivity;
 import com.wckj.gfsj.Activity.MainActivity;
+import com.wckj.gfsj.Activity.RegisterActivity;
 import com.wckj.gfsj.Activity.UserCenterActivity;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.LoginRequest;
@@ -40,7 +41,7 @@ public class User_fragment extends Fragment implements View.OnClickListener {
     private RelativeLayout mRlLogin;
     private TextView mTvLoginTitle;
     private EditText mEtUsername, mEtPassword;
-    private Button mBtnFindPassword, mBtnLogin;
+    private Button mBtnRegister, mBtnFindPassword, mBtnLogin;
     private JsonDao jsonDao;
 
     @Override
@@ -51,6 +52,8 @@ public class User_fragment extends Fragment implements View.OnClickListener {
         mTvLoginTitle = (TextView) view.findViewById(R.id.tv_login_title);
         mEtUsername = (EditText) view.findViewById(R.id.et_username);
         mEtPassword = (EditText) view.findViewById(R.id.et_password);
+        mBtnRegister = (Button) view.findViewById(R.id.btn_register);
+        mBtnRegister.setOnClickListener(this);
         mBtnFindPassword = (Button) view.findViewById(R.id.btn_find_password);
         mBtnFindPassword.setOnClickListener(this);
         mBtnLogin = (Button) view.findViewById(R.id.btn_login);
@@ -76,6 +79,10 @@ public class User_fragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.btn_find_password:
                 intent = new Intent(view.getContext(), FindPasswordActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_register:
+                intent = new Intent(view.getContext(), RegisterActivity.class);
                 startActivity(intent);
                 break;
         }

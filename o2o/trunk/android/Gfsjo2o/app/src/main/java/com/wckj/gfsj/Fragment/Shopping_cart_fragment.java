@@ -118,7 +118,7 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
             @Override
             public void onSuccess(String response) {
                 CreateOrderResult json = JSON.parseObject(response, CreateOrderResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

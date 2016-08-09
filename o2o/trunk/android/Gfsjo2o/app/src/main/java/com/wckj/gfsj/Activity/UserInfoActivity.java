@@ -81,7 +81,7 @@ public class UserInfoActivity extends BaseNewActivity implements View.OnClickLis
             @Override
             public void onSuccess(String response) {
                 QueryPersonalResult json = JSON.parseObject(response, QueryPersonalResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }

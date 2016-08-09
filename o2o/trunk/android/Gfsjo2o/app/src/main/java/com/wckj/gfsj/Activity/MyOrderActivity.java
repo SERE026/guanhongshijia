@@ -96,7 +96,7 @@ public class MyOrderActivity extends BaseNewActivity implements View.OnClickList
             @Override
             public void onSuccess(String response) {
                 EvalOrderResult json = JSON.parseObject(response, EvalOrderResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }
@@ -117,7 +117,7 @@ public class MyOrderActivity extends BaseNewActivity implements View.OnClickList
             @Override
             public void onSuccess(String response) {
                 QueryOrderResult json = JSON.parseObject(response, QueryOrderResult.class);
-                LogUtil.i(response + "");
+                LogUtil.i(response);
             }
         });
     }
