@@ -26,15 +26,14 @@
         }
         if(isNaN(i)==true){
             alert("抵扣金额只能输入数字(小数、整数)");
-            alert(i);
             return;
         }
         if(isNaN(d)==true){
             alert("折扣率只能输入数字(小数、整数)");
             return;
         }
-        if(($("#discountValue").val()<1)||($("#discountValue").val()>9)) {
-            alert("折扣率应在1-9之间！");
+        if(($("#discountValue").val()<1)||($("#discountValue").val()>9.9)) {
+            alert("折扣率应在1-9.9之间！");
             return;
         }
         if(isNaN(j)==true){

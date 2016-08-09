@@ -142,7 +142,7 @@
 									${Info.reduceValue}&nbsp;
 							</td>
 							<td>
-									${Info.discountValue}&nbsp;
+									${Info.discountValue}折&nbsp;
 							</td>
 							<td>
 									${Info.maxAmouont}&nbsp;
