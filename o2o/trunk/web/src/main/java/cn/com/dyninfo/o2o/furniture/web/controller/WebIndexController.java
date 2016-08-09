@@ -138,10 +138,7 @@ public class WebIndexController{
         mav.addAttribute("goodsSortList4",goodsSortList4.get(0));
         mav.addAttribute("goodsList4",goodsList4);
 
-        //显示抢购商品
-        List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
-        mav.addAttribute("activeList",goodsList4);
-       // mav.addAttribute("activeList",activeList);
+
        //
         //热卖商品/疯狂抢购/热评商品/新品上架/限时抢购
         List<Goods> reMaiList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+Constants.REMAI_SKU+"')>0"));
@@ -159,6 +156,10 @@ public class WebIndexController{
         mav.addAttribute("rePin", rePinList);
         mav.addAttribute("new", newList);
         mav.addAttribute("xianShi", xsList);
+        //显示抢购商品
+        List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
+        mav.addAttribute("activeList",xsList);
+        // mav.addAttribute("activeList",activeList);
 
         //5L综合系列
         //获取品牌表数据

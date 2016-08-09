@@ -328,7 +328,7 @@
             <#list advwzList.adv as p>
             <li>
                 <a href="#" target="_blank">
-                <img src="../img/20.png" /><!--adv_flie-->
+                <img src="${rc.contextPath}/upload/goods/${p.adv_flie}"  /><!--adv_flie-->
                 </a>
             </li>
                 <#if p_index==2><#break></#if>
@@ -1024,7 +1024,7 @@
 
     <!--菜单栏展示第三级目录-->
   <#list goodsSortList as p>
-        <#if p_index lt 4>
+        <#if p_index lt 10>
         <#if p.extendshow==1>
             <#list p.children as c>
                         <div  id="pr${c.goodsSort_id}" class="three-level">
