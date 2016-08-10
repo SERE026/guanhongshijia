@@ -3,6 +3,7 @@ package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
 import cn.com.dyninfo.o2o.entity.Category;
+import cn.com.dyninfo.o2o.entity.CategoryThree;
 import cn.com.dyninfo.o2o.entity.CategoryTwo;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
@@ -99,17 +100,38 @@ public class AppCategoryController extends BaseAppController {
         log.debug(subCategoryRequest);
         SubCategoryResult result = new SubCategoryResult();
         List<CategoryTwo>  lists=new ArrayList<CategoryTwo>();
+
         List<GoodsSort> list1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+subCategoryRequest.getId()));
         if(!ValidationUtil.isEmpty(list1)) {
             List<GoodsSort> list=list1.get(0).getChildren();
             if(!ValidationUtil.isEmpty(list)) {
                 for (int i = 0; i < list.size(); i++) {
+                    List<CategoryThree> list2=new ArrayList<CategoryThree>();
                     CategoryTwo category = new CategoryTwo();
                     category.setId(String.valueOf(list.get(i).getGoodsSort_id()));
                     category.setTitle(list.get(i).getName());
                     category.setImageUrl(list.get(i).getImagesrc());
                     category.setSortOrder(list.get(i).getIndex());
+
+                    List<GoodsSort> list3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+list.get(i).getGoodsSort_id()));
+                    List<GoodsSort> goodsList=list3.get(0).getChildren();
+                    if(!ValidationUtil.isEmpty(goodsList)) {
+                        for (int j = 0; j < goodsList.size(); j++) {
+                            if(goodsList.size()>20){
+                                break;
+                            }
+                            CategoryThree categoryThree = new CategoryThree();
+                            categoryThree.setId(String.valueOf(goodsList.get(j).getGoodsSort_id()));
+                            categoryThree.setImageUrl(goodsList.get(j).getImagesrc());
+                            categoryThree.setTitle(goodsList.get(j).getName());
+                            categoryThree.setSortOrder(goodsList.get(j).getIndex());
+                            list2.add(categoryThree);
+                        }
+                    }
+                    category.setChildrenList(list2);
                     lists.add(category);
+
+
                 }
             }
             //            result.setTotalPage(2);
