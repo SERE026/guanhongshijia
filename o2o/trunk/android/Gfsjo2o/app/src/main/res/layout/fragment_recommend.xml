@@ -57,7 +57,7 @@
         </LinearLayout>
 
         <com.wckj.gfsj.CustomUi.StopViewPage
-            android:id="@+id/svp_context"
+            android:id="@+id/vp_context"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/tv_main"

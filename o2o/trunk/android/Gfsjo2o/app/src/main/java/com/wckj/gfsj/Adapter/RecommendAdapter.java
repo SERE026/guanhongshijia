@@ -53,7 +53,7 @@ public class RecommendAdapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        final Recommend item = (Recommend) getItem(position);
+//        final Recommend item = (Recommend) getItem(position);
         holder.iv_shopping_pic.setImageResource(R.drawable.icon_public_image);
         holder.tv_name.setText("直降200快");
         holder.tv_title_desc.setText("厂家直销快来购买");

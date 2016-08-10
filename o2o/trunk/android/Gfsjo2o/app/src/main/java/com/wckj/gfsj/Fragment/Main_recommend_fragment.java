@@ -38,7 +38,7 @@ public class Main_recommend_fragment extends Fragment implements View.OnClickLis
 
 
     private void initView() {
-        svp_context =  (StopViewPage) view.findViewById(R.id.svp_context);
+        svp_context =  (StopViewPage) view.findViewById(R.id.vp_context);
         tv_new = (TextView) view.findViewById(R.id.tv_new);
         tv_group = (TextView) view.findViewById(R.id.tv_group);
         tv_promotion = (TextView)view. findViewById(R.id.tv_promotion);
@@ -48,20 +48,26 @@ public class Main_recommend_fragment extends Fragment implements View.OnClickLis
     }
 
     private void initData() {
-        Bundle bundle = new Bundle();
-        if (adapter == null && pageList.isEmpty()) {
+        if ( pageList.isEmpty()) {
             for (int i = 0; i <3 ; i++) {
                 // 添加子页
                 Main_recommend_new_fragment fragment = new Main_recommend_new_fragment();
-                bundle.putInt("RecommendId",i);
+                Bundle bundle = new Bundle();
+                bundle.putInt("recommendId",i);
                 fragment.setArguments(bundle);
                 pageList.add(fragment);
             }
-            adapter = new FragmentAdapter(getChildFragmentManager());
         }
+        adapter = new FragmentAdapter(getChildFragmentManager());
+        svp_context.setOffscreenPageLimit(0);
+         svp_context.setAdapter(adapter);
+    }
 
-        svp_context.setAdapter(adapter);
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        adapter=null;
+        pageList.clear();
     }
 
     @Override
@@ -103,6 +109,7 @@ public class Main_recommend_fragment extends Fragment implements View.OnClickLis
             // 得到缓存的fragment
             Fragment fragment = (Fragment) super.instantiateItem(container,
                     position);
+
             return fragment;
         }
 

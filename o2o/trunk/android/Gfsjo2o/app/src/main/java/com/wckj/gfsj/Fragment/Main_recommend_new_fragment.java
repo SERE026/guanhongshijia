@@ -10,13 +10,18 @@ import android.widget.GridView;
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
 import com.wckj.gfsj.Adapter.RecommendAdapter;
+import com.wckj.gfsj.Bean.RecommendGoodsGroupResult;
+import com.wckj.gfsj.Bean.RecommendGoodsPromotionResult;
 import com.wckj.gfsj.Bean.RecommendGoodsRequest;
 import com.wckj.gfsj.Bean.RecommendNewGoodsResult;
+import com.wckj.gfsj.Bean.entity.Recommend;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -28,15 +33,20 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
     private View view;
     private GridView gv_recommend;
     private RecommendAdapter mRecommendAdapter;
-    private RecommendNewGoodsResult json;
     private int typeId;
     private String  url;
+    private RecommendNewGoodsResult result;
+    private RecommendGoodsPromotionResult promotionResult;
+    private RecommendGoodsGroupResult groupResult;
+    private List<Recommend> mList;
 
 
     @Override
     protected void init() {
         Bundle arguments = getArguments();
-         typeId = arguments.getInt("RecommendId");
+        if(arguments!=null){
+            typeId = arguments.getInt("recommendId");
+        }
     }
 
     @Override
@@ -75,13 +85,19 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
     private void initView() {
         gv_recommend = (GridView) view.findViewById(R.id.gv_recommend);
 
-        mRecommendAdapter = new RecommendAdapter(view.getContext(), json.getNewList());
+        mRecommendAdapter = new RecommendAdapter(view.getContext(), mList);
         gv_recommend.setAdapter(mRecommendAdapter);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mRecommendAdapter=null;
     }
 
     //推荐
     private void getGoodsRecommend(){
-        RecommendGoodsRequest request = new RecommendGoodsRequest();
+        final RecommendGoodsRequest request = new RecommendGoodsRequest();
         switch (typeId){
             case 0:
                 url= GlobalUtils.NEW_RECOMMEND_URL;
@@ -100,7 +116,20 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
             }
             @Override
             public void onSuccess(String response) {
-               JSON.parseObject(response, RecommendNewGoodsResult.class);
+                switch (typeId) {
+                    case 0:
+                        result =  JSON.parseObject(response, RecommendNewGoodsResult.class);
+                        mList = result.getNewList();
+                        break;
+                    case 1:
+                         groupResult =  JSON.parseObject(response, RecommendGoodsGroupResult.class);
+                       mList =  groupResult.getGroupList();
+                        break;
+                    case 2:
+                         promotionResult =  JSON.parseObject(response, RecommendGoodsPromotionResult.class);
+                        mList =  promotionResult.getPromotionList();
+                        break;
+                }
                 showPageState(FrameLoadLayout.LoadResult.success);
             }
         });
