@@ -99,7 +99,7 @@ public class WebIndexController{
         List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
         mav.addAttribute("advwzList",advwzList.get(0));
 //        System.out.println(advwzList.get(0).getAdv().get(0).getAdv_name());
-//        System.out.println(advwzList.get(0).getAdv().get(1).getAdv_name());
+//        System.out.println(advwzList.get(0).getAdv().get(0).getAdv_flie());
 //        System.out.println(advwzList.get(0).getAdv().get(2).getAdv_name());
 //        System.out.println(advwzList.get(0).getAdv().get(0).getAdv_link());
         //1F楼商品
@@ -167,8 +167,9 @@ public class WebIndexController{
         List<List<Goods>> lists=new ArrayList<List<Goods>>();
         for (int i = 0; i <8; i++) {
             int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
-            List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
-            List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
+//            List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
+
+            List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort like '%"+goodsSortId+"%'"));
             lists.add(goodsList);
         }
         mav.addAttribute("lists",lists);
