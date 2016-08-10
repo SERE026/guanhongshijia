@@ -1132,7 +1132,9 @@
     $(document).ready(function () {
         $.focus("#focus001");
     });
-
+    window.onresize=function () {
+        $.focus("#focus001");
+    }
     //切换城市 更改体验馆数据
     function changeCity(obj){
         var cityId=$(obj).attr("cityid");
