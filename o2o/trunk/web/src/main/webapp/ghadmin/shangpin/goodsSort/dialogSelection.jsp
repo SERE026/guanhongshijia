@@ -80,7 +80,7 @@
 			for (var i=0, l=childNodes.length; i<l; i++) {
 				childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
 				childNodes[i].lev=parentNode.lev+1;
-				if(childNodes[i].lev<3){
+				if(childNodes[i].lev<4){
 					childNodes[i].isParent=true;
 					childNodes[i].nocheck=true;
 				}else{

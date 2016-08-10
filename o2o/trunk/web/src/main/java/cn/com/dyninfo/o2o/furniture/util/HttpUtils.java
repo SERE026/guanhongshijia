@@ -16,8 +16,8 @@ public class HttpUtils {
 
     public static final MediaType JSON_TYPE = MediaType.parse("application/json; charset=utf-8");
 
-    public static final String SERVER_URL = "http://127.0.0.1:8080/app";
-
+//    public static final String SERVER_URL = "http://127.0.0.1:8080/app";
+    public static final String SERVER_URL = "http://www.guanhongshijia.com/app";
     public static final String LOGIN_URL = SERVER_URL + "/user/login";
     //添加到购物车命令
     public static final String CART_ADD_URL = SERVER_URL + "/cart/add";
@@ -136,14 +136,15 @@ public class HttpUtils {
      */
 
     public static void main(String[] args) {
-        QueryCardRequest loginRequest = new QueryCardRequest();
+        RecommendGoodsRequest loginRequest = new RecommendGoodsRequest();
         //loginRequest.setLoginName("lxfeng");
        // loginRequest.setPassword("123123");
         loginRequest.setDeviceId("deviceId1");
         //模拟登录-同步请求
         try {
-            QueryCardResult result = HttpUtils.syncPost(loginRequest, BANK_CARD_QUERY_URL, QueryCardResult.class);
+            RecommendGroupGoodsResult result = HttpUtils.syncPost(loginRequest, GOODS_GROUPRECOMMEND_URL, RecommendGroupGoodsResult.class);
             System.out.println(result.getResultCode());
+            System.out.println(result.getGroupList().get(0).getGoodsSummaryList().get(2).getPrice());
         } catch (IOException e) {
             e.printStackTrace();
         }
