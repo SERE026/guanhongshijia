@@ -269,11 +269,11 @@
             <div>
                 <ul class="hot-search">
                     <li>热门搜索：</li>
-                    <li><a href="javascript:void(0)">卧室</a></li>
-                    <li><a href="javascript:void(0)">衣柜</a></li>
-                    <li><a href="javascript:void(0)">衣帽间</a></li>
-                    <li><a href="javascript:void(0)">书柜</a></li>
-                    <li><a href="javascript:void(0)">酒柜</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-1000101.html">客厅</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-1000103.html">餐厅</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-1000204.html">茶室</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-1000107.html">办公系列</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-1000208.html">欧式红木</a></li>
                 </ul>
             </div>
         </div>
@@ -297,7 +297,7 @@
                                    <div class="classical furniture">
                                        <ul>
                                            <#list p.children as c>
-                                                   <li class="prompt" data-id="${c.goodsSort_id}"><a href="javascript:void(0)">${c.name?if_exists}</a></li>
+                                                   <li class="prompt" data-id="${c.goodsSort_id}"><a href="${rc.contextPath}/GoodList-${c.goodsSort_id}.html">${c.name?if_exists}</a></li>
                                               <#-- <#if p_index==5><#break></#if>-->
                                            </#list>
                                        </ul>
@@ -329,7 +329,7 @@
                             <span>${c.name?if_exists}${c.goodscount}件商品>></span>
                             <ul>
                                 <#list c.children as d>
-                                    <li><a href="javascript:void(0)">${d.name?if_exists}</a></li>
+                                    <li><a href="${rc.contextPath}/GoodList-${d.goodsSort_id}.html">${d.name?if_exists}</a></li>
                                 </#list>
                             </ul>
                             <div>
@@ -355,7 +355,7 @@
                             <span>${p.name?if_exists}${p.goodscount}件商品>></span>
                             <ul>
                                 <#list p.children as c>
-                                    <li><a href="javascript:void(0)">${c.name?if_exists}</a></li>
+                                    <li><a href="${rc.contextPath}/GoodList-${c.goodsSort_id}.html">${c.name?if_exists}</a></li>
                                 </#list>
                             </ul>
                             <div>
@@ -572,7 +572,7 @@
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight"><a href="#">查看更多 MORE</a></span>
+                <span class="backRight"><a href="${rc.contextPath}/GoodList-${goodsSortList1.goodsSort_id}.html">查看更多 MORE</a></span>
             </div>
         </div>
         <div class="FloorImg">
@@ -583,10 +583,11 @@
             </div>
             <ul>
                 <#list goodsSortList1.children as d>
-                    <li><a href="javascript:void(0);">${d.name?if_exists}</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-${d.goodsSort_id}.html">${d.name?if_exists}</a></li>
+                    <#if d_index==8><#break></#if>
                 </#list>
             </ul>
-            <img src="../img/08.png" />
+          <img src="${rc.contextPath}/upload/goods/${goodsSortList1.largeimg?if_exists}" />
         </div>
         <div class="floor-banner">
             <div>
@@ -647,7 +648,7 @@
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight"><a href="#">查看更多 MORE</a></span>
+                <span class="backRight"><a href="${rc.contextPath}/GoodList-${goodsSortList2.goodsSort_id}.html">查看更多 MORE</a></span>
             </div>
         </div>
         <div class="FloorImg">
@@ -658,10 +659,11 @@
             </div>
             <ul>
                 <#list goodsSortList2.children as d>
-                    <li><a href="javascript:void(0);">${d.name?if_exists}</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-${d.goodsSort_id}.html">${d.name?if_exists}</a></li>
+                    <#if d_index==8><#break></#if>
                 </#list>
             </ul>
-            <img src="../img/08.png" />
+          <img src="${rc.contextPath}/upload/goods/${goodsSortList2.largeimg?if_exists}" />
         </div>
         <div class="floor-banner">
             <div>
@@ -722,7 +724,7 @@
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight"><a href="#">查看更多 MORE</a></span>
+                <span class="backRight"><a href="${rc.contextPath}/GoodList-${goodsSortList3.goodsSort_id}.html">查看更多 MORE</a></span>
             </div>
         </div>
         <div class="FloorImg">
@@ -733,10 +735,11 @@
             </div>
             <ul>
                 <#list goodsSortList3.children as d>
-                    <li><a href="javascript:void(0);">${d.name?if_exists}</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-${d.goodsSort_id}.html">${d.name?if_exists}</a></li>
+                    <#if d_index==8><#break></#if>
                 </#list>
             </ul>
-            <img src="../img/08.png" />
+         <img src="${rc.contextPath}/upload/goods/${goodsSortList3.largeimg?if_exists}" />
         </div>
         <div class="floor-banner">
             <div>
@@ -798,7 +801,7 @@
             </div>
             <div class="FloorBack">
                 <span class="backLeft">SANITARY WARE</span>
-                <span class="backRight"><a href="#">查看更多 MORE</a></span>
+                <span class="backRight"><a href="${rc.contextPath}/GoodList-${goodsSortList4.goodsSort_id}.html">查看更多 MORE</a></span>
             </div>
         </div>
         <div class="FloorImg">
@@ -809,10 +812,11 @@
             </div>
             <ul>
                 <#list goodsSortList4.children as d>
-                    <li><a href="javascript:void(0);">${d.name?if_exists}</a></li>
+                    <li><a href="${rc.contextPath}/GoodList-${d.goodsSort_id}.html">${d.name?if_exists}</a></li>
+                    <#if d_index==8><#break></#if>
                 </#list>
             </ul>
-                <img src="../img/08.png" />
+            <img src="${rc.contextPath}/upload/goods/${goodsSortList4.largeimg?if_exists}" />
         </div>
         <div class="floor-banner">
             <div>
