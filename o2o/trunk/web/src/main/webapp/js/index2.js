@@ -18,6 +18,20 @@ function head() {
         var name = $(this).text();
         $(".Search-categories>label>span").text(name); $(".Search-categories>ul").hide();
     })
+    $(".FocusOn").hover(function () {
+        $("#mobile_list").show();
+    })
+    $(document).mouseover(function (e) {
+        var _con = $('.FocusOn,#mobile_list');   // 设置目标区域
+        if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+            $("#mobile_list").hide();
+        } else {
+            $("#mobile_list").show();
+        }
+    });
+    /*$("#mobile_list").bind("mouseout",function () {
+        $("#mobile_list").hide();
+    })*/
 }
 
 function suspension() {
