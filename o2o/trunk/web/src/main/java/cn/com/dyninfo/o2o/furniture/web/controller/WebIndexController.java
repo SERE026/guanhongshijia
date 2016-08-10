@@ -90,7 +90,7 @@ public class WebIndexController{
     @RequestMapping(value= "/index" )
     public String index(HttpServletRequest request, ModelMap mav,HttpServletResponse response) {
         //所有的分类  一级。二级,三级
-        List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
+        List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
         mav.addAttribute("goodsSortList",dataList);
 //        System.out.println(dataList.get(0).getChildren().get(0).getAdvpic());
 
