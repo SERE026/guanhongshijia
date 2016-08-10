@@ -158,13 +158,24 @@ ${widget_area}
                 <script>
 
                 </script>
-                <label class="mainColor city-name">全国站</label><label class="Switch-city">切换城市<i></i>
+                <#if AEARINFO?exists>
+                    <label class="mainColor city-name"> ${AEARINFO.name}</label>
+                    <#else>
+                        <label class="mainColor city-name">全国站</label>
+                </#if>
+                <label class="Switch-city">切换城市<i></i>
                 <div id="JS_header_city_bar_box" class="hide_city_group">
                     <div class="hideMap">
                         <div class="showPanel f-cb">
                             <div class="mycity">
-                                <div style="display: block;">
-                                    当前城市: <strong id="JS_city_current_city mainColor">全国</strong>
+                                <div style="display: block;"   id="cityname">
+                                    当前城市: <strong id="JS_city_current_city mainColor">
+                                    <#if AEARINFO?exists>
+                                        <label class="mainColor city-name"> ${AEARINFO.name}</label>
+                                        <#else>
+                                            <label class="mainColor city-name">全国</label>
+                                    </#if>
+                                </strong>
                                 </div>
                             </div>
                             <a class="near" target="_blank" href="javascript:void(0);">附近的体验馆</a>
@@ -461,8 +472,11 @@ ${widget_area}
                 var area=result;
                 if(area!=null){
                     $("#area").empty();
+                    $("#cityname").empty();
                     var _html = ['<b id=>'+area.name+'<label>'+area.num+'</label>家</b>'];
+                    var _html1 = [' 当前城市: <strong id="JS_city_current_city">'+area.name+'</strong>'];
                     $("#area").append(_html.join(''));
+                    $("#cityname").append(_html1.join(''));
                 }else{
                     $("#area").empty();
                 }

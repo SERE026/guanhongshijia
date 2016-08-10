@@ -61,13 +61,25 @@
         </div>
         <div class="head-city">
             <div class="city">
-                <label class="mainColor city-name">全国站</label><label class="Switch-city">切换城市<i></i>
+            <#if AEARINFO?exists>
+                <label class="mainColor city-name"> ${AEARINFO.name}</label>
+            <#else>
+                <label class="mainColor city-name">全国站</label>
+            </#if>
+
+                <label class="Switch-city">切换城市<i></i>
                 <div id="JS_header_city_bar_box" class="hide_city_group">
                     <div class="hideMap">
                         <div class="showPanel f-cb">
                             <div class="mycity">
-                                <div style="display: block;">
-                                    当前城市: <strong id="JS_city_current_city">全国</strong>
+                                <div style="display: block;" id="cityname">
+                                    当前城市: <strong id="JS_city_current_city">
+                                <#if AEARINFO?exists>
+                                    <label class="mainColor city-name"> ${AEARINFO.name}</label>
+                                <#else>
+                                    <label class="mainColor city-name">全国</label>
+                                </#if>
+                                </strong>
                                 </div>
                             </div>
                             <a class="near" target="_blank" href="${rc.contextPath}/shopMap.html">附近的体验馆</a>
@@ -1145,9 +1157,18 @@
             dataType: "json",
             success: function(result) {
                 var area=result;
+
                 if(area!=null){
                     $("#area").empty();
+                    $("#cityname").empty();
+
                     var _html = ['<b id=>'+area.name+'<label>'+area.num+'</label>家</b>'];
+
+
+                    var _html1 = [' 当前城市: <strong id="JS_city_current_city">'+area.name+'</strong>'];
+
+                    $("#cityname").append(_html1.join(''));
+
                     $("#area").append(_html.join(''));
                 }else{
                     $("#area").empty();
