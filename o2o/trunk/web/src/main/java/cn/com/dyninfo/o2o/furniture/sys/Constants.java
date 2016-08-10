@@ -31,7 +31,7 @@ public class Constants {
     public static final int YUN_SKU =1;//云导购
     public static final int GROUP_SKU = 2;//团购
 
-    public static final int ACTIVE_ID = 9;//首页广告位
+    public static final int ACTIVE_ID = 8;//首页广告位
     public static final int REMAI_SKU = 3;//热卖商品
     public static final int QIANGGOU_SKU = 4;//疯狂抢购
     public static final int REPIN_SKU =5;//热评商品

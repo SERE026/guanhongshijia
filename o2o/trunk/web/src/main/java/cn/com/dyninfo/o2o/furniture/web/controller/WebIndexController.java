@@ -92,30 +92,45 @@ public class WebIndexController{
         //所有的分类  一级。二级,三级
         List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
         mav.addAttribute("goodsSortList",dataList);
+//        System.out.println(dataList.get(0).getChildren().get(0).getAdvpic());
+
 
         //首页广告图
         List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
         mav.addAttribute("advwzList",advwzList.get(0));
-
+//        System.out.println(advwzList.get(0).getAdv().get(0).getAdv_name());
+//        System.out.println(advwzList.get(0).getAdv().get(1).getAdv_name());
+//        System.out.println(advwzList.get(0).getAdv().get(2).getAdv_name());
+//        System.out.println(advwzList.get(0).getAdv().get(0).getAdv_link());
         //1F楼商品
         List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
         List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.ONE_SKU));
-        mav.addAttribute("goodsSortList1",goodsSortList1.get(0));
+        if (goodsSortList1 != null && goodsSortList1.size() > 0) {
+            mav.addAttribute("goodsSortList1",goodsSortList1.get(0));
+        }
+
         mav.addAttribute("goodsList1",goodsList1);
         //2F楼商品
         List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.TWO_SKU));
         List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.TWO_SKU));
-        mav.addAttribute("goodsSortList2",goodsSortList2.get(0));
+
+        if (goodsSortList2 != null && goodsSortList2.size() > 0) {
+            mav.addAttribute("goodsSortList2",goodsSortList2.get(0));
+        }
         mav.addAttribute("goodsList2",goodsList2);
         //3F楼商品
         List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.THREE_SKU));
         List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.THREE_SKU));
-        mav.addAttribute("goodsSortList3",goodsSortList3.get(0));
+        if (goodsSortList3 != null && goodsSortList3.size() > 0) {
+            mav.addAttribute("goodsSortList3",goodsSortList3.get(0));
+        }
         mav.addAttribute("goodsList3",goodsList3);
         //4F楼商品
         List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.FOUR_SKU));
         List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+Constants.FOUR_SKU));
-        mav.addAttribute("goodsSortList4",goodsSortList4.get(0));
+        if (goodsSortList4 != null && goodsSortList4.size() > 0) {
+            mav.addAttribute("goodsSortList4",goodsSortList4.get(0));
+        }
         mav.addAttribute("goodsList4",goodsList4);
 
 

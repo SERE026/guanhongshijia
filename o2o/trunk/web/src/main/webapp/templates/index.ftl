@@ -325,19 +325,22 @@
     <div class="focus" id="focus001">
         <ul>
 
-            <#list advwzList.adv as p>
+           <#list advwzList.adv as p>
             <li>
-                <a href="#" target="_blank">
-                <img src="${rc.contextPath}/upload/goods/${p.adv_flie}"  /><!--adv_flie-->
+                <a href="${p.adv_link?if_exists}" target="_blank">
+                <img src="${rc.contextPath}/upload/goods/${p.adv_flie?if_exists}"  />
                 </a>
             </li>
                 <#if p_index==2><#break></#if>
             </#list>
 
- <!--           <li><a href="javascript:void(0)" target="_blank">
+<#--          <li><a href="javascript:void(0)" target="_blank">
                 <img src="../img/20.png" /></a></li>
             <li><a href="javascript:void(0)" target="_blank">
-                <img src="../img/20.png" /></a></li>-->
+                <img src="../img/20.png" /></a></li>
+    <li><a href="javascript:void(0)" target="_blank">
+        <img src="../img/20.png" /></a></li>-->
+
         </ul>
     </div>
     <div class="advertising-back">
@@ -1023,8 +1026,8 @@
 <#include 'common/buttom.html' />
 
     <!--菜单栏展示第三级目录-->
-  <#list goodsSortList as p>
-        <#if p_index lt 10>
+ <#list goodsSortList as p>
+        <#if p_index lt 2>
         <#if p.extendshow==1>
             <#list p.children as c>
                         <div  id="pr${c.goodsSort_id}" class="three-level">
@@ -1036,29 +1039,39 @@
                                 </#list>
                             </ul>
                             <div>
-                                <img width="370" height="160" src="../img/10.png" />
+                                <a href="${c.advlink?if_exists}">
+                               <img width="370" height="160" src="${rc.contextPath}/upload/goods/${c.advpic?if_exists}" /></a>
                             </div>
                         </div>
             </#list>
         </#if>
+        </#if>
+    </#list>
 
+
+  <#-- 菜单栏展示第三级目录  显示第一级别的-->
+<#list goodsSortList as p>
+    <#if p_index lt 10>
         <#if p.extendshow==0>
-                <div id="pr${p.goodsSort_id}"  class="three-level">
-                    <h4><span>${p.name?if_exists}</span>&nbsp;>></h4>
+                <div  id="r${c.goodsSort_id}" class="three-level">
+                    <h4><span>${c.name?if_exists}</span>&nbsp;>></h4>
                     <span>${p.name?if_exists}${p.goodscount}件商品>></span>
                     <ul>
-                        <#list p.children as cc>
-                        <li><a href="javascript:void(0)">${cc.name?if_exists}</a></li>
+                        <#list p.children as c>
+                            <li><a href="javascript:void(0)">${c.name?if_exists}</a></li>
                         </#list>
                     </ul>
                     <div>
-                        <img width="370" height="160" src="../img/10.png" />
+                        <a href="${p.advlink?if_exists}">
+                            <img width="370" height="160" src="${rc.contextPath}/upload/goods/${p.advpic?if_exists}" /></a>
                     </div>
                 </div>
         </#if>
-        </#if>
-    </#list>
-         <div class="pronoLevel3 three-level">
+    </#if>
+</#list>
+
+
+<#--         <div class="pronoLevel3 three-level">
                 <h4><span>卧室家具</span>&nbsp;>></h4>
                 <span>卧室1279件商品>></span>
                 <ul>
@@ -1078,7 +1091,7 @@
                 <div>
                     <img width="370" height="160" src="../img/10.png" />
                 </div>
-            </div>
+            </div>-->
 </div>
 <script src="../js/jquery-1.8.2.js"></script>
 <script src="../js/index2.js"></script>
