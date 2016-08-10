@@ -538,7 +538,7 @@ ul li {float:left;list-style-type:none;
     }
 .floor-banner > div {overflow:hidden;float:left;
 }
-.floor-banner-img {float:left;
+.floor-banner-img {float:left;width: 311px;
 }
     .floor-banner-img img {width:311px;height:280px;  }
 .Floor-bottom ul {overflow:hidden;margin-top:-17px;
