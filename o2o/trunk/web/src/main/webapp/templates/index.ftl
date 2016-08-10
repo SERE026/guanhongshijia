@@ -289,7 +289,7 @@
 
                        <#list goodsSortList as p>
                            <#if p_index lt 10>
-                        <li class="noLevel3 prompt"><a href="javascript:void(0)">
+                        <li data-id="${p.goodsSort_id}" class="prompt "><a href="javascript:void(0)">
                             <img src="${rc.contextPath}/upload/goods/${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
                         </li>
                            <#if p.extendshow==1>
@@ -297,7 +297,7 @@
                                    <div class="classical furniture">
                                        <ul>
                                            <#list p.children as c>
-                                                   <li class="prompt" id="pro${c.goodsSort_id}"><a href="javascript:void(0)">${c.name?if_exists}</a></li>
+                                                   <li class="prompt" data-id="${c.goodsSort_id}"><a href="javascript:void(0)">${c.name?if_exists}</a></li>
                                               <#-- <#if p_index==5><#break></#if>-->
                                            </#list>
                                        </ul>
@@ -307,6 +307,8 @@
                            </#if>
 
                         </#list>
+
+
                     </ul>
                 </li>
                 <li><a href="${rc.contextPath}/GoodBoard.html">云导购</a></li>
@@ -317,6 +319,53 @@
                 <li><a href="${rc.contextPath}/apply.html">招商加盟</a></li>
                 <li><a href="${rc.contextPath}/help-27.html">全屋高端定制</a></li>
             </ul>
+
+        <#list goodsSortList as p>
+            <#if p_index lt 2>
+                <#if p.extendshow==1>
+                    <#list p.children as c>
+                        <div  id="${c.goodsSort_id}" class="three-level">
+                            <h4><span>${c.name?if_exists}</span>&nbsp;>></h4>
+                            <span>${c.name?if_exists}${c.goodscount}件商品>></span>
+                            <ul>
+                                <#list c.children as d>
+                                    <li><a href="javascript:void(0)">${d.name?if_exists}</a></li>
+                                </#list>
+                            </ul>
+                            <div>
+                                <a href="${c.advlink?if_exists}">
+                                    <img width="370" height="160" src="${rc.contextPath}/upload/goods/${c.advpic?if_exists}" /></a>
+                            </div>
+                        </div>
+                    </#list>
+                </#if>
+            </#if>
+        </#list>
+
+            <!--菜单栏展示第三级目录-->
+
+
+
+        <#-- 菜单栏展示第三级目录  显示第一级别的-->
+        <#list goodsSortList as p>
+            <#if p_index lt 10>
+                <#if p.extendshow==0>
+                        <div  id="${p.goodsSort_id}" class="three-level">
+                            <h4><span>${p.name?if_exists}</span>&nbsp;>></h4>
+                            <span>${p.name?if_exists}${p.goodscount}件商品>></span>
+                            <ul>
+                                <#list p.children as c>
+                                    <li><a href="javascript:void(0)">${c.name?if_exists}</a></li>
+                                </#list>
+                            </ul>
+                            <div>
+                                <a href="${p.advlink?if_exists}">
+                                    <img width="370" height="160" src="${rc.contextPath}/upload/goods/${p.advpic?if_exists}" /></a>
+                            </div>
+                        </div>
+                </#if>
+            </#if>
+        </#list>
         </div>
     </div>
 
@@ -1025,50 +1074,7 @@
     <!--底部includ-->
 <#include 'common/buttom.html' />
 
-    <!--菜单栏展示第三级目录-->
- <#list goodsSortList as p>
-        <#if p_index lt 2>
-        <#if p.extendshow==1>
-            <#list p.children as c>
-                        <div  id="pr${c.goodsSort_id}" class="three-level">
-                            <h4><span>${c.name?if_exists}</span>&nbsp;>></h4>
-                            <span>${c.name?if_exists}${c.goodscount}件商品>></span>
-                            <ul>
-                                <#list c.children as d>
-                                <li><a href="javascript:void(0)">${d.name?if_exists}</a></li>
-                                </#list>
-                            </ul>
-                            <div>
-                                <a href="${c.advlink?if_exists}">
-                               <img width="370" height="160" src="${rc.contextPath}/upload/goods/${c.advpic?if_exists}" /></a>
-                            </div>
-                        </div>
-            </#list>
-        </#if>
-        </#if>
-    </#list>
 
-
-  <#-- 菜单栏展示第三级目录  显示第一级别的-->
-<#--<#list goodsSortList as p>
-    <#if p_index lt 10>
-        <#if p.extendshow==0>
-                <div  id="r${p.goodsSort_id}" class="three-level">
-                    <h4><span>${p.name?if_exists}</span>&nbsp;>></h4>
-                    <span>${p.name?if_exists}${p.goodscount}件商品>></span>
-                    <ul>
-                        <#list p.children as c>
-                            <li><a href="javascript:void(0)">${c.name?if_exists}</a></li>
-                        </#list>
-                    </ul>
-                    <div>
-                        <a href="${p.advlink?if_exists}">
-                            <img width="370" height="160" src="${rc.contextPath}/upload/goods/${p.advpic?if_exists}" /></a>
-                    </div>
-                </div>
-        </#if>
-    </#if>
-</#list>-->
 
 
 <#--         <div class="pronoLevel3 three-level">
