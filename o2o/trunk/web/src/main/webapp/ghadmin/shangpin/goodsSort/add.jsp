@@ -79,7 +79,7 @@ $(function(){
      <td class="discription" >上级分类:</td>
   	  <td>
   	  	<input  id="names" class="parent" value="${parent.name }" readonly />
-  	  	<input type="hidden" name="parentGoodsSort_id"  id="ids" class="parent" />
+		  <input type="hidden" name="parentGoodsSort_id"  value="${parent.goodsSort_id }" id="ids" class="parent" />
   	  </td>
   </tr>
 	  <tr>
