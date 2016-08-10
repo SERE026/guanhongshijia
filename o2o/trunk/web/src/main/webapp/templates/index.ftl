@@ -376,8 +376,8 @@
 
            <#list advwzList.adv as p>
             <li>
-                <a href="${p.adv_link?if_exists}" target="_blank">
-              <img src="${rc.contextPath}/upload/adv/${p.adv_flie?if_exists}"  />
+                <a href="${p.adv_link?if_exists}" target="_blank" style="background: url('${rc.contextPath}/upload/adv/${p.adv_flie?if_exists}') center no-repeat">
+              <#--<img src="${rc.contextPath}/upload/adv/${p.adv_flie?if_exists}"  />-->
                 <#--    <img src="../img/${p.adv_flie?if_exists}" />-->
                 </a>
             </li>
