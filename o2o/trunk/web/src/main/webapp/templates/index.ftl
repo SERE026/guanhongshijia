@@ -290,7 +290,7 @@
                        <#list goodsSortList as p>
                            <#if p_index lt 10>
                         <li class="noLevel3 prompt"><a href="javascript:void(0)">
-                            <img src="${rc.contextPath}${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
+                            <img src="${rc.contextPath}/upload/goods/${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
                         </li>
                            <#if p.extendshow==1>
                                <li>
