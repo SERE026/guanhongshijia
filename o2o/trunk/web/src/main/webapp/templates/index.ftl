@@ -377,15 +377,16 @@
            <#list advwzList.adv as p>
             <li>
                 <a href="${p.adv_link?if_exists}" target="_blank">
-                <img src="${rc.contextPath}/upload/goods/${p.adv_flie?if_exists}"  />
+              <img src="${rc.contextPath}/upload/adv/${p.adv_flie?if_exists}"  />
+                <#--    <img src="../img/${p.adv_flie?if_exists}" />-->
                 </a>
             </li>
                 <#if p_index==2><#break></#if>
             </#list>
 
 <#--          <li><a href="javascript:void(0)" target="_blank">
-                <img src="../img/20.png" /></a></li>
-            <li><a href="javascript:void(0)" target="_blank">
+                <img src="../img/20.png" /></a></li>-->
+<#--            <li><a href="javascript:void(0)" target="_blank">
                 <img src="../img/20.png" /></a></li>
     <li><a href="javascript:void(0)" target="_blank">
         <img src="../img/20.png" /></a></li>-->
@@ -620,7 +621,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList1 as d>
-                    <#if d_index gt 7 && d_index lt 12 >
+                    <#if d_index gt 7 && d_index lt 11 >
                         <li>
                             <dl class="Item-introduction">
                                 <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
