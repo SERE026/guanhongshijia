@@ -29,7 +29,7 @@
 <!--
 
 	function onCheck(e, treeId, treeNode) {
-		if(treeNode.lev==3){
+		if(treeNode.lev==4){
 			var obj = window.dialogArguments;
 			if(obj){
 				obj.document.getElementById("${fieldId}").value = treeNode.id;
