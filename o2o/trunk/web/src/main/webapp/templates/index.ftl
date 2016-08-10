@@ -538,7 +538,28 @@
             </ul>
         </div>
         <div class="area custom-area">
-            ${article28.artices_content}
+            <#--${article28.artices_content}-->
+                <div class="area-img">
+                    <img src="../img/04.jpg" />
+                </div>
+                <ul class="borderHover">
+
+                <#list activeList as p>
+                    <li>
+                        <dl class="">
+                            <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                                <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
+                            <dd class="ItemTitle"><b></b></dd>
+                            <dd class="ItemName"><a href="${rc.contextPath}/item-${p.goods_id}.html">${p.name?if_exists}</a></dd>
+                            <dd class="ItemPrice"><b><span>￥</span>${p.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
+                        <#--<dd><a class="Add-art" href="${rc.contextPath}/item-${p.goods_id}.html">
+                            &lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a></dd>-->
+                        </dl>
+                    </li>
+                    <#if p_index==3><#break></#if>
+                </#list>
+
+                </ul>
         </div>
     </div>
 
