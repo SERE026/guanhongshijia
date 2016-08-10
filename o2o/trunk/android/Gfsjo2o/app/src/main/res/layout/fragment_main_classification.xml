@@ -24,6 +24,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_chinese_furniture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -50,6 +51,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_classical_furniture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -77,6 +79,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_four_treasures"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -104,6 +107,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_strokes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -130,6 +134,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_old_tea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -156,6 +161,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_red_wine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -183,6 +189,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_soft_daquan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -210,6 +217,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_decorative_daquan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -237,6 +245,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_classical_decorative_materials"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -264,6 +273,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_classical_lighting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -291,6 +301,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -318,6 +329,7 @@
             app:isShape="true" >
 
             <TextView
+                android:id="@+id/tv_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

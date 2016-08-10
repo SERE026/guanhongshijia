@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.open.androidtvwidget.bridge.EffectNoDrawBridge;
@@ -16,12 +17,16 @@ import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
 import com.wckj.gfsj.Activity.MainMoreActivity;
 import com.wckj.gfsj.Bean.MainCategoryRequest;
 import com.wckj.gfsj.Bean.MainCategoryResult;
+import com.wckj.gfsj.Bean.entity.Category;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -34,8 +39,13 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
     private MainUpView mMainUpView;
     private View mOldFocus;
 
+    private TextView mTvChineseFurniture, mTvClassicalFurniture, mTvFourTreasures, mTvStrokes,
+            mTvOldTea, mTvRedWine, mTvSoftDaquan, mTvDecorativeDaquan, mTvClassicalDecorativeMaterials,
+            mTvClassicalLighting, mTvNews, mTvMore;
+
     private OpenEffectBridge mOpenEffectBridge;
 
+    List<Category> mCategoryList = new ArrayList<Category>();
 
     @Override
     protected void init() {
@@ -71,10 +81,6 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
             }
         });
 
-        view.findViewById(R.id.rf_more).setOnClickListener(this);
-        view.findViewById(R.id.rf_old_tea).setOnClickListener(this);
-        view.findViewById(R.id.rf_chinese_furniture).setOnClickListener(this);
-
         for (int i = 0; i < rlFrame.getChildCount(); i++) {
             rlFrame.getChildAt(i).setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -86,6 +92,22 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
                 }
             });
         }
+
+        view.findViewById(R.id.rf_more).setOnClickListener(this);
+        view.findViewById(R.id.rf_old_tea).setOnClickListener(this);
+        view.findViewById(R.id.rf_chinese_furniture).setOnClickListener(this);
+
+        mTvChineseFurniture = (TextView) view.findViewById(R.id.tv_chinese_furniture);
+        mTvClassicalFurniture = (TextView) view.findViewById(R.id.tv_classical_furniture);
+        mTvFourTreasures = (TextView) view.findViewById(R.id.tv_four_treasures);
+        mTvStrokes = (TextView) view.findViewById(R.id.tv_strokes);
+        mTvOldTea = (TextView) view.findViewById(R.id.tv_old_tea);
+        mTvRedWine = (TextView) view.findViewById(R.id.tv_red_wine);
+        mTvSoftDaquan = (TextView) view.findViewById(R.id.tv_soft_daquan);
+        mTvDecorativeDaquan = (TextView) view.findViewById(R.id.tv_decorative_daquan);
+        mTvClassicalDecorativeMaterials = (TextView) view.findViewById(R.id.tv_classical_decorative_materials);
+        mTvClassicalLighting = (TextView) view.findViewById(R.id.tv_classical_lighting);
+        mTvNews = (TextView) view.findViewById(R.id.tv_news);
 
         return view;
     }
@@ -109,6 +131,23 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
             @Override
             public void onSuccess(String response) {
                 MainCategoryResult json = JSON.parseObject(response, MainCategoryResult.class);
+                int resultCode = json.getResultCode();
+                if (resultCode == 0) {
+                    mCategoryList = json.getCategoryList();
+                    if (mCategoryList != null && !mCategoryList.isEmpty()) {
+                        mTvChineseFurniture.setText(mCategoryList.get(0).getTitle());
+                        mTvClassicalFurniture.setText(mCategoryList.get(1).getTitle());
+                        mTvFourTreasures.setText(mCategoryList.get(2).getTitle());
+                        mTvStrokes.setText(mCategoryList.get(3).getTitle());
+                        mTvOldTea.setText(mCategoryList.get(4).getTitle());
+                        mTvRedWine.setText(mCategoryList.get(5).getTitle());
+                        mTvSoftDaquan.setText(mCategoryList.get(6).getTitle());
+                        mTvDecorativeDaquan.setText(mCategoryList.get(7).getTitle());
+                        mTvClassicalDecorativeMaterials.setText(mCategoryList.get(8).getTitle());
+                        mTvClassicalLighting.setText(mCategoryList.get(9).getTitle());
+                        mTvNews.setText(mCategoryList.get(10).getTitle());
+                    }
+                }
                 LogUtil.i(response);
             }
         } );
@@ -135,7 +174,6 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
                 intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
                 startActivity(intent);
                 break;
-
         }
     }
 }
