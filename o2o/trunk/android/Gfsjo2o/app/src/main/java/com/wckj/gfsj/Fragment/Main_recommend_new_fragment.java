@@ -1,6 +1,7 @@
 package com.wckj.gfsj.Fragment;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,7 +11,7 @@ import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
 import com.wckj.gfsj.Adapter.RecommendAdapter;
 import com.wckj.gfsj.Bean.RecommendGoodsRequest;
-import com.wckj.gfsj.Bean.RecommendGoodsResult;
+import com.wckj.gfsj.Bean.RecommendNewGoodsResult;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
@@ -27,12 +28,15 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
     private View view;
     private GridView gv_recommend;
     private RecommendAdapter mRecommendAdapter;
-    private RecommendGoodsResult json;
+    private RecommendNewGoodsResult json;
+    private int typeId;
+    private String  url;
 
 
     @Override
     protected void init() {
-
+        Bundle arguments = getArguments();
+         typeId = arguments.getInt("RecommendId");
     }
 
     @Override
@@ -74,18 +78,29 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
         mRecommendAdapter = new RecommendAdapter(view.getContext(), json.getNewList());
         gv_recommend.setAdapter(mRecommendAdapter);
     }
+
     //推荐
     private void getGoodsRecommend(){
         RecommendGoodsRequest request = new RecommendGoodsRequest();
-        HttpUtils.getInstance().asyncPost(request, GlobalUtils.NEW_RECOMMEND_URL, new ICallBack() {
+        switch (typeId){
+            case 0:
+                url= GlobalUtils.NEW_RECOMMEND_URL;
+            break;
+            case 1:
+                url= GlobalUtils.GROUP_RECOMMEND_URL;
+                break;
+            case 2:
+                url= GlobalUtils.PROMOTION_RECOMMEND_URL;
+                break;
+        }
+        HttpUtils.getInstance().asyncPost(request, url, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
                 showPageState(FrameLoadLayout.LoadResult.error);
             }
-
             @Override
             public void onSuccess(String response) {
-                 json =  JSON.parseObject(response, RecommendGoodsResult.class);
+               JSON.parseObject(response, RecommendNewGoodsResult.class);
                 showPageState(FrameLoadLayout.LoadResult.success);
             }
         });
