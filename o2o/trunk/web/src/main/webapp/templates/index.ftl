@@ -1050,11 +1050,11 @@
 
 
   <#-- 菜单栏展示第三级目录  显示第一级别的-->
-<#list goodsSortList as p>
+<#--<#list goodsSortList as p>
     <#if p_index lt 10>
         <#if p.extendshow==0>
-                <div  id="r${c.goodsSort_id}" class="three-level">
-                    <h4><span>${c.name?if_exists}</span>&nbsp;>></h4>
+                <div  id="r${p.goodsSort_id}" class="three-level">
+                    <h4><span>${p.name?if_exists}</span>&nbsp;>></h4>
                     <span>${p.name?if_exists}${p.goodscount}件商品>></span>
                     <ul>
                         <#list p.children as c>
@@ -1068,7 +1068,7 @@
                 </div>
         </#if>
     </#if>
-</#list>
+</#list>-->
 
 
 <#--         <div class="pronoLevel3 three-level">
