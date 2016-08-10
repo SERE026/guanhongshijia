@@ -70,14 +70,18 @@ function prompt() {
         top = $(this).position().top;
         text = $(this).find("a").text();
         id=$(this).attr('id').substring(3);
+        console.log(id)
     })
     $(document).mouseover(function (e) {
         var _con = $('.prompt,.three-level,.furniture ul');   // 设置目标区域
         if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
             $(".three-level").hide();
+            console.log(id)
         } else {
             $(".three-level").css("top", top + 232);
+            $(".three-level").hide();
             $("#pr"+id).show();
+            console.log(id)
             $(".three-level h4 span").text(text);
         }
     });
