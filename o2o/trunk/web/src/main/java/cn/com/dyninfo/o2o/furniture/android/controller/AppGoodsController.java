@@ -205,22 +205,23 @@ public class AppGoodsController extends BaseAppController {
         RecommendNewGoodsResult result = new RecommendNewGoodsResult();
         //新品推荐列表
         List<Recommend> newList=new ArrayList<Recommend>();
+        PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
+        pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
+      //  List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
 
-        Recommend recommend=new Recommend();
-        List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
-        List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
+        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
+        List<Goods> list=(List) map.get("DATA");
+
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
-                GoodsSummary goodsSummary = new GoodsSummary();
-                goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
-                goodsSummary.setTitle(list.get(i).getName());
-                goodsSummary.setMainPicUrl(list.get(i).getImg());
-                goodsSummary.setPrice(list.get(i).getSalesMoney());
-                lists.add(goodsSummary);
+                Recommend recommend=new Recommend();
+                recommend.setShortDesc(list.get(i).getShortDesc());
+                recommend.setGoodsStory(list.get(i).getGoodsStory());
+                recommend.setImageUrl(list.get(i).getImg());
+                recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                newList.add(recommend);
             }
-            recommend.setGoodsSummaryList(lists);
-            recommend.setImageUrl("");
-            newList.add(recommend);
         }
         result.setNewList(newList);
         result.setResultCode(SUCCESS);
@@ -245,21 +246,33 @@ public class AppGoodsController extends BaseAppController {
         //促销列表
         List<Recommend> groupList=new ArrayList<Recommend>();
 
-        Recommend recommend=new Recommend();
-        List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
-        List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
+        PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
+        pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
+
+        //List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
+       // List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
+
+        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
+        List<Goods> list=(List) map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
-                GoodsSummary goodsSummary = new GoodsSummary();
+                Recommend recommend=new Recommend();
+                recommend.setShortDesc(list.get(i).getShortDesc());
+                recommend.setGoodsStory(list.get(i).getGoodsStory());
+                recommend.setImageUrl(list.get(i).getImg());
+                recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                groupList.add(recommend);
+                /*GoodsSummary goodsSummary = new GoodsSummary();
                 goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
                 goodsSummary.setTitle(list.get(i).getName());
                 goodsSummary.setMainPicUrl(list.get(i).getImg());
                 goodsSummary.setPrice(list.get(i).getSalesMoney());
-                lists.add(goodsSummary);
+                lists.add(goodsSummary);*/
             }
-            recommend.setGoodsSummaryList(lists);
+           /* recommend.setGoodsSummaryList(lists);
             recommend.setImageUrl("");
-            groupList.add(recommend);
+            groupList.add(recommend);*/
         }
         result.setGroupList(groupList);
         result.setResultCode(SUCCESS);
@@ -284,21 +297,33 @@ public class AppGoodsController extends BaseAppController {
         //促销列表
         List<Recommend> promotionList=new ArrayList<Recommend>();
 
-        Recommend recommend=new Recommend();
-        List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
-        List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
+        PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
+        pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
+
+        //List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
+        //List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
+
+        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
+        List<Goods> list=(List) map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
-                GoodsSummary goodsSummary = new GoodsSummary();
+               /* GoodsSummary goodsSummary = new GoodsSummary();
                 goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
                 goodsSummary.setTitle(list.get(i).getName());
                 goodsSummary.setMainPicUrl(list.get(i).getImg());
                 goodsSummary.setPrice(list.get(i).getSalesMoney());
-                lists.add(goodsSummary);
+                lists.add(goodsSummary);*/
+                Recommend recommend=new Recommend();
+                recommend.setShortDesc(list.get(i).getShortDesc());
+                recommend.setGoodsStory(list.get(i).getGoodsStory());
+                recommend.setImageUrl(list.get(i).getImg());
+                recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                promotionList.add(recommend);
             }
-            recommend.setGoodsSummaryList(lists);
+            /*recommend.setGoodsSummaryList(lists);
             recommend.setImageUrl("");
-            promotionList.add(recommend);
+            promotionList.add(recommend);*/
         }
         result.setPromotionList(promotionList);
         result.setResultCode(SUCCESS);
