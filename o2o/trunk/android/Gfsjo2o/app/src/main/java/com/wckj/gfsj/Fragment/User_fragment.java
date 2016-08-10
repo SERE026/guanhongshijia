@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.FindPasswordActivity;
-import com.wckj.gfsj.Activity.MainActivity;
 import com.wckj.gfsj.Activity.RegisterActivity;
 import com.wckj.gfsj.Activity.UserCenterActivity;
 import com.wckj.gfsj.Application.AppApplication;
@@ -26,7 +25,9 @@ import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
 import com.wckj.gfsj.Utils.TimeUtils;
+import com.wckj.gfsj.Utils.UuidUtils;
 
 import okhttp3.Call;
 
@@ -69,34 +70,27 @@ public class User_fragment extends Fragment implements View.OnClickListener {
             case R.id.btn_login:
                 String userName = mEtUsername.getText().toString().trim();
                 String userPwd  = mEtPassword.getText().toString().trim();
-                login("lxfeng", "123123");
-//                if (userName.equals("123") && userPwd.equals("123")) {
-                intent = new Intent(view.getContext(), UserCenterActivity.class);
-                    startActivityForResult(intent, INTO_USER_CENTER);
-//                } else {
-//                    OwerToastShow.show("用户名或密码错误");
-//                }
+                if (userName.isEmpty()) {
+                    OwerToastShow.show("请输入用户名");
+                    return;
+                }
+                if (userPwd.isEmpty()) {
+                    OwerToastShow.show("请输入密码");
+                    return;
+                }
+//                login("lxfeng", "123123");
+                login(userName, userPwd);
+
                 break;
             case R.id.btn_find_password:
-                intent = new Intent(view.getContext(), FindPasswordActivity.class);
+                intent = new Intent(getActivity(), FindPasswordActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_register:
-                intent = new Intent(view.getContext(), RegisterActivity.class);
+                intent = new Intent(getActivity(), RegisterActivity.class);
                 startActivity(intent);
                 break;
         }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == INTO_USER_CENTER) {
-            MainActivity parentActivity = (MainActivity) getActivity();
-            parentActivity.setTabSelection(0);
-        }
-
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     /**
@@ -116,8 +110,21 @@ public class User_fragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onSuccess(String response) {
-                jsonDao.insertJson(GlobalUtils.LOGIN_URL, response, TimeUtils.getSystemTime());
-                AppApplication.loginResult = JSON.parseObject(response, LoginResult.class);
+                LoginResult result = JSON.parseObject(response, LoginResult.class);
+                int resultCode = result.getResultCode();
+                if (resultCode == 0) {
+                    jsonDao.insertJson(GlobalUtils.LOGIN_URL, response, TimeUtils.getSystemTime());
+                    AppApplication.loginResult = result;
+                    OwerToastShow.show("登陆成功");
+
+                    Intent intent = new Intent(getActivity(), UserCenterActivity.class);
+                    getActivity().startActivityForResult(intent, INTO_USER_CENTER);
+
+                } else {
+                    jsonDao.deleteJson(GlobalUtils.LOGIN_URL);
+                    AppApplication.loginResult = new LoginResult();
+                    AppApplication.loginResult.setDeviceId(UuidUtils.getUuid());
+                }
             }
         });
     }

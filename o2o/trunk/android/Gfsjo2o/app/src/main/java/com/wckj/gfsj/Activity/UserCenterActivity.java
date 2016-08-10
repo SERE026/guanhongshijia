@@ -72,6 +72,7 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
         Intent intent;
         switch (v.getId()) {
             case R.id.tv_go_back:
+                setResult(100);
                 finish();
                 break;
             case R.id.btn_my_order:

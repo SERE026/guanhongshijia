@@ -183,6 +183,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 100) {// INTO_USER_CENTER
+            setTabSelection(0);
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     private long mkeyTime = 0;
     @Override
