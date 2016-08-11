@@ -617,7 +617,7 @@
                                         <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
                                     <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                         ${d.name?if_exists}</a></dd>
-                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b></dd>
+                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
                                 </dl>
                             </li>
                         </#if>
@@ -693,7 +693,7 @@
                                         <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
                                     <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                         ${d.name?if_exists}</a></dd>
-                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b></dd>
+                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
                                 </dl>
                             </li>
                         </#if>
@@ -769,7 +769,7 @@
                                         <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a></dt>
                                     <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${d.goods_id}.html">
                                         ${d.name?if_exists}</a></dd>
-                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b></dd>
+                                    <dd class="price"><b class="Item-price"><span>￥</span>${d.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a></dd>
                                 </dl>
                             </li>
                         </#if>
@@ -973,7 +973,9 @@
                                         <dt><a href="${rc.contextPath}/item-${a.goods_id}.html">
                                             <img src="${rc.contextPath}/upload/goods/${a.defaultImage}" /></a></dt>
                                         <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${a.goods_id}.html">${a.name?if_exists}</a></dd>
-                                        <dd class="price"><b class="Item-price">￥${a.salesMoney}</b></dd>
+                                        <dd class="price"><b class="Item-price">￥${a.salesMoney}</b>
+                                            <a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a>
+                                        </dd>
                                     </dl>
                                 </li>
                             </#if>

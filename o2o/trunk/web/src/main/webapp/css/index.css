@@ -276,6 +276,7 @@ ul li {float:left;list-style-type:none;
 }
 .nav-ul>ul>li:nth-child(2) {margin-left:36px;
 }
+.nav-ul>ul>li>a:hover{color: #572a27;}
 .secondary{display: none;}
     .hovers:hover .secondary{display: block;}
 .nav-ul>ul>li>a {color:#ff6a00;padding:16px;display:block;color:black;font-size:15px;font-family:'Microsoft YaHei';font-weight:400;
@@ -444,7 +445,7 @@ ul li {float:left;list-style-type:none;
 }
     .Showcase .Item-introduction .dd-Item-name a {color:#666;font-size: 12px;
     }
-.More {background-color:#572a27;font-size:12px;color:white;width:56px;line-height:22px;text-align:center;display:block;float:right;margin-right: 10px;
+.More {background-color:#572a27;font-size:12px;color:white;width:50px;line-height:20px;text-align:center;display:block;float:right;margin-right: 10px;
 }
 .Showcase .Item-introduction dd b {float:left;font-size: 18px;font-weight: 400;
 }
@@ -538,7 +539,7 @@ ul li {float:left;list-style-type:none;
 .floor-banner .Item-price {font-size:18px;font-weight: 400;
 }
 .floor-banner .Item-price span{font-size: 14px;}
-    .floor-banner .price {text-align:right;margin: 9px 6px 0 0;
+    .floor-banner .price {margin: 4px 6px 0 4px;
     }
 .price b {color:red;
 }
