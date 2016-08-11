@@ -46,7 +46,11 @@
             <ul class="head-ul">
                 <li><a href="${rc.contextPath}/huiyuan_order.html">我的订单</a></li>
                 <li><a href="javascript:void(0)">移动客户端</a></li>
-                <li><a href="javascript:void(0)">关注观红世家</a></li>
+                <li class="FocusOn"><a href="javascript:void(0)">关注观红世家</a>
+                    <div id="mobile_list">
+                        <img src="../img/erweima.png">
+                    </div>
+                </li>
                 <li><a href="javascript:void(0)">客服中心</a></li>
                 <li><a href="javascript:void(0)">全国热线&nbsp;4006487818</a></li>
             </ul>
