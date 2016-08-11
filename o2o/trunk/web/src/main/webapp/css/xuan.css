@@ -654,7 +654,7 @@ img{border:0px;}
 .gr_dingdan{ width:216px; height:auto; padding-bottom:20px;border:#dedede solid 1px; margin-top:10px}
 .gr_r{ width:auto; height:auto; margin-top:10px}
 .gr_ding_top{ width:194px; height:30px; margin:0 0 0 11px; line-height:30px; font-weight:bold; color:#454545; border-bottom:#e0e0e0 solid 1px}
-.gr_ding_kka{ width:194px; height:30px; margin:1px 0 0 11px; line-height:30px;color:#f0125b;background-color:#e0e0e0}
+.gr_ding_kka{ width:194px; height:30px; margin:1px 0 0 11px; line-height:30px;color:#c81523;background-color:#e0e0e0}
 .gr_ding_kka a{ width:194px; height:30px; display:block;line-height: 30px;}
 .gr_r_ti{width:953px; height:28px; background-color:#feffdf; border:#fadfb2 solid 1px; margin-left:5px; line-height:28px; padding-left:9px; color:#000000; overflow:hidden}
 .gr_r_ti02{width:953px; height:45px;border:#c2d8e5 solid 1px; margin-left:5px; line-height:28px; padding-left:9px; margin-top:30px}
@@ -1851,11 +1851,11 @@ a.zhu25:hover{color:#000000;font-size:14px; line-height:31px; text-align:center}
 
 a.zhu26:link{ color:#454545; background-color:#ffffff}
 a.zhu26:visited{ color:#454545;background-color:#ffffff}
-a.zhu26:hover{color:#f0125b;background-color:#e0e0e0}
+a.zhu26:hover{color:#c81523;background-color:#e0e0e0}
 
 a.zhu27:link{ color:#222222; font-family:Verdana, Arial, Helvetica, sans-serif}
 a.zhu27:visited{ color:#222222; font-family:Verdana, Arial, Helvetica, sans-serif}
-a.zhu27:hover{color:#f0125b; font-family:Verdana, Arial, Helvetica, sans-serif}
+a.zhu27:hover{color:#c81523; font-family:Verdana, Arial, Helvetica, sans-serif}
 
 a.zhu28:link{background-color:#f3f3f3;color:#676968; font-family:"微软雅黑"}
 a.zhu28:visited{background-color:#f3f3f3;color:#676968; font-family:"微软雅黑"}

@@ -18,17 +18,18 @@ function head() {
         var name = $(this).text();
         $(".Search-categories>label>span").text(name); $(".Search-categories>ul").hide();
     })
-    $(".FocusOn").hover(function () {
-        $("#mobile_list").show();
+    $(".FocusOn").mouseover(function () {
+        $('.FocusOn').removeClass('block');
+        $(this).addClass('block');
+        $('.FocusOn').find('i').attr('class','top')
+        $(this).find('i').attr('class','down');
+        $(this).children('.mobile_list').removeClass('none')
     })
-    $(document).mouseover(function (e) {
-        var _con = $('.FocusOn,#mobile_list');   // 设置目标区域
-        if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
-            $("#mobile_list").hide();
-        } else {
-            $("#mobile_list").show();
-        }
-    });
+    $('.FocusOn').mouseout(function () {
+        $('.FocusOn').removeClass('block');
+        $('.FocusOn').find('i').attr('class','top')
+        $(this).children('.mobile_list').addClass('none')
+    })
     /*$("#mobile_list").bind("mouseout",function () {
         $("#mobile_list").hide();
     })*/

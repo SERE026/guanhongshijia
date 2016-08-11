@@ -24,16 +24,24 @@ ul li {float:left;list-style-type:none;
 }
 .head-login {margin-left:15px;
 }
-#mobile_list{/*position: absolute;top: 0;left: 0;z-index: 4;*/display: none;position: absolute;
-    top:0;z-index: 4;}
-
+.mobile_list{border: 1px solid #ccc;width: 92px;height: 92px;text-align: center;background-color: white;border-top: none;margin: -1px 0 0 -1px;position: absolute;z-index: 5;}
+.mobile_list2{width: 110px;}
+.mobile_list img{margin-top: 5px;}
+.block {background-color: white;border-left: 1px solid #ccc;border-right: 1px solid #ccc;}
+.FocusOn a i{width: 12px;height: 12px;display: inline-block;background: url("../img/fonticon.png") no-repeat; }
+.FocusOn a .top{background-position: -433px -143px;}
+.FocusOn a .down{background-position: -456px -142px;}
 .PersonalInformation>a:hover{color: #572a27;text-decoration: underline;}
 .PersonalInformation{float: left;height: 30px;line-height: 30px;}
 .exit{margin-left: 8px;}
 .current_position{display: inline-block;padding: 2px 6px;background-color: red;color: white;}
-.head-ul {display:block;float:right;height:30px;width:510px;  }
-.head-ul li {line-height:30px;margin-left:24px;
+.head-ul {display:block;float:right;height:30px;width:537px;  }
+.head-ul li {line-height:30px;height: 30px;position: relative;
 }
+.head-ul li a{padding: 0 10px;}
+.head-ul .FocusOn a{padding: 0;}
+.head-ul li:nth-child(2){width: 92px;text-align: center;}
+.head-ul li:nth-child(3){width: 110px;text-align: center;}
 .head-ul li a:hover{color: #a30f05;text-decoration: underline; }
 .icon-top{background-image: url(../img/icon-top.png);width: 12px;height: 12px;display: inline-block;margin-left: 8px;}
 .icon-bottom{background-image: url(../img/icon-bottom.png);width: 12px;height: 12px;display: inline-block;margin-left: 8px;}
@@ -497,7 +505,7 @@ ul li {float:left;list-style-type:none;
 }
     .Floor > p {line-height:95px;
     }
-    .Floor .FloorImg {float:left;width:220px;height:563px;border:1px solid #572a27;padding-left:16px;
+    .Floor .FloorImg {float:left;width:220px;height:563px;border:1px solid #572a27;padding-left:16px;/*background: url('../img/FloorImg.gif') repeat;*/
     }
         .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:auto;margin-top:20px;font-weight:400!important;font-size:27px;display: inline-block;font-family: "Microsoft YaHei";
         }
