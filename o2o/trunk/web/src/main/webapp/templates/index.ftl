@@ -290,6 +290,7 @@
                     <li><a href="${rc.contextPath}/GoodList-1000204.html">茶室</a></li>
                     <li><a href="${rc.contextPath}/GoodList-1000107.html">办公系列</a></li>
                     <li><a href="${rc.contextPath}/GoodList-1000208.html">欧式红木</a></li>
+
                 </ul>
             </div>
         </div>
@@ -943,14 +944,18 @@
                 </div>
                 <img src="../img/08.png" style="margin-top:40px;" />
                <ul>
-                <#if brandList??>
-
+<#--                <#if brandList??>
                     <#else>
                     <#list brandList as p>
-                        <li><a href="javascript:void(0);"><img src="${rc.contextPath}${p.logo}"/></a></li>
-                        <#if p_index==3><#break></#if>
+                        <#if p_index gt 0 && p_index lt 5>
+                        <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${p.logo}"/></a></li>
+                        </#if>
                     </#list>
-                </#if>
+                </#if>-->
+    <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo1}"/></a></li>
+    <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo2}"/></a></li>
+    <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo3}"/></a></li>
+    <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo4}"/></a></li>
 
                 </ul>
             </div>
@@ -1021,13 +1026,18 @@
                 </div>
                 <img src="../img/08.png" style="margin-top:40px;" />
                <ul>
-                   <#if brandList??>
+<#--                   <#if brandList??>
                    <#else>
                     <#list brandList as p>
-                        <li><a href="javascript:void(0);"><img src="${rc.contextPath}${p.logo}"/></a></li>
-                        <#if p_index==3><#break></#if>
+                        <#if p_index gt 0 && p_index lt 5>
+                        <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${p.logo}"/></a></li>
+                        </#if>
                     </#list>
-                   </#if>
+                   </#if>-->
+                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo1}"/></a></li>
+                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo2}"/></a></li>
+                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo3}"/></a></li>
+                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo4}"/></a></li>
                 </ul>
             </div>
 

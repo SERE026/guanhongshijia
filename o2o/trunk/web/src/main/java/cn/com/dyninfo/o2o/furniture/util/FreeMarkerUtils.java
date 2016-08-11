@@ -193,6 +193,12 @@ public class FreeMarkerUtils {
             List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
             if (brandList != null && brandList.size() > 0) {
                 paramsMap.put("brandList", brandList);
+                if (brandList.size()>5){
+                    paramsMap.put("logo1", brandList.get(1).getLogo());
+                    paramsMap.put("logo2", brandList.get(2).getLogo());
+                    paramsMap.put("logo3", brandList.get(3).getLogo());
+                    paramsMap.put("logo4", brandList.get(4).getLogo());
+                }
             }
             //获取一级分类
             List<GoodsSort> goodsSortList5 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
@@ -275,6 +281,12 @@ public class FreeMarkerUtils {
             //获取品牌表数据
             List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
             paramsMap.put("brandList", brandList);
+            if (brandList.size()>5){
+                paramsMap.put("logo1", brandList.get(1).getLogo());
+                paramsMap.put("logo2", brandList.get(2).getLogo());
+                paramsMap.put("logo3", brandList.get(3).getLogo());
+                paramsMap.put("logo4", brandList.get(4).getLogo());
+            }
             //获取一级分类
             List<GoodsSort> goodsSortList5 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
             paramsMap.put("goodsSortList5",goodsSortList5);
@@ -351,6 +363,12 @@ public class FreeMarkerUtils {
             //获取品牌表数据
             List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
             paramsMap.put("brandList", brandList);
+            if (brandList.size()>5){
+                paramsMap.put("logo1", brandList.get(1).getLogo());
+                paramsMap.put("logo2", brandList.get(2).getLogo());
+                paramsMap.put("logo3", brandList.get(3).getLogo());
+                paramsMap.put("logo4", brandList.get(4).getLogo());
+            }
             //获取一级分类
             List<GoodsSort> goodsSortList5 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
             paramsMap.put("goodsSortList5",goodsSortList5);

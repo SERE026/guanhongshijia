@@ -161,6 +161,12 @@ public class WebIndexController{
         //获取品牌表数据
         List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
         mav.addAttribute("brandList", brandList);
+        if (brandList!=null&&brandList.size()>5){
+        mav.addAttribute("logo1", brandList.get(1).getLogo());
+        mav.addAttribute("logo2", brandList.get(2).getLogo());
+        mav.addAttribute("logo3", brandList.get(3).getLogo());
+        mav.addAttribute("logo4", brandList.get(4).getLogo());
+        }
         //获取一级分类
         List<GoodsSort> goodsSortList5 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
         mav.addAttribute("goodsSortList5",goodsSortList5);
