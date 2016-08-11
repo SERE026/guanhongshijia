@@ -1,5 +1,9 @@
 ﻿* {margin:0;padding:0;
 }
+input:focus,textarea:focus { outline: none !important;  }
+.kuai input:focus{-webkit-box-shadow: 0 0 4px 1px #b0b0b0 ;  box-shadow: 0 0 4px 1px white ; border-color: #b0b0b0 }
+
+.Search-Text:focus{-webkit-box-shadow: 0 0 4px 1px #572a27 ;  box-shadow: 0 0 4px 1px white ; border-color: #572a27}
 html{-webkit-text-size-adjust:none;font:12px/150% Arial, Verdana, "\5b8b\4f53";}
 .font14 {font-size:14px;
 }
