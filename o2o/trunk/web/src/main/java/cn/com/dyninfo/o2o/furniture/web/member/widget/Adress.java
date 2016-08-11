@@ -105,19 +105,20 @@ public class Adress extends AbstractMemberWidget{
 		if(pamtr.get("defaultId")!=null){//设置是否默认
 			List defaultList=addressMemberService.getListByWhere(new StringBuffer(" and n.member.huiYuan_id="+huiyuan.getHuiYuan_id()+" and n.isdefault=1"));
 			if(defaultList.size()>0){
-			for(int i=0;i<defaultList.size();i++){
-				AddressMember addressMember01 = (AddressMember) defaultList.get(i);
-				addressMember01.setIsdefault(0);
-				addressMemberService.updateObj(addressMember01);
-			
-			}
-				String defaultId=(String) pamtr.get("defaultId");
-				AddressMember adressinfo=(AddressMember) addressMemberService.getObjById(defaultId);
+				for(int i=0;i<defaultList.size();i++){
+					AddressMember addressMember01 = (AddressMember) defaultList.get(i);
+					addressMember01.setIsdefault(0);
+					addressMemberService.updateObj(addressMember01);
+
+				}
+			}else {
+				String defaultId = (String) pamtr.get("defaultId");
+				AddressMember adressinfo = (AddressMember) addressMemberService.getObjById(defaultId);
 				adressinfo.setIsdefault(1);
 				addressMemberService.updateObj(adressinfo);
-				
-					
-		}
+
+			}
+
 		}
 			
 	}	
