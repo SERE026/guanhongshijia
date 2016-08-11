@@ -49,6 +49,9 @@ public class Page implements IPage{
 					List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"' and n.isDefault=1 "));
 					if(list.size()>0){
 						request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
+					}else{
+						obj=areaService.getObjById("440300");
+						request.getSession().setAttribute(Context.SESSION_AEAR, obj);
 					}
 				}else{
 					AreaService areaService=SpringContext.getBean("areaService");
@@ -57,7 +60,6 @@ public class Page implements IPage{
 				}
 			}
 		}
-
 		Set<String> urlkeys=Context.regular.keySet();
 		String pageName=request.getServletPath();
 		pageName=pageName.substring(pageName.lastIndexOf("/"));
