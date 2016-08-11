@@ -26,6 +26,8 @@ import java.util.TimerTask;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -82,6 +84,10 @@ public class ContextListener implements ServletContextListener {
 			 ApplicationContext ac2 = WebApplicationContextUtils.getWebApplicationContext(arg0.getServletContext());
 			
 			ZffsDao z=(ZffsDao) ac2.getBean("zffsDao");
+			GoodsSortService goodsSortService=(GoodsSortService) ac2.getBean("goodsSortService");
+			//所有的分类  一级。二级,三级
+			List<GoodsSort> sortDataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
+
 			List<Zffs> zfb=(List<Zffs>) z.getListByWhere(new StringBuffer(" and n.type='0' and n.status='0' "));//支付宝
 			List<Zffs> wlzf=(List<Zffs>) z.getListByWhere(new StringBuffer(" and n.type='1' and n.status='0' "));//网银
 			if(zfb.size()>0){
@@ -105,7 +111,8 @@ public class ContextListener implements ServletContextListener {
 			data.put("description", web.getDescription());
 			data.put("keyword", web.getKeyWord());
 			data.put("applicationPath", arg0.getServletContext().getContextPath());
-			
+			data.put("sortDataList",sortDataList);
+
 			 if(web.getBgColor()!=null&&web.getBgColor().length()>0)
 				 data.put("bgColor", web.getBgColor());
 			 
