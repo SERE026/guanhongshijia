@@ -9,13 +9,13 @@ import java.util.List;
  */
 public class Recommend extends BaseEntity {
 
-    private String imageUrl;
+    private String imageUrl="";
 
-    private  String shortDesc;
+    private  String shortDesc="";
 
-    private  String goodsStory;
+    private  String goodsStory="";
 
-    private List<GoodsSummary> goodsSummaryList;
+    //private List<GoodsSummary> goodsSummaryList;
 
     public String getImageUrl() {
         return imageUrl;
@@ -25,13 +25,13 @@ public class Recommend extends BaseEntity {
         this.imageUrl = imageUrl;
     }
 
-    public List<GoodsSummary> getGoodsSummaryList() {
+    /*public List<GoodsSummary> getGoodsSummaryList() {
         return goodsSummaryList;
     }
 
     public void setGoodsSummaryList(List<GoodsSummary> goodsSummaryList) {
         this.goodsSummaryList = goodsSummaryList;
-    }
+    }*/
     public String getShortDesc() { return shortDesc; }
 
     public void setShortDesc(String shortDesc) { this.shortDesc = shortDesc; }
@@ -46,7 +46,6 @@ public class Recommend extends BaseEntity {
                 "imageUrl='" + imageUrl + '\'' +
                 ", shortDesc='" + shortDesc + '\'' +
                 ", goodsStory='" + goodsStory + '\'' +
-                ", goodsSummaryList=" + goodsSummaryList +
                 '}';
     }
 }

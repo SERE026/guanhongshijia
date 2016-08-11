@@ -74,15 +74,21 @@ public class AppGoodsController extends BaseAppController {
             for (int i = 0; i < goodsList.size(); i++) {
                 GoodsSummary goodsSummary = new GoodsSummary();
                 goodsSummary.setId(String.valueOf(goodsList.get(i).getGoods_id()));
-                goodsSummary.setTitle(goodsList.get(i).getName());
-                goodsSummary.setMainPicUrl(goodsList.get(i).getImg());
+                if(goodsList.get(i).getName()!=null){
+                    goodsSummary.setTitle(goodsList.get(i).getName());
+                }
+                if(goodsList.get(i).getImg()!=null){
+                    goodsSummary.setMainPicUrl(goodsList.get(i).getImg());
+                }
                 goodsSummary.setPrice(goodsList.get(i).getSalesMoney());
                 goodsLists.add(goodsSummary);
             }
             for (int i = 0; i < brandList.size(); i++) {
                 cn.com.dyninfo.o2o.entity.Brand brand = new cn.com.dyninfo.o2o.entity.Brand();
                 brand.setId(String.valueOf(brandList.get(i).getBrand_id()));
-                brand.setTitle(brandList.get(i).getName());
+                if(brandList.get(i).getName()!=null){
+                    brand.setTitle(brandList.get(i).getName());
+                }
                 brandLists.add(brand);
             }
         }
@@ -216,9 +222,15 @@ public class AppGoodsController extends BaseAppController {
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 Recommend recommend=new Recommend();
-                recommend.setShortDesc(list.get(i).getShortDesc());
-                recommend.setGoodsStory(list.get(i).getGoodsStory());
-                recommend.setImageUrl(list.get(i).getImg());
+                if(list.get(i).getShortDesc()!=null){
+                    recommend.setShortDesc(list.get(i).getShortDesc());
+                }
+                if(list.get(i).getGoodsStory()!=null){
+                    recommend.setGoodsStory(list.get(i).getGoodsStory());
+                }
+                if(list.get(i).getImg()!=null){
+                    recommend.setImageUrl(list.get(i).getImg());
+                }
                 recommend.setId(String.valueOf(list.get(i).getGoods_id()));
                 newList.add(recommend);
             }
@@ -258,9 +270,15 @@ public class AppGoodsController extends BaseAppController {
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 Recommend recommend=new Recommend();
-                recommend.setShortDesc(list.get(i).getShortDesc());
-                recommend.setGoodsStory(list.get(i).getGoodsStory());
-                recommend.setImageUrl(list.get(i).getImg());
+                if(list.get(i).getShortDesc()!=null){
+                    recommend.setShortDesc(list.get(i).getShortDesc());
+                }
+                if(list.get(i).getGoodsStory()!=null){
+                    recommend.setGoodsStory(list.get(i).getGoodsStory());
+                }
+                if(list.get(i).getImg()!=null){
+                    recommend.setImageUrl(list.get(i).getImg());
+                }
                 recommend.setId(String.valueOf(list.get(i).getGoods_id()));
                 groupList.add(recommend);
                 /*GoodsSummary goodsSummary = new GoodsSummary();
@@ -315,9 +333,15 @@ public class AppGoodsController extends BaseAppController {
                 goodsSummary.setPrice(list.get(i).getSalesMoney());
                 lists.add(goodsSummary);*/
                 Recommend recommend=new Recommend();
-                recommend.setShortDesc(list.get(i).getShortDesc());
-                recommend.setGoodsStory(list.get(i).getGoodsStory());
-                recommend.setImageUrl(list.get(i).getImg());
+                if(list.get(i).getShortDesc()!=null){
+                    recommend.setShortDesc(list.get(i).getShortDesc());
+                }
+                if(list.get(i).getGoodsStory()!=null){
+                    recommend.setGoodsStory(list.get(i).getGoodsStory());
+                }
+                if(list.get(i).getImg()!=null){
+                    recommend.setImageUrl(list.get(i).getImg());
+                }
                 recommend.setId(String.valueOf(list.get(i).getGoods_id()));
                 promotionList.add(recommend);
             }

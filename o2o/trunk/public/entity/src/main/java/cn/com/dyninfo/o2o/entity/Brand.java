@@ -7,7 +7,7 @@ import cn.com.dyninfo.o2o.entity.common.BaseEntity;
  */
 public class Brand extends BaseEntity {
     //商标名称
-    private String title;
+    private String title="";
 
     public String getTitle() {
         return title;
