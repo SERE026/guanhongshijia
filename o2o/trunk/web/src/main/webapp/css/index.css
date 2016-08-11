@@ -122,7 +122,7 @@ ul li {float:left;list-style-type:none;
 }
 .head-logo .Switch-city:hover{cursor: pointer}
 .head-logo .Switch-city i{position: absolute;top: 15px;right: 0;background-image: url("../img/fonticon.png");background-repeat: no-repeat;background-position:-388px -143px;width: 6px;height: 6px;display: inline-block;}
-.hide_city_group {position:absolute;top:1px;left:52px;display:none;text-align: left;
+.hide_city_group {position:absolute;top:1px;left:55px;display:none;text-align: left;
 }
 
 .hideMap {
@@ -270,7 +270,7 @@ ul li {float:left;list-style-type:none;
 }
     .nav-ul > ul > li:first-child > a {display:block;width:235px;text-align:center;line-height:52px;padding:0;color:white;background-color:#572a27;height: 52px;
     }
-    .nav-ul>ul>li>ul {/*display:none;*/background-color:#fff;z-index:4;position:absolute;top:52px;overflow: hidden;
+    .nav-ul>ul>li>ul {/*display:none;*/background-color:#fff;z-index:4;position:absolute;top:52px;overflow: hidden;height: auto;height: 485px;
     }
     .nav-ul>ul>li>ul>li {
         float:none;width:235px;
@@ -283,6 +283,8 @@ ul li {float:left;list-style-type:none;
 
 .prompt {position:relative;
 }
+.prompt :hover{color: #c81523;}
+.nav-ul>ul>li>ul>li:first-child>a:hover,.nav-ul>ul>li>ul>li:nth-child(3)>a:hover{color: black;}
 .three-level {
     position:absolute;top:52px;left:235px;width:366px;background-color:white;padding:0 1.5em 1em;z-index:4;display:none;
 }
@@ -386,15 +388,15 @@ ul li {float:left;list-style-type:none;
     .borderHover img{border: 1px solid white;}
 .hot-small {overflow:hidden;margin-top:40px;
 }
-    .hot-small ul {overflow:hidden;
+    .hot-small ul {overflow:hidden;margin-left: 2px;
     }
-        .hot-small ul li {margin-left:20px;
+        .hot-small ul li {margin-left:13px;
         }
             .hot-small ul li:first-child {margin:0;
             }
 .hot-small ul li a {
     display:block;
-    padding:8px 80px;
+    width: 229px;text-align: center;line-height: 35px;height: 35px;
     background-color:#572a27;
     /*margin-left:15px;*/
     color:white;

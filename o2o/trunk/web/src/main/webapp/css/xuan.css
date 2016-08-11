@@ -745,7 +745,7 @@ img{border:0px;}
 .gr_st_zong_k_caozuo a{width:32px; height:16px; display:block}
 
 .xiazhan{width:969px; height:auto; margin-top:50px;float: right;}
-.xiazhan_titi{width:952px; height:35px; line-height:35px; border-bottom:#dfdfdf solid 1px; margin-left:9px; color:#f0125b; font-size:14px; font-weight:bold; padding-left:9px}
+.xiazhan_titi{width:952px; height:35px; line-height:35px; border-bottom:#dfdfdf solid 1px; margin-left:9px; color:#c81523; font-size:14px; font-weight:bold; padding-left:9px}
 .xiazhan_kuai{width:952px;height:auto; margin-left:9px;}
 .xiazhan_kuai_jianleft{width:30px;height:236px; float:left}    
 .xiazhan_kuai_jianmiddle{width:709px;height:236px; float:left; overflow:hidden}   
@@ -895,7 +895,7 @@ img{border:0px;}
 .gr_dizhi_bao_shuru02{width:210px; height:24px; line-height:24px; border:#b0b0b0 solid 1px; color:#454545; font-size:12px; margin-left:10px; padding-left:8px}
 .gr_dizhi_bao_shuru03{width:310px; height:66px; line-height:24px; border:#b0b0b0 solid 1px; color:#454545; font-size:12px; margin-left:10px; padding-left:8px;resize:none;}
 .gr_dizhi_bao_shuru04{width:75px; height:24px; line-height:24px; border:#b0b0b0 solid 1px; color:#454545; font-size:12px; margin-left:10px; padding-left:8px}
-.gr_dizhi_bao_x{width:5px; height:12px; line-height:12px; float:left; color:#f0125b;margin-top:5px; font-size:10px}
+.gr_dizhi_bao_x{width:5px; height:12px; line-height:12px; float:left; color:#c81523;margin-top:5px; font-size:10px}
 .gr_dizhi_bao_fen{width:auto; height:auto; line-height:24px; float:left; text-align:center;margin-top:3px}
 .gr_dizhi_bao_fen22{width:auto; height:auto; line-height:24px; float:left; text-align:center;margin-top:3px; margin-left:10px; color:#454545}
 .gr_dizhi_danxuan{ width:18px; height:18px; float:left; margin-left:10px; margin-top:9px;display:inline}
@@ -1663,26 +1663,26 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
   
  /*2014.06.17*/   
    
-.STYLE1 {color: #f0125b;font-weight: bold; font-family:"微软雅黑"}
-.STYLE2 {color: #f0125b; font-size:14px; font-family:Verdana, Arial, Helvetica, sans-serif;}
-.STYLE3 {color: #f0125b; font-size:30px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.STYLE1 {color: #c81523;font-weight: bold; font-family:"微软雅黑"}
+.STYLE2 {color: #c81523; font-size:14px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.STYLE3 {color: #c81523; font-size:30px; font-family:Verdana, Arial, Helvetica, sans-serif;}
 .STYLE4 {color: #999999; font-size:14px; font-family:Verdana, Arial, Helvetica, sans-serif; text-decoration:line-through}
 .STYLE5 {color: #933800; font-weight:bold; font-family:"微软雅黑"}
-.STYLE6 {color: #f0125b; font-size:20px; font-family:Verdana, Arial, Helvetica, sans-serif;}
-.STYLE7 {color: #f0125b; font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.STYLE6 {color: #c81523; font-size:20px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.STYLE7 {color: #c81523; font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif;}
 .STYLE8 {color: #999999; font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif; text-decoration:line-through;}
-.STYLE9 {color: #f0125b;}
-.STYLE10 {color: #f0125b}
-.STYLE11 {color: #f0125b; font-size:24px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.STYLE9 {color: #c81523;}
+.STYLE10 {color: #c81523}
+.STYLE11 {color: #c81523; font-size:24px; font-family:Verdana, Arial, Helvetica, sans-serif;}
 .STYLE12 {color: #0dbfdd;font-family:"微软雅黑"}
 .STYLE13 {color: #444444;font-weight: bold;font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px}
 .STYLE14 {color: #ff0000;font-weight: bold;font-family:Verdana, Arial, Helvetica, sans-serif;}
 .STYLE15 {color: #f0125b;font-weight: bold;font-family:Verdana, Arial, Helvetica, sans-serif; font-size:16px}
-.STYLE16 {color: #FF0000}
+.STYLE16 {color: #c81523}
 .STYLE17 {color: #999999}
 .STYLE18{color: #666666; font-size:12px}
-.STYLE19 {color: #FF0000; font-weight:bold}
-.STYLE20{color: #FF0000; font-weight:bold; font-size:14px;font-family:Verdana, Arial, Helvetica, sans-serif;}
+.STYLE19 {color: #c81523; font-weight:bold}
+.STYLE20{color: #c81523; font-weight:bold; font-size:14px;font-family:Verdana, Arial, Helvetica, sans-serif;}
 .STYLE21 {font-family: Verdana, Arial, Helvetica, sans-serif}
 .STYLE22 {color: #3f4140;font-weight: bold;}
 .STYLE23 {color: #fe4504; font-weight:bold; font-family:Verdana, Arial, Helvetica, sans-serif}
@@ -1842,7 +1842,7 @@ a.zhu23:hover{background-image:url(../img/touming.gif); background-repeat:repeat
 
 a.zhu24:link{ color:#3465cb}
 a.zhu24:visited{ color:#3465cb}
-a.zhu24:hover{color:#f0125b}
+a.zhu24:hover{color:#c81523}
 
 
 a.zhu25:link{ color:#ffffff; font-size:14px; line-height:31px; text-align:center}

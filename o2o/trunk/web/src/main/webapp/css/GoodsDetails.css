@@ -1,27 +1,4 @@
 ﻿
-/*导航*/
-.navigation {width:100%;height:50px;
-}
-.nav-ul {width:64%;margin:0 auto;width:1200px;position:relative;
-}
-.nav-ul>ul {overflow:hidden;
-}
-.nav-ul>ul>li:nth-child(2) {margin-left:36px;
-}
-.nav-ul>ul>li>a {color:#ff6a00;padding:16px;display:block;color:black;font-size:15px;font-family:'Microsoft YaHei';font-weight:400;
-}
-    .nav-ul > ul > li:first-child > a {display:block;width:235px;text-align:center;line-height:50px;padding:0;color:white;
-    }
-    .nav-ul>ul>li>ul {background-color:#fff;z-index:1;position:absolute;top:50px;
-    }
-    .nav-ul>ul>li>ul>li {
-        float:none;width:235px;
-    }
-    .nav-ul>ul>li>ul>li>a {display:block;width:100%;line-height:37px;color:black;font-size:15px;font-weight:bold;
-    }
-        .nav-ul ul li ul li a img {margin:10px 16px -3px 37px;
-        }
-
 .prompt {position:relative;
 }
 .three-level {
@@ -39,18 +16,7 @@
         }
     .three-level > div > img {margin-top:20px;
     }
-.furniture {height:70px;overflow:hidden;
-}
-    .furniture ul{overflow:hidden;width:166px;float:left;margin-left:71px;
-    }
-    .furniture ul li{float:left;min-width:42px;
-    }
-        .furniture ul li a {line-height:22px;font-size:13px;color:#121212;
-        }
-        .furniture ul li:nth-child(3), .furniture ul li:nth-child(6) {width:82px;
-        }
-        .furniture ul li:last-child {width:166px;
-        }
+
       
 /*展示部分*/
 .Showcase {width:1200px;margin:0 auto;min-height:610px;
