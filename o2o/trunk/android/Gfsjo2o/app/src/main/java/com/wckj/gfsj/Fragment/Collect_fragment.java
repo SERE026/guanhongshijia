@@ -12,9 +12,9 @@ import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.AddFavoritesRequest;
 import com.wckj.gfsj.Bean.AddFavoritesResult;
-import com.wckj.gfsj.Bean.Commodity_level_three;
 import com.wckj.gfsj.Bean.FavoritesListRequest;
 import com.wckj.gfsj.Bean.FavoritesListResult;
+import com.wckj.gfsj.Bean.entity.GoodsSummary;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
@@ -31,7 +31,7 @@ import okhttp3.Call;
  */
 public class Collect_fragment extends BaseNewFragment implements View.OnClickListener {
     private View view;
-    private ArrayList<Commodity_level_three> mList;
+    private ArrayList<GoodsSummary> mList;
     private GridView gv_commodity_three;
     private CommonAdapter mlvAdapter;
 
@@ -67,9 +67,9 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
 
     private void bindData() {
         if(mlvAdapter==null){
-            mlvAdapter=  new CommonAdapter<Commodity_level_three>(view.getContext(),mList,R.layout.item_gv_commodity_three) {
+            mlvAdapter=  new CommonAdapter<GoodsSummary>(view.getContext(),mList,R.layout.item_gv_commodity_three) {
                 @Override
-                public void convert(ViewHolder helper, Commodity_level_three item, int position) {
+                public void convert(ViewHolder helper, GoodsSummary item, int position) {
                     helper.setText(R.id.tv_title_desc,"凳子");
 
 
@@ -91,7 +91,7 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
     protected void load() {
         mList = new ArrayList<>();
         for (int i = 0; i <8 ; i++) {
-            mList.add(new Commodity_level_three());
+            mList.add(new GoodsSummary());
         }
 //        getFavoritesList();
 //        addFavorites(1254 + "");

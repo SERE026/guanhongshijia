@@ -13,15 +13,14 @@ import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.CategoryGoodsListRequest;
 import com.wckj.gfsj.Bean.CategoryGoodsListResult;
-import com.wckj.gfsj.Bean.Commodity_level_three;
+import com.wckj.gfsj.Bean.entity.GoodsSummary;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
-
-import java.util.ArrayList;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 import okhttp3.Call;
 
@@ -30,7 +29,7 @@ import okhttp3.Call;
  */
 public class CommodityLevelThreeActivity extends BaseNewActivity implements View.OnClickListener {
     private View view;
-    private ArrayList<Commodity_level_three> mList;
+    private CategoryGoodsListResult json;
     private GridView gv_commodity_three;
     private CommonAdapter mlvAdapter;
     private TextView tv_brand_1,tv_brand_2,tv_brand_3,tv_time;
@@ -41,9 +40,10 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
     @Override
     protected void init() {
          categoryId = getIntent().getIntExtra("categoryId", -1);
-//        if(categoryId==-1){
-//            finish();
-//        }
+        if(categoryId==-1){
+            OwerToastShow.show("商品系列不存在");
+            finish();
+        }
     }
 
     @Override
@@ -83,12 +83,12 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
 
     private void bindData() {
         if(mlvAdapter==null){
-            mlvAdapter=  new CommonAdapter<Commodity_level_three>(this,mList,R.layout.item_gv_commodity_three) {
+            mlvAdapter=  new CommonAdapter<GoodsSummary>(this,json.getGoodsSummaryList(),R.layout.item_gv_commodity_three) {
                 @Override
-                public void convert(ViewHolder helper, Commodity_level_three item, int position) {
-                    helper.setText(R.id.tv_title_desc,"凳子");
-
-
+                public void convert(ViewHolder helper, GoodsSummary item, int position) {
+                    helper.setImageByUrl(R.id.iv_shopping_pic,item.getMainPicUrl());
+                    helper.setText(R.id.tv_name,"￥ "+item.getPrice());
+                    helper.setText(R.id.tv_title_desc,item.getTitle());
                 }
             };
             gv_commodity_three.setAdapter(mlvAdapter);
@@ -104,15 +104,12 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
 
     }
     protected void load() {
-        mList = new ArrayList<>();
-        for (int i = 0; i <8 ; i++) {
-            mList.add(new Commodity_level_three());
-        }
+
         tv_brand_1.setText("啊啊啊");
         tv_brand_2.setText("帮不帮");
         tv_brand_3.setText("错错错");
-//        getCategroyByList();
-        showPageState(FrameLoadLayout.LoadResult.success);
+        getCategroyByList();
+//
     }
 
     /**
@@ -122,13 +119,16 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
         CategoryGoodsListRequest request = new CategoryGoodsListRequest();
         request.setCategoryId(categoryId);
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_CATEGORY_URL, new ICallBack() {
+
             @Override
             public void onError(Call call, Exception e) {
+                showPageState(FrameLoadLayout.LoadResult.error);
             }
 
             @Override
             public void onSuccess(String response) {
-                CategoryGoodsListResult json = JSON.parseObject(response, CategoryGoodsListResult.class);
+                 json =  JSON.parseObject(response, CategoryGoodsListResult.class);
+                showPageState(checkData(json.getGoodsSummaryList()));
             }
         });
     }

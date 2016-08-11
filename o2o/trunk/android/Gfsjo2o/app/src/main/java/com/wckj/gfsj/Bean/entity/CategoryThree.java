@@ -3,10 +3,12 @@ package com.wckj.gfsj.Bean.entity;
 
 import com.wckj.gfsj.Bean.entity.common.BaseEntity;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2016/7/25.
  */
-public class CategoryThree extends BaseEntity {
+public class CategoryThree extends BaseEntity implements Serializable{
 
     //分类图片，主分类页面直接显示
     private String imageUrl;

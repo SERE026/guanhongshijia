@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.imageaware.ImageAware;
+import com.wckj.gfsj.Utils.ImageLoaderUtil;
 
 
 public class ViewHolder {
@@ -73,7 +72,11 @@ public class ViewHolder {
 	 */
 	public ViewHolder setText(int viewId, String text) {
 		TextView view = getView(viewId);
-		view.setText(text);
+		if(text!=null){
+			view.setText(text);
+		}else {
+			view.setText("");
+		}
 		return this;
 	}
 	/**
@@ -106,7 +109,7 @@ public class ViewHolder {
 	 * 为ImageView设置图片
 	 * 
 	 * @param viewId
-	 * @param drawableId
+	 * @param
 	 * @return
 	 */
 	public ViewHolder setImageBitmap(int viewId, Bitmap bm) {
@@ -119,13 +122,13 @@ public class ViewHolder {
 	 * 为ImageView设置图片
 	 * 
 	 * @param viewId
-	 * @param drawableId
+	 * @param
 	 * @return
 	 */
 	public ViewHolder setImageByUrl(int viewId, String url) {
 		ImageView view = getView(viewId);
 		if(view!=null&&url!=null){
-//			ImageLoader.getInstance().displayImage(url, (ImageAware) view);
+			ImageLoaderUtil.getInstance().displayImageView(url, view);
 		}
 		return this;
 	}

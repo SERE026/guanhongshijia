@@ -17,6 +17,7 @@ import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.SubCategoryRequest;
 import com.wckj.gfsj.Bean.SubCategoryResult;
+import com.wckj.gfsj.Bean.entity.CategoryThree;
 import com.wckj.gfsj.Bean.entity.CategoryTwo;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.StopViewPage;
@@ -53,9 +54,9 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
 
     @Override
     protected void init() {
-         id = getIntent().getIntExtra("id", 10001);
-        if(id==0){
-            OwerToastShow.show("该商品不存在");
+         id = getIntent().getIntExtra("id", -1);
+        if(id==-1){
+            OwerToastShow.show("该商品系列不存在");
             finish();
         }
     }
@@ -112,7 +113,7 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
             mlvAdapter = new CommonAdapter<CategoryTwo>(this, json.getCategoryList(), R.layout.item_lv_commodity_two) {
                 @Override
                 public void convert(ViewHolder helper, CategoryTwo item, int position) {
-                    helper.setText(R.id.tv_two_name, "凳子");
+                    helper.setText(R.id.tv_two_name, item.getTitle());
                     boolean colorSelector = item.isColorSelector();
                     if(colorSelector) {
                         helper.setBackgroundResource(R.id.tv_two_name, getResources().getColor(R.color.white));
@@ -138,7 +139,9 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
                 Commodity_level_two_fragment fragment = new Commodity_level_two_fragment();
                 Bundle bundle = new Bundle();
                 //给一些参数
-                bundle.putString("ceshi",i+"凳子");
+               bundle.putString("title",json.getCategoryList().get(i).getTitle());
+                List<CategoryThree> childrenList = json.getCategoryList().get(i).getChildrenList();
+                bundle.putSerializable("categoryThree",(ArrayList)childrenList);
                 fragment.setArguments(bundle);
                 pageList.add(fragment);
             }

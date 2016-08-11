@@ -13,6 +13,7 @@ public class SubCategoryResult extends PageResult {
 
     private List<CategoryTwo> categoryList;
 
+
     public List<CategoryTwo> getCategoryList() {
         return categoryList;
     }

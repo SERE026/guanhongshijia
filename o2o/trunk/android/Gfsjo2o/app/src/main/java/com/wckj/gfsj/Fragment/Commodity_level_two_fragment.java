@@ -13,7 +13,7 @@ import android.widget.GridView;
 import com.wckj.gfsj.Activity.CommodityLevelThreeActivity;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
-import com.wckj.gfsj.Bean.Commodity_level_three;
+import com.wckj.gfsj.Bean.entity.CategoryThree;
 import com.wckj.gfsj.R;
 
 import java.util.ArrayList;
@@ -25,23 +25,21 @@ public class Commodity_level_two_fragment extends Fragment{
 
     private GridView gv_two_commodity;
     private View view;
-    private ArrayList<Commodity_level_three> mList;
     private CommonAdapter mAapter;
     private String ceshi;
+    private ArrayList<CategoryThree> mCategotyList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
          view =  inflater.inflate(R.layout.fragment_gv_commodity_two, null);
         Bundle bundle = getArguments();
-         ceshi =  bundle.getString("ceshi");
-        gv_two_commodity = (GridView) view.findViewById(R.id.gv_two_commodity);
-        if(mList==null){
-            mList=new ArrayList<>();
+         ceshi =  bundle.getString("title");
+         mCategotyList =  (ArrayList) bundle.getSerializable("categoryThree");
+        if(mCategotyList==null){
+            mCategotyList=new ArrayList<>();
         }
 
-        for (int i = 0; i <9 ; i++) {
-            mList.add(new Commodity_level_three());
-        }
+        gv_two_commodity = (GridView) view.findViewById(R.id.gv_two_commodity);
         bindData();
         setListener();
         return view;
@@ -52,7 +50,9 @@ public class Commodity_level_two_fragment extends Fragment{
         gv_two_commodity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               Intent intent= new Intent(view.getContext(), CommodityLevelThreeActivity.class);
+                CategoryThree item = (CategoryThree) parent.getItemAtPosition(position);
+                Intent intent= new Intent(view.getContext(), CommodityLevelThreeActivity.class);
+                intent.putExtra("categoryId",Integer.parseInt(item.getId()));
                startActivity(intent);
             }
         });
@@ -64,10 +64,11 @@ public class Commodity_level_two_fragment extends Fragment{
 
     private void bindData() {
         if(mAapter==null){
-            mAapter=  new CommonAdapter<Commodity_level_three>(view.getContext(),mList,R.layout.item_gv_commodity_two) {
+            mAapter=  new CommonAdapter<CategoryThree>(view.getContext(),mCategotyList,R.layout.item_gv_commodity_two) {
                 @Override
-                public void convert(ViewHolder helper, Commodity_level_three item, int position) {
-                        helper.setText(R.id.tv_name,ceshi);
+                public void convert(ViewHolder helper, CategoryThree item, int position) {
+                        helper.setText(R.id.tv_name,item.getTitle());
+                    helper.setImageByUrl(R.id.iv_commodity_two,item.getImageUrl());
 
                 }
             };

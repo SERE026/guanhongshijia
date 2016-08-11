@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.wckj.gfsj.Bean.entity.Recommend;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.ImageLoaderUtil;
 
 import java.util.List;
 
@@ -53,10 +54,13 @@ public class RecommendAdapter extends BaseAdapter{
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-//        final Recommend item = (Recommend) getItem(position);
-        holder.iv_shopping_pic.setImageResource(R.drawable.icon_public_image);
-        holder.tv_name.setText("直降200快");
-        holder.tv_title_desc.setText("厂家直销快来购买");
+        final Recommend item = (Recommend) getItem(position);
+       ImageLoaderUtil.getInstance().displayImageView(item.getImageUrl(),holder.iv_shopping_pic);
+        if(item.getGoodsStory()!=null){
+            holder.tv_name.setText(item.getGoodsStory());
+        }
+
+        holder.tv_title_desc.setText(item.getShortDesc());
         return convertView;
     }
     static class ViewHolder {
