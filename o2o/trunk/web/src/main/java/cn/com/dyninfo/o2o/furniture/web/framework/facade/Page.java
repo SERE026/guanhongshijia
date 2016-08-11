@@ -13,26 +13,20 @@
 
 package cn.com.dyninfo.o2o.furniture.web.framework.facade;
 
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import cn.com.dyninfo.o2o.furniture.sys.error.ErrorMsg;
 import cn.com.dyninfo.o2o.furniture.util.CityTool;
 import cn.com.dyninfo.o2o.furniture.util.CookTool;
-
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.SpringContext;
 import cn.com.dyninfo.o2o.furniture.web.framework.facade.widget.WidgetXmlUtil;
-
+import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import freemarker.template.Template;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class Page implements IPage{
@@ -63,8 +57,7 @@ public class Page implements IPage{
 				}
 			}
 		}
-		
-		
+
 		Set<String> urlkeys=Context.regular.keySet();
 		String pageName=request.getServletPath();
 		pageName=pageName.substring(pageName.lastIndexOf("/"));
@@ -86,7 +79,7 @@ public class Page implements IPage{
 		String filePath=Context.webPath+Context.tempPath+"/widget.xml";
 		Map pageMap=WidgetXmlUtil.parsePage(filePath);//获取挂件
 		Map data=new HashMap(Context.freeMakerData);
-		
+
 		Map widgetMap=(Map) pageMap.get("common");
 		Set<String> keys=widgetMap.keySet();
 		for(String key:keys){
@@ -128,6 +121,10 @@ public class Page implements IPage{
 			if (request.getSession().getAttribute(Context.SESSION_MEMBER) != null) {
 				data.put(Context.SESSION_MEMBER, request.getSession().getAttribute(Context.SESSION_MEMBER));
 			}
+			GoodsSortService goodsSortService=SpringContext.getBean("goodsSortService");
+			List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
+			data.put("sortDataList", dataList);
+
 			t.process(data, response.getWriter());
 		}catch(Exception e){
 			ErrorMsg.sendMsg(e, request);
