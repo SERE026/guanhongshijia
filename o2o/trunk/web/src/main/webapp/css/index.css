@@ -264,13 +264,13 @@ ul li {float:left;list-style-type:none;
 }
 .nav-ul>ul>li:nth-child(2) {margin-left:36px;
 }
-    .nav-ul > ul > li:first-child {
-    }
+.secondary{display: none;}
+    .hovers:hover .secondary{display: block;}
 .nav-ul>ul>li>a {color:#ff6a00;padding:16px;display:block;color:black;font-size:15px;font-family:'Microsoft YaHei';font-weight:400;
 }
-    .nav-ul > ul > li:first-child > a {display:block;width:235px;text-align:center;line-height:50px;padding:0;color:white;background-color:#572a27;
+    .nav-ul > ul > li:first-child > a {display:block;width:235px;text-align:center;line-height:52px;padding:0;color:white;background-color:#572a27;height: 52px;
     }
-    .nav-ul>ul>li>ul {/*display:none;*/background-color:#fff;z-index:4;position:absolute;top:52px;
+    .nav-ul>ul>li>ul {/*display:none;*/background-color:#fff;z-index:4;position:absolute;top:52px;overflow: hidden;
     }
     .nav-ul>ul>li>ul>li {
         float:none;width:235px;

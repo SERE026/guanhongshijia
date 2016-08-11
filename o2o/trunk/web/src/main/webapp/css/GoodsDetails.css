@@ -12,7 +12,7 @@
 }
     .nav-ul > ul > li:first-child > a {display:block;width:235px;text-align:center;line-height:50px;padding:0;color:white;
     }
-    .nav-ul>ul>li>ul {display:none;background-color:#fff;z-index:1;position:absolute;top:50px;
+    .nav-ul>ul>li>ul {background-color:#fff;z-index:1;position:absolute;top:50px;
     }
     .nav-ul>ul>li>ul>li {
         float:none;width:235px;

@@ -411,10 +411,8 @@ ${widget_area}
     <div class="navigation">
         <div class="nav-ul">
             <ul>
-                <li><a class="Classification-goods" href="javascript:void(0)">所有商品分类</a>
-                    <ul>
-
-
+                <li class="hovers"><a class="Classification-goods all" href="javascript:void(0)">所有商品分类</a>
+                    <ul  class="secondary">
                         <#list sortDataList as p>
                             <#if p_index lt 10>
                                 <li data-id="${p.goodsSort_id}" class="prompt "><a href="javascript:void(0)">
@@ -500,6 +498,30 @@ ${widget_area}
     </div>
 </div>
 <script type="text/javascript">
+    $(function () {
+        prompt();
+    })
+
+    function prompt() {
+        var top,text,id='',cls;
+        $(".prompt").hover(function () {
+            top = $(this).position().top;
+            text = $(this).find("a").text();
+            id=$(this).attr('data-id');
+            console.log(id)
+        })
+        $(document).mouseover(function (e) {
+            var _con = $('.prompt,.three-level,.furniture ul');   // 设置目标区域
+            if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+                $(".three-level").hide();
+            } else {
+                $(".three-level").css("top", top + 52);
+                $(".three-level").hide();
+                $("#"+id).show();
+                $(".three-level h4 span").text(text);
+            }
+        });
+    }
     function exitdl(){
         $.ajax({
             type: 'POST',
@@ -557,4 +579,8 @@ $(".search").click(function () {
         var name = $(this).text();
         $(".Search-categories>label>span").text(name); $(".Search-categories>ul").hide();
     })
+    
+
+
+
 </script>
