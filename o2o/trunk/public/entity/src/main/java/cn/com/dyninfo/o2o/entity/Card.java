@@ -7,13 +7,13 @@ import cn.com.dyninfo.o2o.entity.common.BaseEntity;
  */
 public class Card extends BaseEntity {
     //银行卡号
-    private String cardNo;
+    private String cardNo="";
     //发卡行
-    private String bankName;
+    private String bankName="";
     //状态
-    private String status;
+    private String status="";
     //类型
-    private String type;
+    private String type="";
 
     public String getCardNo() {
         return cardNo;

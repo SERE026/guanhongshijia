@@ -8,11 +8,11 @@ import cn.com.dyninfo.o2o.entity.common.BaseEntity;
 public class Coupon extends BaseEntity {
 
     //名称
-    private String name;
+    private String name="";
     //开始时间
-    private String beginTime;
+    private String beginTime="";
     //过期时间
-    private String endTime;
+    private String endTime="";
     //1-代金券；2-折扣券
     private int type;
     //满减使用，抵扣金额

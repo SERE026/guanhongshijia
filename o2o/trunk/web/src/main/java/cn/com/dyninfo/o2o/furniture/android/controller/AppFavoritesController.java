@@ -74,9 +74,15 @@ public class AppFavoritesController extends BaseAppController {
             for (int i = 0; i < list.size(); i++) {
                 Goods good=list.get(i).getGood();
                 GoodsSummary goodsSummary = new GoodsSummary();
-                goodsSummary.setId(String.valueOf(good.getGoods_id()));
-                goodsSummary.setTitle(good.getName());
-                goodsSummary.setMainPicUrl(good.getDefaultImage());
+                if(String.valueOf(good.getGoods_id())!=null){
+                    goodsSummary.setId(String.valueOf(good.getGoods_id()));
+                }
+                if(good.getName()!=null){
+                    goodsSummary.setTitle(good.getName());
+                }
+                if(good.getDefaultImage()!=null){
+                    goodsSummary.setMainPicUrl(good.getDefaultImage());
+                }
                 goodsSummary.setPrice(good.getSalesMoney());
                 lists.add(goodsSummary);
             }

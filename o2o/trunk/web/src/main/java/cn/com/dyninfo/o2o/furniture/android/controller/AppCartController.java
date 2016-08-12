@@ -114,12 +114,18 @@ public class AppCartController extends BaseAppController {
             for (int i = 0; i < list.size(); i++) {
               //  CarsBox carinfo = (CarsBox) list.get(i);
                 CartItem cartItem = new CartItem();
-                cartItem.setId(list.get(i).getCars_box_id());
+                if(list.get(i).getCars_box_id()!=null){
+                    cartItem.setId(list.get(i).getCars_box_id());
+                }
                 cartItem.setCount(list.get(i).getNum()); //数量
                 GoodsDetail goodsDetail = new GoodsDetail();
-                goodsDetail.setName(list.get(i).getGoods().getName());//商品名称
+                if(list.get(i).getGoods().getName()!=null){
+                    goodsDetail.setName(list.get(i).getGoods().getName());//商品名称
+                }
                 //goodsDetail.setSpecList(); //参数列表
-                goodsDetail.setShortDesc(list.get(i).getGoods().getShortDesc());  //商品说明，显示在商品名称下方
+                if(list.get(i).getGoods().getShortDesc()!=null){
+                    goodsDetail.setShortDesc(list.get(i).getGoods().getShortDesc());  //商品说明，显示在商品名称下方
+                }
                 goodsDetail.setPrice(list.get(i).getGoods().getSalesMoney()); //商品价格
               //  goodsDetail.setCategory();//商品类别
               //  goodsDetail.setBrand();  //品牌
@@ -132,7 +138,9 @@ public class AppCartController extends BaseAppController {
                     }
                 }
                 goodsDetail.setImageList(imageList); //图片列表
-                goodsDetail.setGoodsDesc(list.get(i).getGoods().getDescription()); //商品详情，html格式
+                if(list.get(i).getGoods().getDescription()!=null){
+                    goodsDetail.setGoodsDesc(list.get(i).getGoods().getDescription()); //商品详情，html格式
+                }
               //  cartItem.setSpecValue();//商品参数值，内部已关联了对应的商品参数
                 cartItem.setGoodsDetail(goodsDetail);  //商品信息
                 itemList.add(cartItem);

@@ -61,10 +61,18 @@ public class AppOrderController extends BaseAppController {
             for (int i = 0; i < list.size(); i++) {
                 cn.com.dyninfo.o2o.furniture.admin.model.Coupon c=list.get(i);
                 Coupon coupon = new Coupon();
-                coupon.setId(String.valueOf(c.getId()));
-                coupon.setName(c.getName());
-                coupon.setBeginTime(c.getBeginTime());
-                coupon.setEndTime(c.getEndTime());
+                if(String.valueOf(c.getId())!=null){
+                    coupon.setId(String.valueOf(c.getId()));
+                }
+                if(c.getName()!=null){
+                    coupon.setName(c.getName());
+                }
+                if(c.getBeginTime()!=null){
+                    coupon.setBeginTime(c.getBeginTime());
+                }
+                if(c.getEndTime()!=null){
+                    coupon.setEndTime(c.getEndTime());
+                }
                 coupon.setType(c.getType());
                 coupon.setReduceValue(c.getReduceValue());
                 coupon.setDiscountValue(c.getDiscountValue());
@@ -116,10 +124,16 @@ public class AppOrderController extends BaseAppController {
             for (int i = 0; i < list.size(); i++) {
                 cn.com.dyninfo.o2o.furniture.web.order.model.Order c=list.get(i);
                 Order order = new Order();
-                order.setId(String.valueOf(c.getOrder_id()));
-                order.setDate(String.valueOf(c.getCreatTime()));//订单日期
+                if(String.valueOf(c.getOrder_id())!=null){
+                    order.setId(String.valueOf(c.getOrder_id()));
+                }
+                if(String.valueOf(c.getCreatTime())!=null){
+                    order.setDate(String.valueOf(c.getCreatTime()));//订单日期
+                }
                 order.setState(Integer.parseInt(c.getState())); //状态
-                order.setReceiveName(c.getReceiveName()); //收货人姓名
+                if(c.getReceiveName()!=null){
+                    order.setReceiveName(c.getReceiveName()); //收货人姓名
+                }
                 order.setOrderPrice(c.getOrderPrice()); //订单金额
                 order.setPayType(Integer.parseInt(c.getPayType()));//支付方式：1-支付宝；2-银联；10-线下；11-支付宝+线下；12-银联+线下
                 List<CartItem> cartItemList=new ArrayList<CartItem>();

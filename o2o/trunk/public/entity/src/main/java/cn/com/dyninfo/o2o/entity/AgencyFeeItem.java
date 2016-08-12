@@ -8,13 +8,13 @@ import cn.com.dyninfo.o2o.entity.common.BaseEntity;
 public class AgencyFeeItem extends BaseEntity {
 
     //订单完成日期
-    private String date;
+    private String date="";
     //订单号
-    private String orderNo;
+    private String orderNo="";
     //商品总价（去除优惠券抵扣价格）
     private double price;
     //佣金比率
-    private String percent;
+    private String percent="";
     //佣金金额
     private double amount;
 

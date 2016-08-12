@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class GoodsSpec extends BaseEntity {
 
-    private String name;
+    private String name="";
 
     private List<GoodsSpecValue> specValueList;
 

@@ -9,13 +9,25 @@ import java.util.List;
  */
 public class GoodsDetail extends BaseEntity {
     //商品名称
-    private String name;
+    private String name="";
     //参数列表
     private List<GoodsSpec> specList;
     //商品说明，显示在商品名称下方
-    private String shortDesc;
+    private String shortDesc="";
     //商品价格
     private double price;
+    
+    //商品类型
+    private String type="";
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     //商品类别
 //    private Category category;
     //品牌

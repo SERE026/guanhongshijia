@@ -65,9 +65,15 @@ public class AppCategoryController extends BaseAppController {
         if(!ValidationUtil.isEmpty(list)) {
             for (int i = 0; i < 11; i++) {
                 Category category = new Category();
-                category.setId(String.valueOf(list.get(i).getGoodsSort_id()));
-                category.setTitle(list.get(i).getName());
-                category.setImageUrl(list.get(i).getImagesrc());
+                if(String.valueOf(list.get(i).getGoodsSort_id())!=null){
+                    category.setId(String.valueOf(list.get(i).getGoodsSort_id()));
+                }
+                if(list.get(i).getName()!=null){
+                    category.setTitle(list.get(i).getName());
+                }
+                if(list.get(i).getImagesrc()!=null){
+                    category.setImageUrl(list.get(i).getImagesrc());
+                }
                 category.setSortOrder(list.get(i).getIndex());
                 lists.add(category);
             }
@@ -108,9 +114,16 @@ public class AppCategoryController extends BaseAppController {
                 for (int i = 0; i < list.size(); i++) {
                     List<CategoryThree> list2=new ArrayList<CategoryThree>();
                     CategoryTwo category = new CategoryTwo();
-                    category.setId(String.valueOf(list.get(i).getGoodsSort_id()));
-                    category.setTitle(list.get(i).getName());
-                    category.setImageUrl(list.get(i).getImagesrc());
+                    if(String.valueOf(list.get(i).getGoodsSort_id())!=null){
+                        category.setId(String.valueOf(list.get(i).getGoodsSort_id()));
+
+                    }
+                    if(list.get(i).getName()!=null){
+                        category.setTitle(list.get(i).getName());
+                    }
+                    if(list.get(i).getImagesrc()!=null){
+                        category.setImageUrl(list.get(i).getImagesrc());
+                    }
                     category.setSortOrder(list.get(i).getIndex());
 
                     List<GoodsSort> list3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+list.get(i).getGoodsSort_id()));
@@ -121,9 +134,15 @@ public class AppCategoryController extends BaseAppController {
                                 break;
                             }
                             CategoryThree categoryThree = new CategoryThree();
-                            categoryThree.setId(String.valueOf(goodsList.get(j).getGoodsSort_id()));
-                            categoryThree.setImageUrl(goodsList.get(j).getImagesrc());
-                            categoryThree.setTitle(goodsList.get(j).getName());
+                            if(String.valueOf(goodsList.get(j).getGoodsSort_id())!=null){
+                                categoryThree.setId(String.valueOf(goodsList.get(j).getGoodsSort_id()));
+                            }
+                            if(goodsList.get(j).getImagesrc()!=null){
+                                categoryThree.setImageUrl(goodsList.get(j).getImagesrc());
+                            }
+                            if(goodsList.get(j).getName()!=null){
+                                categoryThree.setTitle(goodsList.get(j).getName());
+                            }
                             categoryThree.setSortOrder(goodsList.get(j).getIndex());
                             list2.add(categoryThree);
                         }
@@ -169,9 +188,15 @@ public class AppCategoryController extends BaseAppController {
         if(!ValidationUtil.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
                 Category category = new Category();
-                category.setId(String.valueOf(list.get(i).getGoodsSort_id()));
-                category.setTitle(list.get(i).getName());
-                category.setImageUrl(list.get(i).getImagesrc());
+                if(String.valueOf(list.get(i).getGoodsSort_id())!=null){
+                    category.setId(String.valueOf(list.get(i).getGoodsSort_id()));
+                }
+                if(list.get(i).getName()!=null){
+                    category.setTitle(list.get(i).getName());
+                }
+                if(list.get(i).getImagesrc()!=null){
+                    category.setImageUrl(list.get(i).getImagesrc());
+                }
                 category.setSortOrder(list.get(i).getIndex());
                 lists.add(category);
             }

@@ -8,19 +8,19 @@ import cn.com.dyninfo.o2o.entity.common.BaseEntity;
 public class Personal extends BaseEntity {
 
     //昵称
-    private String nickName;
+    private String nickName="";
     //真实姓名
-    private String realName;
+    private String realName="";
     //手机号码
-    private String mobileNo;
+    private String mobileNo="";
     //邮箱
-    private String email;
+    private String email="";
     //生日
-    private String birthday;
+    private String birthday="";
     //电话号码
-    private String phoneNo;
+    private String phoneNo="";
     //地址
-    private String address;
+    private String address="";
 
     public String getNickName() {
         return nickName;

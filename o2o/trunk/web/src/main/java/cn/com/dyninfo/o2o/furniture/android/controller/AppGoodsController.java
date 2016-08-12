@@ -73,7 +73,9 @@ public class AppGoodsController extends BaseAppController {
         if(goodsList.size()>0&&brandList.size()>0) {
             for (int i = 0; i < goodsList.size(); i++) {
                 GoodsSummary goodsSummary = new GoodsSummary();
-                goodsSummary.setId(String.valueOf(goodsList.get(i).getGoods_id()));
+                if(String.valueOf(goodsList.get(i).getGoods_id())!=null){
+                    goodsSummary.setId(String.valueOf(goodsList.get(i).getGoods_id()));
+                }
                 if(goodsList.get(i).getName()!=null){
                     goodsSummary.setTitle(goodsList.get(i).getName());
                 }
@@ -85,7 +87,9 @@ public class AppGoodsController extends BaseAppController {
             }
             for (int i = 0; i < brandList.size(); i++) {
                 cn.com.dyninfo.o2o.entity.Brand brand = new cn.com.dyninfo.o2o.entity.Brand();
-                brand.setId(String.valueOf(brandList.get(i).getBrand_id()));
+                if(String.valueOf(brandList.get(i).getBrand_id())!=null){
+                    brand.setId(String.valueOf(brandList.get(i).getBrand_id()));
+                }
                 if(brandList.get(i).getName()!=null){
                     brand.setTitle(brandList.get(i).getName());
                 }
@@ -124,12 +128,20 @@ public class AppGoodsController extends BaseAppController {
         List list=goodsService.getListByWhere(new StringBuffer(" and n.goods_id="+goodsDetailRequest.getId()));
         if(!ValidationUtil.isEmpty(list)){
                Goods goods=(Goods)list.get(0);
+            if(goods.getName()!=null){
                 detail.setName(goods.getName());
+            }
+            if(String.valueOf(goods.getGoods_id())!=null){
                 detail.setId(String.valueOf(goods.getGoods_id()));
+            }
+            if(goods.getShortDesc()!=null){
                 detail.setShortDesc(goods.getShortDesc());
+            }
                 detail.setSaleCount(goods.getNum());
                 detail.setPrice(goods.getSalesMoney());
+            if(goods.getGoodsDescription()!=null){
                 detail.setGoodsDesc(goods.getGoodsDescription());
+            }
                 String[] arr=goods.getImages().split(";");
                 if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
                     for (int i = 0; i <arr.length; i++) {
@@ -172,12 +184,20 @@ public class AppGoodsController extends BaseAppController {
                 for (int i = 0; i < list.size(); i++) {
                     Goods goods = list.get(i);
                     GoodsDetail detail = new GoodsDetail();
-                    detail.setName(goods.getName());
-                    detail.setId(String.valueOf(goods.getGoods_id()));
-                    detail.setShortDesc(goods.getShortDesc());
+                    if(goods.getName()!=null){
+                        detail.setName(goods.getName());
+                    }
+                    if(String.valueOf(goods.getGoods_id())!=null){
+                        detail.setId(String.valueOf(goods.getGoods_id()));
+                    }
+                    if(goods.getShortDesc()!=null){
+                        detail.setShortDesc(goods.getShortDesc());
+                    }
                     detail.setSaleCount(goods.getNum());
                     detail.setPrice(goods.getSalesMoney());
-                    detail.setGoodsDesc(goods.getGoodsDescription());
+                    if(goods.getGoodsDescription()!=null){
+                        detail.setGoodsDesc(goods.getGoodsDescription());
+                    }
 //                    String[] arr=goods.getImages().split(";");
 //                    if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
                     imageList.add(goods.getDefaultImage());
@@ -231,7 +251,9 @@ public class AppGoodsController extends BaseAppController {
                 if(list.get(i).getImg()!=null){
                     recommend.setImageUrl(list.get(i).getImg());
                 }
-                recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                if(String.valueOf(list.get(i).getGoods_id())!=null){
+                    recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                }
                 newList.add(recommend);
             }
         }
@@ -279,7 +301,9 @@ public class AppGoodsController extends BaseAppController {
                 if(list.get(i).getImg()!=null){
                     recommend.setImageUrl(list.get(i).getImg());
                 }
-                recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                if(String.valueOf(list.get(i).getGoods_id())!=null){
+                    recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                }
                 groupList.add(recommend);
                 /*GoodsSummary goodsSummary = new GoodsSummary();
                 goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
@@ -342,7 +366,9 @@ public class AppGoodsController extends BaseAppController {
                 if(list.get(i).getImg()!=null){
                     recommend.setImageUrl(list.get(i).getImg());
                 }
-                recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                if(String.valueOf(list.get(i).getGoods_id())!=null){
+                    recommend.setId(String.valueOf(list.get(i).getGoods_id()));
+                }
                 promotionList.add(recommend);
             }
             /*recommend.setGoodsSummaryList(lists);
@@ -375,9 +401,15 @@ public class AppGoodsController extends BaseAppController {
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 GoodsSummary goodsSummary = new GoodsSummary();
-                goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
-                goodsSummary.setTitle(list.get(i).getName());
-                goodsSummary.setMainPicUrl(list.get(i).getImg());
+                if(String.valueOf(list.get(i).getGoods_id())!=null){
+                    goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
+                }
+                if(list.get(i).getName()!=null){
+                    goodsSummary.setTitle(list.get(i).getName());
+                }
+                if(list.get(i).getImg()!=null){
+                    goodsSummary.setMainPicUrl(list.get(i).getImg());
+                }
                 goodsSummary.setPrice(list.get(i).getSalesMoney());
                 lists.add(goodsSummary);
             }
