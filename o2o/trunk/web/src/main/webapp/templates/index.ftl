@@ -974,7 +974,7 @@
                                             <img src="${rc.contextPath}/upload/goods/${a.defaultImage}" /></a></dt>
                                         <dd class=""><a class="Introduction" href="${rc.contextPath}/item-${a.goods_id}.html">${a.name?if_exists}</a></dd>
                                         <dd class="price"><b class="Item-price">￥${a.salesMoney}</b>
-                                            <a class="More" href="${rc.contextPath}/item-${d.goods_id}.html">MORE</a>
+                                            <a class="More" href="${rc.contextPath}/item-${a.goods_id}.html">MORE</a>
                                         </dd>
                                     </dl>
                                 </li>
