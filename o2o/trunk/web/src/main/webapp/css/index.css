@@ -510,7 +510,7 @@ ul li {float:left;list-style-type:none;
 }
     .Floor > p {line-height:95px;
     }
-    .Floor .FloorImg {float:left;width:220px;height:563px;border:1px solid #572a27;padding-left:16px;/*background: url('../img/FloorImg.gif') repeat;*/
+    .Floor .FloorImg {float:left;width:220px;height:616px;border:1px solid #572a27;padding-left:16px;/*background: url('../img/FloorImg.gif') repeat;*/
     }
         .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:auto;margin-top:20px;font-weight:400!important;font-size:27px;display: inline-block;font-family: "Microsoft YaHei";
         }
@@ -528,7 +528,7 @@ ul li {float:left;list-style-type:none;
 }
 .floor-banner ul {width:958px;overflow:hidden;margin-left:5px;float:left;
 }
-.floor-banner ul li {width:232px;height:278px;border:1px solid #ebebeb;margin-left: 5px;
+.floor-banner ul li {width:232px;height:305px;border:1px solid #ebebeb;margin-left: 5px;
 }
 .floor-banner ul li:nth-child(5),.floor-banner ul li:nth-child(6),.floor-banner ul li:nth-child(7),.floor-banner ul li:nth-child(8){margin-top: 5px;}
 .floor-banner ul li:hover{border:1px solid #572a27}
@@ -550,7 +550,7 @@ ul li {float:left;list-style-type:none;
 .ItemPrice b {color:red;font-size:18px;font-weight: 400;
 }
 .ItemPrice b span{font-size: 14px;}
-    .floor-banner ul li img {width:218px;height:193px;
+    .floor-banner ul li img {width:218px;height:218px;
     }
 .floor-banner > div {overflow:hidden;float:left;
 }
