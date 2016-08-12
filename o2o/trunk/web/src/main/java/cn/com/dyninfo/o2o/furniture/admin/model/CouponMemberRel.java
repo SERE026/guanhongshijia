@@ -15,6 +15,7 @@ public class CouponMemberRel {
     @Id
     @AccessType(value = "property")
     @Column(name="ID")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
 
