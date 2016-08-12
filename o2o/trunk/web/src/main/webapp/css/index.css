@@ -288,7 +288,7 @@ ul li {float:left;list-style-type:none;
     .nav-ul>ul>li>ul>li {
         float:none;width:235px;
     }
-    .nav-ul>ul>li>ul>li>a {display:block;width:100%;line-height:34px;color:black;font-size:15px;font-weight:bold;height: 34px;
+    .nav-ul>ul>li>ul>li>a {display:block;width:100%;line-height:33px;color:black;font-size:15px;font-weight:bold;height: 33px;
     }
 .nav-ul>ul>li>ul>li>a>span{float: left;}
         .nav-ul ul li ul li a img {margin:6px 16px -3px 37px;width: 25px;height: 22px;float: left;
@@ -318,11 +318,11 @@ ul li {float:left;list-style-type:none;
         }
     .three-level > div >a > img {margin-top:20px;width: 364px;
     }
-.furniture {height:72px;overflow:hidden;
+.furniture {height:66px;overflow:hidden;
 }
     .furniture ul{overflow:hidden;width:166px;float:left;margin-left:71px;
     }
-    .furniture ul li{float:left;padding: 1px 8px;
+    .furniture ul li{float:left;padding: 0px 8px;
     }
         .furniture ul li a {line-height:22px;font-size:13px;color:#121212;
         }
