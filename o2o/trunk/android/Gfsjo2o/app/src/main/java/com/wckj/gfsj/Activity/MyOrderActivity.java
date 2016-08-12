@@ -66,6 +66,8 @@ public class MyOrderActivity extends BaseNewActivity implements View.OnClickList
         initView();
 //        evalOrder(1000+"", 2, 3, 3, 0);
 //        queryOrder(-1);
+        mOrderViewPager.setCurrentItem(0);
+        textViews[0].setTextColor(getResources().getColor(R.color.color_d77f18));
         return view;
     }
 
@@ -109,7 +111,6 @@ public class MyOrderActivity extends BaseNewActivity implements View.OnClickList
             textViews[i].setOnClickListener(this);
         }
 
-
         if (mOrderViewPager == null) {
             mOrderViewPager = (ViewPager) view.findViewById(R.id.vp_order);
         }
@@ -117,7 +118,6 @@ public class MyOrderActivity extends BaseNewActivity implements View.OnClickList
         if (adapter == null && pageList.isEmpty()) {
             // 添加子页
             pageList.add(new AllOrderFragment());
-            textViews[0].setTextColor(getResources().getColor(R.color.color_d77f18));
             pageList.add(new WaitPayFragment());
             pageList.add(new WaitReceiptFragment());
             pageList.add(new WaitEvaluateFragment());
