@@ -144,7 +144,6 @@ public class HttpUtils {
         try {
             RecommendGroupGoodsResult result = HttpUtils.syncPost(loginRequest, GOODS_GROUPRECOMMEND_URL, RecommendGroupGoodsResult.class);
             System.out.println(result.getResultCode());
-            System.out.println(result.getGroupList().get(0).getGoodsSummaryList().get(2).getPrice());
         } catch (IOException e) {
             e.printStackTrace();
         }
