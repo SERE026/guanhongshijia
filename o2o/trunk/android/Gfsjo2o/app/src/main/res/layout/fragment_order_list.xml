@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_wait_evaluate"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_e5e3e2">
+
+        <TextView
+            android:id="@+id/tv_recent_three_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="5%"
+            app:layout_marginBottomPercent="2%"
+            android:text="近三个月订单"
+            android:textColor="@color/color_202020"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_order_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_recent_three_month"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="13%"
+            app:layout_marginBottomPercent="2%"
+            android:text="订单详情"
+            android:textColor="@color/color_202020"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_order_detail"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="10%"
+            app:layout_marginBottomPercent="2%"
+            android:text="收货人"
+            android:textColor="@color/color_202020"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_customer"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginBottomPercent="2%"
+            android:text="金额"
+            android:textColor="@color/color_202020"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_all_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_money"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginBottomPercent="2%"
+            android:text="全部状态"
+            android:textColor="@color/color_202020"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_operate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_all_status"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginBottomPercent="2%"
+            android:text="操作"
+            android:textColor="@color/color_202020"
+            android:textSize="12sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/tv_recent_three_month"
+            android:background="@color/color_fff4e8"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_recent_three_month"
+            app:layout_marginTopPercent="1%"
+            app:layout_marginLeftPercent="5%"
+            app:layout_marginBottomPercent="1%"
+            android:text="2016-06-17 14:38:00"
+            android:textColor="@color/color_202020"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/tv_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_recent_three_month"
+            android:layout_toRightOf="@id/tv_date"
+            app:layout_marginTopPercent="1%"
+            app:layout_marginLeftPercent="8%"
+            app:layout_marginBottomPercent="1%"
+            android:text="订单号：198454545"
+            android:textColor="@color/color_202020"
+            android:textSize="12sp"/>
+
+    </android.support.percent.PercentRelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_commodity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_head"/>
+
+</android.support.percent.PercentRelativeLayout>
