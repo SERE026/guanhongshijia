@@ -1036,10 +1036,10 @@
                         </#if>
                     </#list>
                    </#if>-->
-                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo1}"/></a></li>
-                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo2}"/></a></li>
-                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo3}"/></a></li>
-                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo4}"/></a></li>
+                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo1?if_exists}"/></a></li>
+                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo2?if_exists}"/></a></li>
+                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo3?if_exists}"/></a></li>
+                   <li><a href="javascript:void(0);"><img src="${rc.contextPath}/upload/goods/${logo4?if_exists}"/></a></li>
                 </ul>
             </div>
 
