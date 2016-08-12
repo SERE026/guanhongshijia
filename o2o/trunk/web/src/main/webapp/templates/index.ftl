@@ -13,7 +13,7 @@
                 data: "widget=loginBar&exitdl=1",
                 dataType: "html",
                 success: function(data){
-                    window.location.href="index.htm";
+                    window.location.href="index.html";
                 }
             });
         }
