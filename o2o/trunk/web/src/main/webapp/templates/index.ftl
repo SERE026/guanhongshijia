@@ -610,7 +610,7 @@
             <div>
                 <ul class="borderHover">
                     <#list goodsList1 as d>
-                        <#if d_index lt 6 >
+                        <#if d_index lt 8 >
                             <li>
                                 <dl class="">
                                     <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -624,7 +624,7 @@
                     </#list>
                 </ul>
             </div>
-            <div class="floor-banner-img">
+            <#--<div class="floor-banner-img">
                 <#list goodsList1 as d>
                     <#if d_index == 7>
                        <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
@@ -633,7 +633,7 @@
                     <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
                     </#if>
                 </#list>
-            </div>
+            </div>-->
         </div>
         <div class="Floor-bottom">
             <br />
@@ -686,7 +686,7 @@
             <div>
                 <ul class="borderHover">
                     <#list goodsList2 as d>
-                        <#if d_index lt 6 >
+                        <#if d_index lt 8 >
                             <li>
                                 <dl class="">
                                     <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -700,7 +700,7 @@
                     </#list>
                 </ul>
             </div>
-            <div class="floor-banner-img">
+            <#--<div class="floor-banner-img">
                 <#list goodsList2 as d>
                     <#if d_index == 7>
                         <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
@@ -709,7 +709,7 @@
                         <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
                     </#if>
                 </#list>
-            </div>
+            </div>-->
         </div>
         <div class="Floor-bottom">
             <br />
@@ -762,7 +762,7 @@
             <div>
                 <ul class="borderHover">
                     <#list goodsList3 as d>
-                        <#if d_index lt 6 >
+                        <#if d_index lt 8 >
                             <li>
                                 <dl class="">
                                     <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -776,7 +776,7 @@
                     </#list>
                 </ul>
             </div>
-            <div class="floor-banner-img">
+           <#-- <div class="floor-banner-img">
                 <#list goodsList3 as d>
                     <#if d_index == 7>
                         <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
@@ -785,7 +785,7 @@
                         <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
                     </#if>
                 </#list>
-            </div>
+            </div>-->
         </div>
         <div class="Floor-bottom">
             <br />
@@ -839,7 +839,7 @@
             <div>
                 <ul class="borderHover">
                     <#list goodsList4 as d>
-                        <#if d_index lt 6 >
+                        <#if d_index lt 8 >
                         <li>
                         <dl class="">
                             <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -853,7 +853,7 @@
                     </#list>
                 </ul>
             </div>
-            <div class="floor-banner-img">
+            <#--<div class="floor-banner-img">
                 <#list goodsList4 as d>
                     <#if d_index == 7>
                         <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
@@ -862,7 +862,7 @@
                         <a href="${rc.contextPath}/item-${d.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${d.defaultImage}" /></a><br />
                     </#if>
                 </#list>
-            </div>
+            </div>-->
         </div>
         <div class="Floor-bottom">
             <br />
@@ -967,7 +967,7 @@
                     <ul class="borderHover">
 
                         <#list s as a>
-                            <#if a_index lt 6>
+                            <#if a_index lt 8>
                                 <li>
                                     <dl class="">
                                         <dt><a href="${rc.contextPath}/item-${a.goods_id}.html">
@@ -983,7 +983,7 @@
 
                     </ul>
                 </div>
-                <div class="floor-banner-img">
+                <#--<div class="floor-banner-img">
 
                    <#list s as a>
                         <#if a_index == 6>
@@ -993,7 +993,7 @@
                             <a href="${rc.contextPath}/item-${a.goods_id}.html"> <img src="${rc.contextPath}/upload/goods/${a.defaultImage}" /></a><br />
                         </#if>
                     </#list>
-                </div>
+                </div>-->
             </div>
             <div class="Floor-bottom">
                 <br />

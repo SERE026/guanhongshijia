@@ -526,13 +526,14 @@ ul li {float:left;list-style-type:none;
     }
 .floor-banner {overflow:hidden;
 }
-.floor-banner ul {width:644px;overflow:hidden;margin-left:5px;float:left;
+.floor-banner ul {width:958px;overflow:hidden;margin-left:5px;float:left;
 }
-.floor-banner ul li {width:208px;height:278px;border:1px solid #ebebeb;margin-left: 5px;
+.floor-banner ul li {width:232px;height:278px;border:1px solid #ebebeb;margin-left: 5px;
 }
+.floor-banner ul li:nth-child(5),.floor-banner ul li:nth-child(6),.floor-banner ul li:nth-child(7),.floor-banner ul li:nth-child(8){margin-top: 5px;}
 .floor-banner ul li:hover{border:1px solid #572a27}
-.floor-banner ul li:first-child,.floor-banner ul li:nth-child(4){margin-left: 0;}
-.floor-banner ul li:nth-child(4),.floor-banner ul li:nth-child(5),.floor-banner ul li:nth-child(6){margin-top: 5px;}
+.floor-banner ul li:first-child,.floor-banner ul li:nth-child(4){/*margin-left: 0;*/}
+.floor-banner ul li:nth-child(4),.floor-banner ul li:nth-child(5),.floor-banner ul li:nth-child(6){/*margin-top: 5px;*/}
 .floor-banner ul li dl{padding: 5px;border: 1px solid white;height: 266px; }
 .floor-banner .Introduction,.dd-Item-name .Introduction {font-size:12px;color:#666;height: 36px;overflow: hidden;display: inline-block;
 }
@@ -549,13 +550,14 @@ ul li {float:left;list-style-type:none;
 .ItemPrice b {color:red;font-size:18px;font-weight: 400;
 }
 .ItemPrice b span{font-size: 14px;}
-    .floor-banner ul li img {width:193px;height:193px;
+    .floor-banner ul li img {width:218px;height:193px;
     }
 .floor-banner > div {overflow:hidden;float:left;
 }
 .floor-banner-img {float:left;width: 311px;
 }
     .floor-banner-img img {width:311px;height:280px;  }
+    .Floor-bottom{margin-top: 5px;}
 .Floor-bottom ul {overflow:hidden;margin-top:-17px;
 }
 .Floor-bottom ul li {width:395px;height:190px;margin-left:4px;overflow:hidden;  }
