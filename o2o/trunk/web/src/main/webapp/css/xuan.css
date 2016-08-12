@@ -71,7 +71,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .mt042{width:1200px; height:40px;overflow:hidden; margin-top:0px}
 .mt04_zi{width:1200px; height:38px; line-height:38px; color:#000000; font-size:20px;font-family:"微软雅黑";overflow:hidden; padding-left:3px}
 .mt04_xian{width:1200px; height:2px; background-color:#000000;overflow:hidden}
-.mt04_xian_hong{ width:130px; height:2px; background-color:#f0125b; overflow:hidden;}
+.mt04_xian_hong{ width:130px; height:2px; background-color:#c81523; overflow:hidden;}
 
 .huodong_zi{width:auto; height:38px; line-height:38px; color:#000000; font-size:20px;font-family:"微软雅黑";overflow:hidden; padding-left:3px; float:left}
 .huodong_fatie{width:151px; height:38px;float:right}
@@ -102,7 +102,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .denglu{ width:996px; height:auto; margin:auto; background-color:#FFFFFF}
 .logo_xiao{ width:335px; height:103px; overflow:hidden;margin-top:25px}
 .zhuce_tou{ width:996px; height:25px;}
-.zhuce_tou_zi{ width:auto; height:25px; line-height:25px; float:right; color:#f20756; margin-right:10px}
+.zhuce_tou_zi{ width:auto; height:25px; line-height:25px; float:right; color:#c81523; margin-right:10px}
 .zhuce_tou_tu{ width:80px; height:25px;float:right} 
 .zhece_dakuai{ width:994px; height:425px; border:#dddddd solid 1px; margin-top:10px}
 .zhece_dakuai_datu{width:430px; height:356px; float:left; margin:18px 0 0 15px; overflow:hidden;}   
@@ -110,7 +110,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .zhuce_k{ width:465px; height:auto;overflow: hidden;}
 .zhuce_k_zi{ width:70px; height:25px; line-height:25px; text-align:right; margin-right:5px;float:left; margin-top:3px}   
 .zhuce_k_bao{ width:auto; height:auto;float:left} 
-.zhuce_k_bao_shuom{ width:auto;height:24px; line-height:24px;float:left; color:#ff0000; margin-top:3px; margin-left:5px; overflow:hidden}         
+.zhuce_k_bao_shuom{ width:auto;height:24px; line-height:24px;float:left; color:#c81523; margin-top:3px; margin-left:5px; overflow:hidden}
 .zhuce_k_baoshuru_aa{ width:182px; height:24px; line-height:24px; color:#454545; border:#cdcdcd solid 1px; padding-left:5px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px }    
 .zhuce_k_baoshuru_bb{ width:75px; height:24px; line-height:24px; color:#454545; border:#cdcdcd solid 1px; padding-left:5px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px }    
 .zhuce_an01{ width:182px; height:29px; margin-left:75px; margin-top:22px;}
