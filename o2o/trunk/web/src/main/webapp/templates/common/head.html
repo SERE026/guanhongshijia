@@ -162,8 +162,8 @@ ${widget_area}
                 <script>
 
                 </script>
-                <#if AEARINFO?exists>
-                    <label class="mainColor city-name"> ${AEARINFO.name}</label>
+                <#if areainfo?exists>
+                    <label class="mainColor city-name"> ${areainfo.name}</label>
                     <#else>
                         <label class="mainColor city-name">全国站</label>
                 </#if>
@@ -174,8 +174,8 @@ ${widget_area}
                             <div class="mycity">
                                 <div style="display: block;"   id="cityname">
                                     当前城市: <strong id="JS_city_current_city mainColor">
-                                    <#if AEARINFO?exists>
-                                        <label class="mainColor city-name"> ${AEARINFO.name}</label>
+                                    <#if areainfo?exists>
+                                        <label class="mainColor city-name"> ${areainfo.name}</label>
                                         <#else>
                                             <label class="mainColor city-name">全国</label>
                                     </#if>
@@ -606,7 +606,6 @@ $(".search").click(function () {
         $('.FocusOn').find('i').attr('class','top')
         $(this).children('.mobile_list').addClass('none')
     })
-
 
 
 </script>

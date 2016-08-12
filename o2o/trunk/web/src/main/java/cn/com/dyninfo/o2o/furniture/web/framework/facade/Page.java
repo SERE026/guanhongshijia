@@ -38,7 +38,7 @@ public class Page implements IPage{
 	 * @param response
 	 */
 	public void parse(HttpServletRequest request,HttpServletResponse response){
-		
+		Map data=new HashMap(Context.freeMakerData);
 		Object obj=request.getSession().getAttribute(Context.SESSION_AEAR);
 		if(obj==null){
 			String city=CookTool.getCookIEValue("city", request);
@@ -48,17 +48,22 @@ public class Page implements IPage{
 					AreaService areaService=SpringContext.getBean("areaService");
 					List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"' and n.isDefault=1 "));
 					if(list.size()>0){
+						data.put("areainfo",list.get(0) );
 						request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
 					}else{
 						obj=areaService.getObjById("440300");
+						data.put("areainfo",obj );
 						request.getSession().setAttribute(Context.SESSION_AEAR, obj);
 					}
 				}else{
 					AreaService areaService=SpringContext.getBean("areaService");
 					obj=areaService.getObjById(city);
+					data.put("areainfo",obj );
 					request.getSession().setAttribute(Context.SESSION_AEAR, obj);
 				}
 			}
+		}else {
+			data.put("areainfo",obj );
 		}
 		Set<String> urlkeys=Context.regular.keySet();
 		String pageName=request.getServletPath();
@@ -80,7 +85,7 @@ public class Page implements IPage{
 		String url=request.getServletPath();
 		String filePath=Context.webPath+Context.tempPath+"/widget.xml";
 		Map pageMap=WidgetXmlUtil.parsePage(filePath);//获取挂件
-		Map data=new HashMap(Context.freeMakerData);
+
 
 		Map widgetMap=(Map) pageMap.get("common");
 		Set<String> keys=widgetMap.keySet();
