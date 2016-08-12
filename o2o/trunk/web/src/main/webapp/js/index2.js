@@ -85,7 +85,7 @@ function prompt() {
         top = $(this).position().top;
         text = $(this).find("a").text();
         id=$(this).attr('data-id');
-        console.log(id)
+        // console.log(id)
     })
     $(document).mouseover(function (e) {
         var _con = $('.prompt,.three-level,.furniture ul');   // 设置目标区域
