@@ -20,6 +20,17 @@ public class GoodsDetail extends BaseEntity {
     //商品类型
     private String type="";
 
+    //收藏
+    private String collection="";
+
+    public String getCollection() {
+        return collection;
+    }
+
+    public void setCollection(String collection) {
+        this.collection = collection;
+    }
+
     public String getType() {
         return type;
     }

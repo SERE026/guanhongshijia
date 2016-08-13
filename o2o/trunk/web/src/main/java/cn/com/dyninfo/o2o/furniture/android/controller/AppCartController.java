@@ -70,10 +70,12 @@ public class AppCartController extends BaseAppController {
         int count = addCartRequest.getCount();
         Goods goods= (Goods) goodsService.getObjById(id);
         CarsBox carsBox=new CarsBox();
-        HuiyuanInfo huiyuanInfo=(HuiyuanInfo) huiyuanService.getObjById("35");
-        if(!ValidationUtil.isEmpty(huiyuanInfo)){
+        HuiyuanInfo huiyuanInfo=(HuiyuanInfo) huiyuanService.getObjById("2");
+        if(!ValidationUtil.isEmpty(addCartRequest.getToken())){
             carsBox.setMember(huiyuanInfo);
             carsBox.setGoods(goods);
+            carsBox.setSpecVal("");
+            carsBox.setActInfo("|");
             carsBox.setNum(count);
             carsBox.setPrice(goods.getGoodMoney());
             carsService.addObj(carsBox);
@@ -102,7 +104,7 @@ public class AppCartController extends BaseAppController {
         log.debug(cartListRequest);
         CartListResult result = new CartListResult();
         List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='lxfeng'"));
+                new StringBuffer(" and n.name='18973512867'"));
         HuiyuanInfo info= list2.get(0);
         //获取用户信息
         // HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);

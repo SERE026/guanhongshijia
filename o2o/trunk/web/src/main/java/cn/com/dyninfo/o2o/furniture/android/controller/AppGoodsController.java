@@ -14,6 +14,9 @@ import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
+import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
+import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
+import cn.com.dyninfo.o2o.furniture.web.member.service.FavoritesService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,6 +44,9 @@ public class AppGoodsController extends BaseAppController {
 
     @Resource
     private GoodsService goodsService;
+
+    @Resource
+    FavoritesService favoritesService;
 
     @Resource
     private GoodsSortService goodsSortService;
@@ -123,11 +129,20 @@ public class AppGoodsController extends BaseAppController {
        // List<GoodsSpec> specList=new ArrayList<GoodsSpec>();
        // Category category=new Category();
        // cn.com.dyninfo.o2o.entity.Brand brand=new cn.com.dyninfo.o2o.entity.Brand();
+        List<HuiyuanInfo> infoList=(List<HuiyuanInfo>) huiyuanService.getListByWhere(new StringBuffer(" and n.name='lxfeng'"));
+        HuiyuanInfo info= infoList.get(0);
+
         List<String> imageList=new ArrayList<String>();
         GoodsDetail detail=new GoodsDetail();
         List list=goodsService.getListByWhere(new StringBuffer(" and n.goods_id="+goodsDetailRequest.getId()));
         if(!ValidationUtil.isEmpty(list)){
                Goods goods=(Goods)list.get(0);
+               List<Favorites> favorites=(List<Favorites>) favoritesService.getListByWhere(new StringBuffer( " and n.member="+info.getHuiYuan_id()+" and n.good="+goods.getGoods_id()));
+            if(favorites.size()==0){
+                detail.setCollection("收藏");
+            }else {
+                detail.setCollection("已收藏");
+            }
             if(goods.getName()!=null){
                 detail.setName(goods.getName());
             }
@@ -141,6 +156,9 @@ public class AppGoodsController extends BaseAppController {
                 detail.setPrice(goods.getSalesMoney());
             if(goods.getGoodsDescription()!=null){
                 detail.setGoodsDesc(goods.getGoodsDescription());
+            }
+            if(goods.getGoodsType().getName()!=null){
+                detail.setType(goods.getGoodsType().getName());
             }
                 String[] arr=goods.getImages().split(";");
                 if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){

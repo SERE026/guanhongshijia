@@ -205,9 +205,9 @@ public class CouponContronller {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String myDate=df.format(date);
             String date1=df.format(new Date(date.getTime() - day * 24 * 60 * 60 * 1000));
-            List<HuiyuanInfo> huiyuanInfos=(List<HuiyuanInfo>) huiyuanService.getListByWhere(new StringBuffer(" and n.logindata betwwen "+date1+" and "+myDate+" group by n.logindata"));
+            List<HuiyuanInfo> huiyuanInfos=(List<HuiyuanInfo>) huiyuanService.getListByWhere(new StringBuffer(" and n.loginData between "+date1+" and "+myDate));
             for(int i=0;i<huiyuanInfos.size();i++){
-                List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+ id+" and  n.coupon.id="+ couponId));
+                List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+ huiyuanInfos.get(i).getHuiYuan_id()+" and  n.coupon.id="+ couponId));
                 if (couponMemberRelList.size()==0){
                     Coupon coupon=(Coupon) couponService.getObjById(couponId);
                     // HuiyuanInfo huiyuanInfo=(HuiyuanInfo) huiyuanService.getObjById(Integer.toString(huiyuanInfos.get(i).getHuiYuan_id()));
