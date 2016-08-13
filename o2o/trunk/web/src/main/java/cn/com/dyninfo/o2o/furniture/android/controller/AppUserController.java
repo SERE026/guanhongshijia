@@ -179,10 +179,11 @@ public class AppUserController extends BaseAppController {
                 result.setResultCode(NO_LOGIN);
                 result.setMessage("校验码不正确");
             }
-        }else{
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("账号不存,无效的手机号码");
         }
+//        else{
+//            result.setResultCode(NO_LOGIN);
+//            result.setMessage("账号不存,无效的手机号码");
+//        }
         log.debug(result);
         return result;
     }
@@ -202,13 +203,13 @@ public class AppUserController extends BaseAppController {
         log.debug(queryAgencyFeeRequest);
         QueryAgencyFeeResult result = new  QueryAgencyFeeResult();
         List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='lxfeng'"));
+                new StringBuffer(" and n.name='18973512867'"));
         HuiyuanInfo info= list2.get(0);
         //获取用户信息
        // HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
        PageInfo page=new PageInfo();
-        page.setPageNo(1);
-        page.setPageSize(10);
+        page.setPageNo(queryAgencyFeeRequest.getPageNo());
+        page.setPageSize(queryAgencyFeeRequest.getPageSize());
         List<AgencyFeeItem> lists=new ArrayList<AgencyFeeItem>();
         Double totalMoney=0.00;//+"and n.agencyPay='1' order by n.time asc"
       // List<Order> list =(List<Order>)orderService.getListByWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id="+info.getHuiYuan_id()+"order by n.time asc"));
@@ -226,17 +227,18 @@ public class AppUserController extends BaseAppController {
                 totalMoney+=list.get(i).getAgencyFee();
                 lists.add(agency);
             }
-            result.setResultCode(SUCCESS);
-            result.setCurrentMoney(info.getMoney()); //总资产
             result.setRecentMoney(list.get(0).getAgencyFee()); //最近佣金
-            result.setTotalMoney(totalMoney); //累计佣金
-            result.setDataDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));//数据截至时间
-            result.setAgencyFeeItemList(lists);//佣金明细
-            result.setMessage("OK");
-        }else {
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("佣金查询失败");
         }
+        result.setTotalMoney(totalMoney); //累计佣金
+        result.setDataDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));//数据截至时间
+        result.setCurrentMoney(info.getMoney()); //总资产
+        result.setAgencyFeeItemList(lists);//佣金明细
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+//        else {
+//            result.setResultCode(NO_LOGIN);
+//            result.setMessage("佣金查询失败");
+//        }
         log.debug(result);
         return result;
     }
@@ -256,7 +258,7 @@ public class AppUserController extends BaseAppController {
         log.debug(queryCardRequest);
         QueryCardResult result = new  QueryCardResult();
         List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='lxfeng'"));
+                new StringBuffer(" and n.name='18973512867'"));
         HuiyuanInfo info= list2.get(0);
         //获取用户信息
         // HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
@@ -269,13 +271,14 @@ public class AppUserController extends BaseAppController {
 //                card.setStatus(c.getEndTime());
 //                card.setType(c.getType());
                 lists.add(card);
-            result.setCardList(lists);
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
-        }else{
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("银行卡查询失败");
         }
+        result.setCardList(lists);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+//        else{
+//            result.setResultCode(NO_LOGIN);
+//            result.setMessage("银行卡查询失败");
+//        }
         log.debug(result);
         return result;
     }
@@ -295,7 +298,7 @@ public class AppUserController extends BaseAppController {
         log.debug(queryCouponRequest);
         QueryCouponResult result = new  QueryCouponResult();
         List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='lxfeng'"));
+                new StringBuffer(" and n.name='18973512867'"));
         HuiyuanInfo info= list2.get(0);
         //获取用户信息
        // HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
@@ -324,15 +327,10 @@ public class AppUserController extends BaseAppController {
                 coupon.setSameUse(c.getCoupon().getSameUse());
                 lists.add(coupon);
             }
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
-            result.setCouponList(lists);
-//            result.setPageNo(1);
-//            result.setTotalPage(2);
-        }else{
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("优惠券查询失败");
         }
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+        result.setCouponList(lists);
         log.debug(result);
         return result;
     }
@@ -352,9 +350,11 @@ public class AppUserController extends BaseAppController {
         log.debug(queryPersonalRequest);
         QueryPersonalResult result = new  QueryPersonalResult();
         //获取用户信息
-        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+//        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        HuiyuanInfo  info=(HuiyuanInfo) huiyuanService.getObjById("2");
+
+        Personal personal=new Personal();
         if(!ValidationUtil.isEmpty(info)){
-            Personal personal=new Personal();
             personal.setNickName(info.getUserName());//昵称
             personal.setRealName(info.getNickname());//真实姓名
             personal.setId(String.valueOf(info.getHuiYuan_id())); //会员实体是 int
@@ -364,13 +364,14 @@ public class AppUserController extends BaseAppController {
             personal.setPhoneNo(info.getTel());
             personal.setAddress(info.getAddress());
 
-            result.setPersonal(personal);
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
-        }else{
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("个人信息查询失败");
         }
+        result.setPersonal(personal);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+//        else{
+//            result.setResultCode(NO_LOGIN);
+//            result.setMessage("个人信息查询失败");
+//        }
         log.debug(result);
         return result;
     }
