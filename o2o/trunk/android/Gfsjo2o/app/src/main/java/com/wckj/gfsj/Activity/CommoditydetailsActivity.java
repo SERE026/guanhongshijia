@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommoditydetailsAdapter;
 import com.wckj.gfsj.Bean.AddCartRequest;
-import com.wckj.gfsj.Bean.AddCartResult;
+import com.wckj.gfsj.Bean.AddFavoritesRequest;
 import com.wckj.gfsj.Bean.Commodity_level_details;
 import com.wckj.gfsj.Bean.GoodsDetailRequest;
 import com.wckj.gfsj.Bean.GoodsDetailResult;
@@ -21,6 +21,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 import java.util.ArrayList;
 
@@ -75,6 +76,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
 
         bt_buy.setOnClickListener(this);
         tv_add_cart.setOnClickListener(this);
+        iv_collect.setOnClickListener(this);
 
         vp_commodity_pic = (ViewPager) view.findViewById(R.id.vp_commodity_pic);
         bindViewPage();//绑定viewpage
@@ -144,7 +146,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                 addCart();
                 break;
             case R.id.iv_collect://收藏夹
-//                addCollect()
+                addCollect();
+                iv_collect.setImageResource(R.drawable.icon_collect_press);
                 break;
         }
     }
@@ -152,6 +155,22 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
      * 加入收藏夹
      */
     private void addCollect() {
+
+
+        AddFavoritesRequest request = new AddFavoritesRequest();
+        request.setGoodsId(goodsId+"");
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.FAVORITES_ADD_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+            }
+
+            @Override
+            public void onSuccess(String response) {
+//                AddCartResult json = JSON.parseObject(response, AddCartResult.class);
+//                OwerToastShow.show("收藏夹加入成功");
+            }
+        });
+
     }
 
     /**
@@ -164,11 +183,13 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.CART_ADD_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
+                OwerToastShow.show("购物车加入失败");
             }
 
             @Override
             public void onSuccess(String response) {
-                AddCartResult json = JSON.parseObject(response, AddCartResult.class);
+//                AddCartResult json = JSON.parseObject(response, AddCartResult.class);
+                OwerToastShow.show("购物车加入成功");
             }
         });
     }
