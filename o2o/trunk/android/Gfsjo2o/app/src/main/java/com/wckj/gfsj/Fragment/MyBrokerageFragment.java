@@ -6,15 +6,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Adapter.AgencyFeeItemAdapter;
 import com.wckj.gfsj.Bean.QueryAgencyFeeRequest;
 import com.wckj.gfsj.Bean.QueryAgencyFeeResult;
+import com.wckj.gfsj.Bean.entity.AgencyFeeItem;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -23,11 +30,29 @@ import okhttp3.Call;
  */
 public class MyBrokerageFragment extends Fragment implements View.OnClickListener {
 
+    private TextView mTvMoney, mTvRecentlyBrokerage, mTvTotalBrokerage, mTvDataDate;
+    private ListView mLvAgencyFeeItem;
+
+    private AgencyFeeItemAdapter mAgencyFeeItemAdapter;
+
+    List<AgencyFeeItem> mAgencyFeeItemList = new ArrayList<AgencyFeeItem>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my_brokerage, null);
-//        queryBrokerage();
+
+        mTvMoney = (TextView) view.findViewById(R.id.tv_money);
+        mTvRecentlyBrokerage = (TextView) view.findViewById(R.id.tv_recently_brokerage);
+        mTvTotalBrokerage = (TextView) view.findViewById(R.id.tv_total_brokerage);
+        mTvDataDate = (TextView) view.findViewById(R.id.tv_data_date);
+
+        mLvAgencyFeeItem = (ListView) view.findViewById(R.id.lv_agency_fee_item);
+
+        mAgencyFeeItemAdapter = new AgencyFeeItemAdapter(getContext(), mAgencyFeeItemList);
+
+        mLvAgencyFeeItem.setAdapter(mAgencyFeeItemAdapter);
+
+        queryBrokerage();
         return view;
     }
 
@@ -49,8 +74,18 @@ public class MyBrokerageFragment extends Fragment implements View.OnClickListene
 
             @Override
             public void onSuccess(String response) {
-                QueryAgencyFeeResult json = JSON.parseObject(response, QueryAgencyFeeResult.class);
+                QueryAgencyFeeResult result = JSON.parseObject(response, QueryAgencyFeeResult.class);
                 LogUtil.i(response);
+
+                mTvMoney.setText(result.getCurrentMoney() + "元");
+                mTvRecentlyBrokerage.setText("最近佣金提成：" + result.getRecentMoney() + "元");
+                mTvTotalBrokerage.setText("累计已获佣金：" + result.getTotalMoney() + "元");
+                mTvDataDate.setText("数据截至：" + result.getDataDate());
+
+                if (result.getAgencyFeeItemList() != null && !result.getAgencyFeeItemList().isEmpty()) {
+                    mAgencyFeeItemList = result.getAgencyFeeItemList();
+                    mAgencyFeeItemAdapter.notifyDataSetChanged();
+                }
             }
         });
     }

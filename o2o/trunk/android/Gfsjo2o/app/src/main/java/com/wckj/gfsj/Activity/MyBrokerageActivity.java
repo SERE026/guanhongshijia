@@ -85,6 +85,8 @@ public class MyBrokerageActivity extends BaseNewActivity implements View.OnClick
     private void initData() {
         setMainColor(R.id.tv_my_brokerage);
         setTabSelection(0);
+//        setMainColor(R.id.tv_bank_card);
+//        setTabSelection(1);
     }
 
     private void setTabSelection(int index) {

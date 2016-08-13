@@ -3,6 +3,7 @@ package com.wckj.gfsj.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 import okhttp3.Call;
 
@@ -28,6 +30,8 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
     private Button mBtnSet, mBtnModify, mBtnFind;
     private RelativeLayout mRlSetPwd, mRlModifyPwd, mRlFindPwd;
     private Button mBtnSetComplete, mBtnModifyComplete;
+
+    private EditText mEtSetPwd, mEtSetConfirmPwd;
 
     @Override
     protected void init() {
@@ -76,6 +80,9 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
         mBtnSetComplete.setOnClickListener(this);
         mBtnModifyComplete = (Button) view.findViewById(R.id.btn_modify_complete);
         mBtnModifyComplete.setOnClickListener(this);
+
+        mEtSetPwd = (EditText) view.findViewById(R.id.et_set_pwd);
+        mEtSetConfirmPwd = (EditText) view.findViewById(R.id.et_set_confirm_pwd);
     }
 
     @Override
@@ -100,7 +107,21 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
 //                mRlFindPwd.setVisibility(View.VISIBLE);
 //                break;
             case R.id.btn_set_complete:
-//                setLockPwd("123456");
+                String setPwd = mEtSetPwd.getText().toString().trim();
+                String setConfirmPwd  = mEtSetConfirmPwd.getText().toString().trim();
+                if (setPwd.isEmpty()) {
+                    OwerToastShow.show("请输入密码");
+                    return;
+                }
+                if (setConfirmPwd.isEmpty()) {
+                    OwerToastShow.show("请确认密码");
+                    return;
+                }
+                if (!setPwd.equals(setConfirmPwd)) {
+                    OwerToastShow.show("两次输入密码不一致");
+                    return;
+                }
+                setLockPwd(setPwd);
                 break;
             case R.id.btn_modify_complete:
                 break;
@@ -122,8 +143,13 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
 
             @Override
             public void onSuccess(String response) {
-                SetLockPasswordResult json = JSON.parseObject(response, SetLockPasswordResult.class);
+                SetLockPasswordResult result = JSON.parseObject(response, SetLockPasswordResult.class);
                 LogUtil.i(response);
+                if (result.getResultCode() == 0) {
+                    OwerToastShow.show("设置成功");
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
             }
         });
     }

@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <android.support.percent.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:layout_marginTop="90dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginRight="200dp"
-        android:layout_marginBottom="40dp">
+        app:layout_marginTopPercent="17%"
+        app:layout_marginLeftPercent="20%"
+        app:layout_marginBottomPercent="15%"
+        app:layout_marginRightPercent="20%">
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp"
+            app:layout_marginTopPercent="7%"
             android:drawableLeft="@drawable/icon_user_info"
             android:drawablePadding="7dp"
             android:gravity="center_vertical"
@@ -34,35 +36,35 @@
 
         <TextView
             android:id="@+id/tv_nickname"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
+            app:layout_widthPercent="10%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/line"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="58dp"
+            app:layout_marginTopPercent="11%"
+            app:layout_marginLeftPercent="10%"
             android:gravity="center_vertical|right"
             android:text="昵称："
             android:textSize="11sp"/>
 
         <EditText
             android:id="@+id/et_nickname"
-            android:layout_width="125dp"
-            android:layout_height="17dp"
+            app:layout_widthPercent="22%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/line"
             android:layout_toRightOf="@id/tv_nickname"
-            android:layout_marginTop="41.5dp"
-            android:layout_marginLeft="10dp"
+            app:layout_marginTopPercent="11%"
+            app:layout_marginLeftPercent="2%"
             android:background="@drawable/shape_edittext_user_info"
             android:singleLine="true"
             android:gravity="center_vertical"/>
 
         <TextView
             android:id="@+id/tv_birthday"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
+            app:layout_widthPercent="10%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/line"
             android:layout_toRightOf="@id/et_nickname"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="45dp"
+            app:layout_marginTopPercent="11%"
+            app:layout_marginLeftPercent="8%"
             android:gravity="center_vertical|right"
             android:text="生日："
             android:textSize="11sp"/>
@@ -70,46 +72,46 @@
         <TextView
             android:id="@+id/tv_birthday_date"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/line"
             android:layout_toRightOf="@id/tv_birthday"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="5dp"
+            app:layout_marginTopPercent="11%"
+            app:layout_marginLeftPercent="1%"
             android:gravity="center_vertical"
             android:text="2016-7-26"
             android:textSize="11sp"/>
 
         <TextView
-            android:id="@+id/tv_nickname2"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
+            android:id="@+id/tv_real_name"
+            app:layout_widthPercent="10%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/tv_nickname"
-            android:layout_marginTop="19dp"
-            android:layout_marginLeft="58dp"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="10%"
             android:gravity="center_vertical|right"
             android:text="昵称："
             android:textSize="11sp"/>
 
         <EditText
-            android:id="@+id/et_nickname2"
-            android:layout_width="125dp"
-            android:layout_height="17dp"
+            android:id="@+id/et_real_name"
+            app:layout_widthPercent="22%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/et_nickname"
-            android:layout_toRightOf="@id/tv_nickname2"
-            android:layout_marginTop="22dp"
-            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv_real_name"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="2%"
             android:background="@drawable/shape_edittext_user_info"
             android:singleLine="true"
             android:gravity="center_vertical"/>
 
         <TextView
             android:id="@+id/tv_telephone"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
+            app:layout_widthPercent="10%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/tv_birthday"
-            android:layout_toRightOf="@id/et_nickname2"
-            android:layout_marginTop="19dp"
-            android:layout_marginLeft="45dp"
+            android:layout_toRightOf="@id/et_real_name"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="8%"
             android:gravity="center_vertical|right"
             android:text="固定电话："
             android:textSize="11sp"/>
@@ -117,46 +119,46 @@
         <TextView
             android:id="@+id/tv_telephone_number"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/tv_birthday_date"
             android:layout_toRightOf="@id/tv_telephone"
-            android:layout_marginTop="19dp"
-            android:layout_marginLeft="5dp"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="1%"
             android:gravity="center_vertical"
             android:text="0755-28161292"
             android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/tv_mobile_phone"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_below="@id/tv_nickname2"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="58dp"
+            app:layout_widthPercent="10%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/tv_real_name"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="10%"
             android:gravity="center_vertical|right"
             android:text="手机号码："
             android:textSize="11sp"/>
 
         <TextView
             android:id="@+id/tv_mobile_phone_number"
-            android:layout_width="125dp"
-            android:layout_height="20dp"
-            android:layout_below="@id/et_nickname2"
+            app:layout_widthPercent="22%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_real_name"
             android:layout_toRightOf="@id/tv_mobile_phone"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="10dp"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="2%"
             android:gravity="center_vertical"
             android:text="131-1873-4139"
             android:textSize="11sp"/>
 
         <TextView
             android:id="@+id/tv_address"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
+            app:layout_widthPercent="10%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/tv_telephone"
             android:layout_toRightOf="@id/tv_mobile_phone_number"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="45dp"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="8%"
             android:gravity="center_vertical|right"
             android:text="地址："
             android:textSize="11sp"/>
@@ -164,34 +166,34 @@
         <TextView
             android:id="@+id/tv_address_detail"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/tv_telephone_number"
             android:layout_toRightOf="@id/tv_address"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="5dp"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="1%"
             android:gravity="center_vertical"
             android:text="深圳市龙华新区观澜街道环观南路"
             android:textSize="11sp"/>
 
         <TextView
             android:id="@+id/tv_email"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
+            app:layout_widthPercent="10%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/tv_mobile_phone"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="58dp"
+            app:layout_marginTopPercent="4%"
+            app:layout_marginLeftPercent="10%"
             android:gravity="center_vertical|right"
             android:text="邮箱："
             android:textSize="11sp"/>
 
         <TextView
             android:id="@+id/tv_email_not_bind"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            app:layout_widthPercent="8%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/tv_mobile_phone_number"
             android:layout_toRightOf="@id/tv_email"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="10dp"
+            app:layout_marginTopPercent="4%"
+            app:layout_marginLeftPercent="2%"
             android:gravity="center_vertical"
             android:text="未绑定"
             android:textColor="@color/color_bcbcbc"
@@ -199,12 +201,12 @@
 
         <TextView
             android:id="@+id/tv_email_bind"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            app:layout_widthPercent="8%"
+            app:layout_heightPercent="6%"
             android:layout_below="@id/tv_mobile_phone_number"
             android:layout_toRightOf="@id/tv_email_not_bind"
-            android:layout_marginTop="13dp"
-            android:layout_marginLeft="10dp"
+            app:layout_marginTopPercent="4%"
+            app:layout_marginLeftPercent="2%"
             android:gravity="center_vertical"
             android:text="去绑定"
             android:textColor="@color/color_572a7"
@@ -212,17 +214,17 @@
 
         <Button
             android:id="@+id/btn_save"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            app:layout_widthPercent="16%"
+            app:layout_heightPercent="7%"
             android:layout_below="@id/tv_email_bind"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            app:layout_marginTopPercent="12%"
             android:background="@drawable/shape_btn_modify_pwd"
             android:gravity="center"
             android:text="保存"
             android:textColor="@color/white"
             android:textSize="12sp"/>
 
-    </RelativeLayout>
+    </android.support.percent.PercentRelativeLayout>
 
-</RelativeLayout>
+</android.support.percent.PercentRelativeLayout>

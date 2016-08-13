@@ -2,17 +2,24 @@ package com.wckj.gfsj.Activity;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Adapter.CouponAdapter;
 import com.wckj.gfsj.Bean.QueryCouponRequest;
 import com.wckj.gfsj.Bean.QueryCouponResult;
+import com.wckj.gfsj.Bean.entity.Coupon;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -23,6 +30,12 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
 
     private TextView tv_go_back;
     private View view;
+
+    private ListView mLvCoupon;
+
+    private CouponAdapter mCouponAdapter;
+
+    private List<Coupon> mCouponList = new ArrayList<Coupon>();
 
     @Override
     protected void init() {
@@ -64,7 +77,13 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
 
     private void initView() {
 
-//        queryCoupon(0, 0);
+        mLvCoupon = (ListView) view.findViewById(R.id.lv_coupon);
+
+        mCouponAdapter = new CouponAdapter(this, mCouponList);
+
+        mLvCoupon.setAdapter(mCouponAdapter);
+
+        queryCoupon(0, 0);
     }
 
     /**
@@ -84,8 +103,17 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
 
             @Override
             public void onSuccess(String response) {
-                QueryCouponResult json = JSON.parseObject(response, QueryCouponResult.class);
+                QueryCouponResult result = JSON.parseObject(response, QueryCouponResult.class);
                 LogUtil.i(response);
+
+                if (result.getResultCode() == 0) {
+                    if (result.getCouponList() != null && !result.getCouponList().isEmpty()) {
+                        mCouponList = result.getCouponList();
+                        mCouponAdapter.notifyDataSetChanged();
+                    }
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
             }
         });
     }

@@ -1,18 +1,23 @@
 package com.wckj.gfsj.Activity;
 
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Bean.QueryPersonalRequest;
 import com.wckj.gfsj.Bean.QueryPersonalResult;
+import com.wckj.gfsj.Bean.entity.Personal;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 import okhttp3.Call;
 
@@ -21,12 +26,28 @@ import okhttp3.Call;
  */
 public class UserInfoActivity extends BaseNewActivity implements View.OnClickListener {
 
+    private static final int UPDATE_USER_INFO = 500;
+
     private TextView tv_go_back;
     private View view;
+    private EditText mEtNickname, mEtRealName;
+    private TextView mTvTelephoneNumber, mTvBirthdayDate, mTvMobilePhoneNumber, mTvAddressDetail;
+
+    private Personal mPersonal;
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case UPDATE_USER_INFO:
+                    updateUserInfo();
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void init() {
-
     }
 
     @Override
@@ -45,7 +66,6 @@ public class UserInfoActivity extends BaseNewActivity implements View.OnClickLis
 
     @Override
     protected void refreshOrLoadView() {
-
     }
 
     @Override
@@ -64,7 +84,23 @@ public class UserInfoActivity extends BaseNewActivity implements View.OnClickLis
 
     private void initView() {
 
-//        queryUserInfo();
+        mEtNickname = (EditText) view.findViewById(R.id.et_nickname);
+        mEtRealName = (EditText) view.findViewById(R.id.et_real_name);
+        mTvTelephoneNumber = (TextView) view.findViewById(R.id.tv_telephone_number);
+        mTvBirthdayDate = (TextView) view.findViewById(R.id.tv_birthday_date);
+        mTvMobilePhoneNumber = (TextView) view.findViewById(R.id.tv_mobile_phone_number);
+        mTvAddressDetail = (TextView) view.findViewById(R.id.tv_address_detail);
+
+        queryUserInfo();
+    }
+
+    private void updateUserInfo() {
+        mEtNickname.setText(mPersonal.getNickName());
+        mEtRealName.setText(mPersonal.getRealName());
+        mTvTelephoneNumber.setText(mPersonal.getPhoneNo());
+        mTvBirthdayDate.setText(mPersonal.getBirthday());
+        mTvMobilePhoneNumber.setText(mPersonal.getMobileNo());
+        mTvAddressDetail.setText(mPersonal.getAddress());
     }
 
     /**
@@ -80,8 +116,17 @@ public class UserInfoActivity extends BaseNewActivity implements View.OnClickLis
 
             @Override
             public void onSuccess(String response) {
-                QueryPersonalResult json = JSON.parseObject(response, QueryPersonalResult.class);
+                QueryPersonalResult result = JSON.parseObject(response, QueryPersonalResult.class);
                 LogUtil.i(response);
+
+                if (result.getResultCode() == 0) {
+                    mPersonal = result.getPersonal();
+                    if (mHandler != null) {
+                        mHandler.sendEmptyMessage(UPDATE_USER_INFO);
+                    }
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
             }
         });
     }

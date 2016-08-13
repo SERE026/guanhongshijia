@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CartItemAdapter;
+import com.wckj.gfsj.Bean.EvalOrderRequest;
+import com.wckj.gfsj.Bean.EvalOrderResult;
 import com.wckj.gfsj.Bean.QueryOrderRequest;
 import com.wckj.gfsj.Bean.QueryOrderResult;
 import com.wckj.gfsj.Bean.entity.CartItem;
@@ -19,6 +21,7 @@ import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +54,8 @@ public class AllOrderFragment extends Fragment implements View.OnClickListener {
         mLvGoods.setAdapter(mCartItemAdapter);
 
         queryOrder(-1);
+        evalOrder(1000+"", 2, 3, 3, -1);
+
         return view;
     }
 
@@ -74,10 +79,10 @@ public class AllOrderFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onSuccess(String response) {
-                QueryOrderResult json = JSON.parseObject(response, QueryOrderResult.class);
-                int resultCode = json.getResultCode();
+                QueryOrderResult result = JSON.parseObject(response, QueryOrderResult.class);
+                int resultCode = result.getResultCode();
                 if (resultCode == 0) {
-                    mOrderList = json.getOrderList();
+                    mOrderList = result.getOrderList();
                     mCartItemList.clear();
 
                     for (Order order : mOrderList) {
@@ -87,7 +92,38 @@ public class AllOrderFragment extends Fragment implements View.OnClickListener {
                         mCartItemList.addAll(order.getCartItemList());
                     }
                     mCartItemAdapter.notifyDataSetChanged();
+                } else {
+                    OwerToastShow.show(result.getMessage());
                 }
+                LogUtil.i(response);
+            }
+        });
+    }
+
+    /**
+     * 评价订单
+     * @param orderId      订单ID
+     * @param sameStar     商品符合度(1~5)
+     * @param speedStar    物流速度(1~5)
+     * @param attitudeStar 配送员服务态度(1~5)
+     * @param orderStatus  订单状态(-1—全部,0—待付款,1—待发货,2—待收货)
+     */
+    private void evalOrder(String orderId, int sameStar, int speedStar, int attitudeStar, int orderStatus) {
+        EvalOrderRequest request = new EvalOrderRequest();
+        request.setOrderId(orderId);
+        request.setSameStar(sameStar);
+        request.setSpeedStar(speedStar);
+        request.setAttitudeStar(attitudeStar);
+        request.setOrderStatus(orderStatus);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_EVAL_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                EvalOrderResult json = JSON.parseObject(response, EvalOrderResult.class);
                 LogUtil.i(response);
             }
         });

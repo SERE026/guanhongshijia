@@ -6,15 +6,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Adapter.BankCardAdapter;
 import com.wckj.gfsj.Bean.QueryCardRequest;
 import com.wckj.gfsj.Bean.QueryCardResult;
+import com.wckj.gfsj.Bean.entity.Card;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -23,10 +29,23 @@ import okhttp3.Call;
  */
 public class BankCardFragment extends Fragment implements View.OnClickListener {
 
+    private ListView mLvBankCard;
+
+    private BankCardAdapter mBankCardAdapter;
+
+    List<Card> mCardList = new ArrayList<Card>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bank_card, null);
-//        queryBankCard();
+
+        mLvBankCard = (ListView) view.findViewById(R.id.lv_bank_card);
+
+        mBankCardAdapter = new BankCardAdapter(getContext(), mCardList);
+
+        mLvBankCard.setAdapter(mBankCardAdapter);
+
+        queryBankCard();
         return view;
     }
 
@@ -48,8 +67,13 @@ public class BankCardFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onSuccess(String response) {
-                QueryCardResult json = JSON.parseObject(response, QueryCardResult.class);
+                QueryCardResult result = JSON.parseObject(response, QueryCardResult.class);
                 LogUtil.i(response);
+
+                if (result.getCardList() != null && !result.getCardList().isEmpty()) {
+                    mCardList = result.getCardList();
+                    mBankCardAdapter.notifyDataSetChanged();
+                }
             }
         });
     }
