@@ -308,23 +308,24 @@ $(function(){
 						</tr>
 						
 						<tr>
-							<td class="discription" style="width: 150px;">
-								自定义商品分类：
-							</td>
-							<td>
-								<select name="customSortId">
-									<option value="">请选择</option>
-									<c:forEach items="${customSort}" var="sort">
-										<option value="${sort.goodsSort_id }" <c:if test="${info.customSort.goodsSort_id==sort.goodsSort_id }">selected</c:if>>|-${sort.levStr }${sort.name }</option>
-										<c:forEach items="${sort.children}" var="ch">
-											<option value="${ch.goodsSort_id }" <c:if test="${info.customSort.goodsSort_id==ch.goodsSort_id }">selected</c:if>>|-${ch.levStr }${ch.name }</option>
-											<c:forEach items="${ch.children}" var="c">
-												<option value="${c.goodsSort_id }" <c:if test="${info.customSort.goodsSort_id==c.goodsSort_id }">selected</c:if>>|-${c.levStr }${c.name }</option>
-											</c:forEach>
-										</c:forEach>
-									</c:forEach>
-								</select>
-							</td>
+						<%--自定义商品分类：暂时没用到 ，屏蔽了	--%>
+							<%--				<td class="discription" style="width: 150px;">
+                                                自定义商品分类：
+                                            </td>
+                                            <td>
+                                                <select name="customSortId">
+                                                    <option value="">请选择</option>
+                                                    <c:forEach items="${customSort}" var="sort">
+                                                        <option value="${sort.goodsSort_id }" <c:if test="${info.customSort.goodsSort_id==sort.goodsSort_id }">selected</c:if>>|-${sort.levStr }${sort.name }</option>
+                                                        <c:forEach items="${sort.children}" var="ch">
+                                                            <option value="${ch.goodsSort_id }" <c:if test="${info.customSort.goodsSort_id==ch.goodsSort_id }">selected</c:if>>|-${ch.levStr }${ch.name }</option>
+                                                            <c:forEach items="${ch.children}" var="c">
+                                                                <option value="${c.goodsSort_id }" <c:if test="${info.customSort.goodsSort_id==c.goodsSort_id }">selected</c:if>>|-${c.levStr }${c.name }</option>
+                                                            </c:forEach>
+                                                        </c:forEach>
+                                                    </c:forEach>
+                                                </select>
+                                            </td>--%>
 						</tr>
 						<tr>
 							<td class="discription" style="width: 150px;">
