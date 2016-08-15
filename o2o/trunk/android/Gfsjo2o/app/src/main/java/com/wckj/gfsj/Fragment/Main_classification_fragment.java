@@ -172,6 +172,7 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
                 break;
             case R.id.rf_chinese_furniture:
                 intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                intent.putExtra("id",mCategoryList.get(0).getId());
                 startActivity(intent);
                 break;
         }

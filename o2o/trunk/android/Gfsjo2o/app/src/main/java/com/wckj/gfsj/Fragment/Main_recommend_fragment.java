@@ -35,8 +35,6 @@ public class Main_recommend_fragment extends Fragment implements View.OnClickLis
 
     }
 
-
-
     private void initView() {
         svp_context =  (StopViewPage) view.findViewById(R.id.vp_context);
         tv_new = (TextView) view.findViewById(R.id.tv_new);
@@ -61,13 +59,14 @@ public class Main_recommend_fragment extends Fragment implements View.OnClickLis
         adapter = new FragmentAdapter(getChildFragmentManager());
         svp_context.setOffscreenPageLimit(0);
          svp_context.setAdapter(adapter);
+        setColor( R.id.tv_new);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         adapter=null;
-        pageList.clear();
+//        pageList.clear();
     }
 
     @Override
@@ -75,18 +74,28 @@ public class Main_recommend_fragment extends Fragment implements View.OnClickLis
         switch (v.getId()){
             case R.id.tv_new://主页
                 svp_context.setCurrentItem(0);
+                setColor( R.id.tv_new);
                 break;
             case R.id.tv_group://分类
                 svp_context.setCurrentItem(1);
+                setColor( R.id.tv_group);
                 break;
             case R.id.tv_promotion://推荐
                 svp_context.setCurrentItem(2);
+                setColor( R.id.tv_promotion);
                 break;
 
         }
     }
 
-
+    /**
+     * 设置首页分类三个颜色
+     */
+    private void setColor(int id){
+        tv_new.setBackgroundColor(getResources().getColor(R.id.tv_new==id?R.color.color_575654:R.color.color_e86e48));
+        tv_group.setBackgroundColor(getResources().getColor(R.id.tv_new==id?R.color.color_575654:R.color.color_ff5500));
+        tv_promotion.setBackgroundColor(getResources().getColor(R.id.tv_new==id?R.color.color_575654:R.color.color_892e1c));
+    }
 
     class FragmentAdapter extends FragmentStatePagerAdapter {
 

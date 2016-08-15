@@ -11,11 +11,11 @@ import java.util.List;
 public class Order extends BaseEntity {
 
     //订单日期
-    private String date;
+    private String date="";
     //状态
     private int state;
     //收货人姓名
-    private String receiveName;
+    private String receiveName="";
     //订单金额
     private Double orderPrice;
     //支付方式：1-支付宝；2-银联；10-线下；11-支付宝+线下；12-银联+线下

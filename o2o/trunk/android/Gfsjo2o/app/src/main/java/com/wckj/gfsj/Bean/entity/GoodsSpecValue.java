@@ -10,11 +10,11 @@ public class GoodsSpecValue extends BaseEntity {
 
     private GoodsSpec spec;
 
-    private String value;
+    private String value="";
 
     private double price;
 
-    private String imageUrl;
+    private String imageUrl="";
 
     public String getValue() {
         return value;

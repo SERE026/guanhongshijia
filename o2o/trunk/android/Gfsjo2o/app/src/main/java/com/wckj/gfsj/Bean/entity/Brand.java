@@ -8,7 +8,7 @@ import com.wckj.gfsj.Bean.entity.common.BaseEntity;
  */
 public class Brand extends BaseEntity {
     //商标名称
-    private String title;
+    private String title="";
 
     public String getTitle() {
         return title;

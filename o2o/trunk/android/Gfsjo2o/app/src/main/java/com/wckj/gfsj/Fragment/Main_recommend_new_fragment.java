@@ -77,6 +77,8 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
               Intent intent  =new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                Recommend recommend = (Recommend) parent.getItemAtPosition(position);
+                intent.putExtra("id",recommend.getId());
                 startActivity(intent);
             }
         });
