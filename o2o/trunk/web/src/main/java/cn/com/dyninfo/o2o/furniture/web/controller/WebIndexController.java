@@ -219,6 +219,7 @@ public class WebIndexController{
     @ResponseBody
     public AreaBase getCity2(HttpServletRequest request, ModelMap mav,  HttpServletResponse response) {
         AreaInfo area=(AreaInfo) request.getSession().getAttribute(Context.SESSION_AEAR);
+        AreaBase areaBase=new AreaBase();
         if(area==null){
             String city=CookTool.getCookIEValue("city", request);
 //            if(city==null||!city.equals("ALL")){
@@ -238,24 +239,25 @@ public class WebIndexController{
                 }
 //            }
         }
+        if(area!=null) {
             CookTool.addCookValue("city", area.getId(), response);
-            if(area!=null) {//&&area.getIsDefault().equals("1")
+         //&&area.getIsDefault().equals("1")
                 Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
                 ck.setPath("/");
                 ck.setMaxAge(365 * 24 * 60 * 60 * 1000);
                 response.addCookie(ck);
                 request.getSession().setAttribute(Context.SESSION_AEAR, area);
-            }
+
             int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()));
-            AreaBase areaBase=new AreaBase();
+
             areaBase.setId(area.getId());
             areaBase.setName(area.getName());
             areaBase.setNum(num);
+        }
         if (request.getSession().getAttribute(Context.SESSION_MEMBER) != null) {
              HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
             areaBase.setUsername(info.getUserName());
         }
-
             return areaBase;
         }
 }
