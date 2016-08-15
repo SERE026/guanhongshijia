@@ -14,6 +14,15 @@ public class RecommendNewGoodsResult extends PageResult {
     //新品推荐列表
     private List<Recommend> newList;
 
+    private  String image="";
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public List<Recommend> getNewList() {
         return newList;
