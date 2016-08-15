@@ -16,6 +16,7 @@ package cn.com.dyninfo.o2o.furniture.web.framework.facade;
 import cn.com.dyninfo.o2o.furniture.sys.error.ErrorMsg;
 import cn.com.dyninfo.o2o.furniture.util.CityTool;
 import cn.com.dyninfo.o2o.furniture.util.CookTool;
+import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.SpringContext;
@@ -46,14 +47,13 @@ public class Page implements IPage{
 				if(city==null||city.equals("")){
 					String cityName=CityTool.getClientCityId(request);
 					AreaService areaService=SpringContext.getBean("areaService");
-					List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"' and n.isDefault=1 "));
-					if(list.size()>0){
-						data.put("areainfo",list.get(0) );
-						request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
-					}else{
-//						obj=areaService.getObjById("440300");
-//						data.put("areainfo",obj );
-//						request.getSession().setAttribute(Context.SESSION_AEAR, obj);
+					if (!ValidationUtil.isEmpty(cityName)){
+						List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName));//+"' and n.isDefault=1 "
+						if(list.size()>0){
+							data.put("areainfo",list.get(0) );
+							request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
+						}else{
+						}
 					}
 				}else{
 					AreaService areaService=SpringContext.getBean("areaService");
