@@ -68,7 +68,7 @@ public class CityTool {
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getRemoteAddr();
 		}
-		log.warn("IP is: " + ip);
+//		log.warn("IP is: " + ip);
 	   return ip;
 	}
 	/**
