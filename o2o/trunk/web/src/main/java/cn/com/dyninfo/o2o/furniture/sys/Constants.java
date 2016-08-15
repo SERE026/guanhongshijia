@@ -24,6 +24,10 @@ public class Constants {
     public static final java.lang.String TEMPLATE_FOOTER = "/common/buttom.html";
     public static String DOMAIN_NAME = "http://www.guanhongshijia.com";
 
+    public static String GOODS_IMG = "/upload/goods/";
+
+    public static String ADV_IMG = "/upload/adv/";
+
     public static String ADMIN_ADDRESS = "ghadmin";
 
     public static final Double DEPOSIT_AMOUNT = 20000.0;//预付订单额度

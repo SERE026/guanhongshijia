@@ -105,7 +105,7 @@ public class AppUserController extends BaseAppController {
             result.setResultCode(NO_LOGIN);
             result.setMessage("用户名或密码错误");
         }
-
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
         log.debug(result);
         return result;
     }
@@ -124,7 +124,11 @@ public class AppUserController extends BaseAppController {
     public FindPasswordResult findLockPassword(@RequestBody FindPasswordRequest findPasswordRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(findPasswordRequest);
         FindPasswordResult result = new  FindPasswordResult();
-
+        if (StringUtils.isBlank(findPasswordRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
         String validateCode=findPasswordRequest.getValidateCode();//校验码
 
@@ -163,7 +167,11 @@ public class AppUserController extends BaseAppController {
     public  FindPasswordResult findLoginPassword(@RequestBody  FindPasswordRequest   findPasswordRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(findPasswordRequest);
         FindPasswordResult result = new  FindPasswordResult();
-
+        if (StringUtils.isBlank(findPasswordRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
         String validateCode=findPasswordRequest.getValidateCode();//校验码
         List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
@@ -202,11 +210,22 @@ public class AppUserController extends BaseAppController {
     public QueryAgencyFeeResult queryAgencyFee(@RequestBody  QueryAgencyFeeRequest   queryAgencyFeeRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(queryAgencyFeeRequest);
         QueryAgencyFeeResult result = new  QueryAgencyFeeResult();
-        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='18973512867'"));
-        HuiyuanInfo info= list2.get(0);
-        //获取用户信息
-       // HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (StringUtils.isBlank(queryAgencyFeeRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryAgencyFeeRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
        PageInfo page=new PageInfo();
         page.setPageNo(queryAgencyFeeRequest.getPageNo());
         page.setPageSize(queryAgencyFeeRequest.getPageSize());
@@ -257,11 +276,23 @@ public class AppUserController extends BaseAppController {
     public  QueryCardResult bankCard(@RequestBody  QueryCardRequest   queryCardRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(queryCardRequest);
         QueryCardResult result = new  QueryCardResult();
-        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='18973512867'"));
-        HuiyuanInfo info= list2.get(0);
+        if (StringUtils.isBlank(queryCardRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         //获取用户信息
-        // HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
+        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryCardRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
         List<Card>  lists=new ArrayList<Card>();
         if(!ValidationUtil.isEmpty(info)){
                 Card card = new Card();
@@ -297,15 +328,22 @@ public class AppUserController extends BaseAppController {
     public  QueryCouponResult coupon(@RequestBody  QueryCouponRequest   queryCouponRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(queryCouponRequest);
         QueryCouponResult result = new  QueryCouponResult();
-        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='18973512867'"));
-        HuiyuanInfo info= list2.get(0);
-        //获取用户信息
-       // HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
-        if(ValidationUtil.isEmpty(info)){
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("未登录");
+        if (StringUtils.isBlank(queryCouponRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
             return result;
+        }
+        //获取用户信息
+        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryCouponRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
         }
         List<Coupon>  lists=new ArrayList<Coupon>();
         // List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon> list =(List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon>)couponService.getListByWhere(new StringBuffer(" and n."));
@@ -349,10 +387,23 @@ public class AppUserController extends BaseAppController {
     public  QueryPersonalResult personal(@RequestBody  QueryPersonalRequest   queryPersonalRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(queryPersonalRequest);
         QueryPersonalResult result = new  QueryPersonalResult();
+        if (StringUtils.isBlank(queryPersonalRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         //获取用户信息
-//        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
-        HuiyuanInfo  info=(HuiyuanInfo) huiyuanService.getObjById("2");
-
+        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryPersonalRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
         Personal personal=new Personal();
         if(!ValidationUtil.isEmpty(info)){
             personal.setNickName(info.getUserName());//昵称
@@ -390,6 +441,11 @@ public class AppUserController extends BaseAppController {
     public SetLockPasswordResult lockPassword(@RequestBody SetLockPasswordRequest setLockPasswordRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(setLockPasswordRequest);
         SetLockPasswordResult result = new  SetLockPasswordResult();
+        if (StringUtils.isBlank(setLockPasswordRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         String password= MD5Encoder.encodePassword(setLockPasswordRequest.getPassword(), Context.PASSWORDY);
         //获取用户信息
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);

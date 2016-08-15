@@ -18,6 +18,7 @@ import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.FavoritesService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,6 +69,11 @@ public class AppGoodsController extends BaseAppController {
     public CategoryGoodsListResult listByCategory(@RequestBody CategoryGoodsListRequest categoryGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(categoryGoodsListRequest);
         CategoryGoodsListResult result = new CategoryGoodsListResult();
+        if (StringUtils.isBlank(categoryGoodsListRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         List<GoodsSummary>  goodsLists=new ArrayList<GoodsSummary>();
         List<cn.com.dyninfo.o2o.entity.Brand> brandLists=new ArrayList<cn.com.dyninfo.o2o.entity.Brand>();
 
@@ -189,6 +195,11 @@ public class AppGoodsController extends BaseAppController {
     public LoopGoodsListResult loop(@RequestBody LoopGoodsListRequest loopGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(loopGoodsListRequest);
         LoopGoodsListResult result = new LoopGoodsListResult();
+        if (StringUtils.isBlank(loopGoodsListRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         PageInfo page=new PageInfo();
         page.setPageNo(1);
         page.setPageSize(10);
@@ -218,8 +229,10 @@ public class AppGoodsController extends BaseAppController {
                     }
 //                    String[] arr=goods.getImages().split(";");
 //                    if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
-                    imageList.add(goods.getDefaultImage());
 //                    }
+                    if(goods.getDefaultImage()!=null){
+                        imageList.add(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goods.getDefaultImage());
+                    }
                     detail.setImageList(imageList);
                     detailList.add(detail);
                 }
@@ -247,6 +260,11 @@ public class AppGoodsController extends BaseAppController {
     public RecommendNewGoodsResult newRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(recommendGoodsRequest);
         RecommendNewGoodsResult result = new RecommendNewGoodsResult();
+        if (StringUtils.isBlank(recommendGoodsRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         //新品推荐列表
         List<Recommend> newList=new ArrayList<Recommend>();
         PageInfo pageInfo=new PageInfo();
@@ -266,8 +284,8 @@ public class AppGoodsController extends BaseAppController {
                 if(list.get(i).getGoodsStory()!=null){
                     recommend.setGoodsStory(list.get(i).getGoodsStory());
                 }
-                if(list.get(i).getImg()!=null){
-                    recommend.setImageUrl(list.get(i).getImg());
+                if(list.get(i).getDefaultImage()!=null){
+                    recommend.setImageUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+list.get(i).getDefaultImage());
                 }
                 if(String.valueOf(list.get(i).getGoods_id())!=null){
                     recommend.setId(String.valueOf(list.get(i).getGoods_id()));
@@ -275,6 +293,9 @@ public class AppGoodsController extends BaseAppController {
                 newList.add(recommend);
             }
         }
+//        if(list.get(i).getImg()!=null){
+//            recommend.setImageUrl(list.get(i).getImg());
+//        }
         result.setNewList(newList);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
@@ -295,6 +316,11 @@ public class AppGoodsController extends BaseAppController {
     public RecommendGroupGoodsResult groupRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(recommendGoodsRequest);
         RecommendGroupGoodsResult result = new RecommendGroupGoodsResult();
+        if (StringUtils.isBlank(recommendGoodsRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         //促销列表
         List<Recommend> groupList=new ArrayList<Recommend>();
 
@@ -316,8 +342,8 @@ public class AppGoodsController extends BaseAppController {
                 if(list.get(i).getGoodsStory()!=null){
                     recommend.setGoodsStory(list.get(i).getGoodsStory());
                 }
-                if(list.get(i).getImg()!=null){
-                    recommend.setImageUrl(list.get(i).getImg());
+                if(list.get(i).getDefaultImage()!=null){
+                    recommend.setImageUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+list.get(i).getDefaultImage());
                 }
                 if(String.valueOf(list.get(i).getGoods_id())!=null){
                     recommend.setId(String.valueOf(list.get(i).getGoods_id()));
@@ -354,6 +380,11 @@ public class AppGoodsController extends BaseAppController {
     public RecommendPromotionGoodsResult promotionRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(recommendGoodsRequest);
         RecommendPromotionGoodsResult result = new RecommendPromotionGoodsResult();
+        if (StringUtils.isBlank(recommendGoodsRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         //促销列表
         List<Recommend> promotionList=new ArrayList<Recommend>();
 
@@ -381,8 +412,8 @@ public class AppGoodsController extends BaseAppController {
                 if(list.get(i).getGoodsStory()!=null){
                     recommend.setGoodsStory(list.get(i).getGoodsStory());
                 }
-                if(list.get(i).getImg()!=null){
-                    recommend.setImageUrl(list.get(i).getImg());
+                if(list.get(i).getDefaultImage()!=null){
+                    recommend.setImageUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+list.get(i).getDefaultImage());
                 }
                 if(String.valueOf(list.get(i).getGoods_id())!=null){
                     recommend.setId(String.valueOf(list.get(i).getGoods_id()));
@@ -413,7 +444,11 @@ public class AppGoodsController extends BaseAppController {
     public SearchResult search(@RequestBody SearchRequest  searchRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(searchRequest);
         SearchResult result = new SearchResult();
-
+        if (StringUtils.isBlank(searchRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
         List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
         if(!ValidationUtil.isEmpty(list)){
@@ -425,8 +460,8 @@ public class AppGoodsController extends BaseAppController {
                 if(list.get(i).getName()!=null){
                     goodsSummary.setTitle(list.get(i).getName());
                 }
-                if(list.get(i).getImg()!=null){
-                    goodsSummary.setMainPicUrl(list.get(i).getImg());
+                if(list.get(i).getDefaultImage()!=null){
+                    goodsSummary.setMainPicUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+list.get(i).getDefaultImage());
                 }
                 goodsSummary.setPrice(list.get(i).getSalesMoney());
                 lists.add(goodsSummary);
