@@ -21,12 +21,15 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.log4j.Logger;
 
 
 public class CityTool {
 
-	public final static String IP_SERVICE_PATH="http://ip.taobao.com/service/getIpInfo.php"; 
+	private static Logger log = Logger.getLogger(CityTool.class);
+	public final static String IP_SERVICE_PATH="http://ip.taobao.com/service/getIpInfo.php";
 	private static String getCityIdByIp(String ip){
+
 		String cityId="";
 		try{
 			HttpClient httpClient = new HttpClient();
@@ -64,7 +67,8 @@ public class CityTool {
 		}
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getRemoteAddr();
-		} 
+		}
+		log.warn("IP is: " + ip);
 	   return ip;
 	}
 	/**
@@ -74,6 +78,7 @@ public class CityTool {
 	 */
 	public static String getClientCityId(HttpServletRequest request){
 		return getCityIdByIp(getClientIp(request));
+
 	}
 	
 	public static void main(String args[]){
