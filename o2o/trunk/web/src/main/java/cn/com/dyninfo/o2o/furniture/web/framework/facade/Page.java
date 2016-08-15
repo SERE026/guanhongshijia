@@ -48,7 +48,7 @@ public class Page implements IPage{
 					String cityName=CityTool.getClientCityId(request);
 					AreaService areaService=SpringContext.getBean("areaService");
 					if (!ValidationUtil.isEmpty(cityName)){
-						List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName));//+"' and n.isDefault=1 "
+						List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"'"));//+"' and n.isDefault=1 "
 						if(list.size()>0){
 							data.put("areainfo",list.get(0) );
 							request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));

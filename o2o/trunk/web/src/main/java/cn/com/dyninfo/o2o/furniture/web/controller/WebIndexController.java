@@ -206,7 +206,7 @@ public class WebIndexController{
                 response.addCookie(ck);
                 request.getSession().setAttribute(Context.SESSION_AEAR, area);
             }
-            int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()));
+            int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()+"'"));
             AreaBase areaBase=new AreaBase();
             areaBase.setId(area.getId());
             areaBase.setName(area.getName());
@@ -226,27 +226,27 @@ public class WebIndexController{
             if(city==null||!city.equals("ALL")){
                 if(city==null||city.equals("")){
                     String cityName=CityTool.getClientCityId(request);
-                    log.warn("IP is:cityName " + cityName);
+//                    log.warn("IP is:cityName " + cityName);
                     if (!ValidationUtil.isEmpty(cityName)) {
-                        List list = areaService.getListByWhere(new StringBuffer(" and n.name='" + cityName));//+"' and n.isDefault=1 "
+                        List list = areaService.getListByWhere(new StringBuffer(" and n.name='" + cityName+"'"));//+"' and n.isDefault=1 "
                         if (list.size() > 0) {
-                        log.warn("IP is:list.size()>0 " + list.size());
+//                        log.warn("IP is:list.size()>0 " + list.size());
                             area = (AreaInfo) list.get(0);
                             request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
                         } else {
-                        log.warn("IP is:list.size()>0 else " + list.size());
+//                        log.warn("IP is:list.size()>0 else " + list.size());
                         }
                     }
                 }
                 else{
-                    log.warn("IP is:city==null else " + city);
+//                    log.warn("IP is:city==null else " + city);
                     area=(AreaInfo) areaService.getObjById(city);
                     request.getSession().setAttribute(Context.SESSION_AEAR, area);
                 }
             }
         }
         if(area!=null) {
-            log.warn("IP is:area!=null" + area.getId());
+//            log.warn("IP is:area!=null" + area.getId());
             CookTool.addCookValue("city", area.getId(), response);
          //&&area.getIsDefault().equals("1")
                 Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
@@ -255,7 +255,7 @@ public class WebIndexController{
                 response.addCookie(ck);
                 request.getSession().setAttribute(Context.SESSION_AEAR, area);
 
-            int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()));
+            int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()+"'"));
 
             areaBase.setId(area.getId());
             areaBase.setName(area.getName());
