@@ -225,6 +225,7 @@ public class WebIndexController{
             if(city==null||!city.equals("ALL")){
                 if(city==null||city.equals("")){
                     String cityName=CityTool.getClientCityId(request);
+                    log.warn("IP is:cityName " + cityName);
                     List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"' and n.isDefault=1 "));
                     if(list.size()>0){
                         log.warn("IP is:list.size()>0 " + list.size());
