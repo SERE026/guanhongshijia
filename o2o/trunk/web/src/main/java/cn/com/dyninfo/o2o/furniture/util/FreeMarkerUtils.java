@@ -124,7 +124,7 @@ public class FreeMarkerUtils {
             File file = new File(fileName);
             Writer out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             Map<String, Object> paramsMap = new HashMap<String, Object>();
-            List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
+            List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
             paramsMap.put("goodsSortList",dataList);
             List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
             if (advwzList != null && advwzList.size() > 0) {
@@ -235,7 +235,7 @@ public class FreeMarkerUtils {
             File file = new File(fileName);
             Writer out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             Map<String, Object> paramsMap = new HashMap<String, Object>();
-            List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
+            List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
             paramsMap.put("goodsSortList",dataList);
             List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
             paramsMap.put("advwzList",advwzList.get(0));
@@ -316,7 +316,7 @@ public class FreeMarkerUtils {
             File file = new File(Context.webPath + Context.tempPath + "/static/footer.html");
             Writer out = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             Map<String, Object> paramsMap = new HashMap<String, Object>();
-            List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer());
+            List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
             paramsMap.put("goodsSortList",dataList);
             List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
             paramsMap.put("advwzList",advwzList.get(0));
