@@ -222,7 +222,7 @@ public class WebIndexController{
         AreaBase areaBase=new AreaBase();
         if(area==null){
             String city=CookTool.getCookIEValue("city", request);
-//            if(city==null||!city.equals("ALL")){
+            if(city==null||!city.equals("ALL")){
                 if(city==null||city.equals("")){
                     String cityName=CityTool.getClientCityId(request);
                     List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"' and n.isDefault=1 "));
@@ -233,20 +233,21 @@ public class WebIndexController{
 //                        area=(AreaInfo) areaService.getObjById("440300");
 //                        request.getSession().setAttribute(Context.SESSION_AEAR, area);
                     }
-                }else{
+                }
+                else{
                     area=(AreaInfo) areaService.getObjById(city);
                     request.getSession().setAttribute(Context.SESSION_AEAR, area);
                 }
-//            }
+            }
         }
         if(area!=null) {
-            CookTool.addCookValue("city", area.getId(), response);
-         //&&area.getIsDefault().equals("1")
-                Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
-                ck.setPath("/");
-                ck.setMaxAge(365 * 24 * 60 * 60 * 1000);
-                response.addCookie(ck);
-                request.getSession().setAttribute(Context.SESSION_AEAR, area);
+//            CookTool.addCookValue("city", area.getId(), response);
+//         //&&area.getIsDefault().equals("1")
+//                Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
+//                ck.setPath("/");
+//                ck.setMaxAge(365 * 24 * 60 * 60 * 1000);
+//                response.addCookie(ck);
+//                request.getSession().setAttribute(Context.SESSION_AEAR, area);
 
             int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()));
 
