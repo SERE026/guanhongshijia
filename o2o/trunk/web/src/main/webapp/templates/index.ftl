@@ -1177,6 +1177,7 @@
                         }
                     }else{
                         $("#area").empty();
+                        $("#data2").empty();
                     }
                 },
                 error: function (a,b,c,d) {
