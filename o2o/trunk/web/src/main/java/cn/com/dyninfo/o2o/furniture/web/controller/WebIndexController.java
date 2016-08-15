@@ -1,6 +1,7 @@
 package cn.com.dyninfo.o2o.furniture.web.controller;
 
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
+import cn.com.dyninfo.o2o.furniture.util.CityTool;
 import cn.com.dyninfo.o2o.furniture.util.CookTool;
 import cn.com.dyninfo.o2o.furniture.util.FreeMarkerUtils;
 import cn.com.dyninfo.o2o.furniture.web.active.model.Active;
@@ -16,6 +17,7 @@ import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.PageModuleService;
+import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.CommentService;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
@@ -212,4 +214,48 @@ public class WebIndexController{
             }
     }
 
+    //index 页，获取城市ID与相关数据,登录后用户昵称
+    @RequestMapping(value= "/getCity2" )
+    @ResponseBody
+    public AreaBase getCity2(HttpServletRequest request, ModelMap mav,  HttpServletResponse response) {
+        AreaInfo area=(AreaInfo) request.getSession().getAttribute(Context.SESSION_AEAR);
+        if(area==null){
+            String city=CookTool.getCookIEValue("city", request);
+//            if(city==null||!city.equals("ALL")){
+                if(city==null||city.equals("")){
+                    String cityName=CityTool.getClientCityId(request);
+                    List list=areaService.getListByWhere(new StringBuffer(" and n.name='"+cityName+"' and n.isDefault=1 "));
+                    if(list.size()>0){
+                        area=(AreaInfo)list.get(0);
+                        request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
+                    }else{
+//                        area=(AreaInfo) areaService.getObjById("440300");
+//                        request.getSession().setAttribute(Context.SESSION_AEAR, area);
+                    }
+                }else{
+                    area=(AreaInfo) areaService.getObjById(city);
+                    request.getSession().setAttribute(Context.SESSION_AEAR, area);
+                }
+//            }
+        }
+            CookTool.addCookValue("city", area.getId(), response);
+            if(area!=null) {//&&area.getIsDefault().equals("1")
+                Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
+                ck.setPath("/");
+                ck.setMaxAge(365 * 24 * 60 * 60 * 1000);
+                response.addCookie(ck);
+                request.getSession().setAttribute(Context.SESSION_AEAR, area);
+            }
+            int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()));
+            AreaBase areaBase=new AreaBase();
+            areaBase.setId(area.getId());
+            areaBase.setName(area.getName());
+            areaBase.setNum(num);
+        if (request.getSession().getAttribute(Context.SESSION_MEMBER) != null) {
+             HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+            areaBase.setUsername(info.getUserName());
+        }
+
+            return areaBase;
+        }
 }

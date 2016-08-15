@@ -29,6 +29,17 @@ public class AreaBase implements Serializable{
 	private String name;
 	//体验馆数量
 	private int num;
+	//用户名字
+	private String username;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public String getId() {
 		return id;
 	}

@@ -31,13 +31,11 @@
         <div>
             <div class="PersonalInformation" style="float: left;">
                 <label class="head-welcome inline-block">欢迎光临观红世家</label>
-            <#if HUIYUANIFNO?exists>
-           <a href="${rc.contextPath}/huiyuan_order.html">${HUIYUANIFNO.userName}</a><a href="javascript:exitdl();" >【退出】</a>
-            <#else >
+
+                <span id="data2">
                 <a class="head-login inline-block" href="${rc.contextPath}/login.html">请登录</a>
                 <a class="inline-block" href="${rc.contextPath}/register.html" style="margin-left: 1em;color: #c81523;">免费注册</a>
-            </#if>
-
+                </span>
 
                 <#--<label class="head-welcome inline-block">欢迎光临观红世家，</label>
                 <a href="#">aaa</a><a class="exit" href="#">[退出]</a>-->
@@ -65,11 +63,7 @@
         </div>
         <div class="head-city">
             <div class="city">
-            <#if AEARINFO?exists>
-                <label class="mainColor city-name"> ${AEARINFO.name}</label>
-            <#else>
-                <label class="mainColor city-name">全国站</label>
-            </#if>
+                <label class="mainColor city-name" id="cityname1">全国站</label>
 
                 <label class="Switch-city">切换城市<i></i>
                 <div id="JS_header_city_bar_box" class="hide_city_group">
@@ -78,11 +72,7 @@
                             <div class="mycity">
                                 <div style="display: block;" id="cityname">
                                     当前城市: <strong id="JS_city_current_city">
-                                <#if AEARINFO?exists>
-                                    <label class="mainColor city-name"> ${AEARINFO.name}</label>
-                                <#else>
                                     <label class="mainColor city-name">全国</label>
-                                </#if>
                                 </strong>
                                 </div>
                             </div>
@@ -330,7 +320,7 @@
                 </li>
                 <li><a href="${rc.contextPath}/GoodBoard.html">云导购</a></li>
                 <li><a href="${rc.contextPath}/brand.html">品牌汇</a></li>
-                <li><a href="javascript:void(0)">全国体验馆</a></li>
+        	    <li><a href="javascript:void(0)">全国体验馆</a></li>
                 <li><a href="javascript:void(0)">艺术品</a></li>
                 <li><a href="${rc.contextPath}/GoodGroup.html">团购</a></li>
                 <li><a href="${rc.contextPath}/apply.html">招商加盟</a></li>
@@ -1159,6 +1149,40 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $.focus("#focus001");
+        //index加载 更改体验馆数据
+            $.ajax({
+                type: "post",
+                url: "${rc.contextPath}/getCity2.htm",
+                data:{},
+                dataType: "json",
+                success: function(result) {
+                    var area=result;
+
+                    if(area!=null){
+                        $("#area").empty();
+                        $("#cityname").empty();
+
+                        var _html = ['<b id=>'+area.name+'<label>'+area.num+'</label>家</b>'];
+
+
+                        var _html1 = [' 当前城市: <strong id="JS_city_current_city">'+area.name+'</strong>'];
+                        $("#cityname1").html(area.name);
+                        $("#cityname").append(_html1.join(''));
+                        $("#area").append(_html.join(''));
+                        if (area.username!=null) {
+                            $("#data2").empty();
+                            var _html3 = [' <a href="${rc.contextPath}/huiyuan_order.html">'+area.username+'</a><a href="javascript:exitdl();" >【退出】</a>'];
+
+                            $("#data2").append(_html3.join(''));
+                        }
+                    }else{
+                        $("#area").empty();
+                    }
+                },
+                error: function (a,b,c,d) {
+                    alert("数据错误");
+                }
+            });
     });
     window.onresize=function () {
         $.focus("#focus001");

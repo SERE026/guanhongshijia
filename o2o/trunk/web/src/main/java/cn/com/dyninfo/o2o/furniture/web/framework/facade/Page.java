@@ -51,9 +51,9 @@ public class Page implements IPage{
 						data.put("areainfo",list.get(0) );
 						request.getSession().setAttribute(Context.SESSION_AEAR, list.get(0));
 					}else{
-						obj=areaService.getObjById("440300");
-						data.put("areainfo",obj );
-						request.getSession().setAttribute(Context.SESSION_AEAR, obj);
+//						obj=areaService.getObjById("440300");
+//						data.put("areainfo",obj );
+//						request.getSession().setAttribute(Context.SESSION_AEAR, obj);
 					}
 				}else{
 					AreaService areaService=SpringContext.getBean("areaService");
