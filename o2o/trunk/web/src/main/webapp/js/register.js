@@ -229,7 +229,7 @@ function accoutyz(){
 								dataType: "html",
 								success: function(data){
 						 			if(data=="0"){
-						 				window.location.href="index.html";
+						 				window.location.href="login.html";
 						 			}else if(data=="1"){
 						 				$("#validts").html("验证码错误！");
 										$("#validts").css("display","");
