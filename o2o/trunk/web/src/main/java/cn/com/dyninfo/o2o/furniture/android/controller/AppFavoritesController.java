@@ -101,7 +101,7 @@ public class AppFavoritesController extends BaseAppController {
                     Goods good = list.get(i).getGood();
                     GoodsSummary goodsSummary = new GoodsSummary();
                     if (String.valueOf(good.getGoods_id()) != null) {
-                        goodsSummary.setId(String.valueOf(list.get(i).getFavorites_id()));
+                        goodsSummary.setId(String.valueOf(good.getGoods_id()));
                     }
                     if (good.getName() != null) {
                         goodsSummary.setTitle(good.getName());
