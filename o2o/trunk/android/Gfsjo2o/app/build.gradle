@@ -36,4 +36,5 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.alibaba:fastjson:1.1.52.android'
     compile(name: 'android-tv-widget', ext: 'aar')
+    compile files('libs/alipaySdk-20160803.jar')
 }
