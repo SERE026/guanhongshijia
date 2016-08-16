@@ -132,7 +132,7 @@ $(function(){
 						  var str="";
 						  str += "<div id='"+fileName+"' style='display: inline;'>";
 						  str += "<input type='hidden' name='advpic' value='"+fileName+"'/>";
-						  str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
+						  str += "<img src=\"<%=request.getContextPath()%>/upload/yqlj/"+fileName+"\" height=120 width=240 />";
 						  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 						  str += "删除";
 						  str += "</a>&nbsp;&nbsp;</div>";
@@ -145,7 +145,7 @@ $(function(){
 			  <div  id="imgUrl3">
 				  <div id='${info.advpic }' style='display: inline;'>
 					  <input type='hidden' name='advpic' value='${info.advpic }'/>
-					  <img src="<%=request.getContextPath()%>/upload/${info.advpic }" height=120 width=240 />
+					  <img src="<%=request.getContextPath()%>/upload/yqlj/${info.advpic }" height=120 width=240 />
 					  <a href='#' onclick='removeFiles("${info.advpic }")'>
 						  删除
 					  </a>&nbsp;&nbsp;</div>
@@ -186,7 +186,7 @@ $(function(){
 						  var str="";
 						  str += "<div id='"+fileName+"' style='display: inline;'>";
 						  str += "<input type='hidden' name='largeimg' value='"+fileName+"'/>";
-						  str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
+						  str += "<img src=\"<%=request.getContextPath()%>/upload/yqlj/"+fileName+"\" height=120 width=240 />";
 						  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 						  str += "删除";
 						  str += "</a>&nbsp;&nbsp;</div>";
@@ -199,7 +199,7 @@ $(function(){
 			  <div  id="imgUrl1">
 				  <div id='${info.largeimg }' style='display: inline;'>
 					  <input type='hidden' name='largeimg' value='${info.largeimg }'/>
-					  <img src="<%=request.getContextPath()%>/upload/${info.largeimg }" height=120 width=240 />
+					  <img src="<%=request.getContextPath()%>/upload/yqlj/${info.largeimg }" height=120 width=240 />
 					  <a href='#' onclick='removeFiles("${info.largeimg }")'>
 						  删除
 					  </a>&nbsp;&nbsp;</div>
@@ -271,7 +271,7 @@ $(function(){
 					var str="";
 					str += "<div id='"+fileName+"' style='display: inline;'>";
 					str += "<input type='hidden' name='imagesrc' value='"+fileName+"'/>";
-					str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
+					str += "<img src=\"<%=request.getContextPath()%>/upload/yqlj/"+fileName+"\" height=120 width=240 />";
 					str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 					str += "删除";
 					str += "</a>&nbsp;&nbsp;</div>";
@@ -325,7 +325,7 @@ $(function(){
 		<div  id="imgUrl">
 			<div id='${info.imagesrc }' style='display: inline;'>
 			<input type='hidden' name='imagesrc' value='${info.imagesrc }'/>
-			<img src="<%=request.getContextPath()%>/upload/${info.imagesrc }" height=120 width=240 />
+			<img src="<%=request.getContextPath()%>/upload/yqlj/${info.imagesrc }" height=120 width=240 />
 			<a href='#' onclick='removeFiles("${info.imagesrc }")'>
 			删除
 			</a>&nbsp;&nbsp;</div>
@@ -364,7 +364,7 @@ $(function(){
 						  var str="";
 						  str += "<div id='"+fileName+"' style='display: inline;'>";
 						  str += "<input type='hidden' name='appImg' value='"+fileName+"'/>";
-						  str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
+						  str += "<img src=\"<%=request.getContextPath()%>/upload/yqlj/"+fileName+"\" height=120 width=240 />";
 						  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 						  str += "删除";
 						  str += "</a>&nbsp;&nbsp;</div>";
