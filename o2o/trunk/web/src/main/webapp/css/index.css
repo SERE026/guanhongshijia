@@ -39,7 +39,7 @@ ul li {float:left;list-style-type:none;
 .PersonalInformation{float: left;height: 30px;line-height: 30px;}
 .exit{margin-left: 8px;}
 .current_position{display: inline-block;padding: 2px 6px;background-color: red;color: white}
-.head-ul {display:block;float:right;height:30px;width:504px;  }
+.head-ul {display:block;float:right;height:30px;width:516px;  }
 .head-ul li {line-height:30px;height: 30px;position: relative;
 }
 .head-ul li a{padding: 0 10px;}
@@ -283,7 +283,7 @@ ul li {float:left;list-style-type:none;
 }
     .nav-ul > ul > li:first-child > a {display:block;width:235px;text-align:center;line-height:52px;padding:0;color:white;background-color:#572a27;height: 52px;
     }
-    .nav-ul>ul>li>ul {/*display:none;*/background-color:#fff;z-index:4;position:absolute;top:52px;overflow: hidden;height: auto;height: 485px;
+    .nav-ul>ul>li>ul {/*display:none;*/background-color:#fff;z-index:4;position:absolute;top:52px;overflow: hidden;height: auto;height: 485px;width: 235px;
     }
     .nav-ul>ul>li>ul>li {
         float:none;width:235px;
@@ -318,7 +318,7 @@ ul li {float:left;list-style-type:none;
         }
     .three-level > div >a > img {margin-top:20px;width: 364px;
     }
-.furniture {height:66px;overflow:hidden;
+.furniture {height:66px;overflow:hidden;width: 235px;
 }
     .furniture ul{overflow:hidden;width:166px;float:left;margin-left:71px;
     }
@@ -454,13 +454,14 @@ ul li {float:left;list-style-type:none;
 }
 .red {background-color:#bd2904!important;
 }
-
+.Introduction:hover,.ItemName a:hover{cursor: default;}
 /*限时*/
 .Time-limit {width:100%;margin-top:5px;border-top:1px solid #572a27;
 }
     .Time-limit > .Time-limit-nav {overflow:hidden;height:40px;
     }
-    .Time-limit>.Time-limit-nav b{width:50%;display:block;float:left;text-align:center;line-height:40px;background-color:#ececec;color:#6b4441;font-size:20px;border-radius:1px;font-family: "Microsoft YaHei";font-weight: 400;
+    .Time-limit>.Time-limit-nav b{width:50%;display:block;float:left;text-align:center;line-height:40px;background-color:#c86c18;color:white;font-size:20px;font-family: "Microsoft YaHei";font-weight: 400;
+        border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;
     }
 .Time-limit>.Time-limit-nav .PitchOn {font-size:18px;background-color:white;color:#555;
 }
@@ -506,7 +507,7 @@ ul li {float:left;list-style-type:none;
 .FloorThree .floorIcon{background-position: -72px -143px;}
 .FloorFour .floorIcon{background-position: -157px -146px}
 .FloorFive .floorIcon{background-position: -216px -146px}
-.Floor {min-height: 890px;height: auto;overflow: hidden;width: 100%;
+.Floor {min-height: 747px;height: auto;overflow: hidden;width: 100%;
 }
     .Floor > p {line-height:95px;
     }
@@ -557,7 +558,7 @@ ul li {float:left;list-style-type:none;
 .floor-banner-img {float:left;width: 311px;
 }
     .floor-banner-img img {width:311px;height:280px;  }
-    .Floor-bottom{margin-top: 5px;}
+    .Floor-bottom{margin-top: 15px;}
 .Floor-bottom ul {overflow:hidden;margin-top:-17px;
 }
 .Floor-bottom ul li {width:395px;height:190px;margin-left:4px;overflow:hidden;  }
@@ -570,7 +571,7 @@ ul li {float:left;list-style-type:none;
         }
         .Floor-bottom ul li dl .dd-Item-name {padding:18px 0 10px 200px;
         }
-.Floor-bottom .hot-cakes {padding-left:200px;
+.Floor-bottom .hot-cakes {padding-left:200px;min-height: 30px;
 }
 .Floor-bottom .Item-price {margin:36px 0 8px;padding-left:200px;
 }
@@ -698,7 +699,7 @@ ul li {float:left;list-style-type:none;
     }
     .PlacedTop2 li a{display:inline-block;width:36px;line-height:36px;height:36px;background-image: url("../img/fonticon.png");background-repeat: no-repeat;background-position:-293px -145px;overflow: hidden;}
 
-.FiveContent {height:770px;
+.FiveContent {height:auto;
 }
     .FiveContent .FloorImg ul li {width:90px;margin-top:17px;height:30px;line-height:30px;
     }

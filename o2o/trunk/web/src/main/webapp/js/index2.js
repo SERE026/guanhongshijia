@@ -41,7 +41,7 @@ function suspension() {
 }
 
 function Timelimit() {
-    $(".Time-limit-nav>b").click(function () {
+    $(".Time-limit-nav>b").mouseover(function () {
         var NavCls = $(this).attr("name");
         $(this).addClass("PitchOn").siblings().removeClass();
         if (NavCls == "Time-limit-area") {
@@ -109,11 +109,11 @@ function Backswitch() {
 
 
 
-function cityList() {
+/*function cityList() {
     $(document).mouseover(function (e) {
         var _con = $('.Switch-city,.hide_city_group');   // 设置目标区域
         if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
-            $(".hide_city_group").hide();
+           // $(".hide_city_group").hide();
         } else {
             $(".hide_city_group").show();
         }
@@ -131,12 +131,12 @@ function cityList() {
     $(".hot_city a,.city_list .icity_names a").bind("click", function () {
         var cityValue = $(this).text();
         $(".city-name").text(cityValue);
-        $(".hide_city_group").hide();
+        //$(".hide_city_group").hide();
     })
-}
+}*/
 
 function FloorFive() {
-    $(".FiveNav li").click(function () {
+    $(".FiveNav li").mouseover(function () {
         var num = $(this).index();
         $(this).addClass("fiveNav").siblings().removeClass("fiveNav");
         $(".FiveContent:eq(" + num + ")").removeClass("none").siblings(".FiveContent").addClass("none");

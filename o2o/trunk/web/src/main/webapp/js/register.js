@@ -66,7 +66,7 @@ $(function(){
 		
 		$("#phone").focus(function() {
 			$("#phonets").css("display","none");
-			$("#send").css("display", "none");
+			//$("#send").css("display", "none");
 		});
 		
 		$("#codeValue").blur(function() {
@@ -120,7 +120,7 @@ function sendCode() {
 			  dataType: "html",
 			  success: function(data){
 			  		if(data=="1"){
-			  			$("#btnSend").css("display", "none");
+			  			//$("#btnSend").css("display", "none");
 			  			$("#codeBox").css("display", "");
 			  			$("#codeBox").unbind("click")
 			  			$("#codeValue").val("输入验证码");
@@ -315,7 +315,7 @@ function phoneyz(){
 					 success: function(data){
 			  			if(data=="0"){
 			  				$("#phone").val("号码已存在，请重输");
-			  				$("#send").css("display", "none");
+			  				//$("#send").css("display", "none");
 					  	}else{
 							$("#send").css("display", "");
 					  	}

@@ -59,7 +59,7 @@ $(function() {
 				showPics(index);
 				index++;
 				if(index == len) {index = 0;}
-			},2000); //此4000代表自动播放的间隔，单位：毫秒
+			},3000); //此4000代表自动播放的间隔，单位：毫秒
 		}).trigger("mouseleave");
 		
 		//显示图片函数，根据接收的index值显示相应的内容
