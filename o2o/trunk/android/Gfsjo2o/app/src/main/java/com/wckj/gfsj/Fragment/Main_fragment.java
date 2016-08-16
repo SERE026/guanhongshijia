@@ -55,8 +55,9 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
 
         svp_context.setAdapter(adapter);
 
-        startUp();
+//        startUp();
     }
+
 
     private void initView() {
         svp_context =  (StopViewPage) view.findViewById(R.id.svp_context);
@@ -86,6 +87,14 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
 
         }
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        adapter=null;
+        pageList.clear();
+    }
+
     /**
      * 设置首页分类三个颜色
      */

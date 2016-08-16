@@ -173,6 +173,7 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
             case R.id.rf_chinese_furniture:
                 intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
                 intent.putExtra("id",mCategoryList.get(0).getId());
+                intent.putExtra("category",mCategoryList.get(0).getTitle());
                 startActivity(intent);
                 break;
         }

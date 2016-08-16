@@ -157,9 +157,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setTabSelection(4);
                 break;
             case R.id.tv_collect:
+                if(AppApplication.loginResult.getToken()==null){
+                    OwerToastShow.show("暂无权限,需要先登录哦！！！");
+                    return;
+                }
                 setTabSelection(3);
                 break;
             case R.id.tv_shopping_cart:
+                if(AppApplication.loginResult.getToken()==null){
+                    OwerToastShow.show("暂无权限,需要先登录哦！！！");
+                    return;
+                }
                 setTabSelection(2);
                 break;
             case R.id.tv_mine_center:

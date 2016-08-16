@@ -17,6 +17,16 @@ public class RecommendGoodsGroupResult extends PageResult {
     public List<Recommend> getGroupList() {
         return groupList;
     }
+    private  String image="";
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
 
     public void setGroupList(List<Recommend> groupList) {
         this.groupList = groupList;

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommonAdapter;
@@ -49,15 +50,16 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
     private int mLvPosition;
     private View titleView;
     private TitleRelativeLayout title_rl;
-    private int id;
+    private String id,category="";
     private SubCategoryResult json;
 
     @Override
     protected void init() {
-         id = getIntent().getIntExtra("id", -1);
-        if(id==-1){
+         id = getIntent().getStringExtra("id");
+        category = getIntent().getStringExtra("category");
+        if(id==null){
             OwerToastShow.show("该商品系列不存在");
-            finish();
+//            finish(); 不知道为什么这里finsh会导致首页fragment重叠
         }
     }
 
@@ -67,6 +69,8 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         title_rl = (TitleRelativeLayout) titleView.findViewById(R.id.title_rl);
         title_rl.childView.findViewById(R.id.tv_go_back).setOnClickListener(this);
 
+        TextView tv_content_desc = (TextView) title_rl.childView.findViewById(R.id.tv_content_desc);
+                tv_content_desc.setText( category);
         return titleView;
     }
 
@@ -154,7 +158,7 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
 
     public void getCategorySub() {
         SubCategoryRequest request = new SubCategoryRequest();
-        request.setId(id);
+        request.setId(Integer.parseInt(id));
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.CATEGORY_SUB_URL, new ICallBack() {
 
             @Override

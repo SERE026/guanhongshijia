@@ -8,19 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.wckj.gfsj.Bean.Commodity_level_details;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.ImageLoaderUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class CommoditydetailsAdapter extends PagerAdapter {
-	private ArrayList<Commodity_level_details> displayImages;
+	private List<String> displayImages;
 	private Context context;
 	private ArrayList<View> viewList = new ArrayList<View>();
 
-	public CommoditydetailsAdapter(ArrayList<Commodity_level_details> displayImages,
-		 Context context) {
+	public CommoditydetailsAdapter( List<String> displayImages,
+								   Context context) {
 		super();
 		this.displayImages = displayImages;
 		this.context = context;
@@ -28,15 +29,10 @@ public class CommoditydetailsAdapter extends PagerAdapter {
 			View s = LayoutInflater.from(this.context).inflate(
 					R.layout.item_view_picture, null);
 			ImageView iv_loadpic = (ImageView) s.findViewById(R.id.iv_pictrue);
-			iv_loadpic.setImageResource(R.drawable.icon_public_image);
+			ImageLoaderUtil.getInstance().displayImageView(displayImages.get(i),iv_loadpic);
+//			iv_loadpic.setImageResource(R.drawable.icon_public_image);
 			viewList.add(s);
 		}
-	}
-
-
-	@Override
-	public void destroyItem(View view, int position, Object arg2) {
-
 	}
 
 

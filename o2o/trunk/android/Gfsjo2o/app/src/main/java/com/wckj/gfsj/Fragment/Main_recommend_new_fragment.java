@@ -6,9 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import com.alibaba.fastjson.JSON;
-import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
+import com.wckj.gfsj.Activity.CommoditydetailsActivity;
 import com.wckj.gfsj.Adapter.RecommendAdapter;
 import com.wckj.gfsj.Bean.RecommendGoodsGroupResult;
 import com.wckj.gfsj.Bean.RecommendGoodsPromotionResult;
@@ -20,6 +21,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.ImageLoaderUtil;
 
 import java.util.List;
 
@@ -34,7 +36,7 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
     private GridView gv_recommend;
     private RecommendAdapter mRecommendAdapter;
     private int typeId;
-    private String  url;
+    private String  url,mImage;
     private RecommendNewGoodsResult result;
     private RecommendGoodsPromotionResult promotionResult;
     private RecommendGoodsGroupResult groupResult;
@@ -76,9 +78,9 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
         gv_recommend.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              Intent intent  =new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+              Intent intent  =new Intent(view.getContext(), CommoditydetailsActivity.class);
                 Recommend recommend = (Recommend) parent.getItemAtPosition(position);
-                intent.putExtra("id",recommend.getId());
+                intent.putExtra("goodsId",recommend.getId());
                 startActivity(intent);
             }
         });
@@ -86,6 +88,8 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
 
     private void initView() {
         gv_recommend = (GridView) view.findViewById(R.id.gv_recommend);
+        ImageView iv_recommend_flag_pic = (ImageView) view.findViewById(R.id.iv_recommend_flag_pic);
+        ImageLoaderUtil.getInstance().displayImageView(mImage,iv_recommend_flag_pic);
 
         mRecommendAdapter = new RecommendAdapter(view.getContext(), mList);
         gv_recommend.setAdapter(mRecommendAdapter);
@@ -122,14 +126,17 @@ public class Main_recommend_new_fragment extends BaseNewFragment{
                     case 0:
                         result =  JSON.parseObject(response, RecommendNewGoodsResult.class);
                         mList = result.getNewList();
+                         mImage = result.getImage();
                         break;
                     case 1:
                          groupResult =  JSON.parseObject(response, RecommendGoodsGroupResult.class);
                        mList =  groupResult.getGroupList();
+                        mImage = groupResult.getImage();
                         break;
                     case 2:
                          promotionResult =  JSON.parseObject(response, RecommendGoodsPromotionResult.class);
                         mList =  promotionResult.getPromotionList();
+                        mImage = promotionResult.getImage();
                         break;
                 }
                 showPageState(FrameLoadLayout.LoadResult.success);

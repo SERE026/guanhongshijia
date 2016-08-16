@@ -12,7 +12,6 @@ import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommoditydetailsAdapter;
 import com.wckj.gfsj.Bean.AddCartRequest;
 import com.wckj.gfsj.Bean.AddFavoritesRequest;
-import com.wckj.gfsj.Bean.Commodity_level_details;
 import com.wckj.gfsj.Bean.GoodsDetailRequest;
 import com.wckj.gfsj.Bean.GoodsDetailResult;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
@@ -23,7 +22,7 @@ import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.OwerToastShow;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -33,9 +32,9 @@ import okhttp3.Call;
 public class CommoditydetailsActivity extends BaseNewActivity implements View.OnClickListener{
     private Button bt_buy;
     private ViewPager vp_commodity_pic;
-    private ArrayList<Commodity_level_details> mList=new ArrayList<>();
+    private List<String> imageList;
     private TitleRelativeLayout title_rl;
-    private TextView tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type,tv_color,tv_specification;
+    private TextView tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type,tv_color,tv_specification,tv_sale_count;
     private ImageView iv_collect;
     private GoodsDetailResult result;
 
@@ -45,7 +44,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     protected void init() {
         goodsId =  getIntent().getStringExtra("goodsId");
         if( goodsId==null){
-            finish();
+            OwerToastShow.show("该商品不存在");
+//            finish();
         }
     }
 
@@ -71,6 +71,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         tv_type = (TextView) view.findViewById(R.id.tv_type);
         tv_color = (TextView) view.findViewById(R.id.tv_color);
         tv_specification = (TextView) view.findViewById(R.id.tv_specification);
+        tv_sale_count = (TextView) view.findViewById(R.id.tv_sale_count);
+
 
         initSuccessView();
 
@@ -85,10 +87,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
 
 
     private void bindViewPage() {
-        for (int i = 0; i <5 ; i++) {
-            mList.add(new Commodity_level_details());
-        }
-        vp_commodity_pic.setAdapter(new CommoditydetailsAdapter(mList,this));
+
+        vp_commodity_pic.setAdapter(new CommoditydetailsAdapter(imageList,this));
     }
 
     @Override
@@ -107,7 +107,9 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         tv_title_name.setText(result.getDetail().getName());
         tv_title_desc.setText(result.getDetail().getShortDesc());
         tv_prices.setText("￥ "+result.getDetail().getPrice());
-//        tv_type.setText(result.getDetail().get);
+        tv_type.setText(result.getDetail().getType());
+        tv_sale_count.setText("成交价格"+result.getDetail().getSaleCount()+"件");
+        iv_collect.setImageResource(result.getDetail().getCollection().equals("收藏")?R.drawable.icon_collect_normal:R.drawable.icon_collect_press);
 //        tv_color.setText();
 //        tv_specification
     }
@@ -147,7 +149,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                 break;
             case R.id.iv_collect://收藏夹
                 addCollect();
-                iv_collect.setImageResource(R.drawable.icon_collect_press);
+                 result.getDetail().setCollection( result.getDetail().getCollection().equals("收藏")?"已收藏":"收藏");
+                iv_collect.setImageResource(result.getDetail().getCollection().equals("收藏")?R.drawable.icon_collect_normal:R.drawable.icon_collect_press);
                 break;
         }
     }
@@ -155,8 +158,6 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
      * 加入收藏夹
      */
     private void addCollect() {
-
-
         AddFavoritesRequest request = new AddFavoritesRequest();
         request.setGoodsId(goodsId+"");
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.FAVORITES_ADD_URL, new ICallBack() {

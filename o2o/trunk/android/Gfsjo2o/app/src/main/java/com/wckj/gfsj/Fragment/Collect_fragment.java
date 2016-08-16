@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.CommoditydetailsActivity;
@@ -15,7 +16,6 @@ import com.wckj.gfsj.Bean.AddFavoritesResult;
 import com.wckj.gfsj.Bean.FavoritesListRequest;
 import com.wckj.gfsj.Bean.FavoritesListResult;
 import com.wckj.gfsj.Bean.entity.GoodsSummary;
-import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
@@ -23,6 +23,7 @@ import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -34,6 +35,7 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
     private ArrayList<GoodsSummary> mList;
     private GridView gv_commodity_three;
     private CommonAdapter mlvAdapter;
+    private List<GoodsSummary> mGoodsList;
 
     @Override
     protected void init() {
@@ -42,7 +44,8 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
         View titleView = inflater.inflate(R.layout.layout_two_title, null);
-
+        TextView tv_content_desc = (TextView) titleView.findViewById(R.id.tv_content_desc);
+        tv_content_desc.setText("我的收藏系列");
         return titleView;
     }
 
@@ -89,13 +92,7 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
     }
 
     protected void load() {
-        mList = new ArrayList<>();
-        for (int i = 0; i <8 ; i++) {
-            mList.add(new GoodsSummary());
-        }
-//        getFavoritesList();
-//        addFavorites(1254 + "");
-        showPageState(FrameLoadLayout.LoadResult.success);
+        getFavoritesList();
     }
 
     /**
@@ -104,13 +101,16 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
     private void getFavoritesList(){
         FavoritesListRequest request = new FavoritesListRequest();
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.FAVORITES_LIST_URL, new ICallBack() {
+
             @Override
             public void onError(Call call, Exception e) {
+                showPageState(checkData(mGoodsList));
             }
             @Override
             public void onSuccess(String response) {
-                JSON.parseObject(response, FavoritesListResult.class);
-
+                FavoritesListResult result = JSON.parseObject(response, FavoritesListResult.class);
+                 mGoodsList =  result.getGoodsSummaryList();
+                showPageState(checkData(mGoodsList));
             }
 
         } );

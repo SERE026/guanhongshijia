@@ -13,7 +13,15 @@ public class RecommendGoodsPromotionResult extends PageResult {
 
     //促销列表
     private List<Recommend> promotionList;
+    private  String image="";
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public List<Recommend> getPromotionList() {
         return promotionList;

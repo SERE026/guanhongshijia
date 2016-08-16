@@ -13,6 +13,7 @@ import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.CategoryGoodsListRequest;
 import com.wckj.gfsj.Bean.CategoryGoodsListResult;
+import com.wckj.gfsj.Bean.entity.Brand;
 import com.wckj.gfsj.Bean.entity.GoodsSummary;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
@@ -21,6 +22,8 @@ import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.OwerToastShow;
+
+import java.util.List;
 
 import okhttp3.Call;
 
@@ -35,7 +38,8 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
     private TextView tv_brand_1,tv_brand_2,tv_brand_3,tv_time;
     private ImageView iv_more_left;
     private TitleRelativeLayout title_rl;
-    private int categoryId;
+    private int categoryId,mBrandFlag;
+    private List<Brand> mBrandList;
 
     @Override
     protected void init() {
@@ -82,6 +86,7 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
     }
 
     private void bindData() {
+
         if(mlvAdapter==null){
             mlvAdapter=  new CommonAdapter<GoodsSummary>(this,json.getGoodsSummaryList(),R.layout.item_gv_commodity_three) {
                 @Override
@@ -104,14 +109,33 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
 
     }
     protected void load() {
-
-        tv_brand_1.setText("啊啊啊");
-        tv_brand_2.setText("帮不帮");
-        tv_brand_3.setText("错错错");
         getCategroyByList();
 //
     }
 
+    private  void setBrandTitle(){
+        int i = mBrandList.size() / 3+1;
+        if(mBrandFlag<i){
+            tv_brand_1.setText(mBrandList.get(mBrandFlag).getTitle());
+            tv_brand_2.setText(mBrandList.get(mBrandFlag+1).getTitle());
+            tv_brand_3.setText(mBrandList.get(mBrandFlag+2).getTitle());
+        }else if(mBrandFlag==i){
+            int j = mBrandList.size()%3;
+            switch (j){
+                case 0:
+                    tv_brand_1.setText(mBrandList.get(mBrandFlag).getTitle());
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+            }
+
+            tv_brand_2.setText(mBrandList.get(mBrandFlag+1).getTitle());
+            tv_brand_3.setText(mBrandList.get(mBrandFlag+2).getTitle());
+        }
+
+    }
     /**
      * 根据商品分类查询商品列表命令
      */
@@ -128,6 +152,7 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
             @Override
             public void onSuccess(String response) {
                  json =  JSON.parseObject(response, CategoryGoodsListResult.class);
+                mBrandList = json.getBrandList();
                 showPageState(checkData(json.getGoodsSummaryList()));
             }
         });
