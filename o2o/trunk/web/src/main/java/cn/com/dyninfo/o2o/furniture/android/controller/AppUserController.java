@@ -129,6 +129,11 @@ public class AppUserController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
+        if (StringUtils.isBlank(findPasswordRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
         String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
         String validateCode=findPasswordRequest.getValidateCode();//校验码
 
@@ -170,6 +175,11 @@ public class AppUserController extends BaseAppController {
         if (StringUtils.isBlank(findPasswordRequest.getDeviceId())) {
             result.setResultCode(NEED_DEVICE_ID);
             result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(findPasswordRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
             return result;
         }
         String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
@@ -215,6 +225,11 @@ public class AppUserController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
+        if (StringUtils.isBlank(queryAgencyFeeRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
         AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
         if (ValidationUtil.isEmpty(info)){
@@ -232,21 +247,23 @@ public class AppUserController extends BaseAppController {
         List<AgencyFeeItem> lists=new ArrayList<AgencyFeeItem>();
         Double totalMoney=0.00;//+"and n.agencyPay='1' order by n.time asc"
       // List<Order> list =(List<Order>)orderService.getListByWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id="+info.getHuiYuan_id()+"order by n.time asc"));
-        Map map=orderService.getListByPageWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id="+info.getHuiYuan_id()+"order by n.time desc"), page);
-        List<Order> list =(List<Order>)map.get("DATA");
-        if(!ValidationUtil.isEmpty(list)){
-            for (int i = 0; i < list.size(); i++) {
-                AgencyFeeItem agency = new AgencyFeeItem();
-                agency.setId(String.valueOf(list.get(i).getOrder_id()));
-                agency.setDate(String.valueOf(list.get(i).getTime()));//订单完成日期
-                agency.setOrderNo(list.get(i).getOrder_id());//订单号
-                agency.setPrice(list.get(i).getOrderPrice()); //商品总价（去除优惠券抵扣价格）
-                agency.setPercent(String.valueOf(list.get(i).getAgencyPercent()));//佣金比率
-                agency.setAmount(list.get(i).getAgencyFee()); //佣金金额
-                totalMoney+=list.get(i).getAgencyFee();
-                lists.add(agency);
+        if(!ValidationUtil.isEmpty(info)) {
+            Map map = orderService.getListByPageWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id=" + info.getHuiYuan_id() + "order by n.time desc"), page);
+            List<Order> list = (List<Order>) map.get("DATA");
+            if (!ValidationUtil.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    AgencyFeeItem agency = new AgencyFeeItem();
+                    agency.setId(String.valueOf(list.get(i).getOrder_id()));
+                    agency.setDate(String.valueOf(list.get(i).getTime()));//订单完成日期
+                    agency.setOrderNo(list.get(i).getOrder_id());//订单号
+                    agency.setPrice(list.get(i).getOrderPrice()); //商品总价（去除优惠券抵扣价格）
+                    agency.setPercent(String.valueOf(list.get(i).getAgencyPercent()));//佣金比率
+                    agency.setAmount(list.get(i).getAgencyFee()); //佣金金额
+                    totalMoney += list.get(i).getAgencyFee();
+                    lists.add(agency);
+                }
+                result.setRecentMoney(list.get(0).getAgencyFee()); //最近佣金
             }
-            result.setRecentMoney(list.get(0).getAgencyFee()); //最近佣金
         }
         result.setTotalMoney(totalMoney); //累计佣金
         result.setDataDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));//数据截至时间
@@ -279,6 +296,11 @@ public class AppUserController extends BaseAppController {
         if (StringUtils.isBlank(queryCardRequest.getDeviceId())) {
             result.setResultCode(NEED_DEVICE_ID);
             result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(queryCardRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
             return result;
         }
         //获取用户信息
@@ -333,6 +355,11 @@ public class AppUserController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
+        if (StringUtils.isBlank(queryCouponRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
         //获取用户信息
         AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
@@ -347,23 +374,25 @@ public class AppUserController extends BaseAppController {
         }
         List<Coupon>  lists=new ArrayList<Coupon>();
         // List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon> list =(List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon>)couponService.getListByWhere(new StringBuffer(" and n."));
-        List list= couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan="+info.getHuiYuan_id()+" order by n.coupon.endTime asc"));
+        if(!ValidationUtil.isEmpty(info)) {
+            List list = couponMemberRelService.getListByWhere(new StringBuffer(" and  n.huiyuan=" + info.getHuiYuan_id() + " order by n.coupon.endTime asc"));
 
-        if(!ValidationUtil.isEmpty(list)){
-            for (int i = 0; i < list.size(); i++) {
-                CouponMemberRel c=(CouponMemberRel)list.get(i);
-                Coupon coupon = new Coupon();
-                coupon.setId(String.valueOf(c.getCoupon().getId()));
-                coupon.setName(c.getCoupon().getName());
-                coupon.setBeginTime(c.getCoupon().getBeginTime());
-                coupon.setEndTime(c.getCoupon().getEndTime());
-                coupon.setType(c.getCoupon().getType());
-                coupon.setReduceValue(c.getCoupon().getReduceValue());
-                coupon.setDiscountValue(c.getCoupon().getDiscountValue());
-                coupon.setMaxAmount(c.getCoupon().getMaxAmouont());
-                coupon.setConstraintValue(c.getCoupon().getConstraintValue());
-                coupon.setSameUse(c.getCoupon().getSameUse());
-                lists.add(coupon);
+            if (!ValidationUtil.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    CouponMemberRel c = (CouponMemberRel) list.get(i);
+                    Coupon coupon = new Coupon();
+                    coupon.setId(String.valueOf(c.getCoupon().getId()));
+                    coupon.setName(c.getCoupon().getName());
+                    coupon.setBeginTime(c.getCoupon().getBeginTime());
+                    coupon.setEndTime(c.getCoupon().getEndTime());
+                    coupon.setType(c.getCoupon().getType());
+                    coupon.setReduceValue(c.getCoupon().getReduceValue());
+                    coupon.setDiscountValue(c.getCoupon().getDiscountValue());
+                    coupon.setMaxAmount(c.getCoupon().getMaxAmouont());
+                    coupon.setConstraintValue(c.getCoupon().getConstraintValue());
+                    coupon.setSameUse(c.getCoupon().getSameUse());
+                    lists.add(coupon);
+                }
             }
         }
         result.setResultCode(SUCCESS);
@@ -390,6 +419,11 @@ public class AppUserController extends BaseAppController {
         if (StringUtils.isBlank(queryPersonalRequest.getDeviceId())) {
             result.setResultCode(NEED_DEVICE_ID);
             result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(queryPersonalRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
             return result;
         }
         //获取用户信息
@@ -444,6 +478,11 @@ public class AppUserController extends BaseAppController {
         if (StringUtils.isBlank(setLockPasswordRequest.getDeviceId())) {
             result.setResultCode(NEED_DEVICE_ID);
             result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(setLockPasswordRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
             return result;
         }
         String password= MD5Encoder.encodePassword(setLockPasswordRequest.getPassword(), Context.PASSWORDY);
