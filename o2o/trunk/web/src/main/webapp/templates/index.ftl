@@ -1018,7 +1018,7 @@
                 <div class="tag">
                     <p>CERAMICS</p>
                     <p>FOR DALY USE</p>
-                    <div class="font6"><p>asdafb asd asdjba sd asdasdsdasjcvakbckjabcahcwjk</p><p>afdiasnvvs aisdhoai s</p></div>
+                    <div class="font6"><p></p><p></p></div>
                 </div>
                 <img src="../img/08.png" style="margin-top:40px;" />
                <ul>
