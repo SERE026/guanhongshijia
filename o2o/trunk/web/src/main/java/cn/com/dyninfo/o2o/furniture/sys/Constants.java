@@ -27,6 +27,9 @@ public class Constants {
     public static String GOODS_IMG = "/upload/goods/";
 
     public static String ADV_IMG = "/upload/adv/";
+    public static final int AGROUP_SKU = 60;//安卓团购图
+    public static final int APROMOTION_SKU = 61;//安卓促销图
+    public static final int ANEW_SKU = 62;//安卓新品图
 
     public static String ADMIN_ADDRESS = "ghadmin";
 

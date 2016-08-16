@@ -18,6 +18,8 @@ import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.FavoritesService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
+import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
+import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,6 +56,10 @@ public class AppGoodsController extends BaseAppController {
 
     @Resource
     private BrandService brandService;
+
+
+    @Resource
+    private AdvwzService advwzService;
 
 
 /**
@@ -169,7 +175,7 @@ public class AppGoodsController extends BaseAppController {
                 String[] arr=goods.getImages().split(";");
                 if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
                     for (int i = 0; i <arr.length; i++) {
-                        imageList.add(arr[i]);
+                        imageList.add(Constants.DOMAIN_NAME+Constants.GOODS_IMG+arr[i]);
                     }
                 }
                 detail.setImageList(imageList);
@@ -270,8 +276,6 @@ public class AppGoodsController extends BaseAppController {
         PageInfo pageInfo=new PageInfo();
         pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
         pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
-      //  List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
-
         Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
         List<Goods> list=(List) map.get("DATA");
 
@@ -293,10 +297,15 @@ public class AppGoodsController extends BaseAppController {
                 newList.add(recommend);
             }
         }
-//        if(list.get(i).getImg()!=null){
-//            recommend.setImageUrl(list.get(i).getImg());
-//        }
+        int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+        result.setPageNo(pageInfo.getPageNo());
+        result.setTotalPage(totalpage);
         result.setNewList(newList);
+        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ANEW_SKU));
+        if(!ValidationUtil.isEmpty(advwzList)) {
+            Advwz advwz = (Advwz) advwzList.get(0);
+            result.setImage(Constants.DOMAIN_NAME+Constants.ADV_IMG+advwz.getAdv().get(0).getAdv_flie());
+        }
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         log.debug(result);
@@ -321,16 +330,12 @@ public class AppGoodsController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
+
         //促销列表
         List<Recommend> groupList=new ArrayList<Recommend>();
-
         PageInfo pageInfo=new PageInfo();
         pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
         pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
-
-        //List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
-       // List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
-
         Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
         List<Goods> list=(List) map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
@@ -360,7 +365,15 @@ public class AppGoodsController extends BaseAppController {
             recommend.setImageUrl("");
             groupList.add(recommend);*/
         }
+        int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+        result.setPageNo(pageInfo.getPageNo());
+        result.setTotalPage(totalpage);
         result.setGroupList(groupList);
+        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.AGROUP_SKU));
+        if(!ValidationUtil.isEmpty(advwzList)) {
+            Advwz advwz = (Advwz) advwzList.get(0);
+            result.setImage(Constants.DOMAIN_NAME+Constants.ADV_IMG+advwz.getAdv().get(0).getAdv_flie());
+        }
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         log.debug(result);
@@ -392,19 +405,10 @@ public class AppGoodsController extends BaseAppController {
         pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
         pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
 
-        //List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
-        //List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
-
         Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
         List<Goods> list=(List) map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
-               /* GoodsSummary goodsSummary = new GoodsSummary();
-                goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
-                goodsSummary.setTitle(list.get(i).getName());
-                goodsSummary.setMainPicUrl(list.get(i).getImg());
-                goodsSummary.setPrice(list.get(i).getSalesMoney());
-                lists.add(goodsSummary);*/
                 Recommend recommend=new Recommend();
                 if(list.get(i).getShortDesc()!=null){
                     recommend.setShortDesc(list.get(i).getShortDesc());
@@ -420,11 +424,16 @@ public class AppGoodsController extends BaseAppController {
                 }
                 promotionList.add(recommend);
             }
-            /*recommend.setGoodsSummaryList(lists);
-            recommend.setImageUrl("");
-            promotionList.add(recommend);*/
         }
+        int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+        result.setPageNo(pageInfo.getPageNo());
+        result.setTotalPage(totalpage);
         result.setPromotionList(promotionList);
+        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.APROMOTION_SKU));
+        if(!ValidationUtil.isEmpty(advwzList)) {
+            Advwz advwz = (Advwz) advwzList.get(0);
+            result.setImage(Constants.DOMAIN_NAME+Constants.ADV_IMG+advwz.getAdv().get(0).getAdv_flie());
+        }
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         log.debug(result);
