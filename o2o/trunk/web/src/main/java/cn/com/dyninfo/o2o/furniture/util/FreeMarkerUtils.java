@@ -132,28 +132,28 @@ public class FreeMarkerUtils {
             }
             //1F楼商品
             List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
-            List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.ONE_SKU));
+            List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.ONE_SKU +"order by n.indexs desc"));
             if (goodsSortList1 != null && goodsSortList1.size() > 0) {
                 paramsMap.put("goodsSortList1",goodsSortList1.get(0));
             }
             paramsMap.put("goodsList1",goodsList1);
             //2F楼商品
             List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.TWO_SKU));
-            List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.TWO_SKU));
+            List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.TWO_SKU +"order by n.indexs desc"));
             if (goodsSortList2 != null && goodsSortList2.size() > 0) {
                 paramsMap.put("goodsSortList2",goodsSortList2.get(0));
             }
             paramsMap.put("goodsList2",goodsList2);
             //3F楼商品
             List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.THREE_SKU));
-            List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.THREE_SKU));
+            List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.THREE_SKU +"order by n.indexs desc"));
             if (goodsSortList3 != null && goodsSortList3.size() > 0) {
                 paramsMap.put("goodsSortList3",goodsSortList3.get(0));
             }
             paramsMap.put("goodsList3",goodsList3);
             //4F楼商品
             List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.FOUR_SKU));
-            List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.FOUR_SKU));
+            List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.FOUR_SKU +"order by n.indexs desc"));
             if (goodsSortList4 != null && goodsSortList4.size() > 0) {
                 paramsMap.put("goodsSortList4",goodsSortList4.get(0));
             }
@@ -207,7 +207,7 @@ public class FreeMarkerUtils {
             List<List<Goods>> lists=new ArrayList<List<Goods>>();
             for (int i = 0; i <8; i++) {
                 int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
-                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+goodsSortId+"%'"));
+                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+goodsSortId+"%' order by n.indexs desc"));
 //                List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
 //                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
                 lists.add(goodsList);
@@ -241,22 +241,22 @@ public class FreeMarkerUtils {
             paramsMap.put("advwzList",advwzList.get(0));
             //1F楼商品
             List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
-            List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.ONE_SKU));
+            List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.ONE_SKU +"order by n.indexs desc"));
             paramsMap.put("goodsSortList1",goodsSortList1.get(0));
             paramsMap.put("goodsList1",goodsList1);
             //2F楼商品
             List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.TWO_SKU));
-            List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.TWO_SKU));
+            List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.TWO_SKU +"order by n.indexs desc"));
             paramsMap.put("goodsSortList2",goodsSortList2.get(0));
             paramsMap.put("goodsList2",goodsList2);
             //3F楼商品
             List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.THREE_SKU));
-            List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.THREE_SKU));
+            List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.THREE_SKU +"order by n.indexs desc"));
             paramsMap.put("goodsSortList3",goodsSortList3.get(0));
             paramsMap.put("goodsList3",goodsList3);
             //4F楼商品
             List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.FOUR_SKU));
-            List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.FOUR_SKU));
+            List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.FOUR_SKU +"order by n.indexs desc"));
             paramsMap.put("goodsSortList4",goodsSortList4.get(0));
             paramsMap.put("goodsList4",goodsList4);
 
@@ -294,7 +294,7 @@ public class FreeMarkerUtils {
             List<List<Goods>> lists=new ArrayList<List<Goods>>();
             for (int i = 0; i <8; i++) {
                 int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
-                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+goodsSortId+"%'"));
+                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+goodsSortId+"%' order by n.indexs desc"));
 //                List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
 //                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
                 lists.add(goodsList);
@@ -322,22 +322,22 @@ public class FreeMarkerUtils {
             paramsMap.put("advwzList",advwzList.get(0));
             //1F楼商品
             List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
-            List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.ONE_SKU));
+            List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.ONE_SKU +"order by n.indexs desc"));
             paramsMap.put("goodsSortList1",goodsSortList1.get(0));
             paramsMap.put("goodsList1",goodsList1);
             //2F楼商品
             List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.TWO_SKU));
-            List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.TWO_SKU));
+            List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.TWO_SKU +"order by n.indexs desc"));
             paramsMap.put("goodsSortList2",goodsSortList2.get(0));
             paramsMap.put("goodsList2",goodsList2);
             //3F楼商品
             List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.THREE_SKU));
-            List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.THREE_SKU));
+            List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.THREE_SKU +"order by n.indexs desc"));
             paramsMap.put("goodsSortList3",goodsSortList3.get(0));
             paramsMap.put("goodsList3",goodsList3);
             //4F楼商品
             List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.FOUR_SKU));
-            List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.FOUR_SKU));
+            List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort="+Constants.FOUR_SKU +"order by n.indexs desc"));
             paramsMap.put("goodsSortList4",goodsSortList4.get(0));
             paramsMap.put("goodsList4",goodsList4);
 
@@ -376,7 +376,7 @@ public class FreeMarkerUtils {
             List<List<Goods>> lists=new ArrayList<List<Goods>>();
             for (int i = 0; i <8; i++) {
                 int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
-                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+goodsSortId+"%'"));
+                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+goodsSortId+"%' order by n.indexs desc"));
 //                List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
 //                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
                 lists.add(goodsList);
