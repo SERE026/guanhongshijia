@@ -27,22 +27,22 @@ public class Constants {
     public static String GOODS_IMG = "/upload/goods/";
 
     public static String ADV_IMG = "/upload/adv/";
-    public static final int AGROUP_SKU = 60;//安卓团购图
-    public static final int APROMOTION_SKU = 61;//安卓促销图
-    public static final int ANEW_SKU = 62;//安卓新品图
+    public static final int AGROUP_IMG = 60;//安卓团购图
+    public static final int APROMOTION_IMG  = 61;//安卓促销图
+    public static final int ANEW_IMG = 62;//安卓新品图
 
     public static String ADMIN_ADDRESS = "ghadmin";
 
     public static final Double DEPOSIT_AMOUNT = 20000.0;//预付订单额度
 
     public static final int YUN_SKU =1;//云导购
-    public static final int GROUP_SKU = 2;//团购
+    public static final int GROUP_SKU = 2;//团购 /安卓对应 团购
 
     public static final int ACTIVE_ID = 8;//首页广告位
     public static final int REMAI_SKU = 3;//热卖商品
-    public static final int QIANGGOU_SKU = 4;//疯狂抢购  /促销
+    public static final int QIANGGOU_SKU = 4;//疯狂抢购  /安卓对应 促销
     public static final int REPIN_SKU =5;//热评商品
-    public static final int NEW_SKU =6;//新品上架
+    public static final int NEW_SKU =6;//新品上架  /安卓对应 新品
     public static final int XIANSHI_SKU = 7;//限时抢购
 
     public static final int ACTIVE_SKU = 15;//限时抢购活动商品

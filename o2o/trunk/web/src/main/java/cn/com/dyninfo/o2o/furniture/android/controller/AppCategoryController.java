@@ -6,13 +6,12 @@ import cn.com.dyninfo.o2o.entity.Category;
 import cn.com.dyninfo.o2o.entity.CategoryThree;
 import cn.com.dyninfo.o2o.entity.CategoryTwo;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
-import cn.com.dyninfo.o2o.furniture.sys.Constants;
-import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +55,11 @@ public class AppCategoryController extends BaseAppController {
     public MainCategoryResult main(@RequestBody MainCategoryRequest mainCategoryRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(mainCategoryRequest);
         MainCategoryResult result = new MainCategoryResult();
+        if (StringUtils.isBlank(mainCategoryRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
 //        PageInfo page=new PageInfo();
 //        page.setPageNo(1);
 //        page.setPageSize(11);
@@ -77,8 +81,8 @@ public class AppCategoryController extends BaseAppController {
                 category.setSortOrder(list.get(i).getIndex());
                 lists.add(category);
             }
-            result.setPageNo(1);
-            result.setTotalPage(2);
+//            result.setPageNo(1);
+//            result.setTotalPage(2);
         }
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
@@ -105,6 +109,11 @@ public class AppCategoryController extends BaseAppController {
     public SubCategoryResult sub(@RequestBody SubCategoryRequest subCategoryRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(subCategoryRequest);
         SubCategoryResult result = new SubCategoryResult();
+        if (StringUtils.isBlank(subCategoryRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         List<CategoryTwo>  lists=new ArrayList<CategoryTwo>();
 
         List<GoodsSort> list1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+subCategoryRequest.getId()));
@@ -183,6 +192,11 @@ public class AppCategoryController extends BaseAppController {
     public MoreCategoryResult more(@RequestBody MoreCategoryRequest moreCategoryRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(moreCategoryRequest);
         MoreCategoryResult result = new MoreCategoryResult();
+        if (StringUtils.isBlank(moreCategoryRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
         List<Category>  lists=new ArrayList<Category>();
         List<GoodsSort> list =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(""));
         if(!ValidationUtil.isEmpty(list)) {
@@ -206,7 +220,7 @@ public class AppCategoryController extends BaseAppController {
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         result.setCategoryList(lists);
-        result.setPageNo(1);
+//        result.setPageNo(1);
 //        else{
 //            result.setResultCode(NO_LOGIN);
 //            result.setMessage("获取更多分类数据失败");

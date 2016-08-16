@@ -144,8 +144,12 @@ public class AppGoodsController extends BaseAppController {
     public GoodsDetailResult detail(@RequestBody GoodsDetailRequest goodsDetailRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(goodsDetailRequest);
         GoodsDetailResult result = new GoodsDetailResult();
+//        if (StringUtils.isBlank(goodsDetailRequest.getDeviceId())) {
+//            result.setResultCode(NEED_DEVICE_ID);
+//            result.setMessage("设备识别码不能为空");
+//            return result;
+//        }
        // List<GoodsSpec> specList=new ArrayList<GoodsSpec>();
-       // cn.com.dyninfo.o2o.entity.Brand brand=new cn.com.dyninfo.o2o.entity.Brand();
         //获取用户信息
         AppLoginStatus appLoginStatus=new AppLoginStatus();
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
@@ -165,7 +169,7 @@ public class AppGoodsController extends BaseAppController {
         if(!ValidationUtil.isEmpty(list)){
                Goods goods=(Goods)list.get(0);
                List<Favorites> favorites=(List<Favorites>) favoritesService.getListByWhere(new StringBuffer( " and n.member="+info.getHuiYuan_id()+" and n.good="+goods.getGoods_id()));
-            if(!ValidationUtil.isEmpty(favorites)){
+            if(ValidationUtil.isEmpty(favorites)){
                 detail.setCollection("收藏");
             }else {
                 detail.setCollection("已收藏");
@@ -184,15 +188,18 @@ public class AppGoodsController extends BaseAppController {
             if(goods.getGoodsDescription()!=null){
                 detail.setGoodsDesc(goods.getGoodsDescription());
             }
-            if(goods.getGoodsType().getName()!=null){
-                detail.setType(goods.getGoodsType().getName());
-            }
-                String[] arr=goods.getImages().split(";");
-                if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
-                    for (int i = 0; i <arr.length; i++) {
-                        imageList.add(Constants.DOMAIN_NAME+Constants.GOODS_IMG+arr[i]);
+//            if(goods.getGoodsType().getName()!=null){
+//                detail.setType(goods.getGoodsType().getName());
+//            }
+            //商品多张图片
+            if(!ValidationUtil.isEmpty(goods.getImages())) {
+                String[] arr = goods.getImages().split(";");
+                if (arr.length > 0 && !ValidationUtil.isEmpty(goods.getImages())) {
+                    for (int i = 0; i < arr.length; i++) {
+                        imageList.add(Constants.DOMAIN_NAME + Constants.GOODS_IMG + arr[i]);
                     }
                 }
+            }
                 detail.setImageList(imageList);
             }
             result.setDetail(detail);
@@ -317,7 +324,7 @@ public class AppGoodsController extends BaseAppController {
         result.setPageNo(pageInfo.getPageNo());
         result.setTotalPage(totalpage);
         result.setNewList(newList);
-        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ANEW_SKU));
+        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ANEW_IMG ));
         if(!ValidationUtil.isEmpty(advwzList)) {
             Advwz advwz = (Advwz) advwzList.get(0);
             if(!ValidationUtil.isEmpty(advwz.getAdv())) {
@@ -349,12 +356,12 @@ public class AppGoodsController extends BaseAppController {
             return result;
         }
 
-        //促销列表
+        //团购列表
         List<Recommend> groupList=new ArrayList<Recommend>();
         PageInfo pageInfo=new PageInfo();
         pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
         pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
-        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.XIANSHI_SKU+"')>0"),pageInfo);
+        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.GROUP_SKU+"')>0"),pageInfo);
         List<Goods> list=(List) map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
@@ -387,7 +394,7 @@ public class AppGoodsController extends BaseAppController {
         result.setPageNo(pageInfo.getPageNo());
         result.setTotalPage(totalpage);
         result.setGroupList(groupList);
-        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.AGROUP_SKU));
+        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.AGROUP_IMG ));
         if(!ValidationUtil.isEmpty(advwzList)) {
             Advwz advwz = (Advwz) advwzList.get(0);
             if(!ValidationUtil.isEmpty(advwz.getAdv())) {
@@ -449,7 +456,7 @@ public class AppGoodsController extends BaseAppController {
         result.setPageNo(pageInfo.getPageNo());
         result.setTotalPage(totalpage);
         result.setPromotionList(promotionList);
-        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.APROMOTION_SKU));
+        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.APROMOTION_IMG ));
         if(!ValidationUtil.isEmpty(advwzList)) {
             Advwz advwz = (Advwz) advwzList.get(0);
             if(!ValidationUtil.isEmpty(advwz.getAdv())) {
