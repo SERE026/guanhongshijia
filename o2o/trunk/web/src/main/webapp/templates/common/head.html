@@ -499,9 +499,14 @@ ${widget_area}
 <script type="text/javascript">
     $(function () {
         prompt();
-        var loct=document.location;
-        var hrefNav=$(".nav-ul>ul>li").eq(3).children('a').attr('href');
-        console.log(loct)
+
+        var loct=document.location.pathname;
+        var nav=$(".nav-ul>ul>li");
+        for (var i=1;i<nav.length;i++){
+            if(nav.eq(i).children('a').attr('href')==loct){
+                nav.eq(i).children('a').css('color','#c81523');
+            }
+        }
     })
 
     function prompt() {

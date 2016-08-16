@@ -23,7 +23,7 @@ $(function(){
 			$(".sortBox.select").removeClass("select")
 			$(this).addClass("select").find("img").eq(0).attr("src",servicePath+"/img/sp_list_07.gif");
 			$(this).next(".splist_kv").css("display","");
-			window.location.href=servicePath+"/GoodList-"+$(this).attr("att")+".html";
+			//window.location.href=servicePath+"/GoodList-"+$(this).attr("att")+".html";
 		}
 	})
 

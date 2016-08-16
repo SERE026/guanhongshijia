@@ -304,7 +304,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .spl_kuai_ge_dian{ width:12px; height:12px;float:left;margin-top:10px; padding:0 0 0 0; overflow:hidden; margin-left:10px; background-image:url(../img/sp_list_07.gif);}
 .spl_kuai_ge_dian a{width:12px; height:12px; display:block}
 .spl_kuai_ge_zi{ width:auto; height:32px; overflow:hidden;line-height:32px; color:#343434; font-size:14px; font-weight:bold; float:left; margin-left:5px}
-.splist_kv{ width:216px; height:auto; margin-top:5px}
+.splist_kv{ width:216px; height:auto; margin-top:5px;overflow: hidden;}
 .splist_kuai{ width:70px; height:25px; line-height:25px;margin-left:27px; float:left; color:#f0125b; display:inline}
 .splist_kuai a{ width:70px; height:25px; display:block}
 
@@ -1756,11 +1756,11 @@ a.zhu2:hover{color:#000000}
 
 a.zhu3:link{ color:#666666; font-size:14px}
 a.zhu3:visited{ color:#666666; font-size:14px}
-a.zhu3:hover{color:#f0125b; font-size:14px}
+a.zhu3:hover{color:#c81523; font-size:14px}
 
 a.zhu4:link{ color:#ffffff; background-color:#000000; font-size:14px; font-weight:bold}
 a.zhu4:visited{ color:#ffffff; background-color:#000000; font-size:14px; font-weight:bold}
-a.zhu4:hover{color:#ffffff; background-color:#f0125b; font-size:14px; font-weight:bold}
+a.zhu4:hover{color:#c81523; background-color:#f0125b; font-size:14px; font-weight:bold}
 
 a.zhu5:link{ color:#ffffff;font-size:14px; font-weight:bold;background-image:url(../img/heimeu_a.gif); background-repeat:no-repeat;}
 a.zhu5:visited{ color:#ffffff;font-size:14px; font-weight:bold;background-image:url(../img/heimeu_a.gif); background-repeat:no-repeat;}
@@ -1768,15 +1768,15 @@ a.zhu5:hover{color:#ffffff;font-size:14px; font-weight:bold;background-image:url
 
 a.zhu6:link{ color:#919191}
 a.zhu6:visited{ color:#919191}
-a.zhu6:hover{color:#f0125b}
+a.zhu6:hover{color:#c81523}
 
 a.zhu7:link{ color:#666666}
 a.zhu7:visited{ color:#666666}
-a.zhu7:hover{color:#f0125b}
+a.zhu7:hover{color:#c81523}
 
 a.zhu8:link{line-height:20px; font-size:14px; color:#000000;}
 a.zhu8:visited{line-height:20px; font-size:14px; color:#000000;}
-a.zhu8:hover{line-height:20px; font-size:14px; color:#f0125b;}
+a.zhu8:hover{line-height:20px; font-size:14px; color:#c81523;}
 
 a.zhu9:link{ color:#5c5c5c}
 a.zhu9:visited{ color:#5c5c5c}
@@ -1785,40 +1785,40 @@ a.zhu9:hover{color:#c81523}
 
 a.zhu10:link{ color:#a0a0a0}
 a.zhu10:visited{ color:#a0a0a0}
-a.zhu10:hover{color:#f0125b}
+a.zhu10:hover{color:#c81523}
 
 a.zhu11:link{color:#343434;font-size:14px; font-weight:bold;}
 a.zhu11:visited{color:#343434;font-size:14px; font-weight:bold;}
-a.zhu11:hover{color:#f0125b;font-size:14px; font-weight:bold;}
+a.zhu11:hover{color:#c81523;font-size:14px; font-weight:bold;}
 
 a.zhu12:link{ color:#343434}
 a.zhu12:visited{ color:#343434}
-a.zhu12:hover{color:#f0125b}
+a.zhu12:hover{color:#c81523}
 
 a.zhu13:link{ color:#343434; background-color:#f5f5f5}
 a.zhu13:visited{ color:#343434;background-color:#f5f5f5}
-a.zhu13:hover{color:#933d02;background-color:#ffffff}
+a.zhu13:hover{color:#933d02;background-color:#c81523}
 
 a.zhu14:link{color:#933d02;background-color:#ffffff}
 a.zhu14:visited{color:#933d02;background-color:#ffffff}
-a.zhu14:hover{color:#343434; background-color:#f5f5f5}
+a.zhu14:hover{color:#343434; background-color:#c81523}
 
 a.zhu15:link{color:#343434; background-image:url(../img/q1.gif); background-repeat:no-repeat;}
 a.zhu15:visited{color:#343434; background-image:url(../img/q1.gif); background-repeat:no-repeat;}
-a.zhu15:hover{color:#f0125b; background-image:url(../img/q3.gif); background-repeat:no-repeat;}
+a.zhu15:hover{color:#c81523; background-image:url(../img/q3.gif); background-repeat:no-repeat;}
 
 a.zhu16:link{color:#f0125b; background-image:url(../img/q3.gif); background-repeat:no-repeat;}
 a.zhu16:visited{color:#f0125b; background-image:url(../img/q3.gif); background-repeat:no-repeat;}
-a.zhu16:hover{color:#f0125b; background-image:url(../img/q2.gif); background-repeat:no-repeat;}
+a.zhu16:hover{color:#c81523; background-image:url(../img/q2.gif); background-repeat:no-repeat;}
 
 a.zhu17:link{color:#f0125b; background-image:url(../img/q2.gif); background-repeat:no-repeat;}
 a.zhu17:visited{color:#f0125b; background-image:url(../img/q2.gif); background-repeat:no-repeat;}
-a.zhu17:hover{color:#f0125b; background-image:url(../img/q3.gif); background-repeat:no-repeat;}
+a.zhu17:hover{color:#c81523; background-image:url(../img/q3.gif); background-repeat:no-repeat;}
 
 
 a.zhu18:link{line-height:20px; font-size:12px; color:#000000; font-family:"微软雅黑"}
 a.zhu18:visited{line-height:20px; font-size:12px; color:#000000;font-family:"微软雅黑"}
-a.zhu18:hover{line-height:20px; font-size:12px; color:#f0125b;font-family:"微软雅黑"}
+a.zhu18:hover{line-height:20px; font-size:12px; color:#c81523;font-family:"微软雅黑"}
 
 a.zhu19:link{color:#999999;border:#ffffff solid 1px; background-color:#ffffff; font-size:14px}
 a.zhu19:visited{color:#999999;border:#ffffff solid 1px;background-color:#ffffff;font-size:14px}
