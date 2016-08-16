@@ -103,7 +103,7 @@ $(function(){
 	  <tr>
 		  <td class="discription" >广告图片:</td>
 		  <td >
-			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+			  <%--<script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
 			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 			  <!-- 上传附件按钮 -->
 			  <script language="JavaScript" type="text/javascript">
@@ -141,7 +141,48 @@ $(function(){
 						  alert("请上传图片。");
 					  }
 				  }
-			  </script>
+			  </script>--%>
+				  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+				  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
+				  <!-- 上传附件按钮 -->
+				  <script language="JavaScript" type="text/javascript">
+					  var imageCount=0;
+					  function removeFiles(fileName){
+						  document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
+					  }
+					  AC_FL_RunContent(
+							  "src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
+							  "width", "100",
+							  "height", "30",
+							  "id", "fileUpload",
+							  "quality", "high",
+							  "bgcolor", "#ffffff",
+							  "name", "fileUpload",
+							  "wmode","transparent",
+							  "allowScriptAccess","sameDomain",
+							  "type", "application/x-shockwave-flash",
+							  "pluginspage", "http://www.adobe.com/go/getflashplayer",
+							  "flashVars","flexID=g&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/file/uploadgoods.jsp&label=图 片 上 传&succeed=g_completeUpload"
+					  );
+					  /**
+					   上传产品照片
+					   **/
+					  function g_completeUpload(fileName, realName){
+						  if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
+								  ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
+							  var str="";
+							  str += "<div id='"+fileName+"' style='display: inline;'>";
+							  str += "<input type='hidden' name='advpic' value='"+fileName+"'/>";
+							  str += "<img src=\"<%=request.getContextPath()%>/upload/goods/"+fileName+"\" height=120 width=240 />";
+							  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
+							  str += "删除";
+							  str += "</a>&nbsp;&nbsp;</div>";
+							  document.getElementById("imgUrl3").innerHTML=str;
+						  }else{
+							  alert("请上传图片。");
+						  }
+					  }
+				  </script>
 			  <div  id="imgUrl3">
 				  <div id='${info.advpic }' style='display: inline;'>
 					  <input type='hidden' name='advpic' value='${info.advpic }'/>
@@ -157,7 +198,7 @@ $(function(){
 	  <tr>
 		  <td class="discription" >大图:</td>
 		  <td >
-			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+			 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
 			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 			  <!-- 上传附件按钮 -->
 			  <script language="JavaScript" type="text/javascript">
@@ -195,7 +236,48 @@ $(function(){
 						  alert("请上传图片。");
 					  }
 				  }
-			  </script>
+			  </script>--%>
+				 <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+				 <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
+				 <!-- 上传附件按钮 -->
+				 <script language="JavaScript" type="text/javascript">
+					 var imageCount=0;
+					 function removeFiles(fileName){
+						 document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
+					 }
+					 AC_FL_RunContent(
+							 "src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
+							 "width", "100",
+							 "height", "30",
+							 "id", "fileUpload",
+							 "quality", "high",
+							 "bgcolor", "#ffffff",
+							 "name", "fileUpload",
+							 "wmode","transparent",
+							 "allowScriptAccess","sameDomain",
+							 "type", "application/x-shockwave-flash",
+							 "pluginspage", "http://www.adobe.com/go/getflashplayer",
+							 "flashVars","flexID=b&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/file/uploadgoods.jsp&label=图 片 上 传&succeed=b_completeUpload"
+					 );
+					 /**
+					  上传产品照片
+					  **/
+					 function b_completeUpload(fileName, realName){
+						 if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
+								 ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
+							 var str="";
+							 str += "<div id='"+fileName+"' style='display: inline;'>";
+							 str += "<input type='hidden' name='largeimg' value='"+fileName+"'/>";
+							 str += "<img src=\"<%=request.getContextPath()%>/upload/goods/"+fileName+"\" height=120 width=240 />";
+							 str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
+							 str += "删除";
+							 str += "</a>&nbsp;&nbsp;</div>";
+							 document.getElementById("imgUrl1").innerHTML=str;
+						 }else{
+							 alert("请上传图片。");
+						 }
+					 }
+				 </script>
 			  <div  id="imgUrl1">
 				  <div id='${info.largeimg }' style='display: inline;'>
 					  <input type='hidden' name='largeimg' value='${info.largeimg }'/>
@@ -335,7 +417,7 @@ $(function(){
 	  <tr>
 		  <td class="discription" >APP显示图片:</td>
 		  <td >
-			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+			  <%--<script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
 			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 			  <!-- 上传附件按钮 -->
 			  <script language="JavaScript" type="text/javascript">
@@ -373,9 +455,49 @@ $(function(){
 						  alert("请上传图片。");
 					  }
 				  }
-			  </script>
-			  <div  id="imgUrl2">
+			  </script>--%>
 
+				  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+				  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
+				  <!-- 上传附件按钮 -->
+				  <script language="JavaScript" type="text/javascript">
+					  var imageCount=0;
+					  function removeFiles(fileName){
+						  document.getElementById(fileName).parentNode.removeChild(document.getElementById(fileName));
+					  }
+					  AC_FL_RunContent(
+							  "src", "<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/swf/fileUpload",
+							  "width", "100",
+							  "height", "30",
+							  "id", "fileUpload",
+							  "quality", "high",
+							  "bgcolor", "#ffffff",
+							  "name", "fileUpload",
+							  "wmode","transparent",
+							  "allowScriptAccess","sameDomain",
+							  "type", "application/x-shockwave-flash",
+							  "pluginspage", "http://www.adobe.com/go/getflashplayer",
+							  "flashVars","flexID=c&uploadURL=<%=request.getContextPath()%>/<%=Constants.ADMIN_ADDRESS%>/file/uploadgoods.jsp&label=图 片 上 传&succeed=c_completeUpload"
+					  );
+					  /**
+					   上传产品照片
+					   **/
+					  function c_completeUpload(fileName, realName){
+						  if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
+								  ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
+							  addGoodsImage(fileName, realName);
+						  }else{
+							  alert("请上传图片。");
+						  }
+					  }
+				  </script>
+			  <div  id="imgUrl2">
+				  <div id='${info.appImg }' style='display: inline;'>
+					  <input type='hidden' name='appImg' value='${info.appImg }'/>
+					  <img src="<%=request.getContextPath()%>/upload/goods/${info.appImg }" height=120 width=240 />
+					  <a href='#' onclick='removeFiles("${info.appImg }")'>
+						  删除
+					  </a>&nbsp;&nbsp;</div>
 			  </div>
 		  </td>
 	  </tr>
