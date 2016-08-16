@@ -5,23 +5,34 @@
 
 <div class="gr_dizhi_bao_kuai_right_dd" style=" margin-left:0">
 
-<form name="form1" id="form1">
+<!--<form name="form1" id="form1">
 <select name="menu1" class="gr_dizhi_bao_shuru01" id="provinceId">
 <option  value="">请选择省市/其它</option>
 
 </select>
-</form>
+</form>-->
+    <select name="menu1"  style="width:123px" class="province" id="provinceId">
+        <option>请选择省份</option>
+    </select>
 </div>
 <div class="gr_dizhi_bao_kuai_right_dd">
-<form name="form1" id="form1">
+<!--<form name="form1" id="form1">
 <select name="menu1"  class="gr_dizhi_bao_shuru01" <#if city??>dataVal="${city.id}"</#if> id="cityId">
 <option  value="">请选择城市</option>
 </select>
-</form>
+</form>-->
+    <select name="menu1"  style="width:123px" class="city" id="cityId">
+        <option>请选择城市</option>
+    </select>
+
 </div>
 <div class="gr_dizhi_bao_kuai_right_dd">
+<!--
 <form name="form1" id="form1">
 <select name="menu1"  class="gr_dizhi_bao_shuru01" <#if province??>dataVal="${province.id}"</#if> id="countyId">
 <option value="">请选择区县</option>
 </select>
-</form>
+</form>-->
+    <select name="menu1"  style="width:120px"  class="county" id="countyId">
+        <option>请选择区县</option>
+    </select>

@@ -14,15 +14,15 @@
 $(function(){
 	$(".sortBox").click(function(){
 		if($(this).attr("class").indexOf("select")>0){
-			//$(".sortBox.select").find("img").eq(0).attr("src",servicePath+"/img/sp_list_14.gif");
-			//$(".sortBox.select").next(".splist_kv").css("display","none");
-			//$(".sortBox.select").removeClass("select")
+			$(".sortBox.select").find("img").eq(0).attr("src",servicePath+"/img/sp_list_14.gif");
+			$(".sortBox.select").next(".splist_kv").css("display","none");
+			$(".sortBox.select").removeClass("select")
 		}else{
-			//$(".sortBox.select").find("img").eq(0).attr("src",servicePath+"/img/sp_list_14.gif");
-			//$(".sortBox.select").next(".splist_kv").css("display","none");
-			//$(".sortBox.select").removeClass("select")
-			//$(this).addClass("select").find("img").eq(0).attr("src",servicePath+"/img/sp_list_07.gif");
-			//$(this).next(".splist_kv").css("display","");
+			$(".sortBox.select").find("img").eq(0).attr("src",servicePath+"/img/sp_list_14.gif");
+			$(".sortBox.select").next(".splist_kv").css("display","none");
+			$(".sortBox.select").removeClass("select")
+			$(this).addClass("select").find("img").eq(0).attr("src",servicePath+"/img/sp_list_07.gif");
+			$(this).next(".splist_kv").css("display","");
 			window.location.href=servicePath+"/GoodList-"+$(this).attr("att")+".html";
 		}
 	})
