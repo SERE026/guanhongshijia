@@ -121,8 +121,6 @@ ${widget_area}
 
 </div>-->
 
-
-
 <div style="background-color: #f2f2f2;">
     <div class="head-top">
         <div>
@@ -419,7 +417,7 @@ ${widget_area}
                     <ul  class="secondary">
                        <#list sortDataList as p>
                             <#if p_index lt 10>
-                                <li data-id="${p.goodsSort_id}" class="prompt "><a href="javascript:void(0)">
+                                <li data-id="${p.goodsSort_id}" class="prompt"><a href="javascript:void(0)">
                                     <img src="${rc.contextPath}/upload/goods/${p.imagesrc?if_exists}" />${p.name?if_exists}</a>
                                 </li>
                                 <#if p.extendshow==1>
@@ -439,6 +437,50 @@ ${widget_area}
                      </#list>
 
                     </ul>
+                    <#list sortDataList as p>
+                        <#if p_index lt 2>
+                            <#if p.extendshow==1>
+                                <#list p.children as c>
+                                    <div  id="${c.goodsSort_id}" class="three-level" style="box-shadow: 5px 5px 5px #ebebeb;;">
+                                        <h4><span>${c.name?if_exists}</span>&nbsp;>></h4>
+                                        <span>${c.name?if_exists}${c.goodscount}件商品>></span>
+                                        <ul>
+                                            <#list c.children as d>
+                                                <li><a href="${rc.contextPath}/GoodList-${d.goodsSort_id}.html">${d.name?if_exists}</a></li>
+                                            </#list>
+                                        </ul>
+                                        <div>
+                                            <a href="${c.advlink?if_exists}">
+                                                <img width="370" height="160" src="${rc.contextPath}/upload/goods/${c.advpic?if_exists}" /></a>
+                                        </div>
+                                    </div>
+                                </#list>
+                            </#if>
+                        </#if>
+                    </#list>
+
+                    <!--菜单栏展示第三级目录-->
+
+                    <!-- 菜单栏展示第三级目录  显示第一级别的-->
+                    <#list sortDataList as p>
+                        <#if p_index lt 10>
+                            <#if p.extendshow==0>
+                                <div  id="${p.goodsSort_id}" class="three-level">
+                                    <h4><span>${p.name?if_exists}</span>&nbsp;>></h4>
+                                    <span>${p.name?if_exists}${p.goodscount}件商品>></span>
+                                    <ul>
+                                        <#list p.children as c>
+                                            <li><a href="${rc.contextPath}/GoodList-${c.goodsSort_id}.html">${c.name?if_exists}</a></li>
+                                        </#list>
+                                    </ul>
+                                    <div>
+                                        <a href="${p.advlink?if_exists}">
+                                            <img width="370" height="160" src="${rc.contextPath}/upload/goods/${p.advpic?if_exists}" /></a>
+                                    </div>
+                                </div>
+                            </#if>
+                        </#if>
+                    </#list>
                 </li>
                 <li><a href="${rc.contextPath}/GoodBoard.html">云导购</a></li>
                 <li><a href="${rc.contextPath}/brand.html">品牌汇</a></li>
@@ -450,53 +492,6 @@ ${widget_area}
             </ul>
 
 
-            <#list sortDataList as p>
-                <#if p_index lt 2>
-                    <#if p.extendshow==1>
-                        <#list p.children as c>
-                            <div  id="${c.goodsSort_id}" class="three-level" style="box-shadow: 5px 5px 5px #ebebeb;;">
-                                <h4><span>${c.name?if_exists}</span>&nbsp;>></h4>
-                                <span>${c.name?if_exists}${c.goodscount}件商品>></span>
-                                <ul>
-                                    <#list c.children as d>
-                                        <li><a href="${rc.contextPath}/GoodList-${d.goodsSort_id}.html">${d.name?if_exists}</a></li>
-                                    </#list>
-                                </ul>
-                                <div>
-                                    <a href="${c.advlink?if_exists}">
-                                        <img width="370" height="160" src="${rc.contextPath}/upload/goods/${c.advpic?if_exists}" /></a>
-                                </div>
-                            </div>
-                        </#list>
-                    </#if>
-                </#if>
-            </#list>
-
-            <!--菜单栏展示第三级目录-->
-
-
-
-            <!-- 菜单栏展示第三级目录  显示第一级别的-->
-                <#list sortDataList as p>
-                    <#if p_index lt 10>
-                        <#if p.extendshow==0>
-                            <div  id="${p.goodsSort_id}" class="three-level">
-                                <h4><span>${p.name?if_exists}</span>&nbsp;>></h4>
-                                <span>${p.name?if_exists}${p.goodscount}件商品>></span>
-                                <ul>
-                                    <#list p.children as c>
-                                        <li><a href="${rc.contextPath}/GoodList-${c.goodsSort_id}.html">${c.name?if_exists}</a></li>
-                                    </#list>
-                                </ul>
-                                <div>
-                                    <a href="${p.advlink?if_exists}">
-                                        <img width="370" height="160" src="${rc.contextPath}/upload/goods/${p.advpic?if_exists}" /></a>
-                                </div>
-                            </div>
-                        </#if>
-                    </#if>
-                </#list>
-
 
         </div>
     </div>
@@ -504,20 +499,24 @@ ${widget_area}
 <script type="text/javascript">
     $(function () {
         prompt();
+        var loct=document.location;
+        var hrefNav=$(".nav-ul>ul>li").eq(3).children('a').attr('href');
+        console.log(loct)
     })
 
     function prompt() {
-        var top,text,id='',cls;
+        var top,text,id="",cls;
         $(".prompt").hover(function () {
             top = $(this).position().top;
             text = $(this).find("a").text();
-            id=$(this).attr('data-id');
-            console.log(id)
+                id=$(this).attr('data-id');
+            $("#"+id).show();
         })
         $(document).mouseover(function (e) {
-            var _con = $('.prompt,.three-level,.furniture ul');   // 设置目标区域
+            var _con = $('.secondary,.three-level,.prompt,.hovers');   // 设置目标区域
             if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
                 $(".three-level").hide();
+                id="0";
             } else {
                 $(".three-level").css("top", top + 52);
                 $(".three-level").hide();
@@ -525,6 +524,10 @@ ${widget_area}
                 $(".three-level h4 span").text(text);
             }
         });
+
+       /* $(".Classification-goods").hover(function () {
+            $(".three-level").hide();
+        })*/
     }
     $(".FocusOn").hover(function () {
         $("#mobile_list").show();
