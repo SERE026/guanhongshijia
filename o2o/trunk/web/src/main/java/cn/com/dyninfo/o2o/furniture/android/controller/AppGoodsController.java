@@ -192,6 +192,9 @@ public class AppGoodsController extends BaseAppController {
             if(goods.getGoodsDescription()!=null){
                 detail.setGoodsDesc(goods.getGoodsDescription());
             }
+            if(goods.getDefaultImage()!=null){
+                detail.setDefaultImage(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goods.getDefaultImage());
+            }
             //类型 颜色 规格
 //            if(goods.getGoodsType().getName()!=null){
 //                detail.setType(goods.getGoodsType().getName());
@@ -260,13 +263,9 @@ public class AppGoodsController extends BaseAppController {
                     if(goods.getGoodsDescription()!=null){
                         detail.setGoodsDesc(goods.getGoodsDescription());
                     }
-//                    String[] arr=goods.getImages().split(";");
-//                    if (arr.length>0 && !ValidationUtil.isEmpty(goods.getImages())){
-//                    }
                     if(goods.getDefaultImage()!=null){
-                        imageList.add(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goods.getDefaultImage());
+                        detail.setDefaultImage(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goods.getDefaultImage());
                     }
-                    detail.setImageList(imageList);
                     detailList.add(detail);
                 }
             }

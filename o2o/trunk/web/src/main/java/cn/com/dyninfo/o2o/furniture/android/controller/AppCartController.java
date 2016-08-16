@@ -10,14 +10,20 @@ import cn.com.dyninfo.o2o.entity.CartItem;
 import cn.com.dyninfo.o2o.entity.GoodsDetail;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
+import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
+import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
+import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
+import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.order.model.CarsBox;
 import cn.com.dyninfo.o2o.furniture.web.order.service.CarsService;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +34,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -53,6 +60,9 @@ public class AppCartController extends BaseAppController {
     @Resource
     private CarsService carsService;
 
+    @Resource
+    private AppLoginStatusService appLoginStatusService;
+
 /**
      * 将商品添加到购物车
      * @param addCartRequest
@@ -66,13 +76,33 @@ public class AppCartController extends BaseAppController {
     public AddCartResult add(@RequestBody AddCartRequest  addCartRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(addCartRequest);
         AddCartResult result = new AddCartResult();
+        if (StringUtils.isBlank(addCartRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(addCartRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
+        //获取用户信息
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ addCartRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
         String id = addCartRequest.getGoodsId();
         int count = addCartRequest.getCount();
         Goods goods= (Goods) goodsService.getObjById(id);
         CarsBox carsBox=new CarsBox();
-        HuiyuanInfo huiyuanInfo=(HuiyuanInfo) huiyuanService.getObjById("2");
-        if(!ValidationUtil.isEmpty(addCartRequest.getToken())){
-            carsBox.setMember(huiyuanInfo);
+            carsBox.setMember(info);
             carsBox.setGoods(goods);
             carsBox.setSpecVal("");
             carsBox.setActInfo("|");
@@ -81,10 +111,10 @@ public class AppCartController extends BaseAppController {
             carsService.addObj(carsBox);
             result.setResultCode(SUCCESS);
             result.setMessage("OK");
-        }else {
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("商品添加到购物车失败");
-        }
+//    else {
+//            result.setResultCode(NO_LOGIN);
+//            result.setMessage("商品添加到购物车失败");
+//        }
         log.debug(result);
         return result;
     }
@@ -103,58 +133,80 @@ public class AppCartController extends BaseAppController {
     public CartListResult list(@RequestBody CartListRequest  cartListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(cartListRequest);
         CartListResult result = new CartListResult();
-        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='18973512867'"));
-        HuiyuanInfo info= list2.get(0);
+        if (StringUtils.isBlank(cartListRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(cartListRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
+        PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageSize(cartListRequest.getPageSize());
+        pageInfo.setPageNo(cartListRequest.getPageNo());
         //获取用户信息
-        // HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ cartListRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
         Cart cart=new Cart();
         List<CartItem> itemList=new ArrayList<CartItem>();
-        List<CarsBox> list=(List<CarsBox>)carsService.getListByWhere(new StringBuffer(" and n.member.huiYuan_id="+info.getHuiYuan_id()));
-      //  List<CarsBox> list =(List<CarsBox>)orderService.getOrderConfirm(String.valueOf(info.getHuiYuan_id()));
-        if(!ValidationUtil.isEmpty(list)){
-            for (int i = 0; i < list.size(); i++) {
-              //  CarsBox carinfo = (CarsBox) list.get(i);
-                CartItem cartItem = new CartItem();
-                if(list.get(i).getCars_box_id()!=null){
-                    cartItem.setId(list.get(i).getCars_box_id());
-                }
-                cartItem.setCount(list.get(i).getNum()); //数量
-                GoodsDetail goodsDetail = new GoodsDetail();
-                if(list.get(i).getGoods().getName()!=null){
-                    goodsDetail.setName(list.get(i).getGoods().getName());//商品名称
-                }
-                //goodsDetail.setSpecList(); //参数列表
-                if(list.get(i).getGoods().getShortDesc()!=null){
-                    goodsDetail.setShortDesc(list.get(i).getGoods().getShortDesc());  //商品说明，显示在商品名称下方
-                }
-                goodsDetail.setPrice(list.get(i).getGoods().getSalesMoney()); //商品价格
-              //  goodsDetail.setCategory();//商品类别
-              //  goodsDetail.setBrand();  //品牌
-                goodsDetail.setSaleCount(list.get(i).getGoods().getNum());//销量
-                List<String> imageList=new ArrayList<String>();
-                String[] arr=list.get(i).getGoods().getImages().split(";");
-                if (arr.length>0 && !ValidationUtil.isEmpty(list.get(i).getGoods().getImages())){
-                    for (int j = 0; j <arr.length; j++) {
-                        imageList.add(arr[j]);
+        if (!ValidationUtil.isEmpty(info)) {
+            Map map=carsService.getListByPageWhere(new StringBuffer(" and n.member.huiYuan_id=" + info.getHuiYuan_id()),pageInfo);
+            List<CarsBox> list=(List) map.get("DATA");
+            if (!ValidationUtil.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    //  CarsBox carinfo = (CarsBox) list.get(i);
+                    CartItem cartItem = new CartItem();
+                    if (list.get(i).getCars_box_id() != null) {
+                        cartItem.setId(list.get(i).getCars_box_id());
                     }
+                    cartItem.setCount(list.get(i).getNum()); //数量
+                    GoodsDetail goodsDetail = new GoodsDetail();
+                    Goods goods=list.get(i).getGoods();
+                    if(String.valueOf(goods.getGoods_id())!=null){
+                        goodsDetail.setId(String.valueOf(goods.getGoods_id()));
+                    }
+                    if (goods.getName() != null) {
+                        goodsDetail.setName(goods.getName());//商品名称
+                    }
+                    //goodsDetail.setSpecList(); //参数列表
+                    if (goods.getShortDesc() != null) {
+                        goodsDetail.setShortDesc(goods.getShortDesc());  //商品说明，显示在商品名称下方
+                    }
+                    goodsDetail.setPrice(goods.getSalesMoney()); //商品价格
+                    //  goodsDetail.setCategory();//商品类别
+                    //  goodsDetail.setBrand();  //品牌
+                    goodsDetail.setSaleCount(goods.getNum());//销量
+                    //图片
+                    if(goods.getDefaultImage()!=null){
+                        goodsDetail.setDefaultImage(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goods.getDefaultImage());
+                    }
+                    if (goods.getDescription() != null) {
+                        goodsDetail.setGoodsDesc(goods.getDescription()); //商品详情，html格式
+                    }
+                    //  cartItem.setSpecValue();//商品参数值，内部已关联了对应的商品参数
+                    cartItem.setGoodsDetail(goodsDetail);  //商品信息
+                    itemList.add(cartItem);
                 }
-                goodsDetail.setImageList(imageList); //图片列表
-                if(list.get(i).getGoods().getDescription()!=null){
-                    goodsDetail.setGoodsDesc(list.get(i).getGoods().getDescription()); //商品详情，html格式
-                }
-              //  cartItem.setSpecValue();//商品参数值，内部已关联了对应的商品参数
-                cartItem.setGoodsDetail(goodsDetail);  //商品信息
-                itemList.add(cartItem);
+                cart.setItemList(itemList);
             }
-            cart.setItemList(itemList);
-            result.setCart(cart);
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
-        }else {
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("获取购物车列表失败");
         }
+        int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+        result.setPageNo(pageInfo.getPageNo());
+        result.setTotalPage(totalpage);
+        result.setCart(cart);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
         log.debug(result);
         return result;
     }

@@ -22,6 +22,16 @@ public class GoodsDetail extends BaseEntity {
 
     //收藏
     private String collection="";
+    //默认图片
+    private String defaultImage="";
+
+    public String getDefaultImage() {
+        return defaultImage;
+    }
+
+    public void setDefaultImage(String defaultImage) {
+        this.defaultImage = defaultImage;
+    }
 
     public String getCollection() {
         return collection;
