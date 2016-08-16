@@ -97,7 +97,7 @@ $(function(){
 	  <tr>
 		  <td class="discription" >广告图片:</td>
 		  <td >
-			  <%--<script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
+			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/AC_OETags.js"></script>
 			  <script type="text/javascript" src="<%=request.getContextPath()%>/js/fileUpload.js"></script>
 			  <!-- 上传附件按钮 -->
 			  <script language="JavaScript" type="text/javascript">
@@ -135,7 +135,7 @@ $(function(){
 						  alert("请上传图片。");
 					  }
 				  }
-			  </script>--%>
+			  </script>
 
 			  <div  id="imgUrl3">
 
@@ -290,7 +290,7 @@ $(function(){
 					  var str="";
 					  str += "<div id='"+fileName+"' style='display: inline;'>";
 					  str += "<input type='hidden' name='imagesrc' value='"+fileName+"'/>";
-					  str += "<img src=\"<%=request.getContextPath()%>/upload/"+fileName+"\" height=120 width=240 />";
+					  str += "<img src=\"<%=request.getContextPath()%>/upload/goods/"+fileName+"\" height=120 width=240 />";
 					  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
 					  str += "删除";
 					  str += "</a>&nbsp;&nbsp;</div>";
