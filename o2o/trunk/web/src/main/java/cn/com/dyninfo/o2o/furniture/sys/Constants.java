@@ -46,7 +46,7 @@ public class Constants {
     public static final int REPIN_SKU =5;//热评商品
     public static final int NEW_SKU =6;//新品上架  /安卓对应 新品
     public static final int XIANSHI_SKU = 7;//限时抢购
-
+    public static final int JIAJUDINGZHI=26;//家居定制
     public static final int ACTIVE_SKU = 15;//限时抢购活动商品
 
     public static final int ONE_SKU = 1000101;//1F楼商品

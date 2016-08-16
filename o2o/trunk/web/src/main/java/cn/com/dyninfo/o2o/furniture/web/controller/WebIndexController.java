@@ -157,7 +157,10 @@ public class WebIndexController{
         mav.addAttribute("xianShi", xsList);
         //显示抢购商品
         List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
+        List<Goods> dzlist=(List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.JIAJUDINGZHI+"')>0"));
+        mav.addAttribute("dzlist",dzlist);
         mav.addAttribute("activeList",xsList);
+
         // mav.addAttribute("activeList",activeList);
 
         //5L综合系列

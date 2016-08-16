@@ -99,7 +99,7 @@ var addCtl={
 		},
 		countyResult:function(data){
 			$("#"+countyId).empty();
-			$("#"+countyId).append("<option value=''>请选择地区</option>");
+			$("#"+countyId).append("<option value=''>请选择区县</option>");
 			for(var i=0;i<data.length;i++){
 				$("#"+countyId).append("<option value='"+data[i].id+"' "+($("#"+countyId).attr("dataVal")==data[i].id?"selected":"")+">"+data[i].name+"</option>");
 			}

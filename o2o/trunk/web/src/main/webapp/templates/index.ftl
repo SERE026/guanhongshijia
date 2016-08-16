@@ -546,7 +546,43 @@
                 <#if p_index==3><#break></#if>
             </#list>
 
+            <#--</ul>
+            <ul class="borderHover n3">
+            <#list rePin as p>
+                <li>
+                    <dl class="Item-introduction">
+                        <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                            <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
+                        <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                        ${p.name}</a></dd>
+                        <dd class="price"><b><span>￥</span>${p.salesMoney}</b><a class="Add-art" href="javascript:void(0)">&lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a>
+                            <a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
+                    </dl>
+                </li>
+                <#if p_index==4><#break></#if>
+            </#list>
+
+            </ul>-->
+            <ul class="borderHover">
+
+            <#list dzlist as p>
+                <li>
+                    <dl class="">
+                        <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
+                            <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
+                        <dd class="ItemTitle"><b></b></dd>
+                        <dd class="ItemName"><a href="<#--${rc.contextPath}/item-${p.goods_id}.html-->javascript:void(0);">${p.name?if_exists}</a></dd>
+                        <dd class="ItemPrice"><b><span>￥</span>${p.salesMoney}</b><a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a></dd>
+                    <#--<dd><a class="Add-art" href="${rc.contextPath}/item-${p.goods_id}.html">
+                        &lt;#&ndash;<img src="../img/icon-cart-add.png" />&ndash;&gt;</a></dd>-->
+                    </dl>
+                </li>
+                <#if p_index==3><#break></#if>
+            </#list>
+
             </ul>
+
+
         </div>
         <div class="area custom-area">
             <#--${article28.artices_content}-->
