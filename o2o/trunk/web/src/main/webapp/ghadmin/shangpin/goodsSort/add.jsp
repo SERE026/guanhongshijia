@@ -457,7 +457,14 @@ $(function(){
 					  function c_completeUpload(fileName, realName){
 						  if(fileName.indexOf(".jpg")>0||fileName.indexOf(".gif")>0||fileName.indexOf(".bmp")>0||fileName.indexOf(".png")>0
 								  ||fileName.indexOf(".JPG")>0||fileName.indexOf(".GIF")>0){
-							  addGoodsImage(fileName, realName);
+							  var str="";
+							  str += "<div id='"+fileName+"' style='display: inline;'>";
+							  str += "<input type='hidden' name='appImg' value='"+fileName+"'/>";
+							  str += "<img src=\"<%=request.getContextPath()%>/upload/goods/"+fileName+"\" height=120 width=240 />";
+							  str += "<a href='#' onclick='removeFiles(\""+fileName+"\")'>";
+							  str += "删除";
+							  str += "</a>&nbsp;&nbsp;</div>";
+							  document.getElementById("imgUrl2").innerHTML=str;
 						  }else{
 							  alert("请上传图片。");
 						  }
