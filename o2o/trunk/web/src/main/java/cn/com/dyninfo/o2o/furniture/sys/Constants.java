@@ -40,7 +40,7 @@ public class Constants {
 
     public static final int ACTIVE_ID = 8;//首页广告位
     public static final int REMAI_SKU = 3;//热卖商品
-    public static final int QIANGGOU_SKU = 4;//疯狂抢购
+    public static final int QIANGGOU_SKU = 4;//疯狂抢购  /促销
     public static final int REPIN_SKU =5;//热评商品
     public static final int NEW_SKU =6;//新品上架
     public static final int XIANSHI_SKU = 7;//限时抢购

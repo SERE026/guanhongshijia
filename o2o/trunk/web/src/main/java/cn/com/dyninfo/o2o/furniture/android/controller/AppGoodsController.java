@@ -9,13 +9,16 @@ import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
+import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
+import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
 import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
+import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.FavoritesService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
@@ -60,6 +63,9 @@ public class AppGoodsController extends BaseAppController {
 
     @Resource
     private AdvwzService advwzService;
+
+    @Resource
+    private AppLoginStatusService appLoginStatusService;
 
 
 /**
@@ -139,10 +145,19 @@ public class AppGoodsController extends BaseAppController {
         log.debug(goodsDetailRequest);
         GoodsDetailResult result = new GoodsDetailResult();
        // List<GoodsSpec> specList=new ArrayList<GoodsSpec>();
-       // Category category=new Category();
        // cn.com.dyninfo.o2o.entity.Brand brand=new cn.com.dyninfo.o2o.entity.Brand();
-        List<HuiyuanInfo> infoList=(List<HuiyuanInfo>) huiyuanService.getListByWhere(new StringBuffer(" and n.name='lxfeng'"));
-        HuiyuanInfo info= infoList.get(0);
+        //获取用户信息
+        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ goodsDetailRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
 
         List<String> imageList=new ArrayList<String>();
         GoodsDetail detail=new GoodsDetail();
@@ -150,7 +165,7 @@ public class AppGoodsController extends BaseAppController {
         if(!ValidationUtil.isEmpty(list)){
                Goods goods=(Goods)list.get(0);
                List<Favorites> favorites=(List<Favorites>) favoritesService.getListByWhere(new StringBuffer( " and n.member="+info.getHuiYuan_id()+" and n.good="+goods.getGoods_id()));
-            if(favorites.size()==0){
+            if(!ValidationUtil.isEmpty(favorites)){
                 detail.setCollection("收藏");
             }else {
                 detail.setCollection("已收藏");
@@ -276,7 +291,8 @@ public class AppGoodsController extends BaseAppController {
         PageInfo pageInfo=new PageInfo();
         pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
         pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
-        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
+        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.NEW_SKU+"')>0"),pageInfo);
+//        List<Goods> list = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.NEW_SKU+"')>0"));
         List<Goods> list=(List) map.get("DATA");
 
         if(!ValidationUtil.isEmpty(list)){
@@ -338,7 +354,7 @@ public class AppGoodsController extends BaseAppController {
         PageInfo pageInfo=new PageInfo();
         pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
         pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
-        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
+        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.XIANSHI_SKU+"')>0"),pageInfo);
         List<Goods> list=(List) map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
@@ -409,7 +425,7 @@ public class AppGoodsController extends BaseAppController {
         pageInfo.setPageSize(recommendGoodsRequest.getPageSize());
         pageInfo.setPageNo(recommendGoodsRequest.getPageNo());
 
-        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU),pageInfo);
+        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.QIANGGOU_SKU+"')>0"),pageInfo);
         List<Goods> list=(List) map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
