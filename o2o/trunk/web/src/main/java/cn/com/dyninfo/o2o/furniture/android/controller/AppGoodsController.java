@@ -304,7 +304,9 @@ public class AppGoodsController extends BaseAppController {
         List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ANEW_SKU));
         if(!ValidationUtil.isEmpty(advwzList)) {
             Advwz advwz = (Advwz) advwzList.get(0);
-            result.setImage(Constants.DOMAIN_NAME+Constants.ADV_IMG+advwz.getAdv().get(0).getAdv_flie());
+            if(!ValidationUtil.isEmpty(advwz.getAdv())) {
+                result.setImage(Constants.DOMAIN_NAME + Constants.ADV_IMG + advwz.getAdv().get(0).getAdv_flie());
+            }
         }
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
@@ -372,7 +374,9 @@ public class AppGoodsController extends BaseAppController {
         List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.AGROUP_SKU));
         if(!ValidationUtil.isEmpty(advwzList)) {
             Advwz advwz = (Advwz) advwzList.get(0);
-            result.setImage(Constants.DOMAIN_NAME+Constants.ADV_IMG+advwz.getAdv().get(0).getAdv_flie());
+            if(!ValidationUtil.isEmpty(advwz.getAdv())) {
+                result.setImage(Constants.DOMAIN_NAME + Constants.ADV_IMG + advwz.getAdv().get(0).getAdv_flie());
+            }
         }
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
@@ -432,7 +436,9 @@ public class AppGoodsController extends BaseAppController {
         List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.APROMOTION_SKU));
         if(!ValidationUtil.isEmpty(advwzList)) {
             Advwz advwz = (Advwz) advwzList.get(0);
-            result.setImage(Constants.DOMAIN_NAME+Constants.ADV_IMG+advwz.getAdv().get(0).getAdv_flie());
+            if(!ValidationUtil.isEmpty(advwz.getAdv())) {
+                result.setImage(Constants.DOMAIN_NAME + Constants.ADV_IMG + advwz.getAdv().get(0).getAdv_flie());
+            }
         }
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
