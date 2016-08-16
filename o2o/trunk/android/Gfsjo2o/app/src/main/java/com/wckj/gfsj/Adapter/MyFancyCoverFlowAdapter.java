@@ -11,6 +11,7 @@ import com.dalong.francyconverflow.FancyCoverFlow;
 import com.dalong.francyconverflow.FancyCoverFlowAdapter;
 import com.wckj.gfsj.Bean.entity.GoodsDetail;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.ImageLoaderUtil;
 
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         final GoodsDetail item = (GoodsDetail) getItem(position);
-        holder.iv_scro_main.setImageResource(R.drawable.icon_cover_image);
+       ImageLoaderUtil.getInstance().displayImageView(item.getImageList().get(0),holder.iv_scro_main);
 
         return convertView;
     }

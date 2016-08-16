@@ -9,11 +9,10 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/7/25.
  */
-public class RecommendNewGoodsResult extends PageResult {
+public class RecommendPromotionGoodsResult extends PageResult {
 
-    //新品推荐列表
-    private List<Recommend> newList;
-
+    //促销列表
+    private List<Recommend> promotionList;
     private  String image="";
 
     public String getImage() {
@@ -24,19 +23,18 @@ public class RecommendNewGoodsResult extends PageResult {
         this.image = image;
     }
 
-    public List<Recommend> getNewList() {
-        return newList;
+    public List<Recommend> getPromotionList() {
+        return promotionList;
     }
 
-    public void setNewList(List<Recommend> newList) {
-        this.newList = newList;
+    public void setPromotionList(List<Recommend> promotionList) {
+        this.promotionList = promotionList;
     }
-
 
     @Override
     public String toString() {
         return "RecommendGoodsResult{" +
-                "newList=" + newList +
+                "promotionList=" + promotionList +
                 '}';
     }
 }

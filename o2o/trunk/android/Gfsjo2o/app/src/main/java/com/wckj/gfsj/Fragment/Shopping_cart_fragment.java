@@ -10,7 +10,6 @@ import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.CartListRequest;
 import com.wckj.gfsj.Bean.CartListResult;
-import com.wckj.gfsj.Bean.Commodity_level_details;
 import com.wckj.gfsj.Bean.CreateOrderRequest;
 import com.wckj.gfsj.Bean.CreateOrderResult;
 import com.wckj.gfsj.Bean.TimeEvent;
@@ -23,7 +22,6 @@ import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.greenrobot.event.EventBus;
@@ -39,7 +37,8 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
     private View view;
     private ListView lv_shopping;
     private CommonAdapter mlvAdapter;
-    private ArrayList<Commodity_level_details> mList;
+    private CartListResult mJson;
+    private List<CartItem> mList;
 
     @Override
     protected void init() {
@@ -47,8 +46,8 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
         loadPage.iv_networktext.setImageResource(R.drawable.icon_big_cart);
         loadPage.textView1.setText("你还没有相关订单");
         loadPage.textView2.setText("快去商品购物页选择其他商品吧！！！");
-        List<CartItem> list = new ArrayList<CartItem>();
-        createOrder(list);
+//        List<CartItem> list = new ArrayList<CartItem>();
+//        createOrder(list);
     }
 
     @Override
@@ -66,9 +65,9 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
 
     private void binData() {
         if (mlvAdapter == null) {
-            mlvAdapter = new CommonAdapter<Commodity_level_details>(view.getContext(), mList, R.layout.item_shopping_cart) {
+            mlvAdapter = new CommonAdapter<CartItem>(view.getContext(), mList, R.layout.item_shopping_cart) {
                 @Override
-                public void convert(ViewHolder helper, Commodity_level_details item, int position) {
+                public void convert(ViewHolder helper, CartItem item, int position) {
 
 
                 }
@@ -80,12 +79,9 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
     }
 
     protected void load() {
-        mList = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            mList.add(new Commodity_level_details());
-        }
 
-        showPageState(FrameLoadLayout.LoadResult.empty);
+        getCartList();
+
     }
 
     //获取购物车列表
@@ -94,11 +90,14 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
        HttpUtils.getInstance().asyncPost(request, GlobalUtils.CART_LIST_URL, new ICallBack() {
            @Override
            public void onError(Call call, Exception e) {
+               showPageState(FrameLoadLayout.LoadResult.error);
            }
 
            @Override
            public void onSuccess(String response) {
-               CartListResult json = JSON.parseObject(response, CartListResult.class);
+                mJson =  JSON.parseObject(response, CartListResult.class);
+               mList = mJson.getCart().getItemList();
+               showPageState(checkData(mList));
            }
        });
     }

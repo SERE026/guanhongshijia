@@ -93,8 +93,8 @@ public class Main_recommend_fragment extends Fragment implements View.OnClickLis
      */
     private void setColor(int id){
         tv_new.setBackgroundColor(getResources().getColor(R.id.tv_new==id?R.color.color_575654:R.color.color_e86e48));
-        tv_group.setBackgroundColor(getResources().getColor(R.id.tv_new==id?R.color.color_575654:R.color.color_ff5500));
-        tv_promotion.setBackgroundColor(getResources().getColor(R.id.tv_new==id?R.color.color_575654:R.color.color_892e1c));
+        tv_group.setBackgroundColor(getResources().getColor(R.id.tv_group==id?R.color.color_575654:R.color.color_ff5500));
+        tv_promotion.setBackgroundColor(getResources().getColor(R.id.tv_promotion==id?R.color.color_575654:R.color.color_892e1c));
     }
 
     class FragmentAdapter extends FragmentStatePagerAdapter {

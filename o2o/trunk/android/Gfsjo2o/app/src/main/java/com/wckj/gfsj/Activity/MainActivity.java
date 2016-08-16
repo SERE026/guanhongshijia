@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.Fragment.Collect_fragment;
 import com.wckj.gfsj.Fragment.Main_fragment;
@@ -162,7 +163,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setTabSelection(2);
                 break;
             case R.id.tv_mine_center:
-                setTabSelection(1);
+                if(AppApplication.loginResult.getToken()!=null){
+                    Intent intent = new Intent(this, UserCenterActivity.class);
+                  startActivityForResult(intent, 100);
+                }else {
+                    setTabSelection(1);
+                }
                 break;
         }
     }
