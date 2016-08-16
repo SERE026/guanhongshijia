@@ -151,9 +151,9 @@ public class AppGoodsController extends BaseAppController {
 //        }
        // List<GoodsSpec> specList=new ArrayList<GoodsSpec>();
         //获取用户信息
-        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
-        if (ValidationUtil.isEmpty(info)){
+        if (ValidationUtil.isEmpty(info)&&!ValidationUtil.isEmpty(goodsDetailRequest.getToken())){
             List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ goodsDetailRequest.getToken()+"'"));
             if(!ValidationUtil.isEmpty(appLoginStatusList)){
                 appLoginStatus=appLoginStatusList.get(0);
@@ -168,11 +168,15 @@ public class AppGoodsController extends BaseAppController {
         List list=goodsService.getListByWhere(new StringBuffer(" and n.goods_id="+goodsDetailRequest.getId()));
         if(!ValidationUtil.isEmpty(list)){
                Goods goods=(Goods)list.get(0);
+            if (!ValidationUtil.isEmpty(info)){
                List<Favorites> favorites=(List<Favorites>) favoritesService.getListByWhere(new StringBuffer( " and n.member="+info.getHuiYuan_id()+" and n.good="+goods.getGoods_id()));
-            if(ValidationUtil.isEmpty(favorites)){
-                detail.setCollection("收藏");
+                if(ValidationUtil.isEmpty(favorites)){
+                    detail.setCollection("收藏");
+                }else {
+                    detail.setCollection("已收藏");
+                }
             }else {
-                detail.setCollection("已收藏");
+                detail.setCollection("收藏");
             }
             if(goods.getName()!=null){
                 detail.setName(goods.getName());
@@ -188,6 +192,7 @@ public class AppGoodsController extends BaseAppController {
             if(goods.getGoodsDescription()!=null){
                 detail.setGoodsDesc(goods.getGoodsDescription());
             }
+            //类型 颜色 规格
 //            if(goods.getGoodsType().getName()!=null){
 //                detail.setType(goods.getGoodsType().getName());
 //            }

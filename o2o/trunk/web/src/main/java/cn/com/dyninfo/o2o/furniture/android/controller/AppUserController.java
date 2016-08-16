@@ -215,7 +215,7 @@ public class AppUserController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
-        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
         if (ValidationUtil.isEmpty(info)){
             List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryAgencyFeeRequest.getToken()+"'"));
@@ -282,7 +282,7 @@ public class AppUserController extends BaseAppController {
             return result;
         }
         //获取用户信息
-        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
         if (ValidationUtil.isEmpty(info)){
             List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryCardRequest.getToken()+"'"));
@@ -334,7 +334,7 @@ public class AppUserController extends BaseAppController {
             return result;
         }
         //获取用户信息
-        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
         if (ValidationUtil.isEmpty(info)){
             List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryCouponRequest.getToken()+"'"));
@@ -393,7 +393,7 @@ public class AppUserController extends BaseAppController {
             return result;
         }
         //获取用户信息
-        AppLoginStatus appLoginStatus=new AppLoginStatus();
+        AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
         if (ValidationUtil.isEmpty(info)){
             List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryPersonalRequest.getToken()+"'"));
