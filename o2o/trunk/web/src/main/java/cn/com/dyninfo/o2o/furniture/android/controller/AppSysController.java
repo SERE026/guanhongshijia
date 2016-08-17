@@ -148,10 +148,7 @@ public class AppSysController extends BaseAppController {
         List<HuiyuanInfo> huiyuan = (List<HuiyuanInfo>) huiyuanService.getListByWhere(where);
         // 大于0，表示手机号已存在
         if (huiyuan.size() > 0) {
-            Map pamtr = new HashMap();
-            pamtr.put("phone", mobileNo);
-            pamtr.put("type", type);
-            if (AppsendCode(pamtr)) {
+            if (AppsendCode(mobileNo,type)) {
                 result.setResultCode(SUCCESS);
                 result.setMessage("OK");
             }else {
@@ -169,10 +166,7 @@ public class AppSysController extends BaseAppController {
     /**
      * 安卓发送手机、找回密码、找回锁定密码、验证码
      */
-    public boolean AppsendCode(Map pamtr) {
-//        HttpSession session=request.getSession();
-        String phone = (String)pamtr.get("phone");
-//        String type = (String)pamtr.get("type");
+    public boolean AppsendCode(String phone, int type) {
         // 首先检查该号码在3分钟内是否发送过
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         StringBuffer where = new StringBuffer();
@@ -218,7 +212,7 @@ public class AppSysController extends BaseAppController {
             if (list.size() > 0) {
                 SMSLog sms = (SMSLog)list.get(0);
                 sms.setPhone(phone);
-                sms.setType(1);
+                sms.setType(type);
                 sms.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
                 sms.setPs(phone + "请求手机验证，验证码是" + regCode);
                 smsLogService.updateObj(sms);
@@ -226,7 +220,7 @@ public class AppSysController extends BaseAppController {
                 //System.out.println("写入新纪录==================");
                 SMSLog sms = new SMSLog();
                 sms.setPhone(phone);
-                sms.setType(1);
+                sms.setType(type);
                 sms.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
                 sms.setPs(phone + "请求手机验证，验证码是" + regCode);
                 smsLogService.addObj(sms);
