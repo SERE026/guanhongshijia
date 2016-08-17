@@ -1040,7 +1040,7 @@
                 <div>
                     <ul class="borderHover">
                         <#list s as a>
-                            <#if a_index lt 6>
+                            <#if a_index lt 9>
                                 <li>
                                     <dl class="">
                                         <dt><a href="${rc.contextPath}/item-${a.goods_id}.html">
