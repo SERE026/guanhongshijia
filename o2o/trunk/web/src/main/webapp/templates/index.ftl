@@ -1179,10 +1179,11 @@
                         $("#area").empty();
                         $("#data2").empty();
                     }
-                },
-                error: function (a,b,c,d) {
-                    alert("数据错误");
                 }
+//                ,
+//                error: function (a,b,c,d) {
+//                    alert("数据错误");
+//                }
             });
     });
     window.onresize=function () {
@@ -1214,10 +1215,11 @@
                 }else{
                     $("#area").empty();
                 }
-            },
-            error: function (a,b,c,d) {
-                alert("数据错误");
             }
+//            ,
+//            error: function (a,b,c,d) {
+//                alert("数据错误");
+//            }
         });
     }
 
