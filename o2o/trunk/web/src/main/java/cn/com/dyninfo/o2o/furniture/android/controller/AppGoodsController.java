@@ -66,7 +66,54 @@ public class AppGoodsController extends BaseAppController {
 
     @Resource
     private AppLoginStatusService appLoginStatusService;
+    /**
+     * 根据商品分类查询品牌列表
+     * @param categoryBrandListRequest
+     * @param request
+     * @param response
+     * @return
+     */
 
+    @ResponseBody
+    @RequestMapping("/listByBrand")
+    public CategoryBrandListResult listByBrand(@RequestBody CategoryBrandListRequest categoryBrandListRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(categoryBrandListRequest);
+        CategoryBrandListResult result = new CategoryBrandListResult();
+        if (StringUtils.isBlank(categoryBrandListRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        List<cn.com.dyninfo.o2o.entity.Brand> brandLists=new ArrayList<cn.com.dyninfo.o2o.entity.Brand>();
+
+        PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageSize(categoryBrandListRequest.getPageSize());
+        pageInfo.setPageNo(categoryBrandListRequest.getPageNo());
+        Map map=brandService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+categoryBrandListRequest.getCategoryId()),pageInfo);
+        List<Brand> brandList=( List<Brand>) map.get("DATA");
+        //获取品牌
+        if(!ValidationUtil.isEmpty(brandList)) {
+            for (int i = 0; i < brandList.size(); i++) {
+                cn.com.dyninfo.o2o.entity.Brand brand = new cn.com.dyninfo.o2o.entity.Brand();
+                if(String.valueOf(brandList.get(i).getBrand_id())!=null){
+                    brand.setId(String.valueOf(brandList.get(i).getBrand_id()));
+                }
+                if(brandList.get(i).getName()!=null){
+                    brand.setTitle(brandList.get(i).getName());
+                }
+                brandLists.add(brand);
+            }
+        }
+        result.setBrandList(brandLists);
+        int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+        result.setPageNo(pageInfo.getPageNo());
+        result.setTotalPage(totalpage);
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
+
+        log.debug(result);
+        return result;
+    }
 
 /**
      * 根据商品分类查询商品列表
@@ -80,6 +127,7 @@ public class AppGoodsController extends BaseAppController {
     @RequestMapping("/listByCategory")
     public CategoryGoodsListResult listByCategory(@RequestBody CategoryGoodsListRequest categoryGoodsListRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(categoryGoodsListRequest);
+        StringBuffer where=new StringBuffer();
         CategoryGoodsListResult result = new CategoryGoodsListResult();
         if (StringUtils.isBlank(categoryGoodsListRequest.getDeviceId())) {
             result.setResultCode(NEED_DEVICE_ID);
@@ -87,14 +135,20 @@ public class AppGoodsController extends BaseAppController {
             return result;
         }
         List<GoodsSummary>  goodsLists=new ArrayList<GoodsSummary>();
-        List<cn.com.dyninfo.o2o.entity.Brand> brandLists=new ArrayList<cn.com.dyninfo.o2o.entity.Brand>();
+        PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageSize(categoryGoodsListRequest.getPageSize());
+        pageInfo.setPageNo(categoryGoodsListRequest.getPageNo());
 
-        //获取商品
-        List<Goods> goodsList =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+categoryGoodsListRequest.getCategoryId()));
-        //获取品牌
-        List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
+        if(String.valueOf(categoryGoodsListRequest.getCategoryId())!=null){
+            where.append(" and n.goodsSort="+categoryGoodsListRequest.getCategoryId());
+        }
+        if(String.valueOf(categoryGoodsListRequest.getBrandId())!=null&&categoryGoodsListRequest.getBrandId()!=0){
+            where.append(" and n.brand.brand_id="+categoryGoodsListRequest.getBrandId());
+        }
+        Map map=goodsService.getListByPageWhere(new StringBuffer(where),pageInfo);
+        List<Goods> goodsList = (List<Goods>) map.get("DATA");
 
-        if(goodsList.size()>0&&brandList.size()>0) {
+        if(!ValidationUtil.isEmpty(goodsList)) {
             for (int i = 0; i < goodsList.size(); i++) {
                 GoodsSummary goodsSummary = new GoodsSummary();
                 if(String.valueOf(goodsList.get(i).getGoods_id())!=null){
@@ -103,29 +157,19 @@ public class AppGoodsController extends BaseAppController {
                 if(goodsList.get(i).getName()!=null){
                     goodsSummary.setTitle(goodsList.get(i).getName());
                 }
-                if(goodsList.get(i).getImg()!=null){
-                    goodsSummary.setMainPicUrl(goodsList.get(i).getImg());
+                if(goodsList.get(i).getDefaultImage()!=null){
+                    goodsSummary.setMainPicUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goodsList.get(i).getDefaultImage());
                 }
                 goodsSummary.setPrice(goodsList.get(i).getSalesMoney());
                 goodsLists.add(goodsSummary);
             }
-            for (int i = 0; i < brandList.size(); i++) {
-                cn.com.dyninfo.o2o.entity.Brand brand = new cn.com.dyninfo.o2o.entity.Brand();
-                if(String.valueOf(brandList.get(i).getBrand_id())!=null){
-                    brand.setId(String.valueOf(brandList.get(i).getBrand_id()));
-                }
-                if(brandList.get(i).getName()!=null){
-                    brand.setTitle(brandList.get(i).getName());
-                }
-                brandLists.add(brand);
-            }
         }
-        result.setBrandList(brandLists);
+        int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+        result.setPageNo(pageInfo.getPageNo());
+        result.setTotalPage(totalpage);
         result.setGoodsSummaryList(goodsLists);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
-        result.setPageNo(1);
-        result.setTotalPage(2);
         log.debug(result);
         return result;
     }
@@ -270,6 +314,7 @@ public class AppGoodsController extends BaseAppController {
                 }
             }
         }
+
         result.setGoodsDetailList(detailList);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
