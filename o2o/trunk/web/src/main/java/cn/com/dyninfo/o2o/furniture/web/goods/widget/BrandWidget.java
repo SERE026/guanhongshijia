@@ -39,13 +39,13 @@ public class BrandWidget extends Widget {
 	
 	@Override
 	public void display(Map pamtr) {
-		AreaInfo arear=(AreaInfo) this.HttpRequest.getSession().getAttribute(Context.SESSION_AEAR);
+//		AreaInfo arear=(AreaInfo) this.HttpRequest.getSession().getAttribute(Context.SESSION_AEAR);
 		StringBuffer where=new StringBuffer();
-		if(arear!=null){
-			where.append(" and n.city.id='"+arear.getId()+"' ");
-		}else{
-			where.append(" and n.city.id is null ");
-		}
+//		if(arear!=null){
+//			where.append(" and n.city.id='"+arear.getId()+"' ");
+//		}else{
+//			where.append(" and n.city.id is null ");
+//		}
 		List list=brandOrderService.getListByWhere(where);
 		this.putData("data", list);
 	}

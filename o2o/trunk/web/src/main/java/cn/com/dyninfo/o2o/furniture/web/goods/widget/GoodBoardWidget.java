@@ -14,12 +14,14 @@
 package cn.com.dyninfo.o2o.furniture.web.goods.widget;
 
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
+import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.web.framework.facade.Widget;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,8 +41,17 @@ public class GoodBoardWidget extends Widget {
 	public void display(Map pamtr) {
 //		List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id=1"));
 //		PageModule goodsList=reMaiList.get(0);
-		List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+ Constants.YUN_SKU+"')>0"));
+		/*List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+ Constants.YUN_SKU+"')>0"));
+			this.putData("data", goodsList);*/
+		String pageNo=(String) pamtr.get("pageNo");
+		String pageSize=(String) pamtr.get("pageSize");
+			PageInfo page=new PageInfo();
+			page.setPageNo(1);
+			page.setPageSize(10);
+			HashMap<String, ?> data =goodsService.getListByPageWhere(new StringBuffer(" and instr(n.biaoqian,'"+ Constants.YUN_SKU+"')>0"),page);
+			List<Goods> goodsList =(List<Goods>)data.get("DATA");
 			this.putData("data", goodsList);
+
 		}
 	}
 	

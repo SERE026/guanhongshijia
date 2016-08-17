@@ -1,18 +1,18 @@
 <#list data as g>
 <div class="xsp_kuai goodBox">
-<div class="xsp_kuai_tu1404"><a href="${applicationPath}/item-${g.goods_id}.html"><img src="${applicationPath}/upload/goods/${g.images}" width="100%" height="100%" border="0" /></a></div>
+<div class="xsp_kuai_tu1404"><a href="${applicationPath}/item-${g.goods.goods_id}.html"><img src="${applicationPath}/upload/goods/${g.goods.images}" width="100%" height="100%" border="0" /></a></div>
 <div class="xsp_kuai_zi1404">
 <#if (g.salesMoney*1.0/g.goods.bazaarMoney*10) lt 10>
 	<span class="STYLE1">${(g.goods.salesMoney*1.0/g.bazaarMoney*10)?string('0.0')}折/ </span>
 </#if>
 
 
-<a href="item-${g.goods_id}.html" class="zhu18">${g.name}</a></div>
+<a href="item-${g.goods.goods_id}.html" class="zhu18">${g.name}</a></div>
 <div class="xsp_dajia1404">
 <div class="xsp_dajia_le">
 <span class="STYLE7">¥</span><span class="STYLE6">${g.salesMoney}</span>
 </div>
-<div class="xsp_dajia_ri"><a href="${applicationPath}/item-${g.goods_id}.html"><img src="${applicationPath}/img/an1.gif" border="0" /></a></div>
+<div class="xsp_dajia_ri"><a href="${applicationPath}/item-${g.goods.goods_id}.html"><img src="${applicationPath}/img/an1.gif" border="0" /></a></div>
 </div>
 <div class="xsp_dianming1404">${g.merchants.name}</div>
 </div>
