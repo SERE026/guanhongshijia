@@ -31,6 +31,8 @@ public class Constants {
     public static final int APROMOTION_IMG  = 61;//安卓促销图
     public static final int ANEW_IMG = 62;//安卓新品图
 
+    public static final int SHANGJIA_ID = 5;//注册时商家的ID  //5==观红世家
+
     public static final int STARTUP_IMG = 63;//安卓启动图
 
     public static String ADMIN_ADDRESS = "";

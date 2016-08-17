@@ -270,13 +270,13 @@ public class LoginBar extends Widget{
 			code=code.toLowerCase();
 			if(code.equals(J_CODE)){
 				HuiyuanInfo newinfo=new HuiyuanInfo();
-				String p=(String) pamtr.get("p");
-				if(p!=null){
-					List<ShangJiaInfo> list=(List<ShangJiaInfo>) shangJiaService.getListByWhere(new StringBuffer(" and n.affiliation='"+p+"'"));
+//				String p=(String) pamtr.get("p");
+//				if(p!=null){
+					List<ShangJiaInfo> list=(List<ShangJiaInfo>) shangJiaService.getListByWhere(new StringBuffer(" and n.shangjia_id='"+Constants.SHANGJIA_ID+"'"));
 					if(list.size()>0){
 						newinfo.setShangJiaInfo(list.get(0));
 					}
-				}
+//				}
 				if(UserNoCheck.isPhone(name)){
 					newinfo.setPhone(name);
 				}else if(UserNoCheck.isEmail(name)){
