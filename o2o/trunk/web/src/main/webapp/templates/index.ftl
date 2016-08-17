@@ -1016,8 +1016,8 @@
             <div class="FloorImg">
                 <h1>综合系列</h1>
                 <div class="tag">
-                    <p>CERAMICS</p>
-                    <p>FOR DALY USE</p>
+                    <p>Comprehensive series</p>
+                    <p></p>
                     <div class="font6"><p></p><p></p></div>
                 </div>
                 <img src="../img/08.png" style="margin-top:40px;" />

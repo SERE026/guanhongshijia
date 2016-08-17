@@ -87,9 +87,9 @@ input:focus,textarea:focus { outline: none !important;  }
 .mt06_xian{width:800px; height:2px; background-color:#000000;overflow:hidden}
 .mt06_xian_hong{ width:150px; height:2px; background-color:#fe9901; overflow:hidden;}
 
-.mt07{width:770px; height:40px;overflow:hidden; margin-top:0px; margin-left:8px}
-.mt07_zi{width:770px; height:38px; line-height:38px; color:#000000; font-size:20px;font-family:"微软雅黑";overflow:hidden}
-.mt07_xian{width:770px; height:2px; background-color:#000000;overflow:hidden}
+.mt07{width:960px; height:40px;overflow:hidden; margin-top:0px; margin-left:8px}
+.mt07_zi{width:960px; height:38px; line-height:38px; color:#000000; font-size:20px;font-family:"微软雅黑";overflow:hidden}
+.mt07_xian{width:960px; height:2px; background-color:#000000;overflow:hidden}
 .mt07_xian_hong{ width:95px; height:2px; background-color:#c86c18; overflow:hidden;}
 
 
@@ -99,33 +99,44 @@ input:focus,textarea:focus { outline: none !important;  }
 
 
 
-.denglu{ width:996px; height:auto; margin:auto; background-color:#FFFFFF}
+.denglu{ width:1200px; height:auto; margin:auto; background-color:#FFFFFF}
 .logo_xiao{ width:335px; height:103px; overflow:hidden;margin-top:25px}
-.zhuce_tou{ width:996px; height:25px;}
-.zhuce_tou_zi{ width:auto; height:25px; line-height:25px; float:right; color:#c81523; margin-right:10px}
+.zhuce_tou{ width:1200px; height:25px;}
+.zhuce_tou_zi{ width:auto; height:40px; line-height:40px; float:right; color:#c81523; margin-right:10px}
 .zhuce_tou_tu{ width:80px; height:25px;float:right} 
-.zhece_dakuai{ width:994px; height:425px; border:#dddddd solid 1px; margin-top:10px}
+.zhece_dakuai{ width:1200px; height:596px; border:#dddddd solid 1px; margin-top:10px}
 .zhece_dakuai_datu{width:430px; height:356px; float:left; margin:18px 0 0 15px; overflow:hidden;}   
-.zhece_dakuai_xiaodui{width:465px; height:356px; float:right; margin:18px 15px 0 0}  
-.zhuce_k{ width:465px; height:auto;overflow: hidden;}
-.zhuce_k_zi{ width:70px; height:25px; line-height:25px; text-align:right; margin-right:5px;float:left; margin-top:3px}   
-.zhuce_k_bao{ width:auto; height:auto;float:left} 
-.zhuce_k_bao_shuom{ width:auto;height:24px; line-height:24px;float:left; color:#c81523; margin-top:3px; margin-left:5px; overflow:hidden}
-.zhuce_k_baoshuru_aa{ width:182px; height:24px; line-height:24px; color:#454545; border:#cdcdcd solid 1px; padding-left:5px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px }    
-.zhuce_k_baoshuru_bb{ width:75px; height:24px; line-height:24px; color:#454545; border:#cdcdcd solid 1px; padding-left:5px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px }    
+.zhece_dakuai_xiaodui{width:768px; height:569px; margin:18px 15px 0 38px;float: left;border-right: 1px solid #ddd;}
+.zhuce_k{ width:600px; height:auto;overflow: hidden;}
+.zhuce_k_zi{ width:70px; height:38px; line-height:38px; text-align:right; margin-right:5px;float:left; margin-top:3px}
+.zhuce_k_bao{ width:346px; height:auto;float:left;border:#cdcdcd solid 1px;line-height: 40px;background-color: white;margin-left: 25px;overflow: hidden;}
+.zhuce_k_bao_shuom{ width:auto;height:40px; line-height:31px;color:#c81523; margin-left:76px; overflow:hidden}
+.zhuce_k_bao i{background:url(../img/fonticon.png) no-repeat;width: 19px;height: 19px;display: inline-block;margin: 10px;float: left;}
+.zhuce_k_bao .zhuce_k_bao_use{background-position: -196px -190px;}
+.zhuce_k_bao .zhuce_k_bao_pwd{background-position: -169px -190px;}
+#validCode img{width: 78px;height: 40px;}
+.zhuce_k_baoshuru_aa{ width:306px; height:38px; line-height:38px; color:#454545; border:none;
+    font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px;float: left; margin-top: 1px;}
+.zhuce_k_baoshuru_bb{ width:306px; height:38px; line-height:38px; color:#454545; border:none;
+    font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px ;float: left; margin-top: 1px;}
 .zhuce_an01{ width:182px; height:29px; margin-left:75px; margin-top:22px;}
-.zhece_dakuai_xiaodui .zhuce_k{margin-top: 22px;}
+.zhece_dakuai_xiaodui .zhuce_k{margin-top: 5px;}
 .zhuce_wenjian{ vertical-align:middle;width:auto; height:29px; margin-left:75px; line-height:39px;margin-top:10px;}   
 .zhuce_banquan{ width:994px; height:auto; line-height:20px; color:#999999; margin-top:10px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px}  
+.zhuce_k .bao{height: 30px;}
+.user_ok_register{text-align:center;border-bottom:1px solid #eee;padding:20px 0;height: 40px;line-height: 40px;width: 220px;margin-left: 70px;}
+.img_login2{text-align:center;padding:90px 0;border-bottom:1px solid #eee}
+.login_api {width: 220px;margin-left: 70px;}
 
 
-.login_dakuai{ width:994px; height:426px; border:#dddddd solid 1px; margin-top:10px; overflow:hidden;}     
+
+.login_dakuai{ width:994px; height:426px; margin-top:10px; overflow:hidden;}
 .login_dakuai_datu{width:567px; height:390px; float:left; margin:18px 0 0 15px; overflow:hidden}  
 .login_dakuai_xiaodui{width:395px; height:426px; overflow:hidden;float:right; background-color:#f5f5f5;margin:0px 0px 0 0; padding-top:18px}     
 .login_ti{ width:300px; height:40px; line-height:40px; margin-top:10px; color:#000000; font-size:14px; font-weight:bold; margin-left:27px}   
-.login_an01{ width:80px; height:29px; margin-left:75px; margin-top:22px; float:left; display:inline}    
+.login_an01{ width:80px; height:29px; margin-left:25px; margin-top:8px;  display:inline}
 
-.login_liji{ width:auto; height:29px; line-height:29px;margin-left:15px; margin-top:22px; float:left}    
+.login_liji{ width:auto; height:29px; line-height:29px;margin-left:15px; margin-top:22px; }
 .login_xian{ width:354px; height:2px; margin-left:20px;margin-top:15px;overflow:hidden; background-image:url(../img/login_xian01.gif); background-repeat:repeat-x;}   
 .login_ti22{ width:300px; height:40px; line-height:40px; margin-top:10px; color:#454545; font-size:12px;margin-left:27px}   
 .login_xiaodeng{ width:100%; height:24px; float:left}
@@ -1155,12 +1166,12 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 .nvrenjei_an_bb a{ width:154px; height:31px; display:block}
 .nvrenjei_tu{ width:630px; height:193px; overflow:hidden; float:right}
 
-.ruzhu_kuai{ width:1200px; height:auto; margin-top:15px}
+.ruzhu_kuai{ width:1200px; height:auto; margin-top:5px;overflow:hidden}
 .ruzhu_kuai_zi{ width:90px; height:25px; line-height:25px; color:#222222; float:left; text-align:right; margin-top:2px}
-.ruzhu_kuai_right{ width:auto; height:auto;float:left; margin-left:7px;}
-.ruzhu_kuai_tishifou{ width:290px; height:22px; line-height:22px; color:#FF0000;float:left; margin-left:7px; margin-top:3px}
+.ruzhu_kuai_right{ width:auto; height:auto; margin-left:7px;}
+.ruzhu_kuai_tishifou{ width:290px; height:28px; line-height:32px; color:#FF0000; margin-left:294px; margin-top:-29px}
 .ruzhu_kr_shu2{ width:190px; height:22px; border:#cbcbcb solid 1px; line-height:22px; color:#454545; font-size:12px; padding-left:5px}
-.ruzhu_kuai_right_tishi{ width:900px; height:auto; line-height:20px; color:#999999;margin-left:105px; margin-top:5px}
+.ruzhu_kuai_right_tishi{ width:900px; height:auto; line-height:25px; color:#999999;margin-left:96px; margin-top:5px}
 .ruzhu_kr_shu3{ width:125px; height:22px; margin-top:2px; overflow:hidden}
 *html .ruzhu_kr_shu3{ width:125px; height:22px; margin-left:5px;margin-top:2px; overflow:hidden}
 *+html .ruzhu_kr_shu3{ width:125px; height:22px; margin-left:7px;margin-top:2px; overflow:hidden} 
@@ -1275,7 +1286,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 .xy2huifu_zi{ width:auto; height:25px; line-height:25px; font-size:14px; color:#454545; float:left; margin:75px 0 0 20px} 
 
 .help_kuai{ width:216px; height:auto; padding-bottom:15px;border:#dedede solid 1px; margin-top:15px}  
-.help_tuwen{ width:100%; height:auto; margin:15px 0 0 20px; overflow:hidden; color:#404040; line-height:20px}
+.help_tuwen{ width:940px; height:auto; margin:15px 0 0 20px; overflow:hidden; color:#404040; line-height:20px}
 
 .xuanyan01_hf{width:1006px; height:auto;margin-top:30px}
 .xuaya01_tit{ width:709px;height:30px;border:#cccccc solid 1px; margin:18px 0 0 40px; overflow:hidden} 
@@ -1749,9 +1760,9 @@ a.zhu1:link{ color:#666666}
 a.zhu1:visited{ color:#666666}
 a.zhu1:hover{color:#c81521}
 
-a.zhu2:link{ color:#f0125b}
-a.zhu2:visited{ color:#f0125b}
-a.zhu2:hover{color:#000000}
+a.zhu2:link{ color:#c81523}
+a.zhu2:visited{ color:#c81523}
+a.zhu2:hover{text-decoration:underline;}
 
 
 a.zhu3:link{ color:#666666; font-size:14px}

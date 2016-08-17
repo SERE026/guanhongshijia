@@ -19,39 +19,36 @@
 
 <!-- 去除jquery弹出层滚动条 -->
 <style type="text/css">
-<!--
-	.xubox_layer{overflow:hidden;}
--->
+	.zhuce_k_bao{float: none;}
 </style>
 <div class="denglu">
 <div class="logo_xiao"><a href="${applicationPath}/index.html"><img src="${applicationPath}/img/logo.jpg" width="120" height="103" /></a></div>
 <div class="zhuce_tou">
-<div class="zhuce_tou_tu"><a href="${applicationPath}/login.html"><img src="${applicationPath}/img/chuce_03.gif" /></a></div>
-<div class="zhuce_tou_zi">我是观红会员</div>
+
 </div>
 <div class="zhece_dakuai">
-<div class="zhece_dakuai_datu">${widget_register_adv_pic1}</div>
+<!--<div class="zhece_dakuai_datu">${widget_register_adv_pic1}</div>-->
 <div class="zhece_dakuai_xiaodui">
-<div class="zhuce_k">
+<div class="zhuce_k" style="margin-top: 25px;">
 <div class="zhuce_k_zi">账户名：</div>
 <div class="zhuce_k_bao">
 
 <input name="accout"  id="accout" type="text" value="" class="zhuce_k_baoshuru_aa"/>
 ${widget_register_merchants}
 </div>
-<div class="zhuce_k_bao_shuom" id="accoutts" style="">邮箱/手机号/用户名</div>
+	<div class="bao"><div class="zhuce_k_bao_shuom" id="accoutts" style="">邮箱/手机号/用户名</div></div>
 </div>
 
 
 <div class="zhuce_k">
 <div class="zhuce_k_zi">手机号码：</div>
-<div class="zhuce_k_bao"><input name="phone" id="phone" type="text" class="zhuce_k_baoshuru_aa"/></div>
-<div class="zhuce_k_bao_shuom" id="phonets" style="display:none">
+<div class="zhuce_k_bao" style="float: left;margin-left: 0;"><input name="phone" id="phone" type="text" class="zhuce_k_baoshuru_aa"/></div>
 
-</div>
-	<div id="send" style="; color:gray;">
-		<input type="button" id="btnSend" value="发送验证码" style="margin: 3px 0 0 5px">
+	<div id="send" style="; color:gray;height: 40px;">
+		<input type="button" id="btnSend" value="发送验证码" style="margin: 12px 0 0 5px">
 	</div>
+	<div style="height: 1px;"></div>
+	<div class="bao"><div class="zhuce_k_bao_shuom" id="phonets" style="display:none"></div></div>
 <div id="codeBox" style="display:none;">
 	<input type="text" class="zhuce_k_baoshuru_bb" value="输入验证码" id="codeValue" style="color:gray;">
 	<input type="button" id="btnSend2" value="重发">
@@ -62,32 +59,60 @@ ${widget_register_merchants}
 <div class="zhuce_k">
 <div class="zhuce_k_zi">密码：</div>
 <div class="zhuce_k_bao"><input name="password1" id="password1" type="password" class="zhuce_k_baoshuru_aa"/></div>
-<div class="zhuce_k_bao_shuom" id="psw1ts" style="display:none">两次密码输入不一致</div>
+	<div class="bao">
+<div class="zhuce_k_bao_shuom" id="psw1ts" style="display:none">两次密码输入不一致</div></div>
 </div>
 <div class="zhuce_k">
 <div class="zhuce_k_zi">确认密码：</div>
 <div class="zhuce_k_bao"><input name="password2"  id="password2"  type="password" class="zhuce_k_baoshuru_aa"/></div>
-<div class="zhuce_k_bao_shuom" id="psw2ts" style="display:none">两次密码输入不一致</div>
+	<div class="bao">
+<div class="zhuce_k_bao_shuom" id="psw2ts" style="display:none">两次密码输入不一致</div></div>
 </div>
 
 <div class="zhuce_k">
 <div class="zhuce_k_zi">邮箱：</div>
 <div class="zhuce_k_bao"><input name="email"  id="email"  type="text" class="zhuce_k_baoshuru_aa"/></div>
-<div class="zhuce_k_bao_shuom" id="emailinfo" style="display:none">用于找回密码</div>
+	<div class="bao"><div class="zhuce_k_bao_shuom" id="emailinfo" style="display:none">用于找回密码</div></div>
 </div>
 
 <div class="zhuce_k">
 <div class="zhuce_k_zi">验证码：</div>
-<div class="zhuce_k_bao"><input name="validinput" id="validinput" type="text" class="zhuce_k_baoshuru_bb" onkeydown="if(event.keyCode==13) gosumbit();"/></div>
-<div class="zhuce_k_bao_shuom"><span id="validCode"></span></div>
-<div class="zhuce_k_bao_shuom" id="validts" style="display:none">验证码错误</div>
+<div class="zhuce_k_bao" style="float: left;margin-left: 0;"><input name="validinput" id="validinput" type="text" class="zhuce_k_baoshuru_bb" onkeydown="if(event.keyCode==13) gosumbit();"/></div>
+<div class="zhuce_k_bao_shuom" style="margin-left: 428px;"><span id="validCode"></span></div><div style="height: 1px;"></div>
+	<div class="bao"><div class="zhuce_k_bao_shuom" id="validts" style="display:none">验证码错误</div></div>
+
 </div>
 	<div class="zhuce_k">
 		<div class="zhuce_k_zi"></div>
-		<div class="zhuce_k_bao"><input type="checkbox" checked="checked" style="vertical-align: middle;">&nbsp;请阅读<a href="javascript:showXieyi();" class="zhu2">《观红世家用户协议》</a></div>
+		<div class="zhuce_k_bao" style="border: none;"><input type="checkbox" checked="checked" style="vertical-align: middle;">&nbsp;请阅读<a href="javascript:showXieyi();" class="zhu2">《观红世家用户协议》</a></div>
 	</div>
 <div class="zhuce_wenjian"><img src="${applicationPath}/img/chuce_14.gif" border="0" id="submit" style="vertical-align:text-bottom;"/></div>
 </div>
+	<div style="width: 378px;height: 569px;float: right;">
+		<div class="user_ok_register">
+			<div class="zhuce_tou_zi" style="float: none;margin-left: 32px;"><span style="float: left;">我是观红会员</span><a href="${applicationPath}/login.html" style="float: left;margin-left: 5px;margin-top: 8px;"><img src="${applicationPath}/img/chuce_03.gif" /></a></div>
+		</div>
+		<div class="login_api">
+			<div class="img_login2" style="position: relative;">
+				<img src="../img/QrCode.jpg" style="width: 120px;height: 120px;" id="JS_img_ewm">
+				<div id="JS_fixed_login_mc" style="width: 120px;height: 120px;position: absolute;top:89px;left:50px;background-color: rgba(0,0,0,.5);display: none;">
+					<p style="width: 48px;height: 48px;background: url(http://image.meilele.com/themes/paipai/images/allPuzzle.png) no-repeat;background-position: -123px -53px;position: absolute;top:36px;left:36px;"></p>
+				</div>
+				<p style="position: relative;top: 20px;font-size: 14px;line-height: 14px;color: #333;">微信扫一扫，快速登录</p>
+			</div>
+			<div class="share_login">
+				<!--<span class="api_tips">使用合作账号登录：</span>
+				<br>
+                        <span class="api_from">
+                            <a href="/dubbo_api/user/login/thirdLogin/QQ" onclick="setWindowName('QQ',this);" class="qq" tabindex="9"></a>
+                            <a href="/dubbo_api/user/login/thirdLogin/WEIBO" onclick="setWindowName('新浪微博',this);" class="sina" tabindex="9"></a>
+							&lt;!&ndash; <a href="javascript:;" class="weixin" tabindex="9"></a> &ndash;&gt;
+                            <a href="/dubbo_api/user/login/thirdLogin/ALIPAY" onclick="setWindowName('支付宝',this);" class="alipay" tabindex="9"></a>
+                            <a href="/dubbo_api/user/login/thirdLogin/TAOBAO" onclick="setWindowName('淘宝',this);" class="taobao" tabindex="9"></a>
+                        </span>-->
+			</div>
+		</div>
+	</div>
 </div>
 
 

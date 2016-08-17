@@ -18,55 +18,64 @@
 	
 </script>
 
-<div class="denglu">
-<div class="logo_xiao"><a href="${applicationPath}/index.html"><img src="${applicationPath}/img/logo.jpg" width="120" height="103" /></a></div>
-<div class="zhuce_tou">
-<div class="zhuce_tou_tu"><a href="${applicationPath}/login.html"><img src="${applicationPath}/img/chuce_03.gif" /></a></div>
-<div class="zhuce_tou_zi">我是观红会员</div>
-</div>
-<div class="login_dakuai">
-<div class="login_dakuai_datu">${widget_login_adv_pic1}
-    <img src="../img/login.jpg" />
-</div>
-<div class="login_dakuai_xiaodui">
-<div class="login_ti">登录</div>
-<div class="clear">&nbsp;</div>
-<div class="zhuce_k" style="margin-top: 10px;">
-<div class="zhuce_k_zi">账户：</div>
-<div class="zhuce_k_bao"><input name="accout" id="accout" type="text" value="邮箱/手机号/用户名" class="zhuce_k_baoshuru_aa"/></div>
-</div>
-<div style="height: 30px;"><div class="zhuce_k_bao_shuom" id="accoutts" style="display:none;margin-left:70px;">该账号尚未注册</div></div>
+<div class="denglu" style="width: 100%;">
+    <div style="width: 1200px;margin: 0 auto;">
+        <div class="logo_xiao"><a href="${applicationPath}/index.html"><img src="${applicationPath}/img/logo.jpg" width="120" height="103" /></a></div>
+       <!-- <div class="zhuce_tou">
+            <div class="zhuce_tou_tu"><a href="${applicationPath}/login.html"><img src="${applicationPath}/img/chuce_03.gif" /></a></div>
+            <div class="zhuce_tou_zi">我是观红会员</div>
+        </div>-->
+    </div>
+    <div style="width: 100%;background-image:url(../img/login.jpg);padding: 40px 0;margin-top: 5px;">
+        <div class="login_dakuai" style="width: 1200px;margin: 0 auto;">
+            <div class="login_dakuai_datu">${widget_login_adv_pic1}
 
-<div class="clear">&nbsp;</div>
-<div class="zhuce_k">
-<div class="zhuce_k_zi">密码：</div>
-<div class="zhuce_k_bao"><input name="password" id="password" type="password" class="zhuce_k_baoshuru_aa"/></div>
-<div class="zhuce_k_bao_shuom" id="passworda"><a href="${applicationPath}/find_password.html" class="zhu16">忘记密码？</a></div>
-</div>
-<div  style="height: 30px;"><div class="zhuce_k_bao_shuom" style="margin-left:70px;" id="passwordts" style="display:none"></div></div>
+            </div>
+            <div class="login_dakuai_xiaodui">
+                <div class="login_ti">登录</div>
+                <div class="clear">&nbsp;</div>
+                <div class="zhuce_k" style="margin-top: 10px;">
+                    <!--<div class="zhuce_k_zi">账户：</div>-->
+                    <div class="zhuce_k_bao">
+                        <i class="zhuce_k_bao_use"></i>
+                        <input name="accout" id="accout" type="text" placeholder="邮箱/手机号/用户名" class="zhuce_k_baoshuru_aa"/></div>
+                </div>
+                <div style="height: 30px;"><div class="zhuce_k_bao_shuom" id="accoutts" style="display:none;margin-left:28px;">该账号尚未注册</div></div>
 
-<div class="clear">&nbsp;</div>
-<div class="zhuce_k">
-<div class="zhuce_k_zi">验证码：</div>
-<div class="zhuce_k_bao"><input name="validinput" id="validinput" type="text" class="zhuce_k_baoshuru_bb" onkeydown="if(event.keyCode==13) submitdl();"/></div>
-<div class="zhuce_k_bao_shuom"><span id="validCode"></span></div>
-<div class="zhuce_k_bao_shuom" id="validts" style="display:none">验证码错误</div>
-</div>
-<div class="clear">&nbsp;</div>
-<div class="login_an01 submit"><a href="javascript:;"><img src="${applicationPath}/img/denglu_06.gif" border="0" /></a></div>
-<div class="login_liji"><a href="${applicationPath}/register.html" class="zhu16">免费注册</a></div>
-<div class="clear">&nbsp;</div>
-<div class="login_xian">&nbsp;</div>
-<!--<div class="login_ti22">使用合作网站账号登录：</div>
-<div class="login_xiaodeng qqLoginBtn"><ul>
-    <li><a href="javascript:void(0);" style="background-position: -130px -190px;"></a></li>
-    <li><a href="javascript:void(0);" style="background-position: -69px -190px;"></a></li>
-    <li><a href="javascript:void(0);" style="background-position: -5px -190px;"></a></li>
-    <li><a href="javascript:void(0);" style="background-position: -100px -190px;"></a></li>
-    <li><a href="javascript:void(0);" style="background-position: -37px -190px;"></a></li>
-</ul></div>-->
-</div>
-</div>
+                <div class="clear">&nbsp;</div>
+                <div class="zhuce_k">
+                    <!--<div class="zhuce_k_zi">密码：</div>-->
+                    <div class="zhuce_k_bao"><i class="zhuce_k_bao_pwd"></i><input name="password" id="password" type="password" class="zhuce_k_baoshuru_aa"/></div>
+                    <div class="zhuce_k_bao_shuom" id="passworda"></div>
+                </div>
+                <div  style="height: 30px;"><div class="zhuce_k_bao_shuom" style="margin-left:28px;" id="passwordts" style="display:none"></div></div>
+
+                <div class="clear">&nbsp;</div>
+                <div class="zhuce_k">
+                    <!--<div class="zhuce_k_zi">验证码：</div>-->
+                    <div class="zhuce_k_bao" style="width:176px"><input placeholder="验证码" value="" style="width: 164px;padding-left: 12px;" name="validinput" id="validinput" type="text" class="zhuce_k_baoshuru_bb" onkeydown="if(event.keyCode==13) submitdl();"/></div>
+                    <div class="zhuce_k_bao_shuom" style="height: 40px;margin-top: 0;margin-left: 207px;"><span id="validCode"></span></div>
+                </div>
+                <div  style="height: 30px;"><div class="zhuce_k_bao_shuom" id="validts" style="display:none;margin-left: 28px;">验证码错误</div></div>
+                <div class="clear">&nbsp;</div>
+                <div class="login_an01 submit"><a href="javascript:;" style="height: 38px;line-height: 38px;display: inline-block;width: 348px;background-color: #572a27;text-align: center;color: white;font-size: 18px;">
+                    登录
+                    <!--<img src="${applicationPath}/img/denglu_06.gif" border="0" />--></a></div>
+                <div class="login_liji"><a style="margin-left: 8px;" href="${applicationPath}/register.html" class="zhu12">免费注册</a><a href="${applicationPath}/find_password.html" class="zhu12" style="float: right;margin-right: 18px;">忘记密码？</a>
+                <div class="clear">&nbsp;</div>
+                <div class="login_xian">&nbsp;</div>
+                <!--<div class="login_ti22">使用合作网站账号登录：</div>
+                <div class="login_xiaodeng qqLoginBtn"><ul>
+                    <li><a href="javascript:void(0);" style="background-position: -130px -190px;"></a></li>
+                    <li><a href="javascript:void(0);" style="background-position: -69px -190px;"></a></li>
+                    <li><a href="javascript:void(0);" style="background-position: -5px -190px;"></a></li>
+                    <li><a href="javascript:void(0);" style="background-position: -100px -190px;"></a></li>
+                    <li><a href="javascript:void(0);" style="background-position: -37px -190px;"></a></li>
+                </ul></div>-->
+            </div>
+        </div>
+    </div>
+
 </div>
 <div class="bottom_daohang">
     <a href="${applicationPath}/aboutus-1.html" class="zhu10">关于我们</a>  |  <a href="${applicationPath}/aboutus-24.html" class="zhu10">联系我们</a>  |  <a href="${applicationPath}/help-16.html" class="zhu10">帮助中心</a>

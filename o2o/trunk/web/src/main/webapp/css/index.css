@@ -344,7 +344,7 @@ ul li {float:left;list-style-type:none;
     }
     .experience p {color:#c86c18;text-align:center;font-size:12px;
     }
-    .experience img {width:190px;height:190px;margin-top:12px;
+    .experience img {width:190px;height:190px;
     }
     .experience .thisHome {text-align:center;font-size:24px;color:#626261;margin-top:18px;
     }
@@ -354,7 +354,7 @@ ul li {float:left;list-style-type:none;
     .findHome {border:1px solid #ccc;border-radius:6px;display:block;width:140px;text-align:center;line-height:30px;background-color:#572a27;color:white;margin:34px auto 0;
     }
 
-.ExperienceDIV{border-radius: 50%;width: 190px;height: 190px;overflow: hidden;margin-left: 5px;}
+.ExperienceDIV{border-radius: 50%;width: 190px;height: 190px;overflow: hidden;margin-left: 5px;border: 1px solid #666;}
 
 #focus001 {width:100%;height:485px;overflow:hidden;min-width:1200px;z-index: 3;
 }
@@ -717,3 +717,5 @@ ul li {float:left;list-style-type:none;
 
 .hotBack{background-color: #c86c18!important;}
 #pricesubmit{border: none!important;margin-top:6px!important;width:45px!important;background-color: #572a27;text-align: center;display: inline-block;height: 21px!important;line-height: 21px;color: white; }
+
+.ruzhu_kuai_right input,.ruzhu_kuai_right select{height: 24px;}
