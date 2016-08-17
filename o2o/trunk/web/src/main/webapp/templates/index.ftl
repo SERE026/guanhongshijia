@@ -564,7 +564,7 @@
 
             </ul>-->
             <ul class="borderHover">
-            <#if (dzlist?size > 0)>
+
             <#list dzlist as p>
                 <li>
                     <dl class="">
@@ -579,7 +579,7 @@
                 </li>
                 <#if p_index==3><#break></#if>
             </#list>
-            </#if>
+
             </ul>
 
 
