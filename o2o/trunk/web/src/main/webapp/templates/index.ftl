@@ -78,7 +78,7 @@
                                 </strong>
                                 </div>
                             </div>
-                            <a class="near" target="_blank" href="${rc.contextPath}/shopMap.html">附近的体验馆</a>
+                            <a class="near" target="_blank" href="${rc.contextPath}/shopMap.html"><i class="positioning"></i>附近的体验馆</a>
                         </div>
                         <div class="showPanel showPanel2 f-cb">
                             <div class="hot_city" id="JS_header_city_hot">
@@ -130,6 +130,7 @@
                                         <a class="icity_firstword" href="javascript:void(0);">G</a>
                                         <div class="icity_names">
                                             <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="510800">广元市</a>
+                                            <a class="icity_names_a for_search" href="javascript:void(0);" onclick="changeCity(this)" cityid="">广州市</a>
                                         </div>
                                     </div>
                                     <div class="icity_names_wrap" id="charH">

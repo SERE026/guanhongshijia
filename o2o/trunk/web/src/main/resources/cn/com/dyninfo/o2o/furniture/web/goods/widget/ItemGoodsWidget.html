@@ -4,15 +4,15 @@
 <link href="css/GoodsDetails.css" rel="stylesheet" />
 <#if good.merchants??>
 <#if good.merchants.qq??>
-  <div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+<!--  <div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
 	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=${good.merchants.qq}&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
 	<img src="${applicationPath}/img/xpkf.png" /></a>
-	</div>
+	</div>-->
 <#else>
-<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
+<!--<div style=" width:110px; height:270px; overflow:hidden; position:fixed; top:300px; right:0; z-index:999999">
 	<a target="_blank" href="http://b.qq.com/webc.htm?new=0&sid=800055495&eid=2188z8p8p8p8R8R8Q808R&o=&q=7">
 <img src="${applicationPath}/img/xpkf.png" /></a>
-</div>
+</div>-->
 </#if>
 </#if>
 <div class="kuai">
@@ -34,7 +34,7 @@ ${widget_goods_image}
 <div class="spdetail_right_ming">${good.name}</div>
 <div class="spdetail_right_jia">
 
-<span class="STYLE11_5">雅堂价：</span>
+<span class="STYLE11_5">观红价：</span>
 <span class="STYLE11_4 mainColor">¥</span>
 <span class="STYLE11_2 salesMoney">${good.goodMoney}</span>
 &nbsp;&nbsp;<span class="STYLE11_3">成交记录${good.num}件</span>
@@ -532,7 +532,7 @@ ${widget_share}
 				<div id="Div1">
 					<div style="padding: 25px; border: 0px solid #dfdfdf; border-top: none; height: 1100px; font-family: 'Microsoft YaHei';">
 						<div style="text-align: center">
-							<img src="http://images1.yatang.cn/fmf/img/product/u217_03.gif">
+							<!--<img src="http://images1.yatang.cn/fmf/img/product/u217_03.gif">-->
 						</div>
 						<div style="margin-left: 60px; border-bottom: 1px dashed #dfdfdf;">
 							<div style="position: relative">
@@ -632,7 +632,8 @@ ${widget_comment}
 			var src = $(this).children().attr("src");
 			$(this).parent().removeClass('spdetail_left_xiaotu_k2').addClass('spdetail_left_xiaotu_k');
 			$(this).parent().siblings(".imgMin").removeClass('spdetail_left_xiaotu_2').addClass('spdetail_left_xiaotu_k2');
-			$(".ImgShow").attr("src", src);
+			console.log(src)
+			$(".jqzoom").attr("src", src);
 		})
 		$(".ImgList>.right>a").click(function () {
 			$(".imgMin-Div>div:first").animate({ "margin-left": '24px' });
