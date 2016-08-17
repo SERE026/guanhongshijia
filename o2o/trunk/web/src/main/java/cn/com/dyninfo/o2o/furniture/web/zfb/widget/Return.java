@@ -93,65 +93,68 @@ public class Return extends Widget {
 			//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参考)//
 			//计算得出通知验证结果
 			Trade trade=orderService.getTrade(out_trade_no);
-			if(AlipayNotify.verify(params)|| cn.com.dyninfo.o2o.furniture.payment.zfb.mobile.AlipayNotify.verify(params)){//验证成功
+			System.out.println(trade.getFlag());
+			System.out.println(trade.getStatus());
+//			if(AlipayNotify.verify(params)|| cn.com.dyninfo.o2o.furniture.payment.zfb.mobile.AlipayNotify.verify(params)){//验证成功
+				if(AlipayNotify.verify(params)|| cn.com.dyninfo.o2o.furniture.payment.zfb.mobile.AlipayNotify.verify(params)){//验证成功
 				//////////////////////////////////////////////////////////////////////////////////////////
 				//请在这里加上商户的业务逻辑程序代码
 	
 				//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
-				if(trade_status.equals("TRADE_FINISHED") || trade_status.equals("TRADE_SUCCESS")){
-					//判断该笔订单是否在商户网站中已经做过处理
-						//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
-						//如果有做过处理，不执行商户的业务程序
-				}
+//				if(trade_status.equals("TRADE_FINISHED") || trade_status.equals("TRADE_SUCCESS")){
+//					//判断该笔订单是否在商户网站中已经做过处理
+//						//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+//						//如果有做过处理，不执行商户的业务程序
+//				}
 				
 				//该页面可做页面美工编辑
 				this.putData("result", "success");
 				this.putData("order", orderService.getListByPage(new StringBuffer(" and n.tradeNo='"+out_trade_no+"' ")));
 				
 				
-				if(trade.getStatus()==0){
-					this.HttpRequest.setAttribute(Context.SESSION_MEMBER, trade.getHuiyuan());
-					huiyuanMoneyService.addTopup(trade.getMoney(), trade.getZffs(), trade.getHuiyuan());
-					trade.setStatus(1);
-					orderService.updateTrade(trade);
-					this.putData("money", trade.getMoney());
+//				if(trade.getStatus()==0){
+//					this.HttpRequest.setAttribute(Context.SESSION_MEMBER, trade.getHuiyuan());
+//					huiyuanMoneyService.addTopup(trade.getMoney(), trade.getZffs(), trade.getHuiyuan());
+//					trade.setStatus(1);
+//					orderService.updateTrade(trade);
+//					this.putData("money", trade.getMoney());
+//					if(trade.getFlag()==1){//订单支付
+//						Double d=orderService.getTradeMoney(out_trade_no);
+//						if(d<=trade.getHuiyuan().getMoney()){
+//							orderService.updateOrderPlay(out_trade_no);
+//							this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
+//
+//							//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,);
+//						}else{
+//							this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+out_trade_no+".html?result=fail\";</script>");
+//
+//							//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+out_trade_no+".html?result=fail");
+//						}
+//					}else{
+//						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
+//						//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney());
+//
+//					}
+					
+					
+//				}else{
 					if(trade.getFlag()==1){//订单支付
-						Double d=orderService.getTradeMoney(out_trade_no);
-						if(d<=trade.getHuiyuan().getMoney()){
-							orderService.updateOrderPlay(out_trade_no);
-							this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
-							
-							//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,);
-						}else{
-							this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+out_trade_no+".html?result=fail\";</script>");
-							
-							//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+out_trade_no+".html?result=fail");
-						}
+						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
 					}else{
-						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
-						//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney());
-						
+						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
 					}
 					
-					
-				}else{
-					if(trade.getFlag()==1){//订单支付
-						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
-					}else{
-						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
-					}
-					
-				}
+//				}
 				//////////////////////////////////////////////////////////////////////////////////////////
 			}else{
 				//该页面可做页面美工编辑
 				//out.println("验证失败");
 				this.putData("result", "fail");
 				if(trade.getFlag()==1){//订单支付
-					this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+out_trade_no+".html?result=fail\";</script>");
+					this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "play_succeed-"+out_trade_no+".html?result=fail\";</script>");
 					//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+out_trade_no+".html?result=fail");
 				}else{
-					this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/chong_succeed-"+out_trade_no+".html?result=fail&money="+trade.getMoney()+"\";</script>");
+					this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/" + Constants.ADMIN_ADDRESS + "chong_succeed-"+out_trade_no+".html?result=fail&money="+trade.getMoney()+"\";</script>");
 					//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"chong_succeed-"+out_trade_no+".html?result=fail&money="+trade.getMoney());
 				}
 				

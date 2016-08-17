@@ -38,23 +38,34 @@ public class AlipayConfig {
 	
 	//↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 	// 合作身份者ID，以2088开头由16位纯数字组成的字符串
-	public static String partner = "2088311579535283";
-	// 商户的私钥
-	public static String private_key = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKhr6ae+55BMU1dwIq0Eqh/UzWD5tiWOKt6WH6GizRpe/HnP9IMricV7HWgCL7MFHo6aUV2Qbf5s5VX3EMPmMLuEt0J7heGhZyiF8w6p5M9JulOSMN7QA1IMeVByxTCXt2xPcbILWUY56vPegFtCYE0KjOKY9sHAYa0K5z22FsHZAgMBAAECgYAVRqSau0QXd3zjw9etkbRIFyLmyETZU69YtRBD5AQS+8LbRIj39Q0PdHEPjY8nB1OH4ji7IB61EF6cUHy+spqfMS6cypA/scFw9Bx1GDxmf7JPWeucBjpGH+lmZ6+U+gaKlJXucp+BdNt0G53wf3KBQmYMABNfQm+8Bspi9mfmfQJBANjv36f9fE2DxKd8WF0Bv8A8/zcRtb/NoBTy5EjY+2yXrX2TPw9b/Gl3PGvlZnc75C9KsUZ65JyWU76MYz8R5bMCQQDGv6Ajbti6HGM7xb3K+E/hxtQl2FIZ8NpQWL3TOAm0bkxn6movea76ghih0jWntLrVKFRyAyqauBIB+cRkr8xDAkEAxQvdEzHkHmR508fWW2SjT3IYP2UOuVGE/oJBaQnuFg0PwOhmdwUOmJ19fGO6VsNH2Mz3iRVHYhQJrSLHYxpWkQJAZUe/nm7dSLIwq4QQPL+fTYnaEFMVO5zuU6V1To6u+2B91TKy2/Chh40GamhJ6WWDFB7SMauFaYTFwHX8a+beKwJAB1edNaIMptV1p/VX74n9seR6bkHAQGQMo/w3VRZmSpFDynLh1/Xe896RYEvQBExbY1/KrReRSCAcLkArsmaDcw==";
-	
-	// 支付宝的公钥，无需修改该值
-	public static String ali_public_key  = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
+//	public static String partner = "2088311579535283";
+//	// 商户的私钥
+//	public static String private_key = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKhr6ae+55BMU1dwIq0Eqh/UzWD5tiWOKt6WH6GizRpe/HnP9IMricV7HWgCL7MFHo6aUV2Qbf5s5VX3EMPmMLuEt0J7heGhZyiF8w6p5M9JulOSMN7QA1IMeVByxTCXt2xPcbILWUY56vPegFtCYE0KjOKY9sHAYa0K5z22FsHZAgMBAAECgYAVRqSau0QXd3zjw9etkbRIFyLmyETZU69YtRBD5AQS+8LbRIj39Q0PdHEPjY8nB1OH4ji7IB61EF6cUHy+spqfMS6cypA/scFw9Bx1GDxmf7JPWeucBjpGH+lmZ6+U+gaKlJXucp+BdNt0G53wf3KBQmYMABNfQm+8Bspi9mfmfQJBANjv36f9fE2DxKd8WF0Bv8A8/zcRtb/NoBTy5EjY+2yXrX2TPw9b/Gl3PGvlZnc75C9KsUZ65JyWU76MYz8R5bMCQQDGv6Ajbti6HGM7xb3K+E/hxtQl2FIZ8NpQWL3TOAm0bkxn6movea76ghih0jWntLrVKFRyAyqauBIB+cRkr8xDAkEAxQvdEzHkHmR508fWW2SjT3IYP2UOuVGE/oJBaQnuFg0PwOhmdwUOmJ19fGO6VsNH2Mz3iRVHYhQJrSLHYxpWkQJAZUe/nm7dSLIwq4QQPL+fTYnaEFMVO5zuU6V1To6u+2B91TKy2/Chh40GamhJ6WWDFB7SMauFaYTFwHX8a+beKwJAB1edNaIMptV1p/VX74n9seR6bkHAQGQMo/w3VRZmSpFDynLh1/Xe896RYEvQBExbY1/KrReRSCAcLkArsmaDcw==";
+//
+//	// 支付宝的公钥，无需修改该值
+//	public static String ali_public_key  = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
+//
+//	//↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+//
+	public static String zfbNo="guanhongshijia@126.com";//支付宝账户 619160960@qq.com
+	//↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	// 合作身份者ID，以2088开头由16位纯数字组成的字符串 //2088111166948654
+	public static String partner = "2088421503901771";
+	// 商户的私钥                                                         //    34hdebz11orag0htkd97yq4beemmcss8
+	public static String ali_public_key = "w1gjtiamsfkxsu36t0mihscvt03n85a5";// tsldmv58gsvs7byyvo1jrmofzmy1vsvp
 
 	//↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-	
 
 	// 调试用，创建TXT日志文件夹路径
-	public static String log_path = "D:\\";
+	public static String log_path = "D:\\zfb_log\\";
 
 	// 字符编码格式 目前支持 gbk 或 utf-8
 	public static String input_charset = "utf-8";
-	
+
 	// 签名方式 不需修改
 	public static String sign_type = "RSA";
+
+
+
 
 }
