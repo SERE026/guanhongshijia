@@ -167,7 +167,7 @@ public class AppCategoryController extends BaseAppController {
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         result.setCategoryList(lists);
-        result.setPageNo(1);
+//        result.setPageNo(1);
 
 //        else{
 //            result.setResultCode(NO_LOGIN);

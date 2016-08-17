@@ -184,7 +184,10 @@ public class FreeMarkerUtils {
             }
             //显示抢购商品
             List<Active> activeList =(List<Active>) gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
-
+            List<Goods> dzlist=(List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.JIAJUDINGZHI+"')>0"));
+            if (dzlist != null && dzlist.size() > 0) {
+                paramsMap.put("dzlist",dzlist);
+            }
             if (xsList != null && xsList.size() > 0) {
                 paramsMap.put("activeList",xsList);
             }
@@ -276,6 +279,10 @@ public class FreeMarkerUtils {
             //显示抢购商品
             List<Active> activeList =(List<Active>) gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
             paramsMap.put("activeList",xsList);
+            List<Goods> dzlist=(List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.JIAJUDINGZHI+"')>0"));
+            if (dzlist != null && dzlist.size() > 0) {
+                paramsMap.put("dzlist",dzlist);
+            }
             // mav.addAttribute("activeList",activeList);
             //5L综合系列
             //获取品牌表数据
@@ -357,6 +364,10 @@ public class FreeMarkerUtils {
             //显示抢购商品
             List<Active> activeList =(List<Active>)gameActiveService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
             paramsMap.put("activeList",xsList);
+            List<Goods> dzlist=(List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.JIAJUDINGZHI+"')>0"));
+            if (dzlist != null && dzlist.size() > 0) {
+                paramsMap.put("dzlist",dzlist);
+            }
             // mav.addAttribute("activeList",activeList);
 
             //5L综合系列
