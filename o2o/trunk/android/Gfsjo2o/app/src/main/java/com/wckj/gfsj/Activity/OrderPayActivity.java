@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
+import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.R;
 
 /**
@@ -12,7 +13,7 @@ import com.wckj.gfsj.R;
  */
 public class OrderPayActivity extends BaseNewActivity implements View.OnClickListener {
 
-    private TextView tv_go_back;
+    private TitleRelativeLayout mRlTitle;
     private View view;
 
     @Override
@@ -22,8 +23,12 @@ public class OrderPayActivity extends BaseNewActivity implements View.OnClickLis
 
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
-        View titleView = inflater.inflate(R.layout.layout_title_set_password, null);
-        titleView.findViewById(R.id.tv_go_back).setOnClickListener(this);
+        View titleView =  inflater.inflate(R.layout.layout_public_title_main, null);
+        mRlTitle = (TitleRelativeLayout) titleView.findViewById(R.id.title_rl);
+        mRlTitle.childView.findViewById(R.id.tv_go_back).setOnClickListener(this);
+
+        TextView tv_content_desc = (TextView) mRlTitle.childView.findViewById(R.id.tv_content_desc);
+        tv_content_desc.setVisibility(View.GONE);
         return titleView;
     }
 

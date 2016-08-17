@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Bean.SetLockPasswordRequest;
 import com.wckj.gfsj.Bean.SetLockPasswordResult;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
+import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
@@ -25,7 +26,7 @@ import okhttp3.Call;
  */
 public class SetPasswordActivity extends BaseNewActivity implements View.OnClickListener {
 
-    private TextView tv_go_back;
+    private TitleRelativeLayout mRlTitle;
     private View view;
     private Button mBtnSet, mBtnModify, mBtnFind;
     private RelativeLayout mRlSetPwd, mRlModifyPwd, mRlFindPwd;
@@ -39,8 +40,12 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
 
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
-        View titleView = inflater.inflate(R.layout.layout_title_set_password, null);
-        titleView.findViewById(R.id.tv_go_back).setOnClickListener(this);
+        View titleView =  inflater.inflate(R.layout.layout_public_title_main, null);
+        mRlTitle = (TitleRelativeLayout) titleView.findViewById(R.id.title_rl);
+        mRlTitle.childView.findViewById(R.id.tv_go_back).setOnClickListener(this);
+
+        TextView tv_content_desc = (TextView) mRlTitle.childView.findViewById(R.id.tv_content_desc);
+        tv_content_desc.setVisibility(View.GONE);
         return titleView;
     }
 

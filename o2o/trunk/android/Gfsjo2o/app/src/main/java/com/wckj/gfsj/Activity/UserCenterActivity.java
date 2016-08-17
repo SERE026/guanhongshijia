@@ -7,15 +7,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Application.AppApplication;
+import com.wckj.gfsj.Bean.LoginResult;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
+import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
+import com.wckj.gfsj.Db.JsonDao;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.UuidUtils;
 
 /**
  * Created by rayco on 2016/7/24.
  */
 public class UserCenterActivity extends BaseNewActivity implements View.OnClickListener {
 
-    private TextView tv_go_back;
+    private TitleRelativeLayout mRlTitle;
     private View view;
     private Button mBtnMyOrder, mBtnMyBrokerage, mBtnUserInfo, mBtnMyCoupon, mBtnSetPwd, mBtnExit;
     private EditText mEtBrokeragePwd;
@@ -27,8 +33,13 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
 
     @Override
     protected View onCreateTitleView(LayoutInflater inflater) {
-        View titleView = inflater.inflate(R.layout.layout_title_set_password, null);
-        titleView.findViewById(R.id.tv_go_back).setOnClickListener(this);
+        View titleView =  inflater.inflate(R.layout.layout_public_title_main, null);
+        mRlTitle = (TitleRelativeLayout) titleView.findViewById(R.id.title_rl);
+        mRlTitle.childView.findViewById(R.id.tv_go_back).setOnClickListener(this);
+
+        TextView tv_content_desc = (TextView) mRlTitle.childView.findViewById(R.id.tv_content_desc);
+        tv_content_desc.setVisibility(View.GONE);
+
         return titleView;
     }
 
@@ -72,7 +83,6 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
         Intent intent;
         switch (v.getId()) {
             case R.id.tv_go_back:
-                setResult(100);
                 finish();
                 break;
             case R.id.btn_my_order:
@@ -103,6 +113,11 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
                 startActivity(intent);
                 break;
             case R.id.btn_exit:
+                JsonDao jsonDao =  new JsonDao();
+                jsonDao.deleteJson(GlobalUtils.LOGIN_URL);
+                AppApplication.loginResult = new LoginResult();
+                AppApplication.loginResult.setDeviceId(UuidUtils.getUuid());
+                finish();
                 break;
         }
     }

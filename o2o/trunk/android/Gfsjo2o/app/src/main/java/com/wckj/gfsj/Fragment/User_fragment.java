@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.FindPasswordActivity;
+import com.wckj.gfsj.Activity.MainActivity;
 import com.wckj.gfsj.Activity.RegisterActivity;
-import com.wckj.gfsj.Activity.UserCenterActivity;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.LoginRequest;
 import com.wckj.gfsj.Bean.LoginResult;
@@ -48,7 +48,7 @@ public class User_fragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, null);
-        jsonDao =  new JsonDao();
+        jsonDao = new JsonDao();
         mRlLogin = (RelativeLayout) view.findViewById(R.id.rl_login);
         mTvLoginTitle = (TextView) view.findViewById(R.id.tv_login_title);
         mEtUsername = (EditText) view.findViewById(R.id.et_username);
@@ -69,7 +69,7 @@ public class User_fragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.btn_login:
                 String userName = mEtUsername.getText().toString().trim();
-                String userPwd  = mEtPassword.getText().toString().trim();
+                String userPwd = mEtPassword.getText().toString().trim();
                 if (userName.isEmpty()) {
                     OwerToastShow.show("请输入用户名");
                     return;
@@ -95,6 +95,7 @@ public class User_fragment extends Fragment implements View.OnClickListener {
 
     /**
      * 登陆
+     *
      * @param loginName 用户名
      * @param password  密码
      */
@@ -117,10 +118,12 @@ public class User_fragment extends Fragment implements View.OnClickListener {
                     AppApplication.loginResult = result;
                     OwerToastShow.show("登陆成功");
 
-                    Intent intent = new Intent(getActivity(), UserCenterActivity.class);
-                    getActivity().startActivityForResult(intent, INTO_USER_CENTER);
-
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    intent.putExtra("position", 0);
+                    getContext().startActivity(intent);
                 } else {
+                    OwerToastShow.show(result.getMessage());
+
                     jsonDao.deleteJson(GlobalUtils.LOGIN_URL);
                     AppApplication.loginResult = new LoginResult();
                     AppApplication.loginResult.setDeviceId(UuidUtils.getUuid());

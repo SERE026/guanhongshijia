@@ -89,7 +89,7 @@
             app:layout_marginTopPercent="6%"
             app:layout_marginLeftPercent="10%"
             android:gravity="center_vertical|right"
-            android:text="昵称："
+            android:text="姓名："
             android:textSize="11sp"/>
 
         <EditText
