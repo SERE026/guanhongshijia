@@ -187,6 +187,17 @@ ${widget_share}
 				热门销售
 			</div>
 			<div class="yt_hot_sale_info">
+				<#list Sortlist as sg>
+					<div class="rexiao_kuai">
+						<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+						<div class="rexiao_kuai_zijie">
+							<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
+						</div>
+						<div class="rexoa_xiaojia">
+							￥${sg.salesMoney?string('0.00')}
+						</div>
+					</div>
+				</#list>
 			</div>
 
 		</div>
@@ -196,6 +207,17 @@ ${widget_share}
 				新品榜单
 			</div>
 			<div class="yt_new_product_top_info">
+				<#list showList as sg>
+					<div class="rexiao_kuai">
+						<div class="rexiao_kuai_tu"><a href="${applicationPath}/item-${sg.goods_id}.html"><img src="${applicationPath}/upload/goods/${sg.defaultImage}" width="100%" height="100%" border="0"/></a></div>
+						<div class="rexiao_kuai_zijie">
+							<a href="${applicationPath}/item-${sg.goods_id}.html" class="zhu7">${sg.name}</a>
+						</div>
+						<div class="rexoa_xiaojia">
+							￥${sg.goodMoney?string('0.00')}
+						</div>
+					</div>
+				</#list>
 			</div>
 
 		</div>
