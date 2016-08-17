@@ -10,11 +10,10 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommonAdapter;
-import com.wckj.gfsj.Adapter.ViewHolder;
+import com.wckj.gfsj.Bean.CategoryBrandListRequest;
+import com.wckj.gfsj.Bean.CategoryBrandListResult;
 import com.wckj.gfsj.Bean.CategoryGoodsListRequest;
-import com.wckj.gfsj.Bean.CategoryGoodsListResult;
 import com.wckj.gfsj.Bean.entity.Brand;
-import com.wckj.gfsj.Bean.entity.GoodsSummary;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
@@ -32,7 +31,7 @@ import okhttp3.Call;
  */
 public class CommodityLevelThreeActivity extends BaseNewActivity implements View.OnClickListener {
     private View view;
-    private CategoryGoodsListResult json;
+    private CategoryBrandListResult json;
     private GridView gv_commodity_three;
     private CommonAdapter mlvAdapter;
     private TextView tv_brand_1,tv_brand_2,tv_brand_3,tv_time;
@@ -87,19 +86,19 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
 
     private void bindData() {
 
-        if(mlvAdapter==null){
-            mlvAdapter=  new CommonAdapter<GoodsSummary>(this,json.getGoodsSummaryList(),R.layout.item_gv_commodity_three) {
-                @Override
-                public void convert(ViewHolder helper, GoodsSummary item, int position) {
-                    helper.setImageByUrl(R.id.iv_shopping_pic,item.getMainPicUrl());
-                    helper.setText(R.id.tv_name,"￥ "+item.getPrice());
-                    helper.setText(R.id.tv_title_desc,item.getTitle());
-                }
-            };
-            gv_commodity_three.setAdapter(mlvAdapter);
-        }else {
-            mlvAdapter.notifyDataSetChanged();
-        }
+//        if(mlvAdapter==null){
+//            mlvAdapter=  new CommonAdapter<GoodsSummary>(this,json.getGoodsSummaryList(),R.layout.item_gv_commodity_three) {
+//                @Override
+//                public void convert(ViewHolder helper, GoodsSummary item, int position) {
+//                    helper.setImageByUrl(R.id.iv_shopping_pic,item.getMainPicUrl());
+//                    helper.setText(R.id.tv_name,"￥ "+item.getPrice());
+//                    helper.setText(R.id.tv_title_desc,item.getTitle());
+//                }
+//            };
+//            gv_commodity_three.setAdapter(mlvAdapter);
+//        }else {
+//            mlvAdapter.notifyDataSetChanged();
+//        }
 
     }
 
@@ -139,10 +138,11 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
     /**
      * 根据商品分类查询商品列表命令
      */
-    private void getCategroyByList() {
-        CategoryGoodsListRequest request = new CategoryGoodsListRequest();
+    private void getBrandByList() {
+        CategoryBrandListRequest request = new CategoryBrandListRequest();
         request.setCategoryId(categoryId);
-        HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_CATEGORY_URL, new ICallBack() {
+        request.setPageSize(3);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_BRAND_URL, new ICallBack() {
 
             @Override
             public void onError(Call call, Exception e) {
@@ -151,12 +151,36 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
 
             @Override
             public void onSuccess(String response) {
-                 json =  JSON.parseObject(response, CategoryGoodsListResult.class);
+                 json =  JSON.parseObject(response, CategoryBrandListResult.class);
                 mBrandList = json.getBrandList();
-                showPageState(checkData(json.getGoodsSummaryList()));
+                showPageState(checkData(mBrandList));
             }
         });
     }
+    /**
+     * 根据商品分类查询商品列表命令
+     */
+    private void getCategroyByList() {
+        CategoryGoodsListRequest request = new CategoryGoodsListRequest();
+        request.setCategoryId(categoryId);
+        request.setBrandId(Integer.parseInt(mBrandList.get(0).getId()));
+        request.setPageSize(3);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_BRAND_URL, new ICallBack() {
+
+            @Override
+            public void onError(Call call, Exception e) {
+                showPageState(FrameLoadLayout.LoadResult.error);
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                JSON.parseObject(response, CategoryGoodsListRequest.class);
+                mBrandList = json.getBrandList();
+                showPageState(checkData(mBrandList));
+            }
+        });
+    }
+
 
     @Override
     public void onClick(View v) {

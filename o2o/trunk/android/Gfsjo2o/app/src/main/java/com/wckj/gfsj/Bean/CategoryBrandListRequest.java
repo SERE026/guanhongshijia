@@ -5,21 +5,12 @@ import com.wckj.gfsj.Bean.Base.PageRequest;
 
 /**
  * 根据商品分类查询商品列表请求类
- * request URL: https://serverurl/app/goods/listByCategory
+ * request URL: https://serverurl/app/goods/listByBrand
  * request method: post
  */
-public class CategoryGoodsListRequest extends PageRequest {
+public class CategoryBrandListRequest extends PageRequest {
 
     private int categoryId;
-    private int brandId;
-
-    public int getBrandId() {
-        return brandId;
-    }
-
-    public void setBrandId(int brandId) {
-        this.brandId = brandId;
-    }
 
     public int getCategoryId() {
         return categoryId;
@@ -31,9 +22,8 @@ public class CategoryGoodsListRequest extends PageRequest {
 
     @Override
     public String toString() {
-        return "CategoryGoodsListRequest{" +
+        return "CategoryBrandListRequest{" +
                 "categoryId=" + categoryId +
-                "brandId=" + brandId +
                 '}';
     }
 }
