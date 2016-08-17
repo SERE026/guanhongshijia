@@ -12,17 +12,7 @@ import java.util.List;
  */
 public class CategoryGoodsListResult extends PageResult {
 
-    private List<Brand> brandList;
-
     private List<GoodsSummary> goodsSummaryList;
-
-    public List<Brand> getBrandList() {
-        return brandList;
-    }
-
-    public void setBrandList(List<Brand> brandList) {
-        this.brandList = brandList;
-    }
 
     public List<GoodsSummary> getGoodsSummaryList() {
         return goodsSummaryList;
@@ -35,8 +25,7 @@ public class CategoryGoodsListResult extends PageResult {
     @Override
     public String toString() {
         return "CategoryGoodsListResult{" +
-                "brandList=" + brandList +
-                ", goodsSummaryList=" + goodsSummaryList +
+                " goodsSummaryList=" + goodsSummaryList +
                 '}';
     }
 }

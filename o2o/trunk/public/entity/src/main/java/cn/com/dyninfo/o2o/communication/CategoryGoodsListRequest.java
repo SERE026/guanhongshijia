@@ -15,6 +15,15 @@ import java.util.List;
 public class CategoryGoodsListRequest extends PageRequest {
 
     private int categoryId;
+    private int brandId;
+
+    public int getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(int brandId) {
+        this.brandId = brandId;
+    }
 
     public int getCategoryId() {
         return categoryId;
@@ -28,6 +37,7 @@ public class CategoryGoodsListRequest extends PageRequest {
     public String toString() {
         return "CategoryGoodsListRequest{" +
                 "categoryId=" + categoryId +
+                "brandId=" + brandId +
                 '}';
     }
 }
