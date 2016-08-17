@@ -57,7 +57,10 @@ public class CommoditydetailsAdapter extends PagerAdapter {
 
 		return arg0 == arg1;
 	}
-
+	@Override
+	public void destroyItem(View container, int position, Object object) {
+		((ViewPager) container).removeView((View) object);
+	}
 	@Override
 	public void restoreState(Parcelable arg0, ClassLoader arg1) {
 	}

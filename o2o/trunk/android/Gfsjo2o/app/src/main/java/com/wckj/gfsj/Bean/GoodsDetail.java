@@ -1,9 +1,11 @@
-package com.wckj.gfsj.Bean.entity;
+package com.wckj.gfsj.Bean;
 
+
+import com.wckj.gfsj.Bean.entity.Brand;
+import com.wckj.gfsj.Bean.entity.GoodsSpec;
 import com.wckj.gfsj.Bean.entity.common.BaseEntity;
 
 import java.util.List;
-
 
 /**
  * Created by Administrator on 2016/7/25.
@@ -17,7 +19,7 @@ public class GoodsDetail extends BaseEntity {
     private String shortDesc="";
     //商品价格
     private double price;
-
+    
     //商品类型
     private String type="";
 

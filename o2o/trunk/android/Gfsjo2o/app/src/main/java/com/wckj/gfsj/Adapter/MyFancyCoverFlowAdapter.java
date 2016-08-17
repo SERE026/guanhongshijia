@@ -43,7 +43,7 @@ public class MyFancyCoverFlowAdapter extends FancyCoverFlowAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         final GoodsDetail item = (GoodsDetail) getItem(position);
-       ImageLoaderUtil.getInstance().displayImageView(item.getImageList().get(0),holder.iv_scro_main);
+       ImageLoaderUtil.getInstance().displayImageView(item.getDefaultImage(),holder.iv_scro_main);
 
         return convertView;
     }

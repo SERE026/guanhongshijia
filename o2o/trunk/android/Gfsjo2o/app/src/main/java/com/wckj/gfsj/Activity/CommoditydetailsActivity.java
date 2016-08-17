@@ -129,6 +129,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
             @Override
             public void onSuccess(String response) {
                  result =  JSON.parseObject(response, GoodsDetailResult.class);
+               imageList = result.getDetail().getImageList();
                 showPageState(FrameLoadLayout.LoadResult.success);
             }
         });
