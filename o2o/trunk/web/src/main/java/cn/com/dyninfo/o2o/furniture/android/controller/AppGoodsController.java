@@ -89,7 +89,7 @@ public class AppGoodsController extends BaseAppController {
         PageInfo pageInfo=new PageInfo();
         pageInfo.setPageSize(categoryBrandListRequest.getPageSize());
         pageInfo.setPageNo(categoryBrandListRequest.getPageNo());
-        Map map=brandService.getListByPageWhere(new StringBuffer(" and n.goodsSort="+categoryBrandListRequest.getCategoryId()),pageInfo);
+        Map map=brandService.getListByPageWhere(new StringBuffer(""),pageInfo);
         List<Brand> brandList=( List<Brand>) map.get("DATA");
         //获取品牌
         if(!ValidationUtil.isEmpty(brandList)) {
