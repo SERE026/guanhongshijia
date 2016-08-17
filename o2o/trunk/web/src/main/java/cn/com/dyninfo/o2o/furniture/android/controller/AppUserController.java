@@ -20,6 +20,8 @@ import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.order.model.Order;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
+import cn.com.dyninfo.o2o.furniture.web.setting.model.SMSLog;
+import cn.com.dyninfo.o2o.furniture.web.setting.service.SMSLogService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,6 +57,9 @@ public class AppUserController extends BaseAppController {
 
     @Resource
     private CouponService couponService;
+
+    @Resource
+    private SMSLogService smsLogService;
 
 
 /**
@@ -109,7 +114,37 @@ public class AppUserController extends BaseAppController {
         log.debug(result);
         return result;
     }
-
+    /**
+     * 验证码是否正确判断
+     * @param phone
+     * @param code
+     * @return
+     */
+    public boolean validphoneCode(String phone, String code){
+        // 判断验证码是否超时
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        StringBuffer where = new StringBuffer();
+        long l = new Date().getTime() - 3*60*1000;//当前时间-3分钟
+        String time3Ago = sdf.format(new Date(l));
+        String timeNow = sdf.format(new Date());
+        //System.out.println("3分钟前的时间是：" + time3Ago);
+        where.append(" and n.phone='" + phone + "'");
+        where.append(" and n.time>='" + time3Ago + "' and n.time<='" + timeNow + "'");
+//        where.append(" order n.time desc ");
+        //System.out.println("查询语句：" + where);
+        List logList = smsLogService.getListByWhere(where);
+        // 如果未超时，允许验证
+        if (logList.size() == 0) {
+            return false;
+        }else{// 判断验证码是否正确
+            SMSLog log = (SMSLog)logList.get(0);
+            if(code.length() == 6 && log.getPs().contains(code)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
 
 /**
      * 找回锁定密码
@@ -136,12 +171,12 @@ public class AppUserController extends BaseAppController {
         }
         String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
         String validateCode=findPasswordRequest.getValidateCode();//校验码
-
+        String mobileNo=findPasswordRequest.getMobileNo();//手机号码
         List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer("n.phone="+findPasswordRequest.getMobileNo()));
+                new StringBuffer(" and n.phone="+ mobileNo));
         if(!ValidationUtil.isEmpty(list)){
             HuiyuanInfo info= list.get(0);
-            if(validateCode.equals("")){  //判断校验码 是否正确
+            if(validphoneCode(mobileNo,validateCode)){  //判断校验码 是否正确
                 info.setPassword(newPassword);
                 huiyuanService.updateObj(info);
                 result.setResultCode(SUCCESS);
@@ -167,7 +202,6 @@ public class AppUserController extends BaseAppController {
      */
 
     @ResponseBody
-
     @RequestMapping("/findLoginPassword")
     public  FindPasswordResult findLoginPassword(@RequestBody  FindPasswordRequest   findPasswordRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(findPasswordRequest);
@@ -182,13 +216,14 @@ public class AppUserController extends BaseAppController {
             result.setMessage("用户未登录");
             return result;
         }
-        String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
         String validateCode=findPasswordRequest.getValidateCode();//校验码
+        String mobileNo=findPasswordRequest.getMobileNo();//校验码
+        String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
         List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer("n.phone="+findPasswordRequest.getMobileNo()));
+                new StringBuffer(" and n.phone="+mobileNo));
         if(!ValidationUtil.isEmpty(list)){
             HuiyuanInfo info= list.get(0);
-            if(validateCode.equals("")){  //判断校验码 是否正确
+            if(validphoneCode(mobileNo,validateCode)){  //判断校验码 是否正确
                 info.setPassword(newPassword);
                 huiyuanService.updateObj(info);
                 result.setResultCode(SUCCESS);
@@ -197,11 +232,10 @@ public class AppUserController extends BaseAppController {
                 result.setResultCode(NO_LOGIN);
                 result.setMessage("校验码不正确");
             }
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("账号不存,无效的手机号码");
         }
-//        else{
-//            result.setResultCode(NO_LOGIN);
-//            result.setMessage("账号不存,无效的手机号码");
-//        }
         log.debug(result);
         return result;
     }
@@ -487,16 +521,23 @@ public class AppUserController extends BaseAppController {
         }
         String password= MD5Encoder.encodePassword(setLockPasswordRequest.getPassword(), Context.PASSWORDY);
         //获取用户信息
+        AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ setLockPasswordRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
         if(!ValidationUtil.isEmpty(info)){
             info.setPassword(password);
             huiyuanService.updateObj(info);
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
-        }else{
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("设置锁定密码失败");
         }
+        result.setResultCode(SUCCESS);
+        result.setMessage("OK");
         log.debug(result);
         return result;
     }

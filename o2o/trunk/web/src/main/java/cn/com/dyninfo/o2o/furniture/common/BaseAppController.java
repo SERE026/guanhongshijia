@@ -12,4 +12,5 @@ public class BaseAppController {
     public static int SUCCESS = 0;
     public static int NO_LOGIN = 1;
     public static int NEED_DEVICE_ID = 2;
+    public static int FAIL = -1;
 }
