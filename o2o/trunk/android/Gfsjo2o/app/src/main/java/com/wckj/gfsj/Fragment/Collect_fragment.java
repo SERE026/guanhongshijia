@@ -22,7 +22,6 @@ import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
@@ -32,13 +31,15 @@ import okhttp3.Call;
  */
 public class Collect_fragment extends BaseNewFragment implements View.OnClickListener {
     private View view;
-    private ArrayList<GoodsSummary> mList;
     private GridView gv_commodity_three;
     private CommonAdapter mlvAdapter;
     private List<GoodsSummary> mGoodsList;
 
     @Override
     protected void init() {
+        loadPage.iv_networktext.setImageResource(R.drawable.icon_collect_empty);
+        loadPage.textView1.setText("你还没有相关收藏");
+        loadPage.textView2.setText("快去商品购物页收藏其他商品吧！！！");
     }
 
     @Override
@@ -63,6 +64,8 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent= new Intent(view.getContext(), CommoditydetailsActivity.class);
+                GoodsSummary goods = (GoodsSummary) parent.getItemAtPosition(position);
+                intent .putExtra("goodsId",goods.getId());
                 startActivity(intent);
             }
         });
@@ -70,10 +73,12 @@ public class Collect_fragment extends BaseNewFragment implements View.OnClickLis
 
     private void bindData() {
         if(mlvAdapter==null){
-            mlvAdapter=  new CommonAdapter<GoodsSummary>(view.getContext(),mList,R.layout.item_gv_commodity_three) {
+            mlvAdapter=  new CommonAdapter<GoodsSummary>(view.getContext(),mGoodsList,R.layout.item_gv_commodity_three) {
                 @Override
                 public void convert(ViewHolder helper, GoodsSummary item, int position) {
-                    helper.setText(R.id.tv_title_desc,"凳子");
+                    helper.setText(R.id.tv_title_desc,item.getTitle());
+                    helper.setImageByUrl(R.id.iv_shopping_pic,item.getMainPicUrl());
+                    helper.setText(R.id.tv_name,"￥"+item.getPrice());
 
 
                 }

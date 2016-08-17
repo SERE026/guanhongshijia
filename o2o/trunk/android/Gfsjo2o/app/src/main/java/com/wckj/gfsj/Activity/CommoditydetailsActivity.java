@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommoditydetailsAdapter;
+import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.AddCartRequest;
 import com.wckj.gfsj.Bean.AddFavoritesRequest;
 import com.wckj.gfsj.Bean.GoodsDetailRequest;
@@ -149,6 +150,10 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                 addCart();
                 break;
             case R.id.iv_collect://收藏夹
+                if(AppApplication.loginResult.getToken()==null){
+                    OwerToastShow.show("暂无权限,需要先登录哦！！！");
+                    return;
+                }
                 addCollect();
                  result.getDetail().setCollection( result.getDetail().getCollection().equals("收藏")?"已收藏":"收藏");
                 iv_collect.setImageResource(result.getDetail().getCollection().equals("收藏")?R.drawable.icon_collect_normal:R.drawable.icon_collect_press);
