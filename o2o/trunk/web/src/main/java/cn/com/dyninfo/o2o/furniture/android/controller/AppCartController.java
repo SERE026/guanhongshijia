@@ -98,10 +98,11 @@ public class AppCartController extends BaseAppController {
         if (!ValidationUtil.isEmpty(appLoginStatus)) {
             info = appLoginStatus.getHuiyuan();
         }
-        String id = addCartRequest.getGoodsId();
-        int count = addCartRequest.getCount();
-        Goods goods= (Goods) goodsService.getObjById(id);
-        CarsBox carsBox=new CarsBox();
+        if (!ValidationUtil.isEmpty(info)) {
+            String id = addCartRequest.getGoodsId();
+            int count = addCartRequest.getCount();
+            Goods goods= (Goods) goodsService.getObjById(id);
+            CarsBox carsBox=new CarsBox();
             carsBox.setMember(info);
             carsBox.setGoods(goods);
             carsBox.setSpecVal("");
@@ -111,10 +112,11 @@ public class AppCartController extends BaseAppController {
             carsService.addObj(carsBox);
             result.setResultCode(SUCCESS);
             result.setMessage("OK");
-//    else {
-//            result.setResultCode(NO_LOGIN);
-//            result.setMessage("商品添加到购物车失败");
-//        }
+        }
+        else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("商品添加到购物车失败，请重新登录");
+        }
         log.debug(result);
         return result;
     }
