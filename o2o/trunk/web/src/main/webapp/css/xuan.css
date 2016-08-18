@@ -55,17 +55,17 @@ input:focus,textarea:focus { outline: none !important;  }
 .mt01{width:692px; height:40px;overflow:hidden}
 .mt01_zi{width:692px; height:38px; line-height:38px; color:#000000; font-size:20px;font-family:"微软雅黑";overflow:hidden}
 .mt01_xian{width:692px; height:2px; background-color:#000000;overflow:hidden}
-.mt01_xian_hong{ width:130px; height:2px; background-color:#f0125b; overflow:hidden;}
+.mt01_xian_hong{ width:130px; height:2px; background-color:#c81523; overflow:hidden;}
 
 .mt02{width:313px; height:40px;overflow:hidden}
 .mt02_zi{width:313px; height:38px; line-height:38px; color:#000000; font-size:20px;font-family:"微软雅黑";overflow:hidden}
 .mt02_xian{width:313px; height:2px; background-color:#000000;overflow:hidden}
-.mt02_xian_hong{ width:85px; height:2px; background-color:#f0125b; overflow:hidden;}
+.mt02_xian_hong{ width:85px; height:2px; background-color:#c81523; overflow:hidden;}
 
 .mt03{width:967px; height:40px;overflow:hidden; margin-top:15px}
 .mt03_zi{width:967px; height:38px; line-height:38px; color:#000000; font-size:20px;font-family:"微软雅黑";overflow:hidden}
 .mt03_xian{width:967px; height:2px; background-color:#000000;overflow:hidden}
-.mt03_xian_hong{ width:95px; height:2px; background-color:#f0125b; overflow:hidden;}
+.mt03_xian_hong{ width:95px; height:2px; background-color:#c81523; overflow:hidden;}
 
 .mt04{width:1200px; height:40px;overflow:hidden; margin-top:30px}
 .mt042{width:1200px; height:40px;overflow:hidden; margin-top:0px}
@@ -109,13 +109,13 @@ input:focus,textarea:focus { outline: none !important;  }
 .zhece_dakuai_xiaodui{width:768px; height:569px; margin:18px 15px 0 38px;float: left;border-right: 1px solid #ddd;}
 .zhuce_k{ width:600px; height:auto;overflow: hidden;}
 .zhuce_k_zi{ width:70px; height:38px; line-height:38px; text-align:right; margin-right:5px;float:left; margin-top:3px}
-.zhuce_k_bao{ width:346px; height:auto;float:left;border:#cdcdcd solid 1px;line-height: 40px;background-color: white;margin-left: 25px;overflow: hidden;}
+.zhuce_k_bao{ width:278px; height:auto;float:left;border:#cdcdcd solid 1px;line-height: 40px;background-color: white;margin-left: 40px;overflow: hidden;}
 .zhuce_k_bao_shuom{ width:auto;height:40px; line-height:31px;color:#c81523; margin-left:76px; overflow:hidden}
 .zhuce_k_bao i{background:url(../img/fonticon.png) no-repeat;width: 19px;height: 19px;display: inline-block;margin: 10px;float: left;}
 .zhuce_k_bao .zhuce_k_bao_use{background-position: -196px -190px;}
 .zhuce_k_bao .zhuce_k_bao_pwd{background-position: -169px -190px;}
 #validCode img{width: 78px;height: 40px;}
-.zhuce_k_baoshuru_aa{ width:306px; height:38px; line-height:38px; color:#454545; border:none;
+.zhuce_k_baoshuru_aa{ width:238px; height:37px; line-height:37px; color:#454545; border:none;
     font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px;float: left; margin-top: 1px;}
 .zhuce_k_baoshuru_bb{ width:306px; height:38px; line-height:38px; color:#454545; border:none;
     font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px ;float: left; margin-top: 1px;}
@@ -132,12 +132,12 @@ input:focus,textarea:focus { outline: none !important;  }
 
 .login_dakuai{ width:994px; height:426px; margin-top:10px; overflow:hidden;}
 .login_dakuai_datu{width:567px; height:390px; float:left; margin:18px 0 0 15px; overflow:hidden}  
-.login_dakuai_xiaodui{width:395px; height:426px; overflow:hidden;float:right; background-color:#f5f5f5;margin:0px 0px 0 0; padding-top:18px}     
-.login_ti{ width:300px; height:40px; line-height:40px; margin-top:10px; color:#000000; font-size:14px; font-weight:bold; margin-left:27px}   
-.login_an01{ width:80px; height:29px; margin-left:25px; margin-top:8px;  display:inline}
+.login_dakuai_xiaodui{width:360px; height:426px; overflow:hidden;float:right; background-color:#f5f5f5;margin:0px 0px 0 0; padding-top:10px}
+.login_ti{ width:300px; height:40px; line-height:40px; margin-top:10px; color:#000000; font-size:14px; font-weight:bold; margin-left:40px}
+.login_an01{ width:80px; height:29px; margin-left:40px; margin-top:8px;  display:inline}
 
 .login_liji{ width:auto; height:29px; line-height:29px;margin-left:15px; margin-top:22px; }
-.login_xian{ width:354px; height:2px; margin-left:20px;margin-top:15px;overflow:hidden; background-image:url(../img/login_xian01.gif); background-repeat:repeat-x;}   
+.login_xian{ width:295px; height:2px; margin-left:20px;margin-top:15px;overflow:hidden; background-image:url(../img/login_xian01.gif); background-repeat:repeat-x;}
 .login_ti22{ width:300px; height:40px; line-height:40px; margin-top:10px; color:#454545; font-size:12px;margin-left:27px}   
 .login_xiaodeng{ width:100%; height:24px; float:left}
 .login_xiaodeng ul{overflow: hidden;margin-left: 16px;}
@@ -306,7 +306,7 @@ input:focus,textarea:focus { outline: none !important;  }
 
 
 .sp_list{ width:1200px; height:auto;margin:25px auto 0; background-color:#FFFFFF;overflow: hidden;}
-.dingwei{ width:1200px; height:35px; line-height:35px; color:#676767;overflow:hidden; margin-top:10px}
+.dingwei{ width:1200px; height:0px; line-height:35px; color:#676767;overflow:hidden; margin-top:10px}
 .splist_left{width:218px; height:auto; float:left}
 .splist_left_fenlei{width:216px; height:auto; border:#cccccc solid 1px;border-top:none;}
 .splist_left_fenlei_xian01{ background-color:#f0125b; height:2px; overflow:hidden}
@@ -1168,7 +1168,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 
 .ruzhu_kuai{ width:1200px; height:auto; margin-top:5px;overflow:hidden}
 .ruzhu_kuai_zi{ width:90px; height:25px; line-height:25px; color:#222222; float:left; text-align:right; margin-top:2px}
-.ruzhu_kuai_right{ width:auto; height:auto; margin-left:7px;}
+.ruzhu_kuai_right{ width:auto; height:auto; margin-right:7px;}
 .ruzhu_kuai_tishifou{ width:290px; height:28px; line-height:32px; color:#FF0000; margin-left:294px; margin-top:-29px}
 .ruzhu_kr_shu2{ width:190px; height:22px; border:#cbcbcb solid 1px; line-height:22px; color:#454545; font-size:12px; padding-left:5px}
 .ruzhu_kuai_right_tishi{ width:900px; height:auto; line-height:25px; color:#999999;margin-left:96px; margin-top:5px}
@@ -1346,7 +1346,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
  /*新抬头仰视*/
 .taitou_01{ width:880px; height:35px; background-image:url(../img/xintaitou_05.gif); background-repeat:repeat-x;overflow:hidden}
 .taitou_02{ width:313px;height:35px; background-image:url(../img/xintaitou_05.gif); background-repeat:repeat-x;overflow:hidden}
-.taitou_03{ width:1200px;height:35px; background-image:url(../img/xintaitou_05.gif); background-repeat:repeat-x; margin-top:25px; overflow:hidden} 
+.taitou_03{ width:1200px;height:35px; background-image:url(../img/xintaitou_05.gif); background-repeat:repeat-x; margin-top:25px; overflow:hidden}
 .taitou_04{ width:969px;height:35px; background-image:url(../img/xintaitou_05.gif); background-repeat:repeat-x; margin-top:20px;overflow:hidden} 
  
 .taitou_xiashi{ width:170px; height:35px; background-image:url(../img/xintaitou_03.gif); line-height:35px; font-family:"微软雅黑"; font-size:16px; font-weight:bold;padding-left:25px; background-repeat:no-repeat; color:#ffffff}

@@ -416,7 +416,7 @@
             <div>
 
                 <p>高端定制尽在老东方</p>
-                <p>观红世家夜市O2O云平台</p>
+                <p>观红世家红木O2O云平台</p>
                 <div class="ExperienceDIV"><img src="../img/Experience.jpg" /></div>
                 <p class="thisHome" id="area">
                     <b>深圳市<label class="mainColor">1</label>家</b>
