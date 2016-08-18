@@ -10,20 +10,12 @@ import com.wckj.gfsj.Bean.Base.PageRequest;
  */
 public class CategoryBrandListRequest extends PageRequest {
 
-    private int categoryId;
 
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
 
     @Override
     public String toString() {
         return "CategoryBrandListRequest{" +
-                "categoryId=" + categoryId +
+                "categoryId=" +
                 '}';
     }
 }

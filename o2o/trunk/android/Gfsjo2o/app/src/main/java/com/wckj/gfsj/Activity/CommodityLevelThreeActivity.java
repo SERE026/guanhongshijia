@@ -145,7 +145,6 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
      */
     private void getBrandByList() {
         CategoryBrandListRequest request = new CategoryBrandListRequest();
-        request.setCategoryId(categoryId);
         request.setPageSize(3);
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_BRAND_URL, new ICallBack() {
 

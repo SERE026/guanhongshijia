@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_commodity_pic"
-        android:layout_width="5dp"
+        app:layout_widthPercent="45%"
         android:layout_marginTop="51dp"
+        android:layout_width="500dp"
         android:layout_height="match_parent">
 
     </android.support.v4.view.ViewPager>
@@ -14,7 +16,7 @@
         android:layout_toRightOf="@id/vp_commodity_pic"
         android:layout_width="match_parent"
         android:layout_marginTop="72dp"
-        android:layout_marginRight="90dp"
+        app:layout_marginRightPercent="6%"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="19dp"
         android:layout_height="match_parent">
@@ -265,4 +267,4 @@
     </RelativeLayout>
     </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+</android.support.percent.PercentRelativeLayout>

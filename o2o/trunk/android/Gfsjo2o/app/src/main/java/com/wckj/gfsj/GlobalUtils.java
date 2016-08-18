@@ -7,6 +7,8 @@ public class GlobalUtils {
     public  static String DB_Name="ghsj";
     public  static int DB_CODE=1;
 
+
+
     public static final String SERVER_URL = "http://www.guanhongshijia.com/app";
 
     //登录命令

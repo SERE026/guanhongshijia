@@ -1,6 +1,5 @@
 package com.wckj.gfsj.Activity;
 
-import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +9,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommoditydetailsAdapter;
+import com.wckj.gfsj.Alipay.PayUtils;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.AddCartRequest;
 import com.wckj.gfsj.Bean.AddFavoritesRequest;
@@ -159,8 +159,9 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
             case R.id.tv_go_back:
                 finish();
                 break;
-            case R.id.bt_buy:
-                startActivity(new Intent(this,ShoppingCartActivity.class));
+            case R.id.bt_buy://支付宝付款
+//                startActivity(new Intent(this,ShoppingCartActivity.class));
+                PayUtils.getInstance().pay(this,0.01+"","heheh","hahahhahahahahha");
                 break;
             case R.id.tv_add_cart://加入购物车
                 addCart();
