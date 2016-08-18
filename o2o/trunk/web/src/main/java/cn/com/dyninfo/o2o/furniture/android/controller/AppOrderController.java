@@ -7,10 +7,15 @@ import cn.com.dyninfo.o2o.entity.Coupon;
 import cn.com.dyninfo.o2o.entity.Order;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
+import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
+import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
+import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
+import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -40,6 +46,8 @@ public class AppOrderController extends BaseAppController {
     @Resource
     private OrderService orderService;
 
+    @Resource
+    private AppLoginStatusService appLoginStatusService;
 
 /**
      * 创建订单请求类，在购物车点击去结算时使用
@@ -159,6 +167,7 @@ public class AppOrderController extends BaseAppController {
      * @param request
      * @param response
      * @return
+     * 0.有效 1.未付款 2.已付款3.交易成功4.无效
      */
 
     @ResponseBody
@@ -166,23 +175,70 @@ public class AppOrderController extends BaseAppController {
     public QueryOrderResult list(@RequestBody  QueryOrderRequest   queryOrderRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(queryOrderRequest);
         QueryOrderResult result = new  QueryOrderResult();
-        List<HuiyuanInfo>  list2=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
-                new StringBuffer(" and n.name='lxfeng'"));
-        HuiyuanInfo info= list2.get(0);
-        //获取用户信息
-        // HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
-
-        List<Order>  lists=new ArrayList<Order>();
-        List<cn.com.dyninfo.o2o.furniture.web.order.model.Order> list =(List<cn.com.dyninfo.o2o.furniture.web.order.model.Order>)
-                orderService.getListByWhere(new StringBuffer(" and  n.huiyuan="+info.getHuiYuan_id()));
-        if(!ValidationUtil.isEmpty(list)){
-            for (int i = 0; i < list.size(); i++) {
-
+        if (StringUtils.isBlank(queryOrderRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(queryOrderRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
+        String status=String.valueOf(queryOrderRequest.getOrderStatus());//订单状态
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryOrderRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
             }
-            result.setOrderList(lists);//
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
-        }else{
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
+        PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageNo(queryOrderRequest.getPageNo());
+        pageInfo.setPageSize(queryOrderRequest.getPageSize());
+        StringBuffer where =new StringBuffer();//0.有效 1.未付款 2.已付款3.交易成功4.无效
+        if(!ValidationUtil.isEmpty(info)) {
+            where.append(" and n.huiyuan.huiYuan_id = '" + info.getHuiYuan_id() + "' ");
+            if (status.equals("0")) {
+                where.append(" and n.state != '6' ");
+            } else if (status.equals("1")) {
+                where.append(" and n.state = '0' and n.isPay='0' ");
+            } else if (status.equals("2")) {
+                where.append(" and n.state = '1' ");
+            } else if (status.equals("3")) {
+                where.append(" and n.state = '3' ");
+            } else if (status.equals("4")) {
+                where.append(" and n.state = '6' ");
+            }
+            where.append(" and n.status='0'");
+            where.append(" order by n.time desc");
+            List<Order> lists = new ArrayList<Order>();
+            Map map =  (Map) orderService.getListByPageWhere(where, pageInfo);//查询订单
+            List<cn.com.dyninfo.o2o.furniture.web.order.model.Order> list=(List<cn.com.dyninfo.o2o.furniture.web.order.model.Order>) map.get("DATA");
+
+            if(!ValidationUtil.isEmpty(list)){
+                for (int i = 0; i < list.size(); i++) {
+                    Order order=new  Order();
+                    order.setId(list.get(i).getOrder_id());//ID
+                    order.setDate(String.valueOf(list.get(i).getCreatTime()));//创建时间
+                    order.setOrderPrice(list.get(i).getOrderPrice());//总价
+                    order.setState(Integer.parseInt(list.get(i).getState()));//状态
+                    order.setReceiveName(list.get(i).getReceiveName());//收货人
+                    order.setPayType(Integer.parseInt(list.get(i).getIsPay()));//是否支付
+                    lists.add(order);
+                }
+                int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+                result.setPageNo(pageInfo.getPageNo());
+                result.setTotalPage(totalpage);
+                result.setOrderList(lists);
+                result.setResultCode(SUCCESS);
+                result.setMessage("OK");
+            }
+        } else{
             result.setResultCode(NO_LOGIN);
             result.setMessage("订单查询请求失败");
         }

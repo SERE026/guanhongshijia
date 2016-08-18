@@ -275,14 +275,14 @@ public class AppUserController extends BaseAppController {
         if (!ValidationUtil.isEmpty(appLoginStatus)) {
             info = appLoginStatus.getHuiyuan();
         }
-       PageInfo page=new PageInfo();
-        page.setPageNo(queryAgencyFeeRequest.getPageNo());
-        page.setPageSize(queryAgencyFeeRequest.getPageSize());
+       PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageNo(queryAgencyFeeRequest.getPageNo());
+        pageInfo.setPageSize(queryAgencyFeeRequest.getPageSize());
         List<AgencyFeeItem> lists=new ArrayList<AgencyFeeItem>();
         Double totalMoney=0.00;//+"and n.agencyPay='1' order by n.time asc"
       // List<Order> list =(List<Order>)orderService.getListByWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id="+info.getHuiYuan_id()+"order by n.time asc"));
         if(!ValidationUtil.isEmpty(info)) {
-            Map map = orderService.getListByPageWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id=" + info.getHuiYuan_id() + "order by n.time desc"), page);
+            Map map = orderService.getListByPageWhere(new StringBuffer(" and n.agencyPay='1' and  n.huiyuan.huiYuan_id=" + info.getHuiYuan_id() + "order by n.time desc"), pageInfo);
             List<Order> list = (List<Order>) map.get("DATA");
             if (!ValidationUtil.isEmpty(list)) {
                 for (int i = 0; i < list.size(); i++) {
@@ -298,6 +298,9 @@ public class AppUserController extends BaseAppController {
                 }
                 result.setRecentMoney(list.get(0).getAgencyFee()); //最近佣金
             }
+            int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+            result.setPageNo(pageInfo.getPageNo());
+            result.setTotalPage(totalpage);
             result.setTotalMoney(totalMoney); //累计佣金
             result.setDataDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));//数据截至时间
             result.setCurrentMoney(info.getMoney()); //总资产
