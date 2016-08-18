@@ -121,4 +121,9 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
                 break;
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }

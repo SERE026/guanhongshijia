@@ -135,4 +135,9 @@ public class UserInfoActivity extends BaseNewActivity implements View.OnClickLis
             }
         });
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }

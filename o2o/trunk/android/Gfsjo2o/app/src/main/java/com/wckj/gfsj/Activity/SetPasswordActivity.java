@@ -158,4 +158,9 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
             }
         });
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }

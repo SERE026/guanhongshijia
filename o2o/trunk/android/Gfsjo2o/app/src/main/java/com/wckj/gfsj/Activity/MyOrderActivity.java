@@ -170,4 +170,9 @@ public class MyOrderActivity extends BaseNewActivity implements View.OnClickList
             return PagerAdapter.POSITION_NONE;
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }

@@ -61,4 +61,9 @@ public class OrderPayActivity extends BaseNewActivity implements View.OnClickLis
     private void initView() {
 
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }

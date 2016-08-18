@@ -215,4 +215,9 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
             }
         });
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }

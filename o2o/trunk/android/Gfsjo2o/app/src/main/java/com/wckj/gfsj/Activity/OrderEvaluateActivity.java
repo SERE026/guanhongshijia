@@ -61,4 +61,9 @@ public class OrderEvaluateActivity extends BaseNewActivity implements View.OnCli
     private void initView() {
 
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }

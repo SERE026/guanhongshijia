@@ -10,10 +10,13 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommonAdapter;
+import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.CategoryBrandListRequest;
 import com.wckj.gfsj.Bean.CategoryBrandListResult;
 import com.wckj.gfsj.Bean.CategoryGoodsListRequest;
+import com.wckj.gfsj.Bean.CategoryGoodsListResult;
 import com.wckj.gfsj.Bean.entity.Brand;
+import com.wckj.gfsj.Bean.entity.GoodsSummary;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
@@ -39,6 +42,8 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
     private TitleRelativeLayout title_rl;
     private int categoryId,mBrandFlag;
     private List<Brand> mBrandList;
+    private List<GoodsSummary> goodsSummaryList;
+    private CategoryGoodsListResult categoryGoodsListResult;
 
     @Override
     protected void init() {
@@ -86,19 +91,19 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
 
     private void bindData() {
 
-//        if(mlvAdapter==null){
-//            mlvAdapter=  new CommonAdapter<GoodsSummary>(this,json.getGoodsSummaryList(),R.layout.item_gv_commodity_three) {
-//                @Override
-//                public void convert(ViewHolder helper, GoodsSummary item, int position) {
-//                    helper.setImageByUrl(R.id.iv_shopping_pic,item.getMainPicUrl());
-//                    helper.setText(R.id.tv_name,"￥ "+item.getPrice());
-//                    helper.setText(R.id.tv_title_desc,item.getTitle());
-//                }
-//            };
-//            gv_commodity_three.setAdapter(mlvAdapter);
-//        }else {
-//            mlvAdapter.notifyDataSetChanged();
-//        }
+        if(mlvAdapter==null){
+            mlvAdapter=  new CommonAdapter<GoodsSummary>(this,goodsSummaryList,R.layout.item_gv_commodity_three) {
+                @Override
+                public void convert(ViewHolder helper, GoodsSummary item, int position) {
+                    helper.setImageByUrl(R.id.iv_shopping_pic,item.getMainPicUrl());
+                    helper.setText(R.id.tv_name,"￥ "+item.getPrice());
+                    helper.setText(R.id.tv_title_desc,item.getTitle());
+                }
+            };
+            gv_commodity_three.setAdapter(mlvAdapter);
+        }else {
+            mlvAdapter.notifyDataSetChanged();
+        }
 
     }
 
@@ -153,7 +158,7 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
             public void onSuccess(String response) {
                  json =  JSON.parseObject(response, CategoryBrandListResult.class);
                 mBrandList = json.getBrandList();
-                showPageState(checkData(mBrandList));
+                getCategroyByList();
             }
         });
     }
@@ -166,7 +171,6 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
         request.setBrandId(Integer.parseInt(mBrandList.get(0).getId()));
         request.setPageSize(3);
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_BRAND_URL, new ICallBack() {
-
             @Override
             public void onError(Call call, Exception e) {
                 showPageState(FrameLoadLayout.LoadResult.error);
@@ -174,9 +178,9 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
 
             @Override
             public void onSuccess(String response) {
-                JSON.parseObject(response, CategoryGoodsListRequest.class);
-                mBrandList = json.getBrandList();
-                showPageState(checkData(mBrandList));
+                 categoryGoodsListResult =  JSON.parseObject(response, CategoryGoodsListResult.class);
+                 goodsSummaryList =   categoryGoodsListResult.getGoodsSummaryList();
+                showPageState(checkData(goodsSummaryList));
             }
         });
     }

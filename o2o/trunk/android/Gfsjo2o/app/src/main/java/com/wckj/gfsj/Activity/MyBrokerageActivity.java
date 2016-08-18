@@ -141,4 +141,9 @@ public class MyBrokerageActivity extends BaseNewActivity implements View.OnClick
         mTvMyBrokerage.setTextColor(getResources().getColor(R.id.tv_my_brokerage==id?R.color.color_444444:R.color.color_e3e6eb));
         mTvBankCard.setTextColor(getResources().getColor(R.id.tv_bank_card==id?R.color.color_444444:R.color.color_e3e6eb));
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }

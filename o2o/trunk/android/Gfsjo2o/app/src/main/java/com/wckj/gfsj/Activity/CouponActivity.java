@@ -122,4 +122,10 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRlTitle.clearRegister();
+    }
 }
