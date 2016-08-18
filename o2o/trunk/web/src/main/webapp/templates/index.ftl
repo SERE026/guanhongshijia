@@ -635,7 +635,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList1 as d>
-                    <#if d_index gt 0 && d_index lt 4 >
+                    <#if d_index gt 7 && d_index lt 11 >
                         <li>
                             <dl class="Item-introduction">
                                 <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -711,7 +711,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList2 as d>
-                    <#if d_index gt 0 && d_index lt 4 >
+                    <#if d_index gt 7 && d_index lt 11 >
                         <li>
                             <dl class="Item-introduction">
                                 <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -787,7 +787,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList3 as d>
-                    <#if d_index gt 0 && d_index lt 4 >
+                    <#if d_index gt 7 && d_index lt 11 >
                         <li>
                             <dl class="Item-introduction">
                                 <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -864,7 +864,7 @@
             <br />
             <ul class="borderHover">
                 <#list goodsList4 as d>
-                    <#if d_index gt 0 && d_index lt 4 >
+                    <#if d_index gt 7 && d_index lt 11 >
                 <li>
                     <dl class="Item-introduction">
                         <dt><a href="${rc.contextPath}/item-${d.goods_id}.html">
@@ -992,7 +992,7 @@
                 <br />
                 <ul class="borderHover">
                     <#list s as a>
-                        <#if a_index gt 0 && a_index lt 4>
+                        <#if a_index gt 7 && a_index lt 11>
                     <li>
                         <dl class="Item-introduction">
                             <dt><a href="${rc.contextPath}/item-${a.goods_id}.html">
@@ -1076,7 +1076,7 @@
                 <br />
                 <ul class="borderHover">
                     <#list s as a>
-                        <#if a_index gt 0 && a_index lt 4>
+                        <#if a_index gt 7 && a_index lt 11>
                             <li>
                                 <dl class="Item-introduction">
                                     <dt> <a href="${rc.contextPath}/item-${a.goods_id}.html">
