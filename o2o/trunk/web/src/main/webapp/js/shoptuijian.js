@@ -21,7 +21,7 @@ var taitou = "<div class='sjdt_kai03_righttou'><img src='${applicationPath}/img/
 $(function() {
 	// 1秒后开始轮换，每隔5秒钟轮换1次
 	// 当检测到已经超页（即没有数据时），自动重置页码从头开始轮换
-	var wait = setTimeout (function() {
+	/*var wait = setTimeout (function() {
 		var change=setInterval(function() {
 			//alert("第" + pageNo + "次轮换开始");
 			$.ajax({
@@ -37,8 +37,8 @@ $(function() {
 					nextpage();
 			}
 		});
-		}, 5000);
-	}, 1000); 
+		}, 10000);
+	}, 1000);*/
 	
 	
 	/***********************************************************************

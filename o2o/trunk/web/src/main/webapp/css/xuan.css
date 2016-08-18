@@ -380,7 +380,8 @@ input:focus,textarea:focus { outline: none !important;  }
 .sp_dab_di{ width:969px; height:10px; background-color:#ece7e1; margin-top:0px; overflow:hidden}
 
 
-.xsp_kuai{ width:230px; height:344px; border:#eee7e1 solid 2px; border-bottom:#d6cfc9 solid 1px;float:left; margin-left:7px; margin-top:10px; background-color:#ffffff; display:inline; overflow:hidden}
+.xsp_kuai{ width:230px; height:344px; border:#eee7e1 solid 1px; border-bottom:#d6cfc9 solid 1px;float:left; margin-left:7px; margin-top:10px; background-color:#ffffff; display:inline; overflow:hidden}
+.xsp_kuai:hover{border: 1px solid #572a27;}
 .xsp_kuai_dian{ width:230px; height:344px; border:#f0125b solid 2px; float:left;margin-left:7px; margin-top:9px;background-color:#ffffff;display:inline; overflow:hidden}
 
 .sjxsp_kuai{ width:230px; height:230px; border:#eee7e1 solid 2px; border-bottom:#d6cfc9 solid 1px;float:left; margin-left:7px; margin-top:10px; background-color:#ffffff; display:inline}
@@ -692,7 +693,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .gr_r_ti04{width:962px; height:33px;border:#d5d5d5 solid 1px;margin-left:5px; line-height:28px; background-color:#f3f3f3; margin-top:7px}
 .gr4_a{ width:20px; height:20px; float:left; overflow:hidden; margin:11px 0 0 10px}
 .gr4_b{ width:auto; height:33px; line-height:33px; float:left; margin-left:3px; color:#000000; overflow:hidden}
-.gr4_b>a{display: inline-block;margin-top: 8px;}
+.gr4_b>a{display: inline-block;}
 .gr4_c{ width:68px; height:18px; text-align:center;border:#999999 solid 1px;line-height:18px; float:left;background-image:url(../img/an_bg2.gif); background-repeat:repeat-x;margin:7px 0 0 17px}
 .gr4_c a{ display:block;width:68px; height:18px;}
 .gr4_d{ width:88px; height:18px; text-align:center;border:#999999 solid 1px;line-height:18px; float:left;background-image:url(../img/an_bg2.gif); background-repeat:repeat-x;margin:7px 0 0 10px}
@@ -1193,7 +1194,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 .b_guanggaotu{width:1200px; height:auto; overflow:hidden; } 
 .b_pinpai_k{width:1200px; height:auto; margin-top:20px;} 
 .tab14{}
-.tab14 tr td{ width:200px; height:115px; overflow:hidden} 
+.tab14 tr td{ width:200px; height:115px; overflow:hidden;border: 1px solid white;}
 .tab14 tr td img{ width:100%; height:100%; }
 .tab14 tr td:hover{border: 1px solid #572a27}
 .st_3_da{ width:1200px;height:auto;}  
