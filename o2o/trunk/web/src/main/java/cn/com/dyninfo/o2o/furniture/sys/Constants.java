@@ -35,7 +35,7 @@ public class Constants {
 
     public static final int STARTUP_IMG = 63;//安卓启动图
 
-    public static String ADMIN_ADDRESS = "";
+    public static String ADMIN_ADDRESS = "ghadmin";
 
     public static final Double DEPOSIT_AMOUNT = 20000.0;//预付订单额度
 
