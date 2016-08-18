@@ -174,7 +174,7 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
         request.setCategoryId(categoryId);
         request.setBrandId(Integer.parseInt(mBrandList.get(0).getId()));
         request.setPageSize(3);
-        HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_BRAND_URL, new ICallBack() {
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_LIST_BY_CATEGORY_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
                 showPageState(FrameLoadLayout.LoadResult.error);

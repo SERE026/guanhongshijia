@@ -43,7 +43,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         public void handleMessage(Message msg) {
             EventBus.getDefault().post(new TimeEvent(TimeUtils.showTime(TimeUtils.getSystemTime())));
             tv_time.setText(TimeUtils.showTime(TimeUtils.getSystemTime()));
-            handler.sendEmptyMessageDelayed(0, 3000);
+            handler.sendEmptyMessageDelayed(0, 60000);
         }
     };
 
