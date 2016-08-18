@@ -1,4 +1,3 @@
-/*
 
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
@@ -38,11 +37,9 @@ import java.util.List;
 import java.util.Map;
 
 
-*/
 /**
  * Created by Administrator on 2016/7/29.
- *//*
-
+ */
 
 @Controller
 @RequestMapping("/goods")
@@ -69,15 +66,13 @@ public class AppGoodsController extends BaseAppController {
 
     @Resource
     private AppLoginStatusService appLoginStatusService;
-    */
-/**
+    /**
      * 根据商品分类查询品牌列表
      * @param categoryBrandListRequest
      * @param request
      * @param response
      * @return
-     *//*
-
+     */
 
     @ResponseBody
     @RequestMapping("/listByBrand")
@@ -120,15 +115,13 @@ public class AppGoodsController extends BaseAppController {
         return result;
     }
 
-*/
 /**
      * 根据商品分类查询商品列表
      * @param categoryGoodsListRequest
      * @param request
      * @param response
      * @return
-     *//*
-
+     */
 
     @ResponseBody
     @RequestMapping("/listByCategory")
@@ -182,15 +175,13 @@ public class AppGoodsController extends BaseAppController {
     }
 
 
-*/
 /**
      * 获取商品详情
      * @param goodsDetailRequest
      * @param request
      * @param response
      * @return
-     *//*
-
+     */
 
     @ResponseBody
     @RequestMapping("/detail")
@@ -271,15 +262,13 @@ public class AppGoodsController extends BaseAppController {
 
 
 
-*/
 /**
      * 获取轮播商品
      * @param loopGoodsListRequest
      * @param request
      * @param response
      * @return
-     *//*
-
+     */
 
     @ResponseBody
     @RequestMapping("/loop")
@@ -335,15 +324,13 @@ public class AppGoodsController extends BaseAppController {
 
 
 
-*/
 /**
      * 获取新品推荐列表
      * @param recommendGoodsRequest
      * @param request
      * @param response
      * @return
-     *//*
-
+     */
 
     @ResponseBody
     @RequestMapping("/newRecommend")
@@ -400,15 +387,13 @@ public class AppGoodsController extends BaseAppController {
     }
 
 
-    */
-/**
+    /**
      * 获取团购列表
      * @param recommendGoodsRequest
      * @param request
      * @param response
      * @return
-     *//*
-
+     */
     @ResponseBody
     @RequestMapping("/groupRecommend")
     public RecommendGroupGoodsResult groupRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -443,20 +428,16 @@ public class AppGoodsController extends BaseAppController {
                     recommend.setId(String.valueOf(list.get(i).getGoods_id()));
                 }
                 groupList.add(recommend);
-                */
-/*GoodsSummary goodsSummary = new GoodsSummary();
+                /*GoodsSummary goodsSummary = new GoodsSummary();
                 goodsSummary.setId(String.valueOf(list.get(i).getGoods_id()));
                 goodsSummary.setTitle(list.get(i).getName());
                 goodsSummary.setMainPicUrl(list.get(i).getImg());
                 goodsSummary.setPrice(list.get(i).getSalesMoney());
-                lists.add(goodsSummary);*//*
-
+                lists.add(goodsSummary);*/
             }
-           */
-/* recommend.setGoodsSummaryList(lists);
+           /* recommend.setGoodsSummaryList(lists);
             recommend.setImageUrl("");
-            groupList.add(recommend);*//*
-
+            groupList.add(recommend);*/
         }
         int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
         result.setPageNo(pageInfo.getPageNo());
@@ -476,15 +457,13 @@ public class AppGoodsController extends BaseAppController {
     }
 
 
-    */
-/**
+    /**
      * 获取促销列表
      * @param recommendGoodsRequest
      * @param request
      * @param response
      * @return
-     *//*
-
+     */
     @ResponseBody
     @RequestMapping("/promotionRecommend")
     public RecommendPromotionGoodsResult promotionRecommend(@RequestBody RecommendGoodsRequest  recommendGoodsRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -539,15 +518,13 @@ public class AppGoodsController extends BaseAppController {
         return result;
     }
 
-*/
 /**
      * 搜索请求类
      * @param searchRequest
      * @param request
      * @param response
      * @return
-     *//*
-
+     */
 
     @ResponseBody
     @RequestMapping("/search")
@@ -585,4 +562,3 @@ public class AppGoodsController extends BaseAppController {
     }
 }
 
-*/
