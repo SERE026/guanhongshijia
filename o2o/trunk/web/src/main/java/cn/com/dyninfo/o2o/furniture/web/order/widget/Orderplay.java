@@ -140,7 +140,7 @@ public class Orderplay extends Widget {
 							}
 							orderService.updateObj(order);
 						}
-						ResponseUtil.printl(this.HttpResponse, "<script>window.location.href=\"http://www.guanhongshijia.com/" + Constants.ADMIN_ADDRESS + "play_succeed-"+trade.getTrade_id()+".html?result=succeed\";</script>");
+						ResponseUtil.printl(this.HttpResponse, "<script>window.location.href=\"http://www.guanhongshijia.com/play_succeed-"+trade.getTrade_id()+".html?result=succeed\";</script>");
 						return ;
 					}
 				}else{
