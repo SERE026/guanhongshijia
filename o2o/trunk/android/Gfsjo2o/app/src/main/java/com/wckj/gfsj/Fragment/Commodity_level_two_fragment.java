@@ -68,7 +68,7 @@ public class Commodity_level_two_fragment extends Fragment{
                 @Override
                 public void convert(ViewHolder helper, CategoryThree item, int position) {
                         helper.setText(R.id.tv_name,item.getTitle());
-                    helper.setImageByUrl(R.id.iv_commodity_two,item.getImageUrl());
+                    helper.setImageByUrl(R.id.iv_commodity_two,item.getImageUrl(),R.drawable.icon_public_classification);
 
                 }
             };

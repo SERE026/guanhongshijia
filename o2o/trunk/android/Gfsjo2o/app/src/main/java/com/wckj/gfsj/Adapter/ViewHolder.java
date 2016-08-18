@@ -79,6 +79,12 @@ public class ViewHolder {
 		}
 		return this;
 	}
+
+	public ViewHolder setTextColor(int viewId, int res) {
+		TextView view = getView(viewId);
+		view.setTextColor(res);
+		return this;
+	}
 	/**
 	 * 为空间设置背景
 	 * 
@@ -129,6 +135,13 @@ public class ViewHolder {
 		ImageView view = getView(viewId);
 		if(view!=null&&url!=null){
 			ImageLoaderUtil.getInstance().displayImageView(url, view);
+		}
+		return this;
+	}
+	public ViewHolder setImageByUrl(int viewId, String url,int res) {
+		ImageView view = getView(viewId);
+		if(view!=null&&url!=null){
+			ImageLoaderUtil.getInstance().displayImageView(url, view,res);
 		}
 		return this;
 	}

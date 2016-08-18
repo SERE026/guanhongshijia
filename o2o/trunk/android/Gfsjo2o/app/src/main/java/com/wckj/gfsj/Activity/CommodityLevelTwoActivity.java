@@ -79,6 +79,7 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         view = inflater.inflate(R.layout.activity_commodity_category_two, null);
         lv_item = (ListView) view.findViewById(R.id.lv_item);
         svp_special = (StopViewPage) view.findViewById(R.id.svp_special);
+        json.getCategoryList().get(mLvPosition).setColorSelector(true);
         bindData();
         setListener();
         return view;
@@ -118,10 +119,13 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
                 @Override
                 public void convert(ViewHolder helper, CategoryTwo item, int position) {
                     helper.setText(R.id.tv_two_name, item.getTitle());
+
                     boolean colorSelector = item.isColorSelector();
                     if(colorSelector) {
+                        helper.setTextColor(R.id.tv_two_name, getResources().getColor(R.color.color_121212));
                         helper.setBackgroundResource(R.id.tv_two_name, getResources().getColor(R.color.white));
                     }else {
+                        helper.setTextColor(R.id.tv_two_name,getResources().getColor( R.color.color_bcbcbc));
                         helper.setBackgroundResource(R.id.tv_two_name,0);
                     }
                 }

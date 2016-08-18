@@ -20,7 +20,7 @@ import java.util.Map;
 
 public class PayDemoActivity extends FragmentActivity {
 	//创建的APPID
-	public static final String APPID = "";
+	public static final String APPID = "2088421503901771";
 	// 商户收款账号
 	public static final String SELLER = "guanhongshijia@126.com";
 	// 商户私钥，pkcs8格式

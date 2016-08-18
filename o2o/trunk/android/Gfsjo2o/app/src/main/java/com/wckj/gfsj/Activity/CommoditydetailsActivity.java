@@ -35,7 +35,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     private ViewPager vp_commodity_pic;
     private List<String> imageList;
     private TitleRelativeLayout title_rl;
-    private TextView tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type,tv_color,tv_specification,tv_sale_count;
+    private TextView tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type,tv_color_1,tv_specification,tv_sale_count,tv_color_2,tv_color_3,tv_color_4,tv_color_5;
     private ImageView iv_collect;
     private GoodsDetailResult result;
 
@@ -70,7 +70,12 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         tv_title_desc = (TextView) view.findViewById(R.id.tv_title_desc);
         tv_prices = (TextView) view.findViewById(R.id.tv_prices);
         tv_type = (TextView) view.findViewById(R.id.tv_type);
-        tv_color = (TextView) view.findViewById(R.id.tv_color);
+        tv_color_1 = (TextView) view.findViewById(R.id.tv_color_1);
+        tv_color_2 = (TextView) view.findViewById(R.id.tv_color_2);
+        tv_color_3 = (TextView) view.findViewById(R.id.tv_color_3);
+        tv_color_4 = (TextView) view.findViewById(R.id.tv_color_4);
+        tv_color_5 = (TextView) view.findViewById(R.id.tv_color_5);
+
         tv_specification = (TextView) view.findViewById(R.id.tv_specification);
         tv_sale_count = (TextView) view.findViewById(R.id.tv_sale_count);
 
@@ -115,6 +120,17 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
 //        tv_specification
     }
 
+    /**
+     * 设置颜色的背景选择
+     * @param id
+     */
+    private void setMainColor(int id){
+        tv_color_1.setBackgroundResource(R.id.tv_color_1==id?R.drawable.icon_details_color_select:0);
+        tv_color_2.setBackgroundResource(R.id.tv_color_2==id?R.drawable.icon_details_color_select:0);
+        tv_color_3.setBackgroundResource(R.id.tv_color_3==id?R.drawable.icon_details_color_select:0);
+        tv_color_4.setBackgroundResource(R.id.tv_color_4==id?R.drawable.icon_details_color_select:0);
+        tv_color_5.setBackgroundResource(R.id.tv_color_5==id?R.drawable.icon_details_color_select:0);
+    }
     /**
      * 商品详情命令
      */

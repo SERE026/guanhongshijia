@@ -113,7 +113,7 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
 
     }
     protected void load() {
-        getCategroyByList();
+        getBrandByList();
 //
     }
 
@@ -158,7 +158,12 @@ public class CommodityLevelThreeActivity extends BaseNewActivity implements View
             public void onSuccess(String response) {
                  json =  JSON.parseObject(response, CategoryBrandListResult.class);
                 mBrandList = json.getBrandList();
-                getCategroyByList();
+                if(mBrandList!=null&&mBrandList.size()>0){
+                    getCategroyByList();
+                }else {
+                    showPageState(FrameLoadLayout.LoadResult.error);
+                }
+
             }
         });
     }

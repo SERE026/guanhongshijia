@@ -70,6 +70,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private void initData() {
         setTabSelection(0);
     }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+    }
+
 
     public void setTabSelection(int index) {
         this.position = index;

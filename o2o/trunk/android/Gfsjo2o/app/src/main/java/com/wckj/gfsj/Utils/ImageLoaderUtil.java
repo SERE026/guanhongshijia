@@ -24,10 +24,14 @@ public class ImageLoaderUtil {
         return ImageLoaderUtil.instance;
     }
 
+
     public void displayImageView(String url, ImageView imageAware){
         mImageLoader.displayImage(url,imageAware,getPictrueOption(R.drawable.icon_public_image));
     }
 
+    public void displayImageView(String url, ImageView imageAware,int res){
+        mImageLoader.displayImage(url,imageAware,getPictrueOption(res));
+    }
     /**
      * 默认配置
      */

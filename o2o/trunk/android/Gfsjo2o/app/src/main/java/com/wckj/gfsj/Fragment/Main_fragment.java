@@ -95,6 +95,7 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
         pageList.clear();
     }
 
+
     /**
      * 设置首页分类三个颜色
      */

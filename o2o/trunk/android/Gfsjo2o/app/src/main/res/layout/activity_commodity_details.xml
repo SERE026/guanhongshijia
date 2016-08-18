@@ -5,7 +5,7 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_commodity_pic"
-        android:layout_width="500dp"
+        android:layout_width="5dp"
         android:layout_marginTop="51dp"
         android:layout_height="match_parent">
 
@@ -95,17 +95,85 @@
             android:textSize="12sp"
             android:text="类型      鱼塘七件套快来买"
             android:singleLine="true"/>
-        <TextView
+        <RelativeLayout
             android:id="@+id/tv_color"
             android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:layout_marginBottom="10dp"
             android:layout_below="@id/tv_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_flag_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/color_b3b3b4"
             android:textSize="12sp"
-            android:text="颜色      原木色"
+            android:text="颜色     "
             android:singleLine="true"/>
+            <TextView
+                android:background="@drawable/icon_details_color_select"
+                android:gravity="center"
+                android:id="@+id/tv_color_1"
+                android:layout_toRightOf="@id/tv_flag_color"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:text="颜色 "
+                android:textColor="@color/color_b3b3b4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:visibility="gone"
+                android:paddingLeft="10dp"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:id="@+id/tv_color_2"
+                android:layout_toRightOf="@id/tv_color_1"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:text="颜色 "
+                android:textColor="@color/color_b3b3b4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_color_3"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:layout_toRightOf="@id/tv_color_2"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:text="颜色 "
+                android:textColor="@color/color_b3b3b4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_color_4"
+                android:layout_toRightOf="@id/tv_color_3"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="颜色 "
+                android:textColor="@color/color_b3b3b4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:visibility="gone"
+                android:gravity="center"
+                android:id="@+id/tv_color_5"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/tv_flag_color"
+                android:layout_below="@id/tv_color_1"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:text="颜色 "
+                android:textColor="@color/color_b3b3b4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
         <TextView
             android:id="@+id/tv_specification"
             android:layout_below="@id/tv_color"
