@@ -59,8 +59,8 @@ public class CouponAdapter extends BaseAdapter {
         }
         final Coupon item = (Coupon) getItem(position);
 
-        itemHolder.mTvCouponNum.setText(item.getName());
-        itemHolder.mTvDeadLine.setText(item.getEndTime());
+        itemHolder.mTvCouponNum.setText("券编号：" + item.getName());
+        itemHolder.mTvDeadLine.setText("使用期限：" + item.getEndTime());
 
         return convertView;
     }

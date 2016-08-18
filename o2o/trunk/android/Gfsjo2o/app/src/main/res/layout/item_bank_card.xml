@@ -5,61 +5,49 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_date"
-        app:layout_widthPercent="15%"
+        android:id="@+id/tv_bank_name"
+        app:layout_widthPercent="22%"
         android:layout_height="wrap_content"
         app:layout_marginTopPercent="2%"
         app:layout_marginBottomPercent="2%"
         android:gravity="center"
-        android:text="16.7.20"
+        android:text="中国农业银行"
         android:textSize="12sp"/>
 
     <TextView
-        android:id="@+id/tv_order_num"
-        app:layout_widthPercent="15%"
+        android:id="@+id/tv_bank_card_num"
+        app:layout_widthPercent="31%"
         android:layout_height="wrap_content"
         app:layout_marginTopPercent="2%"
         app:layout_marginBottomPercent="2%"
-        android:layout_toRightOf="@id/tv_date"
+        android:layout_toRightOf="@id/tv_bank_name"
         app:layout_marginLeftPercent="5%"
         android:gravity="center"
-        android:text="20160720"
+        android:text="6228480606705173777"
         android:textSize="12sp"/>
 
     <TextView
-        android:id="@+id/tv_deal_price"
-        app:layout_widthPercent="17%"
+        android:id="@+id/tv_status"
+        app:layout_widthPercent="16%"
         android:layout_height="wrap_content"
         app:layout_marginTopPercent="2%"
         app:layout_marginBottomPercent="2%"
-        android:layout_toRightOf="@id/tv_order_num"
+        android:layout_toRightOf="@id/tv_bank_card_num"
         app:layout_marginLeftPercent="5%"
         android:gravity="center"
-        android:text="2000000.00"
+        android:text="xxxxxx"
         android:textSize="12sp"/>
 
     <TextView
-        android:id="@+id/tv_deduct_percent"
-        app:layout_widthPercent="15%"
+        android:id="@+id/tv_type"
+        app:layout_widthPercent="16%"
         android:layout_height="wrap_content"
         app:layout_marginTopPercent="2%"
         app:layout_marginBottomPercent="2%"
-        android:layout_toRightOf="@id/tv_deal_price"
+        android:layout_toRightOf="@id/tv_status"
         app:layout_marginLeftPercent="5%"
         android:gravity="center"
-        android:text="1%100"
-        android:textSize="12sp"/>
-
-    <TextView
-        android:id="@+id/tv_deduct_money"
-        app:layout_widthPercent="18%"
-        android:layout_height="wrap_content"
-        app:layout_marginTopPercent="2%"
-        app:layout_marginBottomPercent="2%"
-        android:layout_toRightOf="@id/tv_deduct_percent"
-        app:layout_marginLeftPercent="5%"
-        android:gravity="center"
-        android:text="2000.00"
+        android:text="xxxxxx"
         android:textSize="12sp"/>
 
 </android.support.percent.PercentRelativeLayout>

@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_bank_card"
         app:layout_marginTopPercent="5%"
-        app:layout_marginLeftPercent="6%"
+        app:layout_marginLeftPercent="11%"
         android:text="银行名称"
         android:textSize="13sp"/>
 
@@ -34,7 +34,7 @@
         android:layout_below="@id/tv_bank_card"
         android:layout_toRightOf="@id/tv_bank_name"
         app:layout_marginTopPercent="5%"
-        app:layout_marginLeftPercent="7%"
+        app:layout_marginLeftPercent="20%"
         android:text="卡号"
         android:textSize="13sp"/>
 
@@ -45,7 +45,7 @@
         android:layout_below="@id/tv_bank_card"
         android:layout_toRightOf="@id/tv_card_num"
         app:layout_marginTopPercent="5%"
-        app:layout_marginLeftPercent="7%"
+        app:layout_marginLeftPercent="20%"
         android:text="状态"
         android:textSize="13sp"/>
 
@@ -56,34 +56,52 @@
         android:layout_below="@id/tv_bank_card"
         android:layout_toRightOf="@id/tv_status"
         app:layout_marginTopPercent="5%"
-        app:layout_marginLeftPercent="7%"
+        app:layout_marginLeftPercent="13%"
         android:text="类型"
         android:textSize="13sp"/>
 
     <android.support.percent.PercentFrameLayout
+        android:id="@+id/fl_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/tv_bank_name"
         app:layout_marginTopPercent="2%"
         app:layout_marginLeftPercent="6%"
         app:layout_marginBottomPercent="2%"
-        app:layout_marginRightPercent="6%">
+        app:layout_marginRightPercent="7%">
 
-        <TextView
-            android:id="@+id/tv_not_bind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_bank_name"
-            app:layout_marginTopPercent="15%"
-            app:layout_marginLeftPercent="10%"
-            android:text="您还未绑定过银行卡片，请先绑定!"
-            android:textSize="12sp"
-            android:visibility="gone"/>
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/rl_not_bind"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_not_bind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="您还未绑定过银行卡片，请先"
+                android:textSize="12sp"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/tv_go_to_bind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@id/tv_not_bind"
+                android:text="绑定!"
+                android:textSize="12sp"
+                android:textColor="@color/color_6f5f62"
+                android:visibility="visible"/>
+
+        </android.support.percent.PercentRelativeLayout>
 
         <ListView
             android:id="@+id/lv_bank_card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
 
     </android.support.percent.PercentFrameLayout>
 

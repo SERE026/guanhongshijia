@@ -35,26 +35,26 @@
             android:background="@color/color_e5e3e2">
 
             <TextView
-                android:id="@+id/tv_not_use"
+                android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_marginLeftPercent="11.5%"
                 android:layout_centerVertical="true"
                 android:drawableRight="@drawable/icon_order_pay_down"
                 android:drawablePadding="5dp"
-                android:text="未使用（1）"
+                android:text="全部（0）"
                 android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/tv_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_not_use"
+                android:layout_toRightOf="@id/tv_status"
                 app:layout_marginLeftPercent="5%"
                 android:layout_centerVertical="true"
                 android:drawableRight="@drawable/icon_order_pay_down"
                 android:drawablePadding="5dp"
-                android:text="类型"
+                android:text="全部（0）"
                 android:textSize="12sp"/>
 
             <TextView
@@ -102,6 +102,89 @@
             android:layout_height="match_parent"
             android:layout_below="@id/rl_title"
             android:layout_above="@id/tv_coupon_rule2"/>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/rl_status_select"
+            android:background="@color/color_fdd03f"
+            app:layout_widthPercent="11.5%"
+            app:layout_heightPercent="20%"
+            app:layout_marginTopPercent="13%"
+            app:layout_marginLeftPercent="11.5%"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_status_all"
+                android:layout_width="match_parent"
+                app:layout_heightPercent="25%"
+                android:gravity="center"
+                android:text="全部（0）"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_status_not_use"
+                android:layout_width="match_parent"
+                app:layout_heightPercent="25%"
+                android:layout_below="@id/tv_status_all"
+                android:gravity="center"
+                android:text="未使用（1）"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_status_used"
+                android:layout_width="match_parent"
+                app:layout_heightPercent="25%"
+                android:layout_below="@id/tv_status_not_use"
+                android:gravity="center"
+                android:text="已使用（2）"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_status_expired"
+                android:layout_width="match_parent"
+                app:layout_heightPercent="25%"
+                android:layout_below="@id/tv_status_used"
+                android:gravity="center"
+                android:text="已过期（3）"
+                android:textSize="12sp"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/rl_type_select"
+            android:background="@color/color_fdd03f"
+            app:layout_marginLeftPercent="27.5%"
+            app:layout_widthPercent="11.5%"
+            app:layout_heightPercent="15%"
+            app:layout_marginTopPercent="13%"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_type_all"
+                android:layout_width="match_parent"
+                app:layout_heightPercent="33%"
+                android:gravity="center"
+                android:text="全部（0）"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_type_vouchers"
+                android:layout_width="match_parent"
+                app:layout_heightPercent="33%"
+                android:layout_below="@id/tv_type_all"
+                android:gravity="center"
+                android:text="代金券（1）"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_type_discount"
+                android:layout_width="match_parent"
+                app:layout_heightPercent="33%"
+                android:layout_below="@id/tv_type_vouchers"
+                android:gravity="center"
+                android:text="折扣券（2）"
+                android:textSize="12sp"/>
+
+        </android.support.percent.PercentRelativeLayout>
 
     </android.support.percent.PercentRelativeLayout>
 

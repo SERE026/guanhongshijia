@@ -1,5 +1,6 @@
 package com.wckj.gfsj.Activity;
 
+import android.support.percent.PercentRelativeLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
@@ -31,7 +32,10 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
 
     private TitleRelativeLayout mRlTitle;
     private View view;
-
+    private TextView mTvStatus, mTvType;
+    private PercentRelativeLayout mRlStatusSelect, mRlTypeSelect;
+    private TextView mTvStatusAll, mTvStatusNotUse, mTvStatusUsed, mTvStatusExpired;
+    private TextView mTvTypeAll, mTvTypeVouchers, mTvTypeDiscount;
     private ListView mLvCoupon;
 
     private CouponAdapter mCouponAdapter;
@@ -40,7 +44,6 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
 
     @Override
     protected void init() {
-
     }
 
     @Override
@@ -77,15 +80,94 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
             case R.id.tv_go_back:
                 finish();
                 break;
+            case R.id.tv_status:
+                if (mRlStatusSelect.getVisibility() == View.GONE) {
+                    mRlStatusSelect.setVisibility(View.VISIBLE);
+                } else {
+                    mRlStatusSelect.setVisibility(View.GONE);
+                }
+                break;
+            case R.id.tv_type:
+                if (mRlTypeSelect.getVisibility() == View.GONE) {
+                    mRlTypeSelect.setVisibility(View.VISIBLE);
+                } else {
+                    mRlTypeSelect.setVisibility(View.GONE);
+                }
+                break;
+            case R.id.tv_status_all:
+                mTvStatus.setText("全部（0）");
+                mTvStatus.setTag(0);
+                mRlStatusSelect.setVisibility(View.GONE);
+                queryCoupon(0, (Integer) mTvType.getTag());
+                break;
+            case R.id.tv_status_not_use:
+                mTvStatus.setText("未使用（1）");
+                mTvStatus.setTag(1);
+                mRlStatusSelect.setVisibility(View.GONE);
+                queryCoupon(1, (Integer) mTvType.getTag());
+                break;
+            case R.id.tv_status_used:
+                mTvStatus.setText("已使用（2）");
+                mTvStatus.setTag(2);
+                mRlStatusSelect.setVisibility(View.GONE);
+                queryCoupon(2, (Integer) mTvType.getTag());
+                break;
+            case R.id.tv_status_expired:
+                mTvStatus.setText("已过期（3）");
+                mTvStatus.setTag(3);
+                mRlStatusSelect.setVisibility(View.GONE);
+                queryCoupon(3, (Integer) mTvType.getTag());
+                break;
+            case R.id.tv_type_all:
+                mTvType.setText("全部（0）");
+                mTvType.setTag(0);
+                mRlTypeSelect.setVisibility(View.GONE);
+                queryCoupon((Integer) mTvStatus.getTag(), 0);
+                break;
+            case R.id.tv_type_vouchers:
+                mTvType.setText("代金券（1）");
+                mTvType.setTag(1);
+                mRlTypeSelect.setVisibility(View.GONE);
+                queryCoupon((Integer) mTvStatus.getTag(), 1);
+                break;
+            case R.id.tv_type_discount:
+                mTvType.setText("折扣券（2）");
+                mTvType.setTag(2);
+                mRlTypeSelect.setVisibility(View.GONE);
+                queryCoupon((Integer) mTvStatus.getTag(), 2);
+                break;
+            default:
+                break;
         }
     }
 
     private void initView() {
+        mTvStatus = (TextView) view.findViewById(R.id.tv_status);
+        mTvType = (TextView) view.findViewById(R.id.tv_type);
+        mTvStatus.setTag(0);
+        mTvType.setTag(0);
+        mTvStatus.setOnClickListener(this);
+        mTvType.setOnClickListener(this);
+        mRlStatusSelect = (PercentRelativeLayout) view.findViewById(R.id.rl_status_select);
+        mRlTypeSelect = (PercentRelativeLayout) view.findViewById(R.id.rl_type_select);
+        mTvStatusAll = (TextView) view.findViewById(R.id.tv_status_all);
+        mTvStatusNotUse = (TextView) view.findViewById(R.id.tv_status_not_use);
+        mTvStatusUsed = (TextView) view.findViewById(R.id.tv_status_used);
+        mTvStatusExpired = (TextView) view.findViewById(R.id.tv_status_expired);
+        mTvTypeAll = (TextView) view.findViewById(R.id.tv_type_all);
+        mTvTypeVouchers = (TextView) view.findViewById(R.id.tv_type_vouchers);
+        mTvTypeDiscount = (TextView) view.findViewById(R.id.tv_type_discount);
+        mTvStatusAll.setOnClickListener(this);
+        mTvStatusNotUse.setOnClickListener(this);
+        mTvStatusUsed.setOnClickListener(this);
+        mTvStatusExpired.setOnClickListener(this);
+        mTvTypeAll.setOnClickListener(this);
+        mTvTypeVouchers.setOnClickListener(this);
+        mTvTypeDiscount.setOnClickListener(this);
 
         mLvCoupon = (ListView) view.findViewById(R.id.lv_coupon);
 
         mCouponAdapter = new CouponAdapter(this, mCouponList);
-
         mLvCoupon.setAdapter(mCouponAdapter);
 
         queryCoupon(0, 0);
@@ -113,7 +195,8 @@ public class CouponActivity extends BaseNewActivity implements View.OnClickListe
 
                 if (result.getResultCode() == 0) {
                     if (result.getCouponList() != null && !result.getCouponList().isEmpty()) {
-                        mCouponList = result.getCouponList();
+                        mCouponList.clear();
+                        mCouponList.addAll(result.getCouponList());
                         mCouponAdapter.notifyDataSetChanged();
                     }
                 } else {

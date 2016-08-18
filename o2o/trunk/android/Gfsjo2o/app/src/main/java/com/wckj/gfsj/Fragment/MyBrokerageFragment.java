@@ -19,6 +19,7 @@ import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,15 +77,31 @@ public class MyBrokerageFragment extends Fragment implements View.OnClickListene
             public void onSuccess(String response) {
                 QueryAgencyFeeResult result = JSON.parseObject(response, QueryAgencyFeeResult.class);
                 LogUtil.i(response);
+                if (result.getResultCode() == 0) {
+                    mTvMoney.setText(result.getCurrentMoney() + "元");
+                    mTvRecentlyBrokerage.setText("最近佣金提成：" + result.getRecentMoney() + "元");
+                    mTvTotalBrokerage.setText("累计已获佣金：" + result.getTotalMoney() + "元");
+                    mTvDataDate.setText("数据截至：" + result.getDataDate());
 
-                mTvMoney.setText(result.getCurrentMoney() + "元");
-                mTvRecentlyBrokerage.setText("最近佣金提成：" + result.getRecentMoney() + "元");
-                mTvTotalBrokerage.setText("累计已获佣金：" + result.getTotalMoney() + "元");
-                mTvDataDate.setText("数据截至：" + result.getDataDate());
+                    if (result.getAgencyFeeItemList() != null && !result.getAgencyFeeItemList().isEmpty()) {
+                        mAgencyFeeItemList.clear();
+                        mAgencyFeeItemList.addAll(result.getAgencyFeeItemList());
+                        mAgencyFeeItemAdapter.notifyDataSetChanged();
+                    }
 
-                if (result.getAgencyFeeItemList() != null && !result.getAgencyFeeItemList().isEmpty()) {
-                    mAgencyFeeItemList = result.getAgencyFeeItemList();
-                    mAgencyFeeItemAdapter.notifyDataSetChanged();
+//                    for (int i = 0; i < 20; i++) {
+//                        AgencyFeeItem item = new AgencyFeeItem();
+//                        item.setId(i+"");
+//                        item.setDate("2016-08-18");
+//                        item.setOrderNo("20160818");
+//                        item.setPrice(20000.00);
+//                        item.setPercent("2%100");
+//                        item.setAmount(20000.00);
+//                        mAgencyFeeItemList.add(item);
+//                    }
+//                    mAgencyFeeItemAdapter.notifyDataSetChanged();
+                } else {
+                    OwerToastShow.show(result.getMessage());
                 }
             }
         });
