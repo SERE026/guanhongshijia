@@ -37,7 +37,9 @@ public class GoodSearchWidget extends Widget {
 	
 	@Resource
 	private PagModInGoodsService pagModInGoodsService;
-	
+
+	private  String keys="";
+
 	@Override
 	public void display(Map pamtr) {
 		
@@ -45,13 +47,14 @@ public class GoodSearchWidget extends Widget {
 		if(action.equals("init")){
 			AreaInfo area=(AreaInfo) this.HttpRequest.getSession().getAttribute(Context.SESSION_AEAR);
 			String sql="";
-			
+
 			if(area!=null){
 				sql+=" and s.CITY_ID='"+area.getId()+"' ";
-				
+
 			}
 			
 			String key=(String) pamtr.get("key");
+			keys=key;
 			List pricelist=goodsService.getGoodPriceRange(" and g.NAME like '%"+key+"%' "+sql);//价格区间
 			List brandlist=goodsService.getGoodBranNum(" and g.NAME like '%"+key+"%' "+sql);//品牌区间
 			List Sortlist=goodsService.getGoodSortNum(" and g.NAME like '%"+key+"%' "+sql);//价格区间
@@ -63,7 +66,7 @@ public class GoodSearchWidget extends Widget {
 		}else if(action.equals("dataTotal")){
 			String sql="";
 			String moneysql="";
-			String key=(String) pamtr.get("key");
+			String key=keys;
 			//String price=(String) pamtr.get("priceRange");
 			String price1=(String) pamtr.get("price1");
 			String price2=(String) pamtr.get("price2");
@@ -119,7 +122,7 @@ public class GoodSearchWidget extends Widget {
 			String by=(String) pamtr.get("by");
 			String sql="";
 			String moneysql="";
-			String key=(String) pamtr.get("key");
+			String key=keys;
 			//String price=(String) pamtr.get("priceRange");
 			String brand=(String) pamtr.get("brand");
 			String Sort=(String) pamtr.get("Sort");
