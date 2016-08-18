@@ -2,9 +2,7 @@
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
 import cn.com.dyninfo.o2o.communication.*;
-import cn.com.dyninfo.o2o.entity.GoodsDetail;
-import cn.com.dyninfo.o2o.entity.GoodsSummary;
-import cn.com.dyninfo.o2o.entity.Recommend;
+import cn.com.dyninfo.o2o.entity.*;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
@@ -12,6 +10,7 @@ import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Brand;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
+import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSpecVal;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.BrandService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
@@ -23,11 +22,13 @@ import cn.com.dyninfo.o2o.furniture.web.member.service.FavoritesService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
 import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
+import org.apache.commons.collections.bag.SynchronizedSortedBag;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import sun.plugin.util.UIUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -193,7 +194,7 @@ public class AppGoodsController extends BaseAppController {
 //            result.setMessage("设备识别码不能为空");
 //            return result;
 //        }
-       // List<GoodsSpec> specList=new ArrayList<GoodsSpec>();
+        List<GoodsSpec> specList=new ArrayList<GoodsSpec>();
         //获取用户信息
         AppLoginStatus appLoginStatus=null;
         HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
@@ -209,9 +210,40 @@ public class AppGoodsController extends BaseAppController {
 
         List<String> imageList=new ArrayList<String>();
         GoodsDetail detail=new GoodsDetail();
-        List list=goodsService.getListByWhere(new StringBuffer(" and n.goods_id="+goodsDetailRequest.getId()));
+        List list=goodsService.getListByWhere(new StringBuffer("   and n.goods_id="+goodsDetailRequest.getId()));//and n.specList.status=0
         if(!ValidationUtil.isEmpty(list)){
                Goods goods=(Goods)list.get(0);
+            //获取商品参数属性
+            List<cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSpec> goodsSpecs=goods.getSpecList();
+            if(!ValidationUtil.isEmpty(goodsSpecs)) {
+                for (int i = 0; i < goodsSpecs.size(); i++) {
+
+                    GoodsSpec goodsSpec = new GoodsSpec();
+                    if (goodsSpecs.get(i).getStatus() == 0) {
+                        goodsSpec.setId(goodsSpecs.get(i).getGoods_spec_id());//参数类型ID
+                        goodsSpec.setName(goodsSpecs.get(i).getName());//参数类型名称
+                        List<GoodsSpecVal> goodsSpecValList = goodsSpecs.get(i).getValList(); //后台数据
+                        List<GoodsSpecValue> specValueList = new ArrayList<GoodsSpecValue>();//安卓实体
+                        if(!ValidationUtil.isEmpty(goodsSpecValList)) {
+                            for (int j = 0; j < goodsSpecValList.size(); j++) {
+//                                System.out.println(goodsSpecs.get(i).getGoods_spec_id());
+//                                System.out.println(goodsSpecValList.get(j).getSpec().getGoods_spec_id());
+                                if (goodsSpecs.get(i).getGoods_spec_id().equals(goodsSpecValList.get(j).getSpec().getGoods_spec_id())) {
+                                    GoodsSpecValue goodsSpecValuej = new GoodsSpecValue();
+                                    goodsSpecValuej.setId(goodsSpecValList.get(j).getSpec_val_id()); //参数ID
+                                    goodsSpecValuej.setValue(goodsSpecValList.get(j).getVal());//参数值
+                                    specValueList.add(goodsSpecValuej);
+
+                                }
+                            }
+                        }
+                        goodsSpec.setSpecValueList(specValueList);
+                        specList.add(goodsSpec);
+                    }
+                }
+                detail.setSpecList(specList);
+            }
+
             if (!ValidationUtil.isEmpty(info)){
                List<Favorites> favorites=(List<Favorites>) favoritesService.getListByWhere(new StringBuffer( " and n.member="+info.getHuiYuan_id()+" and n.good="+goods.getGoods_id()));
                 if(ValidationUtil.isEmpty(favorites)){
@@ -239,10 +271,6 @@ public class AppGoodsController extends BaseAppController {
             if(goods.getDefaultImage()!=null){
                 detail.setDefaultImage(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goods.getDefaultImage());
             }
-            //类型 颜色 规格
-//            if(goods.getGoodsType().getName()!=null){
-//                detail.setType(goods.getGoodsType().getName());
-//            }
             //商品多张图片
             if(!ValidationUtil.isEmpty(goods.getImages())) {
                 String[] arr = goods.getImages().split(";");
@@ -254,6 +282,7 @@ public class AppGoodsController extends BaseAppController {
             }
                 detail.setImageList(imageList);
             }
+
             result.setDetail(detail);
         log.debug(result);
         return result;

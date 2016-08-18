@@ -177,7 +177,7 @@ public class AppUserController extends BaseAppController {
         if(!ValidationUtil.isEmpty(list)){
             HuiyuanInfo info= list.get(0);
             if(validphoneCode(mobileNo,validateCode)){  //判断校验码 是否正确
-                info.setPassword(newPassword);
+                info.setLockPassword(newPassword);
                 huiyuanService.updateObj(info);
                 result.setResultCode(SUCCESS);
                 result.setMessage("OK");
@@ -298,17 +298,17 @@ public class AppUserController extends BaseAppController {
                 }
                 result.setRecentMoney(list.get(0).getAgencyFee()); //最近佣金
             }
+            result.setTotalMoney(totalMoney); //累计佣金
+            result.setDataDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));//数据截至时间
+            result.setCurrentMoney(info.getMoney()); //总资产
+            result.setAgencyFeeItemList(lists);//佣金明细
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
         }
-        result.setTotalMoney(totalMoney); //累计佣金
-        result.setDataDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));//数据截至时间
-        result.setCurrentMoney(info.getMoney()); //总资产
-        result.setAgencyFeeItemList(lists);//佣金明细
-        result.setResultCode(SUCCESS);
-        result.setMessage("OK");
-//        else {
-//            result.setResultCode(NO_LOGIN);
-//            result.setMessage("佣金查询失败");
-//        }
+        else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("佣金查询失败,请重新登录");
+        }
         log.debug(result);
         return result;
     }
@@ -358,14 +358,14 @@ public class AppUserController extends BaseAppController {
 //                card.setStatus(c.getEndTime());
 //                card.setType(c.getType());
                 lists.add(card);
+            result.setCardList(lists);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
         }
-        result.setCardList(lists);
-        result.setResultCode(SUCCESS);
-        result.setMessage("OK");
-//        else{
-//            result.setResultCode(NO_LOGIN);
-//            result.setMessage("银行卡查询失败");
-//        }
+        else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("银行卡查询失败");
+        }
         log.debug(result);
         return result;
     }
@@ -428,10 +428,14 @@ public class AppUserController extends BaseAppController {
                     lists.add(coupon);
                 }
             }
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+            result.setCouponList(lists);
         }
-        result.setResultCode(SUCCESS);
-        result.setMessage("OK");
-        result.setCouponList(lists);
+        else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("优惠券查询失败");
+        }
         log.debug(result);
         return result;
     }
@@ -483,14 +487,14 @@ public class AppUserController extends BaseAppController {
             personal.setPhoneNo(info.getTel());
             personal.setAddress(info.getAddress());
 
+            result.setPersonal(personal);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
         }
-        result.setPersonal(personal);
-        result.setResultCode(SUCCESS);
-        result.setMessage("OK");
-//        else{
-//            result.setResultCode(NO_LOGIN);
-//            result.setMessage("个人信息查询失败");
-//        }
+        else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("个人信息查询失败");
+        }
         log.debug(result);
         return result;
     }
@@ -533,11 +537,15 @@ public class AppUserController extends BaseAppController {
             info = appLoginStatus.getHuiyuan();
         }
         if(!ValidationUtil.isEmpty(info)){
-            info.setPassword(password);
+            info.setLockPassword(password);
             huiyuanService.updateObj(info);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
         }
-        result.setResultCode(SUCCESS);
-        result.setMessage("OK");
+        else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("设置锁定密码失败");
+        }
         log.debug(result);
         return result;
     }

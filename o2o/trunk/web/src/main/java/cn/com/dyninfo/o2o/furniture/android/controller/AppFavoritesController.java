@@ -113,14 +113,14 @@ public class AppFavoritesController extends BaseAppController {
                     lists.add(goodsSummary);
                 }
             }
-        }
             result.setGoodsSummaryList(lists);
             result.setResultCode(SUCCESS);
             result.setMessage("OK");
-//        }else {
-//            result.setResultCode(NO_LOGIN);
-//            result.setMessage("收藏夹商品列表请求失败");
-//        }
+        }
+        else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("收藏夹商品列表请求失败");
+        }
         log.debug(result);
         return result;
     }
@@ -173,9 +173,13 @@ public class AppFavoritesController extends BaseAppController {
                 f.setTime((int) (new Date().getTime() / 1000));
                 favoritesService.addObj(f);
             }
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
         }
-        result.setResultCode(SUCCESS);
-        result.setMessage("OK");
+        else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("添加到收藏夹请求失败");
+        }
         log.debug(result);
         return result;
     }

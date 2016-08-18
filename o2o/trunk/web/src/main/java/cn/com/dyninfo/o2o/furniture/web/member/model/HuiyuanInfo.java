@@ -65,7 +65,7 @@ public class HuiyuanInfo implements Serializable{
 	  @AccessType(value="property")
 	  @Column(name="PASSWORD")
 	  private String password;  //密码
-	  
+
 	  @AccessType(value="property")
 	  @Column(name="USERNAME")
 	  private String userName;  //昵称
@@ -184,6 +184,18 @@ public class HuiyuanInfo implements Serializable{
 	@AccessType(value = "property")
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "huiyuan")
 	private List<AppLoginStatus> appLoginStatusList;// 已登录的设备列表
+
+	@AccessType(value="property")
+	@Column(name="LOCKPASSWORD")
+	private String lockPassword;  //锁定密码
+
+	public String getLockPassword() {
+		return lockPassword;
+	}
+
+	public void setLockPassword(String lockPassword) {
+		this.lockPassword = lockPassword;
+	}
 
 	public List<CommentInfo> getComment() {
 		return comment;
