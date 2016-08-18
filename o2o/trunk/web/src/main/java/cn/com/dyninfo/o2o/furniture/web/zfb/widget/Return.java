@@ -157,9 +157,9 @@ public class Return extends Widget {
 							}
 							orderService.updateObj(order);
 						}
-						this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/" + Constants.ADMIN_ADDRESS + "play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
+						this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
 					}else{
-						this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/" + Constants.ADMIN_ADDRESS + "chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
+						this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
 					}
 					
 //				}
@@ -169,10 +169,10 @@ public class Return extends Widget {
 				//out.println("验证失败");
 				this.putData("result", "fail");
 				if(trade.getFlag()==1){//订单支付
-					this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/" + Constants.ADMIN_ADDRESS + "play_succeed-"+out_trade_no+".html?result=fail\";</script>");
+					this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/play_succeed-"+out_trade_no+".html?result=fail\";</script>");
 					//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+out_trade_no+".html?result=fail");
 				}else{
-					this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/" + Constants.ADMIN_ADDRESS + "chong_succeed-"+out_trade_no+".html?result=fail&money="+trade.getMoney()+"\";</script>");
+					this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/chong_succeed-"+out_trade_no+".html?result=fail&money="+trade.getMoney()+"\";</script>");
 					//ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"chong_succeed-"+out_trade_no+".html?result=fail&money="+trade.getMoney());
 				}
 				

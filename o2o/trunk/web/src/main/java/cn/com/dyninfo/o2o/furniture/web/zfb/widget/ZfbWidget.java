@@ -84,7 +84,7 @@ public class ZfbWidget extends Widget {
 		
 		sParaTemp.put("total_fee", "0.01"); // 交易金额
 		
-		sParaTemp.put("show_url", "http://www.guanhongshijia.com/" + Constants.ADMIN_ADDRESS ); // 商品展示地址，具体指的是？？？？
+		sParaTemp.put("show_url", "http://www.guanhongshijia.com/" ); // 商品展示地址，具体指的是？？？？
 		sParaTemp.put("anti_phishing_key", ""); // 防钓鱼时间戳
 		sParaTemp.put("exter_invoke_ip", exter_invoke_ip); // 客户端的IP地址
 		
