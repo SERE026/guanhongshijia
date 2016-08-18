@@ -102,7 +102,7 @@ public class ProductPlugin extends AbstractGoodsPlugin {
 		
 		Product p=(Product) productDAO.getObjById(""+goods.getProduct().getProduct_id());
 		copyData(goods,p);
-//		p.setGood(goods);
+		p.setGood(goods);
 		productDAO.updateObj(p);
 	}
 
@@ -110,12 +110,12 @@ public class ProductPlugin extends AbstractGoodsPlugin {
 	@Override
 	public void editGoosBefor(Goods goods) {
 		Product p=(Product) productDAO.getObjById(""+goods.getProduct().getProduct_id());
-		if(p.getSalesNum()>0){
+//		if(p.getSalesNum()>0){
 			p=new Product();
 			p.setGood(goods);
 			productDAO.addObj(p);
 			goods.setProduct(p);
-		}
+//		}
 		
 	}
 
