@@ -157,7 +157,7 @@ public class Return extends Widget {
 							}
 							orderService.updateObj(order);
 						}
-						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
+						this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
 					}else{
 						this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
 					}
