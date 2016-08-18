@@ -36,6 +36,7 @@ slide=function(obj,isBtn){
 	css:function(){
 		options.current.find(".btnBg").css("opacity",0.5);
 		options.current.find("ul").css("width",options.width * (options.len));
+		options.current.find("li").css("width",options.width);
 		options.current.find(".preNext").css("top",(options.current.height()-options.current.find(".preNext").height())/2+"px");
 	}
 	,

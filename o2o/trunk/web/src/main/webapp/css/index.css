@@ -130,11 +130,11 @@ ul li {float:left;list-style-type:none;
     }
     .hot-search li a {text-decoration:none;color:#666;
     }
-.head-logo .Switch-city {border:1px solid #ccc;font-size:12px;margin-left: 0.5em;width: 56px;height: 18px;line-height: 18px;display: inline-block;text-align: center;
+.head-logo .Switch-city {border:1px solid #ccc;font-size:12px;margin-left: 0.5em;width: 56px;height: 18px;line-height: 18px;display: inline-block;text-align: center;position: relative;
 }
 .head-logo .Switch-city:hover{cursor: pointer}
-.head-logo .Switch-city>i{position: absolute;top: 15px;right: 0;background-image: url("../img/fonticon.png");background-repeat: no-repeat;background-position:-388px -143px;width: 6px;height: 6px;display: inline-block;}
-.hide_city_group {position:absolute;top:1px;left:55px;display:none;text-align: left;
+.head-logo .Switch-city>i{position: absolute;top: 12px;right: -1px;background-image: url("../img/fonticon.png");background-repeat: no-repeat;background-position:-388px -143px;width: 6px;height: 6px;display: inline-block;}
+.hide_city_group {position:absolute;top:1px;left:-6px;display:none;text-align: left;
 }
 
 .hideMap {
