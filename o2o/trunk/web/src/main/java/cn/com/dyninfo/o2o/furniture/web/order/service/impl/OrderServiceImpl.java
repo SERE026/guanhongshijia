@@ -1040,6 +1040,7 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 						Goods good = op.getProduct().getGood();
 						good = (Goods)goodsDAO.getObjById(good.getGoods_id()+"");
 						good.setNum(good.getNum()+op.getNum());
+						good.setInventory(good.getInventory()-op.getNum());
 						goodsDAO.updateObj(good);
 					}
 
@@ -1060,7 +1061,7 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 					//添加店铺流水信息
 					merchantMoneyDAO.addOrderMoney(info);
 					huiyuanMoneyDAO.addOder(info);
-					orderDao.updateGoodsnum(info);
+//					orderDao.updateGoodsnum(info);
 					
 				}
 

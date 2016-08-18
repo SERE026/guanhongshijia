@@ -102,7 +102,7 @@ public class ProductPlugin extends AbstractGoodsPlugin {
 		
 		Product p=(Product) productDAO.getObjById(""+goods.getProduct().getProduct_id());
 		copyData(goods,p);
-		p.setGood(goods);
+//		p.setGood(goods);
 		productDAO.updateObj(p);
 	}
 

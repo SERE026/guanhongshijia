@@ -90,9 +90,9 @@ public class Orderplay extends Widget {
 						}else{
 							orderService.updateOrderPlay(tradeno);
 							tradeMoney=0d;
-							ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+tradeno+".html?result=success");
-							this.setFreeMaker(false);
-							return ;
+//							ForwordTool.goToForword(this.HttpResponse,this.HttpRequest,"play_succeed-"+tradeno+".html?result=success");
+//							this.setFreeMaker(false);
+//							return ;
 						}
 					}
 					
@@ -140,7 +140,7 @@ public class Orderplay extends Widget {
 							}
 							orderService.updateObj(order);
 						}
-						ResponseUtil.printl(this.HttpResponse, "<script>window.location.href=\"http://" + this.HttpRequest.getServerName() + "/" + Constants.ADMIN_ADDRESS + "/play_succeed-"+trade.getTrade_id()+".html?result=succeed\";</script>");
+						ResponseUtil.printl(this.HttpResponse, "<script>window.location.href=\"http://www.guanhongshijia.com/" + Constants.ADMIN_ADDRESS + "play_succeed-"+trade.getTrade_id()+".html?result=succeed\";</script>");
 						return ;
 					}
 				}else{
