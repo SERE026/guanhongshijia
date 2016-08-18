@@ -22,13 +22,11 @@ import cn.com.dyninfo.o2o.furniture.web.member.service.FavoritesService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
 import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
-import org.apache.commons.collections.bag.SynchronizedSortedBag;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import sun.plugin.util.UIUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
