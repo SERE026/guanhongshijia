@@ -141,23 +141,23 @@ public class Return extends Widget {
 					
 //				}else{
 					if(trade.getFlag()==1){//订单支付
-//						trade.setStatus(1);
-//						orderService.updateTrade(trade);
-//						List orderlist=orderService.getListByWhere(new StringBuffer(" and n.tradeNo='"+trade.getTrade_id()+"'"));
-//						if(orderlist!=null&&orderlist.size()>0){
-//							Order order=(Order) orderlist.get(0);
-//							//支付总额小于20000（系统定义）的金额
-//							//状态为7-已付定金。
-//							if (order.getDepositAmount()==Constants.DEPOSIT_AMOUNT){
-//								order.setState("7");
-//								order.setIsPay("0");
-//							}else {
-//								order.setState("1");
-//								order.setIsPay("1");
-//							}
-//							orderService.updateObj(order);
-//						}
-						this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
+						trade.setStatus(1);
+						orderService.updateTrade(trade);
+						List orderlist=orderService.getListByWhere(new StringBuffer(" and n.tradeNo='"+trade.getTrade_id()+"'"));
+						if(orderlist!=null&&orderlist.size()>0){
+							Order order=(Order) orderlist.get(0);
+							//支付总额小于20000（系统定义）的金额
+							//状态为7-已付定金。
+							if (order.getDepositAmount()==Constants.DEPOSIT_AMOUNT){
+								order.setState("7");
+								order.setIsPay("0");
+							}else {
+								order.setState("1");
+								order.setIsPay("1");
+							}
+							orderService.updateObj(order);
+						}
+						this.putData("html", "<script>window.location.href=\"http://" + request.getServerName() + "/play_succeed-"+out_trade_no+".html?result=succeed\";</script>");
 					}else{
 						this.putData("html", "<script>window.location.href=\"http://www.guanhongshijia.com/chong_succeed-"+out_trade_no+".html?result=succeed&money="+trade.getMoney()+"\";</script>");
 					}
