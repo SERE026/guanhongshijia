@@ -931,10 +931,10 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 //									curentPoint-=h_p;
 //								}
 //							}
-//							System.out.println("5------"+pointPrice);
-							//设置抵扣积分
-							order.setPointPrice(pointPrice);
-							order.setOrderPrice(order.getOrderPrice() - pointPrice);
+////							System.out.println("5------"+pointPrice);
+//							//设置抵扣积分
+//							order.setPointPrice(pointPrice);
+//							order.setOrderPrice(order.getOrderPrice() - pointPrice);
 //							if(order.getOrderPrice() <= 0){//如果积分抵扣全额,则直接变更为已支付
 //								order.setIsPay("1");
 //								order.setState("1");
@@ -1046,16 +1046,16 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 
 					info.setPaytime(time);
 					info.setIpaytime(t);
-					HuiyuanInfo h=info.getHuiyuan();
-					h.setJf(h.getJf()+info.getPoint());
-					Loginfo log=new Loginfo();
-					log.setHuiyuan(h);
-					log.setJf(info.getPoint());
-					log.setTime(time);
-					log.setType("0");
-					log.setExplain("购物赠送积分："+info.getPoint());
-					this.huiyuanDao.addObj(log);
-					this.huiyuanDao.updateObj(h);
+//					HuiyuanInfo h=info.getHuiyuan();
+//					h.setJf(h.getJf()+info.getPoint());
+//					Loginfo log=new Loginfo();
+//					log.setHuiyuan(h);
+//					log.setJf(info.getPoint());
+//					log.setTime(time);
+//					log.setType("0");
+//					log.setExplain("购物赠送积分："+info.getPoint());
+//					this.huiyuanDao.addObj(log);
+//					this.huiyuanDao.updateObj(h);
 					this.updateObj(info);
 					
 					//添加店铺流水信息
