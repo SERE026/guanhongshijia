@@ -907,45 +907,45 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 //							System.out.println("*-------"+order.getOrderPrice());
 //							System.out.println("0------"+pointPrice);
 							//积分抵扣
-							if(point!=null&&curentPoint>0){
-								int h_p=curentPoint;//当前需要抵扣的积分
-//								System.out.println("1------"+h_p);
-								if(h_p>0 && member.getJf()>=h_p){
-									pointPrice=h_p/j_x.getJffa_jfdk();//积分转换为钱
-//									System.out.println("2------"+pointPrice);
-//									System.out.println("3------"+order.getOrderPrice());
-									if(pointPrice>order.getOriginalPrice()){//如果可以进行支付
-										h_p=(int) Math.round(order.getOriginalPrice()*j_x.getJffa_jfdk());
-									}
-									pointPrice=h_p/j_x.getJffa_jfdk();
-//									System.out.println("4------"+pointPrice);
-									member.setJf(member.getJf()-h_p);
-									huiyuanDao.updateObj(member);
-									Loginfo log=new Loginfo();
-									log.setHuiyuan(member);
-									log.setJf(-h_p);
-									log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-									log.setType("0");
-									log.setExplain("购物消费积分："+h_p);
-									huiyuanDao.addObj(log);
-									curentPoint-=h_p;
-								}
-							}
+//							if(point!=null&&curentPoint>0){
+//								int h_p=curentPoint;//当前需要抵扣的积分
+////								System.out.println("1------"+h_p);
+//								if(h_p>0 && member.getJf()>=h_p){
+//									pointPrice=h_p/j_x.getJffa_jfdk();//积分转换为钱
+////									System.out.println("2------"+pointPrice);
+////									System.out.println("3------"+order.getOrderPrice());
+//									if(pointPrice>order.getOriginalPrice()){//如果可以进行支付
+//										h_p=(int) Math.round(order.getOriginalPrice()*j_x.getJffa_jfdk());
+//									}
+//									pointPrice=h_p/j_x.getJffa_jfdk();
+////									System.out.println("4------"+pointPrice);
+//									member.setJf(member.getJf()-h_p);
+//									huiyuanDao.updateObj(member);
+//									Loginfo log=new Loginfo();
+//									log.setHuiyuan(member);
+//									log.setJf(-h_p);
+//									log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+//									log.setType("0");
+//									log.setExplain("购物消费积分："+h_p);
+//									huiyuanDao.addObj(log);
+//									curentPoint-=h_p;
+//								}
+//							}
 //							System.out.println("5------"+pointPrice);
 							//设置抵扣积分
 							order.setPointPrice(pointPrice);
 							order.setOrderPrice(order.getOrderPrice() - pointPrice);
-							if(order.getOrderPrice() <= 0){//如果积分抵扣全额,则直接变更为已支付
-								order.setIsPay("1");
-								order.setState("1");
-								//order.setOrderPrice(0.0);
-								for(OrderProduct op : order.getOrderProductList()){
-									Goods good = op.getProduct().getGood();
-									good = (Goods)goodsDAO.getObjById(good.getGoods_id()+"");
-									good.setNum(good.getNum()+op.getNum());
-									goodsDAO.updateObj(good);
-								}
-							}
+//							if(order.getOrderPrice() <= 0){//如果积分抵扣全额,则直接变更为已支付
+//								order.setIsPay("1");
+//								order.setState("1");
+//								//order.setOrderPrice(0.0);
+//								for(OrderProduct op : order.getOrderProductList()){
+//									Goods good = op.getProduct().getGood();
+//									good = (Goods)goodsDAO.getObjById(good.getGoods_id()+"");
+//									good.setNum(good.getNum()+op.getNum());
+//									goodsDAO.updateObj(good);
+//								}
+//							}
 							
 							order.setGoodsPrice(goodPrice-actPrice);
 							order.setDlyType((Dlytype)dlytypeDao.getObjById(dly_id));
