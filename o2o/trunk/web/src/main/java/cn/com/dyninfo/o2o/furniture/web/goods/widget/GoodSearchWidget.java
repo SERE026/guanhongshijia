@@ -34,7 +34,7 @@ public class GoodSearchWidget extends Widget {
 
 	@Resource
 	private GoodsService goodsService;
-	
+
 	@Resource
 	private PagModInGoodsService pagModInGoodsService;
 

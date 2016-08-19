@@ -1228,8 +1228,7 @@
     // 搜索按钮
     $(".search").click(function () {
         var date=$(".Search-Text").val();
-        alert(date)
-        /*if(date==''||date==null){
+        if(date==''||date==null){
             alert("请输入搜索的宝贝！");
         }
         var html = "<form id=\"searchFrom\" action=\"" + servicePath + "/goodSearch.html\" method=\"post\">";
@@ -1238,7 +1237,7 @@
         if($(".Search-Text").val().length>0){
             $(window.document.body).append(html);
             $("#searchFrom").submit();
-        }*/
+        }
     });
 
 </script>
