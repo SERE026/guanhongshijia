@@ -101,7 +101,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab05">
   <tr>
     <td>寄送至：<span class="toAddress"></span></td>
-      <td width="26%"><span class="STYLE20 orderMoney">应付总额：</span></td>
+      <td width="26%"><span class="STYLE20">应付总额：</span><span class="STYLE20 orderMoney"></span></td>
   </tr>
 </table>
 </div>
@@ -114,7 +114,7 @@
 <script>
     $(".test").change(function () {
         var sameUse = $(this).attr('sameUse');
-        var zongjia = parseInt($("#zongjia").val());
+        var zongjia = Number($(".s_money").text());
         var canUse = false;
         var index = $(this).index('.test');
         var totalReduceValue = 0; //所有满减的金额
@@ -123,7 +123,7 @@
             //如果不可同时使用，先不考虑其他已选的优惠券
             var constraintValue = Number($(this).attr("constraintValue"));
             //判断是否满足条件
-            if (zongjia > constraintValue) {
+            if (zongjia >= constraintValue) {
                 //计算折扣金额，取消其他选中
                 canUse = true;
                 for (var i = 0; i < $('.test').length ; i++) {
@@ -132,13 +132,16 @@
                     }
                 }
                 if ($(this).attr("couponType") == 1) {
-                    totalReduceValue = parseInt($(this).attr("reduceValue"));
+                    //获取折扣金额
+                    totalReduceValue = Number($(this).attr("reduceValue"));
                 } else {
-                    totalDiscountValue = (1 - $(this).attr("discountValue"));
+                    //获取折扣率
+                    totalDiscountValue =(Number($(this).attr("discountValue"))/Number(10));
                 }
             }
 
         } else {
+
             //获取所有sameUse==1，并且已选中的，判断是否满足使用条件
             var totalReduceConstraintValue = 0; //所有选中满减优惠券的约束金额，必须小于总价
             var totalDiscountContraintValue = 0; //所有折扣优惠券的约束金额，必须小于总价 - totalConstraintValue
@@ -164,9 +167,15 @@
             }
         }
         if (canUse) {
-            //计算所有的折扣
+            //计算折扣金额
             totalReduceValue += parseInt(zongjia * (1 - totalDiscountValue));
+            //计算应付总额
+            var orderMomey= Number($(".orderMoney").text());
+            orderMomey=Number(orderMomey-totalReduceValue);
+            $('.orderMoney').text(orderMomey);
+            //显示优惠金额
             $('.jie').text(totalReduceValue);
+            //显示实际支付金额
             $(".mmm").text(Number(zongjia - totalReduceValue));
         } else {
             //清除选中状态，提示不满足使用条件
