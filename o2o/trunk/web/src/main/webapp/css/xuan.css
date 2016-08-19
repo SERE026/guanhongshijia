@@ -241,7 +241,7 @@ input:focus,textarea:focus { outline: none !important;  }
 
 
 
-.kuai{ width:100%; height:auto; min-width:1200px;margin-top: 20px}
+.kuai{ width:100%; height:auto; min-width:1200px;margin-top: 20px;overflow: hidden;}
 .index_fumeu{width:1200px; height:auto;margin-top:-396px; position:relative; z-index:100}
 *html .index_fumeu{width:1200px; height:auto; margin-top:-396px}
 *+html .index_fumeu{width:1200px; height:auto; margin-top:-396px}
@@ -1154,7 +1154,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 
 
 .nvrejie{width:1200px; height:auto;margin:auto; }
-.nvrenjie_da{width:1200px; height:auto;margin-top:60px;}
+.nvrenjie_da{width:1200px; height:auto;margin-top:60px;display: none;}
 .nvrenjie_bg{ width:1200px;  height:auto; margin-top:0;background-color:#f3f3f3}
 .nvrenjie_kuai{ width:983px; height:195px; margin:25px 0 0 90px; background-color:#ffffff;}
 .nvrenjie_kuai_xian{ width:983px; height:35px; margin:0 0 0 90px; background-image:url(../img/nvrejie_xian.gif); background-repeat:repeat-x;;}
