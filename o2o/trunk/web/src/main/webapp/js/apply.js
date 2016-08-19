@@ -17,7 +17,11 @@ $(function(){
 		if(checkData()){
 		submitData();}
 	})
+	$(".applyFor a").click(function () {
+		$(".nvrenjie_da").show();
+	})
 })
+
 function submitData(){
 	var data="";
 	data+="&name="+$(".name").val();

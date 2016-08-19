@@ -506,7 +506,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .spdet_r_titou_an{width:158px; height:41px; float:left; border-right:#dddddd solid 1px; background-color:#ffffff;line-height:41px; text-align:center; color:#f0125b; font-size:14px; font-weight:bold;}
 .spdet_r_titou_an a{width:158px; height:41px; display:block}
 .spdet_tuwen{height:auto; overflow:hidden}
-.spdet_tuwen_ti{ width:748px; height:34px; overflow:hidden; margin-top:20px; margin-left:20px}
+.spdet_tuwen_ti{ width:1000px; height:34px; overflow:hidden; margin-top:20px; margin-left:20px}
 .spdet_tuwen_kuai{ width:auto; height:auto; overflow:hidden;margin-left:20px;word-wrap: break-word;}
 .shaidan{ width:990px; height:auto; margin:auto; background-color:#FFFFFF; clear:both}
 .shaidan_ti{ width:990px; height:34px; margin-top:20px}
@@ -1081,7 +1081,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 .hddet_da_leftakk{width:772px;height:auto;border:#e2e2e2 solid 1px; border-bottom:none; margin-left:4px; padding-bottom:30px}
 .hd_daleft_top{ width:722px; height:auto;font-size:24px; line-height:35px;color:#000000; margin-top:20px; margin-left:25px;font-family:"微软雅黑"; font-weight:600;overflow:hidden;}
 
-.hd_daleft_zong{ width:778px; height:auto; margin-left:5px; margin-top:-70px}
+.hd_daleft_zong{ width:778px; height:auto; margin-left:5px; margin-top:0px;overflow: hidden;}
 .hd_daleft_zong_left{ width:253px; height:518px; float:left; background-color:#f5f5f5;border:#e2e2e2 solid 1px; border-top:none; border-right:none}
 .hd_fudong{ width:308px; height:69px; background-image:url(../img/hd_piao.gif); background-repeat:no-repeat; position:relative; top:0; left:0; z-index:999}
 .hd_fudong_jia2{ width:auto; height:65px; line-height:71px; overflow:hidden; float:left; margin-left:16px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#fefcfd; font-size:24px; display:inline}
@@ -1107,7 +1107,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 .hddat_titou{width:776x; height:41px; margin-left:5px; margin-top:20px;border:#dddddd solid 1px;background-image:url(../img/spdet_hengbg.gif); background-repeat:repeat-x;}
 .hddat_titou_an{width:158px; height:41px; float:left; border-right:#dddddd solid 1px; background-color:#ffffff;line-height:41px; text-align:center; color:#f0125b; font-size:14px; font-weight:bold;}
 .hddat_titou_an a{width:158px; height:41px; display:block}
-.hddat_tuwen_kuai{ width:730px; height:auto; overflow:hidden;margin-left:20px; margin-top:40px; color:#454545; line-height:20px;}
+.hddat_tuwen_kuai{ width:1000px; height:auto; overflow:hidden;margin-left:20px; margin-top:40px; color:#454545; line-height:20px;}
 
 .hddet_da_right{width:199px;height:auto; float:right;}
 .hddet_da_right_top{ width:188px; height:40px; background-color:#333333; line-height:40px; font-size:14px; font-family:"微软雅黑"; color:#ffffff; padding-left:9px;border:#333333 solid 1px; border-bottom:none; }
