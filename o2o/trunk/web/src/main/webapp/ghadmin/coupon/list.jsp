@@ -117,8 +117,7 @@
 					<c:forEach var='Info' items='${coupomList}' varStatus='index'>
 						<tr>
 							<td>
-								<input id="
-								" name="list" type="checkbox" value="${Info.id}" />
+								<input id="list" name="list" type="checkbox" value="${Info.id}" />
 							</td>
 
 							<td>
