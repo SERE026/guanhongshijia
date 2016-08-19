@@ -6,6 +6,7 @@ import cn.com.dyninfo.o2o.entity.Category;
 import cn.com.dyninfo.o2o.entity.CategoryThree;
 import cn.com.dyninfo.o2o.entity.CategoryTwo;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
@@ -76,7 +77,7 @@ public class AppCategoryController extends BaseAppController {
                     category.setTitle(list.get(i).getName());
                 }
                 if(list.get(i).getImagesrc()!=null){
-                    category.setImageUrl(list.get(i).getImagesrc());
+                    category.setImageUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+list.get(i).getImagesrc());
                 }
                 category.setSortOrder(list.get(i).getIndex());
                 lists.add(category);
@@ -131,7 +132,7 @@ public class AppCategoryController extends BaseAppController {
                         category.setTitle(list.get(i).getName());
                     }
                     if(list.get(i).getImagesrc()!=null){
-                        category.setImageUrl(list.get(i).getImagesrc());
+                        category.setImageUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+list.get(i).getImagesrc());
                     }
                     category.setSortOrder(list.get(i).getIndex());
 
@@ -147,7 +148,7 @@ public class AppCategoryController extends BaseAppController {
                                 categoryThree.setId(String.valueOf(goodsList.get(j).getGoodsSort_id()));
                             }
                             if(goodsList.get(j).getImagesrc()!=null){
-                                categoryThree.setImageUrl(goodsList.get(j).getImagesrc());
+                                categoryThree.setImageUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goodsList.get(j).getImagesrc());
                             }
                             if(goodsList.get(j).getName()!=null){
                                 categoryThree.setTitle(goodsList.get(j).getName());
@@ -209,7 +210,7 @@ public class AppCategoryController extends BaseAppController {
                     category.setTitle(list.get(i).getName());
                 }
                 if(list.get(i).getImagesrc()!=null){
-                    category.setImageUrl(list.get(i).getImagesrc());
+                    category.setImageUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+list.get(i).getImagesrc());
                 }
                 category.setSortOrder(list.get(i).getIndex());
                 lists.add(category);

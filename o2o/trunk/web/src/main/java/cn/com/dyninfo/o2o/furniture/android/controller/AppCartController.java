@@ -15,6 +15,7 @@ import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
+import cn.com.dyninfo.o2o.furniture.web.goods.dao.GoodsDAO;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
@@ -62,6 +63,8 @@ public class AppCartController extends BaseAppController {
     @Resource
     private CarsService carsService;
 
+    @Resource
+    private GoodsDAO goodsDAO;
     @Resource
     private AppLoginStatusService appLoginStatusService;
 
@@ -195,8 +198,13 @@ public class AppCartController extends BaseAppController {
                     cartItem.setCount(list.get(i).getNum()); //数量
                     GoodsDetail goodsDetail = new GoodsDetail();
                     Goods goods=list.get(i).getGoods();
-                    if (list.get(i).getSpecVal()!=null) {
-                        goodsDetail.setSpecVal(list.get(i).getSpecVal());//在购物车这里是规格
+//                    if (list.get(i).getSpecVal()!=null) {
+//                        goodsDetail.setSpecVal(list.get(i).getSpecVal());//在购物车这里是规格
+//                    }
+
+                    List<Map> speclist=goodsDAO.getGoodsSpec(list.get(i).getGoods().getGoods_id(), list.get(i).getSpecVal());
+                    if(!ValidationUtil.isEmpty(speclist)) {
+                        goodsDetail.setSpecMap(speclist);//在购物车这里是规格
                     }
                     //获取商品参数属性
 //                    List<cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSpec> goodsSpecs=goods.getSpecList();
