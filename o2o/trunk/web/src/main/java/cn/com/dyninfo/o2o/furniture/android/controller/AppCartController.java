@@ -5,7 +5,10 @@ import cn.com.dyninfo.o2o.communication.AddCartRequest;
 import cn.com.dyninfo.o2o.communication.AddCartResult;
 import cn.com.dyninfo.o2o.communication.CartListRequest;
 import cn.com.dyninfo.o2o.communication.CartListResult;
-import cn.com.dyninfo.o2o.entity.*;
+import cn.com.dyninfo.o2o.entity.Cart;
+import cn.com.dyninfo.o2o.entity.CartItem;
+import cn.com.dyninfo.o2o.entity.GoodsDetail;
+import cn.com.dyninfo.o2o.entity.GoodsSpec;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
@@ -13,7 +16,6 @@ import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
-import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSpecVal;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
@@ -32,6 +34,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -94,23 +97,38 @@ public class AppCartController extends BaseAppController {
                 appLoginStatus=appLoginStatusList.get(0);
             }
         }
+        String sepcVal=addCartRequest.getGoodSpecVal();
         if (!ValidationUtil.isEmpty(appLoginStatus)) {
             info = appLoginStatus.getHuiyuan();
         }
+        Map map =new HashMap();
         if (!ValidationUtil.isEmpty(info)) {
             String id = addCartRequest.getGoodsId();
             int count = addCartRequest.getCount();
             Goods goods= (Goods) goodsService.getObjById(id);
-            CarsBox carsBox=new CarsBox();
-            carsBox.setMember(info);
-            carsBox.setGoods(goods);
-            carsBox.setSpecVal("");
-            carsBox.setActInfo("|");
-            carsBox.setNum(count);
-            carsBox.setPrice(goods.getGoodMoney());
-            carsService.addObj(carsBox);
-            result.setResultCode(SUCCESS);
-            result.setMessage("OK");
+//            CarsBox carsBox=new CarsBox();
+//            carsBox.setMember(info);
+//            carsBox.setGoods(goods);
+//            String sepcVal=carsService.checkGoodSpecVal(id, "");
+//            String specVal="";
+//            String specs[]=addCartRequest.;
+//            if(specs!=null){
+//                for(String s:specs){
+//                    specVal=s+(specVal.length()>0?"|"+specVal:"");
+//                }
+//            }
+
+//            carsBox.setSpecVal(sepcVal);
+//            carsBox.setActInfo("|");
+//            carsBox.setNum(count);
+//            carsBox.setPrice(goods.getGoodMoney());
+//            carsService.addObj(carsBox);
+            map=carsService.addGoodsApp(goods.getGoodMoney(),
+                    count,goods.getGoods_id(),sepcVal,info.getHuiYuan_id() ,"|");
+            if(map!=null) {
+                result.setResultCode(SUCCESS);
+                result.setMessage("OK");
+            }
         }
         else {
             result.setResultCode(NO_LOGIN);
@@ -177,34 +195,36 @@ public class AppCartController extends BaseAppController {
                     cartItem.setCount(list.get(i).getNum()); //数量
                     GoodsDetail goodsDetail = new GoodsDetail();
                     Goods goods=list.get(i).getGoods();
-
-                    //获取商品参数属性
-                    List<cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSpec> goodsSpecs=goods.getSpecList();
-                    if(!ValidationUtil.isEmpty(goodsSpecs)) {
-                        for (int f = 0; f < goodsSpecs.size(); f++) {
-                            GoodsSpec goodsSpec = new GoodsSpec();
-                            if (goodsSpecs.get(f).getStatus() == 0) {
-                                goodsSpec.setId(goodsSpecs.get(f).getGoods_spec_id());//参数类型ID
-                                goodsSpec.setName(goodsSpecs.get(f).getName());//参数类型名称
-                                List<GoodsSpecVal> goodsSpecValList = goodsSpecs.get(f).getValList(); //后台数据
-                                List<GoodsSpecValue> specValueList = new ArrayList<GoodsSpecValue>();//安卓实体
-                                if(!ValidationUtil.isEmpty(goodsSpecValList)) {
-                                    for (int j = 0; j < goodsSpecValList.size(); j++) {
-                                        if (goodsSpecs.get(f).getGoods_spec_id().equals(goodsSpecValList.get(j).getSpec().getGoods_spec_id())) {
-                                            GoodsSpecValue goodsSpecValuej = new GoodsSpecValue();
-                                            goodsSpecValuej.setId(goodsSpecValList.get(j).getSpec_val_id()); //参数ID
-                                            goodsSpecValuej.setValue(goodsSpecValList.get(j).getVal());//参数值
-                                            specValueList.add(goodsSpecValuej);
-
-                                        }
-                                    }
-                                }
-                                goodsSpec.setSpecValueList(specValueList);
-                                specList.add(goodsSpec);
-                            }
-                        }
-                        goodsDetail.setSpecList(specList);
+                    if (list.get(i).getSpecVal()!=null) {
+                        goodsDetail.setSpecVal(list.get(i).getSpecVal());//在购物车这里是规格
                     }
+                    //获取商品参数属性
+//                    List<cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSpec> goodsSpecs=goods.getSpecList();
+//                    if(!ValidationUtil.isEmpty(goodsSpecs)) {
+//                        for (int f = 0; f < goodsSpecs.size(); f++) {
+//                            GoodsSpec goodsSpec = new GoodsSpec();
+//                            if (goodsSpecs.get(f).getStatus() == 0) {
+//                                goodsSpec.setId(goodsSpecs.get(f).getGoods_spec_id());//参数类型ID
+//                                goodsSpec.setName(goodsSpecs.get(f).getName());//参数类型名称
+//                                List<GoodsSpecVal> goodsSpecValList = goodsSpecs.get(f).getValList(); //后台数据
+//                                List<GoodsSpecValue> specValueList = new ArrayList<GoodsSpecValue>();//安卓实体
+//                                if(!ValidationUtil.isEmpty(goodsSpecValList)) {
+//                                    for (int j = 0; j < goodsSpecValList.size(); j++) {
+//                                        if (goodsSpecs.get(f).getGoods_spec_id().equals(goodsSpecValList.get(j).getSpec().getGoods_spec_id())) {
+//                                            GoodsSpecValue goodsSpecValuej = new GoodsSpecValue();
+//                                            goodsSpecValuej.setId(goodsSpecValList.get(j).getSpec_val_id()); //参数ID
+//                                            goodsSpecValuej.setValue(goodsSpecValList.get(j).getVal());//参数值
+//                                            specValueList.add(goodsSpecValuej);
+//
+//                                        }
+//                                    }
+//                                }
+//                                goodsSpec.setSpecValueList(specValueList);
+//                                specList.add(goodsSpec);
+//                            }
+//                        }
+//                        goodsDetail.setSpecList(specList);
+//                    }
 
 
 
@@ -226,9 +246,9 @@ public class AppCartController extends BaseAppController {
                     if(goods.getDefaultImage()!=null){
                         goodsDetail.setDefaultImage(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goods.getDefaultImage());
                     }
-                    if (goods.getDescription() != null) {
-                        goodsDetail.setGoodsDesc(goods.getDescription()); //商品详情，html格式
-                    }
+//                    if (goods.getDescription() != null) {
+//                        goodsDetail.setGoodsDesc(goods.getDescription()); //商品详情，html格式
+//                    }
                     //  cartItem.setSpecValue();//商品参数值，内部已关联了对应的商品参数
                     cartItem.setGoodsDetail(goodsDetail);  //商品信息
                     itemList.add(cartItem);

@@ -121,7 +121,10 @@ public class CarsServiceImpl extends BaseService implements CarsService {
 			 
 		}
 	}
-	
+	@Override
+	public Map addGoodsApp(Double Money,int num,int good_id,String specVal,int huiYuan_id,String actInfo) {
+			return carsDAO.addGoodsApp(Money, num, good_id, specVal,huiYuan_id,actInfo);
+	}
 	/**
 	 * 检查活动有效性
 	 * @param act_id

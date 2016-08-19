@@ -13,21 +13,16 @@
 
 package cn.com.dyninfo.o2o.furniture.web.order.dao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
+import cn.com.dyninfo.o2o.furniture.admin.dao.BaseDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import cn.com.dyninfo.o2o.furniture.admin.dao.BaseDAO;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.*;
 
 @Repository("carsDAO")
 public class CarsDAO extends BaseDAO {
@@ -174,6 +169,51 @@ public class CarsDAO extends BaseDAO {
 					map.put("CARS_BOX_ID", CARS_BOX_ID);
 					map.put("Money", Money-Double.parseDouble(actInfo.split("\\|")[1]));
 				}
+			}
+			st.close();
+			con.close();
+			this.releaseSession(session);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return map;
+	}
+
+	/**
+	 * 安卓添加购物车
+	 * @param Money
+	 * @param num
+	 * @param specVal
+	 * @param member_id
+	 */
+	public Map addGoodsApp(Double Money,int num,int good_id,String specVal,
+						int member_id,String actInfo) {
+		Session session=this.getSession();
+		Map map=new HashMap	();
+		try{
+			Connection con=session.connection();
+			Statement st=con.createStatement();
+			ResultSet rs=st.executeQuery("select NUM,PRICE,CARS_BOX_ID from T_CARS_BOX where GOOD_ID="+good_id+" and SPEC_VAL='"+specVal+"' and HUIYUAN_ID="+member_id+" and ACT_INFO='"+actInfo+"' ");
+			if(rs.next()){
+				int rnum=rs.getInt(1);
+				Double rprice=rs.getDouble(2);
+				String CARS_BOX_ID=rs.getString(3);
+				if(rprice<Money){
+					st.executeUpdate("update T_CARS_BOX set NUM="+(rnum+num)+" where CARS_BOX_ID='"+CARS_BOX_ID+"' ");
+				}else{
+					st.executeUpdate("update T_CARS_BOX set NUM="+(rnum+num)+",PRICE="+Money+" where CARS_BOX_ID='"+CARS_BOX_ID+"' ");
+				}
+				map.put("CARS_BOX_ID", CARS_BOX_ID);
+				map.put("Money", Money);
+				rs.close();
+			}else{
+				String CarId=UUID.randomUUID().toString().replace("-", "");
+					st.executeUpdate(" insert into T_CARS_BOX (CARS_BOX_ID,GOOD_ID,NUM,PRICE,HUIYUAN_ID,SPEC_VAL,ACT_INFO) " +
+							"values('"+CarId+"',"+good_id+","+num+","
+							+Money+","
+							+member_id+",'"+specVal+"','"+actInfo+"') ");
+				map.put("CARS_BOX_ID", CarId);
+				map.put("Money", Money);
 			}
 			st.close();
 			con.close();

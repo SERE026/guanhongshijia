@@ -36,7 +36,18 @@ public interface CarsService extends IBaseService{
 	 * @param actMoney
 	 */
 	public Map addGoods(Double Money,int num,int good_id,HttpServletResponse response,HttpServletRequest request,String specVal,String actId,Double actMoney);
-	
+
+	/**
+	 * 安卓加入购物车
+	 * @param Money
+	 * @param num
+	 * @param good_id
+	 * @param specVal
+	 * @param huiYuan_id
+	 * @param actInfo
+	 */
+	public Map addGoodsApp(Double Money,int num,int good_id,String specVal,int huiYuan_id,String actInfo);
+
 	public List getGoods(HttpServletRequest request);
 	
 	
