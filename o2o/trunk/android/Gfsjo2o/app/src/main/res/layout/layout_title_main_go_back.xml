@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -120,7 +121,7 @@
         />
 
 
-    <RelativeLayout
+    <android.support.percent.PercentRelativeLayout
         android:id="@+id/rl_brand"
         android:layout_marginTop="105dp"
         android:layout_width="wrap_content"
@@ -131,8 +132,8 @@
             android:layout_alignParentRight="true"
             android:id="@+id/iv_more_right"
             android:layout_width="wrap_content"
+            app:layout_marginRightPercent="5%"
             android:layout_height="wrap_content"
-            android:layout_marginRight="77.5dp"
             android:layout_centerInParent="true"
             android:src="@drawable/icon_more_right"
             />
@@ -178,9 +179,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            app:layout_marginRightPercent="5%"
             android:src="@drawable/icon_more_left"
             android:visibility="gone"
             />
-    </RelativeLayout>
+    </android.support.percent.PercentRelativeLayout>
 
-</RelativeLayout>
+</android.support.percent.PercentRelativeLayout>

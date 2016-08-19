@@ -28,9 +28,9 @@ public class GlobalUtils {
     //获取二级类别列表命令
     public static final String CATEGORY_SUB_URL = SERVER_URL + "/category/sub";
     //根据商品品牌列表
-    public static final String GOODS_LIST_BY_BRAND_URL = SERVER_URL + "goods/listByBrand";
+    public static final String GOODS_LIST_BY_BRAND_URL = SERVER_URL + "/goods/listByBrand";
     //根据品牌下的商品列表
-    public static final String GOODS_LIST_BY_CATEGORY_URL = SERVER_URL + "goods/listByCategory";
+    public static final String GOODS_LIST_BY_CATEGORY_URL = SERVER_URL + "/goods/listByCategory";
     //商品详情命令
     public static final String GOODS_DETAIL_URL = SERVER_URL + "/goods/detail";
     //获取轮播商品命令

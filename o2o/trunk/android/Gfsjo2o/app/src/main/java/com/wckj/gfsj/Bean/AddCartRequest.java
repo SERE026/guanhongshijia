@@ -17,6 +17,16 @@ public class AddCartRequest extends BaseRequest {
 
     private int count;
 
+    private String goodSpecVal;
+
+    public String getGoodSpecVal() {
+        return goodSpecVal;
+    }
+
+    public void setGoodSpecVal(String goodSpecVal) {
+        this.goodSpecVal = goodSpecVal;
+    }
+
     private List<GoodsSpecValue> goodsSpecValueList;
 
     public String getGoodsId() {

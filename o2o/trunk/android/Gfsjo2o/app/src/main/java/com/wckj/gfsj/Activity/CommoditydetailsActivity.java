@@ -12,9 +12,12 @@ import com.wckj.gfsj.Adapter.CommoditydetailsAdapter;
 import com.wckj.gfsj.Alipay.PayUtils;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.AddCartRequest;
+import com.wckj.gfsj.Bean.AddCartResult;
 import com.wckj.gfsj.Bean.AddFavoritesRequest;
 import com.wckj.gfsj.Bean.GoodsDetailRequest;
 import com.wckj.gfsj.Bean.GoodsDetailResult;
+import com.wckj.gfsj.Bean.entity.GoodsSpec;
+import com.wckj.gfsj.Bean.entity.GoodsSpecValue;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
@@ -35,11 +38,12 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     private ViewPager vp_commodity_pic;
     private List<String> imageList;
     private TitleRelativeLayout title_rl;
-    private TextView tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type,tv_color_1,tv_specification,tv_sale_count,tv_color_2,tv_color_3,tv_color_4,tv_color_5;
+    private TextView tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type_1,tv_type_2,tv_type_3,tv_type_4,tv_type_5,tv_specification_1,tv_specification_2,tv_specification_3,tv_specification_4,tv_specification_5,tv_color_1,tv_sale_count,tv_color_2,tv_color_3,tv_color_4,tv_color_5;
     private ImageView iv_collect;
     private GoodsDetailResult result;
 
-    private String goodsId;
+    private String goodsId,colorId,typeId,specificationId;
+    private List<GoodsSpec> specList;
 
     @Override
     protected void init() {
@@ -69,14 +73,26 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         tv_title_name = (TextView) view.findViewById(R.id.tv_title_name);
         tv_title_desc = (TextView) view.findViewById(R.id.tv_title_desc);
         tv_prices = (TextView) view.findViewById(R.id.tv_prices);
-        tv_type = (TextView) view.findViewById(R.id.tv_type);
+
         tv_color_1 = (TextView) view.findViewById(R.id.tv_color_1);
         tv_color_2 = (TextView) view.findViewById(R.id.tv_color_2);
         tv_color_3 = (TextView) view.findViewById(R.id.tv_color_3);
         tv_color_4 = (TextView) view.findViewById(R.id.tv_color_4);
         tv_color_5 = (TextView) view.findViewById(R.id.tv_color_5);
 
-        tv_specification = (TextView) view.findViewById(R.id.tv_specification);
+        tv_type_1 = (TextView) view.findViewById(R.id.tv_type_1);
+        tv_type_2 = (TextView) view.findViewById(R.id.tv_type_2);
+        tv_type_3 = (TextView) view.findViewById(R.id.tv_type_3);
+        tv_type_4 = (TextView) view.findViewById(R.id.tv_type_4);
+        tv_type_5 = (TextView) view.findViewById(R.id.tv_type_5);
+
+        tv_specification_1 = (TextView) view.findViewById(R.id.tv_specification_1);
+        tv_specification_2 = (TextView) view.findViewById(R.id.tv_specification_2);
+        tv_specification_3 = (TextView) view.findViewById(R.id.tv_specification_3);
+        tv_specification_4 = (TextView) view.findViewById(R.id.tv_specification_4);
+        tv_specification_5 = (TextView) view.findViewById(R.id.tv_specification_5);
+
+
         tv_sale_count = (TextView) view.findViewById(R.id.tv_sale_count);
 
 
@@ -86,6 +102,18 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         tv_add_cart.setOnClickListener(this);
         iv_collect.setOnClickListener(this);
 
+        tv_type_1.setOnClickListener(this);
+        tv_type_2.setOnClickListener(this);
+        tv_type_4.setOnClickListener(this);
+
+        tv_color_1.setOnClickListener(this);
+        tv_color_2.setOnClickListener(this);
+        tv_color_3.setOnClickListener(this);
+
+        tv_specification_1.setOnClickListener(this);
+        tv_specification_2.setOnClickListener(this);
+        tv_specification_3.setOnClickListener(this);
+
         vp_commodity_pic = (ViewPager) view.findViewById(R.id.vp_commodity_pic);
         bindViewPage();//绑定viewpage
         return view;
@@ -93,8 +121,9 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
 
 
     private void bindViewPage() {
-
-        vp_commodity_pic.setAdapter(new CommoditydetailsAdapter(imageList,this));
+        if(imageList!=null){
+            vp_commodity_pic.setAdapter(new CommoditydetailsAdapter(imageList,this));
+        }
     }
 
     @Override
@@ -113,24 +142,92 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         tv_title_name.setText(result.getDetail().getName());
         tv_title_desc.setText(result.getDetail().getShortDesc());
         tv_prices.setText("￥ "+result.getDetail().getPrice());
-        tv_type.setText(result.getDetail().getType());
         tv_sale_count.setText("成交价格"+result.getDetail().getSaleCount()+"件");
         iv_collect.setImageResource(result.getDetail().getCollection().equals("收藏")?R.drawable.icon_collect_normal:R.drawable.icon_collect_press);
-//        tv_color.setText();
-//        tv_specification
+
+        specList =  result.getDetail().getSpecList();
+        if(specList!=null){
+            for (int i = 0; i <specList.size() ; i++) {
+                if(specList.get(i).getSpecValueList()!=null){
+                    List<GoodsSpecValue> specValueList = specList.get(i).getSpecValueList();
+                    switch (i){
+                            case 0://类型
+                                switch (specValueList.size()){
+                                    case 1:
+                                        tv_type_1.setVisibility(View.VISIBLE);
+                                        tv_type_1.setText(specValueList.get(0).getValue());
+                                        break;
+                                    case 2:
+                                        tv_type_1.setVisibility(View.VISIBLE);
+                                        tv_type_2.setVisibility(View.VISIBLE);
+                                        tv_type_1.setText(specValueList.get(0).getValue());
+                                        tv_type_2.setText(specValueList.get(1).getValue());
+                                        break;
+                                    case 3:
+                                        tv_type_1.setVisibility(View.VISIBLE);
+                                        tv_type_2.setVisibility(View.VISIBLE);
+                                        tv_type_4.setVisibility(View.VISIBLE);
+                                        tv_type_1.setText(specValueList.get(0).getValue());
+                                        tv_type_2.setText(specValueList.get(1).getValue());
+                                        tv_type_4.setText(specValueList.get(2).getValue());
+                                        break;
+                                }
+                                typeId=specValueList.get(0).getId();
+                                break;
+                            case 1://颜色
+                                switch (specValueList.size()){//三种颜色
+                                    case 1:
+                                        tv_color_1.setVisibility(View.VISIBLE);
+                                        tv_color_1.setText(specValueList.get(0).getValue());
+                                        break;
+                                    case 2:
+                                        tv_color_1.setVisibility(View.VISIBLE);
+                                        tv_color_2.setVisibility(View.VISIBLE);
+                                        tv_color_1.setText(specValueList.get(0).getValue());
+                                        tv_color_2.setText(specValueList.get(1).getValue());
+                                        break;
+                                    case 3:
+                                        tv_color_1.setVisibility(View.VISIBLE);
+                                        tv_color_2.setVisibility(View.VISIBLE);
+                                        tv_color_3.setVisibility(View.VISIBLE);
+                                        tv_color_1.setText(specValueList.get(0).getValue());
+                                        tv_color_2.setText(specValueList.get(1).getValue());
+                                        tv_color_3.setText(specValueList.get(2).getValue());
+                                        break;
+                                }
+                                colorId=specValueList.get(0).getId();
+                                break;
+                            case 2://规格
+                                switch (specValueList.size()){//三种颜色
+                                    case 1:
+                                        tv_specification_1.setVisibility(View.VISIBLE);
+                                        tv_specification_1.setText(specValueList.get(0).getValue());
+                                        break;
+                                    case 2:
+                                        tv_specification_1.setVisibility(View.VISIBLE);
+                                        tv_specification_2.setVisibility(View.VISIBLE);
+                                        tv_specification_1.setText(specValueList.get(0).getValue());
+                                        tv_specification_2.setText(specValueList.get(1).getValue());
+                                        break;
+                                    case 3:
+                                        tv_specification_1.setVisibility(View.VISIBLE);
+                                        tv_specification_2.setVisibility(View.VISIBLE);
+                                        tv_specification_3.setVisibility(View.VISIBLE);
+                                        tv_specification_1.setText(specValueList.get(0).getValue());
+                                        tv_specification_2.setText(specValueList.get(1).getValue());
+                                        tv_specification_3.setText(specValueList.get(2).getValue());
+                                        break;
+                                }
+                                specificationId=specValueList.get(0).getId();
+                                break;
+                }
+                }
+            }
+        }
     }
 
-    /**
-     * 设置颜色的背景选择
-     * @param id
-     */
-    private void setMainColor(int id){
-        tv_color_1.setBackgroundResource(R.id.tv_color_1==id?R.drawable.icon_details_color_select:0);
-        tv_color_2.setBackgroundResource(R.id.tv_color_2==id?R.drawable.icon_details_color_select:0);
-        tv_color_3.setBackgroundResource(R.id.tv_color_3==id?R.drawable.icon_details_color_select:0);
-        tv_color_4.setBackgroundResource(R.id.tv_color_4==id?R.drawable.icon_details_color_select:0);
-        tv_color_5.setBackgroundResource(R.id.tv_color_5==id?R.drawable.icon_details_color_select:0);
-    }
+
+
     /**
      * 商品详情命令
      */
@@ -161,6 +258,10 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                 break;
             case R.id.bt_buy://支付宝付款
 //                startActivity(new Intent(this,ShoppingCartActivity.class));
+                if(AppApplication.loginResult.getToken()==null){
+                    OwerToastShow.show("请先登录在购买哦！！！");
+                    return;
+                }
                 PayUtils.getInstance().pay(this,0.01+"","heheh","hahahhahahahahha");
                 break;
             case R.id.tv_add_cart://加入购物车
@@ -175,6 +276,45 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                  result.getDetail().setCollection( result.getDetail().getCollection().equals("收藏")?"已收藏":"收藏");
                 iv_collect.setImageResource(result.getDetail().getCollection().equals("收藏")?R.drawable.icon_collect_normal:R.drawable.icon_collect_press);
                 break;
+            case R.id.tv_color_1:
+                setMainColor(R.id.tv_color_1);
+                colorId=specList.get(1).getSpecValueList().get(0).getId();
+                break;
+            case R.id.tv_color_2:
+                setMainColor(R.id.tv_color_2);
+                colorId=specList.get(1).getSpecValueList().get(1).getId();
+                break;
+            case R.id.tv_color_3:
+                setMainColor(R.id.tv_color_3);
+                colorId=specList.get(1).getSpecValueList().get(2).getId();
+                break;
+            case R.id.tv_type_1:
+                setType(R.id.tv_type_1);
+                typeId=specList.get(0).getSpecValueList().get(0).getId();
+                break;
+            case R.id.tv_type_2:
+                setType(R.id.tv_type_2);
+                typeId=specList.get(0).getSpecValueList().get(1).getId();
+                break;
+            case R.id.tv_type_4:
+                setType(R.id.tv_type_4);
+                typeId=specList.get(0).getSpecValueList().get(2).getId();
+                break;
+            case R.id.tv_specification_1:
+                setSpecification(R.id.tv_specification_1);
+                specificationId=specList.get(2).getSpecValueList().get(0).getId();
+                break;
+            case R.id.tv_specification_2:
+                setSpecification(R.id.tv_specification_2);
+                specificationId=specList.get(2).getSpecValueList().get(1).getId();
+                break;
+            case R.id.tv_specification_3:
+                setSpecification(R.id.tv_specification_3);
+                specificationId=specList.get(2).getSpecValueList().get(2).getId();
+                break;
+
+
+
         }
     }
     /**
@@ -182,6 +322,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
      */
     private void addCollect() {
         AddFavoritesRequest request = new AddFavoritesRequest();
+
         request.setGoodsId(goodsId+"");
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.FAVORITES_ADD_URL, new ICallBack() {
             @Override
@@ -204,6 +345,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         AddCartRequest request = new AddCartRequest();
         request.setCount(1);
         request.setGoodsId(goodsId+"");
+        request.setGoodSpecVal(typeId+"|"+colorId+"|"+specificationId);
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.CART_ADD_URL, new ICallBack() {
             @Override
             public void onError(Call call, Exception e) {
@@ -212,8 +354,13 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
 
             @Override
             public void onSuccess(String response) {
-//                AddCartResult json = JSON.parseObject(response, AddCartResult.class);
-                OwerToastShow.show("购物车加入成功");
+                AddCartResult json = JSON.parseObject(response, AddCartResult.class);
+                if(json.getResultCode()==0){
+                    OwerToastShow.show("购物车加入成功");
+                }else {
+                    OwerToastShow.show("购物车加入失败");
+                }
+
             }
         });
     }
@@ -223,4 +370,34 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         super.onDestroy();
         title_rl. clearRegister();
     }
+
+    /**
+     * 设置颜色的背景选择
+     * @param id
+     */
+    private void setMainColor(int id){
+        tv_color_1.setBackgroundResource(R.id.tv_color_1==id?R.drawable.icon_details_color_select:0);
+        tv_color_2.setBackgroundResource(R.id.tv_color_2==id?R.drawable.icon_details_color_select:0);
+        tv_color_3.setBackgroundResource(R.id.tv_color_3==id?R.drawable.icon_details_color_select:0);
+        tv_color_4.setBackgroundResource(R.id.tv_color_4==id?R.drawable.icon_details_color_select:0);
+        tv_color_5.setBackgroundResource(R.id.tv_color_5==id?R.drawable.icon_details_color_select:0);
+    }
+
+    private void  setType(int id){
+        tv_type_1.setBackgroundResource(R.id.tv_type_1==id?R.drawable.icon_details_color_select:0);
+        tv_type_2.setBackgroundResource(R.id.tv_type_2==id?R.drawable.icon_details_color_select:0);
+        tv_type_4.setBackgroundResource(R.id.tv_type_4==id?R.drawable.icon_details_color_select:0);
+        tv_type_4.setBackgroundResource(R.id.tv_type_4==id?R.drawable.icon_details_color_select:0);
+        tv_type_5.setBackgroundResource(R.id.tv_type_5==id?R.drawable.icon_details_color_select:0);
+    }
+
+    private void  setSpecification(int id){
+        tv_specification_1.setBackgroundResource(R.id.tv_specification_1==id?R.drawable.icon_details_color_select:0);
+        tv_specification_2.setBackgroundResource(R.id.tv_specification_2==id?R.drawable.icon_details_color_select:0);
+        tv_specification_3.setBackgroundResource(R.id.tv_specification_3==id?R.drawable.icon_details_color_select:0);
+        tv_specification_4.setBackgroundResource(R.id.tv_specification_4==id?R.drawable.icon_details_color_select:0);
+        tv_specification_5.setBackgroundResource(R.id.tv_specification_5==id?R.drawable.icon_details_color_select:0);
+    }
+
+
 }

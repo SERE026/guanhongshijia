@@ -26,6 +26,30 @@ public class GoodsDetail extends BaseEntity {
     //默认图片
     private String defaultImage="";
 
+    //购物车规格
+    private String specVal="";
+
+    //商品类别
+//    private Category category;
+    //品牌
+    private Brand brand;
+    //销量
+    private int saleCount;
+    //图片列表
+    private List<String> imageList;
+    //商品详情，html格式
+    private String goodsDesc="";
+
+
+    public String getSpecVal() {
+        return specVal;
+    }
+
+    public void setSpecVal(String specVal) {
+        this.specVal = specVal;
+    }
+
+
     public String getDefaultImage() {
         return defaultImage;
     }
@@ -49,17 +73,6 @@ public class GoodsDetail extends BaseEntity {
     public void setType(String type) {
         this.type = type;
     }
-
-    //商品类别
-//    private Category category;
-    //品牌
-    private Brand brand;
-    //销量
-    private int saleCount;
-    //图片列表
-    private List<String> imageList;
-    //商品详情，html格式
-    private String goodsDesc;
 
     public String getName() {
         return name;

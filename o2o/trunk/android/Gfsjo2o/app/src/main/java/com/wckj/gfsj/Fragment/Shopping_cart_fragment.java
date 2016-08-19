@@ -12,7 +12,6 @@ import com.wckj.gfsj.Bean.CartListRequest;
 import com.wckj.gfsj.Bean.CartListResult;
 import com.wckj.gfsj.Bean.CreateOrderRequest;
 import com.wckj.gfsj.Bean.CreateOrderResult;
-import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
@@ -24,9 +23,6 @@ import com.wckj.gfsj.Utils.OwerToastShow;
 
 import java.util.List;
 
-import de.greenrobot.event.EventBus;
-import de.greenrobot.event.Subscribe;
-import de.greenrobot.event.ThreadMode;
 import okhttp3.Call;
 
 /**
@@ -42,7 +38,6 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
 
     @Override
     protected void init() {
-        EventBus.getDefault().register(this);
         loadPage.iv_networktext.setImageResource(R.drawable.icon_big_cart);
         loadPage.textView1.setText("你还没有相关订单");
         loadPage.textView2.setText("快去商品购物页选择其他商品吧！！！");
@@ -138,15 +133,6 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
     public void onClick(View v) {
 
     }
-    @Subscribe(threadMode = ThreadMode.MainThread)
-    public void onMainTimeEvent(TimeEvent time) {
-        if (tv_time != null) {
-            tv_time.setText(time.getTime());
-        }
-    }
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
+
+
 }
