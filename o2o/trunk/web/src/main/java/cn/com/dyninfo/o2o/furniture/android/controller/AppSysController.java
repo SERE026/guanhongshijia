@@ -135,11 +135,11 @@ public class AppSysController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
-        if (StringUtils.isBlank(smsRequest.getToken())) {
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("用户未登录");
-            return result;
-        }
+//        if (StringUtils.isBlank(smsRequest.getToken())) {
+//            result.setResultCode(NO_LOGIN);
+//            result.setMessage("用户未登录");
+//            return result;
+//        }
         String mobileNo = smsRequest.getMobileNo();//接收短信的手机号码
         int type = smsRequest.getType();//请求类型，1-找回登录密码；2-找回锁定密码
         //验证手机号是否存在，是否已验证
