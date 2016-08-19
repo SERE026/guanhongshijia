@@ -821,12 +821,12 @@ input:focus,textarea:focus { outline: none !important;  }
 
 .dingxiangda_k02{ width:940px; height:auto; line-height:41px;margin-top:74px; border:#f7e4a5 solid 1px; background-color:#fffcf3; margin-left:28px; padding-left:10px;font-size:14px; color:#454545}
 
-.dingxiangda_k03{ width:940px; height:auto;margin-left:28px;}
+.dingxiangda_k03{ width:1100px; height:auto;margin-left:28px;overflow: hidden;}
 .dingxiangda_k03_left{ width:70px; height:auto;margin-top:15px; float:left; color:#454545; margin-left:10px}
 .dingxiangda_k03_right{ width:955px; height:auto;margin-top:14px; line-height:22px;float:left;color:#454545}
 
-.dingxiangda_k04{width:1112px; height:auto;margin-left:38px; margin-top:15px;border:#aec7e5 solid 1px;}
-.dingxiang04_ti{ width:1074px; height:30px; line-height:30px; margin-left:28px;font-size:12px; font-weight:bold;color:#000000; border-bottom:#dddddd solid 1px; margin-top:15px}
+.dingxiangda_k04{width:1112px; height:auto;margin-left:28px; margin-top:15px;border:#aec7e5 solid 1px;}
+.dingxiang04_ti{ width:1074px; height:30px; line-height:30px; margin-left:20px;font-size:12px; font-weight:bold;color:#000000; border-bottom:#dddddd solid 1px; margin-top:15px}
 .dingxiang04_kk{ width:1074px; min-height:75px; height:auto; margin-left:20px;border-bottom:#dddddd solid 1px;}
 .dingxiang04_kk_aa{ width:880px; height:auto; line-height:15px;line-height:25px; margin-top:15px;color:#454545}
 .dingxiang04_kk_bb{ width:1074px; height:auto; border:#dddddd solid 1px; border-bottom:none;margin-top:15px;}
@@ -840,7 +840,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .tab10{}   
 .tab10 tr td{ width:auto; height:auto; text-align:center; line-height:20px;color:#373334; border-bottom:#dddddd solid 1px; border-right:#dddddd solid 1px;}  
 
-.dingxiang_tbtou{width:877px; height:32px; line-height:31px; background-color:#e8f2ff;}
+.dingxiang_tbtou{width:1074px; height:32px; line-height:31px; background-color:#e8f2ff;}
 
 .dingxiang04_kk_cc{width:1090px; height:30px; line-height:30px;margin-top:25px; text-align:right;color:#454545;font-family:Verdana, Arial, Helvetica, sans-serif; padding-left:2px; border-bottom:#dddddd solid 1px;}
 
