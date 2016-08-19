@@ -164,11 +164,11 @@ public class AppUserController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
-        if (StringUtils.isBlank(findPasswordRequest.getToken())) {
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("用户未登录");
-            return result;
-        }
+//        if (StringUtils.isBlank(findPasswordRequest.getToken())) {
+//            result.setResultCode(NO_LOGIN);
+//            result.setMessage("用户未登录");
+//            return result;
+//        }
         String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
         String validateCode=findPasswordRequest.getValidateCode();//校验码
         String mobileNo=findPasswordRequest.getMobileNo();//手机号码
@@ -211,11 +211,11 @@ public class AppUserController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
-        if (StringUtils.isBlank(findPasswordRequest.getToken())) {
-            result.setResultCode(NO_LOGIN);
-            result.setMessage("用户未登录");
-            return result;
-        }
+//        if (StringUtils.isBlank(findPasswordRequest.getToken())) {
+//            result.setResultCode(NO_LOGIN);
+//            result.setMessage("用户未登录");
+//            return result;
+//        }
         String validateCode=findPasswordRequest.getValidateCode();//校验码
         String mobileNo=findPasswordRequest.getMobileNo();//校验码
         String newPassword= MD5Encoder.encodePassword(findPasswordRequest.getNewPassword(), Context.PASSWORDY);
