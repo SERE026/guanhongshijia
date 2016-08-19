@@ -82,16 +82,22 @@ public class AllOrderFragment extends Fragment implements View.OnClickListener {
                 QueryOrderResult result = JSON.parseObject(response, QueryOrderResult.class);
                 int resultCode = result.getResultCode();
                 if (resultCode == 0) {
-                    mOrderList = result.getOrderList();
-                    mCartItemList.clear();
+                    if (result.getOrderList() != null && !result.getOrderList().isEmpty()) {
+                        mOrderList.clear();
+                        mOrderList.addAll(result.getOrderList());
 
-                    for (Order order : mOrderList) {
-                        CartItem item = new CartItem();
-                        item.setId("-1");
-                        mCartItemList.add(item);
-                        mCartItemList.addAll(order.getCartItemList());
+                        mCartItemList.clear();
+
+                        for (Order order : mOrderList) {
+                            CartItem item = new CartItem();
+                            item.setId("-1");
+                            mCartItemList.add(item);
+                            if (order.getCartItemList() != null && !order.getCartItemList().isEmpty()) {
+                                mCartItemList.addAll(order.getCartItemList());
+                            }
+                        }
+                        mCartItemAdapter.notifyDataSetChanged();
                     }
-                    mCartItemAdapter.notifyDataSetChanged();
                 } else {
                     OwerToastShow.show(result.getMessage());
                 }
