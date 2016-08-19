@@ -38,7 +38,7 @@ public class GoodSearchWidget extends Widget {
 	@Resource
 	private PagModInGoodsService pagModInGoodsService;
 
-	private  String keys="新中式";
+	private  String keys="";
 
 	@Override
 	public void display(Map pamtr) {
