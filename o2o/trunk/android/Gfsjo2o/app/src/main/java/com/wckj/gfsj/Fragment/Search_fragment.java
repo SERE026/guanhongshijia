@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Bean.SearchRequest;
@@ -17,6 +18,7 @@ import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 import okhttp3.Call;
 
@@ -32,21 +34,24 @@ public class Search_fragment extends Fragment implements View.OnClickListener {
             mBtnQ, mBtnW, mBtnE, mBtnR, mBtnT, mBtnY, mBtnU, mBtnI, mBtnO, mBtnP, mBtnClear,
             mBtnA, mBtnS, mBtnD, mBtnF, mBtnG, mBtnH, mBtnJ, mBtnK, mBtnL,
             mBtnZ, mBtnX, mBtnC, mBtnV, mBtnB, mBtnN, mBtnM;
+    private ImageView mIvSearch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_search, null);
         initView();
-
-//        search("红木");
-
         return mView;
     }
 
     @Override
     public void onClick(View v) {
-//        mEtInput.setSelection(mEtInput.getText().length());
         switch (v.getId()) {
+            case R.id.iv_search:
+                String text = mEtInput.getText().toString().trim();
+                if (!text.isEmpty()) {
+                    search(text);
+                }
+                break;
             case R.id.btn_1:
                 mEtInput.setText(mEtInput.getText()+"1");
                 break;
@@ -169,10 +174,12 @@ public class Search_fragment extends Fragment implements View.OnClickListener {
             default:
                 break;
         }
+        mEtInput.setSelection(mEtInput.getText().length());
     }
 
     private void initView() {
         mEtInput = (EditText) mView.findViewById(R.id.et_input);
+        mIvSearch = (ImageView) mView.findViewById(R.id.iv_search);
 
         mBtn1 = (Button) mView.findViewById(R.id.btn_1);
         mBtn2 = (Button) mView.findViewById(R.id.btn_2);
@@ -215,6 +222,8 @@ public class Search_fragment extends Fragment implements View.OnClickListener {
         mBtnB = (Button) mView.findViewById(R.id.btn_b);
         mBtnN = (Button) mView.findViewById(R.id.btn_n);
         mBtnM = (Button) mView.findViewById(R.id.btn_m);
+
+        mIvSearch.setOnClickListener(this);
 
         mBtn1.setOnClickListener(this);
         mBtn2.setOnClickListener(this);
@@ -277,6 +286,7 @@ public class Search_fragment extends Fragment implements View.OnClickListener {
             public void onSuccess(String response) {
                 SearchResult json = JSON.parseObject(response, SearchResult.class);
                 LogUtil.i(response);
+                OwerToastShow.show(json.toString());
             }
         });
     }
