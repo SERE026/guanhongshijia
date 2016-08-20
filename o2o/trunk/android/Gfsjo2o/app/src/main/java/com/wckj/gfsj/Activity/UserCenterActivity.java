@@ -25,6 +25,7 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
     private View view;
     private Button mBtnMyOrder, mBtnMyBrokerage, mBtnUserInfo, mBtnMyCoupon, mBtnSetPwd, mBtnExit;
     private EditText mEtBrokeragePwd;
+    private TextView mTvUserName, mTvExit;
 
     @Override
     protected void init() {
@@ -61,6 +62,9 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
     }
 
     private void initView() {
+        mTvUserName = (TextView) view.findViewById(R.id.tv_user_name);
+        mTvExit = (TextView) view.findViewById(R.id.tv_exit);
+
         mBtnMyOrder = (Button) view.findViewById(R.id.btn_my_order);
         mBtnMyBrokerage = (Button) view.findViewById(R.id.btn_brokerage);
         mBtnUserInfo = (Button) view.findViewById(R.id.btn_user_info);
@@ -76,6 +80,11 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
         mBtnMyCoupon.setOnClickListener(this);
         mBtnSetPwd.setOnClickListener(this);
         mBtnExit.setOnClickListener(this);
+
+        if (AppApplication.loginResult.getLoginName() != null && !AppApplication.loginResult.getLoginName().isEmpty()) {
+            mTvUserName.setText("Hi, " + AppApplication.loginResult.getLoginName());
+            mTvExit.setText(AppApplication.loginResult.getLoginName());
+        }
     }
 
     @Override

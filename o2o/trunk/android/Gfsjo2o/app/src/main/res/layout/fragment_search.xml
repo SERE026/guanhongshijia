@@ -7,23 +7,38 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
 
-    <EditText
-        android:id="@+id/et_input"
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/rl_input"
         android:layout_width="match_parent"
         app:layout_heightPercent="8%"
         app:layout_marginTopPercent="30%"
         app:layout_marginLeftPercent="26%"
-        app:layout_marginRightPercent="26%"
-        android:background="@drawable/icon_search_input_bg"
-        android:gravity="center"
-        android:hint="请输入商品名的拼音首字母"
-        android:textColorHint="@color/color_979797"/>
+        app:layout_marginRightPercent="26%">
+
+        <EditText
+            android:id="@+id/et_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/icon_search_input_bg"
+            android:gravity="center"
+            android:hint="请输入商品名的拼音首字母"
+            android:textColorHint="@color/color_979797"/>
+
+        <ImageView
+            android:id="@+id/iv_search"
+            app:layout_widthPercent="20%"
+            app:layout_heightPercent="60%"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_serach"/>
+
+    </android.support.percent.PercentRelativeLayout>
 
     <android.support.percent.PercentRelativeLayout
         android:id="@+id/rl_keyboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/et_input"
+        android:layout_below="@id/rl_input"
         android:background="@color/color_6f5f62"
         app:layout_marginTopPercent="8%"
         app:layout_marginLeftPercent="13%"

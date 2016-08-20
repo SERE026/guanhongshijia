@@ -8,8 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.TimeUtils;
 
 import java.util.List;
 
@@ -63,11 +65,30 @@ public class CartItemAdapter extends BaseAdapter {
                     itemHolder.mIvGoodsPic = (ImageView) convertView.findViewById(R.id.iv_goods_pic);
                     itemHolder.mTvGoodsName = (TextView) convertView.findViewById(R.id.tv_goods_name);
                     itemHolder.mTvUserName = (TextView) convertView.findViewById(R.id.tv_user_name);
+                    itemHolder.mTvMoney = (TextView) convertView.findViewById(R.id.tv_money);
+                    itemHolder.mTvStatus = (TextView) convertView.findViewById(R.id.tv_status);
                     convertView.setTag(itemHolder);
                 } else {
-                    itemHolder = (CartItemViewHolder) convertView.getTag();
+                    if (convertView.getTag() instanceof CartItemViewHolder) {
+                        itemHolder = (CartItemViewHolder) convertView.getTag();
+                    } else {
+                        convertView = LayoutInflater.from(mContext).inflate(R.layout.item_cart_item, null);
+                        itemHolder = new CartItemViewHolder();
+                        itemHolder.mIvGoodsPic = (ImageView) convertView.findViewById(R.id.iv_goods_pic);
+                        itemHolder.mTvGoodsName = (TextView) convertView.findViewById(R.id.tv_goods_name);
+                        itemHolder.mTvUserName = (TextView) convertView.findViewById(R.id.tv_user_name);
+                        itemHolder.mTvMoney = (TextView) convertView.findViewById(R.id.tv_money);
+                        itemHolder.mTvStatus = (TextView) convertView.findViewById(R.id.tv_status);
+                        convertView.setTag(itemHolder);
+                    }
                 }
-                final CartItem item = (CartItem) getItem(position);
+                CartItem item = (CartItem) getItem(position);
+
+                itemHolder.mTvGoodsName.setText(item.getGoodsDetail().getName());
+                itemHolder.mTvUserName.setText(AppApplication.loginResult.getLoginName());
+                itemHolder.mTvMoney.setText(String.valueOf(item.getGoodsDetail().getPrice()));
+                itemHolder.mTvStatus.setText(item.getGoodsDetail().getType());
+
                 break;
             case 1:
                 if (convertView == null) {
@@ -77,8 +98,22 @@ public class CartItemAdapter extends BaseAdapter {
                     itemHeadHolder.mTvOrderNum = (TextView) convertView.findViewById(R.id.tv_order_number);
                     convertView.setTag(itemHeadHolder);
                 } else {
-                    itemHeadHolder = (CartItemHeadViewHolder) convertView.getTag();
+                    if (convertView.getTag() instanceof CartItemHeadViewHolder) {
+                        itemHeadHolder = (CartItemHeadViewHolder) convertView.getTag();
+                    } else {
+                        convertView = LayoutInflater.from(mContext).inflate(R.layout.item_cart_item_head, null);
+                        itemHeadHolder = new CartItemHeadViewHolder();
+                        itemHeadHolder.mTvDate = (TextView) convertView.findViewById(R.id.tv_date);
+                        itemHeadHolder.mTvOrderNum = (TextView) convertView.findViewById(R.id.tv_order_number);
+                        convertView.setTag(itemHeadHolder);
+                    }
                 }
+
+                CartItem cartItem = (CartItem) getItem(position);
+
+                int timeStamp = Integer.valueOf(cartItem.getGoodsDetail().getName());
+                itemHeadHolder.mTvDate.setText(TimeUtils.showDateAndTime(timeStamp));
+                itemHeadHolder.mTvOrderNum.setText("订单号：" + cartItem.getGoodsDetail().getId());
                 break;
             default:
                 break;
@@ -91,6 +126,8 @@ public class CartItemAdapter extends BaseAdapter {
         ImageView mIvGoodsPic;
         TextView mTvGoodsName;
         TextView mTvUserName;
+        TextView mTvMoney;
+        TextView mTvStatus;
     }
 
     class CartItemHeadViewHolder {

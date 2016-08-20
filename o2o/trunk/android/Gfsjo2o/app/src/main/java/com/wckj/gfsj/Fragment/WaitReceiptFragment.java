@@ -15,6 +15,7 @@ import com.wckj.gfsj.Bean.EvalOrderResult;
 import com.wckj.gfsj.Bean.QueryOrderRequest;
 import com.wckj.gfsj.Bean.QueryOrderResult;
 import com.wckj.gfsj.Bean.entity.CartItem;
+import com.wckj.gfsj.Bean.entity.GoodsDetail;
 import com.wckj.gfsj.Bean.entity.Order;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
@@ -52,6 +53,7 @@ public class WaitReceiptFragment extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_order_list, null);
         mLvGoods = (ListView) view.findViewById(R.id.lv_goods);
         mLvGoods.setAdapter(mCartItemAdapter);
+        mLvGoods.setDividerHeight(0);
 
         queryOrder(2);
         evalOrder(1000+"", 2, 3, 3, 2);
@@ -90,10 +92,26 @@ public class WaitReceiptFragment extends Fragment implements View.OnClickListene
 
                         for (Order order : mOrderList) {
                             CartItem item = new CartItem();
+                            GoodsDetail detail = new GoodsDetail();
+                            detail.setId(order.getId());
+                            detail.setName(order.getDate());
                             item.setId("-1");
+                            item.setGoodsDetail(detail);
                             mCartItemList.add(item);
-                            if (order.getCartItemList() != null && !order.getCartItemList().isEmpty()) {
-                                mCartItemList.addAll(order.getCartItemList());
+
+//                            if (order.getCartItemList() != null && !order.getCartItemList().isEmpty()) {
+//                                mCartItemList.addAll(order.getCartItemList());
+//                            }
+                            for (int i = 0; i < 2; i++) {
+                                CartItem item2 = new CartItem();
+                                GoodsDetail detail2 = new GoodsDetail();
+                                item2.setId(i+1+"");
+                                item2.setCount(2);
+                                detail2.setName("红木家具");
+                                detail2.setPrice(2000.00);
+                                detail2.setType("等待付款");
+                                item2.setGoodsDetail(detail2);
+                                mCartItemList.add(item2);
                             }
                         }
                         mCartItemAdapter.notifyDataSetChanged();
