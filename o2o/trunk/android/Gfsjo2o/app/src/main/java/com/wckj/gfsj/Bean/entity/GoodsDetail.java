@@ -3,6 +3,7 @@ package com.wckj.gfsj.Bean.entity;
 import com.wckj.gfsj.Bean.entity.common.BaseEntity;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -39,7 +40,16 @@ public class GoodsDetail extends BaseEntity {
     private List<String> imageList;
     //商品详情，html格式
     private String goodsDesc="";
+    //商品的类型，颜色，参数属性
+    List<Map> specMap;
 
+    public List<Map> getSpecMap() {
+        return specMap;
+    }
+
+    public void setSpecMap(List<Map> specMap) {
+        this.specMap = specMap;
+    }
 
     public String getSpecVal() {
         return specVal;

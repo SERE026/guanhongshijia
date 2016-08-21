@@ -8,8 +8,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Activity.MainActivity;
+import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
@@ -65,11 +67,19 @@ public class TitleRelativeLayout extends RelativeLayout implements View.OnClickL
                 getContext().startActivity(intent);
                 break;
             case R.id.tv_shopping_cart://购物车
+                if(AppApplication.loginResult.getToken()==null){
+                    OwerToastShow.show("请先登录！！！");
+                    return;
+                }
                  intent = new Intent(getContext(), MainActivity.class);
                 intent.putExtra("position",2);
                 getContext().startActivity(intent);
                 break;
             case R.id.tv_collect:
+                if(AppApplication.loginResult.getToken()==null){
+                    OwerToastShow.show("请先登录！！！");
+                    return;
+                }
                 intent = new Intent(getContext(), MainActivity.class);
                 intent.putExtra("position",3);
                 getContext().startActivity(intent);

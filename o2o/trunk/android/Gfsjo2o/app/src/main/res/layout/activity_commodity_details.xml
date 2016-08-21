@@ -104,14 +104,15 @@
                 android:textSize="12sp"
                 android:text="类型     "
                 android:singleLine="true"/>
+
             <TextView
                 android:background="@drawable/icon_details_color_select"
-                android:gravity="center"
+             android:gravity="center"
                 android:id="@+id/tv_type_1"
                 android:layout_toRightOf="@id/tv_type_flag"
                 android:textSize="12sp"
                 android:singleLine="true"
-                android:text="类型 "
+                android:text="暂无 "
                 android:textColor="@color/color_b3b3b4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -196,7 +197,7 @@
                 android:layout_toRightOf="@id/tv_flag_color"
                 android:textSize="12sp"
                 android:singleLine="true"
-                android:text="颜色 "
+                android:text="暂无 "
                 android:textColor="@color/color_b3b3b4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -273,7 +274,7 @@
                 android:layout_toRightOf="@id/tv_specification_flag"
                 android:textSize="12sp"
                 android:singleLine="true"
-                android:text="类型 "
+                android:text="暂无 "
                 android:textColor="@color/color_b3b3b4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

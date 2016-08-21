@@ -115,7 +115,6 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
     @Override
     protected void load() {
         getCategoryMain();
-        showPageState(FrameLoadLayout.LoadResult.success);
     }
 
     /**
@@ -148,6 +147,7 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
                         mTvNews.setText(mCategoryList.get(10).getTitle());
                     }
                 }
+                showPageState(FrameLoadLayout.LoadResult.success);
                 LogUtil.i(response);
             }
         } );

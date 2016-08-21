@@ -23,7 +23,7 @@
             android:id="@+id/iv_scro_main"
             android:layout_width="374dp"
             android:layout_height="296dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:src="@drawable/icon_cover_image"/>
 
     <!--</com.open.androidtvwidget.view.ReflectItemView>-->

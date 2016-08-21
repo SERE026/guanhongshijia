@@ -90,6 +90,7 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
 
            @Override
            public void onSuccess(String response) {
+
                 mJson =  JSON.parseObject(response, CartListResult.class);
                mList = mJson.getCart().getItemList();
                showPageState(checkData(mList));
