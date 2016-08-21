@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Activity.MainActivity;
+import com.wckj.gfsj.Activity.UserCenterActivity;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.TimeEvent;
 import com.wckj.gfsj.R;
@@ -62,6 +63,11 @@ public class TitleRelativeLayout extends RelativeLayout implements View.OnClickL
         Intent intent;
         switch (v.getId()){
             case R.id.tv_mine_center://用户中心1
+                if(AppApplication.loginResult.getToken()!=null){
+                    intent = new Intent(getContext(), UserCenterActivity.class);
+                    getContext().startActivity(intent );
+                    return;
+                }
                  intent = new Intent(getContext(), MainActivity.class);
                 intent.putExtra ("position",1);
                 getContext().startActivity(intent);

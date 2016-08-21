@@ -147,7 +147,6 @@
             android:layout_height="35dp"
             android:textColor="@color/color_767f8e"
             android:textSize="20sp"
-            android:layout_marginRight="15dp"
             />
         <TextView
             android:id="@+id/tv_brand_2"
