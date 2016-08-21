@@ -2,6 +2,9 @@ package com.wckj.gfsj.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +25,7 @@ import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
 
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 
@@ -35,6 +39,11 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
     private CommonAdapter mlvAdapter;
     private CartListResult mJson;
     private List<CartItem> mList;
+    private CheckBox cb_big_all;
+    private TextView tv_check_num;
+    private int count;
+    private Button bt_pay;
+
 
     @Override
     protected void init() {
@@ -54,6 +63,13 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
     protected View onCreateSuccessView() {
         view = inflater.inflate(R.layout.activity_shopping_cart, null);
         lv_shopping = (ListView) view.findViewById(R.id.lv_shopping);
+        cb_big_all = (CheckBox) view.findViewById(R.id.cb_big_all);
+        tv_check_num = (TextView) view.findViewById(R.id.tv_check_num);
+        bt_pay = (Button) view.findViewById(R.id.bt_pay);
+        
+
+        cb_big_all.setOnClickListener(this);
+
         binData();
         return view;
     }
@@ -62,8 +78,39 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
         if (mlvAdapter == null) {
             mlvAdapter = new CommonAdapter<CartItem>(view.getContext(), mList, R.layout.item_shopping_cart) {
                 @Override
-                public void convert(ViewHolder helper, CartItem item, int position) {
+                public void convert(ViewHolder helper, final CartItem item, final int position) {
+                    helper.setImageByUrl(R.id.iv_shopping_pic,item.getGoodsDetail().getDefaultImage());
+                    helper.setText(R.id.tv_shopping_desc,item.getGoodsDetail().getName());
+                    List<Map> specMap = item.getGoodsDetail().getSpecMap();
+                    if(specMap!=null){
+                        helper.setText(R.id.tv_flag,"类型："+specMap.get(0).get("v_val")+"颜色:"+specMap.get(1).get("v_val")+"规格"+specMap.get(2).get("v_val"));
+                    }else {
+                        helper.setText(R.id.tv_flag,"规格："+item.getGoodsDetail().getShortDesc());
+                    }
+                    helper.setText(R.id.tv_cart_price,"￥ "+item.getGoodsDetail().getPrice());
+                    helper.setText(R.id.edt,item.getCount()+"");
+                    CheckBox cb_big = helper.getView(R.id.cb_big);
+                    cb_big.setChecked(item.isCheck());
+                    cb_big.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                            if(isChecked){
+                                count++;
+                            }else {
+                                count--;
+                            }
+                            tv_check_num.setText("已选中"+count+"件商品");
+                        }
+                    });
 
+                    Button bt_delete = helper.getView(R.id.bt_delete);
+                    bt_delete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mList.remove(position);
+                            notifyDataSetChanged();
+                        }
+                    });
 
                 }
             };
@@ -132,7 +179,22 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+           case  R.id.cb_big_all:
+               boolean checked = cb_big_all.isChecked();
+                   for (CartItem mitem: mList) {
+                       mitem.setCheck(checked);
+                   }
+               if(checked)
+                   count=mList.size();
+               else 
+                   count=0;
+               mlvAdapter.notifyDataSetChanged();
+               break;
+            case R.id.bt_pay:
+//                new Intent()
+                break;
+        }
     }
 
 

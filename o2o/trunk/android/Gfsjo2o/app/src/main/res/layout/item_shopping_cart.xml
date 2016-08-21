@@ -9,9 +9,9 @@
         <CheckBox
             android:layout_marginLeft="7dp"
             android:id="@+id/cb_big"
-            android:layout_width="13dp"
+            android:layout_width="15dp"
             android:button="@null"
-            android:layout_height="13dp"
+            android:layout_height="15dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/selector_small_checkbox"/>
         <ImageView
@@ -19,6 +19,7 @@
             android:src="@drawable/icon_public_image"
             android:layout_marginLeft="49dp"
             android:layout_width="130dp"
+
             android:scaleType="fitXY"
             android:layout_marginRight="35dp"
             android:layout_centerVertical="true"
@@ -42,13 +43,16 @@
                 android:id="@+id/tv_flag"
                 android:text="规格："
                 android:textSize="14sp"
+                android:maxLines="3"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
+                android:layout_marginRight="220dp"
                 android:textColor="@color/color_892e1c"
                 android:layout_below="@id/tv_shopping_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/tv_cart_price"
                 android:text="￥222222"
                 android:textSize="16sp"
                 android:layout_marginTop="7dp"
@@ -68,47 +72,57 @@
             android:text="删除"
             android:textColor="@android:color/black"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_shopping_cart_button_1"/>
-        <RelativeLayout
-            android:layout_marginRight="30dp"
-            android:layout_toLeftOf="@id/bt_delete"
-            android:layout_centerInParent="true"
-            android:layout_width="70dp"
-            android:layout_height="15dp"
-            >
+            android:background="@drawable/selector_button_delete"/>
 
-            <ImageButton
-                android:id="@+id/addbt"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:background="@drawable/icon_minus"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                />
-            <ImageButton
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/icon_plus"
-                android:id="@+id/subbt"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                />
 
-            <EditText
-                android:id="@+id/edt"
-                android:layout_width="40dp"
-                android:layout_height="15dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/icon_middle"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="12dp" >
+        <!--<RelativeLayout-->
+            <!--android:layout_marginRight="30dp"-->
+            <!--android:layout_toLeftOf="@id/bt_delete"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="15dp"-->
+            <!--&gt;-->
 
-                <requestFocus />
-            </EditText>
+            <!--<ImageButton-->
+                <!--android:id="@+id/subbt"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:background="@drawable/icon_minus"-->
+                <!--android:layout_width="15dp"-->
+                <!--android:layout_height="15dp"-->
+                <!--/>-->
+            <!--<ImageButton-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:background="@drawable/icon_plus"-->
+                <!--android:id="@+id/addbt"-->
+                <!--android:layout_width="15dp"-->
+                <!--android:layout_height="15dp"-->
+                <!--/>-->
 
-        </RelativeLayout>
+            <!--<EditText-->
+                <!--android:id="@+id/edt"-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="15dp"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:background="@drawable/icon_middle"-->
+                <!--android:gravity="center"-->
+                <!--android:text="0"-->
+                <!--android:textSize="12dp" >-->
 
+                <!--<requestFocus />-->
+            <!--</EditText>-->
+
+        <!--</RelativeLayout>-->
+
+        <com.wckj.gfsj.CustomUi.addSubGoodsRelativeLayout
+        android:layout_marginRight="30dp"
+        android:layout_toLeftOf="@id/bt_delete"
+        android:layout_centerInParent="true"
+        android:layout_width="70dp"
+        android:layout_height="15dp">
+
+        </com.wckj.gfsj.CustomUi.addSubGoodsRelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

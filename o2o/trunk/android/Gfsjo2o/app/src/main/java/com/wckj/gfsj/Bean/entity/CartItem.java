@@ -14,6 +14,16 @@ public class CartItem extends BaseEntity {
     //商品参数值，内部已关联了对应的商品参数
     private GoodsSpecValue specValue;
 
+    private   boolean isCheck;
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
+    }
+
     public int getCount() {
         return count;
     }

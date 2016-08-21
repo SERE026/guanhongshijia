@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_centerInParent="true"
+    android:layout_width="70dp"
+    android:layout_height="15dp">
+        <ImageButton
+            android:id="@+id/addbt"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/icon_minus"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            />
+        <ImageButton
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_plus"
+            android:id="@+id/subbt"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            />
+
+        <TextView
+            android:id="@+id/edt"
+            android:cursorVisible="false"
+            android:layout_width="40dp"
+            android:layout_height="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/icon_middle"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="12dp" >
+
+            <requestFocus />
+        </TextView>
+
+</RelativeLayout>
