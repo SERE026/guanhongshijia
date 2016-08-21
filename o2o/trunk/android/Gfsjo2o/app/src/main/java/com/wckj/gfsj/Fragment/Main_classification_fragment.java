@@ -109,6 +109,19 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
         mTvClassicalLighting = (TextView) view.findViewById(R.id.tv_classical_lighting);
         mTvNews = (TextView) view.findViewById(R.id.tv_news);
 
+        if (mCategoryList != null && !mCategoryList.isEmpty()) {
+            mTvChineseFurniture.setText(mCategoryList.get(0).getTitle());
+            mTvClassicalFurniture.setText(mCategoryList.get(1).getTitle());
+            mTvFourTreasures.setText(mCategoryList.get(2).getTitle());
+            mTvStrokes.setText(mCategoryList.get(3).getTitle());
+            mTvOldTea.setText(mCategoryList.get(4).getTitle());
+            mTvRedWine.setText(mCategoryList.get(5).getTitle());
+            mTvSoftDaquan.setText(mCategoryList.get(6).getTitle());
+            mTvDecorativeDaquan.setText(mCategoryList.get(7).getTitle());
+            mTvClassicalDecorativeMaterials.setText(mCategoryList.get(8).getTitle());
+            mTvClassicalLighting.setText(mCategoryList.get(9).getTitle());
+            mTvNews.setText(mCategoryList.get(10).getTitle());
+        }
         return view;
     }
 
@@ -133,19 +146,7 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
                 int resultCode = json.getResultCode();
                 if (resultCode == 0) {
                     mCategoryList = json.getCategoryList();
-                    if (mCategoryList != null && !mCategoryList.isEmpty()) {
-                        mTvChineseFurniture.setText(mCategoryList.get(0).getTitle());
-                        mTvClassicalFurniture.setText(mCategoryList.get(1).getTitle());
-                        mTvFourTreasures.setText(mCategoryList.get(2).getTitle());
-                        mTvStrokes.setText(mCategoryList.get(3).getTitle());
-                        mTvOldTea.setText(mCategoryList.get(4).getTitle());
-                        mTvRedWine.setText(mCategoryList.get(5).getTitle());
-                        mTvSoftDaquan.setText(mCategoryList.get(6).getTitle());
-                        mTvDecorativeDaquan.setText(mCategoryList.get(7).getTitle());
-                        mTvClassicalDecorativeMaterials.setText(mCategoryList.get(8).getTitle());
-                        mTvClassicalLighting.setText(mCategoryList.get(9).getTitle());
-                        mTvNews.setText(mCategoryList.get(10).getTitle());
-                    }
+
                 }
                 showPageState(FrameLoadLayout.LoadResult.success);
                 LogUtil.i(response);
