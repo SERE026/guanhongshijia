@@ -79,7 +79,7 @@ public class OrderDao extends BaseDAO{
 			/** 否则，查询条件中加入会员ID条件 **/
 			// 【已测试】如果不这样做，那么任何登录用户只要知道订单号（通过批量枚举，因为订单号格式是固定的），
 			// 就可以通过地址栏访问订单详情，这样会造成用户隐私泄露，带来安全隐患
-			where.append(" and n.huiyuan.huiYuan_id=" + huiyuan.getHuiYuan_id());
+//			where.append(" and n.huiyuan.huiYuan_id=" + huiyuan.getHuiYuan_id());
 			list = super.getListByWhere(where);
 		}
 		return list;

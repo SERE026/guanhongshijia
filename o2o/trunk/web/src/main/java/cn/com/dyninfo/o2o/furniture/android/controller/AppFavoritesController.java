@@ -1,10 +1,7 @@
 
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
-import cn.com.dyninfo.o2o.communication.AddFavoritesRequest;
-import cn.com.dyninfo.o2o.communication.AddFavoritesResult;
-import cn.com.dyninfo.o2o.communication.FavoritesListRequest;
-import cn.com.dyninfo.o2o.communication.FavoritesListResult;
+import cn.com.dyninfo.o2o.communication.*;
 import cn.com.dyninfo.o2o.entity.GoodsSummary;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
@@ -183,5 +180,58 @@ public class AppFavoritesController extends BaseAppController {
         log.debug(result);
         return result;
     }
+
+    /**
+     *取消收藏请求
+     * @param cancelFavoritesRequest
+     * @param request
+     * @param response
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("/cancel")
+    public CancelFavoritesResult cancel(@RequestBody CancelFavoritesRequest cancelFavoritesRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(cancelFavoritesRequest);
+        CancelFavoritesResult result = new CancelFavoritesResult();
+        if (StringUtils.isBlank(cancelFavoritesRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(cancelFavoritesRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
+        //获取用户信息
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ cancelFavoritesRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
+        if(!ValidationUtil.isEmpty(info)) {
+            String goodId = cancelFavoritesRequest.getGoodsId();//商品ID
+
+            List<Favorites> list =(List<Favorites>)favoritesService.getListByWhere(new StringBuffer(" and n.type=0 and n.member.huiYuan_id=" + info.getHuiYuan_id() + " and n.good.goods_id=" + goodId));
+            if(!ValidationUtil.isEmpty(list)) {
+                favoritesService.delObj(list.get(0));
+            }
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }  else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("取消收藏请求失败");
+        }
+        log.debug(result);
+        return result;
+    }
+
 }
 

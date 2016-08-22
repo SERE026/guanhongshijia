@@ -10,13 +10,16 @@ import cn.com.dyninfo.o2o.furniture.admin.model.CouponMemberRel;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponMemberRelService;
 import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
+import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
 import cn.com.dyninfo.o2o.furniture.util.ResponseUtil;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
+import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
+import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
@@ -371,6 +374,62 @@ public class AppOrderController extends BaseAppController {
         } else{
             result.setResultCode(NO_LOGIN);
             result.setMessage("订单查询请求失败");
+        }
+        log.debug(result);
+        return result;
+    }
+
+    /**
+     *修改订单请求
+     * @param updateOrderRequest
+     * @param request
+     * @param response
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("/update")
+    public UpdateOrderResult update(@RequestBody UpdateOrderRequest updateOrderRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(updateOrderRequest);
+        UpdateOrderResult result = new UpdateOrderResult();
+        if (StringUtils.isBlank(updateOrderRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(updateOrderRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
+        int orderStatus = updateOrderRequest.getOrderStatus();//订单状态
+        String orderId = updateOrderRequest.getOrderId();//订单ID
+        //获取用户信息
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ updateOrderRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
+        if(!ValidationUtil.isEmpty(info)) {
+                List orderlist=orderService.getListByWhere(new StringBuffer(" and n.order_id='"+orderId+"'"));
+                if(orderlist!=null&&orderlist.size()>0){
+                    cn.com.dyninfo.o2o.furniture.web.order.model.Order order=(cn.com.dyninfo.o2o.furniture.web.order.model.Order) orderlist.get(0);
+                    //支付总额小于20000（系统定义）的金额
+                    //状态为7-已付定金。
+                    order.setState(String.valueOf(orderStatus));
+                    orderService.updateObj(order);
+                }
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        } else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("修改订单请求失败");
         }
         log.debug(result);
         return result;

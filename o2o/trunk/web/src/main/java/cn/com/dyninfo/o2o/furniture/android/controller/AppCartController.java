@@ -1,10 +1,7 @@
 
 package cn.com.dyninfo.o2o.furniture.android.controller;
 
-import cn.com.dyninfo.o2o.communication.AddCartRequest;
-import cn.com.dyninfo.o2o.communication.AddCartResult;
-import cn.com.dyninfo.o2o.communication.CartListRequest;
-import cn.com.dyninfo.o2o.communication.CartListResult;
+import cn.com.dyninfo.o2o.communication.*;
 import cn.com.dyninfo.o2o.entity.Cart;
 import cn.com.dyninfo.o2o.entity.CartItem;
 import cn.com.dyninfo.o2o.entity.GoodsDetail;
@@ -19,6 +16,7 @@ import cn.com.dyninfo.o2o.furniture.web.goods.dao.GoodsDAO;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
+import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
@@ -140,7 +138,56 @@ public class AppCartController extends BaseAppController {
         log.debug(result);
         return result;
     }
+    /**
+     * 删除购物车商品
+     * @param delCartRequest
+     * @param request
+     * @param response
+     * @return
+     */
 
+    @ResponseBody
+    @RequestMapping("/del")
+    public DelCartResult del(@RequestBody DelCartRequest delCartRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(delCartRequest);
+        DelCartResult result = new DelCartResult();
+        if (StringUtils.isBlank(delCartRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(delCartRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
+        //获取用户信息
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ delCartRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
+        if (!ValidationUtil.isEmpty(info)) {
+            String goodId = delCartRequest.getGoodsId();//商品ID
+            List<CarsBox> list =(List<CarsBox>)carsService.getListByWhere(new StringBuffer(" and n.member.huiYuan_id=" + info.getHuiYuan_id() + " and n.goods.goods_id=" + goodId));
+            if(!ValidationUtil.isEmpty(list)) {
+                carsService.delObj(list.get(0));
+            }
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        } else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("删除购物车商品失败");
+        }
+        log.debug(result);
+        return result;
+    }
 
 /**
      * 获取购物车列表
