@@ -47,7 +47,7 @@ public class GoodBoardWidget extends Widget {
 		String pageSize=(String) pamtr.get("pageSize");
 			PageInfo page=new PageInfo();
 			page.setPageNo(1);
-			page.setPageSize(10);
+			page.setPageSize(30);
 			HashMap<String, ?> data =goodsService.getListByPageWhere(new StringBuffer(" and instr(n.biaoqian,'"+ Constants.YUN_SKU+"')>0"),page);
 			List<Goods> goodsList =(List<Goods>)data.get("DATA");
 			this.putData("data", goodsList);

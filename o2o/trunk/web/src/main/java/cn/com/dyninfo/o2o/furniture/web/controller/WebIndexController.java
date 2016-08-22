@@ -93,7 +93,16 @@ public class WebIndexController{
     @RequestMapping(value= "/index" )
     public String index(HttpServletRequest request, ModelMap mav,HttpServletResponse response) {
         //所有的分类  一级。二级,三级
+
         List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
+        for (int i=0;i<dataList.size();i++){
+            for (int j=0;j<dataList.get(i).getChildren().size();j++){
+                int k=dataList.get(i).getChildren().get(j).getGoodsSort_id();
+                int goodsCount=goodsService.getCountByWhere(new StringBuffer(" and n.goodsSort like '%"+k+"%' order by n.indexs desc"));
+                dataList.get(i).getChildren().get(j).setGoodscount(goodsCount);
+            }
+        }
+
         mav.addAttribute("goodsSortList",dataList);
 //        System.out.println(dataList.get(0).getChildren().get(0).getAdvpic());
 

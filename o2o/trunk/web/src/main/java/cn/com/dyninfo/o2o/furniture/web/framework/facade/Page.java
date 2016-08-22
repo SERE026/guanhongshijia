@@ -22,6 +22,7 @@ import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.SpringContext;
 import cn.com.dyninfo.o2o.furniture.web.framework.facade.widget.WidgetXmlUtil;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
+import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import freemarker.template.Template;
 
@@ -129,7 +130,15 @@ public class Page implements IPage{
 				data.put(Context.SESSION_MEMBER, request.getSession().getAttribute(Context.SESSION_MEMBER));
 			}
 			GoodsSortService goodsSortService=SpringContext.getBean("goodsSortService");
+			GoodsService goodsService=SpringContext.getBean("goodsService");
 			List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
+			for (int i=0;i<dataList.size();i++){
+				for (int j=0;j<dataList.get(i).getChildren().size();j++){
+					int k=dataList.get(i).getChildren().get(j).getGoodsSort_id();
+					int goodsCount=goodsService.getCountByWhere(new StringBuffer(" and n.goodsSort like '%"+k+"%' order by n.indexs desc"));
+					dataList.get(i).getChildren().get(j).setGoodscount(goodsCount);
+				}
+			}
 			data.put("sortDataList", dataList);
 
 			t.process(data, response.getWriter());
