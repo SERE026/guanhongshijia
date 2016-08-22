@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_order_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_marginTopPercent="7%"
+        app:layout_marginLeftPercent="13%"
+        android:drawableLeft="@drawable/icon_my_order"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:text="订单确认"
+        android:textSize="23sp"
+        android:textColor="@color/color_ebebeb"/>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_below="@id/tv_order_confirm"
+        app:layout_marginTopPercent="3%"
+        app:layout_marginLeftPercent="13%"
+        app:layout_marginRightPercent="9%"
+        app:layout_marginBottomPercent="6%">
+
+        <TextView
+            android:id="@+id/tv_select_ship_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_marginTopPercent="6%"
+            app:layout_marginLeftPercent="7%"
+            android:text="选择配送方式"
+            android:textSize="18sp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_ship_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_select_ship_method"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="7%"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="【快递方式】"
+                android:textColor="@color/color_f74a3e"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="【我要自己取货】"
+                android:textColor="@color/color_f74a3e"
+                android:layout_marginLeft="25dp"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_select_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rg_ship_method"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="7%"
+            android:text="选择地址"
+            android:textSize="18sp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_select_address"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="7%"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名，手机，固话，地址，邮编"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名，手机，固话，地址，邮编"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_add_new_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rg_address"
+            app:layout_marginTopPercent="2%"
+            app:layout_marginLeftPercent="7%"
+            android:text="使用新地址"
+            android:textSize="18sp"/>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_6d4a3e"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginRightPercent="7%"
+            android:layout_below="@id/tv_add_new_address"
+            app:layout_marginTopPercent="1%"/>
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/line"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="7%"
+            android:gravity="right|center_vertical"
+            android:text="*收件人姓名："/>
+
+        <EditText
+            android:id="@+id/et_user_name"
+            app:layout_widthPercent="18%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/line"
+            android:layout_toRightOf="@id/tv_user_name"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="2%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/tv_province"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/tv_user_name"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="7%"
+            android:gravity="right|center_vertical"
+            android:text="*省份："/>
+
+        <EditText
+            android:id="@+id/et_province"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_user_name"
+            android:layout_toRightOf="@id/tv_province"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="2%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:hint="请选择省份"/>
+
+        <EditText
+            android:id="@+id/et_city"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_user_name"
+            android:layout_toRightOf="@id/et_province"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:hint="请选择城市"/>
+
+        <EditText
+            android:id="@+id/et_district"
+            app:layout_widthPercent="28%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_user_name"
+            android:layout_toRightOf="@id/et_city"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:hint="请选择区县"/>
+
+        <TextView
+            android:id="@+id/tv_street"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/tv_province"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="7%"
+            android:gravity="right|center_vertical"
+            android:text="*街道地址："/>
+
+        <EditText
+            android:id="@+id/et_street"
+            app:layout_widthPercent="60%"
+            app:layout_heightPercent="15%"
+            android:layout_below="@id/et_province"
+            android:layout_toRightOf="@id/tv_street"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="2%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:gravity="left"/>
+
+        <TextView
+            android:id="@+id/tv_zip_code"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/tv_street"
+            app:layout_marginTopPercent="12%"
+            app:layout_marginLeftPercent="7%"
+            android:gravity="right|center_vertical"
+            android:text="*邮政编码："/>
+
+        <EditText
+            android:id="@+id/et_zip_code"
+            app:layout_widthPercent="18%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_street"
+            android:layout_toRightOf="@id/tv_zip_code"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="2%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/tv_cell_phone_num"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/tv_zip_code"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="7%"
+            android:gravity="right|center_vertical"
+            android:text="*手机号码："/>
+
+        <EditText
+            android:id="@+id/et_cell_phone_num"
+            app:layout_widthPercent="18%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_zip_code"
+            android:layout_toRightOf="@id/tv_cell_phone_num"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="2%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/tv_phone_num"
+            android:layout_width="wrap_content"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/tv_zip_code"
+            android:layout_toRightOf="@id/et_cell_phone_num"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="2%"
+            android:gravity="right|center_vertical"
+            android:text="或固定电话："/>
+
+        <EditText
+            android:id="@+id/et_phone_one"
+            app:layout_widthPercent="7%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_zip_code"
+            android:layout_toRightOf="@id/tv_phone_num"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"/>
+
+        <View
+            android:id="@+id/line2"
+            app:layout_widthPercent="2%"
+            android:layout_height="0.5dp"
+            android:background="@color/color_6d4a3e"
+            android:layout_below="@id/et_zip_code"
+            android:layout_toRightOf="@id/et_phone_one"
+            app:layout_marginTopPercent="6.5%"/>
+
+        <EditText
+            android:id="@+id/et_phone_two"
+            app:layout_widthPercent="7%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_zip_code"
+            android:layout_toRightOf="@id/line2"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"/>
+
+        <View
+            android:id="@+id/line3"
+            app:layout_widthPercent="2%"
+            android:layout_height="0.5dp"
+            android:background="@color/color_6d4a3e"
+            android:layout_below="@id/et_zip_code"
+            android:layout_toRightOf="@id/et_phone_two"
+            app:layout_marginTopPercent="6.5%"/>
+
+        <EditText
+            android:id="@+id/et_phone_three"
+            app:layout_widthPercent="10%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_zip_code"
+            android:layout_toRightOf="@id/line3"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/tv_email"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/tv_cell_phone_num"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="7%"
+            android:gravity="right|center_vertical"
+            android:text="*电子邮箱："/>
+
+        <EditText
+            android:id="@+id/et_email"
+            app:layout_widthPercent="18%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/et_cell_phone_num"
+            android:layout_toRightOf="@id/tv_email"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="2%"
+            android:background="@drawable/shape_edittext_user_info"
+            android:singleLine="true"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/tv_email_toast"
+            android:layout_width="wrap_content"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/tv_phone_num"
+            android:layout_toRightOf="@id/et_email"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="2%"
+            android:gravity="right|center_vertical"
+            android:text="用于接收订单提醒"/>
+
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>
