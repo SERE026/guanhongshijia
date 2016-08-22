@@ -113,7 +113,7 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
                     OwerToastShow.show("两次输入密码不一致");
                     return;
                 }
-                findPassword(phoneNum3, validateCode, password, 1);
+                findPassword(phoneNum3, validateCode, password);
                 break;
         }
     }
@@ -137,55 +137,30 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
      * @param mobileNo     手机号码
      * @param validateCode 校验码
      * @param newPassword  新密码
-     * @param type         请求类型(1-找回登录密码；2-找回锁定密码)
      */
-    private void findPassword(String mobileNo, String validateCode, String newPassword, int type) {
+    private void findPassword(String mobileNo, String validateCode, String newPassword) {
         FindPasswordRequest request = new FindPasswordRequest();
         request.setMobileNo(mobileNo);
         request.setValidateCode(validateCode);
         request.setNewPassword(newPassword);
-        switch (type) {
-            case 1:
-                HttpUtils.getInstance().asyncPost(request, GlobalUtils.FIND_PWD_LOGIN_URL, new ICallBack() {
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        LogUtil.e("{" + e.toString() + "}");
-                    }
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.FIND_PWD_LOGIN_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
 
-                    @Override
-                    public void onSuccess(String response) {
-                        FindPasswordResult result = JSON.parseObject(response, FindPasswordResult.class);
-                        LogUtil.i(response);
+            @Override
+            public void onSuccess(String response) {
+                FindPasswordResult result = JSON.parseObject(response, FindPasswordResult.class);
+                LogUtil.i(response);
 
-                        if (result.getResultCode() == 0) {
-                            OwerToastShow.show("密码修改成功");
-                        } else {
-                            OwerToastShow.show(result.getMessage());
-                        }
-                    }
-                });
-                break;
-            case 2:
-                HttpUtils.getInstance().asyncPost(request, GlobalUtils.FIND_PWD_LOCK_URL, new ICallBack() {
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        LogUtil.e("{" + e.toString() + "}");
-                    }
-
-                    @Override
-                    public void onSuccess(String response) {
-                        FindPasswordResult result = JSON.parseObject(response, FindPasswordResult.class);
-                        LogUtil.i(response);
-
-                        if (result.getResultCode() == 0) {
-                            OwerToastShow.show("密码修改成功");
-                        } else {
-                            OwerToastShow.show(result.getMessage());
-                        }
-                    }
-                });
-                break;
-        }
+                if (result.getResultCode() == 0) {
+                    OwerToastShow.show("密码修改成功");
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
+            }
+        });
     }
 
     /**
@@ -215,6 +190,7 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
             }
         });
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

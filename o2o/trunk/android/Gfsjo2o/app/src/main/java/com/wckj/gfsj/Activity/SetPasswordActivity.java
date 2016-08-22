@@ -8,8 +8,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Bean.FindPasswordRequest;
+import com.wckj.gfsj.Bean.FindPasswordResult;
 import com.wckj.gfsj.Bean.SetLockPasswordRequest;
 import com.wckj.gfsj.Bean.SetLockPasswordResult;
+import com.wckj.gfsj.Bean.SmsRequest;
+import com.wckj.gfsj.Bean.SmsResult;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
@@ -29,8 +33,11 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
     private TitleRelativeLayout mRlTitle;
     private View view;
     private Button mBtnSet, mBtnFind;
-    private RelativeLayout mRlSetPwd, mRlModifyPwd, mRlFindPwd;
-    private Button mBtnSetComplete, mBtnFindComplete;
+    private RelativeLayout mRlSetPwd, mRlFindPwd;
+    private Button mBtnSetComplete;
+
+    private TextView mEtPhoneNum, mEtCode, mEtPwd, mEtConfirmPwd;
+    private Button mBtnSend, mBtnGetAgain, mBtnFindComplete;
 
     private EditText mEtSetPwd, mEtSetConfirmPwd;
 
@@ -75,7 +82,7 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
         mBtnFind.setOnClickListener(this);
 
         mRlSetPwd = (RelativeLayout) view.findViewById(R.id.rl_set_pwd);
-        mRlModifyPwd = (RelativeLayout) view.findViewById(R.id.rl_modify_pwd);
+        mRlFindPwd = (RelativeLayout) view.findViewById(R.id.rl_find_pwd);
 
         mBtnSetComplete = (Button) view.findViewById(R.id.btn_set_complete);
         mBtnSetComplete.setOnClickListener(this);
@@ -84,6 +91,18 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
 
         mEtSetPwd = (EditText) view.findViewById(R.id.et_set_pwd);
         mEtSetConfirmPwd = (EditText) view.findViewById(R.id.et_set_confirm_pwd);
+
+        mEtPhoneNum = (TextView) view.findViewById(R.id.et_phone_num);
+        mEtCode = (TextView) view.findViewById(R.id.et_code);
+        mEtPwd = (TextView) view.findViewById(R.id.et_pwd);
+        mEtConfirmPwd = (TextView) view.findViewById(R.id.et_confirm_pwd);
+
+        mBtnSend = (Button) view.findViewById(R.id.btn_send);
+        mBtnSend.setOnClickListener(this);
+        mBtnGetAgain = (Button) view.findViewById(R.id.btn_get_again);
+        mBtnGetAgain.setOnClickListener(this);
+        mBtnFindComplete = (Button) view.findViewById(R.id.btn_find_complete);
+        mBtnFindComplete.setOnClickListener(this);
     }
 
     @Override
@@ -94,11 +113,11 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
                 break;
             case R.id.btn_set:
                 mRlSetPwd.setVisibility(View.VISIBLE);
-                mRlModifyPwd.setVisibility(View.GONE);
+                mRlFindPwd.setVisibility(View.GONE);
                 break;
             case R.id.btn_find:
                 mRlSetPwd.setVisibility(View.GONE);
-                mRlModifyPwd.setVisibility(View.VISIBLE);
+                mRlFindPwd.setVisibility(View.VISIBLE);
                 break;
             case R.id.btn_set_complete:
                 String setPwd = mEtSetPwd.getText().toString().trim();
@@ -117,7 +136,50 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
                 }
                 setLockPwd(setPwd);
                 break;
+            case R.id.btn_send:
+                String phoneNum = mEtPhoneNum.getText().toString().trim();
+                if (phoneNum.isEmpty()) {
+                    OwerToastShow.show("请输入手机号");
+                    return;
+                }
+                sendSms(phoneNum, 1);
+                break;
+            case R.id.btn_get_again:
+                String phoneNum2 = mEtPhoneNum.getText().toString().trim();
+                if (phoneNum2.isEmpty()) {
+                    OwerToastShow.show("请输入手机号");
+                    return;
+                }
+                sendSms(phoneNum2, 1);
+                break;
             case R.id.btn_find_complete:
+                String phoneNum3 = mEtPhoneNum.getText().toString().trim();
+                if (phoneNum3.isEmpty()) {
+                    OwerToastShow.show("请输入手机号");
+                    return;
+                }
+
+                String validateCode = mEtCode.getText().toString().trim();
+                if (validateCode.isEmpty()) {
+                    OwerToastShow.show("请输入验证码");
+                    return;
+                }
+
+                String password = mEtPwd.getText().toString().trim();
+                String confirmPwd  = mEtConfirmPwd.getText().toString().trim();
+                if (password.isEmpty()) {
+                    OwerToastShow.show("请输入密码");
+                    return;
+                }
+                if (confirmPwd.isEmpty()) {
+                    OwerToastShow.show("请确认密码");
+                    return;
+                }
+                if (!password.equals(confirmPwd)) {
+                    OwerToastShow.show("两次输入密码不一致");
+                    return;
+                }
+                findPassword(phoneNum3, validateCode, password);
                 break;
         }
     }
@@ -147,6 +209,66 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
             }
         });
     }
+
+    /**
+     * 找回登陆密码/找回锁定密码
+     * @param mobileNo     手机号码
+     * @param validateCode 校验码
+     * @param newPassword  新密码
+     */
+    private void findPassword(String mobileNo, String validateCode, String newPassword) {
+        FindPasswordRequest request = new FindPasswordRequest();
+        request.setMobileNo(mobileNo);
+        request.setValidateCode(validateCode);
+        request.setNewPassword(newPassword);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.FIND_PWD_LOCK_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                FindPasswordResult result = JSON.parseObject(response, FindPasswordResult.class);
+                LogUtil.i(response);
+
+                if (result.getResultCode() == 0) {
+                    OwerToastShow.show("密码修改成功");
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
+            }
+        });
+    }
+
+    /**
+     * 发送短信
+     * @param mobileNo 接收短信的手机号码
+     * @param type     请求类型(1-找回登录密码；2-找回锁定密码)
+     */
+    private void sendSms(String mobileNo, int type) {
+        SmsRequest request = new SmsRequest();
+        request.setMobileNo(mobileNo);
+        request.setType(type);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.SMS_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                SmsResult result = JSON.parseObject(response, SmsResult.class);
+                LogUtil.i(response);
+                if (result.getResultCode() == 0) {
+                    OwerToastShow.show("短信发送成功");
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
+            }
+        });
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
