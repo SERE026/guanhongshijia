@@ -1398,7 +1398,7 @@ public class PagModInGoodsDAO extends BaseDAO{
  		selectSql+=" where 1=1  and g.SHELVES=0  and g.tryuse='0' and g.GOODSSORT_ID like '%"+goodSort+"%' "+sql+" group by g.GOODS_ID";
  		selectSql+=" ) a where 1=1";
  		if(moneysql!=null)
- 			selectSql+=moneysql;\
+ 			selectSql+=moneysql;
  		System.out.println(selectSql);
  		try{
  			Session session=this.getSession();
