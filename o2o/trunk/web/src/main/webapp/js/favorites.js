@@ -42,7 +42,7 @@ $(function(){
 			  		if(data.status==1){
 			  			window.location.href=servicePath+"/"+data.toPage;
 			  		}else{
-			  			//alert("111111");
+						alert("收藏成功！")
 			  			 $(".gameBoxs").css("display","");
 			        }
 			      }

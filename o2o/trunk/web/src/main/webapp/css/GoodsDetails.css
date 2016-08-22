@@ -102,21 +102,126 @@ label.atg_store_pickerLabel{
 	}
 .atg_store_basicButton input{
 }
-.yt_product_buy_promise{margin-top:15px;}
-.yt_product_buy_promise ul {float: left;}
-.yt_product_buy_promise li {float: left;margin-right: 20px;position: relative;}
-.yt_product_buy_promise li .a1 {display: block;position: relative;float: left;font-size: 14px;color: #888;}
-.yt_product_buy_promise li .a1:hover {color: #e4393c;}
-    .yt_product_buy_promise li .dorpdown {
-        display: none;
-        font-family: Arial;
-        position: absolute;
-        top: 24px;
-        left: -10px;
-        background: #fff;
-        border: 1px solid #ddd;
-        width: 240px;
-    }
+.yt_product_buy_promise {
+    margin-top: 15px;
+}
+
+.yt_product_buy_promise ul {
+    float: left;
+}
+
+.yt_product_buy_promise li {
+    float: left;
+    margin-right: 20px;
+    position: relative;
+}
+
+.yt_product_buy_promise li .a1 {
+    display: block;
+    position: relative;
+    float: left;
+    font-size: 14px;
+    color: #888;
+}
+
+.yt_product_buy_promise li .a1:hover {
+    color: #c81523;
+}
+
+.yt_product_buy_promise li .dorpdown {
+    display: none;
+    font-family: Arial;
+    position: absolute;
+    top: 24px;
+    left: -10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 240px;
+    padding: 15px;
+    font-size: 12px;
+    color: #555;
+    line-height: 22px;
+    z-index: 1;
+}
+
+.yt_product_buy_promise li .dorpdown strong {
+    font-family: "microsoft yahei";
+    font-size: 14px;
+}
+
+.yt_product_buy_promise li .dorpdown .arrow {
+    width: 14px;
+    height: 9px;
+    background: url(../img/fonticon.png) no-repeat;
+    background-position: -218px -190px;
+    position: absolute;
+    top: -9px;
+    left: 30px;
+    background-color: #fff;
+}
+
+.yt_product_buy_promise li:hover .a1 {
+    color: #e4393c;
+}
+
+.yt_product_buy_promise li:hover .dorpdown {
+    display: block;
+}
+
+.yt_product_buy_promise .pay {
+    float: right;
+    position: relative;
+}
+
+.yt_product_buy_promise .pay .s-tit {
+    height: 16px;
+    text-align: right;
+    cursor: pointer;
+    color: #666;
+    position: relative;
+    z-index: 1;
+}
+
+.yt_product_buy_promise .pay .s-tit i {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 9px;
+    height: 5px;
+    margin: 0 0 2px 5px;
+    background: url(/ytdocroot/content/images/storefront/s-icon.png) no-repeat;
+    background-position: -149px -94px;
+}
+
+.yt_product_buy_promise .pay .dorpdown {
+    display: none;
+    position: absolute;
+    z-index: 0;
+    padding: 40px 0 10px;
+    width: 160px;
+    top: -10px;
+    left: -80px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+
+.yt_product_buy_promise .pay .dorpdown a {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    font-size: 14px;
+    color: #333;
+    margin: 0 6px;
+}
+
+.yt_product_buy_promise .pay .dorpdown a:hover {
+    color: #e4393c;
+}
+
+.yt_product_buy_promise .pay:hover .dorpdown {
+    display: block;
+}
 
 .yt_product_footer{margin:10px auto;width:1200px;overflow:hidden;}
 .yt_product_footer_west{float:left;}
