@@ -18,7 +18,7 @@
 $(function() {
 
 	// 改变菜单样式，设为选中
-	$("#zhgl").css("color","#f0125b");
+	$("#zhgl").css("color","#c81523");
 	$("#zhgl").css("background-color","#e0e0e0");
 	// 输入框得到焦点事件
 	$("#money").focus(function() {
