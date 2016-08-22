@@ -23,6 +23,7 @@ $(function(){
 			  		if(data.status==1){
 			  			window.location.href=servicePath+"/"+data.toPage;
 			  		}else{
+						alert("收藏成功！")
 			  			$(".gameBoxss").css("display","");
 			  			$(".zhuanpan2").css("left", "25%");
 			  			$(".zhuanpan2").css("top", "25%");

@@ -309,14 +309,14 @@ input:focus,textarea:focus { outline: none !important;  }
 .dingwei{ width:1200px; height:0px; line-height:35px; color:#676767;overflow:hidden; margin-top:10px}
 .splist_left{width:218px; height:auto; float:left}
 .splist_left_fenlei{width:216px; height:auto; border:#cccccc solid 1px;border-top:none;}
-.splist_left_fenlei_xian01{ background-color:#f0125b; height:2px; overflow:hidden}
+.splist_left_fenlei_xian01{ background-color:#c81523; height:2px; overflow:hidden}
 .spl_kuai_top{ width:206px; height:32px; line-height:32px; color:#343434; font-size:14px; font-weight:bold; padding-left:10px; background-color:#f5f5f5; border-bottom:#cccccc solid 1px}
 .spl_kuai_ge{ width:216px; height:32px; line-height:32px; color:#343434; font-size:14px; font-weight:bold; background-color:#f5f5f5}
 .spl_kuai_ge_dian{ width:12px; height:12px;float:left;margin-top:10px; padding:0 0 0 0; overflow:hidden; margin-left:10px; background-image:url(../img/sp_list_07.gif);}
 .spl_kuai_ge_dian a{width:12px; height:12px; display:block}
 .spl_kuai_ge_zi{ width:auto; height:32px; overflow:hidden;line-height:32px; color:#343434; font-size:14px; font-weight:bold; float:left; margin-left:5px}
 .splist_kv{ width:216px; height:auto; margin-top:5px;overflow: hidden;}
-.splist_kuai{ width:70px; height:25px; line-height:25px;margin-left:27px; float:left; color:#f0125b; display:inline}
+.splist_kuai{ width:70px; height:25px; line-height:25px;margin-left:27px; float:left; color:#c81523; display:inline}
 .splist_kuai a{ width:70px; height:25px; display:block}
 
 .rexiao{width:216px; height:auto; border:#cccccc solid 1px; margin-top:21px}
@@ -386,7 +386,7 @@ input:focus,textarea:focus { outline: none !important;  }
 
 .sjxsp_kuai{ width:230px; height:230px; border:#eee7e1 solid 2px; border-bottom:#d6cfc9 solid 1px;float:left; margin-left:7px; margin-top:10px; background-color:#ffffff; display:inline}
 
-.sjxsp_kuai_dian{ width:230px; height:230px; border:#f0125b solid 2px; float:left;margin-left:7px; margin-top:9px;background-color:#ffffff;display:inline; overflow:hidden}
+.xsp_kuai_dian{  border:#572a27 solid 1px;  width:230px; height:344px; float:left; margin-left:7px; margin-top:10px; background-color:#ffffff; display:inline; overflow:hidden}
 .xshangjia_kuai_zi{ width:224px; height:25px;margin-left:10px; margin-top:5px; overflow:hidden; line-height:25px; font-size:12px; color:#000000;}
 
 .xsjia_kuai_zi{ width:224px; height:20px;margin-left:10px; margin-top:5px; overflow:hidden; line-height:18px; font-size:12px; color:#000000;}
@@ -394,7 +394,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .sjxsp_kuai_tu{ width:220px; height:156px; overflow:hidden; margin:5px 0 0 5px}
 .xsp_kuai_tu{ width:234px; height:234px;margin-left:5px; margin-top:5px; overflow:hidden}
 .xsp_kuai_tu1404{ width:220px; height:220px;margin-left:5px; margin-top:5px; overflow:hidden}
-.xsp_kuai_zi1404{ width:220px; height:36px;margin-left:10px; margin-top:5px; overflow:hidden; line-height:18px; font-size:12px; color:#000000;}
+.xsp_kuai_zi1404{ width:214px; height:36px;margin-left:10px; margin-top:5px; overflow:hidden; line-height:18px; font-size:12px; color:#000000;}
 
 .xsp_dajia1404{ width:210px; height:31px;margin-left:10px; margin-top:7px; overflow:hidden}
 
@@ -402,13 +402,13 @@ input:focus,textarea:focus { outline: none !important;  }
 .xsp_kuai_jiage{ width:260px; height:auto;margin-left:10px; margin-top:7px;}
 .xsp_dajia{ width:260px; height:31px;margin-left:10px; margin-top:7px; overflow:hidden}
 .xsp_dajia_le{ width:auto; height:31px; float:left; margin-top:5px}
-.xsp_dajia_ri{ width:80px; height:31px; float:right; overflow:hidden}
-.xsp_dajia_ri a{ width:80px; height:31px;overflow:hidden; display:block} 
+.xsp_dajia_ri{ width:65px; height:25px; float:right; overflow:hidden;margin: 10px 10px 0 0;}
+.xsp_dajia_ri a{ width:65px; height:25px;overflow:hidden; display:block}
 
 .xsjia_dajia_ri{ width:80px; height:31px; overflow:hidden}
 .xsjia_dajia_ri a{ width:80px; height:31px;display:block} 
 
-.xsp_dianming1404{ width:220px; height:20px;margin-left:5px; margin-top:3px;text-align:right;line-height:20px; font-size:12px; color:#575757; font-family:"微软雅黑"}
+.xsp_dianming1404{ width:100px; height:20px;margin-left:5px; margin-top:15px;text-align:left;line-height:20px; font-size:12px; color:#575757; font-family:"微软雅黑";padding-left: 6px;float: left;}
 
 
 .xsp_dianming{ width:220px; height:20px;margin-left:55px; margin-top:3px;text-align:right;line-height:20px; font-size:12px; color:#575757; font-family:"微软雅黑"}
