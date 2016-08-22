@@ -1395,10 +1395,10 @@ public class PagModInGoodsDAO extends BaseDAO{
  		selectSql+=" left join T_ACTIVE_GOODS ag on ag.GOODS_ID=g.GOODS_ID   ";
  		selectSql+=" left join t_active a on (a.ACTIVE_ID=ag.ACT_ID and a.btimel<"+t+" and a.etimel>"+t+")   ";
  		selectSql+=" left join T_PAGEMODULE_IN_GOODS pg on ( pg.GOOD_ID=g.GOODS_ID and pg.PAGEMODULE_ID="+pageModule_id+")   ";
- 		selectSql+=" where 1=1  and g.SHELVES=0  and g.tryuse='0' and g.GOODSSORT_ID="+goodSort+sql+" group by g.GOODS_ID";
+ 		selectSql+=" where 1=1  and g.SHELVES=0  and g.tryuse='0' and g.GOODSSORT_ID like '%"+goodSort+"%' "+sql+" group by g.GOODS_ID";
  		selectSql+=" ) a where 1=1";
  		if(moneysql!=null)
- 			selectSql+=moneysql;
+ 			selectSql+=moneysql;\
  		System.out.println(selectSql);
  		try{
  			Session session=this.getSession();
