@@ -1,5 +1,6 @@
 package com.wckj.gfsj.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,14 +12,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Activity.SearchResultActivity;
 import com.wckj.gfsj.Bean.SearchRequest;
 import com.wckj.gfsj.Bean.SearchResult;
+import com.wckj.gfsj.Bean.entity.GoodsSummary;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
+
+import java.util.ArrayList;
 
 import okhttp3.Call;
 
@@ -284,9 +289,18 @@ public class Search_fragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onSuccess(String response) {
-                SearchResult json = JSON.parseObject(response, SearchResult.class);
+                SearchResult result = JSON.parseObject(response, SearchResult.class);
                 LogUtil.i(response);
-                OwerToastShow.show(json.toString());
+
+                if (result.getResultCode() == 0) {
+                    ArrayList<GoodsSummary> goodsSummaryList = (ArrayList<GoodsSummary>)result.getGoodsSummaryList();
+                    Intent intent = new Intent();
+                    intent.putExtra("goodsList", goodsSummaryList);
+                    intent.setClass(getContext(), SearchResultActivity.class);
+                    startActivity(intent);
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
             }
         });
     }
