@@ -72,12 +72,12 @@ public class GoodListWidget extends Widget {
 			slq+=" and s.COUNT_ID="+countyId;
 		}
 		
-		if(price1!=null&&price1.length()>0){
+		/*if(price1!=null&&price1.length()>0){
 			moneysql+=" and money>="+price1;
 		}
 		if(price2!=null&&price2.length()>0){
 			moneysql+=" and money<="+price2;
-		}
+		}*/
 		if(parameters!=null){
 			for(String parameter:parameters){
 				String ps[]=parameter.split(":");
