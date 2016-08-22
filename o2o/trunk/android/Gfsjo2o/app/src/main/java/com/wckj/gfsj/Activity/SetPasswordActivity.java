@@ -28,9 +28,9 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
 
     private TitleRelativeLayout mRlTitle;
     private View view;
-    private Button mBtnSet, mBtnModify, mBtnFind;
+    private Button mBtnSet, mBtnFind;
     private RelativeLayout mRlSetPwd, mRlModifyPwd, mRlFindPwd;
-    private Button mBtnSetComplete, mBtnModifyComplete;
+    private Button mBtnSetComplete, mBtnFindComplete;
 
     private EditText mEtSetPwd, mEtSetConfirmPwd;
 
@@ -71,20 +71,16 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
         mBtnSet = (Button) view.findViewById(R.id.btn_set);
         mBtnSet.setOnClickListener(this);
 
-        mBtnModify = (Button) view.findViewById(R.id.btn_modify);
-        mBtnModify.setOnClickListener(this);
-
-//        mBtnFind = (Button) view.findViewById(R.id.btn_find);
-//        mBtnFind.setOnClickListener(this);
+        mBtnFind = (Button) view.findViewById(R.id.btn_find);
+        mBtnFind.setOnClickListener(this);
 
         mRlSetPwd = (RelativeLayout) view.findViewById(R.id.rl_set_pwd);
         mRlModifyPwd = (RelativeLayout) view.findViewById(R.id.rl_modify_pwd);
-//        mRlFindPwd = (RelativeLayout) view.findViewById(R.id.rl_find_pwd);
 
         mBtnSetComplete = (Button) view.findViewById(R.id.btn_set_complete);
         mBtnSetComplete.setOnClickListener(this);
-        mBtnModifyComplete = (Button) view.findViewById(R.id.btn_modify_complete);
-        mBtnModifyComplete.setOnClickListener(this);
+        mBtnFindComplete = (Button) view.findViewById(R.id.btn_find_complete);
+        mBtnFindComplete.setOnClickListener(this);
 
         mEtSetPwd = (EditText) view.findViewById(R.id.et_set_pwd);
         mEtSetConfirmPwd = (EditText) view.findViewById(R.id.et_set_confirm_pwd);
@@ -99,18 +95,11 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
             case R.id.btn_set:
                 mRlSetPwd.setVisibility(View.VISIBLE);
                 mRlModifyPwd.setVisibility(View.GONE);
-//                mRlFindPwd.setVisibility(View.GONE);
                 break;
-            case R.id.btn_modify:
+            case R.id.btn_find:
                 mRlSetPwd.setVisibility(View.GONE);
                 mRlModifyPwd.setVisibility(View.VISIBLE);
-//                mRlFindPwd.setVisibility(View.GONE);
                 break;
-//            case R.id.btn_find:
-//                mRlSetPwd.setVisibility(View.GONE);
-//                mRlModifyPwd.setVisibility(View.GONE);
-//                mRlFindPwd.setVisibility(View.VISIBLE);
-//                break;
             case R.id.btn_set_complete:
                 String setPwd = mEtSetPwd.getText().toString().trim();
                 String setConfirmPwd  = mEtSetConfirmPwd.getText().toString().trim();
@@ -128,7 +117,7 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
                 }
                 setLockPwd(setPwd);
                 break;
-            case R.id.btn_modify_complete:
+            case R.id.btn_find_complete:
                 break;
         }
     }
