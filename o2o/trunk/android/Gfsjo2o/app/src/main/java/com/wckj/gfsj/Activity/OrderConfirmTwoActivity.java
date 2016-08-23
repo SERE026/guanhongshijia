@@ -71,8 +71,8 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                 finish();
                 break;
             case R.id.btn_next:
-//                Intent intent = new Intent(view.getContext(), OrderConfirmThreeActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(view.getContext(), OrderConfirmThreeActivity.class);
+                startActivity(intent);
                 break;
         }
     }

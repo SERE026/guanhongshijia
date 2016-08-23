@@ -112,6 +112,10 @@
                   android:launchMode="singleTask"
                   android:screenOrientation="landscape"/>
 
+        <activity android:name=".Activity.OrderConfirmThreeActivity"
+                  android:launchMode="singleTask"
+                  android:screenOrientation="landscape"/>
+
         <activity
             android:name="com.wckj.gfsj.Alipay.H5PayDemoActivity"
             android:configChanges="orientation|keyboardHidden|navigation"

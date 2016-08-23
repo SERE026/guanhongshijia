@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_order_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/icon_my_order"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:text="订单确认"
+        android:textColor="@color/color_ebebeb"
+        android:textSize="23sp"
+        app:layout_marginLeftPercent="13%"
+        app:layout_marginTopPercent="7%"/>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_order_confirm"
+        android:background="@color/white"
+        app:layout_marginBottomPercent="6%"
+        app:layout_marginLeftPercent="13%"
+        app:layout_marginRightPercent="9%"
+        app:layout_marginTopPercent="3%">
+
+        <TextView
+            android:id="@+id/tv_commodity_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商品明细"
+            android:textSize="18sp"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="6%"/>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/tv_commodity_detail"
+            android:background="@color/color_97888a"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="2%"/>
+
+        <TextView
+            android:id="@+id/tv_explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line"
+            android:text="以下商品由观红世家发货"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="3%"/>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/rl_head"
+            android:layout_width="match_parent"
+            android:layout_below="@id/tv_explain"
+            android:background="@color/color_cbcbcb"
+            app:layout_heightPercent="7%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="3%">
+
+            <TextView
+                android:id="@+id/tv_commodity_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="商品名称"
+                app:layout_marginLeftPercent="2%"/>
+
+            <TextView
+                android:id="@+id/tv_subtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="小计（元）"
+                app:layout_marginRightPercent="5%"/>
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/tv_subtotal"
+                android:gravity="center"
+                android:text="数量"
+                app:layout_marginRightPercent="5%"/>
+
+            <TextView
+                android:id="@+id/tv_unit_price"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/tv_amount"
+                android:gravity="center"
+                android:text="单价"
+                app:layout_marginRightPercent="5%"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_commodity_list"
+            android:layout_width="match_parent"
+            android:layout_below="@id/rl_head"
+            app:layout_heightPercent="35%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="3%"/>
+
+        <TextView
+            android:id="@+id/tv_commodity_total_money"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/lv_commodity_list"
+            android:gravity="center_vertical"
+            android:text="1.20"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="10%"/>
+
+        <TextView
+            android:id="@+id/tv_commodity_total"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lv_commodity_list"
+            android:layout_toLeftOf="@id/tv_commodity_total_money"
+            android:gravity="center_vertical|right"
+            android:text="商品总金额："
+            app:layout_marginRightPercent="1%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="15%"/>
+
+        <TextView
+            android:id="@+id/tv_freight_money"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_commodity_total_money"
+            android:gravity="center_vertical"
+            android:text="1.20"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="10%"/>
+
+        <TextView
+            android:id="@+id/tv_freight"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_commodity_total"
+            android:layout_toLeftOf="@id/tv_freight_money"
+            android:gravity="center_vertical|right"
+            android:text="运费："
+            app:layout_marginRightPercent="1%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="15%"/>
+
+        <TextView
+            android:id="@+id/tv_total_money"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_freight_money"
+            android:gravity="center_vertical"
+            android:text="1.20"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="10%"/>
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_freight"
+            android:layout_toLeftOf="@id/tv_total_money"
+            android:gravity="center_vertical|right"
+            android:text="总计："
+            app:layout_marginRightPercent="1%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="15%"/>
+
+        <TextView
+            android:id="@+id/tv_discount_money"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_total_money"
+            android:gravity="center_vertical"
+            android:text="1.20"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="10%"/>
+
+        <TextView
+            android:id="@+id/tv_discount"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_total"
+            android:layout_toLeftOf="@id/tv_discount_money"
+            android:gravity="center_vertical|right"
+            android:text="优惠金额："
+            app:layout_marginRightPercent="1%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="15%"/>
+
+        <TextView
+            android:id="@+id/tv_actual_total_money"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_discount_money"
+            android:gravity="center_vertical"
+            android:text="1.20"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="10%"/>
+
+        <TextView
+            android:id="@+id/tv_actual_total"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_discount"
+            android:layout_toLeftOf="@id/tv_actual_total_money"
+            android:gravity="center_vertical|right"
+            android:text="实际支付金额："
+            app:layout_marginRightPercent="1%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="15%"/>
+
+        <TextView
+            android:id="@+id/tv_should_pay_money"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_actual_total_money"
+            android:gravity="center_vertical"
+            android:text="￥2.40"
+            android:textSize="15sp"
+            android:textColor="@color/color_f74a3e"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="10%"/>
+
+        <TextView
+            android:id="@+id/tv_should_pay"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_actual_total"
+            android:layout_toLeftOf="@id/tv_should_pay_money"
+            android:gravity="center_vertical|right"
+            android:text="应付总额："
+            android:textSize="15sp"
+            android:textColor="@color/color_f74a3e"
+            app:layout_marginRightPercent="1%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="15%"/>
+
+        <TextView
+            android:id="@+id/tv_send_to_address"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_actual_total_money"
+            android:gravity="center_vertical"
+            android:layout_toLeftOf="@id/tv_should_pay"
+            android:text="广东省深圳市"
+            app:layout_marginRightPercent="7%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="10%"/>
+
+        <TextView
+            android:id="@+id/tv_send_to"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_actual_total"
+            android:layout_toLeftOf="@id/tv_send_to_address"
+            android:gravity="center_vertical|right"
+            android:text="寄送至："
+            app:layout_marginRightPercent="1%"
+            app:layout_marginTopPercent="1%"
+            app:layout_widthPercent="15%"/>
+
+        <Button
+            android:id="@+id/btn_commit_order"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_should_pay"
+            android:background="@drawable/shape_btn_modify_pwd"
+            android:gravity="center"
+            android:text="提交订单"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_heightPercent="6%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginRightPercent="13%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="18%"/>
+
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>
