@@ -1,8 +1,10 @@
 package com.wckj.gfsj.Activity;
 
+import android.content.Intent;
 import android.support.percent.PercentRelativeLayout;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,6 +39,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
     private TextView tvShouldPay;
     private TextView tvSendToAddress;
     private TextView tvSendTo;
+    private Button btnCommitOrder;
 
     @Override
     protected void init() {
@@ -82,7 +85,8 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
                 finish();
                 break;
             case R.id.btn_commit_order:
-                //TODO implement
+                Intent intent = new Intent(view.getContext(), OrderConfirmFourActivity.class);
+                startActivity(intent);
                 break;
         }
     }
@@ -111,6 +115,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
         tvShouldPay = (TextView) view.findViewById(R.id.tv_should_pay);
         tvSendToAddress = (TextView) view.findViewById(R.id.tv_send_to_address);
         tvSendTo = (TextView) view.findViewById(R.id.tv_send_to);
-        view.findViewById(R.id.btn_commit_order).setOnClickListener(this);
+        btnCommitOrder = (Button) view.findViewById(R.id.btn_commit_order);
+        btnCommitOrder.setOnClickListener(this);
     }
 }
