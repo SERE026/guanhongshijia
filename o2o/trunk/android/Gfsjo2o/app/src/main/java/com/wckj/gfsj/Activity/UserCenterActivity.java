@@ -96,7 +96,7 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
                 break;
             case R.id.btn_my_order:
                 mEtBrokeragePwd.setVisibility(View.GONE);
-                intent = new Intent(view.getContext(), OrderConfirmOneActivity.class);
+                intent = new Intent(view.getContext(), MyOrderActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_brokerage:

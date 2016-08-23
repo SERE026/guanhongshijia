@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_order_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/icon_my_order"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:text="订单确认"
+        android:textColor="@color/color_ebebeb"
+        android:textSize="23sp"
+        app:layout_marginLeftPercent="13%"
+        app:layout_marginTopPercent="7%"/>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_order_confirm"
+        android:background="@color/white"
+        app:layout_marginBottomPercent="6%"
+        app:layout_marginLeftPercent="13%"
+        app:layout_marginRightPercent="9%"
+        app:layout_marginTopPercent="3%">
+
+        <TextView
+            android:id="@+id/tv_pay_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付方式"
+            android:textSize="18sp"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="6%"/>
+
+        <CheckBox
+            android:id="@+id/cb_balance_pay"
+            android:layout_below="@id/tv_pay_method"
+            android:text="优先使用余额支付"
+            android:textColor="@color/color_6f5f62"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="25%"/>
+
+        <TextView
+            android:id="@+id/tv_balance_pay_toast"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/tv_pay_method"
+            android:layout_toRightOf="@id/cb_balance_pay"
+            android:text="余额不足选择其他支付方式"
+            android:gravity="center_vertical"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="2%"
+            app:layout_marginTopPercent="3%"/>
+
+        <CheckBox
+            android:id="@+id/cb_alipay"
+            android:layout_below="@id/cb_balance_pay"
+            android:text="使用支付宝即时到账"
+            android:textColor="@color/color_6f5f62"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="25%"/>
+
+        <TextView
+            android:id="@+id/tv_alipay_toast"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/cb_balance_pay"
+            android:layout_toRightOf="@id/cb_alipay"
+            android:text="无需开通网银无需手续费"
+            android:gravity="center_vertical"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="2%"
+            app:layout_marginTopPercent="3%"/>
+
+        <CheckBox
+            android:id="@+id/cb_coupon_pay1"
+            android:layout_below="@id/cb_alipay"
+            android:text="使用优惠券"
+            android:textColor="@color/color_6f5f62"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="25%"/>
+
+        <TextView
+            android:id="@+id/tv_coupon_pay_toast1"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/cb_alipay"
+            android:layout_toRightOf="@id/cb_coupon_pay1"
+            android:text="第一券（不可与其他券一起使用）"
+            android:gravity="center_vertical"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="2%"
+            app:layout_marginTopPercent="3%"/>
+
+        <CheckBox
+            android:id="@+id/cb_coupon_pay2"
+            android:layout_below="@id/cb_coupon_pay1"
+            android:text="使用优惠券"
+            android:textColor="@color/color_6f5f62"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="25%"/>
+
+        <TextView
+            android:id="@+id/tv_coupon_pay_toast2"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/cb_coupon_pay1"
+            android:layout_toRightOf="@id/cb_coupon_pay2"
+            android:text="第二券（不可与其他券一起使用）"
+            android:gravity="center_vertical"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="2%"
+            app:layout_marginTopPercent="3%"/>
+
+        <TextView
+            android:id="@+id/tv_receipt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cb_coupon_pay2"
+            android:text="收货日期"
+            android:textSize="18sp"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="6%"/>
+
+        <CheckBox
+            android:id="@+id/cb_time_not_limit"
+            android:layout_below="@id/tv_receipt_date"
+            android:text="时间不限"
+            android:textColor="@color/color_6f5f62"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="25%"/>
+
+        <TextView
+            android:id="@+id/tv_time_not_limit_toast"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/tv_receipt_date"
+            android:layout_toRightOf="@id/cb_time_not_limit"
+            android:text="(工作日、双休日、节假日均可收货)"
+            android:gravity="center_vertical"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="2%"
+            app:layout_marginTopPercent="3%"/>
+
+        <CheckBox
+            android:id="@+id/cb_weekday"
+            android:layout_below="@id/cb_time_not_limit"
+            android:text="只工作日收货"
+            android:textColor="@color/color_6f5f62"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="25%"/>
+
+        <TextView
+            android:id="@+id/tv_weekday_toast"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/cb_time_not_limit"
+            android:layout_toRightOf="@id/cb_weekday"
+            android:text="(双休日、节假日不收货)"
+            android:gravity="center_vertical"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="2%"
+            app:layout_marginTopPercent="3%"/>
+
+        <CheckBox
+            android:id="@+id/cb_weekend"
+            android:layout_below="@id/cb_weekday"
+            android:text="只双休日、节假日收货"
+            android:textColor="@color/color_6f5f62"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="7%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="25%"/>
+
+        <TextView
+            android:id="@+id/tv_weekend_toast1"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/cb_weekday"
+            android:layout_toRightOf="@id/cb_weekend"
+            android:text="只双休日、节假日收货(工作日不收货)"
+            android:gravity="center_vertical"
+            app:layout_heightPercent="5%"
+            app:layout_marginLeftPercent="2%"
+            app:layout_marginTopPercent="3%"/>
+
+        <Button
+            android:id="@+id/btn_next"
+            app:layout_widthPercent="18%"
+            app:layout_heightPercent="6%"
+            android:layout_below="@id/cb_weekend"
+            app:layout_marginTopPercent="3%"
+            app:layout_marginLeftPercent="7%"
+            android:background="@drawable/shape_btn_modify_pwd"
+            android:gravity="center"
+            android:text="下一步"
+            android:textColor="@color/white"
+            android:textSize="12sp"/>
+
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>

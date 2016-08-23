@@ -1,7 +1,9 @@
 package com.wckj.gfsj.Activity;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -19,6 +21,8 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     private RadioGroup rgShipMethod;
     private TextView tvSelectAddress;
     private RadioGroup rgAddress;
+    private Button btnNext;
+
     private TextView tvAddNewAddress;
     private TextView tvUserName;
     private TextView tvProvince;
@@ -28,6 +32,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     private TextView tvPhoneNum;
     private TextView tvEmail;
     private TextView tvEmailToast;
+
 
     @Override
     protected void init() {
@@ -67,24 +72,35 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_go_back:
+                finish();
+                break;
+            case R.id.btn_next:
+                Intent intent = new Intent(view.getContext(), OrderConfirmTwoActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
     private void initView() {
-        tvOrderConfirm = (TextView) findViewById(R.id.tv_order_confirm);
-        tvSelectShipMethod = (TextView) findViewById(R.id.tv_select_ship_method);
-        rgShipMethod = (RadioGroup) findViewById(R.id.rg_ship_method);
-        tvSelectAddress = (TextView) findViewById(R.id.tv_select_address);
-        rgAddress = (RadioGroup) findViewById(R.id.rg_address);
-        tvAddNewAddress = (TextView) findViewById(R.id.tv_add_new_address);
-        tvUserName = (TextView) findViewById(R.id.tv_user_name);
-        tvProvince = (TextView) findViewById(R.id.tv_province);
-        tvStreet = (TextView) findViewById(R.id.tv_street);
-        tvZipCode = (TextView) findViewById(R.id.tv_zip_code);
-        tvCellPhoneNum = (TextView) findViewById(R.id.tv_cell_phone_num);
-        tvPhoneNum = (TextView) findViewById(R.id.tv_phone_num);
-        tvEmail = (TextView) findViewById(R.id.tv_email);
-        tvEmailToast = (TextView) findViewById(R.id.tv_email_toast);
+        tvOrderConfirm = (TextView) view.findViewById(R.id.tv_order_confirm);
+        tvSelectShipMethod = (TextView) view.findViewById(R.id.tv_select_ship_method);
+        rgShipMethod = (RadioGroup) view.findViewById(R.id.rg_ship_method);
+        tvSelectAddress = (TextView) view.findViewById(R.id.tv_select_address);
+        rgAddress = (RadioGroup) view.findViewById(R.id.rg_address);
+        btnNext = (Button) view.findViewById(R.id.btn_next);
+        btnNext.setOnClickListener(this);
+        tvAddNewAddress = (TextView) view.findViewById(R.id.tv_add_new_address);
+        tvUserName = (TextView) view.findViewById(R.id.tv_user_name);
+        tvProvince = (TextView) view.findViewById(R.id.tv_province);
+        tvStreet = (TextView) view.findViewById(R.id.tv_street);
+        tvZipCode = (TextView) view.findViewById(R.id.tv_zip_code);
+        tvCellPhoneNum = (TextView) view.findViewById(R.id.tv_cell_phone_num);
+        tvPhoneNum = (TextView) view.findViewById(R.id.tv_phone_num);
+        tvEmail = (TextView) view.findViewById(R.id.tv_email);
+        tvEmailToast = (TextView) view.findViewById(R.id.tv_email_toast);
     }
 
     private View getLine(){
