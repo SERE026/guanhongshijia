@@ -88,9 +88,10 @@ public class UserInfoActivity extends BaseNewActivity implements View.OnClickLis
     }
 
     private void initView() {
-
         mEtNickname = (EditText) view.findViewById(R.id.et_nickname);
         mEtRealName = (EditText) view.findViewById(R.id.et_real_name);
+        mEtNickname.setKeyListener(null);
+        mEtRealName.setKeyListener(null);
         mTvTelephoneNumber = (TextView) view.findViewById(R.id.tv_telephone_number);
         mTvBirthdayDate = (TextView) view.findViewById(R.id.tv_birthday_date);
         mTvMobilePhoneNumber = (TextView) view.findViewById(R.id.tv_mobile_phone_number);
