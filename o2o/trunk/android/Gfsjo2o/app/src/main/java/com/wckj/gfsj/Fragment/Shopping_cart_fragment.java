@@ -13,15 +13,14 @@ import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
 import com.wckj.gfsj.Bean.CartListRequest;
 import com.wckj.gfsj.Bean.CartListResult;
-import com.wckj.gfsj.Bean.CreateOrderRequest;
-import com.wckj.gfsj.Bean.CreateOrderResult;
+import com.wckj.gfsj.Bean.DelCartRequest;
+import com.wckj.gfsj.Bean.DelCartResult;
 import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
-import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
 
 import java.util.List;
@@ -50,8 +49,6 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
         loadPage.iv_networktext.setImageResource(R.drawable.icon_big_cart);
         loadPage.textView1.setText("你还没有相关订单");
         loadPage.textView2.setText("快去商品购物页选择其他商品吧！！！");
-//        List<CartItem> list = new ArrayList<CartItem>();
-//        createOrder(list);
     }
 
     @Override
@@ -108,6 +105,7 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
                         @Override
                         public void onClick(View v) {
                             mList.remove(position);
+                            deleCart(item.getGoodsDetail().getId());
                             notifyDataSetChanged();
                         }
                     });
@@ -145,32 +143,6 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
        });
     }
 
-    /**
-     * 创建订单
-     * @param cartItemList 购物车商品列表
-     */
-    private void createOrder(List<CartItem> cartItemList) {
-        CreateOrderRequest request = new CreateOrderRequest();
-        request.setCartItemList(cartItemList);
-        HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_CREATE_URL, new ICallBack() {
-            @Override
-            public void onError(Call call, Exception e) {
-                LogUtil.e("{" + e.toString() + "}");
-            }
-
-            @Override
-            public void onSuccess(String response) {
-                CreateOrderResult result = JSON.parseObject(response, CreateOrderResult.class);
-                LogUtil.i(response);
-
-                if (result.getResultCode() == 0) {
-                    OwerToastShow.show("创建成功");
-                } else {
-                    OwerToastShow.show(result.getMessage());
-                }
-            }
-        });
-    }
 
     @Override
     protected void refreshOrLoadView() {
@@ -197,5 +169,29 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
         }
     }
 
+    /**
+     * 删除购物车
+     */
+    private void deleCart(String goodsId) {
+        DelCartRequest request = new DelCartRequest();
+
+        request.setGoodsId(goodsId);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.CART_DEL_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                OwerToastShow.show("购物车删除失败");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                DelCartResult json = JSON.parseObject(response, DelCartResult.class);
+                if(json.getResultCode()==0){
+                    OwerToastShow.show("购物车删除成功");
+                }else {
+                    OwerToastShow.show("购物车删除失败");
+                }
+            }
+        });
+    }
 
 }

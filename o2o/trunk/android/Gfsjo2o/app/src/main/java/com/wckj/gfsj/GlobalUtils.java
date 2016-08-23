@@ -17,6 +17,10 @@ public class GlobalUtils {
     public static final String CART_ADD_URL = SERVER_URL + "/cart/add";
     //购物车列表命令
     public static final String CART_LIST_URL = SERVER_URL + "/cart/list";
+    //取消收藏
+    public static final String FAVORITES_CANCEL_URL = SERVER_URL + "/favorites/cancel";
+    //删除购物车商品命令
+    public static final String CART_DEL_URL = SERVER_URL + "/cart/del";
     //添加到收藏夹命令
     public static final String FAVORITES_ADD_URL = SERVER_URL + "/favorites/add";
     //收藏夹商品列表命令
@@ -67,4 +71,9 @@ public class GlobalUtils {
     public static final String SMS_URL = SERVER_URL + "/sys/sms";
     //启动请求命令
     public static final String STARTUP_URL = SERVER_URL + "/sys/startup";
+    //订单更改 (确认订单和取消订单)
+    public static final String ORDER_UPDATE_URL = SERVER_URL + "/order/update";
+    //查询市、区请求命令
+    public static final String ORDER_QUERYAREA_URL  = SERVER_URL + "/order/queryArea";
+
 }

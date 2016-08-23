@@ -14,6 +14,7 @@ import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.AddCartRequest;
 import com.wckj.gfsj.Bean.AddCartResult;
 import com.wckj.gfsj.Bean.AddFavoritesRequest;
+import com.wckj.gfsj.Bean.CancelFavoritesRequest;
 import com.wckj.gfsj.Bean.GoodsDetailRequest;
 import com.wckj.gfsj.Bean.GoodsDetailResult;
 import com.wckj.gfsj.Bean.entity.GoodsSpec;
@@ -272,6 +273,10 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                     OwerToastShow.show("暂无权限,需要先登录哦！！！");
                     return;
                 }
+                if( result.getDetail().getCollection().equals("收藏"))
+                    addCollect();
+                else
+                    cancelCollect();
                 addCollect();
                  result.getDetail().setCollection( result.getDetail().getCollection().equals("收藏")?"已收藏":"收藏");
                 iv_collect.setImageResource(result.getDetail().getCollection().equals("收藏")?R.drawable.icon_collect_normal:R.drawable.icon_collect_press);
@@ -331,11 +336,27 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
 
             @Override
             public void onSuccess(String response) {
-//                AddCartResult json = JSON.parseObject(response, AddCartResult.class);
-//                OwerToastShow.show("收藏夹加入成功");
+
             }
         });
+    }
 
+    /**
+     * 取消收藏
+     */
+    private void cancelCollect() {
+        CancelFavoritesRequest request = new CancelFavoritesRequest();
+
+        request.setGoodsId(goodsId+"");
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.FAVORITES_CANCEL_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+            }
+
+            @Override
+            public void onSuccess(String response) {
+            }
+        });
     }
 
     /**
@@ -360,7 +381,6 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                 }else {
                     OwerToastShow.show("购物车加入失败");
                 }
-
             }
         });
     }
