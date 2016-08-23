@@ -444,13 +444,13 @@ top: 3px;left: 6px;}
 }
     .Add-art img {margin-top:2px;
     }
-.Showcase .Item-introduction dd:last-child {margin-top:10px;overflow:hidden;
+.Showcase .Item-introduction dd:last-child {margin-top:6px;overflow:hidden;
 }
-.Showcase .Item-introduction .dd-Item-name {margin:4px 0;font-size:14px;height: 35px;overflow: hidden;
+.dd-Item-name {margin:4px 0;font-size:12px;height: 30px;overflow: hidden;line-height: 1.3;
 }
     .Showcase .Item-introduction .dd-Item-name a {color:#666;font-size: 12px;
     }
-.More {background-color:#572a27;font-size:12px;color:white;width:50px;line-height:20px;text-align:center;display:block;float:right;margin-right: 10px;
+.More {background-color:#572a27;font-size:12px;color:white;width:50px;line-height:20px;text-align:center;display:block;float:right;margin-right: 2px;
 }
 .Showcase .Item-introduction dd b {float:left;font-size: 18px;font-weight: 400;
 }
@@ -516,7 +516,7 @@ top: 3px;left: 6px;}
 }
     .Floor > p {line-height:95px;
     }
-    .Floor .FloorImg {float:left;width:220px;height:616px;border:1px solid #572a27;padding-left:16px;/*background: url('../img/FloorImg.gif') repeat;*/
+    .Floor .FloorImg {float:left;width:220px;height:638px;border:1px solid #572a27;padding-left:16px;/*background: url('../img/FloorImg.gif') repeat;*/
     }
         .Floor .FloorImg h1 {line-height:50px;border-bottom:1px solid black;width:auto;margin-top:20px;font-weight:400!important;font-size:27px;display: inline-block;font-family: "Microsoft YaHei";
         }
@@ -534,7 +534,7 @@ top: 3px;left: 6px;}
 }
 .floor-banner ul {width:958px;overflow:hidden;margin-left:5px;float:left;
 }
-.floor-banner ul li {width:232px;height:305px;border:1px solid #ebebeb;margin-left: 5px;
+.floor-banner ul li {width:232px;height:316px;border:1px solid #ebebeb;margin-left: 5px;
 }
 .floor-banner ul li:nth-child(5),.floor-banner ul li:nth-child(6),.floor-banner ul li:nth-child(7),.floor-banner ul li:nth-child(8){margin-top: 5px;}
 .floor-banner ul li:hover{border:1px solid #572a27}
@@ -550,6 +550,7 @@ top: 3px;left: 6px;}
     }
 .price b {color:red;
 }
+.price{overflow: hidden;}
 .Item-price b {color:red;font-size:18px;font-weight: 400;
 }
 .Item-price b span{font-size: 14px;}
@@ -574,7 +575,7 @@ top: 3px;left: 6px;}
         }
         .Floor-bottom ul li dl dt {float:left;
         }
-        .Floor-bottom ul li dl .dd-Item-name {padding:18px 0 10px 200px;
+        .Floor-bottom ul li dl .dd-Item-name {margin:18px 0 10px 200px;
         }
 .Floor-bottom .hot-cakes {padding-left:200px;min-height: 30px;
 }

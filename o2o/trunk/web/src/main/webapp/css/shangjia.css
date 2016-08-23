@@ -71,11 +71,11 @@ img{border:0px;}
 .right_box_aa{ width:243px; height:auto; float:left; margin-left:7px; margin-top:10px; display:inline;border: 1px solid white;}
 .right_box_aa:hover{border: 1px solid #572a27;}
 .right_box_aa_img{ width:239px; height:239px; overflow:hidden; margin:auto;}
-.right_box_aa_tit{ width:239px; height:40px; line-height:20px;overflow:hidden; margin:auto}
+.right_box_aa_tit{ width:234px; height:40px; line-height:20px;overflow:hidden; margin:auto;word-wrap: break-word;}
 .right_box_aa_price{ width:235px; height:30px; line-height:30px;margin:auto; overflow:hidden; text-align:left; margin:0 0 0 4px;}
-.right_box_aa_an{ width:235px; height:25px; overflow:hidden;margin:15px 0 0 4px;}
+.right_box_aa_an{ width:235px; height:25px; overflow:hidden;margin:10px 0 5px 4px;}
 .right_box_aa_an_ka{ width:94px; height:23px; float:left}
-.right_box_aa_an_kb{ width:41px; height:23px; float:left; margin-left:15px}
+.right_box_aa_an_kb{ width:41px; height:23px; float:RIGHT; margin-right:5px}
 
 .laadvertising{ width:825px; height:265px; overflow:hidden; float:right; margin-top:50px}
 .dianpu_tuwen{ width:1000px; height:auto; overflow:hidden; margin-left:11px; color:#666666; line-height:20px;margin-top: 8px;}
@@ -88,12 +88,12 @@ img{border:0px;}
 
 a.zhu36:link{ color:#676767;}
 a.zhu36:visited{ color:#676767;}
-a.zhu36:hover{color:#f0125b; text-decoration:underline}
+a.zhu36:hover{color:#c81523; text-decoration:underline}
 
 
 a.zhu37:link{font-family:Verdana, Arial, Helvetica, sans-serif; color:#8d3122; font-size:18px;}
 a.zhu37:visited{font-family:Verdana, Arial, Helvetica, sans-serif; color:#8d3122; font-size:18px;}
-a.zhu37:hover{font-family:Verdana, Arial, Helvetica, sans-serif; color:#f0125b; font-size:18px;}
+a.zhu37:hover{font-family:Verdana, Arial, Helvetica, sans-serif; color:#c81523; font-size:18px;}
 
 
 a.zhu38:link{ color:#6b9702;}

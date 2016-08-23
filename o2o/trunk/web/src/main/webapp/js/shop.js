@@ -172,8 +172,8 @@ page=function(obj,box,widget){
 			  		for(var i=0;i<data.length;i++){
 			  			html+='<div class="right_box_aa">';
 			  			html+='<div class="right_box_aa_img"><a href="'+servicePath+'/item-'+data[i].goodId+'.html"><img src="'+servicePath+'/upload/goods/'+data[i].image+'" border="0"  width="100%" height="100%"/></a></div>';
-			  			html+='<div class="right_box_aa_tit"><a href="'+servicePath+'/item-'+data[i].goodId+'.html" class="zhu9">'+data[i].goodName+'</a></div>';
-			  			html+='<div class="right_box_aa_price"><a href="'+servicePath+'/item-'+data[i].goodId+'.html" class="zhu37">¥'+parseFloat(data[i].money).toFixed(2)+' </a></div>';
+						html+='<div class="right_box_aa_price"><a href="'+servicePath+'/item-'+data[i].goodId+'.html" class="zhu37">¥'+parseFloat(data[i].money).toFixed(2)+' </a></div>';
+						html+='<div class="right_box_aa_tit"><a href="'+servicePath+'/item-'+data[i].goodId+'.html" class="zhu9">'+data[i].goodName+'</a></div>';
 			  			html+='<div class="right_box_aa_an">';
 			  			html+='<div class="right_box_aa_an_ka"><a href="javascript:;" class="addCars" dataValue="'+data[i].goodId+'"><img src="'+servicePath+'/img/dianpu_35.gif" border="0" /></a></div>';
 			  			html+='<div class="right_box_aa_an_kb"><a href="javascript:;" class="addFav" g_id="'+data[i].goodId+'"><img src="'+servicePath+'/img/dianpu_37.gif" border="0" /></a></div>';
