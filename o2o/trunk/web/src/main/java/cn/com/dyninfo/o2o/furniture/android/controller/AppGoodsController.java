@@ -563,8 +563,13 @@ public class AppGoodsController extends BaseAppController {
             result.setMessage("设备识别码不能为空");
             return result;
         }
-        List<GoodsSummary>  lists=new ArrayList<GoodsSummary>();
-        List<Goods>  list=(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.goodsSort="+ Constants.ONE_SKU));
+        List<GoodsSummary> goodsSummaryList=new ArrayList<GoodsSummary>();
+        PageInfo pageInfo=new PageInfo();
+        pageInfo.setPageSize(searchRequest.getPageSize());
+        pageInfo.setPageNo(searchRequest.getPageNo());
+
+        Map map=goodsService.getListByPageWhere(new StringBuffer(" and n.shelves=0  and n.pinyinName like '%"+searchRequest.getKeyword()+"%' order by n.indexs desc"),pageInfo);
+        List<Goods> list=(List) map.get("DATA");
         if(!ValidationUtil.isEmpty(list)){
             for (int i = 0; i < list.size(); i++) {
                 GoodsSummary goodsSummary = new GoodsSummary();
@@ -578,10 +583,13 @@ public class AppGoodsController extends BaseAppController {
                     goodsSummary.setMainPicUrl(Constants.DOMAIN_NAME+Constants.GOODS_IMG+list.get(i).getDefaultImage());
                 }
                 goodsSummary.setPrice(list.get(i).getSalesMoney());
-                lists.add(goodsSummary);
+                goodsSummaryList.add(goodsSummary);
             }
         }
-        result.setGoodsSummaryList(lists);
+        result.setGoodsSummaryList(goodsSummaryList);
+        int totalpage=(pageInfo.getTotalCount()+pageInfo.getPageSize()-1)/pageInfo.getPageSize();
+        result.setPageNo(pageInfo.getPageNo());
+        result.setTotalPage(totalpage);
         result.setResultCode(SUCCESS);
         result.setMessage("OK");
         log.debug(result);
