@@ -87,7 +87,7 @@ function showXieyi(){
 	$.layer({
 	   	type : 2,
 	    	title : '观红世家用户协议',
-	    	iframe : {src : 'https://'+servicePath+'/xieyi.html'},
+	    	iframe : {src : servicePath+'/xieyi.html'},
 	    	area : ['750px' , '466px'],
 	    	offset : ['100px','']
 	});
