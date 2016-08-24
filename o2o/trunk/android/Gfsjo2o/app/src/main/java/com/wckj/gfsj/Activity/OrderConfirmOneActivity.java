@@ -3,14 +3,29 @@ package com.wckj.gfsj.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Bean.QueryAreaRequest;
+import com.wckj.gfsj.Bean.QueryAreaResult;
+import com.wckj.gfsj.Bean.entity.Area;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.Call;
 
 public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnClickListener {
 
@@ -33,9 +48,18 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     private TextView tvEmail;
     private TextView tvEmailToast;
 
+    private ListView lvProvince, lvCity, lvDistrict;
+    private ArrayAdapter provinceAdapter, cityAdapter, districtAdapter;
+
+    List<String> provinceList = new ArrayList<String>();
+    List<String> cityList = new ArrayList<String>();
+    List<String> districtList = new ArrayList<String>();
 
     @Override
     protected void init() {
+        provinceAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, provinceList);
+        cityAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cityList);
+        districtAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, districtList);
     }
 
     @Override
@@ -53,6 +77,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     protected View onCreateSuccessView() {
         view = inflater.inflate(R.layout.activity_order_confirm_one, null);
         initView();
+        queryArea("");
         return view;
     }
 
@@ -101,61 +126,44 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         tvPhoneNum = (TextView) view.findViewById(R.id.tv_phone_num);
         tvEmail = (TextView) view.findViewById(R.id.tv_email);
         tvEmailToast = (TextView) view.findViewById(R.id.tv_email_toast);
+
+        lvProvince = (ListView) view.findViewById(R.id.lv_province);
+        lvCity = (ListView) view.findViewById(R.id.lv_city);
+        lvDistrict = (ListView) view.findViewById(R.id.lv_district);
+
+        lvProvince.setAdapter(provinceAdapter);
+        lvCity.setAdapter(cityAdapter);
+        lvDistrict.setAdapter(districtAdapter);
     }
 
-    private View getLine(){
-        return (View) findViewById(R.id.line);
-    }
+    /**
+     * 查询市、区
+     */
+    private void queryArea(String parentId) {
+        QueryAreaRequest request = new QueryAreaRequest();
+        request.setParentId(parentId);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_QUERYAREA_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
 
-    private EditText getEtUserName(){
-        return (EditText) findViewById(R.id.et_user_name);
-    }
+            @Override
+            public void onSuccess(String response) {
+                QueryAreaResult result = JSON.parseObject(response, QueryAreaResult.class);
+                LogUtil.i(response);
 
-    private EditText getEtProvince(){
-        return (EditText) findViewById(R.id.et_province);
-    }
-
-    private EditText getEtCity(){
-        return (EditText) findViewById(R.id.et_city);
-    }
-
-    private EditText getEtDistrict(){
-        return (EditText) findViewById(R.id.et_district);
-    }
-
-    private EditText getEtStreet(){
-        return (EditText) findViewById(R.id.et_street);
-    }
-
-    private EditText getEtZipCode(){
-        return (EditText) findViewById(R.id.et_zip_code);
-    }
-
-    private EditText getEtCellPhoneNum(){
-        return (EditText) findViewById(R.id.et_cell_phone_num);
-    }
-
-    private EditText getEtPhoneOne(){
-        return (EditText) findViewById(R.id.et_phone_one);
-    }
-
-    private View getLine2(){
-        return (View) findViewById(R.id.line2);
-    }
-
-    private EditText getEtPhoneTwo(){
-        return (EditText) findViewById(R.id.et_phone_two);
-    }
-
-    private View getLine3(){
-        return (View) findViewById(R.id.line3);
-    }
-
-    private EditText getEtPhoneThree(){
-        return (EditText) findViewById(R.id.et_phone_three);
-    }
-
-    private EditText getEtEmail(){
-        return (EditText) findViewById(R.id.et_email);
+                if (result.getResultCode() == 0) {
+                    provinceList.clear();
+                    List<Area> areaList = result.getAreaList();
+                    for (Area area : areaList) {
+                        provinceList.add(area.getName());
+                    }
+                    provinceAdapter.notifyDataSetChanged();
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
+            }
+        });
     }
 }

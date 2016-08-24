@@ -29,15 +29,15 @@
         app:layout_marginBottomPercent="6%">
 
         <android.support.percent.PercentRelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_select_ship_method"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_marginTopPercent="6%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="35dp"
                 android:text="选择配送方式"
                 android:textSize="18sp"/>
 
@@ -46,8 +46,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_select_ship_method"
-                app:layout_marginTopPercent="2%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -69,8 +69,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rg_ship_method"
-                app:layout_marginTopPercent="2%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:text="选择地址"
                 android:textSize="18sp"/>
 
@@ -79,8 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_select_address"
-                app:layout_marginTopPercent="2%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -98,11 +98,11 @@
 
             <Button
                 android:id="@+id/btn_next"
-                app:layout_widthPercent="18%"
-                app:layout_heightPercent="6%"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/rg_address"
-                app:layout_marginTopPercent="2%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_btn_modify_pwd"
                 android:gravity="center"
                 android:text="下一步"
@@ -114,8 +114,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btn_next"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="20dp"
                 android:text="使用新地址"
                 android:textSize="18sp"/>
 
@@ -124,51 +124,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="@color/color_6d4a3e"
-                app:layout_marginLeftPercent="7%"
-                app:layout_marginRightPercent="7%"
-                android:layout_below="@id/tv_add_new_address"
-                app:layout_marginTopPercent="1%"/>
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="60dp"
+                android:layout_below="@id/tv_add_new_address"/>
 
             <TextView
                 android:id="@+id/tv_user_name"
-                app:layout_widthPercent="15%"
-                app:layout_heightPercent="6%"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/line"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:gravity="right|center_vertical"
                 android:text="*收件人姓名："/>
 
             <EditText
                 android:id="@+id/et_user_name"
-                app:layout_widthPercent="18%"
-                app:layout_heightPercent="6%"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/line"
                 android:layout_toRightOf="@id/tv_user_name"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"/>
 
             <TextView
                 android:id="@+id/tv_province"
-                app:layout_widthPercent="15%"
-                app:layout_heightPercent="6%"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/tv_user_name"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:gravity="right|center_vertical"
                 android:text="*省份："/>
 
             <EditText
                 android:id="@+id/et_province"
-                app:layout_widthPercent="15%"
-                app:layout_heightPercent="6%"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_user_name"
                 android:layout_toRightOf="@id/tv_province"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"
@@ -176,12 +176,12 @@
 
             <EditText
                 android:id="@+id/et_city"
-                app:layout_widthPercent="15%"
-                app:layout_heightPercent="6%"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_user_name"
                 android:layout_toRightOf="@id/et_province"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="1%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"
@@ -189,12 +189,12 @@
 
             <EditText
                 android:id="@+id/et_district"
-                app:layout_widthPercent="28%"
-                app:layout_heightPercent="6%"
+                android:layout_width="240dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_user_name"
                 android:layout_toRightOf="@id/et_city"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="1%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"
@@ -202,65 +202,65 @@
 
             <TextView
                 android:id="@+id/tv_street"
-                app:layout_widthPercent="15%"
-                app:layout_heightPercent="6%"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/tv_province"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:gravity="right|center_vertical"
                 android:text="*街道地址："/>
 
             <EditText
                 android:id="@+id/et_street"
-                app:layout_widthPercent="60%"
-                app:layout_heightPercent="15%"
+                android:layout_width="510dp"
+                android:layout_height="100dp"
                 android:layout_below="@id/et_province"
                 android:layout_toRightOf="@id/tv_street"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:gravity="left"/>
 
             <TextView
                 android:id="@+id/tv_zip_code"
-                app:layout_widthPercent="15%"
-                app:layout_heightPercent="6%"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/tv_street"
-                app:layout_marginTopPercent="12%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="85dp"
                 android:gravity="right|center_vertical"
                 android:text="*邮政编码："/>
 
             <EditText
                 android:id="@+id/et_zip_code"
-                app:layout_widthPercent="18%"
-                app:layout_heightPercent="6%"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_street"
                 android:layout_toRightOf="@id/tv_zip_code"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"/>
 
             <TextView
                 android:id="@+id/tv_cell_phone_num"
-                app:layout_widthPercent="15%"
-                app:layout_heightPercent="6%"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/tv_zip_code"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:gravity="right|center_vertical"
                 android:text="*手机号码："/>
 
             <EditText
                 android:id="@+id/et_cell_phone_num"
-                app:layout_widthPercent="18%"
-                app:layout_heightPercent="6%"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_zip_code"
                 android:layout_toRightOf="@id/tv_cell_phone_num"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"/>
@@ -268,84 +268,84 @@
             <TextView
                 android:id="@+id/tv_phone_num"
                 android:layout_width="wrap_content"
-                app:layout_heightPercent="6%"
+                android:layout_height="30dp"
                 android:layout_below="@id/tv_zip_code"
                 android:layout_toRightOf="@id/et_cell_phone_num"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:gravity="right|center_vertical"
                 android:text="或固定电话："/>
 
             <EditText
                 android:id="@+id/et_phone_one"
-                app:layout_widthPercent="7%"
-                app:layout_heightPercent="6%"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_zip_code"
                 android:layout_toRightOf="@id/tv_phone_num"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="1%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"/>
 
             <View
                 android:id="@+id/line2"
-                app:layout_widthPercent="2%"
+                android:layout_width="20dp"
                 android:layout_height="0.5dp"
                 android:background="@color/color_6d4a3e"
                 android:layout_below="@id/et_zip_code"
                 android:layout_toRightOf="@id/et_phone_one"
-                app:layout_marginTopPercent="6.5%"/>
+                android:layout_marginTop="30dp"/>
 
             <EditText
                 android:id="@+id/et_phone_two"
-                app:layout_widthPercent="7%"
-                app:layout_heightPercent="6%"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_zip_code"
                 android:layout_toRightOf="@id/line2"
-                app:layout_marginTopPercent="3%"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"/>
 
             <View
                 android:id="@+id/line3"
-                app:layout_widthPercent="2%"
+                android:layout_width="20dp"
                 android:layout_height="0.5dp"
                 android:background="@color/color_6d4a3e"
                 android:layout_below="@id/et_zip_code"
                 android:layout_toRightOf="@id/et_phone_two"
-                app:layout_marginTopPercent="6.5%"/>
+                android:layout_marginTop="30dp"/>
 
             <EditText
                 android:id="@+id/et_phone_three"
-                app:layout_widthPercent="11%"
-                app:layout_heightPercent="6%"
+                android:layout_width="125dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_zip_code"
                 android:layout_toRightOf="@id/line3"
-                app:layout_marginTopPercent="3%"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"/>
 
             <TextView
                 android:id="@+id/tv_email"
-                app:layout_widthPercent="15%"
-                app:layout_heightPercent="6%"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/tv_cell_phone_num"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="7%"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="15dp"
                 android:gravity="right|center_vertical"
                 android:text="*电子邮箱："/>
 
             <EditText
                 android:id="@+id/et_email"
-                app:layout_widthPercent="18%"
-                app:layout_heightPercent="6%"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/et_cell_phone_num"
                 android:layout_toRightOf="@id/tv_email"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edittext_user_info"
                 android:singleLine="true"
                 android:gravity="center_vertical"/>
@@ -353,11 +353,11 @@
             <TextView
                 android:id="@+id/tv_email_toast"
                 android:layout_width="wrap_content"
-                app:layout_heightPercent="6%"
+                android:layout_height="30dp"
                 android:layout_below="@id/tv_phone_num"
                 android:layout_toRightOf="@id/et_email"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:gravity="right|center_vertical"
                 android:text="用于接收订单提醒"/>
 
@@ -367,25 +367,55 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_email"
                 android:layout_toRightOf="@id/tv_email"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="1%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:text="设为默认收货人"
                 android:textColor="@color/color_6f5f62"/>
 
             <Button
                 android:id="@+id/btn_save"
-                app:layout_widthPercent="18%"
-                app:layout_heightPercent="6%"
+                android:layout_width="130dp"
+                android:layout_height="30dp"
                 android:layout_below="@id/cb_set_default"
                 android:layout_toRightOf="@id/tv_email"
-                app:layout_marginTopPercent="3%"
-                app:layout_marginLeftPercent="2%"
-                app:layout_marginBottomPercent="3%"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/shape_btn_modify_pwd"
                 android:gravity="center"
                 android:text="保存信息"
                 android:textColor="@color/white"
                 android:textSize="12sp"/>
+            
+            <ListView
+                android:id="@+id/lv_province"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/et_province"
+                android:layout_toRightOf="@id/tv_province"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"/>
+
+            <ListView
+                android:id="@+id/lv_city"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/et_city"
+                android:layout_toRightOf="@id/et_province"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"/>
+
+            <ListView
+                android:id="@+id/lv_district"
+                android:layout_width="240dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/et_district"
+                android:layout_toRightOf="@id/et_city"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:visibility="gone"/>
 
         </android.support.percent.PercentRelativeLayout>
 
