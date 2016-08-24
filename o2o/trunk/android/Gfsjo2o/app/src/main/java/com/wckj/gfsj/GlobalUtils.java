@@ -75,5 +75,7 @@ public class GlobalUtils {
     public static final String ORDER_UPDATE_URL = SERVER_URL + "/order/update";
     //查询市、区请求命令
     public static final String ORDER_QUERYAREA_URL  = SERVER_URL + "/order/queryArea";
+    //支付确认命令
+    public static final String ORDER_CONFIRM_URL = SERVER_URL + "/order/confirm";
 
 }
