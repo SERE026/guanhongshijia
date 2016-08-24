@@ -854,18 +854,18 @@ input:focus,textarea:focus { outline: none !important;  }
 .tab11 tr td{ width:auto; height:65px; text-align:center; line-height:20px; border-bottom:#e6e6e6 solid 1px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#9c9899} 
 .dshai_tu{ width:50px; height:50px; overflow:hidden;border:#dddddd solid 1px; background-image:url(../img/mm_ak2.gif); background-repeat:no-repeat; margin-top:3px; margin-left:5px}
 .dshai_wenzi{ width:430px; height:50px; overflow:hidden; text-align:left; margin-left:10px; line-height:20px; margin-top:5px}
-.gr_r_sdkk{width:771px; height:auto; margin-top:30px}
+.gr_r_sdkk{width:968px; height:auto; margin-top:30px}
 .gr_r_sdkk_tu{ width:60px; height:60px; float:left; margin-left:9px;border:#dddddd solid 1px; display:inline}
 .gr_r_sdkk_tuimg{ width:50px; height:50px; overflow:hidden; margin:5px 0 0 5px}
-.gr_r_sdkk_left{ width:700px; height:581px; float:left}
+.gr_r_sdkk_left{ width:897px; height:581px; float:left}
 .gr_r_sdkk_left_aa{ width:54px; height:581px; float:left}
-.gr_r_sdkk_left_bb{ width:630px; height:579px; float:left; border:#d0e4c2 solid 1px; border-left:none}
-.gr_r_sdkk_left_bb_ti{ width:630px; height:20px; line-height:20px;text-overflow : ellipsis; white-space :nowrap; margin-top:17px}
-.gr_r_sdkk_left_bb_xing{ width:630px; height:auto; overflow:hidden; margin-top:8px}
+.gr_r_sdkk_left_bb{ width:842px; height:579px; float:left; border:#d0e4c2 solid 1px; border-left:none}
+.gr_r_sdkk_left_bb_ti{ width:842px; height:20px; line-height:20px;text-overflow : ellipsis; white-space :nowrap; margin-top:17px}
+.gr_r_sdkk_left_bb_xing{ width:842px; height:auto; overflow:hidden; margin-top:8px}
 .gr_r_sdkk_xing_zi{ width:auto; height:18px; line-height:18px;overflow:hidden; float:left; margin-top:2px}
 .gr_r_sdkk_xing_tu{ width:90px; height:18px; line-height:18px;overflow:hidden; float:left}
-.gr_rshai_datu{ width:610px; height:365px; overflow:hidden; border:#dddddd solid 1px; margin-top:15px}
-.gr_rshai_xiaotu{ width:610px; height:auto; overflow:hidden; margin-top:25px}
+.gr_rshai_datu{ width:822px; height:365px; overflow:hidden; border:#dddddd solid 1px; margin-top:15px}
+.gr_rshai_xiaotu{ width:822px; height:auto; overflow:hidden; margin-top:25px}
 .gr_rshai_xiaotu_ka{ width:89px; height:74px; overflow:hidden; border:#dddddd solid 1px; float:left;margin-top:3px}
 .gr_rshai_xiaotu_ka_fen{ width:15px; height:74px; overflow:hidden;float:left;}
 .gr_rshai_xiaotu_ka_dian{ width:89px; height:74px; overflow:hidden; border:#f0125b solid 1px; float:left; margin-top:3px}
