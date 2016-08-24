@@ -82,15 +82,15 @@ $(function(){
 
 //查看用户协议
 function showXieyi(){
-	$("#asd").load(servicePath+'xieyi.html')
-	//alert(xieyi.html)
-	/*$.layer({
+	/*$("div").load('regist.html')
+	alert(xieyi.html)*/
+	$.layer({
 	   	type : 2,
 	    	title : '观红世家用户协议',
 	    	iframe : {src : servicePath+'/xieyi.html'},
 	    	area : ['750px' , '466px'],
 	    	offset : ['100px','']
-	});*/
+	});
 	
 }
 

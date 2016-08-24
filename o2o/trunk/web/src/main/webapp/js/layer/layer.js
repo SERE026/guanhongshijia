@@ -21,7 +21,7 @@ win, ready = {
     hosts: (function(){
         var dk = location.href.match(/\:\d+/);
         dk = dk ? dk[0] : '';
-        return 'http://' + document.domain + dk + '/';
+        return 'https://' + document.domain + dk + '/';
     }()),
     
     getPath: function(){
