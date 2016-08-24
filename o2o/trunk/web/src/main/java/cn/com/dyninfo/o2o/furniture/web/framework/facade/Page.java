@@ -24,8 +24,12 @@ import cn.com.dyninfo.o2o.furniture.web.framework.facade.widget.WidgetXmlUtil;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.GoodsSort;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
+import cn.com.dyninfo.o2o.furniture.web.page.dao.YqljDao;
+import cn.com.dyninfo.o2o.furniture.web.page.model.Yqlj;
+import cn.com.dyninfo.o2o.furniture.web.page.service.YqljService;
 import freemarker.template.Template;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
@@ -131,6 +135,7 @@ public class Page implements IPage{
 			}
 			GoodsSortService goodsSortService=SpringContext.getBean("goodsSortService");
 			GoodsService goodsService=SpringContext.getBean("goodsService");
+			YqljService yqljService = SpringContext.getBean("yqljService");
 			List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
 			for (int i=0;i<dataList.size();i++){
 				for (int j=0;j<dataList.get(i).getChildren().size();j++){
@@ -147,7 +152,8 @@ public class Page implements IPage{
 				}
 			}
 			data.put("sortDataList", dataList);
-
+			List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
+			data.put("yqljList",list);
 			t.process(data, response.getWriter());
 		}catch(Exception e){
 			ErrorMsg.sendMsg(e, request);
