@@ -19,6 +19,17 @@ public class CreateOrderResult extends BaseResult {
     //本次支付金额
     private double payPrice;
 
+    //交易ID
+    private String tradeNo;
+
+    public String getTradeNo() {
+        return tradeNo;
+    }
+
+    public void setTradeNo(String tradeNo) {
+        this.tradeNo = tradeNo;
+    }
+
     public List<Coupon> getCouponList() {
         return couponList;
     }
@@ -49,6 +60,7 @@ public class CreateOrderResult extends BaseResult {
                 "couponList=" + couponList +
                 ", totalPrice=" + totalPrice +
                 ", payPrice=" + payPrice +
+                ", tradeNo='" + tradeNo + '\'' +
                 '}';
     }
 }
