@@ -17,12 +17,14 @@ import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
+import cn.com.dyninfo.o2o.furniture.web.goods.dao.GoodsDAO;
 import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
 import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
+import cn.com.dyninfo.o2o.furniture.web.order.model.OrderProduct;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -33,10 +35,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 /**
@@ -63,6 +63,9 @@ public class AppOrderController extends BaseAppController {
     private AreaService areaService;
     @Resource
     private CouponMemberRelService couponMemberRelService;
+
+    @Resource
+    private GoodsDAO goodsDAO;
 /**
      * 创建订单请求类，在购物车点击去结算时使用
      * @param createOrderRequest
@@ -131,6 +134,7 @@ public class AppOrderController extends BaseAppController {
                 dlyMoney += order.getShippingPrice();
             }
 
+            result.setTradeNo(tradeNo);//交易号
             result.setTotalPrice(orderMoney);//商品总金额
             result.setPayPrice(orderMoney);//本次支付金额
             result.setResultCode(SUCCESS);
@@ -143,6 +147,86 @@ public class AppOrderController extends BaseAppController {
         log.debug(result);
         return result;
     }
+
+    /**
+     * 支付确认成功
+     * @param confirmOrderRequest
+     * @param request
+     * @param response
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("/confirm")
+    public  ConfirmOrderResult confirm(@RequestBody  ConfirmOrderRequest   confirmOrderRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(confirmOrderRequest);
+        ConfirmOrderResult result = new  ConfirmOrderResult();
+        if (StringUtils.isBlank(confirmOrderRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(confirmOrderRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
+        String payStatus =confirmOrderRequest.getPayStatus();//支付时候成功 0成功 1失败
+        String tradeNo =confirmOrderRequest.getTradeNo();//交易号
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ confirmOrderRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
+        if (!ValidationUtil.isEmpty(info)&&payStatus.equals("0")) {
+            List orderlist = orderService.getListByWhere(new StringBuffer(" and n.tradeNo='" + tradeNo + "'"));
+            String time=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            int t=(int)(new Date().getTime()/1000);
+            if (orderlist != null && orderlist.size() > 0) {
+                cn.com.dyninfo.o2o.furniture.web.order.model.Order order = (cn.com.dyninfo.o2o.furniture.web.order.model.Order) orderlist.get(0);
+
+                if (order.getIsPay().equals("0") && order.getStatus().equals("0")) {
+                    //支付总额小于20000（系统定义）的金额
+                    //状态为7-已付定金。
+                    if (order.getDepositAmount() == Constants.DEPOSIT_AMOUNT) {
+                        order.setState("7");
+                        order.setIsPay("0");
+                    } else {
+                        order.setPaytime(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+                        order.setState("1");
+                        order.setIsPay("1");
+                    }
+//                    for (OrderProduct op : order.getOrderProductList()) {
+//                        Goods good = op.getProduct().getGood();
+//                        good = (Goods) goodsDAO.getObjById(good.getGoods_id() + "");
+//                        good.setNum(good.getNum() + op.getNum());
+//                        good.setInventory(good.getInventory() - op.getNum());
+//                        goodsDAO.updateObj(good);
+//                    }
+                    order.setPaytime(time);
+                    order.setIpaytime(t);
+                    orderService.updateObj(order);
+                }
+            }
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else{
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("支付确认请求失败");
+        }
+
+        log.debug(result);
+        return result;
+    }
+
+
+
     /**
      * 订单确认请求，在购物车点击去结算时跳到确认页面
      * @param submitOrderRequest
