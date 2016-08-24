@@ -91,7 +91,6 @@ function showXieyi(){
 	    	area : ['750px' , '466px'],
 	    	offset : ['100px','']
 	});
-	layer.closeAll('loading');
 }
 
 function addEvent(){
