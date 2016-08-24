@@ -127,6 +127,8 @@ public class AppCartController extends BaseAppController {
             map=carsService.addGoodsApp(goods.getGoodMoney(),
                     count,goods.getGoods_id(),sepcVal,info.getHuiYuan_id() ,"|");
             if(map!=null) {
+                String  cartId=(String)map.get("CARS_BOX_ID");
+                result.setCartId(cartId);
                 result.setResultCode(SUCCESS);
                 result.setMessage("OK");
             }
