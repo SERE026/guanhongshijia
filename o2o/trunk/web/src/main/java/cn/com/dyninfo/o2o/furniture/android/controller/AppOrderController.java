@@ -34,6 +34,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -75,44 +76,70 @@ public class AppOrderController extends BaseAppController {
     public  CreateOrderResult create(@RequestBody  CreateOrderRequest   createOrderRequest, HttpServletRequest request, HttpServletResponse response) {
         log.debug(createOrderRequest);
         CreateOrderResult result = new  CreateOrderResult();
-
-        List<Coupon>  lists=new ArrayList<Coupon>();
-        List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon> list =(List<cn.com.dyninfo.o2o.furniture.admin.model.Coupon>)couponService.getListByWhere(new StringBuffer(""));
-        if(list.size()>0) {
-            for (int i = 0; i < list.size(); i++) {
-                cn.com.dyninfo.o2o.furniture.admin.model.Coupon c=list.get(i);
-                Coupon coupon = new Coupon();
-                if(String.valueOf(c.getId())!=null){
-                    coupon.setId(String.valueOf(c.getId()));
-                }
-                if(c.getName()!=null){
-                    coupon.setName(c.getName());
-                }
-                if(c.getBeginTime()!=null){
-                    coupon.setBeginTime(c.getBeginTime());
-                }
-                if(c.getEndTime()!=null){
-                    coupon.setEndTime(c.getEndTime());
-                }
-                coupon.setType(c.getType());
-                coupon.setReduceValue(c.getReduceValue());
-                coupon.setDiscountValue(c.getDiscountValue());
-                coupon.setMaxAmount(c.getMaxAmouont());
-                coupon.setConstraintValue(c.getConstraintValue());
-                coupon.setSameUse(c.getSameUse());
-                lists.add(coupon);
-            }
+        if (StringUtils.isBlank(createOrderRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(createOrderRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
         }
 
+        HashMap map=new HashMap();
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ createOrderRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
+        if (!ValidationUtil.isEmpty(info)) {
+            map.put("member", info);//添加会员信息
 
-        result.setCouponList(lists); //可使用的优惠券列表
-        result.setTotalPrice(0);//商品总金额
-        result.setPayPrice(0);//本次支付金额
-        result.setResultCode(SUCCESS);
-        result.setMessage("OK");
+            map.put("coupons", createOrderRequest.getCoupons());//优惠卷
 
-        result.setResultCode(NO_LOGIN);
-        result.setMessage("创建订单请求失败");
+            map.put("addressMember", createOrderRequest.getAddressMember());//地址信息
+
+            map.put("dlyType", createOrderRequest.getDlyType());//快递或者自提/1 物流 0上门提货
+
+            map.put("shop", createOrderRequest.getShop());//购物车商品ＩＤ
+
+
+            map.put("playType", createOrderRequest.getPlayType());//支付类型
+
+            map.put("dlytypeId", createOrderRequest.getDlytypeId());//快递ID  现在默认2顺丰
+
+            map.put("accountStr", createOrderRequest.getAccountStr());//是否优先使用账户支付 0 是 1否
+
+            boolean create = orderService.createApp(map, request);//
+
+            String tradeNo = (String) request.getSession().getAttribute(Context.SESSION_TRADENO);
+
+            List<cn.com.dyninfo.o2o.furniture.web.order.model.Order> data = orderService.getListByPage(new StringBuffer(" and n.tradeNo='" + tradeNo + "' "));
+            Double totale = 0d;
+            Double orderMoney = 0d;
+            Double dlyMoney = 0d;
+            for (cn.com.dyninfo.o2o.furniture.web.order.model.Order order : data) {
+                totale += order.getOrderPrice();
+                orderMoney += order.getOrderPrice();
+                dlyMoney += order.getShippingPrice();
+            }
+
+            result.setTotalPrice(orderMoney);//商品总金额
+            result.setPayPrice(orderMoney);//本次支付金额
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("创建订单请求失败");
+        }
+
         log.debug(result);
         return result;
     }

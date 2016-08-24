@@ -26,6 +26,8 @@ import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.active.dao.GameActiveDAO;
 import cn.com.dyninfo.o2o.furniture.web.active.model.Active;
 import cn.com.dyninfo.o2o.furniture.web.active.model.ActiveMemberInfo;
+import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
+import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
 import cn.com.dyninfo.o2o.furniture.web.goods.dao.GoodsDAO;
 import cn.com.dyninfo.o2o.furniture.web.goods.dao.GoodsDeliveryDAO;
@@ -116,6 +118,9 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 
 		@Resource
 		private CouponService couponService;
+
+		@Resource
+		private AreaService areaService;
 
 	    @Override
 	    public void initDao(){
@@ -987,6 +992,399 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 			}
 			return true;
 		}
+
+
+
+	public boolean createApp(Map request,HttpServletRequest requests) {
+		try{
+
+			List result=new ArrayList();
+			Double total=0d;
+			String tradeNo=TradeUtil.createTradeNumber();
+			HuiyuanInfo member=(HuiyuanInfo)request.get("member");//获取会员信息
+			requests.getSession().setAttribute(Context.SESSION_TRADENO, tradeNo);
+//			String receiveDate=(String)request.get("receiveDate");   //派送时间
+			String dlyType=(String)request.get("dlyType");   // 物流类型，上门提货，或者快递
+			String accountStr=(String)request.get("accountStr");   //是否账号支付
+			String playType=(String)request.get("playType");   //支付类型
+
+			String dlytypeId=(String)request.get("dlytypeId");   //快递ID  现在默认2顺丰
+
+//			Jfadd g_j=(Jfadd) jfaddDao.getObjById("1");//在归属商店购物时获得积分
+//			Jfadd p_j=(Jfadd) jfaddDao.getObjById("2");//在平台购物时获得积分
+//			Jffa  j_x=(Jffa) jffaDao.getObjById("1");
+//			String point=null;
+//			//request.getParameter("p");
+//			if(point==null||point.length()==0){
+//				point="0";
+//			}
+//			int curentPoint=Integer.parseInt(point);
+
+
+//			if(dlyType==null){
+//				return false;
+//			}
+			Zffs zfInfo=(Zffs) zffsDao.getObjById(playType);
+			if(zfInfo==null){
+				return false;
+			}
+//			HuiyuanInfo member=(HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
+
+			member=(HuiyuanInfo) huiyuanDao.getObjById(""+member.getHuiYuan_id());
+//			String area_id=(String)request.get("receiveId");//获取收货地址
+			cn.com.dyninfo.o2o.entity.AddressMember address=(cn.com.dyninfo.o2o.entity.AddressMember)request.get("addressMember"); ;
+//			if(dlyType.equals("1")){
+//				address=(AddressMember) addressMemberDAO.getObjById(area_id);
+//				if(address!=null){
+//					area_id=address.getCounty().getId();
+//				}
+//			}
+
+
+			String shop2=(String)request.get("shop");
+
+			String shops[]=shop2.split(";");
+
+			if(shops!=null&&member!=null){
+				member=(HuiyuanInfo) huiyuanDao.getObjById(""+member.getHuiYuan_id());
+				Double pointPrice=0.0;
+				//
+				System.out.println("shops number = "+shops.length+"--------");
+
+
+					long t=new Date().getTime()/1000;
+					Double dlyprice=0.0;//运费
+					Double goodPrice=0.0;//商品费用
+					Double actPrice=0.0;//活动优惠
+					Double protectPrice=0.0;//保价费用
+//					String p[]=shop.split("=");
+//					for(String ps : p){
+//						System.out.println("ps = "+ps+"--------");
+//					}
+//					String shopId=p[0];
+//					String dly_id=p[1];
+//					boolean error=false;
+					Double widget=0.0;
+					Order order=new Order();
+					ShangJiaInfo shopInfo=(ShangJiaInfo) shangJiaDao.getObjById("5");  //商家信息
+					order.setMerchants(shopInfo);
+					/**
+					 * 判断是否存在商家
+					 * shopId商家ID
+					 *
+					 */
+//					ShangJiaInfo shopInfo=(ShangJiaInfo) shangJiaDao.getObjById(shopId);
+					order.setHuiyuan(member);
+//					if(shopInfo!=null){//
+//						order.setMerchants(shopInfo);
+						List opList=new ArrayList();
+//						int begin=2;//物流方式
+//						if(dlyType.equals("0"))//上门提货
+//							begin=1;
+//						for(int i=p.length-1;i>=0&&p[i].contains(":");i--){
+//							if(p[i].split(":").length <=1 || !p[i].split(":")[1].equals(shopId)){
+//								error=true;
+//							}
+//							if(!error){
+
+//								String d[]=shops.split(";");
+
+//								if(d[1].equals(shopId)){
+				for(String shop:shops){
+									CarsBox car=(CarsBox) carsDAO.getObjById(shop);
+									if(car == null) return false;
+									if(car.getMember().getHuiYuan_id()==member.getHuiYuan_id()){
+										OrderProduct op=new OrderProduct();
+
+										op.setOrder(order);
+										int num=car.getNum();
+										Goods good=car.getGoods();
+										if(good.getInventory()<num)//如果产品库存数量小于购买数量，则购买失败
+											return false;
+										op.setNum(num);
+										op.setProduct(good.getProduct());
+										op.setWidget(good.getWeight()*num);
+										GoodsDelivery gd=good.getDelivery();
+										if(gd.getDeliveryFlag()==null||gd.getDeliveryFlag().equals("2")){
+											widget+=good.getWeight()*num;
+										}else if(gd.getDeliveryFlag().equals("1")){
+											dlyprice+=gd.getDeliveryMoney()*num;
+										}
+
+
+										Double goodSales=good.getSalesMoney();
+										if(car.getSpecVal() != null){
+											String SpecVal[]=car.getSpecVal().split("\\|");
+											for(String sv:SpecVal){
+												goodSales+=goodsDAO.getGoodSpevMoney(sv);
+											}
+										}
+										goodPrice+=goodSales*num;
+
+//										if(car.getActInfo().length()>1){
+//											Active act=(Active) gameActiveDAO.getObjById(car.getActInfo().split("\\|")[0]);
+//											if(t>act.getBtimel()&&t<act.getEtimel()){
+//												actPrice+=Double.parseDouble(car.getActInfo().split("\\|")[1]);
+//												if(car.getActInfo().split("\\|").length>2){
+//													ActiveMemberInfo ami=new ActiveMemberInfo ();
+//													ami.setAct_meb_id(Integer.parseInt(car.getActInfo().split("\\|")[2]));
+//													op.setAmi(ami);
+//												}
+												op.setActMoney(actPrice);
+//												op.setAct(act);
+//											}else{
+//												//goodsDAO.getGoodsPrice(good);
+//												op.setActMoney(good.getActionMoney());
+//												op.setAct(good.getAct());
+//											}
+//										}else{
+//											//goodsDAO.getGoodsPrice(good);
+//											op.setActMoney(good.getActionMoney());
+//										}
+										op.setGoodMoney(goodSales);
+										opList.add(op);
+										carsDAO.delObj(car);
+									}
+//								}
+//							}else{
+//								continue;
+//							}
+//
+						}
+
+//						if(goodPrice == 0){//没有得到商品信息
+//							continue;
+//						}
+
+
+
+						if(dlyType.equals("0")){
+							dlyprice=0.0;
+						}
+
+						order.setTradeNo(tradeNo);
+						order.setPlayType(zfInfo);   //支付方式
+						order.setDly(dlyType);     //物流方式
+						order.setOrderProductList(opList);
+						order.setCreatTime((int)t);
+						if(dlyType.equals("1")){
+							if(widget>0&&dlyType.equals("1")){
+								Double dl=goodsDeliveryDAO.getDeliveryMoney(widget, address.getCounty(), dlytypeId);//area_id区ID    快递dly_id ID   Dlytype表
+								if(dl!=null){
+									dlyprice=dl;
+								}
+							}
+
+							List listpro =areaService.getListByWhere(new StringBuffer(" and n.id ="+address.getProvince()));
+							if(listpro.size()>0){
+								order.setProvince((AreaInfo)listpro.get(0));//省
+							}
+							List listcity=areaService.getListByWhere(new StringBuffer("  and n.id ="+address.getCity()));
+							if(listcity.size()>0){
+								order.setCity((AreaInfo)listpro.get(0));//市
+							}
+							List listcountry = areaService.getListByWhere(new StringBuffer("  and n.id ="+address.getCounty()));
+							if(listcountry.size()>0){
+								order.setCounty((AreaInfo)listpro.get(0));//区县
+							}
+							order.setAddress(address.getAddress());//地址
+							order.setCode(address.getCode());//邮编
+							order.setReceiveName(address.getReceiveName());//收货人
+							order.setReceiveDate(address.getReceiveDate());//派送时间
+							order.setReceivePhone(address.getReceivePhone());//收货手机
+							order.setReceiveTel(address.getReceiveTel());//收货电话
+							order.setEmail(address.getEmail());//收货人邮箱
+						}
+						//如果优先使用账户支付不为空，则优先使用账户支付
+
+				//现在ＡＰＰ端只支持支付宝支付
+						if(accountStr!=null){
+							order.setAccount(Integer.parseInt(accountStr));
+						}
+
+						//生成订单ID 生成规则  6位日期+3位当天会员订单数+6位会员id
+						String date= new SimpleDateFormat("yyyyMMdd").format(new Date());
+						String date1= new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+						String ordercount=orderDao.getCountByWhere(new StringBuffer( "and n.time like '"+date1+"%' and n.huiyuan.huiYuan_id="+member.getHuiYuan_id()))+"";
+						String huiyuanid=member.getHuiYuan_id()+"";
+						if(ordercount.length()>=3){
+							ordercount=ordercount.substring(0, 3);
+						}else if(ordercount.length()==2){
+							ordercount="0"+ordercount;
+						}else if(ordercount.length()==1){
+							ordercount="00"+ordercount;
+						}
+
+						int huiyuanint=huiyuanid.length();
+						if(huiyuanint>=6){
+							huiyuanid=huiyuanid.substring(0, 6);
+						}else {
+							for(int i=0;i<6-huiyuanint;i++){
+								huiyuanid="0"+huiyuanid;
+							}
+						}
+						String order_id =date+ordercount +huiyuanid;
+						order.setOrder_id(order_id);
+						//优惠卷使用
+						boolean flag=false;
+						String coupons=(String)request.get("coupons");
+						//获取优惠卷ID    1=满立减  2=折扣
+						String[] arr=coupons.split(",");
+						Double constraintPrice=0.0;//优惠卷达到该金额才可使用
+						Double maxAmouontPrice=0.0;//最大抵扣金额
+						Double reducePrice=0.0;//满减使用，抵扣金额
+						Double reducePrice2=0.0;//折扣使用，抵扣金额
+						//	1.是否达到使用金额
+						//	2.优惠券是否过期
+						//	3.优惠券是否已经使用
+						//	4.优惠券剩余数量是否大于使用数量
+						List<CouponOrderRel> couponOrderRelList=new ArrayList<CouponOrderRel>();
+						if (arr.length>0 && !ValidationUtil.isEmpty(coupons)){
+							flag=true;
+							for (int i = 0; i <arr.length; i++) { //
+								List<CouponMemberRel> couponMemberRelList=(List<CouponMemberRel>)couponMemberRelService.getListByWhere(new StringBuffer(" and n.coupon.endTime > now() and  n.huiyuan="+ member.getHuiYuan_id()+" and  n.coupon.id="+ arr[i]));
+								if(couponMemberRelList!=null&&couponMemberRelList.size()>0){
+									CouponMemberRel coupon1 =couponMemberRelList.get(0);
+									if (arr.length>1){
+										if (1==coupon1.getCoupon().getSameUse()){
+										}else {
+											return false;
+										}
+									}
+									//计算出 优惠卷各金额
+									if(coupon1.getCount()>0){  // && dates1.compareTo(dates2)<0
+										constraintPrice+=coupon1.getCoupon().getConstraintValue();
+										maxAmouontPrice+=coupon1.getCoupon().getMaxAmouont();
+										if(1==coupon1.getCoupon().getType()){
+											reducePrice+=coupon1.getCoupon().getReduceValue();//优惠金额
+										}else if(2==coupon1.getCoupon().getType() ){
+											reducePrice2+=coupon1.getCoupon().getDiscountValue();//折扣率
+										}
+										//修改优惠券用户关联表
+										coupon1.setCount(coupon1.getCount()-1);
+										coupon1.setUsedCount(coupon1.getUsedCount()+1);
+										couponMemberRelService.updateObj(coupon1);
+										//新增订单优惠券使用记录
+										CouponOrderRel couponOrderRel=	new CouponOrderRel();
+										couponOrderRel.setCoupon(coupon1.getCoupon());
+										couponOrderRel.setOrder(order);
+										couponOrderRel.setCount(1);
+										couponOrderRelList.add(couponOrderRel);
+									}else{
+										return false;
+									}
+								}
+							}
+						}
+						//添加订单 优惠券关联表
+						order.setCouponOrderRel(couponOrderRelList);
+						//扣减优惠金额  满立减
+						if (constraintPrice<=goodPrice && maxAmouontPrice<=goodPrice && flag){
+							goodPrice=goodPrice-reducePrice;   //先使用满立减
+							goodPrice=goodPrice-goodPrice*reducePrice2; //再使用折扣券
+						}else if (constraintPrice>goodPrice || maxAmouontPrice>goodPrice){
+							return false;
+						}
+						//计算佣金
+						if (!ValidationUtil.isEmpty(member.getShangJiaInfo().getShangjia_id())){
+							int rate=member.getShangJiaInfo().getAgentGrade().getRate();//佣金比率
+							order.setAgencyPay("0");//否
+							Double agencyFee=0.0;
+							agencyFee=rate*goodPrice/100;
+							order.setAgencyFee(agencyFee);//佣金金额
+							order.setAgencyPercent(rate);
+						}
+						order.setShippingPrice(dlyprice);
+						order.setStatus("0");
+						order.setOriginalPrice(goodPrice+dlyprice+protectPrice);
+						order.setWeight(widget);
+						order.setOrderPrice(order.getOriginalPrice() - actPrice);
+						//减去游戏/活动的优惠
+						order.setDiscountPrice(actPrice);
+//							System.out.println("*-------"+order.getOriginalPrice());
+//							System.out.println("*-------"+order.getOrderPrice());
+//							System.out.println("0------"+pointPrice);
+						//积分抵扣
+//							if(point!=null&&curentPoint>0){
+//								int h_p=curentPoint;//当前需要抵扣的积分
+////								System.out.println("1------"+h_p);
+//								if(h_p>0 && member.getJf()>=h_p){
+//									pointPrice=h_p/j_x.getJffa_jfdk();//积分转换为钱
+////									System.out.println("2------"+pointPrice);
+////									System.out.println("3------"+order.getOrderPrice());
+//									if(pointPrice>order.getOriginalPrice()){//如果可以进行支付
+//										h_p=(int) Math.round(order.getOriginalPrice()*j_x.getJffa_jfdk());
+//									}
+//									pointPrice=h_p/j_x.getJffa_jfdk();
+////									System.out.println("4------"+pointPrice);
+//									member.setJf(member.getJf()-h_p);
+//									huiyuanDao.updateObj(member);
+//									Loginfo log=new Loginfo();
+//									log.setHuiyuan(member);
+//									log.setJf(-h_p);
+//									log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+//									log.setType("0");
+//									log.setExplain("购物消费积分："+h_p);
+//									huiyuanDao.addObj(log);
+//									curentPoint-=h_p;
+//								}
+//							}
+////							System.out.println("5------"+pointPrice);
+//							//设置抵扣积分
+//							order.setPointPrice(pointPrice);
+//							order.setOrderPrice(order.getOrderPrice() - pointPrice);
+//							if(order.getOrderPrice() <= 0){//如果积分抵扣全额,则直接变更为已支付
+//								order.setIsPay("1");
+//								order.setState("1");
+//								//order.setOrderPrice(0.0);
+//								for(OrderProduct op : order.getOrderProductList()){
+//									Goods good = op.getProduct().getGood();
+//									good = (Goods)goodsDAO.getObjById(good.getGoods_id()+"");
+//									good.setNum(good.getNum()+op.getNum());
+//									goodsDAO.updateObj(good);
+//								}
+//							}
+
+						order.setGoodsPrice(goodPrice-actPrice);
+						order.setDlyType((Dlytype)dlytypeDao.getObjById(dlyType));
+						total+=order.getOrderPrice();
+//							int g_j_add=0;//会员归属商家获得积分
+//							if(member.getShangJiaInfo()!=null&&order.getMerchants().getShangjia_id()==member.getShangJiaInfo().getShangjia_id()){
+//								g_j_add=(int)Math.round(order.getOrderPrice()*g_j.getJfadd_zjjf());
+//							}
+//							int p_j_add=(int)Math.round(order.getOrderPrice()*p_j.getJfadd_zjjf());//平台购物获得积分
+//							order.setPoint(g_j_add+p_j_add);
+
+						//如果订单支付金额大于系统
+						//用户通过在线支付，可以支付总额小于20000（系统定义）的金额，该金额保存在t_order. DEPOSIT_AMOUNT
+						if (order.getOrderPrice()>Constants.DEPOSIT_AMOUNT){
+							order.setOrderPrice(Constants.DEPOSIT_AMOUNT);
+							order.setDepositAmount(Constants.DEPOSIT_AMOUNT);
+						}
+
+						this.addObj(order);
+//						pointPrice=0d;
+//					}
+//				}
+			}else{
+				return false;
+			}
+//			if(request.getAttribute("isPhone")!=null){
+//				Trade trade=new Trade();
+//				trade.setHuiyuan(member);
+//				trade.setZffs(zfInfo);
+//				trade.setTrade_id(tradeNo);
+//				trade.setMoney(total);
+//				trade.setFlag(1);
+//				trade.setStatus(0);
+//				this.addObj(trade);
+//			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 
 		@Override
 		public List getordershow(int id,PageInfo page) {

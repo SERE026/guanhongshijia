@@ -33,6 +33,7 @@ public interface OrderService extends IBaseService{
 	public Double getDistributionMoney(HttpServletRequest request);
 	public Map getShopPrice(HttpServletRequest request);
 	public boolean create(HttpServletRequest request);
+	public boolean createApp(Map request,HttpServletRequest requests);
 	public List getordershow(int id,PageInfo page);
 	public List getbaobei(int id,String name,PageInfo page);
 	public HashMap<String,?> getByPageWhere(StringBuffer where,PageInfo page,StringBuffer where2);
