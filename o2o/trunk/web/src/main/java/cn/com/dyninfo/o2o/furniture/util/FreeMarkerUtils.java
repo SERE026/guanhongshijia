@@ -14,8 +14,10 @@ import cn.com.dyninfo.o2o.furniture.web.goods.service.GoodsSortService;
 import cn.com.dyninfo.o2o.furniture.web.goods.service.PageModuleService;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Advwz;
 import cn.com.dyninfo.o2o.furniture.web.page.model.Articles;
+import cn.com.dyninfo.o2o.furniture.web.page.model.Yqlj;
 import cn.com.dyninfo.o2o.furniture.web.page.service.AdvwzService;
 import cn.com.dyninfo.o2o.furniture.web.page.service.ArticlesService;
+import cn.com.dyninfo.o2o.furniture.web.page.service.YqljService;
 import cn.com.dyninfo.o2o.furniture.web.publish.service.ShangJiaService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -23,6 +25,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
+import javax.annotation.Resource;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -48,9 +51,17 @@ public class FreeMarkerUtils {
     private static AreaService areaService;
     private static ShangJiaService shangJiaService;
     private static ArticlesService articlesService;
+    private static YqljService yqljService;
 
 
     private static FreeMarkerConfigurer freemarkerConfig;
+    public YqljService getYqljService() {
+        return yqljService;
+    }
+
+    public void setYqljService(YqljService yqljService) {
+        FreeMarkerUtils.yqljService = yqljService;
+    }
 
     public GoodsSortService getGoodsSortService() {
         return goodsSortService;
@@ -228,6 +239,9 @@ public class FreeMarkerUtils {
                 lists.add(goodsList);
 
             }
+            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
+            paramsMap.put("yqljList",list);
+
             paramsMap.put("lists",lists);
             Articles articles = (Articles) articlesService.getObjById("28");
             paramsMap.put("article28", articles);
@@ -331,6 +345,8 @@ public class FreeMarkerUtils {
 //                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
                 lists.add(goodsList);
             }
+            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
+            paramsMap.put("yqljList",list);
             paramsMap.put("lists",lists);
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
             template.process(paramsMap, out);
@@ -431,6 +447,8 @@ public class FreeMarkerUtils {
                 lists.add(goodsList);
 
             }
+            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
+            paramsMap.put("yqljList",list);
             paramsMap.put("lists",lists);
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
             template.process(paramsMap, out);
