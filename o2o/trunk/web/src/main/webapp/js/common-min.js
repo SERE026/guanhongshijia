@@ -4740,7 +4740,7 @@ Boxy.prototype = {
             "-moz-border-radius": "10px",
             "border-radius": "10px"
         },
-        iframeSrc: /^https/i.test(window.location.href || "") ? "javascript:false" : "about:blank",
+        iframeSrc: /^http/i.test(window.location.href || "") ? "javascript:false" : "about:blank",
         forceIframe: false,
         baseZ: 1000,
         centerX: true,
