@@ -25,7 +25,6 @@ import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
-import javax.annotation.Resource;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -240,8 +239,9 @@ public class FreeMarkerUtils {
 
             }
             List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
-            paramsMap.put("yqljList",list);
-
+            if (list != null && list.size() > 0) {
+                paramsMap.put("yqljList", list);
+            }
             paramsMap.put("lists",lists);
             Articles articles = (Articles) articlesService.getObjById("28");
             paramsMap.put("article28", articles);
