@@ -172,7 +172,7 @@ Class.pt.config = {
     dialog: {btns : 1, btn : ['确定','取消'], type : 3, msg : '', yes : function(index){ layer.close(index);}, no : function(index){ layer.close(index);}
     },
     page: {dom: '#xulayer', html: '', url: ''},
-    iframe: {src: 'http://sentsin.com'},
+    iframe: {src: 'https://sentsin.com'},
     loading: {type: 0},
     tips: {msg: '', follow: '', guide: 0, isGuide: true, style: ['background-color:#FF9900; color:#fff;', '#FF9900']},
     success: function(layer){}, //创建成功后的回调
