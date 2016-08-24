@@ -146,6 +146,7 @@
 			<tx:method name="import*" propagation="REQUIRED" />
 			<tx:method name="checkCar" propagation="REQUIRED" />
 			<tx:method name="create" propagation="REQUIRED" />
+			<tx:method name="createApp" propagation="REQUIRED" />
 			<tx:method name="getOrderConfirm" propagation="REQUIRED" />
 			<tx:method name="checkCarGoodSpec" propagation="REQUIRED" />
 			<tx:method name="getUser" propagation="REQUIRED" />
