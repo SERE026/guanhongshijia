@@ -45,7 +45,7 @@ import java.util.List;
  * Created by dyninfo on 2016/7/15.
  */
 @Controller
-public class WebIndexController{
+public class WebIndexController {
 
     private static Logger log = Logger.getLogger(WebIndexController.class);
 
@@ -61,7 +61,7 @@ public class WebIndexController{
     private BrandService brandService;
 
     @Resource
-    private PageModuleService  pageModuleService;
+    private PageModuleService pageModuleService;
 
     @Resource
     private GameActiveService activeService;
@@ -90,81 +90,83 @@ public class WebIndexController{
         FreeMarkerUtils.genHeader();
         FreeMarkerUtils.genFooter();
     }
+
     /**
      * 首页页面
+     *
      * @param request
      * @return
      */
-    @RequestMapping(value= "/index" )
-    public String index(HttpServletRequest request, ModelMap mav,HttpServletResponse response) {
+    @RequestMapping(value = "/index")
+    public String index(HttpServletRequest request, ModelMap mav, HttpServletResponse response) {
         //所有的分类  一级。二级,三级
 
-        List<GoodsSort> dataList =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
-        for (int i=0;i<dataList.size();i++){
-            for (int j=0;j<dataList.get(i).getChildren().size();j++){
-                if(dataList.get(i).getChildren().get(j).getChildren().size()==1){
+        List<GoodsSort> dataList = (List<GoodsSort>) goodsSortService.getListByWhere(new StringBuffer(" and  n.parent is null"));
+        for (int i = 0; i < dataList.size(); i++) {
+            for (int j = 0; j < dataList.get(i).getChildren().size(); j++) {
+                if (dataList.get(i).getChildren().get(j).getChildren().size() == 1) {
 
-                    int goodsCount=goodsService.getCountByWhere(new StringBuffer(" and n.goodsSort like '%"+dataList.get(i).getGoodsSort_id()+"%' order by n.indexs desc"));
+                    int goodsCount = goodsService.getCountByWhere(new StringBuffer(" and n.goodsSort like '%" + dataList.get(i).getGoodsSort_id() + "%' order by n.indexs desc"));
                     dataList.get(i).setGoodscount(goodsCount);
                     break;
-                }else {
-                    int goodsCount=goodsService.getCountByWhere(new StringBuffer(" and n.goodsSort like '%"+dataList.get(i).getChildren().get(j).getGoodsSort_id()+"%' order by n.indexs desc"));
+                } else {
+                    int goodsCount = goodsService.getCountByWhere(new StringBuffer(" and n.goodsSort like '%" + dataList.get(i).getChildren().get(j).getGoodsSort_id() + "%' order by n.indexs desc"));
                     dataList.get(i).getChildren().get(j).setGoodscount(goodsCount);
                 }
             }
         }
 
-        mav.addAttribute("goodsSortList",dataList);
+        mav.addAttribute("goodsSortList", dataList);
 //        System.out.println(dataList.get(0).getChildren().get(0).getAdvpic());
 
 
         //首页广告图
-        List<Advwz>  advwzList=(List<Advwz>)advwzService.getListByWhere(new StringBuffer("and n.advwz_id="+ Constants.ACTIVE_ID));
-        mav.addAttribute("advwzList",advwzList.get(0));
+        List<Advwz> advwzList = (List<Advwz>) advwzService.getListByWhere(new StringBuffer("and n.advwz_id=" + Constants.ACTIVE_ID));
+        mav.addAttribute("advwzList", advwzList.get(0));
 //        System.out.println(advwzList.get(0).getAdv().get(0).getAdv_name());
 //        System.out.println(advwzList.get(0).getAdv().get(0).getAdv_flie());
 //        System.out.println(advwzList.get(0).getAdv().get(2).getAdv_name());
 //        System.out.println(advwzList.get(0).getAdv().get(0).getAdv_link());
         //1F楼商品
-        List<GoodsSort> goodsSortList1 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.ONE_SKU));
-        List<Goods> goodsList1 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0 and n.goodsSort like '%"+Constants.ONE_SKU +"%' order by n.indexs desc"));
+        List<GoodsSort> goodsSortList1 = (List<GoodsSort>) goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id=" + Constants.ONE_SKU));
+        List<Goods> goodsList1 = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0 and n.goodsSort like '%" + Constants.ONE_SKU + "%' order by n.indexs desc"));
         if (goodsSortList1 != null && goodsSortList1.size() > 0) {
-            mav.addAttribute("goodsSortList1",goodsSortList1.get(0));
+            mav.addAttribute("goodsSortList1", goodsSortList1.get(0));
         }
 
-        mav.addAttribute("goodsList1",goodsList1);
+        mav.addAttribute("goodsList1", goodsList1);
 
         //2F楼商品
-        List<GoodsSort> goodsSortList2 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.TWO_SKU));
-        List<Goods> goodsList2 =(List<Goods>)goodsService.getListByWhere(new StringBuffer("  and n.shelves=0 and n.goodsSort like '%"+Constants.TWO_SKU +"%' order by n.indexs desc"));
+        List<GoodsSort> goodsSortList2 = (List<GoodsSort>) goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id=" + Constants.TWO_SKU));
+        List<Goods> goodsList2 = (List<Goods>) goodsService.getListByWhere(new StringBuffer("  and n.shelves=0 and n.goodsSort like '%" + Constants.TWO_SKU + "%' order by n.indexs desc"));
 
         if (goodsSortList2 != null && goodsSortList2.size() > 0) {
-            mav.addAttribute("goodsSortList2",goodsSortList2.get(0));
+            mav.addAttribute("goodsSortList2", goodsSortList2.get(0));
         }
-        mav.addAttribute("goodsList2",goodsList2);
+        mav.addAttribute("goodsList2", goodsList2);
         //3F楼商品
-        List<GoodsSort> goodsSortList3 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.THREE_SKU));
-        List<Goods> goodsList3 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+Constants.THREE_SKU +"%'order by n.indexs desc"));
+        List<GoodsSort> goodsSortList3 = (List<GoodsSort>) goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id=" + Constants.THREE_SKU));
+        List<Goods> goodsList3 = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%" + Constants.THREE_SKU + "%'order by n.indexs desc"));
         if (goodsSortList3 != null && goodsSortList3.size() > 0) {
-            mav.addAttribute("goodsSortList3",goodsSortList3.get(0));
+            mav.addAttribute("goodsSortList3", goodsSortList3.get(0));
         }
-        mav.addAttribute("goodsList3",goodsList3);
+        mav.addAttribute("goodsList3", goodsList3);
         //4F楼商品
-        List<GoodsSort> goodsSortList4 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id="+Constants.FOUR_SKU));
-        List<Goods> goodsList4 =(List<Goods>)goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+Constants.FOUR_SKU +"%' order by n.indexs desc"));
+        List<GoodsSort> goodsSortList4 = (List<GoodsSort>) goodsSortService.getListByWhere(new StringBuffer(" and n.goodsSort_id=" + Constants.FOUR_SKU));
+        List<Goods> goodsList4 = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%" + Constants.FOUR_SKU + "%' order by n.indexs desc"));
         if (goodsSortList4 != null && goodsSortList4.size() > 0) {
-            mav.addAttribute("goodsSortList4",goodsSortList4.get(0));
+            mav.addAttribute("goodsSortList4", goodsSortList4.get(0));
         }
-        mav.addAttribute("goodsList4",goodsList4);
+        mav.addAttribute("goodsList4", goodsList4);
 
 
-       //
+        //
         //热卖商品/疯狂抢购/热评商品/新品上架/限时抢购
-        List<Goods> reMaiList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.REMAI_SKU+"')>0"));
-        List<Goods> qiangGouList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.QIANGGOU_SKU+"')>0"));
-        List<Goods> rePinList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.REPIN_SKU+"')>0"));
-        List<Goods> newList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.NEW_SKU+"')>0"));
-        List<Goods> xsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.XIANSHI_SKU+"')>0"));
+        List<Goods> reMaiList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'" + Constants.REMAI_SKU + "')>0"));
+        List<Goods> qiangGouList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'" + Constants.QIANGGOU_SKU + "')>0"));
+        List<Goods> rePinList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'" + Constants.REPIN_SKU + "')>0"));
+        List<Goods> newList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'" + Constants.NEW_SKU + "')>0"));
+        List<Goods> xsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'" + Constants.XIANSHI_SKU + "')>0"));
 //        List<PageModule> reMaiList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REMAI_SKU));
 //        List<PageModule> qiangGouList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.QIANGGOU_SKU));
 //        List<PageModule> rePinList =(List<PageModule>)pageModuleService.getListByWhere(new StringBuffer(" and n.pageModule_id="+Constants.REPIN_SKU));
@@ -176,86 +178,87 @@ public class WebIndexController{
         mav.addAttribute("new", newList);
         mav.addAttribute("xianShi", xsList);
         //显示抢购商品
-        List<Active> activeList =(List<Active>)activeService.getListByWhere(new StringBuffer("and n.active_id="+Constants.ACTIVE_SKU));
-        List<Goods> dzlist=(List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'"+Constants.JIAJUDINGZHI+"')>0"));
-        mav.addAttribute("dzlist",dzlist);
-        mav.addAttribute("activeList",xsList);
+        List<Active> activeList = (List<Active>) activeService.getListByWhere(new StringBuffer("and n.active_id=" + Constants.ACTIVE_SKU));
+        List<Goods> dzlist = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and instr(n.biaoqian,'" + Constants.JIAJUDINGZHI + "')>0"));
+        mav.addAttribute("dzlist", dzlist);
+        mav.addAttribute("activeList", xsList);
 
         // mav.addAttribute("activeList",activeList);
 
         //5L综合系列
         //获取品牌表数据
-        List<Brand> brandList=( List<Brand>)brandService.getListByWhere(new StringBuffer());
+        List<Brand> brandList = (List<Brand>) brandService.getListByWhere(new StringBuffer());
         mav.addAttribute("brandList", brandList);
-        if (brandList!=null&&brandList.size()>5){
-        mav.addAttribute("logo1", brandList.get(1).getLogo());
-        mav.addAttribute("logo2", brandList.get(2).getLogo());
-        mav.addAttribute("logo3", brandList.get(3).getLogo());
-        mav.addAttribute("logo4", brandList.get(4).getLogo());
+        if (brandList != null && brandList.size() > 5) {
+            mav.addAttribute("logo1", brandList.get(1).getLogo());
+            mav.addAttribute("logo2", brandList.get(2).getLogo());
+            mav.addAttribute("logo3", brandList.get(3).getLogo());
+            mav.addAttribute("logo4", brandList.get(4).getLogo());
         }
         //获取一级分类
-        List<GoodsSort> goodsSortList5 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
-        mav.addAttribute("goodsSortList5",goodsSortList5);
+        List<GoodsSort> goodsSortList5 = (List<GoodsSort>) goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
+        mav.addAttribute("goodsSortList5", goodsSortList5);
         //根据一级分类ID 获取商品list
-        List<List<Goods>> lists=new ArrayList<List<Goods>>();
-        for (int i = 0; i <8; i++) {
-            int goodsSortId=goodsSortList5.get(i).getGoodsSort_id();
+        List<List<Goods>> lists = new ArrayList<List<Goods>>();
+        for (int i = 0; i < 8; i++) {
+            int goodsSortId = goodsSortList5.get(i).getGoodsSort_id();
 //            List<GoodsSort> goodsSortList6 =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent=" + goodsSortId));
 
-            List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%"+goodsSortId+"%' order by n.indexs desc"));
+            List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.shelves=0  and n.goodsSort like '%" + goodsSortId + "%' order by n.indexs desc"));
             lists.add(goodsList);
         }
-        mav.addAttribute("lists",lists);
+        mav.addAttribute("lists", lists);
         Articles articles = (Articles) articlesService.getObjById("28");
         mav.addAttribute("article28", articles);
 
-        List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
-        mav.addAttribute("yqljList",list);
+        List<Yqlj> list = (List<Yqlj>) yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
+        mav.addAttribute("yqljList", list);
 
         return "/index";
     }
+
     //切换城市，获取城市ID与相关数据
-    @RequestMapping(value= "/getCity" )
+    @RequestMapping(value = "/getCity")
     @ResponseBody
     public AreaBase getCity(HttpServletRequest request, ModelMap mav, String id, HttpServletResponse response) {
 
-        if(id.equals("ALL")){
+        if (id.equals("ALL")) {
             request.getSession().removeAttribute(Context.SESSION_AEAR);
             CookTool.addCookValue("city", "ALL", response);
             return null;
-        }else{
-            AreaInfo area=(AreaInfo) areaService.getObjById(id);
+        } else {
+            AreaInfo area = (AreaInfo) areaService.getObjById(id);
             CookTool.addCookValue("city", area.getId(), response);
-            if(area!=null) {//&&area.getIsDefault().equals("1")
+            if (area != null) {//&&area.getIsDefault().equals("1")
                 Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
                 ck.setPath("/");
                 ck.setMaxAge(365 * 24 * 60 * 60 * 1000);
                 response.addCookie(ck);
                 request.getSession().setAttribute(Context.SESSION_AEAR, area);
             }
-            int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()+"'"));
-            AreaBase areaBase=new AreaBase();
+            int num = shangJiaService.getCountByWhere(new StringBuffer(" and n.id=" + area.getId() + "'"));
+            AreaBase areaBase = new AreaBase();
             areaBase.setId(area.getId());
             areaBase.setName(area.getName());
             areaBase.setNum(num);
             return areaBase;
-            }
+        }
     }
 
     //index 页，获取城市ID与相关数据,登录后用户昵称
-    @RequestMapping(value= "/getCity2" )
+    @RequestMapping(value = "/getCity2")
     @ResponseBody
-    public AreaBase getCity2(HttpServletRequest request, ModelMap mav,  HttpServletResponse response) {
-        AreaInfo area=(AreaInfo) request.getSession().getAttribute(Context.SESSION_AEAR);
-        AreaBase areaBase=new AreaBase();
-        if(area==null){
-            String city=CookTool.getCookIEValue("city", request);
-            if(city==null||!city.equals("ALL")){
-                if(city==null||city.equals("")){
-                    String cityName=CityTool.getClientCityId(request);
+    public AreaBase getCity2(HttpServletRequest request, ModelMap mav, HttpServletResponse response) {
+        AreaInfo area = (AreaInfo) request.getSession().getAttribute(Context.SESSION_AEAR);
+        AreaBase areaBase = new AreaBase();
+        if (area == null) {
+            String city = CookTool.getCookIEValue("city", request);
+            if (city == null || !city.equals("ALL")) {
+                if (city == null || city.equals("")) {
+                    String cityName = CityTool.getClientCityId(request);
 //                    log.warn("IP is:cityName " + cityName);
                     if (!ValidationUtil.isEmpty(cityName)) {
-                        List list = areaService.getListByWhere(new StringBuffer(" and n.name='" + cityName+"'"));//+"' and n.isDefault=1 "
+                        List list = areaService.getListByWhere(new StringBuffer(" and n.name='" + cityName + "'"));//+"' and n.isDefault=1 "
                         if (list.size() > 0) {
 //                        log.warn("IP is:list.size()>0 " + list.size());
                             area = (AreaInfo) list.get(0);
@@ -264,34 +267,49 @@ public class WebIndexController{
 //                        log.warn("IP is:list.size()>0 else " + list.size());
                         }
                     }
-                }
-                else{
+                } else {
 //                    log.warn("IP is:city==null else " + city);
-                    area=(AreaInfo) areaService.getObjById(city);
+                    area = (AreaInfo) areaService.getObjById(city);
                     request.getSession().setAttribute(Context.SESSION_AEAR, area);
                 }
             }
         }
-        if(area!=null) {
+        if (area != null) {
 //            log.warn("IP is:area!=null" + area.getId());
             CookTool.addCookValue("city", area.getId(), response);
-         //&&area.getIsDefault().equals("1")
-                Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
-                ck.setPath("/");
-                ck.setMaxAge(365 * 24 * 60 * 60 * 1000);
-                response.addCookie(ck);
-                request.getSession().setAttribute(Context.SESSION_AEAR, area);
+            //&&area.getIsDefault().equals("1")
+            Cookie ck = new Cookie(Context.COOKIE_AEAR_ID, area.getId());
+            ck.setPath("/");
+            ck.setMaxAge(365 * 24 * 60 * 60 * 1000);
+            response.addCookie(ck);
+            request.getSession().setAttribute(Context.SESSION_AEAR, area);
 
-            int num =shangJiaService.getCountByWhere(new StringBuffer(" and n.id="+area.getId()+"'"));
+            int num = shangJiaService.getCountByWhere(new StringBuffer(" and n.id=" + area.getId() + "'"));
 
             areaBase.setId(area.getId());
             areaBase.setName(area.getName());
             areaBase.setNum(num);
         }
         if (request.getSession().getAttribute(Context.SESSION_MEMBER) != null) {
-             HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+            HuiyuanInfo info = (HuiyuanInfo) request.getSession().getAttribute(Context.SESSION_MEMBER);
             areaBase.setUsername(info.getUserName());
         }
-            return areaBase;
-        }
+        return areaBase;
+    }
+
+
+    //获取注册页面 协议
+    @RequestMapping(value = "/xieyi")
+    public String xieyi(HttpServletRequest request, ModelMap mav, HttpServletResponse response) {
+            StringBuffer where = new StringBuffer();
+            where.append(" and n.artices_name like '%用户协议%'");
+            List<Articles> list = (List<Articles>) articlesService.getListByWhere(where);
+            if (list.size() > 0) {
+                Articles a = list.get(0);
+                mav.addAttribute("xieyi", a.getArtices_content());
+            } else {
+                mav.addAttribute("xieyi", "用户协议未添加，请使用管理员账户登录后台管理系统，<br>在【页面管理】-> 【文章管理】下添加一篇名为“<b>用户协议</b>”的文章并编辑内容即可。");
+            }
+        return "Xieyi";
+    }
 }
