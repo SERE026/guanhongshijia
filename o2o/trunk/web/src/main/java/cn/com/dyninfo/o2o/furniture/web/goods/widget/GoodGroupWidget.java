@@ -49,11 +49,12 @@ public class GoodGroupWidget extends Widget {
 
 //		String pageNo=(String) pamtr.get("pageNo");
 //		String pageSize=(String) pamtr.get("pageSize");
-//		PageInfo page=new PageInfo();
-//		page.setPageNo(1);
-//		page.setPageSize(30);
-//		HashMap<String, ?> data =goodsService.getListByPageWhere(new StringBuffer(" and instr(n.biaoqian,'"+ Constants.GROUP_SKU+"')>0"),page);
-//		List<Goods> goodsList =(List<Goods>)data.get("DATA");
+//		PageInfo page2=new PageInfo();
+//		page2.setPageNo(1);
+//		page2.setPageSize(12);
+//		HashMap<String, ?> dataa =goodsService.getListByPageWhere(new StringBuffer(" and instr(n.biaoqian,'"+ Constants.GROUP_SKU+"')>0"),page2);
+//		List<Goods> goodsList =(List<Goods>)dataa.get("DATA");
+//
 //		this.putData("data", goodsList);
 
 		/*List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and instr(n.biaoqian,'"+ Constants.GROUP_SKU+"')>0"));
