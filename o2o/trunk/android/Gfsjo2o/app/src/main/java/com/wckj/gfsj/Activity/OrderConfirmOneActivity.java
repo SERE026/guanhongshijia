@@ -1,6 +1,7 @@
 package com.wckj.gfsj.Activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +16,9 @@ import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.AreaAdapter;
 import com.wckj.gfsj.Bean.QueryAreaRequest;
 import com.wckj.gfsj.Bean.QueryAreaResult;
+import com.wckj.gfsj.Bean.entity.AddressMember;
 import com.wckj.gfsj.Bean.entity.Area;
+import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
@@ -52,17 +55,23 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     private TextView tvEmail;
     private TextView tvEmailToast;
 
+    private EditText etUserName, etStreet, etZipCode, etCellPhoneNum, etPhoneOne, etPhoneTwo, etPhoneThree, etEmail;
     private EditText etProvince, etCity, etDistrict;
 
     private ListView lvProvince, lvCity, lvDistrict;
     private AreaAdapter provinceAdapter, cityAdapter, districtAdapter;
 
-    List<Area> provinceList = new ArrayList<Area>();
-    List<Area> cityList = new ArrayList<Area>();
-    List<Area> districtList = new ArrayList<Area>();
+    private List<Area> provinceList = new ArrayList<Area>();
+    private List<Area> cityList = new ArrayList<Area>();
+    private List<Area> districtList = new ArrayList<Area>();
+
+    private Area selectedProvince, selectedCity, selectedDistrict;
+    private List<CartItem> cartItemList = new ArrayList<CartItem>();
 
     @Override
     protected void init() {
+        Intent intent = this.getIntent();
+        cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
         provinceAdapter = new AreaAdapter(this, provinceList);
         cityAdapter = new AreaAdapter(this, cityList);
         districtAdapter = new AreaAdapter(this, districtList);
@@ -109,7 +118,88 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                 finish();
                 break;
             case R.id.btn_next:
-                Intent intent = new Intent(view.getContext(), OrderConfirmTwoActivity.class);
+//                String username = etUserName.getText().toString().trim();
+//                if (username.isEmpty()) {
+//                    OwerToastShow.show("请输入姓名");
+//                    return;
+//                }
+//
+//                String province = etProvince.getText().toString().trim();
+//                if (province.isEmpty()) {
+//                    OwerToastShow.show("请选择省份");
+//                    return;
+//                }
+//
+//                String city = etCity.getText().toString().trim();
+//                if (city.isEmpty()) {
+//                    OwerToastShow.show("请选择城市");
+//                    return;
+//                }
+//
+//                String district = etDistrict.getText().toString().trim();
+//                if (username.isEmpty()) {
+//                    OwerToastShow.show("请选择区县");
+//                    return;
+//                }
+//
+//                String street = etStreet.getText().toString().trim();
+//                if (street.isEmpty()) {
+//                    OwerToastShow.show("请输入街道地址");
+//                    return;
+//                }
+//
+//                String zipCode = etZipCode.getText().toString().trim();
+//                if (zipCode.isEmpty()) {
+//                    OwerToastShow.show("请输入邮编");
+//                    return;
+//                }
+//
+//                String cellPhoneNum = etCellPhoneNum.getText().toString().trim();
+//                if (cellPhoneNum.isEmpty()) {
+//                    OwerToastShow.show("请输入手机号码");
+//                    return;
+//                }
+//
+//                String email = etEmail.getText().toString().trim();
+//                if (email.isEmpty()) {
+//                    OwerToastShow.show("请输入邮箱");
+//                    return;
+//                }
+//
+//                String phoneOne = etPhoneOne.getText().toString().trim();
+//                String phoneTwo = etPhoneTwo.getText().toString().trim();
+//                String phoneThree = etPhoneThree.getText().toString().trim();
+//                String tel = phoneOne + phoneTwo + phoneThree;
+//
+//                AddressMember addressMember = new AddressMember();
+//                addressMember.setReceiveName(username);
+//                addressMember.setProvince(selectedProvince.getId());
+//                addressMember.setCity(selectedCity.getId());
+//                addressMember.setCounty(selectedDistrict.getId());
+//                addressMember.setAddress(street);
+//                addressMember.setCode(zipCode);
+//                addressMember.setReceivePhone(cellPhoneNum);
+//                addressMember.setEmail(email);
+//                addressMember.setReceiveTel(tel);
+
+                AddressMember addressMember = new AddressMember();
+                addressMember.setReceiveName("zhangrui");
+                addressMember.setProvince("440000");
+                addressMember.setCity("440300");
+                addressMember.setCounty("440305");
+                addressMember.setAddress("西丽镇珠光村");
+                addressMember.setCode("518012");
+                addressMember.setReceivePhone("15019289206");
+                addressMember.setEmail("rayco.zhang@gmail.com");
+                addressMember.setReceiveTel("");
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("address", addressMember);
+
+                Intent intent = new Intent();
+                intent.setClass(this, OrderConfirmTwoActivity.class);
+                intent.putExtras(bundle);
+                intent.putExtra("cartItemList", (ArrayList<CartItem>)cartItemList);
                 startActivity(intent);
                 break;
             case R.id.et_province:
@@ -173,6 +263,15 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         tvEmail = (TextView) view.findViewById(R.id.tv_email);
         tvEmailToast = (TextView) view.findViewById(R.id.tv_email_toast);
 
+        etUserName = (EditText) view.findViewById(R.id.et_user_name);
+        etStreet = (EditText) view.findViewById(R.id.et_street);
+        etZipCode = (EditText) view.findViewById(R.id.et_zip_code);
+        etCellPhoneNum = (EditText) view.findViewById(R.id.et_cell_phone_num);
+        etPhoneOne = (EditText) view.findViewById(R.id.et_phone_one);
+        etPhoneTwo = (EditText) view.findViewById(R.id.et_phone_two);
+        etPhoneThree = (EditText) view.findViewById(R.id.et_phone_three);
+        etEmail = (EditText) view.findViewById(R.id.et_email);
+
         etProvince = (EditText) view.findViewById(R.id.et_province);
         etCity = (EditText) view.findViewById(R.id.et_city);
         etDistrict = (EditText) view.findViewById(R.id.et_district);
@@ -191,9 +290,9 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         lvProvince.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Area province = provinceList.get(position);
-                etProvince.setText(province.getName());
-                queryArea(1, province.getId());
+                selectedProvince = provinceList.get(position);
+                etProvince.setText(selectedProvince.getName());
+                queryArea(1, selectedProvince.getId());
                 lvProvince.setVisibility(View.GONE);
             }
         });
@@ -204,9 +303,9 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         lvCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Area city = cityList.get(position);
-                etCity.setText(city.getName());
-                queryArea(2, city.getId());
+                selectedCity = cityList.get(position);
+                etCity.setText(selectedCity.getName());
+                queryArea(2, selectedCity.getId());
                 lvCity.setVisibility(View.GONE);
             }
         });
@@ -217,8 +316,8 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         lvDistrict.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Area district = districtList.get(position);
-                etDistrict.setText(district.getName());
+                selectedDistrict = districtList.get(position);
+                etDistrict.setText(selectedDistrict.getName());
                 lvDistrict.setVisibility(View.GONE);
             }
         });

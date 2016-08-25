@@ -12,7 +12,6 @@ import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Activity.OrderConfirmOneActivity;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
-import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.CartListRequest;
 import com.wckj.gfsj.Bean.CartListResult;
 import com.wckj.gfsj.Bean.DelCartRequest;
@@ -26,6 +25,7 @@ import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -45,7 +45,7 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
     private TextView tv_check_num;
     private int count;
     private Button bt_pay;
-
+    private List<CartItem> mSelectedList = new ArrayList<CartItem>();
 
     @Override
     protected void init() {
@@ -94,10 +94,12 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
                     cb_big.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            if(cb_big.isChecked()){
+                            if (cb_big.isChecked()) {
                                 count++;
-                            }else {
+                                mSelectedList.add(item);
+                            } else {
                                 count--;
+                                mSelectedList.remove(item);
                             }
                             item.setCheck(cb_big.isChecked());
                             tv_check_num.setText("已选中"+count+"件商品");
@@ -157,21 +159,29 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-           case  R.id.cb_big_all:
-               boolean checked = cb_big_all.isChecked();
+            case  R.id.cb_big_all:
+                boolean checked = cb_big_all.isChecked();
                    for (CartItem mitem: mList) {
                        mitem.setCheck(checked);
                    }
-               if(checked)
-                   count=mList.size();
-               else 
-                   count=0;
-               mlvAdapter.notifyDataSetChanged();
-               tv_check_num.setText("已选中"+count+"件商品");
-               break;
+                if(checked) {
+                   count = mList.size();
+                   mSelectedList.clear();
+                   mSelectedList.addAll(mList);
+                } else {
+                   count = 0;
+                   mSelectedList.clear();
+                }
+                mlvAdapter.notifyDataSetChanged();
+                tv_check_num.setText("已选中"+count+"件商品");
+                break;
             case R.id.bt_pay:
-                Intent intent = new Intent(AppApplication.context, OrderConfirmOneActivity.class);
-                startActivity(intent);
+                if (mSelectedList != null && !mSelectedList.isEmpty()) {
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(), OrderConfirmOneActivity.class);
+                    intent.putExtra("cartItemList", (ArrayList<CartItem>)mSelectedList);
+                    startActivity(intent);
+                }
                 break;
         }
     }

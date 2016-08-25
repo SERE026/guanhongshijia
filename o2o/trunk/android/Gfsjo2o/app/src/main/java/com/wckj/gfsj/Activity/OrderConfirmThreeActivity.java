@@ -8,9 +8,15 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Adapter.OrderConfirmAdapter;
+import com.wckj.gfsj.Bean.CreateOrderRequest;
+import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderConfirmThreeActivity extends BaseNewActivity implements View.OnClickListener {
 
@@ -41,8 +47,17 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
     private TextView tvSendTo;
     private Button btnCommitOrder;
 
+    private CreateOrderRequest createOrderRequest;
+    private List<CartItem> cartItemList = new ArrayList<CartItem>();
+    private OrderConfirmAdapter confirmAdapter;
+
     @Override
     protected void init() {
+        Intent intent = this.getIntent();
+        createOrderRequest = (CreateOrderRequest) intent.getSerializableExtra("order");
+        cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
+
+        confirmAdapter = new OrderConfirmAdapter(this, cartItemList);
     }
 
     @Override
@@ -117,5 +132,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
         tvSendTo = (TextView) view.findViewById(R.id.tv_send_to);
         btnCommitOrder = (Button) view.findViewById(R.id.btn_commit_order);
         btnCommitOrder.setOnClickListener(this);
+        lvCommodityList.setAdapter(confirmAdapter);
+        confirmAdapter.notifyDataSetChanged();
     }
 }

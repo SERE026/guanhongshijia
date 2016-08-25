@@ -1,9 +1,11 @@
 package com.wckj.gfsj.Bean.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by dyninfo on 2016/8/23.
  */
-public class AddressMember {
+public class AddressMember implements Serializable {
 
     private String receiveName;//收件人姓名
     private String receiveTel;//收件人电话
