@@ -2,14 +2,17 @@ package com.wckj.gfsj.Activity;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Adapter.AreaAdapter;
 import com.wckj.gfsj.Bean.QueryAreaRequest;
 import com.wckj.gfsj.Bean.QueryAreaResult;
 import com.wckj.gfsj.Bean.entity.Area;
@@ -27,7 +30,8 @@ import java.util.List;
 
 import okhttp3.Call;
 
-public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnClickListener {
+public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnClickListener,
+        View.OnTouchListener {
 
     private TitleRelativeLayout mRlTitle;
     private View view;
@@ -48,18 +52,20 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     private TextView tvEmail;
     private TextView tvEmailToast;
 
-    private ListView lvProvince, lvCity, lvDistrict;
-    private ArrayAdapter provinceAdapter, cityAdapter, districtAdapter;
+    private EditText etProvince, etCity, etDistrict;
 
-    List<String> provinceList = new ArrayList<String>();
-    List<String> cityList = new ArrayList<String>();
-    List<String> districtList = new ArrayList<String>();
+    private ListView lvProvince, lvCity, lvDistrict;
+    private AreaAdapter provinceAdapter, cityAdapter, districtAdapter;
+
+    List<Area> provinceList = new ArrayList<Area>();
+    List<Area> cityList = new ArrayList<Area>();
+    List<Area> districtList = new ArrayList<Area>();
 
     @Override
     protected void init() {
-        provinceAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, provinceList);
-        cityAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cityList);
-        districtAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, districtList);
+        provinceAdapter = new AreaAdapter(this, provinceList);
+        cityAdapter = new AreaAdapter(this, cityList);
+        districtAdapter = new AreaAdapter(this, districtList);
     }
 
     @Override
@@ -77,7 +83,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     protected View onCreateSuccessView() {
         view = inflater.inflate(R.layout.activity_order_confirm_one, null);
         initView();
-        queryArea("");
+        queryArea(0, "");
         return view;
     }
 
@@ -106,17 +112,57 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                 Intent intent = new Intent(view.getContext(), OrderConfirmTwoActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.et_province:
+                if (lvProvince.getVisibility() == View.VISIBLE) {
+                    lvProvince.setVisibility(View.GONE);
+                } else {
+                    lvProvince.setVisibility(View.VISIBLE);
+                }
+                break;
+            case R.id.et_city:
+                if (lvCity.getVisibility() == View.VISIBLE) {
+                    lvCity.setVisibility(View.GONE);
+                } else {
+                    lvCity.setVisibility(View.VISIBLE);
+                }
+                break;
+            case R.id.et_district:
+                if (lvDistrict.getVisibility() == View.VISIBLE) {
+                    lvDistrict.setVisibility(View.GONE);
+                } else {
+                    lvDistrict.setVisibility(View.VISIBLE);
+                }
+                break;
         }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        int action = event.getAction();
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                // Disallow ScrollView to intercept touch events.
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                break;
+
+            case MotionEvent.ACTION_UP:
+                // Allow ScrollView to intercept touch events.
+                v.getParent().requestDisallowInterceptTouchEvent(false);
+                break;
+        }
+        // Handle ListView touch events.
+        v.onTouchEvent(event);
+        return false;
     }
 
     private void initView() {
         tvOrderConfirm = (TextView) view.findViewById(R.id.tv_order_confirm);
-        tvSelectShipMethod = (TextView) view.findViewById(R.id.tv_select_ship_method);
-        rgShipMethod = (RadioGroup) view.findViewById(R.id.rg_ship_method);
-        tvSelectAddress = (TextView) view.findViewById(R.id.tv_select_address);
-        rgAddress = (RadioGroup) view.findViewById(R.id.rg_address);
-        btnNext = (Button) view.findViewById(R.id.btn_next);
-        btnNext.setOnClickListener(this);
+//        tvSelectShipMethod = (TextView) view.findViewById(R.id.tv_select_ship_method);
+//        rgShipMethod = (RadioGroup) view.findViewById(R.id.rg_ship_method);
+//        tvSelectAddress = (TextView) view.findViewById(R.id.tv_select_address);
+//        rgAddress = (RadioGroup) view.findViewById(R.id.rg_address);
+//        btnNext = (Button) view.findViewById(R.id.btn_next);
+//        btnNext.setOnClickListener(this);
         tvAddNewAddress = (TextView) view.findViewById(R.id.tv_add_new_address);
         tvUserName = (TextView) view.findViewById(R.id.tv_user_name);
         tvProvince = (TextView) view.findViewById(R.id.tv_province);
@@ -127,19 +173,63 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         tvEmail = (TextView) view.findViewById(R.id.tv_email);
         tvEmailToast = (TextView) view.findViewById(R.id.tv_email_toast);
 
-        lvProvince = (ListView) view.findViewById(R.id.lv_province);
-        lvCity = (ListView) view.findViewById(R.id.lv_city);
-        lvDistrict = (ListView) view.findViewById(R.id.lv_district);
+        etProvince = (EditText) view.findViewById(R.id.et_province);
+        etCity = (EditText) view.findViewById(R.id.et_city);
+        etDistrict = (EditText) view.findViewById(R.id.et_district);
+        etProvince.setKeyListener(null);
+        etCity.setKeyListener(null);
+        etDistrict.setKeyListener(null);
+        etProvince.setOnClickListener(this);
+        etCity.setOnClickListener(this);
+        etDistrict.setOnClickListener(this);
+        btnNext = (Button) view.findViewById(R.id.btn_next);
+        btnNext.setOnClickListener(this);
 
+        lvProvince = (ListView) view.findViewById(R.id.lv_province);
+        lvProvince.setOnTouchListener(this);
         lvProvince.setAdapter(provinceAdapter);
+        lvProvince.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Area province = provinceList.get(position);
+                etProvince.setText(province.getName());
+                queryArea(1, province.getId());
+                lvProvince.setVisibility(View.GONE);
+            }
+        });
+
+        lvCity = (ListView) view.findViewById(R.id.lv_city);
+        lvCity.setOnTouchListener(this);
         lvCity.setAdapter(cityAdapter);
+        lvCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Area city = cityList.get(position);
+                etCity.setText(city.getName());
+                queryArea(2, city.getId());
+                lvCity.setVisibility(View.GONE);
+            }
+        });
+
+        lvDistrict = (ListView) view.findViewById(R.id.lv_district);
+        lvDistrict.setOnTouchListener(this);
         lvDistrict.setAdapter(districtAdapter);
+        lvDistrict.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Area district = districtList.get(position);
+                etDistrict.setText(district.getName());
+                lvDistrict.setVisibility(View.GONE);
+            }
+        });
     }
 
     /**
-     * 查询市、区
+     * 查询省、市、区
+     * @param type     0-省，1-市，2-区
+     * @param parentId 为空代表查询省、不为空代表查询市、区
      */
-    private void queryArea(String parentId) {
+    private void queryArea(final int type, String parentId) {
         QueryAreaRequest request = new QueryAreaRequest();
         request.setParentId(parentId);
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_QUERYAREA_URL, new ICallBack() {
@@ -154,12 +244,19 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                 LogUtil.i(response);
 
                 if (result.getResultCode() == 0) {
-                    provinceList.clear();
-                    List<Area> areaList = result.getAreaList();
-                    for (Area area : areaList) {
-                        provinceList.add(area.getName());
+                    if (type == 0) {
+                        provinceList.clear();
+                        provinceList.addAll(result.getAreaList());
+                        provinceAdapter.notifyDataSetChanged();
+                    } else if (type == 1) {
+                        cityList.clear();
+                        cityList.addAll(result.getAreaList());
+                        cityAdapter.notifyDataSetChanged();
+                    } else if (type == 2) {
+                        districtList.clear();
+                        districtList.addAll(result.getAreaList());
+                        districtAdapter.notifyDataSetChanged();
                     }
-                    provinceAdapter.notifyDataSetChanged();
                 } else {
                     OwerToastShow.show(result.getMessage());
                 }
