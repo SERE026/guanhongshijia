@@ -238,7 +238,7 @@ public class FreeMarkerUtils {
                 lists.add(goodsList);
 
             }
-            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer(""));//order by n.yqlj_count desc
+            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
             if (list != null && list.size() > 0) {
                 paramsMap.put("yqljList", list);
             }
@@ -345,7 +345,7 @@ public class FreeMarkerUtils {
 //                List<Goods> goodsList = (List<Goods>) goodsService.getListByWhere(new StringBuffer(" and n.goodsSort=" + goodsSortList6.get(0).getGoodsSort_id()));
                 lists.add(goodsList);
             }
-            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer(""));
+            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
             paramsMap.put("yqljList",list);
             paramsMap.put("lists",lists);
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);
@@ -447,7 +447,7 @@ public class FreeMarkerUtils {
                 lists.add(goodsList);
 
             }
-            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer(""));
+            List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
             paramsMap.put("yqljList",list);
             paramsMap.put("lists",lists);
             paramsMap.put("contextPath", Constants.DOMAIN_NAME);

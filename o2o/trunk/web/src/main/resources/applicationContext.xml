@@ -131,6 +131,7 @@
 		<property name="shangJiaService" ref="shangJiaService"/>
 		<property name="articlesService" ref="articlesService"/>
 		<property name="freemarkerConfig" ref="freemarkerConfig"/>
+		<property name="yqljService" ref="yqljService"/>
 	</bean>
 
 	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
