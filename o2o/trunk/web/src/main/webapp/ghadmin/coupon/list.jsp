@@ -163,7 +163,7 @@
 								<a href="<%=request.getContextPath()%>/html/manage/coupon/${Info.id }/del" class="zhu2">
 									删除
 								</a>&nbsp;
-								<a href="<%=request.getContextPath()%>/html/manage/coupon/${Info.id }/grantCoupon" class="zhu2">
+								<a href="<%=request.getContextPath()%>/html/manage/coupon/grantCoupon?couponId=${Info.id }" class="zhu2">
 									发放优惠卷
 								</a>
 							</td>

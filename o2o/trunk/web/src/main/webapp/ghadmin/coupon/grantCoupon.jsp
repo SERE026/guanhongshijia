@@ -37,13 +37,13 @@
 		if(confirm("请确认是否执行发放操作!"))
 			document.getElementById("del").submit();
 	}
-	function radioPanduan(){
-		if(document.getElementById("shoudong").checked) {
-			document.getElementById("table1").style.display="table";
-		}else {
-			document.getElementById("table1").style.display="none";
-		}
-	}
+//	function radioPanduan(){
+//		if(document.getElementById("shoudong").checked) {
+//			document.getElementById("table1").style.display="table";
+//		}else {
+//			document.getElementById("table1").style.display="none";
+//		}
+//	}
 	function cz(){
 		document.getElementById("czlist").submit();
 	}
@@ -53,8 +53,10 @@
 	}
 </script>
 <body>
+<%--
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/dialog.js"></script>
 
+--%>
 
 
 <table cellspacing="2" cellpadding="0" class="tab2">
@@ -65,12 +67,18 @@
 	</tr>
 	<tr>
 		<td>
-			<form method="post" id="czlist" name="form1" action="<%=request.getContextPath()%>/html/manage/coupon/grantCouponByWhere">
+			<form method="post" id="czlist" name="form1" action="<%=request.getContextPath()%>/html/manage/coupon/grantCoupon?couponId=${couponId}">
 				<input type="hidden" name="couponId" id="couponId" value=${couponId} />
 				<input type="hidden" name="pageNo" id="pageNo" value=${PAGE_INFO.pageNo } />
 				<table cellspacing="0" cellpadding="0" class="table4_da">
-
 					<tr>
+						<td class="tab2_tou">
+
+							<input type="button" value="批量发放" onclick="delall()">
+
+						</td>
+					</tr>
+<%--					<tr>
 						<td>
 							<input type="radio" name="aaa" onclick="radioPanduan()" value="0"/>所有会员
 
@@ -78,8 +86,8 @@
 						<td>
 							<input type="submit" onclick="cz()" value="发放">
 						</td>
-					</tr>
-					<tr>
+					</tr>--%>
+<%--					<tr>
 						<td>
 							<input type="radio" name="aaa" onclick="radioPanduan()" value="1"/>最近
 							<input type="text" name="days"/>天消费满<input type="text" name="money"/>
@@ -96,13 +104,13 @@
 						<td>
 							<input type="submit" onclick="cz()" value="发放">
 						</td>
-					</tr>
-					<tr>
+					</tr>--%>
+<%--					<tr>
 						<td>
 							<input type="radio" name="aaa" id="shoudong" value="3" onclick="radioPanduan()"/>手动发放
 						</td>
 						<td>&nbsp;</td>
-					</tr>
+					</tr>--%>
 				</table>
 			</form>
 		</td>
@@ -112,7 +120,7 @@
 		<td>
 			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/coupon/grantCouponAll?couponId=${couponId}">
 				<input type="hidden" name="_method" value="delete"/>
-				<table cellspacing="0" cellpadding="0" class="table4_da" style="display: none" id="table1">
+				<table cellspacing="0" cellpadding="0" class="table4_da"<%-- style="display: none"--%> id="table1">
 					<thead>
 					<tr>
 						<c:if test="${info.is_user==0}"><td style="width:30px;"><input name="" type="checkbox" value="" onclick="xz();" /></td></c:if>
@@ -150,15 +158,9 @@
 							</c:if>
 						</tr>
 					</c:forEach>
-					<tr>
-						<td class="tab2_tou">
 
-								<input type="button" value="发放" onclick="delall()">
-
-						</td>
-					</tr>
 					<jsp:include page="/admin-inc/nofenye.jsp">
-						<jsp:param name="url" value="/html/manage/huiyuan/list" />
+						<jsp:param name="url" value="/html/manage/coupon/grantCoupon?couponId=${couponId}" />
 					</jsp:include>
 				</table>
 			</form>

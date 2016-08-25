@@ -234,11 +234,12 @@ public class CouponContronller {
     /**
      * 进入发放优惠卷页面
      */
-    @RequestMapping(value = "/{id}/grantCoupon")
-    public ModelAndView grantCoupon(@PathVariable String id, HttpServletRequest request) {
+    @RequestMapping(value = "/grantCoupon")
+    public ModelAndView grantCoupon(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
         StringBuffer where=new StringBuffer();
         UserInfo info=(UserInfo) request.getSession().getAttribute("UserInfo");
+        String couponId=request.getParameter("couponId");
         PageInfo page = new PageInfo();
         page.setPageSize(25);
         int no = 0;
@@ -256,7 +257,7 @@ public class CouponContronller {
         mav.addAllObjects(huiyuanService.getListByPageWhere(where, page));
         mav.addObject("PAGE_INFO", page);
         mav.addObject("info",info);
-        mav.addObject("couponId",id);
+        mav.addObject("couponId",couponId);
         mav.setViewName("/coupon/grantCoupon");
         return mav;
     }
