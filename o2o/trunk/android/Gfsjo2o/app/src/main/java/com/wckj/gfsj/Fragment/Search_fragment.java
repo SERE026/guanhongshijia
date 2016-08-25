@@ -280,6 +280,7 @@ public class Search_fragment extends Fragment implements View.OnClickListener {
      */
     private void search(String keyword) {
         SearchRequest request = new SearchRequest();
+        request.setPageSize(100);
         request.setKeyword(keyword);
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.GOODS_SEARCH_URL, new ICallBack() {
             @Override

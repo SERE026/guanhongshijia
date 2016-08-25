@@ -1,16 +1,18 @@
 package com.wckj.gfsj.Fragment;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.wckj.gfsj.Activity.OrderConfirmOneActivity;
 import com.wckj.gfsj.Adapter.CommonAdapter;
 import com.wckj.gfsj.Adapter.ViewHolder;
+import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.CartListRequest;
 import com.wckj.gfsj.Bean.CartListResult;
 import com.wckj.gfsj.Bean.DelCartRequest;
@@ -21,6 +23,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
 
 import java.util.List;
@@ -66,7 +69,7 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
         
 
         cb_big_all.setOnClickListener(this);
-
+        bt_pay.setOnClickListener(this);
         binData();
         return view;
     }
@@ -86,16 +89,17 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
                     }
                     helper.setText(R.id.tv_cart_price,"￥ "+item.getGoodsDetail().getPrice());
                     helper.setText(R.id.edt,item.getCount()+"");
-                    CheckBox cb_big = helper.getView(R.id.cb_big);
+                    final CheckBox cb_big = helper.getView(R.id.cb_big);
                     cb_big.setChecked(item.isCheck());
-                    cb_big.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    cb_big.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                            if(isChecked){
+                        public void onClick(View v) {
+                            if(cb_big.isChecked()){
                                 count++;
                             }else {
                                 count--;
                             }
+                            item.setCheck(cb_big.isChecked());
                             tv_check_num.setText("已选中"+count+"件商品");
                         }
                     });
@@ -138,6 +142,7 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
 
                 mJson =  JSON.parseObject(response, CartListResult.class);
                mList = mJson.getCart().getItemList();
+               LogUtil.d("mList.size="+mList.size());
                showPageState(checkData(mList));
            }
        });
@@ -162,9 +167,11 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
                else 
                    count=0;
                mlvAdapter.notifyDataSetChanged();
+               tv_check_num.setText("已选中"+count+"件商品");
                break;
             case R.id.bt_pay:
-//                new Intent()
+                Intent intent = new Intent(AppApplication.context, OrderConfirmOneActivity.class);
+                startActivity(intent);
                 break;
         }
     }

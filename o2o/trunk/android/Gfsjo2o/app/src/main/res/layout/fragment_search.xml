@@ -16,6 +16,8 @@
         app:layout_marginRightPercent="26%">
 
         <EditText
+            
+            android:focusable="false"
             android:id="@+id/et_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
