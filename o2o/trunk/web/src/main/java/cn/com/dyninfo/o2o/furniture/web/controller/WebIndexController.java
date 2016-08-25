@@ -209,7 +209,7 @@ public class WebIndexController{
         Articles articles = (Articles) articlesService.getObjById("28");
         mav.addAttribute("article28", articles);
 
-        List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer("order by n.yqlj_count desc"));
+        List<Yqlj> list = (List<Yqlj>)yqljService.getListByWhere(new StringBuffer(""));//order by n.yqlj_count desc
         mav.addAttribute("yqljList",list);
 
         return "/index";
