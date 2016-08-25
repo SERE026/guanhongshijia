@@ -296,20 +296,4 @@ public class WebIndexController {
         }
         return areaBase;
     }
-
-
-    //获取注册页面 协议
-    @RequestMapping(value = "/xieyi")
-    public String xieyi(HttpServletRequest request, ModelMap mav, HttpServletResponse response) {
-            StringBuffer where = new StringBuffer();
-            where.append(" and n.artices_name like '%用户协议%'");
-            List<Articles> list = (List<Articles>) articlesService.getListByWhere(where);
-            if (list.size() > 0) {
-                Articles a = list.get(0);
-                mav.addAttribute("xieyi", a.getArtices_content());
-            } else {
-                mav.addAttribute("xieyi", "用户协议未添加，请使用管理员账户登录后台管理系统，<br>在【页面管理】-> 【文章管理】下添加一篇名为“<b>用户协议</b>”的文章并编辑内容即可。");
-            }
-        return "Xieyi";
-    }
 }
