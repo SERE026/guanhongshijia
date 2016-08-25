@@ -467,6 +467,8 @@
 	<page id="/GoodGroup.html">
 		<widget id="good_group">
 			<widgetType>good_group</widgetType>
+			<pageSize>12</pageSize>
+			<pageNo>1</pageNo>
 		</widget>
 		<widget id="list_sort_z">
 			<widgetType>list_sort</widgetType>
@@ -497,6 +499,9 @@
 	<page id="/GoodArt.html">
 		<widget id="good_art">
 			<widgetType>good_art</widgetType>
+			<id>50</id>
+			<pageSize>12</pageSize>
+			<pageNo>1</pageNo>
 		</widget>
 		<widget id="list_sort_z">
 			<widgetType>list_sort</widgetType>
@@ -522,12 +527,15 @@
 			<widgetType>adv</widgetType>
 			<id>15</id>
 		</widget>
+
 	</page>
 
 
 	<page id="/GoodBoard.html">
 		<widget id="good_board">
 			<widgetType>good_board</widgetType>
+			<pageSize>12</pageSize>
+			<pageNo>1</pageNo>
 		</widget>
 		<widget id="list_sort_z">
 			<widgetType>list_sort</widgetType>
