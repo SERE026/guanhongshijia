@@ -39,7 +39,8 @@
 
 ShangJiaInfo info=(ShangJiaInfo)request.getSession().getAttribute(Constants.SESSION_MERCHANTS);
 String json="";
-String url="d:/status/";
+	String url="/data/projects/";
+//String url="d:/status/";
 DiskFileUpload fileUpload = new DiskFileUpload();
 fileUpload.setSizeMax(1024*1024*2);
 String dir = "/merchants/"+info.getShangjia_id()+"/";
