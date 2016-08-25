@@ -84,9 +84,11 @@ ${widget_good_spec}
 	<link href="css/slide.css" rel="stylesheet" type="text/css" />
 
 	<script>
+/*
 		$(function(){
 			new slide($("#slide7"),false);
 		})
+*/
 
 	</script>
 	<div class="index_left">
@@ -101,6 +103,9 @@ ${widget_good_spec}
 		<script type="text/JavaScript" src="js/goodsGroup.js"></script>
 		<script>
 			new index("");
+			$(function(){
+				page.init(path);
+			});
 		</script>
 
 		<div class="clear">&nbsp;</div>

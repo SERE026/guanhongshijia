@@ -10,9 +10,6 @@
  * written permission  of  SHENZHEN Eternal Dynasty Technology Co.,Ltd.
  *
  */
-$(function(){
-	index;
-});
 index=function(path){
 	var page={
 		servicePath:"",
@@ -76,6 +73,8 @@ index=function(path){
 	};
 	$(function(){
 		page.init(path);
+			page.ajaxGoods();
 	});
-	
+
+
 };

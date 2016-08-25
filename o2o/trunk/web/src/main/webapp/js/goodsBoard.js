@@ -73,6 +73,7 @@ index=function(path){
 	};
 	$(function(){
 		page.init(path);
+		page.ajaxGoods();
 	});
 	
 };
