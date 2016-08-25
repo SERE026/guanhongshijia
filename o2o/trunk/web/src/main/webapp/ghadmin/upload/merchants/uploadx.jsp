@@ -40,7 +40,8 @@
 //店铺形象上传
 String userID="";
 String json="";
-String url="d:/status/";//
+//String url="d:/status/";//
+	String url="/data/projects/";
 DiskFileUpload fileUpload = new DiskFileUpload();
 fileUpload.setSizeMax(1024*1024*2);
 
