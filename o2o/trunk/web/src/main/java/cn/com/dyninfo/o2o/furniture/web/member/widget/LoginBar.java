@@ -25,14 +25,9 @@ import javax.servlet.http.HttpSession;
 
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.sys.service.SmsSender;
+import cn.com.dyninfo.o2o.furniture.util.*;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
-
-import cn.com.dyninfo.o2o.furniture.util.ForwordTool;
-import cn.com.dyninfo.o2o.furniture.util.MD5Encoder;
-import cn.com.dyninfo.o2o.furniture.util.ResponseUtil;
-import cn.com.dyninfo.o2o.furniture.util.SendDx;
-import cn.com.dyninfo.o2o.furniture.util.UserNoCheck;
 
 import cn.com.dyninfo.o2o.furniture.admin.service.SendMessageService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
@@ -136,6 +131,10 @@ public class LoginBar extends Widget{
 		if(pamtr.get("newpassword")!=null){//修改密码
 			editpassword(pamtr);
 		}
+		if(pamtr.get("newphonepassword")!=null){//根据手机短信验证 修改密码
+			newphonepassword(pamtr);
+		}
+
 
 		if(pamtr.get("adress")!=null){//找回密码
 			findpassword(pamtr);
@@ -336,6 +335,31 @@ public class LoginBar extends Widget{
 		this.setPageName("register.html");
 
 
+	}
+
+
+	/**
+	 * 根据手机短信验证 密码修改
+	 * @param pamtr
+	 */
+	public void newphonepassword(Map pamtr){
+		String newpassword=(String) pamtr.get("newphonepassword");
+		String phone=(String) pamtr.get("phone");
+//		String uuid=(String) pamtr.get("uuid");
+//		List<Findpassword> Findpassword=(List<Findpassword>) findpasswordService.getListByWhere(new StringBuffer(" and n.uuid='").append(pamtr.get("uuid")).append("'"));
+//		Findpassword info=(Findpassword)Findpassword.get(0);
+		List<HuiyuanInfo>  list=(List<HuiyuanInfo>) huiyuanService.getListByWhere(
+				new StringBuffer(" and n.phone="+ phone));
+		if(!ValidationUtil.isEmpty(list)){
+			HuiyuanInfo info= list.get(0);
+			info.setPassword(MD5Encoder.encodePassword(newpassword,
+					Context.PASSWORDY));
+			huiyuanService.updateObj(info);
+			this.putData("data","1");
+		}else{
+			this.putData("data","0");
+		}
+		this.setPageName("find_password.html");
 	}
 
 	/**
