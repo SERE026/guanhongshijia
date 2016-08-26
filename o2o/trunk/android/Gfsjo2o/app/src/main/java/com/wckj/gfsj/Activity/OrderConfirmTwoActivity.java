@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Adapter.PayMethodAdapter;
 import com.wckj.gfsj.Bean.CreateOrderRequest;
+import com.wckj.gfsj.Bean.PayMethod;
 import com.wckj.gfsj.Bean.entity.AddressMember;
 import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.Bean.entity.Coupon;
@@ -27,21 +30,22 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
     private View view;
     private TextView tvOrderConfirm;
     private TextView tvPayMethod;
-    private TextView tvBalancePayToast;
-    private TextView tvAlipayToast;
-    private TextView tvCouponPayToast1;
-    private TextView tvCouponPayToast2;
+    private ListView lvPayMethod;
+
     private TextView tvReceiptDate;
     private TextView tvTimeNotLimitToast;
     private TextView tvWeekdayToast;
     private TextView tvWeekendToast1;
-    private CheckBox cbBalancePay, cbCouponPay, cbAliPay, cbTimeNotLimit, cbWeekday, cbWeekend;
+    private CheckBox cbTimeNotLimit, cbWeekday, cbWeekend;
     private Button btnNext;
 
     private AddressMember addressMember;
     private List<CartItem> cartItemList = new ArrayList<CartItem>();
     private List<Coupon> couponList = new ArrayList<Coupon>();
+    private List<PayMethod> payMethodList = new ArrayList<PayMethod>();
     private String addressName;
+
+    private PayMethodAdapter payMethodAdapter;
 
     @Override
     protected void init() {
@@ -50,6 +54,32 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
         cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
         couponList = (List<Coupon>) intent.getSerializableExtra("couponList");
         addressName = intent.getStringExtra("addressName");
+
+        PayMethod payMethod1 = new PayMethod();
+        payMethod1.setName("优先使用余额支付");
+        payMethod1.setToast("余额不足选择其他支付方式");
+        payMethod1.setCoupon(null);
+        payMethodList.add(payMethod1);
+
+        PayMethod payMethod2 = new PayMethod();
+        payMethod2.setName("使用支付宝即时到账");
+        payMethod2.setToast("无需开通网银无需手续费");
+        payMethod2.setCoupon(null);
+        payMethodList.add(payMethod2);
+
+        for (Coupon coupon : couponList) {
+            PayMethod payMethod = new PayMethod();
+            payMethod.setName("使用优惠券");
+            if (coupon.getSameUse() == 1) {
+                payMethod.setToast(coupon.getName() + "(可以与其他券一起使用)");
+            } else if (coupon.getSameUse() == 0) {
+                payMethod.setToast(coupon.getName() + "(不可与其他券一起使用)");
+            }
+            payMethod.setCoupon(coupon);
+            payMethodList.add(payMethod);
+        }
+
+        payMethodAdapter = new PayMethodAdapter(this, payMethodList);
     }
 
     @Override
@@ -92,11 +122,6 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                 finish();
                 break;
             case R.id.btn_next:
-                if (!cbAliPay.isChecked()) {
-                    OwerToastShow.show("请选择支付方式");
-                    return;
-                }
-
                 if (!cbTimeNotLimit.isChecked() && !cbWeekday.isChecked() && !cbWeekend.isChecked()) {
                     OwerToastShow.show("请选择收货时间");
                     return;
@@ -126,18 +151,16 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
     private void initView() {
         tvOrderConfirm = (TextView) view.findViewById(R.id.tv_order_confirm);
         tvPayMethod = (TextView) view.findViewById(R.id.tv_pay_method);
-        tvBalancePayToast = (TextView) view.findViewById(R.id.tv_balance_pay_toast);
-        tvAlipayToast = (TextView) view.findViewById(R.id.tv_alipay_toast);
-        tvCouponPayToast1 = (TextView) view.findViewById(R.id.tv_coupon_pay_toast1);
-        tvCouponPayToast2 = (TextView) view.findViewById(R.id.tv_coupon_pay_toast2);
+
+        lvPayMethod = (ListView) view.findViewById(R.id.lv_pay_method);
+        lvPayMethod.setAdapter(payMethodAdapter);
+        payMethodAdapter.notifyDataSetChanged();
+
         tvReceiptDate = (TextView) view.findViewById(R.id.tv_receipt_date);
         tvTimeNotLimitToast = (TextView) view.findViewById(R.id.tv_time_not_limit_toast);
         tvWeekdayToast = (TextView) view.findViewById(R.id.tv_weekday_toast);
         tvWeekendToast1 = (TextView) view.findViewById(R.id.tv_weekend_toast1);
 
-        cbBalancePay = (CheckBox) view.findViewById(R.id.cb_balance_pay);
-        cbAliPay = (CheckBox) view.findViewById(R.id.cb_alipay);
-        cbCouponPay = (CheckBox) view.findViewById(R.id.cb_coupon_pay1);
         cbTimeNotLimit = (CheckBox) view.findViewById(R.id.cb_time_not_limit);
         cbWeekday = (CheckBox) view.findViewById(R.id.cb_weekday);
         cbWeekend = (CheckBox) view.findViewById(R.id.cb_weekend);

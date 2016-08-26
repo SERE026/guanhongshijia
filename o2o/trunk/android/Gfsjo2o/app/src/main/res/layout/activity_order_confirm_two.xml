@@ -37,96 +37,21 @@
             app:layout_marginLeftPercent="7%"
             app:layout_marginTopPercent="6%"/>
 
-        <CheckBox
-            android:id="@+id/cb_balance_pay"
+        <ListView
+            android:id="@+id/lv_pay_method"
             android:layout_below="@id/tv_pay_method"
-            android:text="优先使用余额支付"
-            android:textColor="@color/color_6f5f62"
-            app:layout_heightPercent="5%"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_heightPercent="30%"
             app:layout_marginLeftPercent="7%"
-            app:layout_marginTopPercent="3%"
-            app:layout_widthPercent="25%"
-            android:enabled="false"/>
-
-        <TextView
-            android:id="@+id/tv_balance_pay_toast"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/tv_pay_method"
-            android:layout_toRightOf="@id/cb_balance_pay"
-            android:text="余额不足选择其他支付方式"
-            android:gravity="center_vertical"
-            app:layout_heightPercent="5%"
-            app:layout_marginLeftPercent="2%"
-            app:layout_marginTopPercent="3%"/>
-
-        <CheckBox
-            android:id="@+id/cb_alipay"
-            android:layout_below="@id/cb_balance_pay"
-            android:text="使用支付宝即时到账"
-            android:textColor="@color/color_6f5f62"
-            app:layout_heightPercent="5%"
-            app:layout_marginLeftPercent="7%"
-            app:layout_marginTopPercent="3%"
-            app:layout_widthPercent="25%"/>
-
-        <TextView
-            android:id="@+id/tv_alipay_toast"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/cb_balance_pay"
-            android:layout_toRightOf="@id/cb_alipay"
-            android:text="无需开通网银无需手续费"
-            android:gravity="center_vertical"
-            app:layout_heightPercent="5%"
-            app:layout_marginLeftPercent="2%"
-            app:layout_marginTopPercent="3%"/>
-
-        <CheckBox
-            android:id="@+id/cb_coupon_pay1"
-            android:layout_below="@id/cb_alipay"
-            android:text="使用优惠券"
-            android:textColor="@color/color_6f5f62"
-            app:layout_heightPercent="5%"
-            app:layout_marginLeftPercent="7%"
-            app:layout_marginTopPercent="3%"
-            app:layout_widthPercent="25%"/>
-
-        <TextView
-            android:id="@+id/tv_coupon_pay_toast1"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/cb_alipay"
-            android:layout_toRightOf="@id/cb_coupon_pay1"
-            android:text="第一券（不可与其他券一起使用）"
-            android:gravity="center_vertical"
-            app:layout_heightPercent="5%"
-            app:layout_marginLeftPercent="2%"
-            app:layout_marginTopPercent="3%"/>
-
-        <CheckBox
-            android:id="@+id/cb_coupon_pay2"
-            android:layout_below="@id/cb_coupon_pay1"
-            android:text="使用优惠券"
-            android:textColor="@color/color_6f5f62"
-            app:layout_heightPercent="5%"
-            app:layout_marginLeftPercent="7%"
-            app:layout_marginTopPercent="3%"
-            app:layout_widthPercent="25%"/>
-
-        <TextView
-            android:id="@+id/tv_coupon_pay_toast2"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/cb_coupon_pay1"
-            android:layout_toRightOf="@id/cb_coupon_pay2"
-            android:text="第二券（不可与其他券一起使用）"
-            android:gravity="center_vertical"
-            app:layout_heightPercent="5%"
-            app:layout_marginLeftPercent="2%"
+            app:layout_marginRightPercent="7%"
             app:layout_marginTopPercent="3%"/>
 
         <TextView
             android:id="@+id/tv_receipt_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cb_coupon_pay2"
+            android:layout_below="@id/lv_pay_method"
             android:text="收货日期"
             android:textSize="18sp"
             app:layout_marginLeftPercent="7%"
