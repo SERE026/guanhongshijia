@@ -247,17 +247,17 @@ input:focus,textarea:focus { outline: none !important;  }
 *+html .index_fumeu{width:1200px; height:auto; margin-top:-396px}
 .da{ width:1200px; height:auto; margin:auto} 
 .index_left{ width:880px; height:auto; float:left; margin-top:20px;}
-.index_left_da{ width:880px; height:auto; min-height:1660px; background-color:#eee7e1}
+.index_left_da{ width:880px; height:auto; min-height:1660px;}
 
-.index_left_kuai{ width:280px; height:380px; border:#eee7e1 solid 2px; border-bottom:#d6cfc9 solid 2px;float:left; margin-left:6px; margin-top:9px; background-color:#ffffff; display:inline; overflow:hidden}
-.index_left_kuai_dian{ width:280px; height:380px; border:#f0125b solid 2px; float:left;margin-left:6px; margin-top:9px;background-color:#ffffff;display:inline; overflow:hidden}
+.index_left_kuai{ width:280px; height:380px; border:#eee7e1 solid 1px; border-bottom:#d6cfc9 solid 1px;float:left; margin-left:8px; margin-top:9px; background-color:#ffffff; display:inline; overflow:hidden}
+.index_left_kuai_dian{ width:280px; height:380px; border:#572a27 solid 1px; float:left;margin-left:8px; margin-top:9px;background-color:#ffffff;display:inline; overflow:hidden}
 
 .index_left_kuai_tu{ width:270px; height:270px;margin-left:5px; margin-top:5px; overflow:hidden}
-.index_left_kuai_zi{ width:260px; height:25px;margin-left:10px; margin-top:13px; overflow:hidden; line-height:20px; font-size:14px; color:#000000;}
+.index_left_kuai_zi{ width:260px; height:42px; margin-top:13px; overflow:hidden; line-height:20px; font-size:14px; color:#000000;}
 .index_left_kuai_jiage{ width:260px; height:auto;margin-left:10px; margin-top:10px;}
 .index_left_dajia{ width:260px; height:auto;margin-left:10px; margin-top:5px;}
-.index_left_dajia_le{ width:auto; height:auto; float:left; overflow:hidden}
-.index_left_dajia_ri{ width:80px; height:31px; float:right}
+.index_left_dajia_le{ width:auto; height:auto; float:left; overflow:hidden;padding-top: 1px;}
+.index_left_dajia_ri{ width:68px; height:31px; float:right}
 .jiazaishangpin{ width:878px; height:45px; overflow:hidden; margin-top:14px; background-color:#fffee0; border:#ece7e1 solid 1px;}
 .jiazaishangpin a{ display:block}
 .hd_dada{ width:1200px; height:auto; background-color:#ebede0}

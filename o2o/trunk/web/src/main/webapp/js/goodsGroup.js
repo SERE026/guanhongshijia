@@ -48,21 +48,20 @@ index=function(path){
 			  		for(var i=0;i<data.data.length;i++){
 			  			var html='<div class="index_left_kuai">';
 			  			html+='<div class="index_left_kuai_tu"><a href="item-'+data.data[i].goods_id+'.html"><img src="'+page.servicePath+'/upload/goods/'+data.data[i].defaultImage+'" width="100%" height="100%" border="0" /></a></div>';
-			  			html+='<div class="index_left_kuai_zi">';
+						html+='<div class="index_left_dajia"><div class="index_left_dajia_le">';
+						// 如果商品售价小于原价，显示为删除线样式，否则显示为会员价
+						if (data.data[i].salesMoney < data.data[i].bazaarMoney) {
+							html+='<span class="STYLE2">¥</span><span class="STYLE3">'+data.data[i].salesMoney.toFixed(1)+'</span>&nbsp;&nbsp;<span class="STYLE4">¥'+data.data[i].bazaarMoney.toFixed(1)+'</span></div>';
+						} else {
+							html+='<span class="STYLE2">¥</span><span class="STYLE3">'+data.data[i].salesMoney.toFixed(1)+'</span>&nbsp;&nbsp;<span>会员价</span></div>';
+						}
+						html+='<div class="index_left_kuai_zi">';
 			  			// 如果商品打折，显示打几折，否则不显示
 			  			if(data.data[i].discount < 10) {
 			  				html+='<span class="STYLE1">'+data.data[i].discount+'折 </span>';
 			  			}	
 			  			html+='<a href="#" class="zhu8">'+data.data[i].name+'</a></div>';
-			  			html+='<div class="index_left_dajia"><div class="index_left_dajia_le">';
-			  			// 如果商品售价小于原价，显示为删除线样式，否则显示为会员价
-			  			if (data.data[i].salesMoney < data.data[i].bazaarMoney) {
-							html+='<span class="STYLE2">¥</span><span class="STYLE3">'+data.data[i].salesMoney.toFixed(1)+'</span>&nbsp;&nbsp;<span class="STYLE4">¥'+data.data[i].bazaarMoney.toFixed(1)+'</span>';			  			
-			  			} else {
-			  				html+='<span class="STYLE2">¥</span><span class="STYLE3">'+data.data[i].salesMoney.toFixed(1)+'</span>&nbsp;&nbsp;<span>会员价</span>';
-			  			}
-			  			
-			  			html+='</div><div class="index_left_dajia_ri"><a href="item-'+data.data[i].goods_id+'.html"><img src="'+page.servicePath+'/img/an1.gif" border="0" /></a></div>';
+			  			html+='<div class="index_left_dajia_ri"><a href="item-'+data.data[i].goods_id+'.html"><img src="'+page.servicePath+'/img/an1.gif" border="0" /></a></div>';
 			  			html+='</div></div>';
 			  			$(".goodsBox").append(html);
 			  		}
