@@ -16,9 +16,12 @@ import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.AreaAdapter;
 import com.wckj.gfsj.Bean.QueryAreaRequest;
 import com.wckj.gfsj.Bean.QueryAreaResult;
+import com.wckj.gfsj.Bean.SubmitOrderRequest;
+import com.wckj.gfsj.Bean.SubmitOrderResult;
 import com.wckj.gfsj.Bean.entity.AddressMember;
 import com.wckj.gfsj.Bean.entity.Area;
 import com.wckj.gfsj.Bean.entity.CartItem;
+import com.wckj.gfsj.Bean.entity.Coupon;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
@@ -67,6 +70,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
 
     private Area selectedProvince, selectedCity, selectedDistrict;
     private List<CartItem> cartItemList = new ArrayList<CartItem>();
+    private List<Coupon> couponList = new ArrayList<Coupon>();
 
     @Override
     protected void init() {
@@ -93,6 +97,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         view = inflater.inflate(R.layout.activity_order_confirm_one, null);
         initView();
         queryArea(0, "");
+        getCouponList();
         return view;
     }
 
@@ -137,7 +142,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                 }
 
                 String district = etDistrict.getText().toString().trim();
-                if (username.isEmpty()) {
+                if (district.isEmpty()) {
                     OwerToastShow.show("请选择区县");
                     return;
                 }
@@ -194,6 +199,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                 intent.setClass(this, OrderConfirmTwoActivity.class);
                 intent.putExtras(bundle);
                 intent.putExtra("cartItemList", (ArrayList<CartItem>)cartItemList);
+                intent.putExtra("couponList", (ArrayList<Coupon>)couponList);
                 intent.putExtra("addressName", addressName);
                 startActivity(intent);
                 break;
@@ -350,6 +356,34 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                         districtList.clear();
                         districtList.addAll(result.getAreaList());
                         districtAdapter.notifyDataSetChanged();
+                    }
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
+            }
+        });
+    }
+
+    /**
+     * 获取优惠券
+     */
+    private void getCouponList() {
+        SubmitOrderRequest request = new SubmitOrderRequest();
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_SUBMIT_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                SubmitOrderResult result = JSON.parseObject(response, SubmitOrderResult.class);
+                LogUtil.i(response);
+
+                if (result.getResultCode() == 0) {
+                    if (result.getCouponList() != null && !result.getCouponList().isEmpty()) {
+                        couponList.clear();
+                        couponList.addAll(result.getCouponList());
                     }
                 } else {
                     OwerToastShow.show(result.getMessage());

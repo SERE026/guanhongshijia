@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.wckj.gfsj.Bean.CreateOrderRequest;
 import com.wckj.gfsj.Bean.entity.AddressMember;
 import com.wckj.gfsj.Bean.entity.CartItem;
+import com.wckj.gfsj.Bean.entity.Coupon;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.R;
@@ -39,6 +40,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
 
     private AddressMember addressMember;
     private List<CartItem> cartItemList = new ArrayList<CartItem>();
+    private List<Coupon> couponList = new ArrayList<Coupon>();
     private String addressName;
 
     @Override
@@ -46,6 +48,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
         Intent intent = this.getIntent();
         addressMember = (AddressMember) intent.getSerializableExtra("address");
         cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
+        couponList = (List<Coupon>) intent.getSerializableExtra("couponList");
         addressName = intent.getStringExtra("addressName");
     }
 
