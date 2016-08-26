@@ -261,13 +261,13 @@
         <TextView
             android:id="@+id/tv_send_to_address"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_below="@id/tv_actual_total_money"
             android:gravity="center_vertical"
             android:layout_toLeftOf="@id/tv_should_pay"
             android:text="广东省深圳市"
             app:layout_marginRightPercent="3%"
-            app:layout_marginTopPercent="1%"
-            app:layout_widthPercent="16%"/>
+            app:layout_marginTopPercent="1%"/>
 
         <TextView
             android:id="@+id/tv_send_to"
@@ -278,7 +278,7 @@
             android:text="寄送至："
             app:layout_marginRightPercent="1%"
             app:layout_marginTopPercent="1%"
-            app:layout_widthPercent="15%"/>
+            app:layout_widthPercent="10%"/>
 
         <Button
             android:id="@+id/btn_commit_order"

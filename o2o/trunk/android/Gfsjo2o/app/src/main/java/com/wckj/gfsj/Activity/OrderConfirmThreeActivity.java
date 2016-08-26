@@ -8,15 +8,25 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.OrderConfirmAdapter;
 import com.wckj.gfsj.Bean.CreateOrderRequest;
+import com.wckj.gfsj.Bean.CreateOrderResult;
 import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 public class OrderConfirmThreeActivity extends BaseNewActivity implements View.OnClickListener {
 
@@ -49,6 +59,8 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
 
     private CreateOrderRequest createOrderRequest;
     private List<CartItem> cartItemList = new ArrayList<CartItem>();
+    private String addressName;
+
     private OrderConfirmAdapter confirmAdapter;
 
     @Override
@@ -56,6 +68,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
         Intent intent = this.getIntent();
         createOrderRequest = (CreateOrderRequest) intent.getSerializableExtra("order");
         cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
+        addressName = intent.getStringExtra("addressName");
 
         confirmAdapter = new OrderConfirmAdapter(this, cartItemList);
     }
@@ -75,6 +88,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
     protected View onCreateSuccessView() {
         view = inflater.inflate(R.layout.activity_order_confirm_three, null);
         initView();
+        initViewData();
         return view;
     }
 
@@ -100,8 +114,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
                 finish();
                 break;
             case R.id.btn_commit_order:
-                Intent intent = new Intent(view.getContext(), OrderConfirmFourActivity.class);
-                startActivity(intent);
+                createOrder();
                 break;
         }
     }
@@ -134,5 +147,62 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
         btnCommitOrder.setOnClickListener(this);
         lvCommodityList.setAdapter(confirmAdapter);
         confirmAdapter.notifyDataSetChanged();
+    }
+
+    private void initViewData() {
+        tvSendToAddress.setText(addressName);
+
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        double commodityTotalMoney = 0;
+        for (CartItem item : cartItemList) {
+            commodityTotalMoney += (item.getGoodsDetail().getPrice() * item.getCount());
+        }
+        tvCommodityTotalMoney.setText(df.format(commodityTotalMoney));
+
+        double freightMoney = 0;
+        tvFreightMoney.setText(df.format(freightMoney));
+
+        double totalMoney = commodityTotalMoney+freightMoney;
+        tvTotalMoney.setText(df.format(totalMoney));
+
+        double discountMoney = 0;
+        tvDiscountMoney.setText(df.format(discountMoney));
+
+        double actualTotalMoney = totalMoney - discountMoney;
+        tvActualTotalMoney.setText(df.format(actualTotalMoney));
+
+        tvShouldPayMoney.setText(df.format(actualTotalMoney));
+    }
+
+    /**
+     * 创建订单
+     */
+    private void createOrder() {
+        HttpUtils.getInstance().asyncPost(createOrderRequest, GlobalUtils.ORDER_CREATE_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                CreateOrderResult result = JSON.parseObject(response, CreateOrderResult.class);
+                LogUtil.i(response);
+
+                if (result.getResultCode() == 0) {
+                    double payPrice = result.getPayPrice();
+                    String tradeNo = result.getTradeNo();
+
+                    Intent intent = new Intent();
+                    intent.setClass(OrderConfirmThreeActivity.this, OrderConfirmFourActivity.class);
+                    intent.putExtra("payPrice", payPrice);
+                    intent.putExtra("tradeNo", tradeNo);
+                    startActivity(intent);
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
+            }
+        });
     }
 }

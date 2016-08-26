@@ -10,10 +10,10 @@
         android:layout_centerVertical="true"
         android:scaleType="fitXY"
         android:src="@drawable/icon_public_image"
-        app:layout_heightPercent="20%"
-        app:layout_marginBottomPercent="4%"
+        app:layout_heightPercent="35%"
+        app:layout_marginBottomPercent="2%"
         app:layout_marginLeftPercent="3%"
-        app:layout_marginTopPercent="4%"
+        app:layout_marginTopPercent="2%"
         app:layout_widthPercent="12%" />
 
     <TextView

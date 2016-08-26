@@ -12,6 +12,7 @@ import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.ImageLoaderUtil;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,8 @@ public class OrderConfirmAdapter extends BaseAdapter {
         }
         final CartItem item = (CartItem) getItem(position);
 
+        DecimalFormat df = new DecimalFormat("0.00");
+
         if (item.getGoodsDetail().getDefaultImage() != null) {
             ImageLoaderUtil.getInstance().displayImageView(item.getGoodsDetail().getDefaultImage(), itemHolder.mIvShoppingPic);
         }
@@ -73,9 +76,9 @@ public class OrderConfirmAdapter extends BaseAdapter {
         } else {
             itemHolder.mTvFlag.setText("规格：" + item.getGoodsDetail().getShortDesc());
         }
-        itemHolder.mTvUnit.setText("￥ " + item.getGoodsDetail().getPrice());
+        itemHolder.mTvUnit.setText("￥ " + df.format(item.getGoodsDetail().getPrice()));
         itemHolder.mTvCount.setText(item.getCount() + "");
-        itemHolder.mTvTotal.setText((item.getGoodsDetail().getPrice() * item.getCount()) + "");
+        itemHolder.mTvTotal.setText(df.format(item.getGoodsDetail().getPrice() * item.getCount()));
 
         return convertView;
     }

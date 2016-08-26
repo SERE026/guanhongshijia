@@ -39,12 +39,14 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
 
     private AddressMember addressMember;
     private List<CartItem> cartItemList = new ArrayList<CartItem>();
+    private String addressName;
 
     @Override
     protected void init() {
         Intent intent = this.getIntent();
         addressMember = (AddressMember) intent.getSerializableExtra("address");
         cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
+        addressName = intent.getStringExtra("addressName");
     }
 
     @Override
@@ -112,6 +114,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                 intent.setClass(this, OrderConfirmThreeActivity.class);
                 intent.putExtras(bundle);
                 intent.putExtra("cartItemList", (ArrayList<CartItem>)cartItemList);
+                intent.putExtra("addressName", addressName);
                 startActivity(intent);
                 break;
         }

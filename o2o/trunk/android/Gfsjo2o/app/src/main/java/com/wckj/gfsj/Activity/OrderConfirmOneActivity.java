@@ -118,88 +118,83 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                 finish();
                 break;
             case R.id.btn_next:
-//                String username = etUserName.getText().toString().trim();
-//                if (username.isEmpty()) {
-//                    OwerToastShow.show("请输入姓名");
-//                    return;
-//                }
-//
-//                String province = etProvince.getText().toString().trim();
-//                if (province.isEmpty()) {
-//                    OwerToastShow.show("请选择省份");
-//                    return;
-//                }
-//
-//                String city = etCity.getText().toString().trim();
-//                if (city.isEmpty()) {
-//                    OwerToastShow.show("请选择城市");
-//                    return;
-//                }
-//
-//                String district = etDistrict.getText().toString().trim();
-//                if (username.isEmpty()) {
-//                    OwerToastShow.show("请选择区县");
-//                    return;
-//                }
-//
-//                String street = etStreet.getText().toString().trim();
-//                if (street.isEmpty()) {
-//                    OwerToastShow.show("请输入街道地址");
-//                    return;
-//                }
-//
-//                String zipCode = etZipCode.getText().toString().trim();
-//                if (zipCode.isEmpty()) {
-//                    OwerToastShow.show("请输入邮编");
-//                    return;
-//                }
-//
-//                String cellPhoneNum = etCellPhoneNum.getText().toString().trim();
-//                if (cellPhoneNum.isEmpty()) {
-//                    OwerToastShow.show("请输入手机号码");
-//                    return;
-//                }
-//
-//                String email = etEmail.getText().toString().trim();
-//                if (email.isEmpty()) {
-//                    OwerToastShow.show("请输入邮箱");
-//                    return;
-//                }
-//
-//                String phoneOne = etPhoneOne.getText().toString().trim();
-//                String phoneTwo = etPhoneTwo.getText().toString().trim();
-//                String phoneThree = etPhoneThree.getText().toString().trim();
-//                String tel = phoneOne + phoneTwo + phoneThree;
-//
-//                AddressMember addressMember = new AddressMember();
-//                addressMember.setReceiveName(username);
-//                addressMember.setProvince(selectedProvince.getId());
-//                addressMember.setCity(selectedCity.getId());
-//                addressMember.setCounty(selectedDistrict.getId());
-//                addressMember.setAddress(street);
-//                addressMember.setCode(zipCode);
-//                addressMember.setReceivePhone(cellPhoneNum);
-//                addressMember.setEmail(email);
-//                addressMember.setReceiveTel(tel);
+                String username = etUserName.getText().toString().trim();
+                if (username.isEmpty()) {
+                    OwerToastShow.show("请输入姓名");
+                    return;
+                }
+
+                String province = etProvince.getText().toString().trim();
+                if (province.isEmpty()) {
+                    OwerToastShow.show("请选择省份");
+                    return;
+                }
+
+                String city = etCity.getText().toString().trim();
+                if (city.isEmpty()) {
+                    OwerToastShow.show("请选择城市");
+                    return;
+                }
+
+                String district = etDistrict.getText().toString().trim();
+                if (username.isEmpty()) {
+                    OwerToastShow.show("请选择区县");
+                    return;
+                }
+
+                String street = etStreet.getText().toString().trim();
+                if (street.isEmpty()) {
+                    OwerToastShow.show("请输入街道地址");
+                    return;
+                }
+
+                String zipCode = etZipCode.getText().toString().trim();
+                if (zipCode.isEmpty()) {
+                    OwerToastShow.show("请输入邮编");
+                    return;
+                }
+
+                String cellPhoneNum = etCellPhoneNum.getText().toString().trim();
+                if (cellPhoneNum.isEmpty()) {
+                    OwerToastShow.show("请输入手机号码");
+                    return;
+                }
+
+                String email = etEmail.getText().toString().trim();
+                if (email.isEmpty()) {
+                    OwerToastShow.show("请输入邮箱");
+                    return;
+                }
+
+                String phoneOne = etPhoneOne.getText().toString().trim();
+                String phoneTwo = etPhoneTwo.getText().toString().trim();
+                String phoneThree = etPhoneThree.getText().toString().trim();
+                String tel = phoneOne + phoneTwo + phoneThree;
 
                 AddressMember addressMember = new AddressMember();
-                addressMember.setReceiveName("zhangrui");
-                addressMember.setProvince("440000");
-                addressMember.setCity("440300");
-                addressMember.setCounty("440305");
-                addressMember.setAddress("西丽镇珠光村");
-                addressMember.setCode("518012");
-                addressMember.setReceivePhone("15019289206");
-                addressMember.setEmail("rayco.zhang@gmail.com");
-                addressMember.setReceiveTel("");
+                addressMember.setReceiveName(username);
+                addressMember.setProvince(selectedProvince.getId());
+                addressMember.setCity(selectedCity.getId());
+                addressMember.setCounty(selectedDistrict.getId());
+                addressMember.setAddress(street);
+                addressMember.setCode(zipCode);
+                addressMember.setReceivePhone(cellPhoneNum);
+                addressMember.setEmail(email);
+                addressMember.setReceiveTel(tel);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("address", addressMember);
+
+                String addressName = selectedProvince.getName()
+                        + selectedCity.getName()
+                        + selectedDistrict.getName()
+                        + street;
 
                 Intent intent = new Intent();
                 intent.setClass(this, OrderConfirmTwoActivity.class);
                 intent.putExtras(bundle);
                 intent.putExtra("cartItemList", (ArrayList<CartItem>)cartItemList);
+                intent.putExtra("addressName", addressName);
                 startActivity(intent);
                 break;
             case R.id.et_province:

@@ -1,13 +1,19 @@
 package com.wckj.gfsj.Activity;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Alipay.PayUtils;
+import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.OwerToastShow;
+
+import java.text.DecimalFormat;
 
 public class OrderConfirmFourActivity extends BaseNewActivity implements View.OnClickListener {
 
@@ -21,8 +27,14 @@ public class OrderConfirmFourActivity extends BaseNewActivity implements View.On
     private TextView tvDesc2;
     private Button btnPayNow;
 
+    private double payPrice;
+    private String tradeNo;
+
     @Override
     protected void init() {
+        Intent intent = this.getIntent();
+        payPrice = intent.getDoubleExtra("payPrice", 0);
+        tradeNo = intent.getStringExtra("tradeNo");
     }
 
     @Override
@@ -40,6 +52,7 @@ public class OrderConfirmFourActivity extends BaseNewActivity implements View.On
     protected View onCreateSuccessView() {
         view = inflater.inflate(R.layout.activity_order_confirm_four, null);
         initView();
+        initViewData();
         return view;
     }
 
@@ -65,7 +78,11 @@ public class OrderConfirmFourActivity extends BaseNewActivity implements View.On
                 finish();
                 break;
             case R.id.btn_pay_now:
-                //TODO, implement
+                if (AppApplication.loginResult.getToken() == null) {
+                    OwerToastShow.show("请先登录再购买哦！！！");
+                    return;
+                }
+                PayUtils.getInstance().pay(this, payPrice + "", "heheh", "hahahhahahahahha");
                 break;
         }
     }
@@ -79,5 +96,11 @@ public class OrderConfirmFourActivity extends BaseNewActivity implements View.On
         tvDesc2 = (TextView) findViewById(R.id.tv_desc2);
         btnPayNow = (Button) view.findViewById(R.id.btn_pay_now);
         btnPayNow.setOnClickListener(this);
+    }
+
+    private void initViewData() {
+        tvOrderNumber.setText(tradeNo);
+        DecimalFormat df = new DecimalFormat("0.00");
+        tvShouldPayMoney.setText(df.format(payPrice));
     }
 }
