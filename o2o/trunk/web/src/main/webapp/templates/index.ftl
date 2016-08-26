@@ -336,8 +336,8 @@
                 <#if p.extendshow==1>
                     <#list p.children as c>
                         <div  id="${c.goodsSort_id}" class="three-level">
-                            <h4><a href=""><span>${c.name?if_exists}</span>&nbsp;>></a></h4>
-                            <span><a href="">${c.name?if_exists}${c.goodscount}件商品>></a></span>
+                            <h4><a href="${rc.contextPath}/GoodList-${c.goodsSort_id}.html"><span>${c.name?if_exists}</span>&nbsp;>></a></h4>
+                            <span><a href="${rc.contextPath}/GoodList-${c.goodsSort_id}.html">${c.name?if_exists}${c.goodscount}件商品>></a></span>
                             <ul>
                                 <#list c.children as d>
                                     <li><a href="${rc.contextPath}/GoodList-${d.goodsSort_id}.html">${d.name?if_exists}</a></li>
@@ -360,8 +360,8 @@
             <#if p_index lt 10>
                 <#if p.extendshow==0>
                         <div  id="${p.goodsSort_id}" class="three-level">
-                            <h4><a href=""><span>${p.name?if_exists}</span>&nbsp;>></a></h4>
-                            <span><a href="">${p.name?if_exists}${p.goodscount}件商品>></a></span>
+                            <h4><a href="${rc.contextPath}/GoodList-${p.goodsSort_id}.html"><span>${p.name?if_exists}</span>&nbsp;>></a></h4>
+                            <span><a href="${rc.contextPath}/GoodList-${p.goodsSort_id}.html">${p.name?if_exists}${p.goodscount}件商品>></a></span>
                             <ul>
                                 <#list p.children as c>
                                     <li><a href="${rc.contextPath}/GoodList-${c.goodsSort_id}.html">${c.name?if_exists}</a></li>
