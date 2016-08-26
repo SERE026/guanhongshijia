@@ -1044,7 +1044,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .xiugai_tishi{ width:778px; height:auto; line-height:20px; color:#000000; margin-left:9px; font-family:"微软雅黑"; margin-top:10px}
 
 .zhaohui{ width:1200px; height:auto; margin:auto}
-.zhaohui_da{ width:100%; height:auto; margin-top:60px; background-image:url(../img/zhaohui_bg_03.gif); background-repeat:no-repeat; background-color:#FFFFFF;background-size: 100% 100%;}
+.zhaohui_da{ width:100%; height:auto; margin-top:60px;padding-top: 20px; background-image:url(../img/zhaohui_bg_03.gif); background-repeat:no-repeat; background-color:#FFFFFF;background-size: 100% 100%;}
 .zhaohui_zi{ width:100%; height:auto; line-height:30px;margin:70px 0 0 0px; overflow: hidden}
 .zhaohui_zi_biaoti{ width:auto; height:30px; line-height:30px;color:#f0125b; font-family:"微软雅黑"; font-size:24px; font-weight:400; float:left; overflow:hidden;margin-left: 70px;}
 .zhaohui_zi_fanhui{ width:auto; height:20px; line-height:20px;color:#f0125b; float:right; overflow:hidden; margin-top:15px;margin-right: 70px;}
@@ -1919,8 +1919,8 @@ a.zhu46:visited{background-color:#585858;color:#ffffff;}
 a.zhu46:hover{background-color:#f0125b;color:#ffffff;}
 
 
-a.zhu47:link{ color:#f0125b; font-size:14px}
-a.zhu47:visited{ color:#f0125b;font-size:14px}
+a.zhu47:link{ color:#c81523; font-size:14px}
+a.zhu47:visited{ color:#c81523;font-size:14px}
 a.zhu47:hover{color:#999999;font-size:14px}
 
 

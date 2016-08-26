@@ -49,7 +49,7 @@ $(function(){
 });
 function validationCode(){
 	var vSpan = document.getElementById('validCode');
-	var content ="<img src='"+servicePath+"/html/manage/main/validCode?num="+Math.random()+
+	var content ="<img style='height: 24px;margin-top: -2px;' src='"+servicePath+"/html/manage/main/validCode?num="+Math.random()+
 		"'  onclick='validationCode()' onclick='validationCode()' title='我要换一个验证码!'/>";
 	vSpan.innerHTML = content;
 };

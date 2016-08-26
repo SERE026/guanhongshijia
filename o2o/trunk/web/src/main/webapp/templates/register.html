@@ -50,12 +50,12 @@ ${widget_register_merchants}
 	<div id="send" style="; color:gray;height: 40px;">
 		<input type="button" id="btnSend" value="发送验证码" style="margin: 12px 0 0 5px">
 	</div>
-	<div style="height: 1px;"></div>
-<div id="codeBox" style="display:none;margin-top: 15px;">
-	<input type="text" class="zhuce_k_baoshuru_bb" value="输入验证码" id="codeValue" style="color:gray;border: 1px solid #ddd;margin-left: 75px;width: 345px;">
+<div id="codeBox" style="display:none;margin-top: 15px;overflow: hidden;">
+	<input type="text" class="zhuce_k_baoshuru_bb" value="输入验证码" id="codeValue" style="color:gray;border: 1px solid #ddd;margin-left: 75px;width: 277px;">
 	<input type="button" id="btnSend2" value="重发" style="margin: 10px 0 0 5px;">
 	<input type="button" id="btnOk" value="确定">
 </div>
+	<div style="height: 3px;"></div>
 	<div class="bao"><div class="zhuce_k_bao_shuom" id="phonets" style="display:none"></div></div>
 </div>
 
@@ -81,7 +81,7 @@ ${widget_register_merchants}
 <div class="zhuce_k">
 <div class="zhuce_k_zi">验证码：</div>
 <div class="zhuce_k_bao" style="float: left;margin-left: 0;"><input name="validinput" id="validinput" type="text" class="zhuce_k_baoshuru_bb" onkeydown="if(event.keyCode==13) gosumbit();"/></div>
-<div class="zhuce_k_bao_shuom" style="margin-left: 360px;"><span id="validCode"></span></div><div style="height: 1px;"></div>
+<div class="zhuce_k_bao_shuom" style="margin-left: 360px;"><span id="validCode"></span></div><div style="height: 3px;"></div>
 	<div class="bao"><div class="zhuce_k_bao_shuom" id="validts" style="display:none">验证码错误</div></div>
 
 </div>
