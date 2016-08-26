@@ -82,7 +82,7 @@ public class OrderConfirmFourActivity extends BaseNewActivity implements View.On
                     OwerToastShow.show("请先登录再购买哦！！！");
                     return;
                 }
-                PayUtils.getInstance().pay(this, payPrice + "", "heheh", "hahahhahahahahha");
+                PayUtils.getInstance().pay(this, payPrice + "", tradeNo, "hahaha");
                 break;
         }
     }

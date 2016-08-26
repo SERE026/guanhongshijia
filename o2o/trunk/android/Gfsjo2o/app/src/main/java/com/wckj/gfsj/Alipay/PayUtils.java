@@ -10,12 +10,21 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import com.alibaba.fastjson.JSON;
 import com.alipay.sdk.app.PayTask;
 import com.wckj.gfsj.Alipay.util.PayOrderInfoUtil2_0;
 import com.wckj.gfsj.Application.AppApplication;
+import com.wckj.gfsj.Bean.ConfirmOrderRequest;
+import com.wckj.gfsj.Bean.ConfirmOrderResult;
+import com.wckj.gfsj.GlobalUtils;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
 
 import java.util.Map;
+
+import okhttp3.Call;
 
 public class PayUtils {
 	//创建的APPID
@@ -71,6 +80,25 @@ public class PayUtils {
 				// 判断resultStatus 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
 				if (TextUtils.equals(resultStatus, "9000")) {
 					OwerToastShow.show("支付成功");
+					ConfirmOrderRequest request = new ConfirmOrderRequest();
+					request.setPayStatus("0");
+					request.setTradeNo(payResult.getTradeNo());
+					HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_CONFIRM_URL, new ICallBack() {
+						@Override
+						public void onError(Call call, Exception e) {
+							LogUtil.e("{" + e.toString() + "}");
+						}
+
+						@Override
+						public void onSuccess(String response) {
+							ConfirmOrderResult result = JSON.parseObject(response, ConfirmOrderResult.class);
+							LogUtil.i(response);
+
+							if (result.getResultCode() != 0) {
+								OwerToastShow.show(result.getMessage());
+							}
+						}
+					});
 				} else {
 					// 判断resultStatus 为非"9000"则代表可能支付失败
 					// "8000"代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
@@ -93,7 +121,7 @@ public class PayUtils {
 
 
 	
-	public void pay(final Activity activity,String price,String name,String desc) {
+	public void pay(final Activity activity, String price, final String name, String desc) {
 
 		// 请配置好如下3个参数
 		String seller_id = SELLER;
@@ -112,6 +140,7 @@ public class PayUtils {
 				PayTask alipay = new PayTask(activity);
 				String result = alipay.pay(orderInfo, true);
 				Log.d("===============","resultStatus="+result);
+				result = result + ";tradeNo={" + name + "}";
 				Message msg = new Message();
 				msg.what = SDK_PAY_FLAG;
 				msg.obj = result;
