@@ -44,6 +44,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
     private List<Coupon> couponList = new ArrayList<Coupon>();
     private List<PayMethod> payMethodList = new ArrayList<PayMethod>();
     private String addressName;
+    private double commodityTotalMoney = 0;
 
     private PayMethodAdapter payMethodAdapter;
 
@@ -55,20 +56,30 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
         couponList = (List<Coupon>) intent.getSerializableExtra("couponList");
         addressName = intent.getStringExtra("addressName");
 
+        for (CartItem item : cartItemList) {
+            commodityTotalMoney += (item.getGoodsDetail().getPrice() * item.getCount());
+        }
+
         PayMethod payMethod1 = new PayMethod();
+        payMethod1.setId(0);
         payMethod1.setName("优先使用余额支付");
         payMethod1.setToast("余额不足选择其他支付方式");
         payMethod1.setCoupon(null);
+        payMethod1.setCancelCheck(false);
         payMethodList.add(payMethod1);
 
         PayMethod payMethod2 = new PayMethod();
+        payMethod2.setId(1);
         payMethod2.setName("使用支付宝即时到账");
         payMethod2.setToast("无需开通网银无需手续费");
         payMethod2.setCoupon(null);
+        payMethod2.setCancelCheck(false);
         payMethodList.add(payMethod2);
 
+        int id = 2;
         for (Coupon coupon : couponList) {
             PayMethod payMethod = new PayMethod();
+            payMethod.setId(id++);
             payMethod.setName("使用优惠券");
             if (coupon.getSameUse() == 1) {
                 payMethod.setToast(coupon.getName() + "(可以与其他券一起使用)");
@@ -76,10 +87,11 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                 payMethod.setToast(coupon.getName() + "(不可与其他券一起使用)");
             }
             payMethod.setCoupon(coupon);
+            payMethod.setCancelCheck(false);
             payMethodList.add(payMethod);
         }
 
-        payMethodAdapter = new PayMethodAdapter(this, payMethodList);
+        payMethodAdapter = new PayMethodAdapter(this, commodityTotalMoney, payMethodList);
     }
 
     @Override
@@ -127,10 +139,38 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                     return;
                 }
 
+                List<Coupon> list = payMethodAdapter.getSelectedCouponList();
+                double discountMoney = 0;
+                String couponIds = "";
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getType() == 1) {
+                        double minMoney = 0;
+                        if (list.get(i).getReduceValue() <= list.get(i).getMaxAmount()) {
+                            minMoney = list.get(i).getReduceValue();
+                        } else {
+                            minMoney = list.get(i).getMaxAmount();
+                        }
+                        discountMoney += minMoney;
+                    } else if (list.get(i).getType() == 2) {
+                        double minMoney = 0;
+                        if (commodityTotalMoney * list.get(i).getDiscountValue() <= list.get(i).getMaxAmount()) {
+                            minMoney = commodityTotalMoney * list.get(i).getDiscountValue();
+                        } else {
+                            minMoney = list.get(i).getMaxAmount();
+                        }
+                        discountMoney += minMoney;
+                    }
+                    if (i == list.size() - 1) {
+                        couponIds = couponIds + list.get(i).getId();
+                    } else {
+                        couponIds = couponIds + list.get(i).getId() + ",";
+                    }
+                }
+
                 CreateOrderRequest createOrderRequest = new CreateOrderRequest();
                 createOrderRequest.setAddressMember(addressMember);
                 createOrderRequest.setDlytypeId("2");// 快递ID, 默认2顺丰
-//                createOrderRequest.setCoupons("1, ");// 优惠券ID, 用","隔开
+                createOrderRequest.setCoupons(couponIds);// 优惠券ID, 用","隔开
                 createOrderRequest.setDlyType("1");// 1-物流，0-上门提货
                 createOrderRequest.setAccountStr("1");// 是否使用账号支付，0-是，1-否 (现在支持支付宝)
                 createOrderRequest.setPlayType("1");// 支付宝
@@ -143,6 +183,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                 intent.putExtras(bundle);
                 intent.putExtra("cartItemList", (ArrayList<CartItem>)cartItemList);
                 intent.putExtra("addressName", addressName);
+                intent.putExtra("discountMoney", discountMoney);
                 startActivity(intent);
                 break;
         }
@@ -153,6 +194,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
         tvPayMethod = (TextView) view.findViewById(R.id.tv_pay_method);
 
         lvPayMethod = (ListView) view.findViewById(R.id.lv_pay_method);
+        lvPayMethod.setDividerHeight(0);
         lvPayMethod.setAdapter(payMethodAdapter);
         payMethodAdapter.notifyDataSetChanged();
 

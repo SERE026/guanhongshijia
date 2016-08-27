@@ -60,6 +60,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
     private CreateOrderRequest createOrderRequest;
     private List<CartItem> cartItemList = new ArrayList<CartItem>();
     private String addressName;
+    private double discountMoney;
 
     private OrderConfirmAdapter confirmAdapter;
 
@@ -69,6 +70,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
         createOrderRequest = (CreateOrderRequest) intent.getSerializableExtra("order");
         cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
         addressName = intent.getStringExtra("addressName");
+        discountMoney = intent.getDoubleExtra("discountMoney", 0);
 
         confirmAdapter = new OrderConfirmAdapter(this, cartItemList);
     }
@@ -166,7 +168,6 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
         double totalMoney = commodityTotalMoney+freightMoney;
         tvTotalMoney.setText(df.format(totalMoney));
 
-        double discountMoney = 0;
         tvDiscountMoney.setText(df.format(discountMoney));
 
         double actualTotalMoney = totalMoney - discountMoney;

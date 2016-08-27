@@ -7,8 +7,8 @@
         android:id="@+id/cb_pay"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_centerVertical="true"
         android:text="优先使用余额支付"
         android:textColor="@color/color_6f5f62"/>

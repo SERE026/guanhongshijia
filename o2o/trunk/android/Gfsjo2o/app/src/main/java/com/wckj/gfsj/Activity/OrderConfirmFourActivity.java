@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.wckj.gfsj.Alipay.PayUtils;
@@ -25,6 +26,7 @@ public class OrderConfirmFourActivity extends BaseNewActivity implements View.On
     private TextView tvShouldPay;
     private TextView tvShouldPayMoney;
     private TextView tvDesc2;
+    private CheckBox cbBalancePay, cbAlipay;
     private Button btnPayNow;
 
     private double payPrice;
@@ -82,6 +84,12 @@ public class OrderConfirmFourActivity extends BaseNewActivity implements View.On
                     OwerToastShow.show("请先登录再购买哦！！！");
                     return;
                 }
+
+                if (!cbBalancePay.isChecked() && !cbAlipay.isChecked()) {
+                    OwerToastShow.show("请选择支付方式");
+                    return;
+                }
+
                 PayUtils.getInstance().pay(this, payPrice + "", tradeNo, "hahaha");
                 break;
         }
@@ -94,6 +102,8 @@ public class OrderConfirmFourActivity extends BaseNewActivity implements View.On
         tvShouldPay = (TextView) view.findViewById(R.id.tv_should_pay);
         tvShouldPayMoney = (TextView) view.findViewById(R.id.tv_should_pay_money);
         tvDesc2 = (TextView) findViewById(R.id.tv_desc2);
+        cbBalancePay = (CheckBox) view.findViewById(R.id.cb_balance_pay);
+        cbAlipay = (CheckBox) view.findViewById(R.id.cb_alipay);
         btnPayNow = (Button) view.findViewById(R.id.btn_pay_now);
         btnPayNow.setOnClickListener(this);
     }
