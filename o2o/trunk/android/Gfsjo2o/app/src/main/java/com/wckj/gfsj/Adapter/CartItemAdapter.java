@@ -8,20 +8,31 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Application.AppApplication;
+import com.wckj.gfsj.Bean.UpdateOrderRequest;
+import com.wckj.gfsj.Bean.UpdateOrderResult;
 import com.wckj.gfsj.Bean.entity.CartItem;
+import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.HttpUtils;
+import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.LogUtil;
+import com.wckj.gfsj.Utils.OwerToastShow;
 import com.wckj.gfsj.Utils.TimeUtils;
 
 import java.util.List;
 
+import okhttp3.Call;
+
 /**
  * Created by rayco on 2016/8/11.
  */
-public class CartItemAdapter extends BaseAdapter {
+public class CartItemAdapter extends BaseAdapter implements View.OnClickListener {
 
     private Context mContext;
     private List<CartItem> mCartItemList;
+    private int operateIndex;
 
     public CartItemAdapter(Context context, List<CartItem> list) {
         this.mContext = context;
@@ -67,6 +78,7 @@ public class CartItemAdapter extends BaseAdapter {
                     itemHolder.mTvUserName = (TextView) convertView.findViewById(R.id.tv_user_name);
                     itemHolder.mTvMoney = (TextView) convertView.findViewById(R.id.tv_money);
                     itemHolder.mTvStatus = (TextView) convertView.findViewById(R.id.tv_status);
+                    itemHolder.mTvOperate = (TextView) convertView.findViewById(R.id.tv_operate);
                     convertView.setTag(itemHolder);
                 } else {
                     if (convertView.getTag() instanceof CartItemViewHolder) {
@@ -79,6 +91,7 @@ public class CartItemAdapter extends BaseAdapter {
                         itemHolder.mTvUserName = (TextView) convertView.findViewById(R.id.tv_user_name);
                         itemHolder.mTvMoney = (TextView) convertView.findViewById(R.id.tv_money);
                         itemHolder.mTvStatus = (TextView) convertView.findViewById(R.id.tv_status);
+                        itemHolder.mTvOperate = (TextView) convertView.findViewById(R.id.tv_operate);
                         convertView.setTag(itemHolder);
                     }
                 }
@@ -88,6 +101,9 @@ public class CartItemAdapter extends BaseAdapter {
                 itemHolder.mTvUserName.setText(AppApplication.loginResult.getLoginName());
                 itemHolder.mTvMoney.setText(String.valueOf(item.getGoodsDetail().getPrice()));
                 itemHolder.mTvStatus.setText(item.getGoodsDetail().getType());
+                itemHolder.mTvOperate.setText("确认收货");
+                itemHolder.mTvOperate.setTag(position);
+                itemHolder.mTvOperate.setOnClickListener(this);
 
                 break;
             case 1:
@@ -122,12 +138,59 @@ public class CartItemAdapter extends BaseAdapter {
         return convertView;
     }
 
+    @Override
+    public void onClick(View view) {
+        int pos = (int)view.getTag();
+        operateIndex = pos;
+        String orderId = "";
+        while (pos > 0) {
+            if (mCartItemList.get(pos).getId().equals("-1")) {
+                orderId = mCartItemList.get(pos).getGoodsDetail().getId();
+                break;
+            }
+            pos--;
+        }
+        updateOrder(orderId, 2);
+    }
+
+    /**
+     * 确认收货
+     * @param orderId     订单号
+     * @param orderStatus 订单状态
+     */
+    private void updateOrder(String orderId, int orderStatus) {
+        UpdateOrderRequest request = new UpdateOrderRequest();
+        request.setOrderId(orderId);
+        request.setOrderStatus(orderStatus);
+        HttpUtils.getInstance().asyncPost(request, GlobalUtils.ORDER_UPDATE_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                UpdateOrderResult result = JSON.parseObject(response, UpdateOrderResult.class);
+                LogUtil.i(response);
+                int resultCode = result.getResultCode();
+                if (resultCode == 0) {
+                    OwerToastShow.show("已确认收货");
+                    mCartItemList.get(operateIndex).getGoodsDetail().setType("已收货");
+                    notifyDataSetChanged();
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
+            }
+        });
+    }
+
     class CartItemViewHolder {
         ImageView mIvGoodsPic;
         TextView mTvGoodsName;
         TextView mTvUserName;
         TextView mTvMoney;
         TextView mTvStatus;
+        TextView mTvOperate;
     }
 
     class CartItemHeadViewHolder {

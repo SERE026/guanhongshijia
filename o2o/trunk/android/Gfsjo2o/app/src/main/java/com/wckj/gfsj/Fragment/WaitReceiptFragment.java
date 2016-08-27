@@ -109,7 +109,7 @@ public class WaitReceiptFragment extends Fragment implements View.OnClickListene
                                 item2.setCount(2);
                                 detail2.setName("红木家具");
                                 detail2.setPrice(2000.00);
-                                detail2.setType("等待付款");
+                                detail2.setType("等待收货");
                                 item2.setGoodsDetail(detail2);
                                 mCartItemList.add(item2);
                             }

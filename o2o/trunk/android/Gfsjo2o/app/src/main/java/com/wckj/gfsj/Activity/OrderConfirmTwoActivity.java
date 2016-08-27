@@ -167,6 +167,15 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                     }
                 }
 
+                String shopIds = "";
+                for (int i = 0; i < cartItemList.size(); i++) {
+                    if (i == cartItemList.size() - 1) {
+                        shopIds = shopIds + cartItemList.get(i).getId();
+                    } else {
+                        shopIds = shopIds + cartItemList.get(i).getId() + ";";
+                    }
+                }
+
                 CreateOrderRequest createOrderRequest = new CreateOrderRequest();
                 createOrderRequest.setAddressMember(addressMember);
                 createOrderRequest.setDlytypeId("2");// 快递ID, 默认2顺丰
@@ -174,6 +183,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                 createOrderRequest.setDlyType("1");// 1-物流，0-上门提货
                 createOrderRequest.setAccountStr("1");// 是否使用账号支付，0-是，1-否 (现在支持支付宝)
                 createOrderRequest.setPlayType("1");// 支付宝
+                createOrderRequest.setShop(shopIds);
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("order", createOrderRequest);

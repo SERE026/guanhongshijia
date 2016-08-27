@@ -3,69 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    
+
     <ImageView
         android:id="@+id/iv_goods_pic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_marginLeftPercent="5%"
-        app:layout_marginTopPercent="5%"
+        android:src="@drawable/icon_order_commodity"
         app:layout_marginBottomPercent="5%"
-        android:src="@drawable/icon_order_commodity"/>
+        app:layout_marginLeftPercent="5%"
+        app:layout_marginTopPercent="5%" />
 
     <TextView
         android:id="@+id/tv_goods_name"
-        app:layout_widthPercent="20%"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_goods_pic"
         android:layout_centerVertical="true"
-        app:layout_marginLeftPercent="3%"
+        android:layout_toRightOf="@id/iv_goods_pic"
         android:maxLines="2"
-        android:text="TTTTTTTTTTTTTTT"/>
+        android:text="TTTTTTTTTTTTTTT"
+        app:layout_marginLeftPercent="3%"
+        app:layout_widthPercent="20%" />
 
     <TextView
         android:id="@+id/tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/tv_goods_name"
-        app:layout_marginLeftPercent="5%"
         android:layout_centerVertical="true"
-        android:text="张三丰"/>
+        android:layout_toRightOf="@id/tv_goods_name"
+        android:text="张三丰"
+        app:layout_marginLeftPercent="5%" />
 
     <ImageView
         android:id="@+id/iv_user_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/tv_user_name"
-        app:layout_marginLeftPercent="1%"
         android:layout_centerVertical="true"
-        android:src="@drawable/icon_user_center"/>
+        android:layout_toRightOf="@id/tv_user_name"
+        android:src="@drawable/icon_user_center"
+        app:layout_marginLeftPercent="1%" />
 
     <TextView
         android:id="@+id/tv_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_user_head"
-        app:layout_marginLeftPercent="5%"
         android:layout_centerVertical="true"
-        android:text="总额：￥10000.00"/>
+        android:layout_toRightOf="@id/iv_user_head"
+        android:text="总额：￥10000.00"
+        app:layout_marginLeftPercent="5%" />
 
     <TextView
         android:id="@+id/tv_status"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/tv_money"
-        app:layout_marginLeftPercent="5%"
         android:layout_centerVertical="true"
-        android:text="等待付款"/>
+        android:layout_toRightOf="@id/tv_money"
+        android:text="等待付款"
+        android:gravity="center"
+        app:layout_marginLeftPercent="5%"
+        app:layout_widthPercent="8%" />
 
     <TextView
         android:id="@+id/tv_operate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/tv_status"
-        app:layout_marginLeftPercent="5%"
         android:layout_centerVertical="true"
-        android:text="立即付款"/>
+        android:layout_toRightOf="@id/tv_status"
+        android:text="立即付款"
+        app:layout_marginLeftPercent="5%" />
 
 </android.support.percent.PercentRelativeLayout>

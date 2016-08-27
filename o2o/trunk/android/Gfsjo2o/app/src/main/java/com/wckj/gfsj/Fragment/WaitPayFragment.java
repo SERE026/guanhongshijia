@@ -99,20 +99,20 @@ public class WaitPayFragment extends Fragment implements View.OnClickListener {
                             item.setGoodsDetail(detail);
                             mCartItemList.add(item);
 
-//                            if (order.getCartItemList() != null && !order.getCartItemList().isEmpty()) {
-//                                mCartItemList.addAll(order.getCartItemList());
-//                            }
-                            for (int i = 0; i < 2; i++) {
-                                CartItem item2 = new CartItem();
-                                GoodsDetail detail2 = new GoodsDetail();
-                                item2.setId(i+1+"");
-                                item2.setCount(2);
-                                detail2.setName("红木家具");
-                                detail2.setPrice(2000.00);
-                                detail2.setType("等待付款");
-                                item2.setGoodsDetail(detail2);
-                                mCartItemList.add(item2);
+                            if (order.getCartItemList() != null && !order.getCartItemList().isEmpty()) {
+                                mCartItemList.addAll(order.getCartItemList());
                             }
+//                            for (int i = 0; i < 2; i++) {
+//                                CartItem item2 = new CartItem();
+//                                GoodsDetail detail2 = new GoodsDetail();
+//                                item2.setId(i+1+"");
+//                                item2.setCount(2);
+//                                detail2.setName("红木家具");
+//                                detail2.setPrice(2000.00);
+//                                detail2.setType("等待付款");
+//                                item2.setGoodsDetail(detail2);
+//                                mCartItemList.add(item2);
+//                            }
                         }
                         mCartItemAdapter.notifyDataSetChanged();
                     }
