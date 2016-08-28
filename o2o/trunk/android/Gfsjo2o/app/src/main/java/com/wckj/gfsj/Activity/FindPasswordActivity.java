@@ -18,6 +18,7 @@ import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
+import com.wckj.gfsj.Utils.Validator;
 
 import okhttp3.Call;
 
@@ -76,12 +77,20 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
                     OwerToastShow.show("请输入手机号");
                     return;
                 }
+                if (!Validator.isMobile(phoneNum)) {
+                    OwerToastShow.show("手机号格式错误");
+                    return;
+                }
                 sendSms(phoneNum, 1);
                 break;
             case R.id.btn_get_again:
                 String phoneNum2 = mEtPhoneNum.getText().toString().trim();
                 if (phoneNum2.isEmpty()) {
                     OwerToastShow.show("请输入手机号");
+                    return;
+                }
+                if (!Validator.isMobile(phoneNum2)) {
+                    OwerToastShow.show("手机号格式错误");
                     return;
                 }
                 sendSms(phoneNum2, 1);
@@ -92,17 +101,23 @@ public class FindPasswordActivity extends BaseNewActivity implements View.OnClic
                     OwerToastShow.show("请输入手机号");
                     return;
                 }
-
+                if (!Validator.isMobile(phoneNum3)) {
+                    OwerToastShow.show("手机号格式错误");
+                    return;
+                }
                 String validateCode = mEtCode.getText().toString().trim();
                 if (validateCode.isEmpty()) {
                     OwerToastShow.show("请输入验证码");
                     return;
                 }
-
                 String password = mEtPwd.getText().toString().trim();
                 String confirmPwd  = mEtConfirmPwd.getText().toString().trim();
                 if (password.isEmpty()) {
                     OwerToastShow.show("请输入密码");
+                    return;
+                }
+                if (!Validator.isPassword(password)) {
+                    OwerToastShow.show("密码格式错误");
                     return;
                 }
                 if (confirmPwd.isEmpty()) {

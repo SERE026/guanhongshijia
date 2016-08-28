@@ -30,6 +30,7 @@ import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.LogUtil;
 import com.wckj.gfsj.Utils.OwerToastShow;
+import com.wckj.gfsj.Utils.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -158,10 +159,18 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                     OwerToastShow.show("请输入邮编");
                     return;
                 }
+                if (!Validator.isPostCode(zipCode)) {
+                    OwerToastShow.show("邮编格式错误");
+                    return;
+                }
 
                 String cellPhoneNum = etCellPhoneNum.getText().toString().trim();
                 if (cellPhoneNum.isEmpty()) {
                     OwerToastShow.show("请输入手机号码");
+                    return;
+                }
+                if (!Validator.isMobile(cellPhoneNum)) {
+                    OwerToastShow.show("手机号格式错误");
                     return;
                 }
 
@@ -170,11 +179,21 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                     OwerToastShow.show("请输入邮箱");
                     return;
                 }
+                if (!Validator.isEmail(email)) {
+                    OwerToastShow.show("邮箱格式错误");
+                    return;
+                }
 
                 String phoneOne = etPhoneOne.getText().toString().trim();
                 String phoneTwo = etPhoneTwo.getText().toString().trim();
                 String phoneThree = etPhoneThree.getText().toString().trim();
                 String tel = phoneOne + phoneTwo + phoneThree;
+                if (!phoneTwo.isEmpty() && !phoneThree.isEmpty()) {
+                    if (!Validator.isPhone(tel)) {
+                        OwerToastShow.show("固定电话格式错误");
+                        return;
+                    }
+                }
 
                 AddressMember addressMember = new AddressMember();
                 addressMember.setReceiveName(username);
@@ -269,6 +288,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         etZipCode = (EditText) view.findViewById(R.id.et_zip_code);
         etCellPhoneNum = (EditText) view.findViewById(R.id.et_cell_phone_num);
         etPhoneOne = (EditText) view.findViewById(R.id.et_phone_one);
+        etPhoneOne.setKeyListener(null);
         etPhoneTwo = (EditText) view.findViewById(R.id.et_phone_two);
         etPhoneThree = (EditText) view.findViewById(R.id.et_phone_three);
         etEmail = (EditText) view.findViewById(R.id.et_email);

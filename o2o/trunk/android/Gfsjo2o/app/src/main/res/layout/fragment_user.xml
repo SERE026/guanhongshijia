@@ -55,6 +55,7 @@
             app:layout_marginTopPercent="3%"
             app:layout_marginLeftPercent="16%"
             app:layout_marginRightPercent="16%"
+            android:inputType="textPassword"
             android:background="@drawable/icon_user_center_item_bg"
             android:maxLength="25"
             android:paddingLeft="15dp"
