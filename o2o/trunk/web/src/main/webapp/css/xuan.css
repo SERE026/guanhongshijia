@@ -104,7 +104,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .zhuce_tou{ width:1200px; height:25px;}
 .zhuce_tou_zi{ width:auto; height:40px; line-height:40px; float:right; color:#c81523; margin-right:10px}
 .zhuce_tou_tu{ width:80px; height:25px;float:right} 
-.zhece_dakuai{ width:1200px; height:596px; border:#dddddd solid 1px; margin-top:10px}
+.zhece_dakuai{ width:1200px; height:658px; border:#dddddd solid 1px; margin-top:10px}
 .zhece_dakuai_datu{width:430px; height:356px; float:left; margin:18px 0 0 15px; overflow:hidden;}   
 .zhece_dakuai_xiaodui{width:768px; height:569px; margin:18px 15px 0 38px;float: left;border-right: 1px solid #ddd;}
 .zhuce_k{ width:600px; height:auto;overflow: hidden;}
