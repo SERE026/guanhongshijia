@@ -107,7 +107,7 @@ input:focus,textarea:focus { outline: none !important;  }
 .zhece_dakuai{ width:1200px; height:658px; border:#dddddd solid 1px; margin-top:10px}
 .zhece_dakuai_datu{width:430px; height:356px; float:left; margin:18px 0 0 15px; overflow:hidden;}   
 .zhece_dakuai_xiaodui{width:768px; height:569px; margin:18px 15px 0 38px;float: left;border-right: 1px solid #ddd;}
-.zhuce_k{ width:600px; height:auto;overflow: hidden;}
+.zhuce_k{ width:100%; height:auto;overflow: hidden;}
 .zhuce_k_zi{ width:70px; height:38px; line-height:38px; text-align:right; margin-right:5px;float:left; margin-top:3px}
 .zhuce_k_bao{ width:278px; height:auto;float:left;border:#cdcdcd solid 1px;line-height: 40px;background-color: white;margin-left: 40px;overflow: hidden;}
 .zhuce_k_bao_shuom{ width:auto;height:40px; line-height:31px;color:#c81523; margin-left:76px; overflow:hidden}
@@ -551,7 +551,7 @@ input:focus,textarea:focus { outline: none !important;  }
 
 .tab03{}
 .tab03 tr td{ height:48px; line-height:30px; color:#444444; text-align:center; border-right:#c8c8c8 solid 1px}
-.g1_tuijian{width:100%; height:auto; margin-top:35px; }
+.g1_tuijian{width:1200px; height:auto; margin-top:35px; }
 .g1_tuijian_top{ width:100%; height:24px; border-bottom:#add2ff solid 1px;}
 .g1_tuijian_top_ti{ width:108px; height:24px; background-image:url(../img/g_1_22.gif); background-repeat:no-repeat; padding-left:8px; color:#434341; line-height:24px}
 .g1_tuijian_mid{ width:100%; height:auto;overflow: hidden;}
@@ -814,10 +814,10 @@ input:focus,textarea:focus { outline: none !important;  }
 .tab08{}   
 .tab08 tr td{ width:auto; height:31px; text-align:center; line-height:31px; border-bottom:#e6e6e6 solid 1px; border-left:#e6e6e6 solid 1px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#373334}  
    
-.dingxiangda{ width:1200px; height:auto; margin:auto;}
+.dingxiangda{ width:1200px; height:auto; margin:auto;overflow: hidden;}
 .dingxiangda_k01{ width:1104px; height:41px; line-height:41px;margin-top:74px; border:#f7e4a5 solid 1px; background-color:#fffcf3; margin-left:28px; padding-left:10px;font-size:14px; color:#454545}
 
-.dingxiang_ti{ width:1104px; height:30px; line-height:30px;margin-top:35px;margin-left:28px; padding-left:10px;font-size:14px; font-weight:bold;color:#000000; border-bottom:#dddddd solid 1px;}
+.dingxiang_ti{ width:1190px; height:30px; line-height:30px;margin-top:35px; padding-left:10px;font-size:14px; font-weight:bold;color:#000000; border-bottom:#dddddd solid 1px;}
 
 .dingxiangda_k02{ width:940px; height:auto; line-height:41px;margin-top:74px; border:#f7e4a5 solid 1px; background-color:#fffcf3; margin-left:28px; padding-left:10px;font-size:14px; color:#454545}
 
@@ -848,9 +848,8 @@ input:focus,textarea:focus { outline: none !important;  }
 .dingxiang04_ti_le{ width:70px; height:20px; line-height:20px;font-weight:bold;color:#000000; float:left}
 .dingxiang04_ti_ri{ width:auto; height:auto; line-height:20px;float:left; font-weight:normal; color:#454545}
 
-.ddxiang_fanhui{width:1090px; height:80px; line-height:80px;margin-top:45px; text-align:right;color:#454545;font-family:Verdana, Arial, Helvetica, sans-serif; padding-left:2px; border-top:#dddddd solid 1px;}
+.ddxiang_fanhui{width:1197px; height:80px; line-height:80px;margin-top:45px; text-align:right;color:#454545;font-family:Verdana, Arial, Helvetica, sans-serif; padding-left:2px; border-top:#dddddd solid 1px;}
 
-.tab11{}   
 .tab11 tr td{ width:auto; height:65px; text-align:center; line-height:20px; border-bottom:#e6e6e6 solid 1px; font-family:Verdana, Arial, Helvetica, sans-serif; color:#9c9899} 
 .dshai_tu{ width:50px; height:50px; overflow:hidden;border:#dddddd solid 1px; background-image:url(../img/mm_ak2.gif); background-repeat:no-repeat; margin-top:3px; margin-left:5px}
 .dshai_wenzi{ width:430px; height:50px; overflow:hidden; text-align:left; margin-left:10px; line-height:20px; margin-top:5px}
@@ -1044,13 +1043,13 @@ input:focus,textarea:focus { outline: none !important;  }
 .xiugai_tishi{ width:778px; height:auto; line-height:20px; color:#000000; margin-left:9px; font-family:"微软雅黑"; margin-top:10px}
 
 .zhaohui{ width:1200px; height:auto; margin:auto}
-.zhaohui_da{ width:100%; height:auto; margin-top:60px;padding-top: 20px; background-image:url(../img/zhaohui_bg_03.gif); background-repeat:no-repeat; background-color:#FFFFFF;background-size: 100% 100%;}
-.zhaohui_zi{ width:100%; height:auto; line-height:30px;margin:70px 0 0 0px; overflow: hidden}
-.zhaohui_zi_biaoti{ width:auto; height:30px; line-height:30px;color:#f0125b; font-family:"微软雅黑"; font-size:24px; font-weight:400; float:left; overflow:hidden;margin-left: 70px;}
+.zhaohui_da{ width:100%; height:auto; margin-top:20px;padding-top: 20px; background-image:url(../img/zhaohui_bg_03.gif); background-repeat:no-repeat; background-color:#FFFFFF;background-size: 100% 100%;}
+.zhaohui_zi{ width:100%; height:auto; line-height:30px;margin:0px; overflow: hidden}
+.zhaohui_zi_biaoti{ width:auto; height:30px; line-height:30px;color:#c81523; font-family:"微软雅黑"; font-size:24px; font-weight:400; float:left; overflow:hidden;margin-left: 70px;}
 .zhaohui_zi_fanhui{ width:auto; height:20px; line-height:20px;color:#f0125b; float:right; overflow:hidden; margin-top:15px;margin-right: 70px;}
 
 .zhaohui_xian{ background-color:#e9e9e9;width:1060px; height:1px;margin:15px 0 0 73px; overflow:hidden}
-.zhaohui_kuai{ width:968px; height:auto;margin:32px 0 0 73px;overflow: hidden}
+.zhaohui_kuai{ width:968px; height:auto;margin:18px 0 0 384px;overflow: hidden}
 .zhaohui_kuai_left{ width:95px; height:37px; float:left; color:#666666; font-size:14px; text-align:right; line-height:37px}
 
 .zhaohui_kuai_right{ width:auot;height:auot; float:left; margin-left:5px}
@@ -1070,7 +1069,7 @@ background-image:url(../img/x14inpa66.jpg); background-repeat:no-repeat; outline
 .wenzi_tisji_xiaoti{width:21px; height:21px;float:left;margin-left:180px; margin-top:5px; display:inline}
 .wenzi_tisji_xiaoti22{width:21px; height:21px;float:left;margin-left:10px; margin-top:10px}
 .p{width:auto; height:auto; line-height:20px;float:left;margin-left:8px;margin-top:7px;}
-.zhaoihui_an{ width:140px; height:31px; margin-left:100px; text-align:center; line-height:31px;}
+.zhaoihui_an{ width:140px; height:31px; margin-left:100px; text-align:center; line-height:31px;margin-bottom: 30px;}
 .zhaoihui_an a{ width:140px; height:31px; display:block}
 
 .wenzi_tisji14{width:auto; height:auto; line-height:20px;float:left;margin-left:180px;margin-top:7px;}
