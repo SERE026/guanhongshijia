@@ -21,7 +21,7 @@
                 progress.</p>
             <div id="form-content">
                 <form action="meeting.html" method="GET">
-                    <div class="form-group row">
+<!--                    <div class="form-group row">
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-xlg-2 col-xlg-offset-5"><input
                                 id="vendor-key" type="text" class="form-control" placeholder="Enter vendor key here">
                         </div>
@@ -35,21 +35,21 @@
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-xlg-2 col-xlg-offset-5"><input
                                 id="secretKey" type="text" class="form-control"
                                 placeholder="Input key here if use encryption"></div>
-                    </div>
+                    </div>-->
                     <div class="form-group row">
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-xlg-2 col-xlg-offset-5">
-                            <button class="btn btn-warning join-button" id="join-meeting"><span class="fa fa-sign-in">&nbsp;&nbsp;Join</span>
+                            <button class="btn btn-warning join-button" id="join-meeting"><span class="fa fa-sign-in">&nbsp;&nbsp;<!--Join--> 加入音视频云</span>
                             </button>
                         </div>
                     </div>
                     <hr>
-                    <div class="form-group row">
+<!--                    <div class="form-group row">
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-xlg-2 col-xlg-offset-5">
                             <button id="options-button" type="button" class="btn btn-default" data-toggle="modal"
                                     data-target="#videoOptionsModal"><span
                                     class="fa fa-gear">&nbsp; Video Options</span></button>
                         </div>
-                    </div>
+                    </div>-->
                 </form>
             </div>
         </main>
@@ -93,7 +93,8 @@
 <script src="assets/js/respond.min.js"></script><![endif]-->
 <script src="js/vendor-bundle.js?v=1.5.0"></script>
 <script src="js/index.js?v=1.5.0"></script>
-<script>if ('addEventListener' in window) {
+<script>
+    if ('addEventListener' in window) {
     window.addEventListener('load', function () {
         document.body.className = document.body.className.replace(/\bis-loading\b/, '');
     });

@@ -12,33 +12,32 @@
             //Cookies.set("maxBitRate", maxBitRate);
         });
 
+        //加入云导购视频
         $("#join-meeting").click(function(e) {
-            // alert(111);
             e.preventDefault();
-            var roomName = $("#room-name").val(),
-                secret = $.trim($("#secretKey").val()),
-                vendorKey = $("#vendor-key").val();
+            var roomName ="gh1";
+            var  vendorKey ="d758a169a5b84dba8f89d1364e98b475";
+                // $("#room-name").val(),
+                // secret = $.trim($("#secretKey").val()),
 
-            if (!vendorKey) {
-                $("#vendor-key").addClass("required-field");
-            }
+                    //$("#vendor-key").val();
 
-            if (!roomName) {
-                $("#room-name").addClass("required-field");
-            }
+            // if (!vendorKey) {
+            //     $("#vendor-key").addClass("required-field");
+            // }
+            //
+            // if (!roomName) {
+            //     $("#room-name").addClass("required-field");
+            // }
 
-            if(secret != ''){
-                Cookies.set("secretKey", secret);
-            }
-            // alert(11);
+            // if(secret != ''){
+            //     Cookies.set("secretKey", secret);
+            // }
+
             if (roomName && vendorKey) {
                 Cookies.set("roomName", roomName);
                 Cookies.set("vendorKey", vendorKey);
-                // alert("roomName="+roomName);
-                // alert("vendorKey="+ vendorKey);
                 window.location.href="meeting.html";
-                // window.location.href=" ${applicationPath}/client/meeting.html";
-
             }
         });
 
