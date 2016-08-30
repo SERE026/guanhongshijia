@@ -73,7 +73,18 @@ public class GoodsDeliveryDAO extends BaseDAO {
 	
 		return getDelivery(dlyList,widget,area_id);
 	}
-	
+	/**
+	 * 根据商家ＩＤ获取物流
+	 * @param shop_id
+	 * @return
+	 */
+	public List getDeliveryList(String shop_id){
+
+		List<Dlytype> dlyList=this.getHibernateTemplate().find(" from Dlytype n where n.stat=0 and n.stats=0 and n.merchants.shangjia_id="+shop_id);
+
+		return dlyList;
+	}
+
 	/**
 	 * 对物流进行排序
 	 * @param widget

@@ -1507,4 +1507,9 @@ public class OrderServiceImpl extends BaseService implements OrderService{
 			return orderDao.getorderlist(where);
 		}
 
+		@Override
+		public List getDeliveryList(String shop_id) {
+
+			return goodsDeliveryDAO.getDeliveryList(shop_id);
+		}
 		}

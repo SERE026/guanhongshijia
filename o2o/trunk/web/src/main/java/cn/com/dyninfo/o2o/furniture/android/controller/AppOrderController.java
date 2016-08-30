@@ -22,6 +22,7 @@ import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
+import cn.com.dyninfo.o2o.furniture.web.wuliu.model.Dlytype;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -259,6 +260,9 @@ public class AppOrderController extends BaseAppController {
             info = appLoginStatus.getHuiyuan();
         }
         List<Coupon>  lists=new ArrayList<Coupon>();
+
+        List<cn.com.dyninfo.o2o.entity.Dlytype>  lists2=new ArrayList<cn.com.dyninfo.o2o.entity.Dlytype>();
+
         if (!ValidationUtil.isEmpty(info)) {
             List<CouponMemberRel> couponMemberRelList = (List<CouponMemberRel>) couponMemberRelService.getListByWhere(new StringBuffer(" and n.coupon.endTime > now() and  n.huiyuan=" + info.getHuiYuan_id() + " order by n.coupon.endTime asc"));
             if (!ValidationUtil.isEmpty(couponMemberRelList)) {
@@ -289,8 +293,19 @@ public class AppOrderController extends BaseAppController {
                     }
                 }
             }
-
+            int aa=info.getShangJiaInfo().getShangjia_id();
+            List list=orderService.getDeliveryList((String.valueOf(aa)));
+            if (!ValidationUtil.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                     Dlytype c = (Dlytype)list.get(i);
+                      cn.com.dyninfo.o2o.entity.Dlytype  dlytype=new cn.com.dyninfo.o2o.entity.Dlytype();
+                        dlytype.setId( String.valueOf(c.getDlytype_id()));
+                        dlytype.setDlyName(c.getDlyname());
+                        lists2.add(dlytype);
+                    }
+            }
             result.setCouponList(lists); //可使用的优惠券列表
+            result.setDlytypeList(lists2); //可使用的快递列表
             result.setResultCode(SUCCESS);
             result.setMessage("OK");
         }else{
