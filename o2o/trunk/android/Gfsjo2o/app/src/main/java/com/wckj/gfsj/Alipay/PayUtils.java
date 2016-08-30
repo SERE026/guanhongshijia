@@ -120,7 +120,13 @@ public class PayUtils {
 	};
 
 
-	
+	/**
+	 *
+	 * @param activity
+	 * @param price 价格
+	 * @param name  商品名字
+     * @param desc  商品描述
+     */
 	public void pay(final Activity activity, String price, final String name, String desc) {
 
 		// 请配置好如下3个参数

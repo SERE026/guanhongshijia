@@ -6,7 +6,7 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_commodity_pic"
-        app:layout_widthPercent="15%"
+        app:layout_widthPercent="45%"
         android:layout_marginTop="51dp"
         android:layout_width="500dp"
         android:layout_height="match_parent">

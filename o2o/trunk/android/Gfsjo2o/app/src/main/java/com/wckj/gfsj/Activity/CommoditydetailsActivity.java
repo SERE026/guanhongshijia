@@ -1,5 +1,6 @@
 package com.wckj.gfsj.Activity;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -263,10 +264,11 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                     OwerToastShow.show("请先登录在购买哦！！！");
                     return;
                 }
+                addCart(true);
                 PayUtils.getInstance().pay(this,0.01+"","heheh","hahahhahahahahha");
                 break;
             case R.id.tv_add_cart://加入购物车
-                addCart();
+                addCart(false);
                 break;
             case R.id.iv_collect://收藏夹
                 if(AppApplication.loginResult.getToken()==null){
@@ -362,7 +364,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     /**
      * 加入购物车
      */
-    private void addCart() {
+    private void addCart(final boolean isNowPay) {
         AddCartRequest request = new AddCartRequest();
         request.setCount(1);
         request.setGoodsId(goodsId+"");
@@ -377,7 +379,14 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
             public void onSuccess(String response) {
                 AddCartResult json = JSON.parseObject(response, AddCartResult.class);
                 if(json.getResultCode()==0){
-                    OwerToastShow.show("购物车加入成功");
+                    if(isNowPay){
+                        Intent intent = new Intent();
+                        intent.setClass(CommoditydetailsActivity.this, OrderConfirmOneActivity.class);
+//                        intent.putExtra("cartItemList", (ArrayList<CartItem>)mSelectedList);
+                        startActivity(intent);
+                    }else {
+                        OwerToastShow.show("购物车加入成功");
+                    }
                 }else {
                     OwerToastShow.show("购物车加入失败");
                 }

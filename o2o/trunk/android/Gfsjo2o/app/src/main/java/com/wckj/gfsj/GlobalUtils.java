@@ -79,4 +79,7 @@ public class GlobalUtils {
     public static final String ORDER_CONFIRM_URL = SERVER_URL + "/order/confirm";
     //确认订单命令
     public static final String ORDER_SUBMIT_URL = SERVER_URL + "/order/submit";
+    //运费查询请求类
+    public static final String ORDER_QUERY_YF_URL = SERVER_URL + "/order/queryYfPrice";
+
 }

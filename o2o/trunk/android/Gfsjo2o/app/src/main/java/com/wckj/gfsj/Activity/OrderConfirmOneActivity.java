@@ -49,6 +49,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     private RadioGroup rgAddress;
     private Button btnNext;
 
+
     private TextView tvAddNewAddress;
     private TextView tvUserName;
     private TextView tvProvince;
@@ -116,7 +117,6 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         super.onDestroy();
         mRlTitle.clearRegister();
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
