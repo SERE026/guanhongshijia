@@ -12,6 +12,8 @@ import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.OrderConfirmAdapter;
 import com.wckj.gfsj.Bean.CreateOrderRequest;
 import com.wckj.gfsj.Bean.CreateOrderResult;
+import com.wckj.gfsj.Bean.QueryYfPriceRequest;
+import com.wckj.gfsj.Bean.QueryYfPricelResult;
 import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
@@ -60,7 +62,9 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
     private CreateOrderRequest createOrderRequest;
     private List<CartItem> cartItemList = new ArrayList<CartItem>();
     private String addressName;
+    private String dlyTypeId;
     private double discountMoney;
+    private double freightMoney;
 
     private OrderConfirmAdapter confirmAdapter;
 
@@ -70,6 +74,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
         createOrderRequest = (CreateOrderRequest) intent.getSerializableExtra("order");
         cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
         addressName = intent.getStringExtra("addressName");
+        dlyTypeId = intent.getStringExtra("dlyTypeId");
         discountMoney = intent.getDoubleExtra("discountMoney", 0);
 
         confirmAdapter = new OrderConfirmAdapter(this, cartItemList);
@@ -90,7 +95,7 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
     protected View onCreateSuccessView() {
         view = inflater.inflate(R.layout.activity_order_confirm_three, null);
         initView();
-        initViewData();
+        queryYfPrice(0.0, createOrderRequest.getAddressMember().getCounty(), dlyTypeId);
         return view;
     }
 
@@ -162,7 +167,6 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
         }
         tvCommodityTotalMoney.setText(df.format(commodityTotalMoney));
 
-        double freightMoney = 0;
         tvFreightMoney.setText(df.format(freightMoney));
 
         double totalMoney = commodityTotalMoney+freightMoney;
@@ -201,6 +205,39 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
                     intent.putExtra("payPrice", payPrice);
                     intent.putExtra("tradeNo", tradeNo);
                     startActivity(intent);
+                } else {
+                    OwerToastShow.show(result.getMessage());
+                }
+            }
+        });
+    }
+
+    /**
+     * 查询运费
+     * @param weight    商品重量
+     * @param countryId 区ID
+     * @param dlyTypeId 快递类型ID
+     */
+    private void queryYfPrice(Double weight, String countryId, String dlyTypeId) {
+        QueryYfPriceRequest request = new QueryYfPriceRequest();
+        request.setWeight(weight);
+        request.setCountyId(countryId);
+        request.setDlytypeId(dlyTypeId);
+        HttpUtils.getInstance().asyncPost(createOrderRequest, GlobalUtils.ORDER_QUERY_YF_URL, new ICallBack() {
+            @Override
+            public void onError(Call call, Exception e) {
+                LogUtil.e("{" + e.toString() + "}");
+                OwerToastShow.show("查询运费失败");
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                QueryYfPricelResult result = JSON.parseObject(response, QueryYfPricelResult.class);
+                LogUtil.i(response);
+
+                if (result.getResultCode() == 0) {
+                    freightMoney = result.getYfPrice();
+                    initViewData();
                 } else {
                     OwerToastShow.show(result.getMessage());
                 }

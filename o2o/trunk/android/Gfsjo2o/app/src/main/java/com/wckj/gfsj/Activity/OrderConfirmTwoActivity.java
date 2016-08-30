@@ -44,6 +44,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
     private List<Coupon> couponList = new ArrayList<Coupon>();
     private List<PayMethod> payMethodList = new ArrayList<PayMethod>();
     private String addressName;
+    private String dlyTypeId;
     private double commodityTotalMoney = 0;
 
     private PayMethodAdapter payMethodAdapter;
@@ -55,6 +56,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
         cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
         couponList = (List<Coupon>) intent.getSerializableExtra("couponList");
         addressName = intent.getStringExtra("addressName");
+        dlyTypeId = intent.getStringExtra("dlyTypeId");
 
         for (CartItem item : cartItemList) {
             commodityTotalMoney += (item.getGoodsDetail().getPrice() * item.getCount());
@@ -193,6 +195,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
                 intent.putExtras(bundle);
                 intent.putExtra("cartItemList", (ArrayList<CartItem>)cartItemList);
                 intent.putExtra("addressName", addressName);
+                intent.putExtra("dlyTypeId", dlyTypeId);
                 intent.putExtra("discountMoney", discountMoney);
                 startActivity(intent);
                 break;

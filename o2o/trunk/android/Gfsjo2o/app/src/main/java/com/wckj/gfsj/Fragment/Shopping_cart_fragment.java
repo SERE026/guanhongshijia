@@ -144,7 +144,9 @@ public class Shopping_cart_fragment extends BaseNewFragment implements View.OnCl
 
                 mJson =  JSON.parseObject(response, CartListResult.class);
                mList = mJson.getCart().getItemList();
-               LogUtil.d("mList.size="+mList.size());
+               if (mList != null) {
+                   LogUtil.d("mList.size=" + mList.size());
+               }
                showPageState(checkData(mList));
            }
        });

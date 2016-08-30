@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.AreaAdapter;
+import com.wckj.gfsj.Adapter.DlyTypeAdapter;
 import com.wckj.gfsj.Bean.QueryAreaRequest;
 import com.wckj.gfsj.Bean.QueryAreaResult;
 import com.wckj.gfsj.Bean.SubmitOrderRequest;
@@ -22,6 +23,7 @@ import com.wckj.gfsj.Bean.entity.AddressMember;
 import com.wckj.gfsj.Bean.entity.Area;
 import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.Bean.entity.Coupon;
+import com.wckj.gfsj.Bean.entity.Dlytype;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
 import com.wckj.gfsj.CustomUi.TitleRelativeLayout;
 import com.wckj.gfsj.GlobalUtils;
@@ -60,16 +62,20 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     private TextView tvEmail;
     private TextView tvEmailToast;
 
+    private EditText etShipMethod;
     private EditText etUserName, etStreet, etZipCode, etCellPhoneNum, etPhoneOne, etPhoneTwo, etPhoneThree, etEmail;
     private EditText etProvince, etCity, etDistrict;
 
-    private ListView lvProvince, lvCity, lvDistrict;
+    private ListView lvShipMethod, lvProvince, lvCity, lvDistrict;
+    private DlyTypeAdapter dlyTypeAdapter;
     private AreaAdapter provinceAdapter, cityAdapter, districtAdapter;
 
+    private List<Dlytype> dlyTypeList = new ArrayList<Dlytype>();
     private List<Area> provinceList = new ArrayList<Area>();
     private List<Area> cityList = new ArrayList<Area>();
     private List<Area> districtList = new ArrayList<Area>();
 
+    private Dlytype selectedDlyType;
     private Area selectedProvince, selectedCity, selectedDistrict;
     private List<CartItem> cartItemList = new ArrayList<CartItem>();
     private List<Coupon> couponList = new ArrayList<Coupon>();
@@ -78,6 +84,7 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
     protected void init() {
         Intent intent = this.getIntent();
         cartItemList = (List<CartItem>) intent.getSerializableExtra("cartItemList");
+        dlyTypeAdapter = new DlyTypeAdapter(this, dlyTypeList);
         provinceAdapter = new AreaAdapter(this, provinceList);
         cityAdapter = new AreaAdapter(this, cityList);
         districtAdapter = new AreaAdapter(this, districtList);
@@ -220,7 +227,15 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                 intent.putExtra("cartItemList", (ArrayList<CartItem>)cartItemList);
                 intent.putExtra("couponList", (ArrayList<Coupon>)couponList);
                 intent.putExtra("addressName", addressName);
+                intent.putExtra("dlyTypeId", selectedDlyType.getId());
                 startActivity(intent);
+                break;
+            case R.id.et_ship_method:
+                if (lvShipMethod.getVisibility() == View.VISIBLE) {
+                    lvShipMethod.setVisibility(View.GONE);
+                } else {
+                    lvShipMethod.setVisibility(View.VISIBLE);
+                }
                 break;
             case R.id.et_province:
                 if (lvProvince.getVisibility() == View.VISIBLE) {
@@ -283,6 +298,10 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         tvEmail = (TextView) view.findViewById(R.id.tv_email);
         tvEmailToast = (TextView) view.findViewById(R.id.tv_email_toast);
 
+        etShipMethod = (EditText) view.findViewById(R.id.et_ship_method);
+        etShipMethod.setKeyListener(null);
+        etShipMethod.setOnClickListener(this);
+
         etUserName = (EditText) view.findViewById(R.id.et_user_name);
         etStreet = (EditText) view.findViewById(R.id.et_street);
         etZipCode = (EditText) view.findViewById(R.id.et_zip_code);
@@ -304,6 +323,18 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
         etDistrict.setOnClickListener(this);
         btnNext = (Button) view.findViewById(R.id.btn_next);
         btnNext.setOnClickListener(this);
+
+        lvShipMethod = (ListView) view.findViewById(R.id.lv_ship_method);
+        lvShipMethod.setOnTouchListener(this);
+        lvShipMethod.setAdapter(dlyTypeAdapter);
+        lvShipMethod.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedDlyType = dlyTypeList.get(i);
+                etShipMethod.setText(selectedDlyType.getDlyName());
+                lvShipMethod.setVisibility(View.GONE);
+            }
+        });
 
         lvProvince = (ListView) view.findViewById(R.id.lv_province);
         lvProvince.setOnTouchListener(this);
@@ -404,6 +435,11 @@ public class OrderConfirmOneActivity extends BaseNewActivity implements View.OnC
                     if (result.getCouponList() != null && !result.getCouponList().isEmpty()) {
                         couponList.clear();
                         couponList.addAll(result.getCouponList());
+                    }
+                    if (result.getDlytypeList() != null && !result.getDlytypeList().isEmpty()) {
+                        dlyTypeList.clear();
+                        dlyTypeList.addAll(result.getDlytypeList());
+                        dlyTypeAdapter.notifyDataSetChanged();
                     }
                 } else {
                     OwerToastShow.show(result.getMessage());
