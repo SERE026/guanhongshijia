@@ -106,7 +106,7 @@ public class AppCartController extends BaseAppController {
         if (!ValidationUtil.isEmpty(info)) {
             String id = addCartRequest.getGoodsId();
             int count = addCartRequest.getCount();
-            Goods goods= (Goods) goodsService.getObjById(id);
+            Goods goods2= (Goods) goodsService.getObjById(id);
 //            CarsBox carsBox=new CarsBox();
 //            carsBox.setMember(info);
 //            carsBox.setGoods(goods);
@@ -124,11 +124,42 @@ public class AppCartController extends BaseAppController {
 //            carsBox.setNum(count);
 //            carsBox.setPrice(goods.getGoodMoney());
 //            carsService.addObj(carsBox);
-            map=carsService.addGoodsApp(goods.getGoodMoney(),
-                    count,goods.getGoods_id(),sepcVal,info.getHuiYuan_id() ,"|");
+            map=carsService.addGoodsApp(goods2.getGoodMoney(),
+                    count,goods2.getGoods_id(),sepcVal,info.getHuiYuan_id() ,"|");
             if(map!=null) {
                 String  cartId=(String)map.get("CARS_BOX_ID");
-                result.setCartId(cartId);
+                CarsBox carsBox=(CarsBox)carsService.getObjById(cartId);
+
+                CartItem cartItem = new CartItem();
+                if (carsBox.getCars_box_id() != null) {
+                    cartItem.setId(carsBox.getCars_box_id());
+                }
+                cartItem.setCount(carsBox.getNum()); //数量
+                GoodsDetail goodsDetail = new GoodsDetail();
+                Goods goods=carsBox.getGoods();
+                List<Map> speclist=goodsDAO.getGoodsSpec(carsBox.getGoods().getGoods_id(), carsBox.getSpecVal());
+                if(!ValidationUtil.isEmpty(speclist)) {
+                    goodsDetail.setSpecMap(speclist);//在购物车这里是规格
+                }
+                if(String.valueOf(goods.getGoods_id())!=null){
+                    goodsDetail.setId(String.valueOf(goods.getGoods_id()));
+                }
+                if (goods.getName() != null) {
+                    goodsDetail.setName(goods.getName());//商品名称
+                }
+                if (goods.getShortDesc() != null) {
+                    goodsDetail.setShortDesc(goods.getShortDesc());  //商品说明，显示在商品名称下方
+                }
+                goodsDetail.setPrice(goods.getSalesMoney()); //商品价格
+
+                goodsDetail.setSaleCount(goods.getNum());//销量
+                //图片
+                if(goods.getDefaultImage()!=null){
+                    goodsDetail.setDefaultImage(Constants.DOMAIN_NAME+Constants.GOODS_IMG+goods.getDefaultImage());
+                }
+                cartItem.setGoodsDetail(goodsDetail);  //商品信息
+
+                result.setCartItem(cartItem);
                 result.setResultCode(SUCCESS);
                 result.setMessage("OK");
             }
