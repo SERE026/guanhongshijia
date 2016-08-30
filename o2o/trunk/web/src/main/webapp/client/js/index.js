@@ -40,7 +40,11 @@
                 window.location.href="meeting.html";
             }
         });
+        $("#close-layer").on('click',function () {
+            //$.layer.closeAll();
 
+        })
+        
         $("#resolution").change(function(e) {
             var resolution = $(e.target).val(),
                 bitRateRange;

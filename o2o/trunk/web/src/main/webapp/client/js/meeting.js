@@ -1,8 +1,8 @@
 (function($) {
     var mainContainerHeight,
         wraperHeight = $('#wrapper').height();
-    if(wraperHeight <= 768){
-        mainContainerHeight = 768;
+    if(wraperHeight <= 725){
+        mainContainerHeight = 725;
     }else{
        mainContainerHeight = wraperHeight;
     }
@@ -446,11 +446,13 @@
 
             // mixed mode
             if(isMixed){
-                width = 192;
-                height = 120;
+                width = $container.width();
+                height = $container.height();
                 className = 'video-item';
             }else{
                 className += ' video-item';
+                width = $container.width();
+                height = $container.height();
             }
 
             var styleStr = 'width:'+ width +'px; height:'+ height +'px;';
@@ -1231,13 +1233,13 @@
 
                     shareListContainer.css({
                         "left" : offset.left + 30 - shareListContainer.width() / 2,
-                        "top" : offset.top - count * 40 - 23,
+                        "bottom" : 75,
                         "display" : display
                     });
 
                     shareScreenListArrow.css({
                         "left" : offset.left + 21,
-                        "top" : offset.top - 30,
+                        "bottom" : 58,
                         "display" : display
                     });
                 });
@@ -1305,5 +1307,6 @@
 
             });
         }
+        $("canvas").css('width','100%')
     });
 }(jQuery));

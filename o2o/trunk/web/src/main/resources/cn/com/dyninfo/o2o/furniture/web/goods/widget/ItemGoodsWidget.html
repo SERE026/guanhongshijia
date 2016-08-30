@@ -4,7 +4,13 @@
 <link href="css/GoodsDetails.css" rel="stylesheet" />
 <script type="text/JavaScript" src="${applicationPath}/js/layer/lib.js"></script>
 <script type="text/JavaScript" src="${applicationPath}/js/layer/layer.js"></script>
+<script type="text/JavaScript" src="${applicationPath}/js/layer2.js"></script>
 <script>
+
+	/*function closeLayer(){
+		alert($('#xubox_layer1').html())
+		$('#layui-layer-shade1').remove();$('#layui-layer1').remove();
+	}*/
 	$(function () {
 		$(".addYun").click(function () {
 			$.layer({
@@ -14,6 +20,14 @@
 				area : ['1200px' , '800px'],
 				offset : ['100px','']
 			})
+			/*layer.open({
+				type: 2,
+				title:'视频',
+				skin: 'layui-layer-rim', //加上边框
+				area: ['1200px', '800px'], //宽高
+				content: '../client/index.html',
+				maxmin:true,
+			});*/
 		})
 	})
 </script>

@@ -12,13 +12,14 @@
 <body class="is-loading"><!-- Wrapper -->
 <div id="wrapper"><!-- Main -->
     <section id="main">
-        <header><img id="logo" src="images/logo.png" alt="Logo">
-            <p class="head-text">Agora Video Call<span class="version">v1.5.2</span></p>
-            <p class="head-text-bottom">Powering Real-Time Communications</p></header>
-        <main id="main-content"><p class="enter-prompt">Enter a conference room name</p>
+        <header style="margin-top: 150px;"><img id="logo" src="../img/logo.jpg" alt="Logo">
+            <!--<p class="head-text">Agora Video Call<span class="version">v1.5.2</span></p>
+            <p class="head-text-bottom">Powering Real-Time Communications</p></header>-->
+        <main id="main-content">
+            <!--<p class="enter-prompt">Enter a conference room name</p>
           <p class="main-description-text">If you are the first person to specify this name, the room will be created
                 and you will be placed in it. If it has already been created you will join the conference in
-                progress.</p>
+                progress.</p>-->
             <div id="form-content">
                 <form action="meeting.html" method="GET">
 <!--                    <div class="form-group row">
@@ -50,16 +51,22 @@
                                     class="fa fa-gear">&nbsp; Video Options</span></button>
                         </div>
                     </div>-->
+                   <!-- <div class="form-group row">
+                        <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-xlg-2 col-xlg-offset-5">
+                            <button id="close-layer" type="button" onclick="closeLayer()" class="btn btn-default" data-toggle="modal" style="width: 100%">
+                                <span class="">&nbsp; 取消</span></button>
+                        </div>
+                    </div>-->
                 </form>
             </div>
         </main>
     </section><!-- Footer -->
-    <footer id="footer">
+   <!-- <footer id="footer">
         <ul class="copyright">
             <li><a>Agora.io</a></li>
             <li>&copy; Copyright Agora.io ICP证xxx号</li>
         </ul>
-    </footer>
+    </footer>-->
 </div><!-- Modal -->
 <div class="modal fade" id="videoOptionsModal" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -99,6 +106,17 @@
         document.body.className = document.body.className.replace(/\bis-loading\b/, '');
     });
     document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-}</script>
+    }
+    function closeLayer(){
+        window.frames['xubox_iframe1'].style('display','none');
+        return false;
+        /*$('#layui-layer-shade1').remove();$('#layui-layer1').remove();
+        var xubox_shade1=document.getElementById('xubox_shade1');
+        var xubox_layer1=document.getElementById('xubox_layer1');
+        document.body.removeChild(xubox_shade1);*/
+        //document.getElementById('xubox_shade1').removeChild()
+        //$('#xubox_shade1').remove();$('#xubox_layer1').remove();
+    }
+</script>
 </body>
 </html>
