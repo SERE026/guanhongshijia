@@ -74,6 +74,11 @@
     <color name="color_020202">#020202</color>
     <color name="color_979797">#979797</color>
 
+    <color name="transparent">#00000000</color>
+    <color name="yellow">#DCBA75</color>
+    <color name="black">#000</color>
+    <color name="remote_user_bg">#3B3E4D</color>
+
     <color name="color_transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
 </resources>

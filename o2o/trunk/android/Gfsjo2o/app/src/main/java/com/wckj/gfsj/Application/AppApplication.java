@@ -29,6 +29,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import agora.BaseEngineEventHandlerActivity;
+import agora.MessageHandler;
+import io.agora.rtc.RtcEngine;
 import okhttp3.OkHttpClient;
 
 public class AppApplication extends Application {
@@ -38,6 +41,9 @@ public class AppApplication extends Application {
     public static Handler handler;
     public static Context context;// 全局context
     public static  LoginResult loginResult;
+
+    private RtcEngine rtcEngine;
+    private MessageHandler messageHandler;
 
 
     @Override
@@ -99,6 +105,26 @@ public class AppApplication extends Application {
                 .build();
         // 全局初始化此配置
         ImageLoader.getInstance().init(config);
+    }
+
+    /**
+     * Test vendor key:  6D7A26A1D3554A54A9F43BE6797FE3E2
+     * @param vendorKey
+     */
+    public void setRtcEngine(String vendorKey){
+
+        if(rtcEngine==null) {
+            rtcEngine = RtcEngine.create(getApplicationContext(), vendorKey, messageHandler);
+        }
+    }
+
+    public RtcEngine getRtcEngine(){
+
+        return rtcEngine;
+    }
+
+    public void setEngineEventHandlerActivity(BaseEngineEventHandlerActivity engineEventHandlerActivity){
+        messageHandler.setActivity(engineEventHandlerActivity);
     }
     /**
      * 获取用户的登录情况

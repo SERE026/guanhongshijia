@@ -135,6 +135,11 @@
             android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
 
+        <activity
+            android:name="agora.ChannelActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
     </application>
 
 
