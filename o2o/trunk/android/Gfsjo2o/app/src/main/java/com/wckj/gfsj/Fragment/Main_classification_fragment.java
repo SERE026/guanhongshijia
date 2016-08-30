@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.R;
 import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
+import com.wckj.gfsj.Utils.ImageLoaderUtil;
 import com.wckj.gfsj.Utils.LogUtil;
 
 import java.util.ArrayList;
@@ -42,6 +44,8 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
     private TextView mTvChineseFurniture, mTvClassicalFurniture, mTvFourTreasures, mTvStrokes,
             mTvOldTea, mTvRedWine, mTvSoftDaquan, mTvDecorativeDaquan, mTvClassicalDecorativeMaterials,
             mTvClassicalLighting, mTvNews, mTvMore;
+    private ImageView mIvChineseFurniture, mIvClassicalFurniture, mIvFourTreasures, mIvStrokes,
+            mIvOldTea, mIvRedWine;
 
     private OpenEffectBridge mOpenEffectBridge;
 
@@ -109,13 +113,38 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
         mTvClassicalLighting = (TextView) view.findViewById(R.id.tv_classical_lighting);
         mTvNews = (TextView) view.findViewById(R.id.tv_news);
 
-        if (mCategoryList != null && !mCategoryList.isEmpty()) {
+        mIvChineseFurniture = (ImageView) view.findViewById(R.id.iv_chinese_furniture);
+        mIvClassicalFurniture = (ImageView) view.findViewById(R.id.iv_classical_furniture);
+        mIvFourTreasures = (ImageView) view.findViewById(R.id.iv_four_treasures);
+        mIvStrokes = (ImageView) view.findViewById(R.id.iv_strokes);
+        mIvOldTea = (ImageView) view.findViewById(R.id.iv_old_tea);
+        mIvRedWine = (ImageView) view.findViewById(R.id.iv_red_wine);
+
+        if (mCategoryList != null && mCategoryList.size() >= 11) {
             mTvChineseFurniture.setText(mCategoryList.get(0).getTitle());
+            if (mCategoryList.get(0).getImageUrl() != null) {
+                ImageLoaderUtil.getInstance().displayImageView(mCategoryList.get(0).getImageUrl(), mIvChineseFurniture);
+            }
             mTvClassicalFurniture.setText(mCategoryList.get(1).getTitle());
+            if (mCategoryList.get(1).getImageUrl() != null) {
+                ImageLoaderUtil.getInstance().displayImageView(mCategoryList.get(1).getImageUrl(), mIvClassicalFurniture);
+            }
             mTvFourTreasures.setText(mCategoryList.get(2).getTitle());
+            if (mCategoryList.get(2).getImageUrl() != null) {
+                ImageLoaderUtil.getInstance().displayImageView(mCategoryList.get(2).getImageUrl(), mIvFourTreasures);
+            }
             mTvStrokes.setText(mCategoryList.get(3).getTitle());
+            if (mCategoryList.get(3).getImageUrl() != null) {
+                ImageLoaderUtil.getInstance().displayImageView(mCategoryList.get(3).getImageUrl(), mIvStrokes);
+            }
             mTvOldTea.setText(mCategoryList.get(4).getTitle());
+            if (mCategoryList.get(4).getImageUrl() != null) {
+                ImageLoaderUtil.getInstance().displayImageView(mCategoryList.get(4).getImageUrl(), mIvOldTea);
+            }
             mTvRedWine.setText(mCategoryList.get(5).getTitle());
+            if (mCategoryList.get(5).getImageUrl() != null) {
+                ImageLoaderUtil.getInstance().displayImageView(mCategoryList.get(5).getImageUrl(), mIvRedWine);
+            }
             mTvSoftDaquan.setText(mCategoryList.get(6).getTitle());
             mTvDecorativeDaquan.setText(mCategoryList.get(7).getTitle());
             mTvClassicalDecorativeMaterials.setText(mCategoryList.get(8).getTitle());

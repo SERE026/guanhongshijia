@@ -11,182 +11,258 @@
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_chinese_furniture"
-            app:layout_widthPercent="18%"
+            android:background="@color/color_d77f18"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:isReflect="true"
+            app:isShape="true"
             app:layout_heightPercent="66.7%"
             app:layout_marginLeftPercent="9%"
             app:layout_marginTopPercent="15%"
-            android:background="@color/color_d77f18"
-            android:clickable="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
-            app:radius="0dp"
-            app:isReflect="true"
-            app:isShape="true" >
+            app:layout_widthPercent="18%"
+            app:radius="0dp">
 
-            <TextView
-                android:id="@+id/tv_chinese_furniture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="新中式家具"
-                android:textColor="@color/color_362006"
-                android:textSize="20sp"/>
+            <com.open.androidtvwidget.view.RelativeMainLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_chinese_furniture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/tv_chinese_furniture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_chinese_furniture"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="新中式家具"
+                    android:textColor="@color/color_362006"
+                    android:textSize="20sp" />
+
+            </com.open.androidtvwidget.view.RelativeMainLayout>
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_classical_furniture"
-            app:layout_widthPercent="27%"
-            app:layout_heightPercent="32.6%"
             android:layout_toRightOf="@id/rf_chinese_furniture"
-            app:layout_marginTopPercent="15%"
-            app:layout_marginLeftPercent="0.7%"
             android:background="@color/color_6d4a3e"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="false"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="32.6%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="15%"
+            app:layout_widthPercent="27%"
+            app:radius="0dp">
 
-            <TextView
-                android:id="@+id/tv_classical_furniture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="古典家具"
-                android:textColor="@color/color_d0cecf"
-                android:textSize="20sp"/>
+            <com.open.androidtvwidget.view.RelativeMainLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_classical_furniture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/tv_classical_furniture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@id/iv_chinese_furniture"
+                    android:gravity="center"
+                    android:text="古典家具"
+                    android:textColor="@color/color_d0cecf"
+                    android:textSize="20sp" />
+            </com.open.androidtvwidget.view.RelativeMainLayout>
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_four_treasures"
-            app:layout_widthPercent="14%"
-            app:layout_heightPercent="32.6%"
             android:layout_below="@id/rf_classical_furniture"
-            app:layout_marginTopPercent="1.5%"
-            app:layout_marginLeftPercent="0.7%"
             android:layout_toRightOf="@id/rf_chinese_furniture"
             android:background="@color/color_575654"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="true"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="32.6%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="1.5%"
+            app:layout_widthPercent="14%"
+            app:radius="0dp">
 
-            <TextView
-                android:id="@+id/tv_four_treasures"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="文房四宝"
-                android:textColor="@color/color_2f303c"
-                android:textSize="20sp"/>
+            <com.open.androidtvwidget.view.RelativeMainLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_four_treasures"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/tv_four_treasures"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_chinese_furniture"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="文房四宝"
+                    android:textColor="@color/color_2f303c"
+                    android:textSize="20sp" />
+
+            </com.open.androidtvwidget.view.RelativeMainLayout>
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_strokes"
-            app:layout_widthPercent="12.3%"
-            app:layout_heightPercent="32.6%"
-            android:layout_toRightOf="@id/rf_four_treasures"
             android:layout_below="@id/rf_classical_furniture"
-            app:layout_marginTopPercent="1.5%"
-            app:layout_marginLeftPercent="0.7%"
+            android:layout_toRightOf="@id/rf_four_treasures"
             android:background="@color/color_b1a18e"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="true"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="32.6%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="1.5%"
+            app:layout_widthPercent="12.3%"
+            app:radius="0dp">
 
-            <TextView
-                android:id="@+id/tv_strokes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="字画"
-                android:textColor="@color/color_2f303c"
-                android:textSize="20sp"/>
+            <com.open.androidtvwidget.view.RelativeMainLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_strokes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/tv_strokes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@id/iv_strokes"
+                    android:gravity="center"
+                    android:text="字画"
+                    android:textColor="@color/color_2f303c"
+                    android:textSize="20sp" />
+
+            </com.open.androidtvwidget.view.RelativeMainLayout>
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_old_tea"
-            app:layout_widthPercent="17.9%"
-            app:layout_heightPercent="33%"
             android:layout_toRightOf="@id/rf_classical_furniture"
-            app:layout_marginTopPercent="15%"
-            app:layout_marginLeftPercent="0.7%"
             android:background="@color/color_97ac56"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="false"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="33%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="15%"
+            app:layout_widthPercent="17.9%"
+            app:radius="0dp">
 
-            <TextView
-                android:id="@+id/tv_old_tea"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="珍品古茶"
-                android:textColor="@color/color_36383e"
-                android:textSize="20sp"/>
+            <com.open.androidtvwidget.view.RelativeMainLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_old_tea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/tv_old_tea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@id/iv_old_tea"
+                    android:gravity="center"
+                    android:text="珍品古茶"
+                    android:textColor="@color/color_36383e"
+                    android:textSize="20sp" />
+            </com.open.androidtvwidget.view.RelativeMainLayout>
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_red_wine"
-            app:layout_widthPercent="17.9%"
-            app:layout_heightPercent="33%"
             android:layout_toRightOf="@id/rf_old_tea"
-            app:layout_marginTopPercent="15%"
-            app:layout_marginLeftPercent="0.7%"
             android:background="@color/color_bf9e97"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="false"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="33%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="15%"
+            app:layout_widthPercent="17.9%"
+            app:radius="0dp">
 
-            <TextView
-                android:id="@+id/tv_red_wine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="珍品红酒"
-                android:textColor="@color/color_65595e"
-                android:textSize="20sp"/>
+            <com.open.androidtvwidget.view.RelativeMainLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_red_wine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:id="@+id/tv_red_wine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@id/iv_red_wine"
+                    android:gravity="center"
+                    android:text="珍品红酒"
+                    android:textColor="@color/color_65595e"
+                    android:textSize="20sp" />
+
+            </com.open.androidtvwidget.view.RelativeMainLayout>
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_soft_daquan"
-            app:layout_widthPercent="13%"
-            app:layout_heightPercent="15.5%"
             android:layout_below="@id/rf_old_tea"
-            app:layout_marginTopPercent="1.5%"
-            app:layout_marginLeftPercent="0.7%"
             android:layout_toRightOf="@id/rf_strokes"
             android:background="@color/color_2c3c5c"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="false"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="15.5%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="1.5%"
+            app:layout_widthPercent="13%"
+            app:radius="0dp">
 
             <TextView
                 android:id="@+id/tv_soft_daquan"
@@ -196,25 +272,25 @@
                 android:gravity="center"
                 android:text="软装大全"
                 android:textColor="@color/color_ecf0f1"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_decorative_daquan"
-            app:layout_widthPercent="13%"
-            app:layout_heightPercent="15.5%"
-            android:layout_toRightOf="@id/rf_strokes"
             android:layout_below="@id/rf_soft_daquan"
-            app:layout_marginTopPercent="1.5%"
-            app:layout_marginLeftPercent="0.7%"
+            android:layout_toRightOf="@id/rf_strokes"
             android:background="@color/color_505e7b"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="true"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="15.5%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="1.5%"
+            app:layout_widthPercent="13%"
+            app:radius="0dp">
 
             <TextView
                 android:id="@+id/tv_decorative_daquan"
@@ -224,25 +300,25 @@
                 android:gravity="center"
                 android:text="装饰大全"
                 android:textColor="@color/color_f9f9fa"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_classical_decorative_materials"
-            app:layout_widthPercent="13%"
-            app:layout_heightPercent="15.5%"
             android:layout_below="@id/rf_old_tea"
-            app:layout_marginTopPercent="1.5%"
-            app:layout_marginLeftPercent="0.7%"
             android:layout_toRightOf="@id/rf_soft_daquan"
             android:background="@color/color_93928e"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="false"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="15.5%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="1.5%"
+            app:layout_widthPercent="13%"
+            app:radius="0dp">
 
             <TextView
                 android:id="@+id/tv_classical_decorative_materials"
@@ -252,25 +328,25 @@
                 android:gravity="center"
                 android:text="古典装饰材料"
                 android:textColor="@color/color_2f303c"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_classical_lighting"
-            app:layout_widthPercent="13%"
-            app:layout_heightPercent="15.5%"
-            android:layout_toRightOf="@id/rf_decorative_daquan"
             android:layout_below="@id/rf_classical_decorative_materials"
-            app:layout_marginTopPercent="1.5%"
-            app:layout_marginLeftPercent="0.7%"
+            android:layout_toRightOf="@id/rf_decorative_daquan"
             android:background="@color/color_faac03"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="true"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="15.5%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="1.5%"
+            app:layout_widthPercent="13%"
+            app:radius="0dp">
 
             <TextView
                 android:id="@+id/tv_classical_lighting"
@@ -280,25 +356,25 @@
                 android:gravity="center"
                 android:text="古典灯饰"
                 android:textColor="@color/color_3d3c3c"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_news"
-            app:layout_widthPercent="9.3%"
-            app:layout_heightPercent="15.5%"
             android:layout_below="@id/rf_red_wine"
-            app:layout_marginTopPercent="1.5%"
-            app:layout_marginLeftPercent="0.7%"
             android:layout_toRightOf="@id/rf_classical_decorative_materials"
             android:background="@color/color_e86e48"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="false"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="15.5%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="1.5%"
+            app:layout_widthPercent="9.3%"
+            app:radius="0dp">
 
             <TextView
                 android:id="@+id/tv_news"
@@ -308,25 +384,25 @@
                 android:gravity="center"
                 android:text="新闻"
                 android:textColor="@color/color_2d1710"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
         <com.open.androidtvwidget.view.ReflectItemView
             android:id="@+id/rf_more"
-            app:layout_widthPercent="9.3%"
-            app:layout_heightPercent="15.5%"
-            android:layout_toRightOf="@id/rf_classical_lighting"
             android:layout_below="@id/rf_news"
-            app:layout_marginTopPercent="1.5%"
-            app:layout_marginLeftPercent="0.7%"
+            android:layout_toRightOf="@id/rf_classical_lighting"
             android:background="@color/color_a29381"
             android:clickable="true"
-            android:focusableInTouchMode="true"
             android:focusable="true"
-            app:radius="0dp"
+            android:focusableInTouchMode="true"
             app:isReflect="true"
-            app:isShape="true" >
+            app:isShape="true"
+            app:layout_heightPercent="15.5%"
+            app:layout_marginLeftPercent="0.7%"
+            app:layout_marginTopPercent="1.5%"
+            app:layout_widthPercent="9.3%"
+            app:radius="0dp">
 
             <TextView
                 android:id="@+id/tv_more"
@@ -336,7 +412,7 @@
                 android:gravity="center"
                 android:text="更多"
                 android:textColor="@color/color_2d1710"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </com.open.androidtvwidget.view.ReflectItemView>
 
