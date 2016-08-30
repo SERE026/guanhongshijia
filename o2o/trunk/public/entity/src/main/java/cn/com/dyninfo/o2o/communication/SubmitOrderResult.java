@@ -2,6 +2,7 @@ package cn.com.dyninfo.o2o.communication;
 
 import cn.com.dyninfo.o2o.communication.common.BaseResult;
 import cn.com.dyninfo.o2o.entity.Coupon;
+import cn.com.dyninfo.o2o.entity.Dlytype;
 
 import java.util.List;
 
@@ -12,7 +13,8 @@ public class SubmitOrderResult extends BaseResult {
 
     //可使用的优惠券列表
     private List<Coupon> couponList;
-
+    //可使用的快递列表
+    private List<Dlytype> dlytypeList;
 
     public List<Coupon> getCouponList() {
         return couponList;
@@ -22,10 +24,19 @@ public class SubmitOrderResult extends BaseResult {
         this.couponList = couponList;
     }
 
+    public List<Dlytype> getDlytypeList() {
+        return dlytypeList;
+    }
+
+    public void setDlytypeList(List<Dlytype> dlytypeList) {
+        this.dlytypeList = dlytypeList;
+    }
+
     @Override
     public String toString() {
-        return "CreateOrderResult{" +
+        return "SubmitOrderResult{" +
                 "couponList=" + couponList +
+                ", dlytypeList=" + dlytypeList +
                 '}';
     }
 }
