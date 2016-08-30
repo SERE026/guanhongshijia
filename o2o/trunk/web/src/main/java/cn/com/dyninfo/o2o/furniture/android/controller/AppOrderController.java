@@ -12,19 +12,15 @@ import cn.com.dyninfo.o2o.furniture.admin.service.CouponService;
 import cn.com.dyninfo.o2o.furniture.common.BaseAppController;
 import cn.com.dyninfo.o2o.furniture.sys.Constants;
 import cn.com.dyninfo.o2o.furniture.util.PageInfo;
-import cn.com.dyninfo.o2o.furniture.util.ResponseUtil;
 import cn.com.dyninfo.o2o.furniture.util.ValidationUtil;
 import cn.com.dyninfo.o2o.furniture.web.address.model.AreaInfo;
 import cn.com.dyninfo.o2o.furniture.web.address.service.AreaService;
 import cn.com.dyninfo.o2o.furniture.web.framework.context.Context;
-import cn.com.dyninfo.o2o.furniture.web.goods.dao.GoodsDAO;
-import cn.com.dyninfo.o2o.furniture.web.goods.model.Goods;
+import cn.com.dyninfo.o2o.furniture.web.goods.dao.GoodsDeliveryDAO;
 import cn.com.dyninfo.o2o.furniture.web.member.model.AppLoginStatus;
-import cn.com.dyninfo.o2o.furniture.web.member.model.Favorites;
 import cn.com.dyninfo.o2o.furniture.web.member.model.HuiyuanInfo;
 import cn.com.dyninfo.o2o.furniture.web.member.service.AppLoginStatusService;
 import cn.com.dyninfo.o2o.furniture.web.member.service.HuiyuanService;
-import cn.com.dyninfo.o2o.furniture.web.order.model.OrderProduct;
 import cn.com.dyninfo.o2o.furniture.web.order.service.OrderService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -65,7 +61,7 @@ public class AppOrderController extends BaseAppController {
     private CouponMemberRelService couponMemberRelService;
 
     @Resource
-    private GoodsDAO goodsDAO;
+    private GoodsDeliveryDAO goodsDeliveryDAO;
 /**
      * 创建订单请求类，在购物车点击去结算时使用
      * @param createOrderRequest
@@ -350,6 +346,55 @@ public class AppOrderController extends BaseAppController {
         log.debug(result);
         return result;
     }
+    /**
+     *
+     * 查询运费接口
+     * 查询运费 传入城市ID，重量，快递ID
+     * @param queryYfPriceRequest
+     * @param request
+     * @param response
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("/queryYfPrice")
+    public  QueryYfPricelResult queryYfPrice(@RequestBody QueryYfPriceRequest   queryYfPriceRequest, HttpServletRequest request, HttpServletResponse response) {
+        log.debug(queryYfPriceRequest);
+        QueryYfPricelResult result = new  QueryYfPricelResult();
+        if (StringUtils.isBlank(queryYfPriceRequest.getDeviceId())) {
+            result.setResultCode(NEED_DEVICE_ID);
+            result.setMessage("设备识别码不能为空");
+            return result;
+        }
+        if (StringUtils.isBlank(queryYfPriceRequest.getToken())) {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("用户未登录");
+            return result;
+        }
+        AppLoginStatus appLoginStatus=null;
+        HuiyuanInfo info=(HuiyuanInfo)request.getSession().getAttribute(Context.SESSION_MEMBER);
+        if (ValidationUtil.isEmpty(info)){
+            List<AppLoginStatus> appLoginStatusList =(List<AppLoginStatus>)appLoginStatusService.getListByWhere(new StringBuffer(" and  n.token='"+ queryYfPriceRequest.getToken()+"'"));
+            if(!ValidationUtil.isEmpty(appLoginStatusList)){
+                appLoginStatus=appLoginStatusList.get(0);
+            }
+        }
+        if (!ValidationUtil.isEmpty(appLoginStatus)) {
+            info = appLoginStatus.getHuiyuan();
+        }
+        if (!ValidationUtil.isEmpty(info)) {
+            Double dl = goodsDeliveryDAO.getDeliveryMoney(queryYfPriceRequest.getWeight(), queryYfPriceRequest.getCountyId(), queryYfPriceRequest.getDlytypeId());//area_id区ID    快递dly_id ID   Dlytype表
+            result.setYfPrice(dl);
+            result.setResultCode(SUCCESS);
+            result.setMessage("OK");
+        }else {
+            result.setResultCode(NO_LOGIN);
+            result.setMessage("查询运费请求失败");
+        }
+        log.debug(result);
+        return result;
+    }
+
 /**
      * 评价订单请求
      * @param evalOrderRequest
