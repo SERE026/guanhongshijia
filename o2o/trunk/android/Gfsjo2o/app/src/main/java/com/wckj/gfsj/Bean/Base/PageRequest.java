@@ -5,7 +5,7 @@ package com.wckj.gfsj.Bean.Base;
  */
 public class PageRequest extends BaseRequest {
 
-    private int pageSize = 20;
+    private int pageSize = 50;
 
     private int pageNo = 1;
 

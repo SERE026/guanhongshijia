@@ -1,11 +1,9 @@
-package agora;
+package com.wckj.gfsj.Agora;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-
-import agora.util.LoggingUtils;
 
 
 /**
@@ -51,12 +49,5 @@ public class BaseActivity extends FragmentActivity {
 
     }
 
-    public void log(Object obj) {
 
-        // You can use filter *** to filter out message
-        LoggingUtils.error(getClass().getName(),
-                String.format("*** %s ***",
-                        obj == null ? "--!--"
-                                : obj.toString()));
-    }
 }

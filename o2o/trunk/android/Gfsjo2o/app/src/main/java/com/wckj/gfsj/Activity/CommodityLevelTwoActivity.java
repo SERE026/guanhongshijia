@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,9 +58,9 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
     protected void init() {
          id = getIntent().getStringExtra("id");
         category = getIntent().getStringExtra("category");
-        if(id==null){
+        if(TextUtils.isEmpty(id)){
             OwerToastShow.show("该商品系列不存在");
-//            finish(); 不知道为什么这里finsh会导致首页fragment重叠
+            finish(); //不知道为什么这里finsh会导致首页fragment重叠
         }
     }
 

@@ -3,7 +3,7 @@
  * Reserved.
  */
 
-package agora.util;
+package com.wckj.gfsj.Agora.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -29,8 +29,7 @@ public class NetworkConnectivityUtils {
         ConnectivityManager conMan = (ConnectivityManager) context.getSystemService (Context.CONNECTIVITY_SERVICE);
         // mobile
         State mobile = conMan.getNetworkInfo (0).getState ();
-        LoggingUtils.debug (TAG,
-                            "checking if device is connected to  mobile network");
+
         return mobile == State.CONNECTED;
 
     }
@@ -40,7 +39,6 @@ public class NetworkConnectivityUtils {
         ConnectivityManager conMan = (ConnectivityManager) context.getSystemService (Context.CONNECTIVITY_SERVICE);
         // wifi
         State wifi = conMan.getNetworkInfo (1).getState ();
-        LoggingUtils.debug (TAG, "checking if device is connected to wifi");
 
         return wifi == State.CONNECTED;
     }
@@ -59,8 +57,6 @@ public class NetworkConnectivityUtils {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService (Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo ();
         boolean isConnected = netInfo != null && netInfo.isConnected ();
-        LoggingUtils.debug (TAG, "device is connected to network :  "
-                + isConnected);
         return isConnected;
     }
 

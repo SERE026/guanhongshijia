@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommoditydetailsAdapter;
+import com.wckj.gfsj.Agora.ChannelActivity;
 import com.wckj.gfsj.Alipay.PayUtils;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.AddCartRequest;
@@ -40,7 +41,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
     private ViewPager vp_commodity_pic;
     private List<String> imageList;
     private TitleRelativeLayout title_rl;
-    private TextView tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type_1,tv_type_2,tv_type_3,tv_type_4,tv_type_5,tv_specification_1,tv_specification_2,tv_specification_3,tv_specification_4,tv_specification_5,tv_color_1,tv_sale_count,tv_color_2,tv_color_3,tv_color_4,tv_color_5;
+    private TextView tv_vedio,tv_add_cart,tv_title_name,tv_title_desc,tv_prices,tv_type_1,tv_type_2,tv_type_3,tv_type_4,tv_type_5,tv_specification_1,tv_specification_2,tv_specification_3,tv_specification_4,tv_specification_5,tv_color_1,tv_sale_count,tv_color_2,tv_color_3,tv_color_4,tv_color_5;
     private ImageView iv_collect;
     private GoodsDetailResult result;
 
@@ -75,6 +76,8 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         tv_title_name = (TextView) view.findViewById(R.id.tv_title_name);
         tv_title_desc = (TextView) view.findViewById(R.id.tv_title_desc);
         tv_prices = (TextView) view.findViewById(R.id.tv_prices);
+        tv_vedio = (TextView) view.findViewById(R.id.tv_vedio);
+
 
         tv_color_1 = (TextView) view.findViewById(R.id.tv_color_1);
         tv_color_2 = (TextView) view.findViewById(R.id.tv_color_2);
@@ -103,6 +106,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
         bt_buy.setOnClickListener(this);
         tv_add_cart.setOnClickListener(this);
         iv_collect.setOnClickListener(this);
+        tv_vedio.setOnClickListener(this);
 
         tv_type_1.setOnClickListener(this);
         tv_type_2.setOnClickListener(this);
@@ -319,7 +323,13 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                 setSpecification(R.id.tv_specification_3);
                 specificationId=specList.get(2).getSpecValueList().get(2).getId();
                 break;
-
+            case  R.id.tv_vedio:
+                Intent intent = new Intent(CommoditydetailsActivity.this, ChannelActivity.class);
+                intent.putExtra(ChannelActivity.EXTRA_CALLING_TYPE, ChannelActivity.CALLING_TYPE_VIDEO);
+                intent.putExtra(ChannelActivity.EXTRA_VENDOR_KEY, "");
+                intent.putExtra(ChannelActivity.EXTRA_CHANNEL_ID, "1");
+                startActivity(intent);
+                break;
 
 
         }

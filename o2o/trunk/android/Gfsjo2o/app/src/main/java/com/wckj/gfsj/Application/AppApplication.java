@@ -5,7 +5,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Environment;
 import android.os.Handler;
 
 import com.alibaba.fastjson.JSON;
@@ -21,16 +20,16 @@ import com.wckj.gfsj.Bean.LoginResult;
 import com.wckj.gfsj.Db.JsonDao;
 import com.wckj.gfsj.GlobalUtils;
 import com.wckj.gfsj.Utils.LogUtil;
-import com.wckj.gfsj.Utils.OwerToastShow;
 import com.wckj.gfsj.Utils.UuidUtils;
+import com.xsj.crasheye.Crasheye;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import agora.BaseEngineEventHandlerActivity;
-import agora.MessageHandler;
+import com.wckj.gfsj.Agora.BaseEngineEventHandlerActivity;
+import com.wckj.gfsj.Agora.MessageHandler;
 import io.agora.rtc.RtcEngine;
 import okhttp3.OkHttpClient;
 
@@ -48,11 +47,10 @@ public class AppApplication extends Application {
 
     @Override
     public void onCreate() {
-        if (!Environment.MEDIA_MOUNTED.equals(Environment
-                .getExternalStorageState())) {
-            OwerToastShow.show(this, "SD卡加载异常！");
-        }
+
         LogUtil.initLog(true);// 打开Log输出
+        messageHandler = new MessageHandler();
+        Crasheye.initWithNativeHandle(this, "06798b00");
 
         initWidthAndHeight();
         initUi();
@@ -114,7 +112,7 @@ public class AppApplication extends Application {
     public void setRtcEngine(String vendorKey){
 
         if(rtcEngine==null) {
-            rtcEngine = RtcEngine.create(getApplicationContext(), vendorKey, messageHandler);
+            rtcEngine = RtcEngine.create(getApplicationContext(), "d758a169a5b84dba8f89d1364e98b475", messageHandler);
         }
     }
 

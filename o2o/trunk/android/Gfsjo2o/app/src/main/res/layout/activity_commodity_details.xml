@@ -391,6 +391,7 @@
             android:textSize="13dp"
             android:gravity="center"/>
         <TextView
+            android:id="@+id/tv_vedio"
             android:layout_weight="1"
             android:background="@drawable/icon_button_bg"
             android:layout_width="wrap_content"

@@ -1,4 +1,4 @@
-package agora;
+package com.wckj.gfsj.Agora;
 
 import io.agora.rtc.IRtcEngineEventHandler;
 
@@ -7,7 +7,6 @@ import io.agora.rtc.IRtcEngineEventHandler;
  * A handler activity act as a bridge to take callbacks from @MessageHandler.
  * Subclasses should override these key methods.
  *
- * Created by on 9/13/15.
  */
 public class BaseEngineEventHandlerActivity extends BaseActivity {
 

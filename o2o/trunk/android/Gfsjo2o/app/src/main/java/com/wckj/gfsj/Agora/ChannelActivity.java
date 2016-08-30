@@ -1,4 +1,4 @@
-package agora;
+package com.wckj.gfsj.Agora;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,14 +17,16 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.wckj.gfsj.Activity.CommoditydetailsActivity;
+import com.wckj.gfsj.Agora.util.NetworkConnectivityUtils;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.R;
+import com.wckj.gfsj.Utils.LogUtil;
 
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import agora.util.NetworkConnectivityUtils;
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
@@ -81,7 +83,7 @@ public class ChannelActivity extends BaseEngineEventHandlerActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mRemoteUserViewWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, getResources().getDisplayMetrics());
-        mCallingType = getIntent().getIntExtra(EXTRA_CALLING_TYPE, CALLING_TYPE_VOICE /*default is voice call*/);
+        mCallingType = getIntent().getIntExtra(EXTRA_CALLING_TYPE, 1 /*default is voice call*/);
 
         setupRtcEngine();
         initViews();
@@ -119,7 +121,7 @@ public class ChannelActivity extends BaseEngineEventHandlerActivity {
                 "" /*optionalInfo*/,
                 new Random().nextInt(Math.abs((int) System.currentTimeMillis()))/*optionalUid*/);
 
-        ((TextView) findViewById(R.id.channel_id)).setText(String.format(getString(R.string.title_channel), channelId));
+        ((TextView) findViewById(R.id.channel_id)).setText("观红世家导购");
 
     }
 
@@ -323,7 +325,7 @@ public class ChannelActivity extends BaseEngineEventHandlerActivity {
                         remoteView.setZOrderOnTop(true);
                         remoteView.setZOrderMediaOverlay(true);
                         int savedUid = (Integer) remoteVideoUser.getTag();
-                        log("saved uid: " + savedUid);
+                        LogUtil.d("saved uid: " + savedUid);
                         rtcEngine.setupRemoteVideo(new VideoCanvas(remoteView, VideoCanvas.RENDER_MODE_ADAPTIVE, savedUid));
                     }
                 }
@@ -468,7 +470,7 @@ public class ChannelActivity extends BaseEngineEventHandlerActivity {
 
     public synchronized void onFirstRemoteVideoDecoded(final int uid, int width, int height, final int elapsed) {
 
-        log("onFirstRemoteVideoDecoded: uid: " + uid + ", width: " + width + ", height: " + height);
+        LogUtil.d("onFirstRemoteVideoDecoded: uid: " + uid + ", width: " + width + ", height: " + height);
 
 
         runOnUiThread(new Runnable() {
@@ -535,7 +537,7 @@ public class ChannelActivity extends BaseEngineEventHandlerActivity {
 
     public synchronized void onUserJoined(final int uid, int elapsed) {
 
-        log("onUserJoined: uid: " + uid);
+        LogUtil.d("onUserJoined: uid: " + uid);
 
         View existedUser = mRemoteUserContainer.findViewById(Math.abs(uid));
         if (existedUser != null) {
@@ -577,7 +579,7 @@ public class ChannelActivity extends BaseEngineEventHandlerActivity {
 
     public void onUserOffline(final int uid) {
 
-        log("onUserOffline: uid: " + uid);
+        LogUtil.d("onUserOffline: uid: " + uid);
 
         if(isFinishing()){
             return;
@@ -628,7 +630,7 @@ public class ChannelActivity extends BaseEngineEventHandlerActivity {
 
     public void onUserMuteVideo(final int uid, final boolean muted) {
 
-        log("onUserMuteVideo uid: " + uid + ", muted: " + muted);
+        LogUtil.d("onUserMuteVideo uid: " + uid + ", muted: " + muted);
 
         if(isFinishing()){
             return;
@@ -680,7 +682,7 @@ public class ChannelActivity extends BaseEngineEventHandlerActivity {
                                 public void onClick(DialogInterface dialog, int which) {
 
                                     // Go to login
-                                    Intent toLogin = new Intent(ChannelActivity.this, LoginActivity.class);
+                                    Intent toLogin = new Intent(ChannelActivity.this, CommoditydetailsActivity.class);
                                     toLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                                     startActivity(toLogin);
 

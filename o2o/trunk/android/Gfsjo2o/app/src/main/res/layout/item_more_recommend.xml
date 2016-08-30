@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
+            android:maxLines="2"
             android:layout_centerHorizontal="true"
             android:textColor="@color/color_121212"
             android:layout_below="@+id/iv_more_reocommend_pic"

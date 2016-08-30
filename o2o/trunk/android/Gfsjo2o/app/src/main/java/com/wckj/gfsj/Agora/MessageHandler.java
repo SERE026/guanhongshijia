@@ -1,4 +1,4 @@
-package agora;
+package com.wckj.gfsj.Agora;
 
 import io.agora.rtc.IRtcEngineEventHandler;
 
