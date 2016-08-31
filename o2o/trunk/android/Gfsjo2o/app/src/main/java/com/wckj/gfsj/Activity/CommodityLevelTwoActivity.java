@@ -60,7 +60,7 @@ public class CommodityLevelTwoActivity extends BaseNewActivity implements View.O
         category = getIntent().getStringExtra("category");
         if(TextUtils.isEmpty(id)){
             OwerToastShow.show("该商品系列不存在");
-            finish(); //不知道为什么这里finsh会导致首页fragment重叠
+//            finish(); //不知道为什么这里finsh会导致首页fragment重叠
         }
     }
 
