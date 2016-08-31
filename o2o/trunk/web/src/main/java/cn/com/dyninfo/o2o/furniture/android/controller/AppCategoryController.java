@@ -65,7 +65,7 @@ public class AppCategoryController extends BaseAppController {
 //        page.setPageNo(1);
 //        page.setPageSize(11);
         List<Category>  lists=new ArrayList<Category>();
-        List<GoodsSort> list =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
+        List<GoodsSort> list =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent is null"));
 //        List<GoodsSort> list =(List<GoodsSort>)goodsSortService.getListByPageWhere(new StringBuffer(""),page);
         if(!ValidationUtil.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
@@ -199,7 +199,7 @@ public class AppCategoryController extends BaseAppController {
             return result;
         }
         List<Category>  lists=new ArrayList<Category>();
-        List<GoodsSort> list =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.extendshow=0 and n.parent is null"));
+        List<GoodsSort> list =(List<GoodsSort>)goodsSortService.getListByWhere(new StringBuffer(" and n.parent is null"));
         if(!ValidationUtil.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
                 Category category = new Category();
