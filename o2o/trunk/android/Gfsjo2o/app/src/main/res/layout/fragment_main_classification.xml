@@ -24,21 +24,22 @@
             app:radius="0dp">
 
             <com.open.androidtvwidget.view.RelativeMainLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/iv_chinese_furniture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true" />
+                    android:layout_width="65dp"
+                    android:layout_height="55dp"
+                    android:layout_centerHorizontal="true"/>
 
                 <TextView
                     android:id="@+id/tv_chinese_furniture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/iv_chinese_furniture"
-                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="新中式家具"
                     android:textColor="@color/color_362006"
@@ -64,21 +65,22 @@
             app:radius="0dp">
 
             <com.open.androidtvwidget.view.RelativeMainLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/iv_classical_furniture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true" />
+                    android:layout_width="65dp"
+                    android:layout_height="55dp"/>
 
                 <TextView
                     android:id="@+id/tv_classical_furniture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_toRightOf="@id/iv_chinese_furniture"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_classical_furniture"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="古典家具"
                     android:textColor="@color/color_d0cecf"
@@ -104,21 +106,22 @@
             app:radius="0dp">
 
             <com.open.androidtvwidget.view.RelativeMainLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/iv_four_treasures"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true" />
+                    android:layout_width="65dp"
+                    android:layout_height="55dp"
+                    android:layout_centerHorizontal="true"/>
 
                 <TextView
                     android:id="@+id/tv_four_treasures"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/iv_chinese_furniture"
-                    android:layout_centerInParent="true"
+                    android:layout_below="@id/iv_four_treasures"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="文房四宝"
                     android:textColor="@color/color_2f303c"
@@ -145,14 +148,14 @@
             app:radius="0dp">
 
             <com.open.androidtvwidget.view.RelativeMainLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/iv_strokes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true" />
+                    android:layout_width="65dp"
+                    android:layout_height="55dp"/>
 
                 <TextView
                     android:id="@+id/tv_strokes"
@@ -160,6 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_toRightOf="@id/iv_strokes"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="字画"
                     android:textColor="@color/color_2f303c"
@@ -185,14 +189,14 @@
             app:radius="0dp">
 
             <com.open.androidtvwidget.view.RelativeMainLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/iv_old_tea"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true" />
+                    android:layout_width="65dp"
+                    android:layout_height="55dp"/>
 
                 <TextView
                     android:id="@+id/tv_old_tea"
@@ -200,6 +204,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_toRightOf="@id/iv_old_tea"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="珍品古茶"
                     android:textColor="@color/color_36383e"
@@ -224,14 +229,14 @@
             app:radius="0dp">
 
             <com.open.androidtvwidget.view.RelativeMainLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/iv_red_wine"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"/>
+                    android:layout_width="65dp"
+                    android:layout_height="55dp"/>
 
                 <TextView
                     android:id="@+id/tv_red_wine"
@@ -239,6 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_toRightOf="@id/iv_red_wine"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:text="珍品红酒"
                     android:textColor="@color/color_65595e"

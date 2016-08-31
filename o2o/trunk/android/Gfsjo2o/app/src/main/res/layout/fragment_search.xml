@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
@@ -11,28 +10,29 @@
         android:id="@+id/rl_input"
         android:layout_width="match_parent"
         app:layout_heightPercent="8%"
-        app:layout_marginTopPercent="30%"
         app:layout_marginLeftPercent="26%"
-        app:layout_marginRightPercent="26%">
+        app:layout_marginRightPercent="26%"
+        app:layout_marginTopPercent="30%">
 
         <EditText
-            
-            android:focusable="false"
             android:id="@+id/et_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/icon_search_input_bg"
+            android:focusable="true"
             android:gravity="center"
             android:hint="请输入商品名的拼音首字母"
-            android:textColorHint="@color/color_979797"/>
+            android:textColorHint="@color/color_979797" />
 
         <ImageView
             android:id="@+id/iv_search"
-            app:layout_widthPercent="20%"
-            app:layout_heightPercent="60%"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_serach"/>
+            android:background="@drawable/search_btn_bg_style2"
+            android:focusable="true"
+            android:src="@drawable/icon_serach"
+            app:layout_widthPercent="10%" />
 
     </android.support.percent.PercentRelativeLayout>
 
@@ -42,490 +42,490 @@
         android:layout_height="match_parent"
         android:layout_below="@id/rl_input"
         android:background="@color/color_6f5f62"
-        app:layout_marginTopPercent="8%"
+        app:layout_marginBottomPercent="12%"
         app:layout_marginLeftPercent="13%"
         app:layout_marginRightPercent="13%"
-        app:layout_marginBottomPercent="12%">
+        app:layout_marginTopPercent="8%">
 
         <Button
             android:id="@+id/btn_1"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
-            app:layout_marginLeftPercent="5%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="1"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="5%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_2"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_1"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="2"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_3"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_2"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="3"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_4"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_3"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="4"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_5"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_4"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="5"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_6"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_5"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="6"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_7"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_6"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="7"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_8"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_7"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="8"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_9"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_8"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="9"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_0"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_9"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="0"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_delete"
-            app:layout_widthPercent="10%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
-            app:layout_marginTopPercent="10%"
             android:layout_toRightOf="@id/btn_0"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:gravity="center"
             android:text="退格"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="10%"
+            app:layout_widthPercent="10%" />
 
         <Button
             android:id="@+id/btn_q"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_1"
-            app:layout_marginTopPercent="3%"
-            app:layout_marginLeftPercent="8%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="Q"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="8%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_w"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_2"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_q"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="W"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_e"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_3"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_w"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="E"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_r"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_4"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_e"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="R"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_t"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_5"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_r"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="T"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_y"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_6"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_t"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="Y"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_u"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_7"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_y"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="U"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_i"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_8"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_u"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="I"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_o"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_9"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_i"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="O"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_p"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_0"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_o"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="P"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_clear"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_delete"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_p"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="清空"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_a"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_y"
-            app:layout_marginTopPercent="3%"
-            app:layout_marginLeftPercent="11%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="A"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="11%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_s"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_w"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_a"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="S"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_d"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_t"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_s"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="D"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_f"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_r"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_d"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="F"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_g"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_t"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_f"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="G"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_h"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_y"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_g"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="H"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_j"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_u"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_h"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="J"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_k"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_i"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_j"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="K"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_l"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_o"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_k"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="L"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_z"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_a"
-            app:layout_marginTopPercent="3%"
-            app:layout_marginLeftPercent="23%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="Z"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="23%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_x"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_s"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_z"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="X"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_c"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_d"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_x"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="C"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_v"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_f"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_c"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="V"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_b"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_g"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_v"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="B"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_n"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_h"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_b"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="N"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
         <Button
             android:id="@+id/btn_m"
-            app:layout_widthPercent="7%"
-            app:layout_heightPercent="18%"
-            android:background="@drawable/icon_search_btn_bg"
             android:layout_below="@id/btn_h"
-            app:layout_marginTopPercent="3%"
             android:layout_toRightOf="@id/btn_n"
-            app:layout_marginLeftPercent="1%"
+            android:background="@drawable/search_btn_bg_style"
             android:text="M"
             android:textColor="@color/color_020202"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            app:layout_heightPercent="18%"
+            app:layout_marginLeftPercent="1%"
+            app:layout_marginTopPercent="3%"
+            app:layout_widthPercent="7%" />
 
     </android.support.percent.PercentRelativeLayout>
 
