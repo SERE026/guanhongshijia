@@ -68,7 +68,7 @@
 				<table cellspacing="0" cellpadding="0">
 					<tr>
 						<td class="tab2_tou">
-							<a href="<%=request.getContextPath()%>/html/manage/withdrawalAuditaudit/list">
+							<a href="<%=request.getContextPath()%>/html/manage/withdrawalAudit/list">
 								<img src="<%=request.getContextPath()%>/img/biao_03.gif" border="0" />
 							</a>
 						</td>
@@ -80,7 +80,7 @@
 	<tr><td></td></tr>
 	<tr>
 		<td>
-			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/withdrawalAuditaudit/delall">
+			<form method="post" id="del" action="<%=request.getContextPath()%>/html/manage/withdrawalAuditAudit/delall">
 				<input type="hidden" name="_method" value="delete" />
 				<table cellspacing="0" cellpadding="0" class="table4_da">
 					<thead>
