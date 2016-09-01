@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,30 +12,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="33dp"
         android:text="10:27"
         android:textColor="@color/color_767f8e"
-        android:textSize="15sp"
-        />
+        android:textSize="15sp" />
 
-    <RelativeLayout
-        android:id="@+id/rl_search"
+    <TextView
+        android:id="@+id/tv_search"
         android:layout_width="wrap_content"
-        android:layout_height="21dp"
+        android:layout_height="wrap_content"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="30dp"
         android:layout_toLeftOf="@id/tv_time"
-        android:background="@drawable/icon_bg_serach">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:drawableLeft="@drawable/icon_serach"
-            android:text="@string/main_search"
-            android:textColor="@color/color_767f8e"
-            android:textSize="15sp"/>
-    </RelativeLayout>
+        android:background="@drawable/icon_bg_serach"
+        android:drawableLeft="@drawable/icon_serach"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/main_search"
+        android:textColor="@drawable/title_text_color_style"
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/tv_collect"
@@ -44,13 +38,14 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="18dp"
         android:layout_marginTop="30dp"
-        android:layout_toLeftOf="@id/rl_search"
+        android:layout_toLeftOf="@id/tv_search"
+        android:background="@drawable/title_bg_style"
         android:drawableLeft="@drawable/icon_collect"
         android:drawablePadding="3dp"
+        android:focusable="true"
         android:text="@string/main_collect"
-        android:textColor="@color/color_767f8e"
-        android:textSize="19sp"
-        />
+        android:textColor="@drawable/title_text_color_style"
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/tv_shopping_cart"
@@ -58,14 +53,15 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:layout_marginTop="29.5dp"
-        android:drawablePadding="3dp"
         android:layout_toLeftOf="@id/tv_collect"
+        android:background="@drawable/title_bg_style"
         android:drawableLeft="@drawable/icon_shopping_cart"
+        android:drawablePadding="3dp"
+        android:focusable="true"
         android:gravity="center"
         android:text="@string/main_shopping_cart"
-        android:textColor="@color/color_767f8e"
-        android:textSize="19sp"
-        />
+        android:textColor="@drawable/title_text_color_style"
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/tv_mine_center"
@@ -74,19 +70,17 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="30dp"
         android:layout_toLeftOf="@id/tv_shopping_cart"
+        android:background="@drawable/title_bg_style"
         android:drawableLeft="@drawable/icon_center_person"
         android:drawablePadding="3dp"
+        android:focusable="true"
         android:text="@string/main_mine_center"
-        android:textColor="@color/color_767f8e"
-        android:textSize="19sp"
-        />
-
+        android:textColor="@drawable/title_text_color_style"
+        android:textSize="19sp" />
 
     <FrameLayout
         android:id="@+id/fl_context"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tv_mine_center">
-
-    </FrameLayout>
+        android:layout_below="@id/tv_mine_center" />
 </RelativeLayout>

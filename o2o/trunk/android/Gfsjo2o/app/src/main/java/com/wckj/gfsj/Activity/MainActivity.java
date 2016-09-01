@@ -31,12 +31,10 @@ import de.greenrobot.event.EventBus;
  */
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
-
     private Fragment main_fragment, searchFragment, user_fragment, shopping_cart_fragment, collect_fragment;
     private FragmentManager fragmentManager;
     private TextView tv_time;
     private int position;
-
 
     private Handler handler = new Handler() {
         @Override
@@ -57,7 +55,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initView() {
-        findViewById(R.id.rl_search).setOnClickListener(this);
+        findViewById(R.id.tv_search).setOnClickListener(this);
         findViewById(R.id.tv_collect).setOnClickListener(this);
         findViewById(R.id.tv_shopping_cart).setOnClickListener(this);
         findViewById(R.id.tv_mine_center).setOnClickListener(this);
@@ -158,7 +156,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.rl_search:
+            case R.id.tv_search:
                 setTabSelection(4);
                 break;
             case R.id.tv_collect:
