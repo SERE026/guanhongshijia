@@ -361,6 +361,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
                 android:text="设为默认收货人"
+                android:visibility="gone"
                 android:textColor="@color/color_6f5f62"/>
 
             <Button

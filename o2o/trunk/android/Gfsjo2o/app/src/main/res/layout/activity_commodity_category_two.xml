@@ -13,7 +13,6 @@
         android:dividerHeight="10dp"
 
         android:layout_marginTop="49dp"
-        android:scrollbars="none"
         android:layout_marginRight="56dp"
         android:layout_marginBottom="95dp">
 

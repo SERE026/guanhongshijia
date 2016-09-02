@@ -20,7 +20,6 @@
             android:id="@+id/gv_recommend"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none"
             android:layout_toRightOf="@+id/iv_recommend_flag_pic"
             android:horizontalSpacing="5dp"
             android:verticalSpacing="5dp"
