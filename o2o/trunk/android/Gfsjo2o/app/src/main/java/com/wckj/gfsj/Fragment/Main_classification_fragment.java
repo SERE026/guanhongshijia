@@ -14,6 +14,7 @@ import com.alibaba.fastjson.JSON;
 import com.open.androidtvwidget.bridge.EffectNoDrawBridge;
 import com.open.androidtvwidget.bridge.OpenEffectBridge;
 import com.open.androidtvwidget.view.MainUpView;
+import com.open.androidtvwidget.view.ReflectItemView;
 import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
 import com.wckj.gfsj.Activity.MainMoreActivity;
 import com.wckj.gfsj.Bean.MainCategoryRequest;
@@ -41,6 +42,10 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
     private MainUpView mMainUpView;
     private View mOldFocus;
 
+    private ReflectItemView mRfChineseFurniture, mRfClassicalFurniture, mRfFourTreasures, mRfStrokes,
+            mRfOldTea, mRfRedWine, mRfSoftDaquan, mRfDecorativeDaquan, mRfClassicalDecorativeMaterials,
+            mRfClassicalLighting, mRfNews, mRfMore;
+
     private TextView mTvChineseFurniture, mTvClassicalFurniture, mTvFourTreasures, mTvStrokes,
             mTvOldTea, mTvRedWine, mTvSoftDaquan, mTvDecorativeDaquan, mTvClassicalDecorativeMaterials,
             mTvClassicalLighting, mTvNews, mTvMore;
@@ -63,7 +68,7 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
 
     @Override
     protected View onCreateSuccessView() {
-        view =  inflater.inflate(R.layout.fragment_main_classification, null);
+        view = inflater.inflate(R.layout.fragment_main_classification, null);
 
         mMainUpView = (MainUpView) view.findViewById(R.id.main_up_view);
         mMainUpView.setEffectBridge(new EffectNoDrawBridge());
@@ -97,9 +102,31 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
             });
         }
 
-        view.findViewById(R.id.rf_more).setOnClickListener(this);
-        view.findViewById(R.id.rf_old_tea).setOnClickListener(this);
-        view.findViewById(R.id.rf_chinese_furniture).setOnClickListener(this);
+        mRfChineseFurniture = (ReflectItemView) view.findViewById(R.id.rf_chinese_furniture);
+        mRfClassicalFurniture = (ReflectItemView) view.findViewById(R.id.rf_classical_furniture);
+        mRfFourTreasures = (ReflectItemView) view.findViewById(R.id.rf_four_treasures);
+        mRfStrokes = (ReflectItemView) view.findViewById(R.id.rf_strokes);
+        mRfOldTea = (ReflectItemView) view.findViewById(R.id.rf_old_tea);
+        mRfRedWine = (ReflectItemView) view.findViewById(R.id.rf_red_wine);
+        mRfSoftDaquan = (ReflectItemView) view.findViewById(R.id.rf_soft_daquan);
+        mRfDecorativeDaquan = (ReflectItemView) view.findViewById(R.id.rf_decorative_daquan);
+        mRfClassicalDecorativeMaterials = (ReflectItemView) view.findViewById(R.id.rf_classical_decorative_materials);
+        mRfClassicalLighting = (ReflectItemView) view.findViewById(R.id.rf_classical_lighting);
+        mRfNews = (ReflectItemView) view.findViewById(R.id.rf_news);
+        mRfMore = (ReflectItemView) view.findViewById(R.id.rf_more);
+
+        mRfChineseFurniture.setOnClickListener(this);
+        mRfClassicalFurniture.setOnClickListener(this);
+        mRfFourTreasures.setOnClickListener(this);
+        mRfStrokes.setOnClickListener(this);
+        mRfOldTea.setOnClickListener(this);
+        mRfRedWine.setOnClickListener(this);
+        mRfSoftDaquan.setOnClickListener(this);
+        mRfDecorativeDaquan.setOnClickListener(this);
+        mRfClassicalDecorativeMaterials.setOnClickListener(this);
+        mRfClassicalLighting.setOnClickListener(this);
+        mRfNews.setOnClickListener(this);
+        mRfMore.setOnClickListener(this);
 
         mTvChineseFurniture = (TextView) view.findViewById(R.id.tv_chinese_furniture);
         mTvClassicalFurniture = (TextView) view.findViewById(R.id.tv_classical_furniture);
@@ -169,18 +196,18 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
             public void onError(Call call, Exception e) {
                 LogUtil.e("{" + e.toString() + "}");
             }
+
             @Override
             public void onSuccess(String response) {
                 MainCategoryResult json = JSON.parseObject(response, MainCategoryResult.class);
                 int resultCode = json.getResultCode();
                 if (resultCode == 0) {
                     mCategoryList = json.getCategoryList();
-
                 }
                 showPageState(FrameLoadLayout.LoadResult.success);
                 LogUtil.i(response);
             }
-        } );
+        });
     }
 
     @Override
@@ -191,19 +218,97 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
     @Override
     public void onClick(View v) {
         Intent intent;
-        switch (v.getId()){
-            case R.id.rf_more:
-                 intent = new Intent(view.getContext(), MainMoreActivity.class);
-                startActivity(intent);
+        switch (v.getId()) {
+            case R.id.rf_chinese_furniture:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(0).getId());
+                    intent.putExtra("category", mCategoryList.get(0).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_classical_furniture:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(1).getId());
+                    intent.putExtra("category", mCategoryList.get(1).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_four_treasures:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(2).getId());
+                    intent.putExtra("category", mCategoryList.get(2).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_strokes:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(3).getId());
+                    intent.putExtra("category", mCategoryList.get(3).getTitle());
+                    startActivity(intent);
+                }
                 break;
             case R.id.rf_old_tea:
-                intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
-                startActivity(intent);
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(4).getId());
+                    intent.putExtra("category", mCategoryList.get(4).getTitle());
+                    startActivity(intent);
+                }
                 break;
-            case R.id.rf_chinese_furniture:
-                intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
-                intent.putExtra("id",mCategoryList.get(0).getId());
-                intent.putExtra("category",mCategoryList.get(0).getTitle());
+            case R.id.rf_red_wine:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(5).getId());
+                    intent.putExtra("category", mCategoryList.get(5).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_soft_daquan:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(6).getId());
+                    intent.putExtra("category", mCategoryList.get(6).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_decorative_daquan:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(7).getId());
+                    intent.putExtra("category", mCategoryList.get(7).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_classical_decorative_materials:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(8).getId());
+                    intent.putExtra("category", mCategoryList.get(8).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_classical_lighting:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(9).getId());
+                    intent.putExtra("category", mCategoryList.get(9).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_news:
+                if (mCategoryList != null && mCategoryList.size() >= 11) {
+                    intent = new Intent(view.getContext(), CommodityLevelTwoActivity.class);
+                    intent.putExtra("id", mCategoryList.get(10).getId());
+                    intent.putExtra("category", mCategoryList.get(10).getTitle());
+                    startActivity(intent);
+                }
+                break;
+            case R.id.rf_more:
+                intent = new Intent(view.getContext(), MainMoreActivity.class);
                 startActivity(intent);
                 break;
         }
