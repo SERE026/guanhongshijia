@@ -18,7 +18,7 @@
             maxFrameRate        = Number(Cookies.get("maxFrameRate") || 15),
             //maxBitRate        = Number(Cookies.get("maxBitRate") || 750),
             channel             = Cookies.get("roomName"),
-            goodsId             = Cookies.get("goodsId"),
+            // goodsId             = Cookies.get("goodsId"),
             key                 = Cookies.get("vendorKey"),
             remoteStreamList    = [],
             client              = AgoraRTC.createRtcClient(),
@@ -83,7 +83,7 @@
         subscribeMouseHoverEvents();
         subscribeWindowResizeEvent();
         //房间号
-        $("#room-name-meeting").html("房间号:"+channel+"商品编号:"+goodsId);
+        $("#room-name-meeting").html("房间号:"+channel);
 
         //商品ID
         // $("#goods-name-meeting").html("商品编号:"+channel);
