@@ -247,7 +247,7 @@ input:focus,textarea:focus { outline: none !important;  }
 *+html .index_fumeu{width:1200px; height:auto; margin-top:-396px}
 .da{ width:1200px; height:auto; margin:auto} 
 .index_left{ width:880px; height:auto; float:left; margin-top:20px;}
-.index_left_da{ width:880px; height:auto; min-height:1660px;}
+.index_left_da{ width:880px; height:auto; min-height:1570px;}
 
 .index_left_kuai{ width:280px; height:380px; border:#eee7e1 solid 1px; border-bottom:#d6cfc9 solid 1px;float:left; margin-left:8px; margin-top:9px; background-color:#ffffff; display:inline; overflow:hidden}
 .index_left_kuai_dian{ width:280px; height:380px; border:#572a27 solid 1px; float:left;margin-left:8px; margin-top:9px;background-color:#ffffff;display:inline; overflow:hidden}

@@ -447,7 +447,7 @@
                     <dl class="Item-introduction">
                         <dt><a href="${rc.contextPath}/item-${p.goods_id}.html">
                             <img src="${rc.contextPath}/upload/goods/${p.defaultImage}" /></a></dt>
-                        <dd class="price"><b><span>￥</span>${p.salesMoney}</b><a class="Add-art" href="javascript:void(0)"</dd>
+                        <dd class="price"><b><span>￥</span>${p.salesMoney}</b><a class="Add-art" href="javascript:void(0)"></a></dd>
                         <dd class="dd-Item-name"><a href="${rc.contextPath}/item-${p.goods_id}.html">${p.name}</a></dd>
                         <dd><a href="javascript;">观红世家</a><#--<a class="More" href="${rc.contextPath}/item-${p.goods_id}.html">MORE</a>--></dd>
                     </dl>
