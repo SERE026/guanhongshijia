@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/et_lock_pwd"
+        android:layout_centerInParent="true"
+        android:background="@drawable/icon_user_center_item_bg"
+        android:drawableLeft="@drawable/icon_login_pwd"
+        android:drawablePadding="15dp"
+        android:gravity="center_vertical"
+        android:hint="请输入锁定密码"
+        android:inputType="textPassword"
+        android:maxLength="25"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textColorHint="@color/color_959699"
+        android:textSize="15sp"
+        app:layout_heightPercent="6%"
+        app:layout_widthPercent="20%" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_below="@id/et_lock_pwd"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_btn_style"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_heightPercent="6%"
+        app:layout_marginTopPercent="5%"
+        app:layout_widthPercent="10%" />
+
+</android.support.percent.PercentRelativeLayout>
