@@ -1,5 +1,6 @@
 package com.wckj.gfsj.Activity;
 
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -207,7 +208,7 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
      * 设置锁定密码
      * @param password 锁定密码
      */
-    private void setLockPwd(String password) {
+    private void setLockPwd(final String password) {
         SetLockPasswordRequest request = new SetLockPasswordRequest();
         request.setPassword(password);
         HttpUtils.getInstance().asyncPost(request, GlobalUtils.SET_PWD_LOCK_URL, new ICallBack() {
@@ -221,6 +222,11 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
                 SetLockPasswordResult result = JSON.parseObject(response, SetLockPasswordResult.class);
                 LogUtil.i(response);
                 if (result.getResultCode() == 0) {
+                    SharedPreferences sp = getSharedPreferences("ghsj", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("isSetLockPwd", true);
+                    editor.putString("lockPwd", password);
+                    editor.apply();// editor.commit();
                     OwerToastShow.show("设置成功");
                 } else {
                     OwerToastShow.show(result.getMessage());
@@ -235,7 +241,7 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
      * @param validateCode 校验码
      * @param newPassword  新密码
      */
-    private void findPassword(String mobileNo, String validateCode, String newPassword) {
+    private void findPassword(String mobileNo, String validateCode, final String newPassword) {
         FindPasswordRequest request = new FindPasswordRequest();
         request.setMobileNo(mobileNo);
         request.setValidateCode(validateCode);
@@ -252,6 +258,11 @@ public class SetPasswordActivity extends BaseNewActivity implements View.OnClick
                 LogUtil.i(response);
 
                 if (result.getResultCode() == 0) {
+                    SharedPreferences sp = getSharedPreferences("ghsj", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("isSetLockPwd", true);
+                    editor.putString("lockPwd", newPassword);
+                    editor.apply();// editor.commit();
                     OwerToastShow.show("密码修改成功");
                 } else {
                     OwerToastShow.show(result.getMessage());

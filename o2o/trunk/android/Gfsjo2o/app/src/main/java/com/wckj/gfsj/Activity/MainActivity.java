@@ -1,6 +1,7 @@
 package com.wckj.gfsj.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -68,6 +69,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private void initData() {
         setTabSelection(0);
     }
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
 //        super.onSaveInstanceState(outState);
@@ -160,24 +162,31 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setTabSelection(4);
                 break;
             case R.id.tv_collect:
-                if(AppApplication.loginResult.getToken()==null){
+                if (AppApplication.loginResult.getToken() == null) {
                     OwerToastShow.show("暂无权限,需要先登录哦！！！");
                     return;
                 }
                 setTabSelection(3);
                 break;
             case R.id.tv_shopping_cart:
-                if(AppApplication.loginResult.getToken()==null){
+                if (AppApplication.loginResult.getToken() == null) {
                     OwerToastShow.show("暂无权限,需要先登录哦！！！");
                     return;
                 }
                 setTabSelection(2);
                 break;
             case R.id.tv_mine_center:
-                if(AppApplication.loginResult.getToken()!=null){
-                    Intent intent = new Intent(this, UserCenterActivity.class);
-                  startActivityForResult(intent, 100);
-                }else {
+                if (AppApplication.loginResult.getToken() != null) {
+                    SharedPreferences sp = getSharedPreferences("ghsj", MODE_PRIVATE);
+                    boolean isSetLockPwd = sp.getBoolean("isSetLockPwd", false);
+                    if (isSetLockPwd) {
+                        Intent intent = new Intent(this, InputLockPwdActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(this, UserCenterActivity.class);
+                        startActivity(intent);
+                    }
+                } else {
                     setTabSelection(1);
                 }
                 break;
@@ -191,9 +200,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         getExtraAndSetIndex();
     }
+
     public void getExtraAndSetIndex() {
-        Intent intent=getIntent();
-        if(intent!=null){
+        Intent intent = getIntent();
+        if (intent != null) {
             int index = intent.getIntExtra("position", 0);
 
             setTabSelection(index);
@@ -201,17 +211,18 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private long mkeyTime = 0;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             if (position != 0) {
                 setTabSelection(0);
-                return  false ;
+                return false;
             } else {
                 if (mkeyTime == 0 || (System.currentTimeMillis() - mkeyTime) > 2000) {
-                   OwerToastShow.show(this, "再按一次退出程序");
-                   mkeyTime = System.currentTimeMillis();
-                    return  false ;
+                    OwerToastShow.show(this, "再按一次退出程序");
+                    mkeyTime = System.currentTimeMillis();
+                    return false;
                 }
                 return super.onKeyDown(keyCode, event);
             }
