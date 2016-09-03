@@ -68,11 +68,11 @@ public class MyBrokerageActivity extends BaseNewActivity implements View.OnClick
                 finish();
                 break;
             case R.id.tv_my_brokerage:
-                setMainColor(R.id.tv_my_brokerage);
+//                setMainColor(R.id.tv_my_brokerage);
                 setTabSelection(0);
                 break;
             case R.id.tv_bank_card:
-                setMainColor(R.id.tv_bank_card);
+//                setMainColor(R.id.tv_bank_card);
                 setTabSelection(1);
                 break;
         }
@@ -88,7 +88,7 @@ public class MyBrokerageActivity extends BaseNewActivity implements View.OnClick
     }
 
     private void initData() {
-        setMainColor(R.id.tv_my_brokerage);
+//        setMainColor(R.id.tv_my_brokerage);
         setTabSelection(0);
 //        setMainColor(R.id.tv_bank_card);
 //        setTabSelection(1);
@@ -135,12 +135,13 @@ public class MyBrokerageActivity extends BaseNewActivity implements View.OnClick
         }
     }
 
-    private void setMainColor(int id){
-        mTvMyBrokerage.setBackgroundColor(getResources().getColor(R.id.tv_my_brokerage==id?R.color.white:R.color.color_97888a));
-        mTvBankCard.setBackgroundColor(getResources().getColor(R.id.tv_bank_card==id?R.color.white:R.color.color_97888a));
-        mTvMyBrokerage.setTextColor(getResources().getColor(R.id.tv_my_brokerage==id?R.color.color_444444:R.color.color_e3e6eb));
-        mTvBankCard.setTextColor(getResources().getColor(R.id.tv_bank_card==id?R.color.color_444444:R.color.color_e3e6eb));
-    }
+//    private void setMainColor(int id){
+//        mTvMyBrokerage.setBackgroundColor(getResources().getColor(R.id.tv_my_brokerage==id?R.color.white:R.color.color_97888a));
+//        mTvBankCard.setBackgroundColor(getResources().getColor(R.id.tv_bank_card==id?R.color.white:R.color.color_97888a));
+//        mTvMyBrokerage.setTextColor(getResources().getColor(R.id.tv_my_brokerage==id?R.color.color_444444:R.color.color_e3e6eb));
+//        mTvBankCard.setTextColor(getResources().getColor(R.id.tv_bank_card==id?R.color.color_444444:R.color.color_e3e6eb));
+//    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
