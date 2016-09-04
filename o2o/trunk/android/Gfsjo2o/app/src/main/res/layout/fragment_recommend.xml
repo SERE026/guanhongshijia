@@ -24,8 +24,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/color_e86e48"
+                android:background="@drawable/recommend_new_bg_style"
                 android:gravity="center"
+                android:focusable="true"
                 android:text="新品"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -37,8 +38,9 @@
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="1"
-                android:background="@color/color_ff5500"
+                android:background="@drawable/recommend_group_bg_style"
                 android:gravity="center"
+                android:focusable="true"
                 android:text="团购"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -48,8 +50,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/color_892e1c"
+                android:background="@drawable/recommend_promotion_bg_style"
                 android:gravity="center"
+                android:focusable="true"
                 android:text="促销"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
