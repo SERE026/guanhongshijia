@@ -1,19 +1,13 @@
 package com.wckj.gfsj.Fragment;
 
 import android.content.Intent;
-import android.graphics.Rect;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.open.androidtvwidget.bridge.EffectNoDrawBridge;
-import com.open.androidtvwidget.bridge.OpenEffectBridge;
-import com.open.androidtvwidget.view.MainUpView;
 import com.open.androidtvwidget.view.ReflectItemView;
 import com.wckj.gfsj.Activity.CommodityLevelTwoActivity;
 import com.wckj.gfsj.Activity.MainMoreActivity;
@@ -39,8 +33,6 @@ import okhttp3.Call;
  */
 public class Main_classification_fragment extends BaseNewFragment implements View.OnClickListener {
     private View view;
-    private MainUpView mMainUpView;
-    private View mOldFocus;
 
     private ReflectItemView mRfChineseFurniture, mRfClassicalFurniture, mRfFourTreasures, mRfStrokes,
             mRfOldTea, mRfRedWine, mRfSoftDaquan, mRfDecorativeDaquan, mRfClassicalDecorativeMaterials,
@@ -52,9 +44,7 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
     private ImageView mIvChineseFurniture, mIvClassicalFurniture, mIvFourTreasures, mIvStrokes,
             mIvOldTea, mIvRedWine;
 
-    private OpenEffectBridge mOpenEffectBridge;
-
-    List<Category> mCategoryList = new ArrayList<Category>();
+    private List<Category> mCategoryList = new ArrayList<Category>();
 
     @Override
     protected void init() {
@@ -69,35 +59,21 @@ public class Main_classification_fragment extends BaseNewFragment implements Vie
     @Override
     protected View onCreateSuccessView() {
         view = inflater.inflate(R.layout.fragment_main_classification, null);
-
-        mMainUpView = (MainUpView) view.findViewById(R.id.main_up_view);
-        mMainUpView.setEffectBridge(new EffectNoDrawBridge());
-        mOpenEffectBridge = (EffectNoDrawBridge) mMainUpView.getEffectBridge();
-        mOpenEffectBridge.setTranDurAnimTime(200);
-//        mMainUpView.setUpRectResource(R.drawable.white_light);// 设置移动边框的图片.
-//        mMainUpView.setShadowResource(R.drawable.item_shadow); // 设置移动边框的阴影.
-        mMainUpView.setDrawUpRectPadding(new Rect(13, 13, 12, 12));
-
         RelativeLayout rlFrame = (RelativeLayout) view.findViewById(R.id.rl_frame);
-        rlFrame.getViewTreeObserver().addOnGlobalFocusChangeListener(new ViewTreeObserver.OnGlobalFocusChangeListener() {
-            @Override
-            public void onGlobalFocusChanged(final View oldFocus, final View newFocus) {
-                if (newFocus != null)
-                    newFocus.bringToFront();
-                float scale = 1.2f;
-                mMainUpView.setFocusView(newFocus, mOldFocus, scale);
-                mOldFocus = newFocus;
-            }
-        });
-
         for (int i = 0; i < rlFrame.getChildCount(); i++) {
-            rlFrame.getChildAt(i).setOnTouchListener(new View.OnTouchListener() {
+            rlFrame.getChildAt(i).setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    if (event.getAction() == MotionEvent.ACTION_UP) {
-                        v.requestFocus();
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (v != null) {
+                        if (hasFocus) {
+                            v.setScaleX(1.2f);
+                            v.setScaleY(1.2f);
+                            v.bringToFront();
+                        } else {
+                            v.setScaleX(1.0f);
+                            v.setScaleY(1.0f);
+                        }
                     }
-                    return false;
                 }
             });
         }
