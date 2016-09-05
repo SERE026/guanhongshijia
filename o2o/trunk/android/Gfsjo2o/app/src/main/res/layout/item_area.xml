@@ -12,5 +12,5 @@
         app:layout_marginBottomPercent="1%"
         android:gravity="center"
         android:text="北京市"
-        android:textSize="12sp"/>
+        android:textSize="18sp"/>
 </android.support.percent.PercentRelativeLayout>

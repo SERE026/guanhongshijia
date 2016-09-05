@@ -45,7 +45,7 @@
             android:background="@color/color_97888a"
             app:layout_marginLeftPercent="7%"
             app:layout_marginRightPercent="7%"
-            app:layout_marginTopPercent="2%"/>
+            app:layout_marginTopPercent="1%"/>
 
         <TextView
             android:id="@+id/tv_explain"
@@ -54,7 +54,7 @@
             android:layout_below="@id/line"
             android:text="以下商品由观红世家发货"
             app:layout_marginLeftPercent="7%"
-            app:layout_marginTopPercent="2%"/>
+            app:layout_marginTopPercent="1%"/>
 
         <android.support.percent.PercentRelativeLayout
             android:id="@+id/rl_head"
@@ -107,10 +107,10 @@
             android:id="@+id/lv_commodity_list"
             android:layout_width="match_parent"
             android:layout_below="@id/rl_head"
-            app:layout_heightPercent="35%"
+            app:layout_heightPercent="30%"
             app:layout_marginLeftPercent="7%"
             app:layout_marginRightPercent="7%"
-            app:layout_marginTopPercent="2%"/>
+            app:layout_marginTopPercent="1%"/>
 
         <View
             android:id="@+id/line2"
@@ -120,7 +120,7 @@
             android:background="@color/color_97888a"
             app:layout_marginLeftPercent="7%"
             app:layout_marginRightPercent="7%"
-            app:layout_marginTopPercent="1%"/>
+       />
 
         <TextView
             android:id="@+id/tv_commodity_total_money"
@@ -152,7 +152,6 @@
             android:gravity="center_vertical"
             android:text="0.0"
             app:layout_marginRightPercent="7%"
-            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="10%"/>
 
         <TextView
@@ -163,7 +162,6 @@
             android:gravity="center_vertical|right"
             android:text="运费："
             app:layout_marginRightPercent="1%"
-            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="15%"/>
 
         <TextView
@@ -174,7 +172,6 @@
             android:gravity="center_vertical"
             android:text="0.0"
             app:layout_marginRightPercent="7%"
-            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="10%"/>
 
         <TextView
@@ -185,7 +182,6 @@
             android:gravity="center_vertical|right"
             android:text="总计："
             app:layout_marginRightPercent="1%"
-            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="15%"/>
 
         <TextView
@@ -196,7 +192,6 @@
             android:gravity="center_vertical"
             android:text="0.0"
             app:layout_marginRightPercent="7%"
-            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="10%"/>
 
         <TextView
@@ -207,7 +202,6 @@
             android:gravity="center_vertical|right"
             android:text="优惠金额："
             app:layout_marginRightPercent="1%"
-            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="15%"/>
 
         <TextView
@@ -218,7 +212,6 @@
             android:gravity="center_vertical"
             android:text="0.0"
             app:layout_marginRightPercent="7%"
-            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="10%"/>
 
         <TextView
@@ -229,7 +222,6 @@
             android:gravity="center_vertical|right"
             android:text="实际支付金额："
             app:layout_marginRightPercent="1%"
-            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="15%"/>
 
         <TextView
@@ -289,10 +281,10 @@
             android:text="提交订单"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_heightPercent="5%"
+            app:layout_heightPercent="7%"
             app:layout_marginLeftPercent="7%"
             app:layout_marginRightPercent="13%"
-            app:layout_marginTopPercent="2%"
+            app:layout_marginTopPercent="1%"
             app:layout_widthPercent="18%"/>
 
     </android.support.percent.PercentRelativeLayout>

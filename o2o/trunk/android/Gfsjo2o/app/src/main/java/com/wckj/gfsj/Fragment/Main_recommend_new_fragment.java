@@ -147,6 +147,7 @@ public class Main_recommend_new_fragment extends BaseNewFragment {
     public void onDestroy() {
         super.onDestroy();
         mRecommendAdapter = null;
+        System.gc();
     }
 
     //推荐

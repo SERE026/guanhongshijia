@@ -68,7 +68,7 @@ public class OrderConfirmTwoActivity extends BaseNewActivity implements View.OnC
         payMethod1.setToast("余额不足选择其他支付方式");
         payMethod1.setCoupon(null);
         payMethod1.setCancelCheck(false);
-        payMethodList.add(payMethod1);
+//        payMethodList.add(payMethod1);
 
         PayMethod payMethod2 = new PayMethod();
         payMethod2.setId(1);

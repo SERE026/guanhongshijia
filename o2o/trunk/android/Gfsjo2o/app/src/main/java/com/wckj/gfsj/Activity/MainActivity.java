@@ -60,6 +60,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         findViewById(R.id.tv_collect).setOnClickListener(this);
         findViewById(R.id.tv_shopping_cart).setOnClickListener(this);
         findViewById(R.id.tv_mine_center).setOnClickListener(this);
+        findViewById(R.id.tv_mine_main).setOnClickListener(this);
+
         tv_time = (TextView) findViewById(R.id.tv_time);
 
         handler.sendEmptyMessage(0);
@@ -189,6 +191,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 } else {
                     setTabSelection(1);
                 }
+                break;
+            case    R.id.tv_mine_main:
+                setTabSelection(0);
                 break;
         }
     }

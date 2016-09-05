@@ -56,6 +56,7 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
         svp_context.setAdapter(adapter);
 
         svp_context.setCurrentItem(0);
+        setMainColor(R.id.tv_main);
         tv_main.requestFocus();
 //        startUp();
     }
@@ -76,16 +77,32 @@ public class Main_fragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.tv_main://主页
                 svp_context.setCurrentItem(0);
+                setMainColor(R.id.tv_main);
                 break;
             case R.id.tv_main_classification://分类
                 svp_context.setCurrentItem(1);
+                setMainColor(R.id.tv_main_classification);
                 break;
             case R.id.tv_main_recommend://推荐
                 svp_context.setCurrentItem(2);
+                setMainColor(R.id.tv_main_recommend);
                 break;
 
         }
     }
+
+    /**
+     * 设置首页分类三个颜色
+     */
+    private void setMainColor(int id){
+        tv_main.setBackgroundResource(R.id.tv_main==id?R.drawable.icon_main_bg:0);
+        tv_main_classification.setBackgroundResource(R.id.tv_main_classification==id?R.drawable.icon_main_bg:0);
+        tv_main_recommend.setBackgroundResource(R.id.tv_main_recommend==id?R.drawable.icon_main_bg:0);
+        tv_main.setTextColor(getResources().getColor(R.id.tv_main==id?R.color.color_fffffe:R.color.color_767f8e));
+        tv_main_classification.setTextColor(getResources().getColor(R.id.tv_main_classification==id?R.color.color_fffffe:R.color.color_767f8e));
+        tv_main_recommend.setTextColor(getResources().getColor(R.id.tv_main_recommend==id?R.color.color_fffffe:R.color.color_767f8e));
+    }
+
 
     @Override
     public void onDestroy() {

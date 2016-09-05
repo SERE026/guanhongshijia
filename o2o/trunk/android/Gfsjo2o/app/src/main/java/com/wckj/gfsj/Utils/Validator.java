@@ -75,7 +75,8 @@ public class Validator {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isEmail(String email) {
-        return Pattern.matches(REGEX_EMAIL, email);
+//        Pattern.matches(REGEX_EMAIL, email)
+        return true;
     }
 
     /**

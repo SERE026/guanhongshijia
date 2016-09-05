@@ -65,9 +65,9 @@ public class OrderConfirmAdapter extends BaseAdapter {
 
         DecimalFormat df = new DecimalFormat("0.00");
 
-        if (item.getGoodsDetail().getDefaultImage() != null) {
+//        if (item.getGoodsDetail().getDefaultImage() != null) {
             ImageLoaderUtil.getInstance().displayImageView(item.getGoodsDetail().getDefaultImage(), itemHolder.mIvShoppingPic);
-        }
+//        }
 
         itemHolder.mTvShoppingDesc.setText(item.getGoodsDetail().getName());
         List<Map> specMap = item.getGoodsDetail().getSpecMap();

@@ -70,9 +70,10 @@ public class PayMethodAdapter extends BaseAdapter {
 
         itemHolder.mCbPay.setText(item.getName());
         itemHolder.mCbPay.setTag(position);
-        if (position == 0) {// 余额现在不能用
-            itemHolder.mCbPay.setEnabled(false);
-        } else if (position == 1) {// 支付宝
+//        if (position == 0) {// 余额现在不能用
+//            itemHolder.mCbPay.setEnabled(false);
+//        } else
+ if (position == 0) {// 支付宝
             itemHolder.mCbPay.setChecked(true);
             itemHolder.mCbPay.setClickable(false);
         } else {

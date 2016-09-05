@@ -222,6 +222,7 @@
             android:background="@drawable/shape_btn_modify_pwd"
             android:gravity="center"
             android:text="保存"
+            android:visibility="gone"
             android:textColor="@color/white"
             android:textSize="12sp"/>
 

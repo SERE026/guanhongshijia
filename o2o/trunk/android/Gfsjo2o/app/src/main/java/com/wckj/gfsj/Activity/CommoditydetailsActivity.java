@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.wckj.gfsj.Adapter.CommoditydetailsAdapter;
 import com.wckj.gfsj.Agora.ChannelActivity;
-import com.wckj.gfsj.Alipay.PayUtils;
 import com.wckj.gfsj.Application.AppApplication;
 import com.wckj.gfsj.Bean.AddCartRequest;
 import com.wckj.gfsj.Bean.AddCartResult;
@@ -19,6 +18,7 @@ import com.wckj.gfsj.Bean.AddFavoritesRequest;
 import com.wckj.gfsj.Bean.CancelFavoritesRequest;
 import com.wckj.gfsj.Bean.GoodsDetailRequest;
 import com.wckj.gfsj.Bean.GoodsDetailResult;
+import com.wckj.gfsj.Bean.entity.CartItem;
 import com.wckj.gfsj.Bean.entity.GoodsSpec;
 import com.wckj.gfsj.Bean.entity.GoodsSpecValue;
 import com.wckj.gfsj.CustomUi.FrameLoadLayout;
@@ -29,6 +29,7 @@ import com.wckj.gfsj.Utils.HttpUtils;
 import com.wckj.gfsj.Utils.IImpl.ICallBack;
 import com.wckj.gfsj.Utils.OwerToastShow;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
@@ -269,7 +270,7 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                     return;
                 }
                 addCart(true);
-                PayUtils.getInstance().pay(this,0.01+"","heheh","hahahhahahahahha");
+//                PayUtils.getInstance().pay(this,0.01+"","heheh","hahahhahahahahha");
                 break;
             case R.id.tv_add_cart://加入购物车
                 addCart(false);
@@ -390,9 +391,10 @@ public class CommoditydetailsActivity extends BaseNewActivity implements View.On
                 AddCartResult json = JSON.parseObject(response, AddCartResult.class);
                 if(json.getResultCode()==0){
                     if(isNowPay){
+
                         Intent intent = new Intent();
                         intent.setClass(CommoditydetailsActivity.this, OrderConfirmOneActivity.class);
-//                        intent.putExtra("cartItemList", (ArrayList<CartItem>)mSelectedList);
+                        intent.putExtra("cartItemList",   new ArrayList<CartItem>().add(json.getCartItem()));
                         startActivity(intent);
                     }else {
                         OwerToastShow.show("购物车加入成功");

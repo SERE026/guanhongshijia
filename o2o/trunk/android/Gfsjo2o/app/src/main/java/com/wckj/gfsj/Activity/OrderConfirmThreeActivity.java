@@ -227,7 +227,9 @@ public class OrderConfirmThreeActivity extends BaseNewActivity implements View.O
             @Override
             public void onError(Call call, Exception e) {
                 LogUtil.e("{" + e.toString() + "}");
-                OwerToastShow.show("查询运费失败");
+//                OwerToastShow.show("查询运费失败");
+                freightMoney= 0.0;
+                initViewData();
             }
 
             @Override
