@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <GridView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.wckj.gfsj.CustomUi.ScaleItemGridView
         android:id="@+id/gv_two_commodity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3"
         android:horizontalSpacing="5dp"
-        android:verticalSpacing="5dp"
-        >
-    </GridView>
+        android:numColumns="3"
+        android:verticalSpacing="5dp"/>
 </RelativeLayout>

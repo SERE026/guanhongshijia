@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
 
-
-
-    <GridView
+    <com.wckj.gfsj.CustomUi.ScaleItemGridView
         android:id="@+id/gv_more_recommend"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
-        android:horizontalSpacing="5dp"
-        android:verticalSpacing="5dp"
+        android:layout_marginBottom="53dp"
         android:layout_marginLeft="140dp"
         android:layout_marginRight="140dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginTop="45dp"
+        android:horizontalSpacing="5dp"
         android:numColumns="4"
-        >
-    </GridView>
+        android:verticalSpacing="5dp"/>
 
 </RelativeLayout>

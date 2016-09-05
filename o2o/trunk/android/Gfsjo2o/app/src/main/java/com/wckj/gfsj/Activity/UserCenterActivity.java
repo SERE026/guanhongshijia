@@ -1,6 +1,7 @@
 package com.wckj.gfsj.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,7 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
     private TitleRelativeLayout mRlTitle;
     private View view;
     private Button mBtnMyOrder, mBtnMyBrokerage, mBtnUserInfo, mBtnMyCoupon, mBtnSetPwd, mBtnExit;
-    private TextView mTvUserName, mTvExit;
+    private TextView mTvUserName, mTvExit, mTvSetPwd;
 
     @Override
     protected void init() {
@@ -62,6 +63,7 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
     private void initView() {
         mTvUserName = (TextView) view.findViewById(R.id.tv_user_name);
         mTvExit = (TextView) view.findViewById(R.id.tv_exit);
+        mTvSetPwd = (TextView) view.findViewById(R.id.tv_set_pwd);
 
         mBtnMyOrder = (Button) view.findViewById(R.id.btn_my_order);
         mBtnMyBrokerage = (Button) view.findViewById(R.id.btn_brokerage);
@@ -80,6 +82,13 @@ public class UserCenterActivity extends BaseNewActivity implements View.OnClickL
         if (AppApplication.loginResult.getLoginName() != null && !AppApplication.loginResult.getLoginName().isEmpty()) {
             mTvUserName.setText("Hi, " + AppApplication.loginResult.getLoginName());
             mTvExit.setText(AppApplication.loginResult.getLoginName());
+            SharedPreferences sp = getSharedPreferences("ghsj", MODE_PRIVATE);
+            boolean isSetLockPwd = sp.getBoolean("isSetLockPwd", false);
+            if (isSetLockPwd) {
+                mTvSetPwd.setText("已设置");
+            } else {
+                mTvSetPwd.setText("未设置");
+            }
         }
     }
 
